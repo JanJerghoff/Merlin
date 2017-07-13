@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{912F8D20-81B2-454B-83FB-B3923538B3CA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mitarbeiter</RootNamespace>
+    <AssemblyName>Mitarbeiter</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Google.Apis, Version=1.21.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.21.0\lib\net45\Google.Apis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.21.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.21.0\lib\net45\Google.Apis.Auth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.21.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.21.0\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Calendar.v3, Version=1.21.0.796, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Calendar.v3.1.21.0.796\lib\net45\Google.Apis.Calendar.v3.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.21.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.21.0\lib\net45\Google.Apis.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.21.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.21.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.barcodes, Version=7.0.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.0.3\lib\net40\itext.barcodes.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.forms, Version=7.0.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.0.3\lib\net40\itext.forms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.io, Version=7.0.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.0.3\lib\net40\itext.io.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.kernel, Version=7.0.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.0.3\lib\net40\itext.kernel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.layout, Version=7.0.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.0.3\lib\net40\itext.layout.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=7.0.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.0.3\lib\net40\itext.pdfa.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.sign, Version=7.0.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.0.3\lib\net40\itext.sign.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Zlib.Portable, Version=1.11.0.0, Culture=neutral, PublicKeyToken=431cba815f6a8b5b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zlib.Portable.Signed.1.11.0\lib\portable-net4+sl5+wp8+win8+wpa81+MonoTouch+MonoAndroid\Zlib.Portable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LEA_Fahrtentabelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LEA_Fahrtentabelle.Designer.cs">
+      <DependentUpon>LEA_Fahrtentabelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LEA_Kundenzahl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LEA_Kundenzahl.Designer.cs">
+      <DependentUpon>LEA_Kundenzahl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LEA_Mehrfach_Umzug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LEA_Mehrfach_Umzug.Designer.cs">
+      <DependentUpon>LEA_Mehrfach_Umzug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LEA_Mitarbeiter_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LEA_Mitarbeiter_Details.Designer.cs">
+      <DependentUpon>LEA_Mitarbeiter_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LEA_Umzug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LEA_Umzug.Designer.cs">
+      <DependentUpon>LEA_Umzug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LEA_UrlaubFeiertag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LEA_UrlaubFeiertag.Designer.cs">
+      <DependentUpon>LEA_UrlaubFeiertag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repetoire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Repetoire.Designer.cs">
+      <DependentUpon>Repetoire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stammdaten.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stammdaten.Designer.cs">
+      <DependentUpon>Stammdaten.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stammdaten_Check.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stammdaten_Check.Designer.cs">
+      <DependentUpon>Stammdaten_Check.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Start.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Start.Designer.cs">
+      <DependentUpon>Start.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stundenübersicht.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stundenübersicht.Designer.cs">
+      <DependentUpon>Stundenübersicht.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tour_Fahrzeug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tour_Fahrzeug.Designer.cs">
+      <DependentUpon>Tour_Fahrzeug.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="LEA_Kundenzahl.resx">
+      <DependentUpon>LEA_Kundenzahl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LEA_Mehrfach_Umzug.resx">
+      <DependentUpon>LEA_Mehrfach_Umzug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LEA_Mitarbeiter_Details.resx">
+      <DependentUpon>LEA_Mitarbeiter_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LEA_Umzug.resx">
+      <DependentUpon>LEA_Umzug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LEA_UrlaubFeiertag.resx">
+      <DependentUpon>LEA_UrlaubFeiertag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Repetoire.resx">
+      <DependentUpon>Repetoire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stammdaten.resx">
+      <DependentUpon>Stammdaten.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stammdaten_Check.resx">
+      <DependentUpon>Stammdaten_Check.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Start.resx">
+      <DependentUpon>Start.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Stundenübersicht.resx">
+      <DependentUpon>Stundenübersicht.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tour_Fahrzeug.resx">
+      <DependentUpon>Tour_Fahrzeug.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="client_secret.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
