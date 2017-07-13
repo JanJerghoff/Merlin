@@ -301,7 +301,7 @@ namespace Kartonagen
                     //numericSumme.Value = rdrF.GetDecimal(30);
 
                     // Schon geschlossen?
-                    if (rdrF.GetInt32(33) != 0)
+                    if (rdrF.GetInt32(33) != 8)
                     {
                         buttonKVAMail.Enabled = false;
                         buttonKVAPost.Enabled = false;
@@ -613,7 +613,6 @@ namespace Kartonagen
             }
 
         }
-
 
 
         //private void numericMasterMitarbeiter_ValueChanged(object sender, EventArgs e)

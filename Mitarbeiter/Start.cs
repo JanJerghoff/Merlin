@@ -157,7 +157,6 @@ namespace Mitarbeiter
             Repetoire Rep = new Repetoire();
             Rep.Show();
         }
-
-        
+                
     }
 }
