@@ -158,16 +158,6 @@ namespace Mitarbeiter
             Rep.Show();
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            DateTime a = new DateTime(2017, 7, 5);
-            DateTime b = new DateTime(2017, 7, 6);
-            DateTime c = new DateTime(2017, 7, 9);
-
-
-            textStartLog.AppendText(Program.getWochentage(a, b).ToString()+" ");
-            textStartLog.AppendText(Program.getWochentage(b, b).ToString()+" ");
-            textStartLog.AppendText(Program.getWochentage(c, c).ToString()+" ");
-        }
+        
     }
 }

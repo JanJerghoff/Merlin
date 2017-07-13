@@ -424,6 +424,8 @@ namespace Mitarbeiter
             DateTime vollMonate = new DateTime();
             int count = 0;
             // Ganze Monate
+            DateTime abrunden = getMonat(DateTime.Now);
+            
 
             MySqlCommand cmd = new MySqlCommand("SELECT Einstellungsdatum FROM Mitarbeiter WHERE idMitarbeiter = " + ID + ";", Program.conn2);
             MySqlDataReader rdr;
