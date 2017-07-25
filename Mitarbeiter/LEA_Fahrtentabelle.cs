@@ -285,6 +285,8 @@ namespace Mitarbeiter
             Pause[Zeile].Enabled = true;
             KMStart[Zeile].Enabled = true;
             KMEnde[Zeile].Enabled = true;
+
+            Bemerkungen[Zeile].Enabled = true;
         }
 
         // Ein numerics abschalten
@@ -300,5 +302,88 @@ namespace Mitarbeiter
             numericEins(Zeile);
             Handbeilagen[Zeile].Enabled = true;
         }
+
+        //Zeile reset
+        public void resetZeile(int Zeile) {
+
+            //Zeilen Sperren
+            Datum[Zeile].Enabled = false;
+            Start[Zeile].Enabled = false;
+            Ende[Zeile].Enabled = false;
+
+            Pause[Zeile].Enabled = false;
+            KMStart[Zeile].Enabled = false;
+            KMEnde[Zeile].Enabled = false;
+            
+            KundenStueck[Zeile].Enabled = false;
+            Handbeilagen[Zeile].Enabled = false;
+
+            Bemerkungen[Zeile].Enabled = false;
+
+            //Zeilen leeren TODO
+        }
+
+        // ON_CLICKS
+
+        private void textTour1_TextChanged(object sender, EventArgs e)
+        {
+            resetZeile(0);
+            zeileAnpassen(0, Program.getTourCode(textTour1.Text));
+        }
+
+        private void textTour2_TextChanged(object sender, EventArgs e)
+        {
+            resetZeile(1);
+            zeileAnpassen(1, Program.getTourCode(textTour2.Text));
+        }
+
+        private void textTour3_TextChanged(object sender, EventArgs e)
+        {
+            resetZeile(2);
+            zeileAnpassen(2, Program.getTourCode(textTour3.Text));
+        }
+
+        private void textTour4_TextChanged(object sender, EventArgs e)
+        {
+            resetZeile(3);
+            zeileAnpassen(3, Program.getTourCode(textTour4.Text));
+        }
+
+        private void textTour5_TextChanged(object sender, EventArgs e)
+        {
+            resetZeile(4);
+            zeileAnpassen(4, Program.getTourCode(textTour5.Text));
+        }
+
+        private void textTour6_TextChanged(object sender, EventArgs e)
+        {
+            resetZeile(5);
+            zeileAnpassen(5, Program.getTourCode(textTour6.Text));
+        }
+
+        private void textTour7_TextChanged(object sender, EventArgs e)
+        {
+            resetZeile(6);
+            zeileAnpassen(6, Program.getTourCode(textTour7.Text));
+        }
+
+        private void textTour8_TextChanged(object sender, EventArgs e)
+        {
+            resetZeile(7);
+            zeileAnpassen(7, Program.getTourCode(textTour8.Text));
+        }
+
+        private void textTour9_TextChanged(object sender, EventArgs e)
+        {
+            resetZeile(8);
+            zeileAnpassen(8, Program.getTourCode(textTour9.Text));
+        }
+
+        private void textTour10_TextChanged(object sender, EventArgs e)
+        {
+            resetZeile(9);
+            zeileAnpassen(9, Program.getTourCode(textTour10.Text));
+        }
     }
+
 }

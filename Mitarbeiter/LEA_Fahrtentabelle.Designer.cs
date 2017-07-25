@@ -555,6 +555,7 @@
             this.textTour10.Name = "textTour10";
             this.textTour10.Size = new System.Drawing.Size(188, 20);
             this.textTour10.TabIndex = 234;
+            this.textTour10.TextChanged += new System.EventHandler(this.textTour10_TextChanged);
             // 
             // textFahrzeug10
             // 
@@ -669,6 +670,7 @@
             this.textTour9.Name = "textTour9";
             this.textTour9.Size = new System.Drawing.Size(188, 20);
             this.textTour9.TabIndex = 224;
+            this.textTour9.TextChanged += new System.EventHandler(this.textTour9_TextChanged);
             // 
             // textFahrzeug9
             // 
@@ -783,6 +785,7 @@
             this.textTour8.Name = "textTour8";
             this.textTour8.Size = new System.Drawing.Size(188, 20);
             this.textTour8.TabIndex = 214;
+            this.textTour8.TextChanged += new System.EventHandler(this.textTour8_TextChanged);
             // 
             // textFahrzeug8
             // 
@@ -897,6 +900,7 @@
             this.textTour7.Name = "textTour7";
             this.textTour7.Size = new System.Drawing.Size(188, 20);
             this.textTour7.TabIndex = 204;
+            this.textTour7.TextChanged += new System.EventHandler(this.textTour7_TextChanged);
             // 
             // textFahrzeug7
             // 
@@ -1011,6 +1015,7 @@
             this.textTour6.Name = "textTour6";
             this.textTour6.Size = new System.Drawing.Size(188, 20);
             this.textTour6.TabIndex = 194;
+            this.textTour6.TextChanged += new System.EventHandler(this.textTour6_TextChanged);
             // 
             // textFahrzeug6
             // 
@@ -1125,6 +1130,7 @@
             this.textTour5.Name = "textTour5";
             this.textTour5.Size = new System.Drawing.Size(188, 20);
             this.textTour5.TabIndex = 184;
+            this.textTour5.TextChanged += new System.EventHandler(this.textTour5_TextChanged);
             // 
             // textFahrzeug5
             // 
@@ -1239,6 +1245,7 @@
             this.textTour4.Name = "textTour4";
             this.textTour4.Size = new System.Drawing.Size(188, 20);
             this.textTour4.TabIndex = 174;
+            this.textTour4.TextChanged += new System.EventHandler(this.textTour4_TextChanged);
             // 
             // textFahrzeug4
             // 
@@ -1353,6 +1360,7 @@
             this.textTour3.Name = "textTour3";
             this.textTour3.Size = new System.Drawing.Size(188, 20);
             this.textTour3.TabIndex = 164;
+            this.textTour3.TextChanged += new System.EventHandler(this.textTour3_TextChanged);
             // 
             // textFahrzeug3
             // 
@@ -1467,6 +1475,7 @@
             this.textTour2.Name = "textTour2";
             this.textTour2.Size = new System.Drawing.Size(188, 20);
             this.textTour2.TabIndex = 154;
+            this.textTour2.TextChanged += new System.EventHandler(this.textTour2_TextChanged);
             // 
             // textFahrzeug2
             // 
@@ -1591,6 +1600,7 @@
             this.textTour1.Name = "textTour1";
             this.textTour1.Size = new System.Drawing.Size(188, 20);
             this.textTour1.TabIndex = 143;
+            this.textTour1.TextChanged += new System.EventHandler(this.textTour1_TextChanged);
             // 
             // label4
             // 
