@@ -696,7 +696,7 @@ namespace Mitarbeiter
                 Anfang = new DateTime(Datum.Year, Datum.Month, Datum.Day, Start.Hour, Start.Minute, 0);
                 Ende = new DateTime(Datum.Year, Datum.Month, Datum.Day + 1, End.Hour, End.Minute, 0);
             }
-            else if (Start.TimeOfDay.CompareTo(End.TimeOfDay) > 0)
+            else if (Start.TimeOfDay.CompareTo(End.TimeOfDay) < 0)
             {
                 // Selber Tag
                 Anfang = new DateTime(Datum.Year, Datum.Month, Datum.Day, Start.Hour, Start.Minute, 0);
@@ -707,7 +707,7 @@ namespace Mitarbeiter
 
             // Legitimitätschecks
             if (TourNr == -1) { return "Tour ist ungültig"; }
-            if (FahrzeugNr == -1) { return "Fahrzeug ist ungültig"; }
+            if (FahrzeugNr == -1 ) { return "Fahrzeug ist ungültig"; }
             if (MitarbeiterNr == -1) { return "Mitarbeiter ist ungültig"; } 
             if (Typ == -1) { return "Typ der Tour kann nicht gefunden werden"; }
             if (Typ == 0) { return "Umzüge sind nicht zulässig"; }
@@ -718,22 +718,41 @@ namespace Mitarbeiter
             // Stringbau
             String insert = "";
 
-            insert += "INSERT INTO Fahrt (Mitarbeiter_idMitarbeiter, Start, Ende, Pause, AnfangsKM, EndKM, Bemerkung, UserChanged, Kunden, Stückzahl, Beilagen, Tour_idTour, Fahrzeug_idFahrzeug) VALUES (";
+            if (Fahrzeug == "")
+            {
+                insert += "INSERT INTO Fahrt (Mitarbeiter_idMitarbeiter, Start, Ende, Pause, AnfangsKM, EndKM, Bemerkung, UserChanged, Kunden, Stückzahl, Beilagen, Tour_idTour) VALUES (";
 
-            insert += MitarbeiterNr + ", ";
-            insert += "'" + DateTimeMachine(Anfang, Anfang) + "', ";
-            insert += "'" + DateTimeMachine(Ende, Ende) + "', ";
-            insert += Pause + ", ";
-            insert += KMStart + ", ";
-            insert += KMEnde + ", ";
-            insert += "'" + Bemerkung + "', ";
-            insert += idBearbeitend + ", ";
-            insert += Kunden + ", ";
-            insert += Stueck + ", ";
-            insert += Handbeilagen + ", ";
-            insert += TourNr + ", ";
-            insert += FahrzeugNr + ");";
+                insert += MitarbeiterNr + ", ";
+                insert += "'" + DateTimeMachine(Anfang, Anfang) + "', ";
+                insert += "'" + DateTimeMachine(Ende, Ende) + "', ";
+                insert += Pause + ", ";
+                insert += KMStart + ", ";
+                insert += KMEnde + ", ";
+                insert += "'" + Bemerkung + "', ";
+                insert += idBearbeitend + ", ";
+                insert += Kunden + ", ";
+                insert += Stueck + ", ";
+                insert += Handbeilagen + ", ";
+                insert += TourNr + ");";
+            }
+            else
+            {
+                insert += "INSERT INTO Fahrt (Mitarbeiter_idMitarbeiter, Start, Ende, Pause, AnfangsKM, EndKM, Bemerkung, UserChanged, Kunden, Stückzahl, Beilagen, Tour_idTour, Fahrzeug_idFahrzeug) VALUES (";
 
+                insert += MitarbeiterNr + ", ";
+                insert += "'" + DateTimeMachine(Anfang, Anfang) + "', ";
+                insert += "'" + DateTimeMachine(Ende, Ende) + "', ";
+                insert += Pause + ", ";
+                insert += KMStart + ", ";
+                insert += KMEnde + ", ";
+                insert += "'" + Bemerkung + "', ";
+                insert += idBearbeitend + ", ";
+                insert += Kunden + ", ";
+                insert += Stueck + ", ";
+                insert += Handbeilagen + ", ";
+                insert += TourNr + ", ";
+                insert += FahrzeugNr + ");";
+            }
             // String fertig, absenden
             MySqlCommand cmdAdd = new MySqlCommand(insert, Program.conn2);
             try
