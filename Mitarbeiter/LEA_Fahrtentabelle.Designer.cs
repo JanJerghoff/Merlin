@@ -52,9 +52,9 @@
             this.buttonLoeschen1 = new System.Windows.Forms.Button();
             this.textTour10 = new System.Windows.Forms.TextBox();
             this.textFahrzeug10 = new System.Windows.Forms.TextBox();
-            this.numericUpDown36 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown37 = new System.Windows.Forms.NumericUpDown();
-            this.textBox24 = new System.Windows.Forms.TextBox();
+            this.numericHand10 = new System.Windows.Forms.NumericUpDown();
+            this.numericKundenStueck10 = new System.Windows.Forms.NumericUpDown();
+            this.textBemerkung10 = new System.Windows.Forms.TextBox();
             this.numericKMStart10 = new System.Windows.Forms.NumericUpDown();
             this.numericKMEnde10 = new System.Windows.Forms.NumericUpDown();
             this.numericPause10 = new System.Windows.Forms.NumericUpDown();
@@ -62,9 +62,9 @@
             this.timeStart10 = new System.Windows.Forms.DateTimePicker();
             this.textTour9 = new System.Windows.Forms.TextBox();
             this.textFahrzeug9 = new System.Windows.Forms.TextBox();
-            this.numericUpDown41 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown42 = new System.Windows.Forms.NumericUpDown();
-            this.textBox27 = new System.Windows.Forms.TextBox();
+            this.numericHand9 = new System.Windows.Forms.NumericUpDown();
+            this.numericKundenStueck9 = new System.Windows.Forms.NumericUpDown();
+            this.textBemerkung9 = new System.Windows.Forms.TextBox();
             this.numericKMStart9 = new System.Windows.Forms.NumericUpDown();
             this.numericKMEnde9 = new System.Windows.Forms.NumericUpDown();
             this.numericPause9 = new System.Windows.Forms.NumericUpDown();
@@ -72,9 +72,9 @@
             this.timeStart9 = new System.Windows.Forms.DateTimePicker();
             this.textTour8 = new System.Windows.Forms.TextBox();
             this.textFahrzeug8 = new System.Windows.Forms.TextBox();
-            this.numericUpDown16 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown17 = new System.Windows.Forms.NumericUpDown();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.numericHand8 = new System.Windows.Forms.NumericUpDown();
+            this.numericKundenStueck8 = new System.Windows.Forms.NumericUpDown();
+            this.textBemerkung8 = new System.Windows.Forms.TextBox();
             this.numericKMStart8 = new System.Windows.Forms.NumericUpDown();
             this.numericKMEnde8 = new System.Windows.Forms.NumericUpDown();
             this.numericPause8 = new System.Windows.Forms.NumericUpDown();
@@ -82,9 +82,9 @@
             this.timeStart8 = new System.Windows.Forms.DateTimePicker();
             this.textTour7 = new System.Windows.Forms.TextBox();
             this.textFahrzeug7 = new System.Windows.Forms.TextBox();
-            this.numericUpDown21 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown22 = new System.Windows.Forms.NumericUpDown();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.numericHand7 = new System.Windows.Forms.NumericUpDown();
+            this.numericKundenStueck7 = new System.Windows.Forms.NumericUpDown();
+            this.textBemerkung7 = new System.Windows.Forms.TextBox();
             this.numericKMStart7 = new System.Windows.Forms.NumericUpDown();
             this.numericKMEnde7 = new System.Windows.Forms.NumericUpDown();
             this.numericPause7 = new System.Windows.Forms.NumericUpDown();
@@ -92,9 +92,9 @@
             this.timeStart7 = new System.Windows.Forms.DateTimePicker();
             this.textTour6 = new System.Windows.Forms.TextBox();
             this.textFahrzeug6 = new System.Windows.Forms.TextBox();
-            this.numericUpDown26 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown27 = new System.Windows.Forms.NumericUpDown();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.numericHand6 = new System.Windows.Forms.NumericUpDown();
+            this.numericKundenStueck6 = new System.Windows.Forms.NumericUpDown();
+            this.textBemerkung6 = new System.Windows.Forms.TextBox();
             this.numericKMStart6 = new System.Windows.Forms.NumericUpDown();
             this.numericKMEnde6 = new System.Windows.Forms.NumericUpDown();
             this.numericPause6 = new System.Windows.Forms.NumericUpDown();
@@ -102,9 +102,9 @@
             this.timeStart6 = new System.Windows.Forms.DateTimePicker();
             this.textTour5 = new System.Windows.Forms.TextBox();
             this.textFahrzeug5 = new System.Windows.Forms.TextBox();
-            this.numericUpDown31 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown32 = new System.Windows.Forms.NumericUpDown();
-            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.numericHand5 = new System.Windows.Forms.NumericUpDown();
+            this.numericKundenStueck5 = new System.Windows.Forms.NumericUpDown();
+            this.textBemerkung5 = new System.Windows.Forms.TextBox();
             this.numericKMStart5 = new System.Windows.Forms.NumericUpDown();
             this.numericKMEnde5 = new System.Windows.Forms.NumericUpDown();
             this.numericPause5 = new System.Windows.Forms.NumericUpDown();
@@ -112,9 +112,9 @@
             this.timeStart5 = new System.Windows.Forms.DateTimePicker();
             this.textTour4 = new System.Windows.Forms.TextBox();
             this.textFahrzeug4 = new System.Windows.Forms.TextBox();
-            this.numericUpDown11 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown12 = new System.Windows.Forms.NumericUpDown();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.numericHand4 = new System.Windows.Forms.NumericUpDown();
+            this.numericKundenStueck4 = new System.Windows.Forms.NumericUpDown();
+            this.textBemerkung4 = new System.Windows.Forms.TextBox();
             this.numericKMStart4 = new System.Windows.Forms.NumericUpDown();
             this.numericKMEnde4 = new System.Windows.Forms.NumericUpDown();
             this.numericPause4 = new System.Windows.Forms.NumericUpDown();
@@ -122,9 +122,9 @@
             this.timeStart4 = new System.Windows.Forms.DateTimePicker();
             this.textTour3 = new System.Windows.Forms.TextBox();
             this.textFahrzeug3 = new System.Windows.Forms.TextBox();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.numericHand3 = new System.Windows.Forms.NumericUpDown();
+            this.numericKundenStueck3 = new System.Windows.Forms.NumericUpDown();
+            this.textBemerkung3 = new System.Windows.Forms.TextBox();
             this.numericKMStart3 = new System.Windows.Forms.NumericUpDown();
             this.numericKMEnde3 = new System.Windows.Forms.NumericUpDown();
             this.numericPause3 = new System.Windows.Forms.NumericUpDown();
@@ -132,9 +132,9 @@
             this.timeStart3 = new System.Windows.Forms.DateTimePicker();
             this.textTour2 = new System.Windows.Forms.TextBox();
             this.textFahrzeug2 = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.numericHand2 = new System.Windows.Forms.NumericUpDown();
+            this.numericKundenStueck2 = new System.Windows.Forms.NumericUpDown();
+            this.textBemerkung2 = new System.Windows.Forms.TextBox();
             this.numericKMStart2 = new System.Windows.Forms.NumericUpDown();
             this.numericKMEnde2 = new System.Windows.Forms.NumericUpDown();
             this.numericPause2 = new System.Windows.Forms.NumericUpDown();
@@ -145,11 +145,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textFahrzeug1 = new System.Windows.Forms.TextBox();
             this.label2Zahlenfeld = new System.Windows.Forms.Label();
-            this.numeric2 = new System.Windows.Forms.NumericUpDown();
+            this.numericHand1 = new System.Windows.Forms.NumericUpDown();
             this.label1ZahlenFeld = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.numeric1 = new System.Windows.Forms.NumericUpDown();
-            this.textBemerkung = new System.Windows.Forms.TextBox();
+            this.numericKundenStueck1 = new System.Windows.Forms.NumericUpDown();
+            this.textBemerkung1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.numericKMStart1 = new System.Windows.Forms.NumericUpDown();
@@ -164,53 +164,53 @@
             this.textMitarbeiter = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown36)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown37)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericHand10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKundenStueck10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMStart10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMEnde10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPause10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown41)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown42)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericHand9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKundenStueck9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMStart9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMEnde9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPause9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericHand8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKundenStueck8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMStart8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMEnde8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPause8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericHand7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKundenStueck7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMStart7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMEnde7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPause7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown26)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown27)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericHand6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKundenStueck6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMStart6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMEnde6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPause6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown31)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown32)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericHand5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKundenStueck5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMStart5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMEnde5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPause5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericHand4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKundenStueck4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMStart4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMEnde4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPause4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericHand3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKundenStueck3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMStart3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMEnde3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPause3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericHand2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKundenStueck2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMStart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMEnde2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPause2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numeric2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numeric1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericHand1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKundenStueck1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMStart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMEnde1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPause1)).BeginInit();
@@ -242,9 +242,9 @@
             this.groupBox2.Controls.Add(this.buttonLoeschen1);
             this.groupBox2.Controls.Add(this.textTour10);
             this.groupBox2.Controls.Add(this.textFahrzeug10);
-            this.groupBox2.Controls.Add(this.numericUpDown36);
-            this.groupBox2.Controls.Add(this.numericUpDown37);
-            this.groupBox2.Controls.Add(this.textBox24);
+            this.groupBox2.Controls.Add(this.numericHand10);
+            this.groupBox2.Controls.Add(this.numericKundenStueck10);
+            this.groupBox2.Controls.Add(this.textBemerkung10);
             this.groupBox2.Controls.Add(this.numericKMStart10);
             this.groupBox2.Controls.Add(this.numericKMEnde10);
             this.groupBox2.Controls.Add(this.numericPause10);
@@ -252,9 +252,9 @@
             this.groupBox2.Controls.Add(this.timeStart10);
             this.groupBox2.Controls.Add(this.textTour9);
             this.groupBox2.Controls.Add(this.textFahrzeug9);
-            this.groupBox2.Controls.Add(this.numericUpDown41);
-            this.groupBox2.Controls.Add(this.numericUpDown42);
-            this.groupBox2.Controls.Add(this.textBox27);
+            this.groupBox2.Controls.Add(this.numericHand9);
+            this.groupBox2.Controls.Add(this.numericKundenStueck9);
+            this.groupBox2.Controls.Add(this.textBemerkung9);
             this.groupBox2.Controls.Add(this.numericKMStart9);
             this.groupBox2.Controls.Add(this.numericKMEnde9);
             this.groupBox2.Controls.Add(this.numericPause9);
@@ -262,9 +262,9 @@
             this.groupBox2.Controls.Add(this.timeStart9);
             this.groupBox2.Controls.Add(this.textTour8);
             this.groupBox2.Controls.Add(this.textFahrzeug8);
-            this.groupBox2.Controls.Add(this.numericUpDown16);
-            this.groupBox2.Controls.Add(this.numericUpDown17);
-            this.groupBox2.Controls.Add(this.textBox12);
+            this.groupBox2.Controls.Add(this.numericHand8);
+            this.groupBox2.Controls.Add(this.numericKundenStueck8);
+            this.groupBox2.Controls.Add(this.textBemerkung8);
             this.groupBox2.Controls.Add(this.numericKMStart8);
             this.groupBox2.Controls.Add(this.numericKMEnde8);
             this.groupBox2.Controls.Add(this.numericPause8);
@@ -272,9 +272,9 @@
             this.groupBox2.Controls.Add(this.timeStart8);
             this.groupBox2.Controls.Add(this.textTour7);
             this.groupBox2.Controls.Add(this.textFahrzeug7);
-            this.groupBox2.Controls.Add(this.numericUpDown21);
-            this.groupBox2.Controls.Add(this.numericUpDown22);
-            this.groupBox2.Controls.Add(this.textBox15);
+            this.groupBox2.Controls.Add(this.numericHand7);
+            this.groupBox2.Controls.Add(this.numericKundenStueck7);
+            this.groupBox2.Controls.Add(this.textBemerkung7);
             this.groupBox2.Controls.Add(this.numericKMStart7);
             this.groupBox2.Controls.Add(this.numericKMEnde7);
             this.groupBox2.Controls.Add(this.numericPause7);
@@ -282,9 +282,9 @@
             this.groupBox2.Controls.Add(this.timeStart7);
             this.groupBox2.Controls.Add(this.textTour6);
             this.groupBox2.Controls.Add(this.textFahrzeug6);
-            this.groupBox2.Controls.Add(this.numericUpDown26);
-            this.groupBox2.Controls.Add(this.numericUpDown27);
-            this.groupBox2.Controls.Add(this.textBox18);
+            this.groupBox2.Controls.Add(this.numericHand6);
+            this.groupBox2.Controls.Add(this.numericKundenStueck6);
+            this.groupBox2.Controls.Add(this.textBemerkung6);
             this.groupBox2.Controls.Add(this.numericKMStart6);
             this.groupBox2.Controls.Add(this.numericKMEnde6);
             this.groupBox2.Controls.Add(this.numericPause6);
@@ -292,9 +292,9 @@
             this.groupBox2.Controls.Add(this.timeStart6);
             this.groupBox2.Controls.Add(this.textTour5);
             this.groupBox2.Controls.Add(this.textFahrzeug5);
-            this.groupBox2.Controls.Add(this.numericUpDown31);
-            this.groupBox2.Controls.Add(this.numericUpDown32);
-            this.groupBox2.Controls.Add(this.textBox21);
+            this.groupBox2.Controls.Add(this.numericHand5);
+            this.groupBox2.Controls.Add(this.numericKundenStueck5);
+            this.groupBox2.Controls.Add(this.textBemerkung5);
             this.groupBox2.Controls.Add(this.numericKMStart5);
             this.groupBox2.Controls.Add(this.numericKMEnde5);
             this.groupBox2.Controls.Add(this.numericPause5);
@@ -302,9 +302,9 @@
             this.groupBox2.Controls.Add(this.timeStart5);
             this.groupBox2.Controls.Add(this.textTour4);
             this.groupBox2.Controls.Add(this.textFahrzeug4);
-            this.groupBox2.Controls.Add(this.numericUpDown11);
-            this.groupBox2.Controls.Add(this.numericUpDown12);
-            this.groupBox2.Controls.Add(this.textBox9);
+            this.groupBox2.Controls.Add(this.numericHand4);
+            this.groupBox2.Controls.Add(this.numericKundenStueck4);
+            this.groupBox2.Controls.Add(this.textBemerkung4);
             this.groupBox2.Controls.Add(this.numericKMStart4);
             this.groupBox2.Controls.Add(this.numericKMEnde4);
             this.groupBox2.Controls.Add(this.numericPause4);
@@ -312,9 +312,9 @@
             this.groupBox2.Controls.Add(this.timeStart4);
             this.groupBox2.Controls.Add(this.textTour3);
             this.groupBox2.Controls.Add(this.textFahrzeug3);
-            this.groupBox2.Controls.Add(this.numericUpDown6);
-            this.groupBox2.Controls.Add(this.numericUpDown7);
-            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.numericHand3);
+            this.groupBox2.Controls.Add(this.numericKundenStueck3);
+            this.groupBox2.Controls.Add(this.textBemerkung3);
             this.groupBox2.Controls.Add(this.numericKMStart3);
             this.groupBox2.Controls.Add(this.numericKMEnde3);
             this.groupBox2.Controls.Add(this.numericPause3);
@@ -322,9 +322,9 @@
             this.groupBox2.Controls.Add(this.timeStart3);
             this.groupBox2.Controls.Add(this.textTour2);
             this.groupBox2.Controls.Add(this.textFahrzeug2);
-            this.groupBox2.Controls.Add(this.numericUpDown1);
-            this.groupBox2.Controls.Add(this.numericUpDown2);
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.numericHand2);
+            this.groupBox2.Controls.Add(this.numericKundenStueck2);
+            this.groupBox2.Controls.Add(this.textBemerkung2);
             this.groupBox2.Controls.Add(this.numericKMStart2);
             this.groupBox2.Controls.Add(this.numericKMEnde2);
             this.groupBox2.Controls.Add(this.numericPause2);
@@ -335,11 +335,11 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.textFahrzeug1);
             this.groupBox2.Controls.Add(this.label2Zahlenfeld);
-            this.groupBox2.Controls.Add(this.numeric2);
+            this.groupBox2.Controls.Add(this.numericHand1);
             this.groupBox2.Controls.Add(this.label1ZahlenFeld);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.numeric1);
-            this.groupBox2.Controls.Add(this.textBemerkung);
+            this.groupBox2.Controls.Add(this.numericKundenStueck1);
+            this.groupBox2.Controls.Add(this.textBemerkung1);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.numericKMStart1);
@@ -565,42 +565,42 @@
             this.textFahrzeug10.Size = new System.Drawing.Size(148, 20);
             this.textFahrzeug10.TabIndex = 233;
             // 
-            // numericUpDown36
+            // numericHand10
             // 
-            this.numericUpDown36.Enabled = false;
-            this.numericUpDown36.Location = new System.Drawing.Point(1293, 282);
-            this.numericUpDown36.Maximum = new decimal(new int[] {
+            this.numericHand10.Enabled = false;
+            this.numericHand10.Location = new System.Drawing.Point(1293, 282);
+            this.numericHand10.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numericUpDown36.Name = "numericUpDown36";
-            this.numericUpDown36.Size = new System.Drawing.Size(114, 20);
-            this.numericUpDown36.TabIndex = 232;
+            this.numericHand10.Name = "numericHand10";
+            this.numericHand10.Size = new System.Drawing.Size(114, 20);
+            this.numericHand10.TabIndex = 232;
             // 
-            // numericUpDown37
+            // numericKundenStueck10
             // 
-            this.numericUpDown37.Enabled = false;
-            this.numericUpDown37.Location = new System.Drawing.Point(1174, 281);
-            this.numericUpDown37.Maximum = new decimal(new int[] {
+            this.numericKundenStueck10.Enabled = false;
+            this.numericKundenStueck10.Location = new System.Drawing.Point(1174, 281);
+            this.numericKundenStueck10.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numericUpDown37.Name = "numericUpDown37";
-            this.numericUpDown37.Size = new System.Drawing.Size(113, 20);
-            this.numericUpDown37.TabIndex = 231;
+            this.numericKundenStueck10.Name = "numericKundenStueck10";
+            this.numericKundenStueck10.Size = new System.Drawing.Size(113, 20);
+            this.numericKundenStueck10.TabIndex = 231;
             // 
-            // textBox24
+            // textBemerkung10
             // 
-            this.textBox24.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox24.Enabled = false;
-            this.textBox24.Location = new System.Drawing.Point(1413, 282);
-            this.textBox24.Multiline = true;
-            this.textBox24.Name = "textBox24";
-            this.textBox24.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox24.Size = new System.Drawing.Size(343, 19);
-            this.textBox24.TabIndex = 230;
+            this.textBemerkung10.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBemerkung10.Enabled = false;
+            this.textBemerkung10.Location = new System.Drawing.Point(1413, 282);
+            this.textBemerkung10.Multiline = true;
+            this.textBemerkung10.Name = "textBemerkung10";
+            this.textBemerkung10.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBemerkung10.Size = new System.Drawing.Size(343, 19);
+            this.textBemerkung10.TabIndex = 230;
             // 
             // numericKMStart10
             // 
@@ -679,42 +679,42 @@
             this.textFahrzeug9.Size = new System.Drawing.Size(148, 20);
             this.textFahrzeug9.TabIndex = 223;
             // 
-            // numericUpDown41
+            // numericHand9
             // 
-            this.numericUpDown41.Enabled = false;
-            this.numericUpDown41.Location = new System.Drawing.Point(1293, 256);
-            this.numericUpDown41.Maximum = new decimal(new int[] {
+            this.numericHand9.Enabled = false;
+            this.numericHand9.Location = new System.Drawing.Point(1293, 256);
+            this.numericHand9.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numericUpDown41.Name = "numericUpDown41";
-            this.numericUpDown41.Size = new System.Drawing.Size(114, 20);
-            this.numericUpDown41.TabIndex = 222;
+            this.numericHand9.Name = "numericHand9";
+            this.numericHand9.Size = new System.Drawing.Size(114, 20);
+            this.numericHand9.TabIndex = 222;
             // 
-            // numericUpDown42
+            // numericKundenStueck9
             // 
-            this.numericUpDown42.Enabled = false;
-            this.numericUpDown42.Location = new System.Drawing.Point(1174, 255);
-            this.numericUpDown42.Maximum = new decimal(new int[] {
+            this.numericKundenStueck9.Enabled = false;
+            this.numericKundenStueck9.Location = new System.Drawing.Point(1174, 255);
+            this.numericKundenStueck9.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numericUpDown42.Name = "numericUpDown42";
-            this.numericUpDown42.Size = new System.Drawing.Size(113, 20);
-            this.numericUpDown42.TabIndex = 221;
+            this.numericKundenStueck9.Name = "numericKundenStueck9";
+            this.numericKundenStueck9.Size = new System.Drawing.Size(113, 20);
+            this.numericKundenStueck9.TabIndex = 221;
             // 
-            // textBox27
+            // textBemerkung9
             // 
-            this.textBox27.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox27.Enabled = false;
-            this.textBox27.Location = new System.Drawing.Point(1413, 256);
-            this.textBox27.Multiline = true;
-            this.textBox27.Name = "textBox27";
-            this.textBox27.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox27.Size = new System.Drawing.Size(343, 19);
-            this.textBox27.TabIndex = 220;
+            this.textBemerkung9.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBemerkung9.Enabled = false;
+            this.textBemerkung9.Location = new System.Drawing.Point(1413, 256);
+            this.textBemerkung9.Multiline = true;
+            this.textBemerkung9.Name = "textBemerkung9";
+            this.textBemerkung9.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBemerkung9.Size = new System.Drawing.Size(343, 19);
+            this.textBemerkung9.TabIndex = 220;
             // 
             // numericKMStart9
             // 
@@ -793,42 +793,42 @@
             this.textFahrzeug8.Size = new System.Drawing.Size(148, 20);
             this.textFahrzeug8.TabIndex = 213;
             // 
-            // numericUpDown16
+            // numericHand8
             // 
-            this.numericUpDown16.Enabled = false;
-            this.numericUpDown16.Location = new System.Drawing.Point(1293, 230);
-            this.numericUpDown16.Maximum = new decimal(new int[] {
+            this.numericHand8.Enabled = false;
+            this.numericHand8.Location = new System.Drawing.Point(1293, 230);
+            this.numericHand8.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numericUpDown16.Name = "numericUpDown16";
-            this.numericUpDown16.Size = new System.Drawing.Size(114, 20);
-            this.numericUpDown16.TabIndex = 212;
+            this.numericHand8.Name = "numericHand8";
+            this.numericHand8.Size = new System.Drawing.Size(114, 20);
+            this.numericHand8.TabIndex = 212;
             // 
-            // numericUpDown17
+            // numericKundenStueck8
             // 
-            this.numericUpDown17.Enabled = false;
-            this.numericUpDown17.Location = new System.Drawing.Point(1174, 229);
-            this.numericUpDown17.Maximum = new decimal(new int[] {
+            this.numericKundenStueck8.Enabled = false;
+            this.numericKundenStueck8.Location = new System.Drawing.Point(1174, 229);
+            this.numericKundenStueck8.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numericUpDown17.Name = "numericUpDown17";
-            this.numericUpDown17.Size = new System.Drawing.Size(113, 20);
-            this.numericUpDown17.TabIndex = 211;
+            this.numericKundenStueck8.Name = "numericKundenStueck8";
+            this.numericKundenStueck8.Size = new System.Drawing.Size(113, 20);
+            this.numericKundenStueck8.TabIndex = 211;
             // 
-            // textBox12
+            // textBemerkung8
             // 
-            this.textBox12.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox12.Enabled = false;
-            this.textBox12.Location = new System.Drawing.Point(1413, 230);
-            this.textBox12.Multiline = true;
-            this.textBox12.Name = "textBox12";
-            this.textBox12.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox12.Size = new System.Drawing.Size(343, 19);
-            this.textBox12.TabIndex = 210;
+            this.textBemerkung8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBemerkung8.Enabled = false;
+            this.textBemerkung8.Location = new System.Drawing.Point(1413, 230);
+            this.textBemerkung8.Multiline = true;
+            this.textBemerkung8.Name = "textBemerkung8";
+            this.textBemerkung8.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBemerkung8.Size = new System.Drawing.Size(343, 19);
+            this.textBemerkung8.TabIndex = 210;
             // 
             // numericKMStart8
             // 
@@ -907,42 +907,42 @@
             this.textFahrzeug7.Size = new System.Drawing.Size(148, 20);
             this.textFahrzeug7.TabIndex = 203;
             // 
-            // numericUpDown21
+            // numericHand7
             // 
-            this.numericUpDown21.Enabled = false;
-            this.numericUpDown21.Location = new System.Drawing.Point(1293, 204);
-            this.numericUpDown21.Maximum = new decimal(new int[] {
+            this.numericHand7.Enabled = false;
+            this.numericHand7.Location = new System.Drawing.Point(1293, 204);
+            this.numericHand7.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numericUpDown21.Name = "numericUpDown21";
-            this.numericUpDown21.Size = new System.Drawing.Size(114, 20);
-            this.numericUpDown21.TabIndex = 202;
+            this.numericHand7.Name = "numericHand7";
+            this.numericHand7.Size = new System.Drawing.Size(114, 20);
+            this.numericHand7.TabIndex = 202;
             // 
-            // numericUpDown22
+            // numericKundenStueck7
             // 
-            this.numericUpDown22.Enabled = false;
-            this.numericUpDown22.Location = new System.Drawing.Point(1174, 203);
-            this.numericUpDown22.Maximum = new decimal(new int[] {
+            this.numericKundenStueck7.Enabled = false;
+            this.numericKundenStueck7.Location = new System.Drawing.Point(1174, 203);
+            this.numericKundenStueck7.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numericUpDown22.Name = "numericUpDown22";
-            this.numericUpDown22.Size = new System.Drawing.Size(113, 20);
-            this.numericUpDown22.TabIndex = 201;
+            this.numericKundenStueck7.Name = "numericKundenStueck7";
+            this.numericKundenStueck7.Size = new System.Drawing.Size(113, 20);
+            this.numericKundenStueck7.TabIndex = 201;
             // 
-            // textBox15
+            // textBemerkung7
             // 
-            this.textBox15.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox15.Enabled = false;
-            this.textBox15.Location = new System.Drawing.Point(1413, 204);
-            this.textBox15.Multiline = true;
-            this.textBox15.Name = "textBox15";
-            this.textBox15.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox15.Size = new System.Drawing.Size(343, 19);
-            this.textBox15.TabIndex = 200;
+            this.textBemerkung7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBemerkung7.Enabled = false;
+            this.textBemerkung7.Location = new System.Drawing.Point(1413, 204);
+            this.textBemerkung7.Multiline = true;
+            this.textBemerkung7.Name = "textBemerkung7";
+            this.textBemerkung7.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBemerkung7.Size = new System.Drawing.Size(343, 19);
+            this.textBemerkung7.TabIndex = 200;
             // 
             // numericKMStart7
             // 
@@ -1021,42 +1021,42 @@
             this.textFahrzeug6.Size = new System.Drawing.Size(148, 20);
             this.textFahrzeug6.TabIndex = 193;
             // 
-            // numericUpDown26
+            // numericHand6
             // 
-            this.numericUpDown26.Enabled = false;
-            this.numericUpDown26.Location = new System.Drawing.Point(1293, 178);
-            this.numericUpDown26.Maximum = new decimal(new int[] {
+            this.numericHand6.Enabled = false;
+            this.numericHand6.Location = new System.Drawing.Point(1293, 178);
+            this.numericHand6.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numericUpDown26.Name = "numericUpDown26";
-            this.numericUpDown26.Size = new System.Drawing.Size(114, 20);
-            this.numericUpDown26.TabIndex = 192;
+            this.numericHand6.Name = "numericHand6";
+            this.numericHand6.Size = new System.Drawing.Size(114, 20);
+            this.numericHand6.TabIndex = 192;
             // 
-            // numericUpDown27
+            // numericKundenStueck6
             // 
-            this.numericUpDown27.Enabled = false;
-            this.numericUpDown27.Location = new System.Drawing.Point(1174, 177);
-            this.numericUpDown27.Maximum = new decimal(new int[] {
+            this.numericKundenStueck6.Enabled = false;
+            this.numericKundenStueck6.Location = new System.Drawing.Point(1174, 177);
+            this.numericKundenStueck6.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numericUpDown27.Name = "numericUpDown27";
-            this.numericUpDown27.Size = new System.Drawing.Size(113, 20);
-            this.numericUpDown27.TabIndex = 191;
+            this.numericKundenStueck6.Name = "numericKundenStueck6";
+            this.numericKundenStueck6.Size = new System.Drawing.Size(113, 20);
+            this.numericKundenStueck6.TabIndex = 191;
             // 
-            // textBox18
+            // textBemerkung6
             // 
-            this.textBox18.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox18.Enabled = false;
-            this.textBox18.Location = new System.Drawing.Point(1413, 178);
-            this.textBox18.Multiline = true;
-            this.textBox18.Name = "textBox18";
-            this.textBox18.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox18.Size = new System.Drawing.Size(343, 19);
-            this.textBox18.TabIndex = 190;
+            this.textBemerkung6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBemerkung6.Enabled = false;
+            this.textBemerkung6.Location = new System.Drawing.Point(1413, 178);
+            this.textBemerkung6.Multiline = true;
+            this.textBemerkung6.Name = "textBemerkung6";
+            this.textBemerkung6.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBemerkung6.Size = new System.Drawing.Size(343, 19);
+            this.textBemerkung6.TabIndex = 190;
             // 
             // numericKMStart6
             // 
@@ -1135,42 +1135,42 @@
             this.textFahrzeug5.Size = new System.Drawing.Size(148, 20);
             this.textFahrzeug5.TabIndex = 183;
             // 
-            // numericUpDown31
+            // numericHand5
             // 
-            this.numericUpDown31.Enabled = false;
-            this.numericUpDown31.Location = new System.Drawing.Point(1293, 152);
-            this.numericUpDown31.Maximum = new decimal(new int[] {
+            this.numericHand5.Enabled = false;
+            this.numericHand5.Location = new System.Drawing.Point(1293, 152);
+            this.numericHand5.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numericUpDown31.Name = "numericUpDown31";
-            this.numericUpDown31.Size = new System.Drawing.Size(114, 20);
-            this.numericUpDown31.TabIndex = 182;
+            this.numericHand5.Name = "numericHand5";
+            this.numericHand5.Size = new System.Drawing.Size(114, 20);
+            this.numericHand5.TabIndex = 182;
             // 
-            // numericUpDown32
+            // numericKundenStueck5
             // 
-            this.numericUpDown32.Enabled = false;
-            this.numericUpDown32.Location = new System.Drawing.Point(1174, 151);
-            this.numericUpDown32.Maximum = new decimal(new int[] {
+            this.numericKundenStueck5.Enabled = false;
+            this.numericKundenStueck5.Location = new System.Drawing.Point(1174, 151);
+            this.numericKundenStueck5.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numericUpDown32.Name = "numericUpDown32";
-            this.numericUpDown32.Size = new System.Drawing.Size(113, 20);
-            this.numericUpDown32.TabIndex = 181;
+            this.numericKundenStueck5.Name = "numericKundenStueck5";
+            this.numericKundenStueck5.Size = new System.Drawing.Size(113, 20);
+            this.numericKundenStueck5.TabIndex = 181;
             // 
-            // textBox21
+            // textBemerkung5
             // 
-            this.textBox21.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox21.Enabled = false;
-            this.textBox21.Location = new System.Drawing.Point(1413, 152);
-            this.textBox21.Multiline = true;
-            this.textBox21.Name = "textBox21";
-            this.textBox21.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox21.Size = new System.Drawing.Size(343, 19);
-            this.textBox21.TabIndex = 180;
+            this.textBemerkung5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBemerkung5.Enabled = false;
+            this.textBemerkung5.Location = new System.Drawing.Point(1413, 152);
+            this.textBemerkung5.Multiline = true;
+            this.textBemerkung5.Name = "textBemerkung5";
+            this.textBemerkung5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBemerkung5.Size = new System.Drawing.Size(343, 19);
+            this.textBemerkung5.TabIndex = 180;
             // 
             // numericKMStart5
             // 
@@ -1249,42 +1249,42 @@
             this.textFahrzeug4.Size = new System.Drawing.Size(148, 20);
             this.textFahrzeug4.TabIndex = 173;
             // 
-            // numericUpDown11
+            // numericHand4
             // 
-            this.numericUpDown11.Enabled = false;
-            this.numericUpDown11.Location = new System.Drawing.Point(1293, 126);
-            this.numericUpDown11.Maximum = new decimal(new int[] {
+            this.numericHand4.Enabled = false;
+            this.numericHand4.Location = new System.Drawing.Point(1293, 126);
+            this.numericHand4.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numericUpDown11.Name = "numericUpDown11";
-            this.numericUpDown11.Size = new System.Drawing.Size(114, 20);
-            this.numericUpDown11.TabIndex = 172;
+            this.numericHand4.Name = "numericHand4";
+            this.numericHand4.Size = new System.Drawing.Size(114, 20);
+            this.numericHand4.TabIndex = 172;
             // 
-            // numericUpDown12
+            // numericKundenStueck4
             // 
-            this.numericUpDown12.Enabled = false;
-            this.numericUpDown12.Location = new System.Drawing.Point(1174, 125);
-            this.numericUpDown12.Maximum = new decimal(new int[] {
+            this.numericKundenStueck4.Enabled = false;
+            this.numericKundenStueck4.Location = new System.Drawing.Point(1174, 125);
+            this.numericKundenStueck4.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numericUpDown12.Name = "numericUpDown12";
-            this.numericUpDown12.Size = new System.Drawing.Size(113, 20);
-            this.numericUpDown12.TabIndex = 171;
+            this.numericKundenStueck4.Name = "numericKundenStueck4";
+            this.numericKundenStueck4.Size = new System.Drawing.Size(113, 20);
+            this.numericKundenStueck4.TabIndex = 171;
             // 
-            // textBox9
+            // textBemerkung4
             // 
-            this.textBox9.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox9.Enabled = false;
-            this.textBox9.Location = new System.Drawing.Point(1413, 126);
-            this.textBox9.Multiline = true;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox9.Size = new System.Drawing.Size(343, 19);
-            this.textBox9.TabIndex = 170;
+            this.textBemerkung4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBemerkung4.Enabled = false;
+            this.textBemerkung4.Location = new System.Drawing.Point(1413, 126);
+            this.textBemerkung4.Multiline = true;
+            this.textBemerkung4.Name = "textBemerkung4";
+            this.textBemerkung4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBemerkung4.Size = new System.Drawing.Size(343, 19);
+            this.textBemerkung4.TabIndex = 170;
             // 
             // numericKMStart4
             // 
@@ -1363,42 +1363,42 @@
             this.textFahrzeug3.Size = new System.Drawing.Size(148, 20);
             this.textFahrzeug3.TabIndex = 163;
             // 
-            // numericUpDown6
+            // numericHand3
             // 
-            this.numericUpDown6.Enabled = false;
-            this.numericUpDown6.Location = new System.Drawing.Point(1293, 100);
-            this.numericUpDown6.Maximum = new decimal(new int[] {
+            this.numericHand3.Enabled = false;
+            this.numericHand3.Location = new System.Drawing.Point(1293, 100);
+            this.numericHand3.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(114, 20);
-            this.numericUpDown6.TabIndex = 162;
+            this.numericHand3.Name = "numericHand3";
+            this.numericHand3.Size = new System.Drawing.Size(114, 20);
+            this.numericHand3.TabIndex = 162;
             // 
-            // numericUpDown7
+            // numericKundenStueck3
             // 
-            this.numericUpDown7.Enabled = false;
-            this.numericUpDown7.Location = new System.Drawing.Point(1174, 99);
-            this.numericUpDown7.Maximum = new decimal(new int[] {
+            this.numericKundenStueck3.Enabled = false;
+            this.numericKundenStueck3.Location = new System.Drawing.Point(1174, 99);
+            this.numericKundenStueck3.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(113, 20);
-            this.numericUpDown7.TabIndex = 161;
+            this.numericKundenStueck3.Name = "numericKundenStueck3";
+            this.numericKundenStueck3.Size = new System.Drawing.Size(113, 20);
+            this.numericKundenStueck3.TabIndex = 161;
             // 
-            // textBox6
+            // textBemerkung3
             // 
-            this.textBox6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(1413, 100);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox6.Size = new System.Drawing.Size(343, 19);
-            this.textBox6.TabIndex = 160;
+            this.textBemerkung3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBemerkung3.Enabled = false;
+            this.textBemerkung3.Location = new System.Drawing.Point(1413, 100);
+            this.textBemerkung3.Multiline = true;
+            this.textBemerkung3.Name = "textBemerkung3";
+            this.textBemerkung3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBemerkung3.Size = new System.Drawing.Size(343, 19);
+            this.textBemerkung3.TabIndex = 160;
             // 
             // numericKMStart3
             // 
@@ -1477,42 +1477,42 @@
             this.textFahrzeug2.Size = new System.Drawing.Size(148, 20);
             this.textFahrzeug2.TabIndex = 153;
             // 
-            // numericUpDown1
+            // numericHand2
             // 
-            this.numericUpDown1.Enabled = false;
-            this.numericUpDown1.Location = new System.Drawing.Point(1293, 74);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.numericHand2.Enabled = false;
+            this.numericHand2.Location = new System.Drawing.Point(1293, 74);
+            this.numericHand2.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(114, 20);
-            this.numericUpDown1.TabIndex = 152;
+            this.numericHand2.Name = "numericHand2";
+            this.numericHand2.Size = new System.Drawing.Size(114, 20);
+            this.numericHand2.TabIndex = 152;
             // 
-            // numericUpDown2
+            // numericKundenStueck2
             // 
-            this.numericUpDown2.Enabled = false;
-            this.numericUpDown2.Location = new System.Drawing.Point(1174, 73);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.numericKundenStueck2.Enabled = false;
+            this.numericKundenStueck2.Location = new System.Drawing.Point(1174, 73);
+            this.numericKundenStueck2.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(113, 20);
-            this.numericUpDown2.TabIndex = 151;
+            this.numericKundenStueck2.Name = "numericKundenStueck2";
+            this.numericKundenStueck2.Size = new System.Drawing.Size(113, 20);
+            this.numericKundenStueck2.TabIndex = 151;
             // 
-            // textBox3
+            // textBemerkung2
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(1413, 74);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox3.Size = new System.Drawing.Size(343, 19);
-            this.textBox3.TabIndex = 150;
+            this.textBemerkung2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBemerkung2.Enabled = false;
+            this.textBemerkung2.Location = new System.Drawing.Point(1413, 74);
+            this.textBemerkung2.Multiline = true;
+            this.textBemerkung2.Name = "textBemerkung2";
+            this.textBemerkung2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBemerkung2.Size = new System.Drawing.Size(343, 19);
+            this.textBemerkung2.TabIndex = 150;
             // 
             // numericKMStart2
             // 
@@ -1621,18 +1621,18 @@
             this.label2Zahlenfeld.TabIndex = 140;
             this.label2Zahlenfeld.Text = "Handbeilagen";
             // 
-            // numeric2
+            // numericHand1
             // 
-            this.numeric2.Enabled = false;
-            this.numeric2.Location = new System.Drawing.Point(1293, 48);
-            this.numeric2.Maximum = new decimal(new int[] {
+            this.numericHand1.Enabled = false;
+            this.numericHand1.Location = new System.Drawing.Point(1293, 48);
+            this.numericHand1.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numeric2.Name = "numeric2";
-            this.numeric2.Size = new System.Drawing.Size(114, 20);
-            this.numeric2.TabIndex = 139;
+            this.numericHand1.Name = "numericHand1";
+            this.numericHand1.Size = new System.Drawing.Size(114, 20);
+            this.numericHand1.TabIndex = 139;
             // 
             // label1ZahlenFeld
             // 
@@ -1654,29 +1654,29 @@
             this.label8.TabIndex = 134;
             this.label8.Text = "Bemerkung";
             // 
-            // numeric1
+            // numericKundenStueck1
             // 
-            this.numeric1.Enabled = false;
-            this.numeric1.Location = new System.Drawing.Point(1174, 47);
-            this.numeric1.Maximum = new decimal(new int[] {
+            this.numericKundenStueck1.Enabled = false;
+            this.numericKundenStueck1.Location = new System.Drawing.Point(1174, 47);
+            this.numericKundenStueck1.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numeric1.Name = "numeric1";
-            this.numeric1.Size = new System.Drawing.Size(113, 20);
-            this.numeric1.TabIndex = 135;
+            this.numericKundenStueck1.Name = "numericKundenStueck1";
+            this.numericKundenStueck1.Size = new System.Drawing.Size(113, 20);
+            this.numericKundenStueck1.TabIndex = 135;
             // 
-            // textBemerkung
+            // textBemerkung1
             // 
-            this.textBemerkung.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBemerkung.Enabled = false;
-            this.textBemerkung.Location = new System.Drawing.Point(1413, 48);
-            this.textBemerkung.Multiline = true;
-            this.textBemerkung.Name = "textBemerkung";
-            this.textBemerkung.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBemerkung.Size = new System.Drawing.Size(343, 19);
-            this.textBemerkung.TabIndex = 133;
+            this.textBemerkung1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBemerkung1.Enabled = false;
+            this.textBemerkung1.Location = new System.Drawing.Point(1413, 48);
+            this.textBemerkung1.Multiline = true;
+            this.textBemerkung1.Name = "textBemerkung1";
+            this.textBemerkung1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBemerkung1.Size = new System.Drawing.Size(343, 19);
+            this.textBemerkung1.TabIndex = 133;
             // 
             // label9
             // 
@@ -1833,53 +1833,53 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown36)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown37)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericHand10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKundenStueck10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMStart10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMEnde10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPause10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown41)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown42)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericHand9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKundenStueck9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMStart9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMEnde9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPause9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericHand8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKundenStueck8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMStart8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMEnde8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPause8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericHand7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKundenStueck7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMStart7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMEnde7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPause7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown26)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown27)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericHand6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKundenStueck6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMStart6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMEnde6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPause6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown31)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown32)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericHand5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKundenStueck5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMStart5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMEnde5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPause5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericHand4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKundenStueck4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMStart4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMEnde4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPause4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericHand3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKundenStueck3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMStart3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMEnde3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPause3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericHand2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKundenStueck2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMStart2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMEnde2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPause2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numeric2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numeric1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericHand1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKundenStueck1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMStart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMEnde1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPause1)).EndInit();
@@ -1892,11 +1892,11 @@
 
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label2Zahlenfeld;
-        private System.Windows.Forms.NumericUpDown numeric2;
+        private System.Windows.Forms.NumericUpDown numericHand1;
         private System.Windows.Forms.Label label1ZahlenFeld;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown numeric1;
-        private System.Windows.Forms.TextBox textBemerkung;
+        private System.Windows.Forms.NumericUpDown numericKundenStueck1;
+        private System.Windows.Forms.TextBox textBemerkung1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.NumericUpDown numericKMStart1;
@@ -1923,9 +1923,9 @@
         private System.Windows.Forms.Button buttonLoeschen1;
         private System.Windows.Forms.TextBox textTour10;
         private System.Windows.Forms.TextBox textFahrzeug10;
-        private System.Windows.Forms.NumericUpDown numericUpDown36;
-        private System.Windows.Forms.NumericUpDown numericUpDown37;
-        private System.Windows.Forms.TextBox textBox24;
+        private System.Windows.Forms.NumericUpDown numericHand10;
+        private System.Windows.Forms.NumericUpDown numericKundenStueck10;
+        private System.Windows.Forms.TextBox textBemerkung10;
         private System.Windows.Forms.NumericUpDown numericKMStart10;
         private System.Windows.Forms.NumericUpDown numericKMEnde10;
         private System.Windows.Forms.NumericUpDown numericPause10;
@@ -1933,9 +1933,9 @@
         private System.Windows.Forms.DateTimePicker timeStart10;
         private System.Windows.Forms.TextBox textTour9;
         private System.Windows.Forms.TextBox textFahrzeug9;
-        private System.Windows.Forms.NumericUpDown numericUpDown41;
-        private System.Windows.Forms.NumericUpDown numericUpDown42;
-        private System.Windows.Forms.TextBox textBox27;
+        private System.Windows.Forms.NumericUpDown numericHand9;
+        private System.Windows.Forms.NumericUpDown numericKundenStueck9;
+        private System.Windows.Forms.TextBox textBemerkung9;
         private System.Windows.Forms.NumericUpDown numericKMStart9;
         private System.Windows.Forms.NumericUpDown numericKMEnde9;
         private System.Windows.Forms.NumericUpDown numericPause9;
@@ -1943,9 +1943,9 @@
         private System.Windows.Forms.DateTimePicker timeStart9;
         private System.Windows.Forms.TextBox textTour8;
         private System.Windows.Forms.TextBox textFahrzeug8;
-        private System.Windows.Forms.NumericUpDown numericUpDown16;
-        private System.Windows.Forms.NumericUpDown numericUpDown17;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.NumericUpDown numericHand8;
+        private System.Windows.Forms.NumericUpDown numericKundenStueck8;
+        private System.Windows.Forms.TextBox textBemerkung8;
         private System.Windows.Forms.NumericUpDown numericKMStart8;
         private System.Windows.Forms.NumericUpDown numericKMEnde8;
         private System.Windows.Forms.NumericUpDown numericPause8;
@@ -1953,9 +1953,9 @@
         private System.Windows.Forms.DateTimePicker timeStart8;
         private System.Windows.Forms.TextBox textTour7;
         private System.Windows.Forms.TextBox textFahrzeug7;
-        private System.Windows.Forms.NumericUpDown numericUpDown21;
-        private System.Windows.Forms.NumericUpDown numericUpDown22;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.NumericUpDown numericHand7;
+        private System.Windows.Forms.NumericUpDown numericKundenStueck7;
+        private System.Windows.Forms.TextBox textBemerkung7;
         private System.Windows.Forms.NumericUpDown numericKMStart7;
         private System.Windows.Forms.NumericUpDown numericKMEnde7;
         private System.Windows.Forms.NumericUpDown numericPause7;
@@ -1963,9 +1963,9 @@
         private System.Windows.Forms.DateTimePicker timeStart7;
         private System.Windows.Forms.TextBox textTour6;
         private System.Windows.Forms.TextBox textFahrzeug6;
-        private System.Windows.Forms.NumericUpDown numericUpDown26;
-        private System.Windows.Forms.NumericUpDown numericUpDown27;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.NumericUpDown numericHand6;
+        private System.Windows.Forms.NumericUpDown numericKundenStueck6;
+        private System.Windows.Forms.TextBox textBemerkung6;
         private System.Windows.Forms.NumericUpDown numericKMStart6;
         private System.Windows.Forms.NumericUpDown numericKMEnde6;
         private System.Windows.Forms.NumericUpDown numericPause6;
@@ -1973,9 +1973,9 @@
         private System.Windows.Forms.DateTimePicker timeStart6;
         private System.Windows.Forms.TextBox textTour5;
         private System.Windows.Forms.TextBox textFahrzeug5;
-        private System.Windows.Forms.NumericUpDown numericUpDown31;
-        private System.Windows.Forms.NumericUpDown numericUpDown32;
-        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.NumericUpDown numericHand5;
+        private System.Windows.Forms.NumericUpDown numericKundenStueck5;
+        private System.Windows.Forms.TextBox textBemerkung5;
         private System.Windows.Forms.NumericUpDown numericKMStart5;
         private System.Windows.Forms.NumericUpDown numericKMEnde5;
         private System.Windows.Forms.NumericUpDown numericPause5;
@@ -1983,9 +1983,9 @@
         private System.Windows.Forms.DateTimePicker timeStart5;
         private System.Windows.Forms.TextBox textTour4;
         private System.Windows.Forms.TextBox textFahrzeug4;
-        private System.Windows.Forms.NumericUpDown numericUpDown11;
-        private System.Windows.Forms.NumericUpDown numericUpDown12;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.NumericUpDown numericHand4;
+        private System.Windows.Forms.NumericUpDown numericKundenStueck4;
+        private System.Windows.Forms.TextBox textBemerkung4;
         private System.Windows.Forms.NumericUpDown numericKMStart4;
         private System.Windows.Forms.NumericUpDown numericKMEnde4;
         private System.Windows.Forms.NumericUpDown numericPause4;
@@ -1993,9 +1993,9 @@
         private System.Windows.Forms.DateTimePicker timeStart4;
         private System.Windows.Forms.TextBox textTour3;
         private System.Windows.Forms.TextBox textFahrzeug3;
-        private System.Windows.Forms.NumericUpDown numericUpDown6;
-        private System.Windows.Forms.NumericUpDown numericUpDown7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.NumericUpDown numericHand3;
+        private System.Windows.Forms.NumericUpDown numericKundenStueck3;
+        private System.Windows.Forms.TextBox textBemerkung3;
         private System.Windows.Forms.NumericUpDown numericKMStart3;
         private System.Windows.Forms.NumericUpDown numericKMEnde3;
         private System.Windows.Forms.NumericUpDown numericPause3;
@@ -2003,9 +2003,9 @@
         private System.Windows.Forms.DateTimePicker timeStart3;
         private System.Windows.Forms.TextBox textTour2;
         private System.Windows.Forms.TextBox textFahrzeug2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.NumericUpDown numericHand2;
+        private System.Windows.Forms.NumericUpDown numericKundenStueck2;
+        private System.Windows.Forms.TextBox textBemerkung2;
         private System.Windows.Forms.NumericUpDown numericKMStart2;
         private System.Windows.Forms.NumericUpDown numericKMEnde2;
         private System.Windows.Forms.NumericUpDown numericPause2;

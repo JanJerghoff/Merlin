@@ -32,6 +32,8 @@ namespace Mitarbeiter
         private List<NumericUpDown> KMStart = new List<NumericUpDown>();
         private List<NumericUpDown> KMEnde = new List<NumericUpDown>();
 
+        private List<TextBox> Bemerkungen = new List<TextBox>();
+
         public LEA_Fahrtentabelle()
         {
             InitializeComponent();
@@ -186,18 +188,59 @@ namespace Mitarbeiter
             Pause.Add(numericPause10);
 
             KMStart.Add(numericKMStart1);
-            KMStart.Add(numericKMStart1);
-            KMStart.Add(numericKMStart1);
-            KMStart.Add(numericKMStart1);
-            KMStart.Add(numericKMStart1);
-            KMStart.Add(numericKMStart1);
-            KMStart.Add(numericKMStart1);
-            KMStart.Add(numericKMStart1);
-            KMStart.Add(numericKMStart1);
-            KMStart.Add(numericKMStart1);
+            KMStart.Add(numericKMStart2);
+            KMStart.Add(numericKMStart3);
+            KMStart.Add(numericKMStart4);
+            KMStart.Add(numericKMStart5);
+            KMStart.Add(numericKMStart6);
+            KMStart.Add(numericKMStart7);
+            KMStart.Add(numericKMStart8);
+            KMStart.Add(numericKMStart9);
+            KMStart.Add(numericKMStart10);
 
             KMEnde.Add(numericKMEnde1);
-          
+            KMEnde.Add(numericKMEnde2);
+            KMEnde.Add(numericKMEnde3);
+            KMEnde.Add(numericKMEnde4);
+            KMEnde.Add(numericKMEnde5);
+            KMEnde.Add(numericKMEnde6);
+            KMEnde.Add(numericKMEnde7);
+            KMEnde.Add(numericKMEnde8);
+            KMEnde.Add(numericKMEnde9);
+            KMEnde.Add(numericKMEnde10);
+
+            KundenStueck.Add(numericKundenStueck1);
+            KundenStueck.Add(numericKundenStueck2);
+            KundenStueck.Add(numericKundenStueck3);
+            KundenStueck.Add(numericKundenStueck4);
+            KundenStueck.Add(numericKundenStueck5);
+            KundenStueck.Add(numericKundenStueck6);
+            KundenStueck.Add(numericKundenStueck7);
+            KundenStueck.Add(numericKundenStueck8);
+            KundenStueck.Add(numericKundenStueck9);
+            KundenStueck.Add(numericKundenStueck10);
+
+            Handbeilagen.Add(numericHand1);
+            Handbeilagen.Add(numericHand2);
+            Handbeilagen.Add(numericHand3);
+            Handbeilagen.Add(numericHand4);
+            Handbeilagen.Add(numericHand5);
+            Handbeilagen.Add(numericHand6);
+            Handbeilagen.Add(numericHand7);
+            Handbeilagen.Add(numericHand8);
+            Handbeilagen.Add(numericHand9);
+            Handbeilagen.Add(numericHand10);
+
+            Bemerkungen.Add(textBemerkung1);
+            Bemerkungen.Add(textBemerkung2);
+            Bemerkungen.Add(textBemerkung3);
+            Bemerkungen.Add(textBemerkung4);
+            Bemerkungen.Add(textBemerkung5);
+            Bemerkungen.Add(textBemerkung6);
+            Bemerkungen.Add(textBemerkung7);
+            Bemerkungen.Add(textBemerkung8);
+            Bemerkungen.Add(textBemerkung9);
+            Bemerkungen.Add(textBemerkung10);
 
         }
 
