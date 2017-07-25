@@ -16,9 +16,13 @@ namespace Mitarbeiter
 {
     static class Program
     {
+        // Vorhalte-Listen für schnellen Lookup, Singletons
+
+        private static Dictionary<String, int> Tour;
+        private static Dictionary<String, int> Mitarbeiter;
+        private static Dictionary<String, int> Fahrzeuge;
 
         // Google vorbereitungen
-
 
         static string[] Scopes = { CalendarService.Scope.Calendar };
         static string ApplicationName = "Google Calendar API";
@@ -78,7 +82,13 @@ namespace Mitarbeiter
             // Bei Programmstart Stundenkonto aktualisieren
 
             Sollminute();
-            StundenkontoUpdate();           
+            StundenkontoUpdate();
+
+            //Füllen der Singletons (nicht optimal, aber einfacher)
+
+            getFahrzeug("");
+            getTour("");
+            getMitarbeiter("");
         }
 
         // Buero-geänderte-version
@@ -241,33 +251,31 @@ namespace Mitarbeiter
 
         public static int getFahrzeug(String Name)
         {
+            int ret;
 
-            MySqlCommand cmdFahrzeug = new MySqlCommand("SELECT idFahrzeug FROM Fahrzeug WHERE Name = '" + Name + "';", Program.conn2);
-            MySqlDataReader rdrFahrzeug;
-            int count = 0;
-            int nummer = 0;
-            try
-            {
-                rdrFahrzeug = cmdFahrzeug.ExecuteReader();
-                while (rdrFahrzeug.Read())
+            if (Fahrzeuge == null) {
+                Fahrzeuge = new Dictionary<String, int>();
+
+                //Abfrage aller Fahrzeuge
+                MySqlCommand cmdFahrzeug = new MySqlCommand("SELECT idFahrzeug, Name FROM Fahrzeug", Program.conn2);
+                MySqlDataReader rdrFahrzeug;
+                try
                 {
-                    count++;
-                    nummer = rdrFahrzeug.GetInt32(0);
+                    rdrFahrzeug = cmdFahrzeug.ExecuteReader();
+                    while (rdrFahrzeug.Read())
+                    {
+                        Fahrzeuge.Add(rdrFahrzeug.GetString(1), rdrFahrzeug.GetInt32(0));
+                    }
+                    rdrFahrzeug.Close();
                 }
-                rdrFahrzeug.Close();
+                catch (Exception sqlEx)
+                {
+                    throw sqlEx;
+                }
             }
-            catch (Exception sqlEx)
-            {
 
-            }
-            if (count > 1)
-            {
-                return -2;
-            }
-            else
-            {
-                return nummer;
-            }
+            Fahrzeuge.TryGetValue(Name, out ret);
+            return ret;            
         }
 
         public static String getFahrzeugName(int ID) {
@@ -295,32 +303,32 @@ namespace Mitarbeiter
         public static int getTour(String Name)
         {
 
-            MySqlCommand cmdTour = new MySqlCommand("SELECT idTour FROM Tour WHERE Name = '" + Name + "';", Program.conn2);
-            MySqlDataReader rdrTour;
-            int count = 0;
-            int nummer = 0;
-            try
-            {
-                rdrTour = cmdTour.ExecuteReader();
-                while (rdrTour.Read())
-                {
-                    count++;
-                    nummer = rdrTour.GetInt32(0);
-                }
-                rdrTour.Close();
-            }
-            catch (Exception sqlEx)
-            {
+            int ret;
 
-            }
-            if (count > 1)
+            if (Tour == null)
             {
-                return -2;
+                Tour = new Dictionary<String, int>();
+
+                //Abfrage aller Tourennamen
+                MySqlCommand cmdTour = new MySqlCommand("SELECT idTour, Name FROM Tour;", Program.conn2); // Zulässige Touren finden / definieren
+                MySqlDataReader rdrTour;
+                try
+                {
+                    rdrTour = cmdTour.ExecuteReader();
+                    while (rdrTour.Read())
+                    {
+                        Tour.Add(rdrTour.GetString(1), rdrTour.GetInt32(0));
+                    }
+                    rdrTour.Close();
+                }
+                catch (Exception sqlEx)
+                {
+                    throw sqlEx;
+                }
             }
-            else
-            {
-                return nummer;
-            }
+
+            Tour.TryGetValue(Name, out ret);
+            return ret;
         }
 
         public static int getTourCode(String Name)
@@ -370,32 +378,32 @@ namespace Mitarbeiter
         public static int getMitarbeiter(String Name)
         {
 
-            MySqlCommand cmdMitarbeiter = new MySqlCommand("SELECT idMitarbeiter FROM Mitarbeiter WHERE Nachname = '" + Name.Split(' ')[0].Split(',')[0] + "' AND Vorname = '"+ Name.Split(' ')[1] +"';", Program.conn2);
-            MySqlDataReader rdrMitarbeiter;
-            int count = 0;
-            int nummer = 0;
-            try
-            {
-                rdrMitarbeiter = cmdMitarbeiter.ExecuteReader();
-                while (rdrMitarbeiter.Read())
-                {
-                    count++;
-                    nummer = rdrMitarbeiter.GetInt32(0);
-                }
-                rdrMitarbeiter.Close();
-            }
-            catch (Exception sqlEx)
-            {
+            int ret;
 
-            }
-            if (count > 1)
+            if (Tour == null)
             {
-                return -2;
+                Tour = new Dictionary<String, int>();
+
+                //Abfrage aller Mitarbeiternamen
+                MySqlCommand cmdMitarbeiter = new MySqlCommand("SELECT idMitarbeiter, Nachname, Vorname FROM Mitarbeiter", Program.conn2);
+                MySqlDataReader rdrMitarbeiter;
+                try
+                {
+                    rdrMitarbeiter = cmdMitarbeiter.ExecuteReader();
+                    while (rdrMitarbeiter.Read())
+                    {
+                        Mitarbeiter.Add((rdrMitarbeiter[1].ToString() + ", " + rdrMitarbeiter[2].ToString()), rdrMitarbeiter.GetInt32(0));
+                    }
+                    rdrMitarbeiter.Close();
+                }
+                catch (Exception sqlEx)
+                {
+                    throw sqlEx;
+                }
             }
-            else
-            {
-                return nummer;
-            }
+
+            Mitarbeiter.TryGetValue(Name, out ret);
+            return ret;            
         }
 
         public static String getMitarbeiterName(int ID) {
@@ -419,6 +427,37 @@ namespace Mitarbeiter
             }
             return "-";
         }
+
+        public static bool validMitarbeiter(String Name) {
+
+            if (Mitarbeiter.ContainsKey(Name))
+            {
+                return true;
+            }
+            else { return false; }
+        }
+
+        public static bool validTour(String Name)
+        {
+
+            if (Tour.ContainsKey(Name))
+            {
+                return true;
+            }
+            else { return false; }
+        }
+
+        public static bool validFahrzeug(String Name)
+        {
+
+            if (Fahrzeuge.ContainsKey(Name))
+            {
+                return true;
+            }
+            else { return false; }
+        }
+
+
         // Beschafft Urlaubstage zu einem Mitarbeiter am Datum
         public static int getUrlaub(int ID, DateTime datum) {
             DateTime vollMonate = new DateTime();

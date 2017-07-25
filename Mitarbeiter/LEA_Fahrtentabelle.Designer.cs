@@ -163,6 +163,7 @@
             this.textLog = new System.Windows.Forms.TextBox();
             this.textMitarbeiter = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.buttonAbsenden = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericHand10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKundenStueck10)).BeginInit();
@@ -219,6 +220,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox2.Controls.Add(this.buttonAbsenden);
             this.groupBox2.Controls.Add(this.dateTag10);
             this.groupBox2.Controls.Add(this.dateTag9);
             this.groupBox2.Controls.Add(this.dateTag8);
@@ -1837,6 +1839,16 @@
             this.label2.TabIndex = 256;
             this.label2.Text = "Mitarbeiter";
             // 
+            // buttonAbsenden
+            // 
+            this.buttonAbsenden.Location = new System.Drawing.Point(6, 308);
+            this.buttonAbsenden.Name = "buttonAbsenden";
+            this.buttonAbsenden.Size = new System.Drawing.Size(189, 70);
+            this.buttonAbsenden.TabIndex = 256;
+            this.buttonAbsenden.Text = "Absenden";
+            this.buttonAbsenden.UseVisualStyleBackColor = true;
+            this.buttonAbsenden.Click += new System.EventHandler(this.buttonAbsenden_Click);
+            // 
             // LEA_Fahrtentabelle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2045,5 +2057,6 @@
         private System.Windows.Forms.DateTimePicker dateTag1;
         private System.Windows.Forms.TextBox textMitarbeiter;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonAbsenden;
     }
 }

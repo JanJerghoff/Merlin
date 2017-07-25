@@ -33,11 +33,12 @@ namespace Mitarbeiter
         private List<NumericUpDown> KMEnde = new List<NumericUpDown>();
 
         private List<TextBox> Bemerkungen = new List<TextBox>();
+                
 
         public LEA_Fahrtentabelle()
         {
             InitializeComponent();
-            setUp();
+            setUp();            
 
             AutoCompleteStringCollection autocomplete0 = new AutoCompleteStringCollection(); // Mitarbeiter
             AutoCompleteStringCollection autocomplete1 = new AutoCompleteStringCollection(); // Touren
@@ -453,6 +454,17 @@ namespace Mitarbeiter
         private void buttonLoeschen10_Click(object sender, EventArgs e)
         {
             leereZeile(9);
+        }
+
+        private void buttonAbsenden_Click(object sender, EventArgs e)
+        {
+            foreach (var item in Touren)
+            {
+                if (item.Text != "")
+                {
+
+                }
+            }
         }
     }
 
