@@ -458,12 +458,42 @@ namespace Mitarbeiter
 
         private void buttonAbsenden_Click(object sender, EventArgs e)
         {
+            int count = 0;
+
             foreach (var item in Touren)
             {
-                if (item.Text != "")
+                if (Program.validTour(item.Text))
                 {
+                    // Gültige Tour, abschicken und Fehlermeldung zurückgeben
+                    String temp = "Fehler";
+
+                    if (Program.getTourCode(item.Text) == 1)
+                    {
+                        temp = Program.pushFahrt(textMitarbeiter.Text, item.Text, Fahrzeuge[count].Text, Datum[count].Value, Start[count].Value, Ende[count].Value, decimal.ToInt32(Pause[count].Value), decimal.ToInt32(KMStart[count].Value), decimal.ToInt32(KMEnde[count].Value), decimal.ToInt32(KundenStueck[count].Value), 0, 0, Bemerkungen[count].Text, idBearbeitend);
+                    }
+                    else if (Program.getTourCode(item.Text) == 2)
+                    {
+                        temp = Program.pushFahrt(textMitarbeiter.Text, item.Text, Fahrzeuge[count].Text, Datum[count].Value, Start[count].Value, Ende[count].Value, decimal.ToInt32(Pause[count].Value), decimal.ToInt32(KMStart[count].Value), decimal.ToInt32(KMEnde[count].Value), 0, decimal.ToInt32(KundenStueck[count].Value), decimal.ToInt32(Handbeilagen[count].Value), Bemerkungen[count].Text, idBearbeitend);
+                    }
+                    else if (Program.getTourCode(item.Text) == 3)
+                    {
+                        temp = Program.pushFahrt(textMitarbeiter.Text, item.Text, Fahrzeuge[count].Text, Datum[count].Value, Start[count].Value, Ende[count].Value, decimal.ToInt32(Pause[count].Value), decimal.ToInt32(KMStart[count].Value), decimal.ToInt32(KMEnde[count].Value), 0, 0, 0, Bemerkungen[count].Text, idBearbeitend);
+                    }
+
+                    if (temp != "")
+                    {
+                        var warnung = MessageBox.Show(temp, "Fehlermeldung");
+                    }
+                    else {
+                        textLog.AppendText("Fahrt aus Zeile " + (count + 1) + " erfolgreich gespeichert \r\n");
+                    }
 
                 }
+                else if (item.Text != "") {
+                    var warnung = MessageBox.Show(item.Text + " ist keine gültige Tour", "Fehlermeldung");
+                }
+            
+                count++;
             }
         }
     }

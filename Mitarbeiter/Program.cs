@@ -75,6 +75,11 @@ namespace Mitarbeiter
                 System.Windows.Forms.Application.Exit();
             }
 
+            //Füllen der Singletons (nicht optimal, aber einfacher)
+            getFahrzeug("");
+            getTour("");
+            getMitarbeiter("");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Start());
@@ -83,12 +88,7 @@ namespace Mitarbeiter
 
             Sollminute();
             StundenkontoUpdate();
-
-            //Füllen der Singletons (nicht optimal, aber einfacher)
-
-            getFahrzeug("");
-            getTour("");
-            getMitarbeiter("");
+            
         }
 
         // Buero-geänderte-version
@@ -380,9 +380,9 @@ namespace Mitarbeiter
 
             int ret;
 
-            if (Tour == null)
+            if (Mitarbeiter == null)
             {
-                Tour = new Dictionary<String, int>();
+                Mitarbeiter = new Dictionary<String, int>();
 
                 //Abfrage aller Mitarbeiternamen
                 MySqlCommand cmdMitarbeiter = new MySqlCommand("SELECT idMitarbeiter, Nachname, Vorname FROM Mitarbeiter", Program.conn2);
