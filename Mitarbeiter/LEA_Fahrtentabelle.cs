@@ -318,9 +318,22 @@ namespace Mitarbeiter
             KundenStueck[Zeile].Enabled = false;
             Handbeilagen[Zeile].Enabled = false;
 
-            Bemerkungen[Zeile].Enabled = false;
+            Bemerkungen[Zeile].Enabled = false;            
+        }
 
-            //Zeilen leeren TODO
+        private void leereZeile(int Zeile) {
+            Datum[Zeile].Refresh();
+            Start[Zeile].Refresh();
+            Ende[Zeile].Refresh();
+
+            Pause[Zeile].Value = 0;
+            KMStart[Zeile].Value = 0;
+            KMEnde[Zeile].Value = 0;
+
+            KundenStueck[Zeile].Value = 0;
+            Handbeilagen[Zeile].Value = 0;
+
+            Bemerkungen[Zeile].Clear();
         }
 
         // ON_CLICKS
@@ -383,6 +396,56 @@ namespace Mitarbeiter
         {
             resetZeile(9);
             zeileAnpassen(9, Program.getTourCode(textTour10.Text));
+        }
+
+        private void buttonLoeschen1_Click(object sender, EventArgs e)
+        {
+            leereZeile(0);
+        }
+
+        private void buttonLoeschen2_Click(object sender, EventArgs e)
+        {
+            leereZeile(1);
+        }
+
+        private void buttonLoeschen3_Click(object sender, EventArgs e)
+        {
+            leereZeile(2);
+        }
+
+        private void buttonLoeschen4_Click(object sender, EventArgs e)
+        {
+            leereZeile(3);
+        }
+
+        private void buttonLoeschen5_Click(object sender, EventArgs e)
+        {
+            leereZeile(4);
+        }
+
+        private void buttonLoeschen6_Click(object sender, EventArgs e)
+        {
+            leereZeile(5);
+        }
+
+        private void buttonLoeschen7_Click(object sender, EventArgs e)
+        {
+            leereZeile(6);
+        }
+
+        private void buttonLoeschen8_Click(object sender, EventArgs e)
+        {
+            leereZeile(7);
+        }
+
+        private void buttonLoeschen9_Click(object sender, EventArgs e)
+        {
+            leereZeile(8);
+        }
+
+        private void buttonLoeschen10_Click(object sender, EventArgs e)
+        {
+            leereZeile(9);
         }
     }
 

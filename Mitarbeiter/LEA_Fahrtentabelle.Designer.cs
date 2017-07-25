@@ -465,6 +465,7 @@
             this.buttonLoeschen10.TabIndex = 244;
             this.buttonLoeschen10.Text = "Löschen";
             this.buttonLoeschen10.UseVisualStyleBackColor = true;
+            this.buttonLoeschen10.Click += new System.EventHandler(this.buttonLoeschen10_Click);
             // 
             // buttonLoeschen9
             // 
@@ -474,6 +475,7 @@
             this.buttonLoeschen9.TabIndex = 243;
             this.buttonLoeschen9.Text = "Löschen";
             this.buttonLoeschen9.UseVisualStyleBackColor = true;
+            this.buttonLoeschen9.Click += new System.EventHandler(this.buttonLoeschen9_Click);
             // 
             // buttonLoeschen8
             // 
@@ -483,6 +485,7 @@
             this.buttonLoeschen8.TabIndex = 242;
             this.buttonLoeschen8.Text = "Löschen";
             this.buttonLoeschen8.UseVisualStyleBackColor = true;
+            this.buttonLoeschen8.Click += new System.EventHandler(this.buttonLoeschen8_Click);
             // 
             // buttonLoeschen7
             // 
@@ -492,6 +495,7 @@
             this.buttonLoeschen7.TabIndex = 241;
             this.buttonLoeschen7.Text = "Löschen";
             this.buttonLoeschen7.UseVisualStyleBackColor = true;
+            this.buttonLoeschen7.Click += new System.EventHandler(this.buttonLoeschen7_Click);
             // 
             // buttonLoeschen6
             // 
@@ -501,6 +505,7 @@
             this.buttonLoeschen6.TabIndex = 240;
             this.buttonLoeschen6.Text = "Löschen";
             this.buttonLoeschen6.UseVisualStyleBackColor = true;
+            this.buttonLoeschen6.Click += new System.EventHandler(this.buttonLoeschen6_Click);
             // 
             // buttonLoeschen5
             // 
@@ -510,6 +515,7 @@
             this.buttonLoeschen5.TabIndex = 239;
             this.buttonLoeschen5.Text = "Löschen";
             this.buttonLoeschen5.UseVisualStyleBackColor = true;
+            this.buttonLoeschen5.Click += new System.EventHandler(this.buttonLoeschen5_Click);
             // 
             // buttonLoeschen4
             // 
@@ -519,6 +525,7 @@
             this.buttonLoeschen4.TabIndex = 238;
             this.buttonLoeschen4.Text = "Löschen";
             this.buttonLoeschen4.UseVisualStyleBackColor = true;
+            this.buttonLoeschen4.Click += new System.EventHandler(this.buttonLoeschen4_Click);
             // 
             // buttonLoeschen3
             // 
@@ -528,6 +535,7 @@
             this.buttonLoeschen3.TabIndex = 237;
             this.buttonLoeschen3.Text = "Löschen";
             this.buttonLoeschen3.UseVisualStyleBackColor = true;
+            this.buttonLoeschen3.Click += new System.EventHandler(this.buttonLoeschen3_Click);
             // 
             // buttonLoeschen2
             // 
@@ -537,6 +545,7 @@
             this.buttonLoeschen2.TabIndex = 236;
             this.buttonLoeschen2.Text = "Löschen";
             this.buttonLoeschen2.UseVisualStyleBackColor = true;
+            this.buttonLoeschen2.Click += new System.EventHandler(this.buttonLoeschen2_Click);
             // 
             // buttonLoeschen1
             // 
@@ -546,6 +555,7 @@
             this.buttonLoeschen1.TabIndex = 235;
             this.buttonLoeschen1.Text = "Löschen";
             this.buttonLoeschen1.UseVisualStyleBackColor = true;
+            this.buttonLoeschen1.Click += new System.EventHandler(this.buttonLoeschen1_Click);
             // 
             // textTour10
             // 
