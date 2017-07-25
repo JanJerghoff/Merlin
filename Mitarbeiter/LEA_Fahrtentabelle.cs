@@ -318,13 +318,20 @@ namespace Mitarbeiter
             KundenStueck[Zeile].Enabled = false;
             Handbeilagen[Zeile].Enabled = false;
 
-            Bemerkungen[Zeile].Enabled = false;            
+            Bemerkungen[Zeile].Enabled = false;
+
+            leereZeile(Zeile);           
         }
 
         private void leereZeile(int Zeile) {
-            Datum[Zeile].Refresh();
-            Start[Zeile].Refresh();
-            Ende[Zeile].Refresh();
+
+            DateTime reference = new DateTime (DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 12,0,0);
+            DateTime referenceStart = new DateTime(2017,1,1, 12, 0, 0);
+            DateTime referenceEnd = new DateTime(2017, 1, 1, 13, 0, 0);
+
+            Datum[Zeile].Value = reference.Date;
+            Start[Zeile].Value = referenceStart;
+            Ende[Zeile].Value = referenceEnd;
 
             Pause[Zeile].Value = 0;
             KMStart[Zeile].Value = 0;
