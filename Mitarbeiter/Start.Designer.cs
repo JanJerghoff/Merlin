@@ -46,6 +46,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.buttonStundenübersicht = new System.Windows.Forms.Button();
+            this.buttonEintragTabelle = new System.Windows.Forms.Button();
             this.groupMainBenutzer.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -58,11 +59,9 @@
             this.groupMainBenutzer.Controls.Add(this.radioMainBenutzerEva);
             this.groupMainBenutzer.Controls.Add(this.radioMainBenutzerJonas);
             this.groupMainBenutzer.Controls.Add(this.radioMainBenutzerRita);
-            this.groupMainBenutzer.Location = new System.Drawing.Point(16, 15);
-            this.groupMainBenutzer.Margin = new System.Windows.Forms.Padding(4);
+            this.groupMainBenutzer.Location = new System.Drawing.Point(12, 12);
             this.groupMainBenutzer.Name = "groupMainBenutzer";
-            this.groupMainBenutzer.Padding = new System.Windows.Forms.Padding(4);
-            this.groupMainBenutzer.Size = new System.Drawing.Size(140, 182);
+            this.groupMainBenutzer.Size = new System.Drawing.Size(105, 148);
             this.groupMainBenutzer.TabIndex = 1;
             this.groupMainBenutzer.TabStop = false;
             this.groupMainBenutzer.Text = "Benutzer";
@@ -71,10 +70,9 @@
             // 
             this.radioMainBenutzerSonst.AutoSize = true;
             this.radioMainBenutzerSonst.Checked = true;
-            this.radioMainBenutzerSonst.Location = new System.Drawing.Point(8, 138);
-            this.radioMainBenutzerSonst.Margin = new System.Windows.Forms.Padding(4);
+            this.radioMainBenutzerSonst.Location = new System.Drawing.Point(6, 112);
             this.radioMainBenutzerSonst.Name = "radioMainBenutzerSonst";
-            this.radioMainBenutzerSonst.Size = new System.Drawing.Size(84, 21);
+            this.radioMainBenutzerSonst.Size = new System.Drawing.Size(66, 17);
             this.radioMainBenutzerSonst.TabIndex = 4;
             this.radioMainBenutzerSonst.TabStop = true;
             this.radioMainBenutzerSonst.Text = "Sonstige";
@@ -83,10 +81,9 @@
             // radioMainBenutzerJan
             // 
             this.radioMainBenutzerJan.AutoSize = true;
-            this.radioMainBenutzerJan.Location = new System.Drawing.Point(8, 110);
-            this.radioMainBenutzerJan.Margin = new System.Windows.Forms.Padding(4);
+            this.radioMainBenutzerJan.Location = new System.Drawing.Point(6, 89);
             this.radioMainBenutzerJan.Name = "radioMainBenutzerJan";
-            this.radioMainBenutzerJan.Size = new System.Drawing.Size(52, 21);
+            this.radioMainBenutzerJan.Size = new System.Drawing.Size(42, 17);
             this.radioMainBenutzerJan.TabIndex = 3;
             this.radioMainBenutzerJan.Text = "Jan";
             this.radioMainBenutzerJan.UseVisualStyleBackColor = true;
@@ -94,10 +91,9 @@
             // radioMainBenutzerEva
             // 
             this.radioMainBenutzerEva.AutoSize = true;
-            this.radioMainBenutzerEva.Location = new System.Drawing.Point(8, 81);
-            this.radioMainBenutzerEva.Margin = new System.Windows.Forms.Padding(4);
+            this.radioMainBenutzerEva.Location = new System.Drawing.Point(6, 66);
             this.radioMainBenutzerEva.Name = "radioMainBenutzerEva";
-            this.radioMainBenutzerEva.Size = new System.Drawing.Size(53, 21);
+            this.radioMainBenutzerEva.Size = new System.Drawing.Size(44, 17);
             this.radioMainBenutzerEva.TabIndex = 2;
             this.radioMainBenutzerEva.Text = "Eva";
             this.radioMainBenutzerEva.UseVisualStyleBackColor = true;
@@ -105,10 +101,9 @@
             // radioMainBenutzerJonas
             // 
             this.radioMainBenutzerJonas.AutoSize = true;
-            this.radioMainBenutzerJonas.Location = new System.Drawing.Point(8, 53);
-            this.radioMainBenutzerJonas.Margin = new System.Windows.Forms.Padding(4);
+            this.radioMainBenutzerJonas.Location = new System.Drawing.Point(6, 43);
             this.radioMainBenutzerJonas.Name = "radioMainBenutzerJonas";
-            this.radioMainBenutzerJonas.Size = new System.Drawing.Size(67, 21);
+            this.radioMainBenutzerJonas.Size = new System.Drawing.Size(53, 17);
             this.radioMainBenutzerJonas.TabIndex = 1;
             this.radioMainBenutzerJonas.Text = "Jonas";
             this.radioMainBenutzerJonas.UseVisualStyleBackColor = true;
@@ -116,20 +111,18 @@
             // radioMainBenutzerRita
             // 
             this.radioMainBenutzerRita.AutoSize = true;
-            this.radioMainBenutzerRita.Location = new System.Drawing.Point(8, 25);
-            this.radioMainBenutzerRita.Margin = new System.Windows.Forms.Padding(4);
+            this.radioMainBenutzerRita.Location = new System.Drawing.Point(6, 20);
             this.radioMainBenutzerRita.Name = "radioMainBenutzerRita";
-            this.radioMainBenutzerRita.Size = new System.Drawing.Size(54, 21);
+            this.radioMainBenutzerRita.Size = new System.Drawing.Size(44, 17);
             this.radioMainBenutzerRita.TabIndex = 0;
             this.radioMainBenutzerRita.Text = "Rita";
             this.radioMainBenutzerRita.UseVisualStyleBackColor = true;
             // 
             // buttonStammdaten
             // 
-            this.buttonStammdaten.Location = new System.Drawing.Point(165, 21);
-            this.buttonStammdaten.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonStammdaten.Location = new System.Drawing.Point(124, 17);
             this.buttonStammdaten.Name = "buttonStammdaten";
-            this.buttonStammdaten.Size = new System.Drawing.Size(236, 113);
+            this.buttonStammdaten.Size = new System.Drawing.Size(177, 92);
             this.buttonStammdaten.TabIndex = 2;
             this.buttonStammdaten.Text = "Stammdaten Mitarbeiter";
             this.buttonStammdaten.UseVisualStyleBackColor = true;
@@ -137,35 +130,32 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonEintragTabelle);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.buttonMehrfachUmzug);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.buttonEintragUmzug);
-            this.groupBox1.Location = new System.Drawing.Point(165, 143);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Location = new System.Drawing.Point(124, 116);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(1148, 165);
+            this.groupBox1.Size = new System.Drawing.Size(1035, 134);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "LEA-Einträge";
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(740, 23);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Location = new System.Drawing.Point(738, 19);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(236, 113);
+            this.button4.Size = new System.Drawing.Size(177, 92);
             this.button4.TabIndex = 7;
             this.button4.Text = "Eintrag Urlaub / Feiertag";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // buttonMehrfachUmzug
             // 
-            this.buttonMehrfachUmzug.Location = new System.Drawing.Point(496, 23);
-            this.buttonMehrfachUmzug.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonMehrfachUmzug.Location = new System.Drawing.Point(555, 19);
             this.buttonMehrfachUmzug.Name = "buttonMehrfachUmzug";
-            this.buttonMehrfachUmzug.Size = new System.Drawing.Size(236, 113);
+            this.buttonMehrfachUmzug.Size = new System.Drawing.Size(177, 92);
             this.buttonMehrfachUmzug.TabIndex = 6;
             this.buttonMehrfachUmzug.Text = "Eintrag Schilder / Kartons / Besichtigungen";
             this.buttonMehrfachUmzug.UseVisualStyleBackColor = true;
@@ -173,10 +163,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(252, 23);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Location = new System.Drawing.Point(372, 19);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(236, 113);
+            this.button2.Size = new System.Drawing.Size(177, 92);
             this.button2.TabIndex = 5;
             this.button2.Text = "Eintrag Kundenzahl / Stück";
             this.button2.UseVisualStyleBackColor = true;
@@ -184,10 +173,9 @@
             // 
             // buttonEintragUmzug
             // 
-            this.buttonEintragUmzug.Location = new System.Drawing.Point(8, 23);
-            this.buttonEintragUmzug.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonEintragUmzug.Location = new System.Drawing.Point(189, 19);
             this.buttonEintragUmzug.Name = "buttonEintragUmzug";
-            this.buttonEintragUmzug.Size = new System.Drawing.Size(236, 113);
+            this.buttonEintragUmzug.Size = new System.Drawing.Size(177, 92);
             this.buttonEintragUmzug.TabIndex = 4;
             this.buttonEintragUmzug.Text = "Eintrag Umzug";
             this.buttonEintragUmzug.UseVisualStyleBackColor = true;
@@ -195,10 +183,9 @@
             // 
             // buttonTourenFahrzeuge
             // 
-            this.buttonTourenFahrzeuge.Location = new System.Drawing.Point(409, 21);
-            this.buttonTourenFahrzeuge.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonTourenFahrzeuge.Location = new System.Drawing.Point(307, 17);
             this.buttonTourenFahrzeuge.Name = "buttonTourenFahrzeuge";
-            this.buttonTourenFahrzeuge.Size = new System.Drawing.Size(236, 113);
+            this.buttonTourenFahrzeuge.Size = new System.Drawing.Size(177, 92);
             this.buttonTourenFahrzeuge.TabIndex = 4;
             this.buttonTourenFahrzeuge.Text = "Touren  / Fahrzeuge";
             this.buttonTourenFahrzeuge.UseVisualStyleBackColor = true;
@@ -206,13 +193,12 @@
             // 
             // textStartLog
             // 
-            this.textStartLog.Location = new System.Drawing.Point(16, 538);
-            this.textStartLog.Margin = new System.Windows.Forms.Padding(4);
+            this.textStartLog.Location = new System.Drawing.Point(12, 437);
             this.textStartLog.Multiline = true;
             this.textStartLog.Name = "textStartLog";
             this.textStartLog.ReadOnly = true;
             this.textStartLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textStartLog.Size = new System.Drawing.Size(1513, 139);
+            this.textStartLog.Size = new System.Drawing.Size(1136, 114);
             this.textStartLog.TabIndex = 144;
             this.textStartLog.TabStop = false;
             // 
@@ -221,21 +207,18 @@
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.buttonStundenübersicht);
-            this.groupBox2.Location = new System.Drawing.Point(165, 315);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Location = new System.Drawing.Point(124, 256);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(1148, 165);
+            this.groupBox2.Size = new System.Drawing.Size(861, 134);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Abfragen";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(496, 23);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Location = new System.Drawing.Point(372, 19);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(236, 113);
+            this.button3.Size = new System.Drawing.Size(177, 92);
             this.button3.TabIndex = 6;
             this.button3.Text = "Repertoire";
             this.button3.UseVisualStyleBackColor = true;
@@ -243,10 +226,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(252, 23);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(189, 19);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(236, 113);
+            this.button1.Size = new System.Drawing.Size(177, 92);
             this.button1.TabIndex = 5;
             this.button1.Text = "Detailsuche LEA";
             this.button1.UseVisualStyleBackColor = true;
@@ -254,27 +236,35 @@
             // 
             // buttonStundenübersicht
             // 
-            this.buttonStundenübersicht.Location = new System.Drawing.Point(8, 23);
-            this.buttonStundenübersicht.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonStundenübersicht.Location = new System.Drawing.Point(6, 19);
             this.buttonStundenübersicht.Name = "buttonStundenübersicht";
-            this.buttonStundenübersicht.Size = new System.Drawing.Size(236, 113);
+            this.buttonStundenübersicht.Size = new System.Drawing.Size(177, 92);
             this.buttonStundenübersicht.TabIndex = 4;
             this.buttonStundenübersicht.Text = "Stundenübersicht";
             this.buttonStundenübersicht.UseVisualStyleBackColor = true;
             this.buttonStundenübersicht.Click += new System.EventHandler(this.buttonStundenübersicht_Click);
             // 
+            // buttonEintragTabelle
+            // 
+            this.buttonEintragTabelle.Location = new System.Drawing.Point(6, 19);
+            this.buttonEintragTabelle.Name = "buttonEintragTabelle";
+            this.buttonEintragTabelle.Size = new System.Drawing.Size(177, 92);
+            this.buttonEintragTabelle.TabIndex = 7;
+            this.buttonEintragTabelle.Text = "Eintrag Tabelle";
+            this.buttonEintragTabelle.UseVisualStyleBackColor = true;
+            this.buttonEintragTabelle.Click += new System.EventHandler(this.buttonEintragTabelle_Click);
+            // 
             // Start
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1561, 820);
+            this.ClientSize = new System.Drawing.Size(1171, 666);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.textStartLog);
             this.Controls.Add(this.buttonTourenFahrzeuge);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonStammdaten);
             this.Controls.Add(this.groupMainBenutzer);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Start";
             this.Text = "Form1";
             this.groupMainBenutzer.ResumeLayout(false);
@@ -306,6 +296,7 @@
         private System.Windows.Forms.Button buttonStundenübersicht;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonEintragTabelle;
     }
 }
 
