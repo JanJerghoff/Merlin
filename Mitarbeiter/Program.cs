@@ -632,6 +632,83 @@ namespace Mitarbeiter
 
             return events;
         }
+
+        // Umzug nicht zulässig
+        // Push einer Fahrt (über Namen), return "" Erfolgreich, sonst Fehlermeldung
+        public static String pushFahrt(String Mitarbeiter, String Tour, String Fahrzeug, DateTime Datum, DateTime Start, DateTime End, int Pause, int KMStart, int KMEnde, int Kunden, int Stueck, int Handbeilagen, String Bemerkung, int idBearbeitend) {
+
+            int Typ = -1;
+            int TourNr = -1;
+            int MitarbeiterNr = -1;
+            int FahrzeugNr = -1;
+
+            TourNr = getTour(Tour);
+            FahrzeugNr = getFahrzeug(Fahrzeug);
+            MitarbeiterNr = getMitarbeiter(Mitarbeiter);
+            Typ = getTourCode(Tour);
+
+            DateTime Anfang = DateTime.Now;
+            DateTime Ende = DateTime.Now;
+
+            // Daten vorbereiten
+            if (Start.TimeOfDay.CompareTo(End.TimeOfDay) > 0)
+            {
+                // Über Mitternacht
+                Anfang = new DateTime(Datum.Year, Datum.Month, Datum.Day, Start.Hour, Start.Minute, 0);
+                Ende = new DateTime(Datum.Year, Datum.Month, Datum.Day + 1, End.Hour, End.Minute, 0);
+            }
+            else if (Start.TimeOfDay.CompareTo(End.TimeOfDay) > 0)
+            {
+                // Selber Tag
+                Anfang = new DateTime(Datum.Year, Datum.Month, Datum.Day, Start.Hour, Start.Minute, 0);
+                Ende = new DateTime(Datum.Year, Datum.Month, Datum.Day, End.Hour, End.Minute, 0);
+            }
+            else { return "Start und Endzeit dürfen nicht identisch sein"; }
+
+
+            // Legitimitätschecks
+            if (TourNr == -1) { return "Tour ist ungültig"; }
+            if (FahrzeugNr == -1) { return "Fahrzeug ist ungültig"; }
+            if (MitarbeiterNr == -1) { return "Mitarbeiter ist ungültig"; } 
+            if (Typ == -1) { return "Typ der Tour kann nicht gefunden werden"; }
+            if (Typ == 0) { return "Umzüge sind nicht zulässig"; }
+            if (Fahrzeug == "" && (KMStart != 0 || KMEnde != 0)) {return "Wenn Beifahrer dann dürfen keine Kilometer gegeben sein, wenn kein Beifahrer fehlt das Fahrzeug"; }
+            if (KMStart > KMEnde) { return "Endkilometer müssen größer sein als Startkilometer"; }
+            if ((Ende-Anfang).TotalMinutes < Pause) { return "Die Pause darf nicht länger sein als die Arbeitszeit"; }
+
+            // Stringbau
+            String insert = "";
+
+            insert += "INSERT INTO Fahrt (Mitarbeiter_idMitarbeiter, Start, Ende, Pause, AnfangsKM, EndKM, Bemerkung, UserChanged, Kunden, Stückzahl, Beilagen, Tour_idTour, Fahrzeug_idFahrzeug) VALUES (";
+
+            insert += MitarbeiterNr + ", ";
+            insert += "'" + DateTimeMachine(Anfang, Anfang) + "', ";
+            insert += "'" + DateTimeMachine(Ende, Ende) + "', ";
+            insert += Pause + ", ";
+            insert += KMStart + ", ";
+            insert += KMEnde + ", ";
+            insert += "'" + Bemerkung + "', ";
+            insert += idBearbeitend + ", ";
+            insert += Kunden + ", ";
+            insert += Stueck + ", ";
+            insert += Handbeilagen + ", ";
+            insert += TourNr + ", ";
+            insert += FahrzeugNr + ");";
+
+            // String fertig, absenden
+            MySqlCommand cmdAdd = new MySqlCommand(insert, Program.conn2);
+            try
+            {
+                cmdAdd.ExecuteNonQuery();
+                return "";
+
+            }
+            catch (Exception sqlEx)
+            {
+                return sqlEx.ToString(); 
+            }
+            
+        }
     }
 
 }
