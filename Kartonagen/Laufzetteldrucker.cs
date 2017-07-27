@@ -34,10 +34,10 @@ namespace Kartonagen
             MySqlCommand cmdRead = new MySqlCommand("SELECT k.Anrede, k.Vorname, k.Nachname, k.Telefonnummer, k.Handynummer, u.StraßeA, u.HausnummerA, u.OrtA, u.PLZA, u.umzugsZeit FROM Kunden k, Umzuege u WHERE (u.Kunden_idKunden = k.idKunden AND u.datBesichtigung = '" + Program.DateMachine(dateBesichtigung.Value) + "') ORDER BY u.umzugsZeit ASc", Program.conn);
             MySqlDataReader rdrPre;
             
-            String[] Namen = new String [10];
-            String[] Anschriften = new String[10];
-            String[] Uhrzeiten = new String[10];
-            String[] Handynummern = new String[10];
+            String[] Namen = new String [13];
+            String[] Anschriften = new String[13];
+            String[] Uhrzeiten = new String[13];
+            String[] Handynummern = new String[13];
             int rowCount = 0;
 
             try
@@ -82,6 +82,9 @@ namespace Kartonagen
             textAnschrift8.Text = Anschriften[7];
             textAnschrift9.Text = Anschriften[8];
             textAnschrift10.Text = Anschriften[9];
+            textAnschrift11.Text = Anschriften[10];
+            textAnschrift12.Text = Anschriften[11];
+            textAnschrift13.Text = Anschriften[12];
 
             textName1.Text = Namen[0];
             textName2.Text = Namen[1];
@@ -93,6 +96,9 @@ namespace Kartonagen
             textName8.Text = Namen[7];
             textName9.Text = Namen[8];
             textName10.Text = Namen[9];
+            textName11.Text = Namen[10];
+            textName12.Text = Namen[11];
+            textName13.Text = Namen[12];
 
             textUhrzeit1.Text = Uhrzeiten[0];
             textUhrzeit2.Text = Uhrzeiten[1];
@@ -104,6 +110,9 @@ namespace Kartonagen
             textUhrzeit8.Text = Uhrzeiten[7];
             textUhrzeit9.Text = Uhrzeiten[8];
             textUhrzeit10.Text = Uhrzeiten[9];
+            textUhrzeit11.Text = Uhrzeiten[10];
+            textUhrzeit12.Text = Uhrzeiten[11];
+            textUhrzeit13.Text = Uhrzeiten[12];
 
             textKontakt1.Text = Handynummern[0];
             textKontakt2.Text = Handynummern[1];
@@ -115,6 +124,9 @@ namespace Kartonagen
             textKontakt8.Text = Handynummern[7];
             textKontakt9.Text = Handynummern[8];
             textKontakt10.Text = Handynummern[9];
+            textKontakt11.Text = Handynummern[10];
+            textKontakt12.Text = Handynummern[11];
+            textKontakt13.Text = Handynummern[12];
 
 
         }
@@ -206,6 +218,14 @@ namespace Kartonagen
                 fields.TryGetValue("Besonderheit 10", out toSet);
                 toSet.SetValue(textBemerkung10.Text);
 
+                fields.TryGetValue("Besonderheit 11", out toSet);
+                toSet.SetValue(textBemerkung11.Text);
+
+                fields.TryGetValue("Besonderheit 12", out toSet);
+                toSet.SetValue(textBemerkung12.Text);
+
+                fields.TryGetValue("Besonderheit 13", out toSet);
+                toSet.SetValue(textBemerkung13.Text);
             }
             catch (Exception ex) {
                 textLog.Text += ex.ToString();
