@@ -175,7 +175,7 @@ namespace Mitarbeiter
                     "Geburtsdatum, Geburtsort, Hauptarbeitgeber, StundenanteilMinuten, Staatsangehoerigkeit, IBAN, BIC, Kontoinhaber, Einstellungsdatum, Kategorie, UserChanged, Ausscheidedatum) VALUES (";
                 insert += "'" + textVorname.Text + "', ";
                 insert += "'" + textNachname.Text + "', ";
-                insert += "" + numericStundenlohn.Value.ToString() + ", ";
+                insert += numericStundenlohn.Value.ToString().Replace(',' , '.') + ", ";
                 insert += "'" + textMitarbeiterNr.Text + "', ";
                 insert += "'" + textStraße.Text + "', ";
                 insert += "'" + textOrt.Text + "', ";
@@ -183,9 +183,9 @@ namespace Mitarbeiter
                 insert += "'" + textTelefon.Text + "', ";
                 insert += "'" + textReligion.Text + "', ";
                 insert += "'" + textKrankenkasse.Text + "', ";
-                insert += "" + numericSteuerklasse.Value.ToString() + ", ";
+                insert +=  numericSteuerklasse.Value.ToString().Replace(',', '.') + ", ";
                 insert += "'" + textFamilienstand.Text + "', ";
-                insert += "" + numericKinder.Value.ToString() + ", ";
+                insert +=  numericKinder.Value.ToString().Replace(',', '.') + ", ";
                 insert += "'" + textSozialversicherung.Text + "', ";
                 insert += "'" + textSteuerID.Text + "', ";
                 insert += "'" + textFuehrerscheinNr.Text + "', ";
@@ -193,7 +193,7 @@ namespace Mitarbeiter
                 insert += "'" + Program.DateMachine(dateGeburtstag.Value) + "', ";
                 insert += "'" + textGeburtsort.Text + "', ";
                 insert += "'" + textHauptarbeitgeber.Text + "', ";
-                insert += "" + Program.toMinute(numericStundenanteil.Value) + ", ";
+                insert += Program.toMinute(numericStundenanteil.Value) + ", ";
                 insert += "'" + textStaatsangehoerigkeit.Text + "', ";
                 insert += "'" + textIBAN.Text + "', ";
                 insert += "'" + textBIC.Text + "', ";
