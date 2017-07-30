@@ -17,30 +17,8 @@ namespace Mitarbeiter
         {
 
             InitializeComponent();
-
-            // String-collection anlegen
-            AutoCompleteStringCollection autocomplete = new AutoCompleteStringCollection();
-
-            //Abfrage aller Namen
-            MySqlCommand cmdRead = new MySqlCommand("SELECT Nachname, Vorname FROM Mitarbeiter", Program.conn2);
-            MySqlDataReader rdr;
-
-            try
-            {
-                rdr = cmdRead.ExecuteReader();
-                while (rdr.Read())
-                {
-                    autocomplete.Add(rdr[0].ToString() + ", " + rdr[1].ToString());
-                }
-                rdr.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                textStammdatenLog.Text += sqlEx.ToString();
-                return;
-            }
             // Autocomplete vorlegen
-            textSucheName.AutoCompleteCustomSource = autocomplete;
+            textSucheName.AutoCompleteCustomSource = Program.getAutocompleteMitarbeiter();
             textSucheName.AutoCompleteMode = AutoCompleteMode.Suggest;
         }
 
@@ -302,6 +280,10 @@ namespace Mitarbeiter
                 check.Show();
                 check.fuellen(ID);
                 check.setBearbeitend(idBearbeitend);
+
+                // MitarbeiterAuocomplete-Singleton updaten
+
+                Program.refreshAutocompleteMitarbeiter();
             }
         }
 

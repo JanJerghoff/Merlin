@@ -39,83 +39,20 @@ namespace Mitarbeiter
         {
             InitializeComponent();
             setUp();            
-
-            AutoCompleteStringCollection autocomplete0 = new AutoCompleteStringCollection(); // Mitarbeiter
-            AutoCompleteStringCollection autocomplete1 = new AutoCompleteStringCollection(); // Touren
-            AutoCompleteStringCollection autocomplete2 = new AutoCompleteStringCollection(); // Fahrzeuge
-
-            //Abfrage aller Mitarbeiternamen
-            MySqlCommand cmdMitarbeiter = new MySqlCommand("SELECT Nachname, Vorname FROM Mitarbeiter", Program.conn2);
-            MySqlDataReader rdrMitarbeiter;
-            try
-            {
-                rdrMitarbeiter = cmdMitarbeiter.ExecuteReader();
-                while (rdrMitarbeiter.Read())
-                {
-                    autocomplete0.Add(rdrMitarbeiter[0].ToString() + ", " + rdrMitarbeiter[1].ToString());
-                }
-                rdrMitarbeiter.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                textLog.Text += sqlEx.ToString();
-                return;
-            }
+            
             // Autocomplete vorlegen
-            textMitarbeiter.AutoCompleteCustomSource = autocomplete0;
+            textMitarbeiter.AutoCompleteCustomSource = Program.getAutocompleteMitarbeiter();
             textMitarbeiter.AutoCompleteMode = AutoCompleteMode.Suggest;
-
-            //
-
-            //Abfrage aller Tourennamen
-            MySqlCommand cmdTour = new MySqlCommand("SELECT Name FROM Tour WHERE TYPE >= 0 AND TYPE <=3;", Program.conn2); // Zulässige Touren finden / definieren
-            MySqlDataReader rdrTour;
-            try
-            {
-                rdrTour = cmdTour.ExecuteReader();
-                while (rdrTour.Read())
-                {
-                    autocomplete1.Add(rdrTour[0].ToString());
-                }
-                rdrTour.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                textLog.Text += sqlEx.ToString();
-                return;
-            }
-            // Autocomplete vorlegen
-
+            
             foreach (var item in Touren)
             {
-                item.AutoCompleteCustomSource = autocomplete1;
+                item.AutoCompleteCustomSource = Program.getAutocompleteTour();
                 item.AutoCompleteMode = AutoCompleteMode.Suggest;
             }
-
-            //
-
-            //Abfrage aller Fahrzeuge
-            MySqlCommand cmdFahrzeug = new MySqlCommand("SELECT Name FROM Fahrzeug", Program.conn2);
-            MySqlDataReader rdrFahrzeug;
-            try
-            {
-                rdrFahrzeug = cmdFahrzeug.ExecuteReader();
-                while (rdrFahrzeug.Read())
-                {
-                    autocomplete2.Add(rdrFahrzeug[0].ToString());
-                }
-                rdrFahrzeug.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                textLog.Text += sqlEx.ToString();
-                return;
-            }
-            // Autocomplete vorlegen
-
+            
             foreach (var item in Fahrzeuge)
             {
-                item.AutoCompleteCustomSource = autocomplete2;
+                item.AutoCompleteCustomSource = Program.getAutocompleteFahrzeug();
                 item.AutoCompleteMode = AutoCompleteMode.Suggest;
             }
         }

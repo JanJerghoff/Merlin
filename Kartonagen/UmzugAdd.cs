@@ -19,29 +19,8 @@ namespace Kartonagen
         public UmzugAdd()
         {
             InitializeComponent();
-            // String-collection anlegen
-            AutoCompleteStringCollection autocomplete = new AutoCompleteStringCollection();
-
-            //Abfrage aller Namen
-            MySqlCommand cmdRead = new MySqlCommand("SELECT Nachname FROM Kunden", Program.conn);
-            MySqlDataReader rdr;
-
-            try
-            {
-                rdr = cmdRead.ExecuteReader();
-                while (rdr.Read())
-                {
-                    autocomplete.Add(rdr[0].ToString());
-                }
-                rdr.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                textUmzugLog.Text += sqlEx.ToString();
-                return;
-            }
-
-            textSucheName.AutoCompleteCustomSource = autocomplete;
+            
+            textSucheName.AutoCompleteCustomSource = Program.getAutocompleteKunden();
             textSucheName.AutoCompleteMode = AutoCompleteMode.Suggest;
 
             // Vorlegen der ListBoxen
