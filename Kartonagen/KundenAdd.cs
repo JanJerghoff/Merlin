@@ -24,31 +24,9 @@ namespace Kartonagen
         public KundenAdd()
         {
             InitializeComponent();
-
-
-            // String-collection anlegen
-            AutoCompleteStringCollection autocomplete = new AutoCompleteStringCollection();
-
-            //Abfrage aller Namen
-            MySqlCommand cmdRead = new MySqlCommand("SELECT Nachname FROM Kunden", Program.conn);
-            MySqlDataReader rdr;
-
-            try
-            {
-                rdr = cmdRead.ExecuteReader();
-                while (rdr.Read())
-                {
-                    autocomplete.Add(rdr[0].ToString());
-                }
-                rdr.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                textKundenAddLog.Text += sqlEx.ToString();
-                return;
-            }
+            
             // Autocomplete vorlegen
-            textKundenAddNachname.AutoCompleteCustomSource = autocomplete;
+            textKundenAddNachname.AutoCompleteCustomSource = Program.getAutocompleteKunden();
             textKundenAddNachname.AutoCompleteMode = AutoCompleteMode.Suggest;
         }
 
@@ -208,6 +186,9 @@ namespace Kartonagen
             
             numericKundenNewKundennummer.Value = neuKundennr;
 
+            // Wegen dem neuen Kunden muss die Autocomplete-Kundenliste (Singleton im Program) erneuert werden
+
+            Program.refreshAutocompleteKunden();
         }
 
         private void buttonUmzug_Click(object sender, EventArgs e)

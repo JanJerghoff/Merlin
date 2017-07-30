@@ -13,8 +13,6 @@ namespace Mitarbeiter
 {
     public partial class Repetoire : Form
     {
-
-        AutoCompleteStringCollection autocomplete0 = new AutoCompleteStringCollection(); // Mitarbeiter
         AutoCompleteStringCollection autocomplete1 = new AutoCompleteStringCollection(); // Touren
         Dictionary<int, String> Tourensammlung = new Dictionary<int, String>(); // Zwischenspeicher Touren
         Dictionary<int, String> Mitarbeitersammlung = new Dictionary<int, String>(); // Zwischenspeicher Mitarbeiter
@@ -23,27 +21,9 @@ namespace Mitarbeiter
         public Repetoire()
         {
             InitializeComponent();
-
-            //Abfrage aller Mitarbeiternamen
-            MySqlCommand cmdMitarbeiter = new MySqlCommand("SELECT Nachname, Vorname, idMitarbeiter FROM Mitarbeiter", Program.conn2);
-            MySqlDataReader rdrMitarbeiter;
-            try
-            {
-                rdrMitarbeiter = cmdMitarbeiter.ExecuteReader();
-                while (rdrMitarbeiter.Read())
-                {
-                    autocomplete0.Add(rdrMitarbeiter[0].ToString() + ", " + rdrMitarbeiter[1].ToString());
-                    Mitarbeitersammlung.Add(rdrMitarbeiter.GetInt32(2), (rdrMitarbeiter[0].ToString() + ", " + rdrMitarbeiter[1].ToString()));
-                }
-                rdrMitarbeiter.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                var bestätigung = MessageBox.Show(sqlEx.ToString(), "Fehlermeldung");
-                return;
-            }
+            
             // Autocomplete vorlegen
-            textSucheName.AutoCompleteCustomSource = autocomplete0;
+            textSucheName.AutoCompleteCustomSource = Program.getAutocompleteMitarbeiter();
             textSucheName.AutoCompleteMode = AutoCompleteMode.Suggest;
 
 
@@ -181,7 +161,7 @@ namespace Mitarbeiter
                     var bestätigung = MessageBox.Show("Die gesuchte Tour existiert nicht, Eingabe bitte prüfen", "Fehlermeldung");
                     return;
                 }
-                if (autocomplete0.Contains(textSucheName.Text) == false) {
+                if (Program.getAutocompleteMitarbeiter().Contains(textSucheName.Text) == false) {
                     var bestätigung = MessageBox.Show("Der gesuchte Mitarbeiter existiert nicht, Eingabe bitte prüfen", "Fehlermeldung");
                     return;
                 }
@@ -191,7 +171,7 @@ namespace Mitarbeiter
             // Name gefüllt -> legitim? -> Mitarbeiter Anzeige
             else if (textSucheName.Text != "")
             {
-                if (autocomplete0.Contains(textSucheName.Text))
+                if (Program.getAutocompleteMitarbeiter().Contains(textSucheName.Text))
                 {
                     anzeigeMitarbeiter(Program.getMitarbeiter(textSucheName.Text));
                 }

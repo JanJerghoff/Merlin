@@ -14,7 +14,6 @@ namespace Mitarbeiter
     public partial class LEA_Mitarbeiter_Details : Form
     {
         // String-collection anlegen
-        AutoCompleteStringCollection autocomplete0 = new AutoCompleteStringCollection(); // Mitarbeiter
         AutoCompleteStringCollection autocomplete1 = new AutoCompleteStringCollection(); // Touren
         Dictionary<int, String> Fahrzeugsammlung = new Dictionary<int, String>(); // Zwischenspeicher Fahrzeuge für LAdegeschwindigkeit
         Dictionary<int, String> Tourensammlung = new Dictionary<int, String>(); // Zwischenspeicher Touren
@@ -33,7 +32,6 @@ namespace Mitarbeiter
                 rdrMitarbeiter = cmdMitarbeiter.ExecuteReader();
                 while (rdrMitarbeiter.Read())
                 {
-                    autocomplete0.Add(rdrMitarbeiter[0].ToString() + ", " + rdrMitarbeiter[1].ToString());
                     Mitarbeitersammlung.Add(rdrMitarbeiter.GetInt32(2), (rdrMitarbeiter[0].ToString() + ", " + rdrMitarbeiter[1].ToString()));
                 }
                 rdrMitarbeiter.Close();
@@ -44,7 +42,7 @@ namespace Mitarbeiter
                 return;
             }
             // Autocomplete vorlegen
-            textSucheName.AutoCompleteCustomSource = autocomplete0;
+            textSucheName.AutoCompleteCustomSource = Program.getAutocompleteMitarbeiter();
             textSucheName.AutoCompleteMode = AutoCompleteMode.Suggest;
 
 

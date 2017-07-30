@@ -18,8 +18,6 @@ namespace Mitarbeiter
         
 
         // String-collection anlegen
-        AutoCompleteStringCollection autocomplete0 = new AutoCompleteStringCollection(); // Mitarbeiter
-        AutoCompleteStringCollection autocomplete1 = new AutoCompleteStringCollection(); // Kunden
         AutoCompleteStringCollection autocomplete2 = new AutoCompleteStringCollection(); // Fahrzeuge
 
         static List<TextBox> textboxen = new List<TextBox>();
@@ -31,73 +29,36 @@ namespace Mitarbeiter
             InitializeComponent();
 
             listenfuellen();
-
-            //Abfrage aller Mitarbeiternamen
-            MySqlCommand cmdMitarbeiter = new MySqlCommand("SELECT Nachname, Vorname FROM Mitarbeiter", Program.conn2);
-            MySqlDataReader rdrMitarbeiter;
-            try
-            {
-                rdrMitarbeiter = cmdMitarbeiter.ExecuteReader();
-                while (rdrMitarbeiter.Read())
-                {
-                    autocomplete0.Add(rdrMitarbeiter[0].ToString() + ", " + rdrMitarbeiter[1].ToString());
-                }
-                rdrMitarbeiter.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                textLog.Text += sqlEx.ToString();
-                return;
-            }
+            
             // Autocomplete vorlegen
-            textSucheName.AutoCompleteCustomSource = autocomplete0;
+            textSucheName.AutoCompleteCustomSource = Program.getAutocompleteMitarbeiter();
             textSucheName.AutoCompleteMode = AutoCompleteMode.Suggest;
 
-            //
-
-            //Abfrage aller Kundennamen
-            MySqlCommand cmdKunden = new MySqlCommand("SELECT k.Nachname, k.Vorname FROM Kunden k, Umzuege u WHERE u.Kunden_idKunden = k.idKunden;", Program.conn);
-            MySqlDataReader rdrKunden;
-            try
-            {
-                rdrKunden = cmdKunden.ExecuteReader();
-                while (rdrKunden.Read())
-                {
-                    autocomplete1.Add(rdrKunden[0].ToString() + ", " + rdrKunden[1].ToString());
-                }
-                rdrKunden.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                textLog.Text += sqlEx.ToString();
-                return;
-            }
-            // Autocomplete vorlegen
-            textKundenname1.AutoCompleteCustomSource = autocomplete1;
+            textKundenname1.AutoCompleteCustomSource = Program.getAutocompleteKunden();
             textKundenname1.AutoCompleteMode = AutoCompleteMode.Suggest;
 
-            textKundenname2.AutoCompleteCustomSource = autocomplete1;
+            textKundenname2.AutoCompleteCustomSource = Program.getAutocompleteKunden();
             textKundenname2.AutoCompleteMode = AutoCompleteMode.Suggest;
 
-            textKundenname3.AutoCompleteCustomSource = autocomplete1;
+            textKundenname3.AutoCompleteCustomSource = Program.getAutocompleteKunden();
             textKundenname3.AutoCompleteMode = AutoCompleteMode.Suggest;
 
-            textKundenname4.AutoCompleteCustomSource = autocomplete1;
+            textKundenname4.AutoCompleteCustomSource = Program.getAutocompleteKunden();
             textKundenname4.AutoCompleteMode = AutoCompleteMode.Suggest;
 
-            textKundenname5.AutoCompleteCustomSource = autocomplete1;
+            textKundenname5.AutoCompleteCustomSource = Program.getAutocompleteKunden();
             textKundenname5.AutoCompleteMode = AutoCompleteMode.Suggest;
 
-            textKundenname6.AutoCompleteCustomSource = autocomplete1;
+            textKundenname6.AutoCompleteCustomSource = Program.getAutocompleteKunden();
             textKundenname6.AutoCompleteMode = AutoCompleteMode.Suggest;
 
-            textKundenname7.AutoCompleteCustomSource = autocomplete1;
+            textKundenname7.AutoCompleteCustomSource = Program.getAutocompleteKunden();
             textKundenname7.AutoCompleteMode = AutoCompleteMode.Suggest;
 
-            textKundenname8.AutoCompleteCustomSource = autocomplete1;
+            textKundenname8.AutoCompleteCustomSource = Program.getAutocompleteKunden();
             textKundenname8.AutoCompleteMode = AutoCompleteMode.Suggest;
 
-            textKundenname9.AutoCompleteCustomSource = autocomplete1;
+            textKundenname9.AutoCompleteCustomSource = Program.getAutocompleteKunden();
             textKundenname9.AutoCompleteMode = AutoCompleteMode.Suggest;
             //
 
@@ -240,7 +201,7 @@ namespace Mitarbeiter
 
         private void fuellenKundenname(TextBox name, NumericUpDown nummer, Label meldung)
         {
-            if (autocomplete1.Contains(name.Text) == false){
+            if (Program.getAutocompleteKunden().Contains(name.Text) == false){
                 meldung.Visible = true;
                 return;
             }

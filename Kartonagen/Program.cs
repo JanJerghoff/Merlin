@@ -27,9 +27,11 @@ namespace Kartonagen
     static class Program
     {
 
+        // Singleton-Autocomplete-Listen
+        private static AutoCompleteStringCollection autocompleteKunden;
+        private static AutoCompleteStringCollection autocompleteMitarbeiter;
+
         // Google vorbereitungen
-
-
         static string[] Scopes = { CalendarService.Scope.Calendar };
         static string ApplicationName = "Google Calendar API";
         static CalendarService dienst;
@@ -41,12 +43,81 @@ namespace Kartonagen
         // Buero-geänderte-version
 
         // Deployment
-        internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=Umzuege;port=3306;password=he62okv;");
-        internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
+        //internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=Umzuege;port=3306;password=he62okv;");
+        //internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
 
         //Test
-        //internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;");
-        //internal static MySqlConnection conn2 = new MySqlConnection("server = 10.0.0.0;user=test;database=Mitarbeiter;port=3306;password=he62okv;");
+        internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;");
+        internal static MySqlConnection conn2 = new MySqlConnection("server = 10.0.0.0;user=test;database=Mitarbeiter;port=3306;password=he62okv;");
+
+        // -------------- Methoden ---------------
+
+        public static AutoCompleteStringCollection getAutocompleteKunden() {
+
+            if (autocompleteKunden == null) {
+                refreshAutocompleteKunden();
+            }
+
+            return autocompleteKunden;
+        }
+
+        public static void refreshAutocompleteKunden() {
+
+            autocompleteKunden = new AutoCompleteStringCollection();
+            
+            //Abfrage aller Namen
+            MySqlCommand cmdRead = new MySqlCommand("SELECT Nachname FROM Kunden", Program.conn);
+            MySqlDataReader rdr;
+
+            try
+            {
+                rdr = cmdRead.ExecuteReader();
+                while (rdr.Read())
+                {
+                    autocompleteKunden.Add(rdr[0].ToString());
+                }
+                rdr.Close();
+            }
+            catch (Exception sqlEx)
+            {
+                return;
+            }
+        }
+
+        public static AutoCompleteStringCollection getAutocompleteMitarbeiter()
+        {
+
+            if (autocompleteMitarbeiter == null)
+            {
+                refreshAutocompleteMitarbeiter();
+            }
+
+            return autocompleteMitarbeiter;
+        }
+
+        public static void refreshAutocompleteMitarbeiter()
+        {
+
+            autocompleteMitarbeiter = new AutoCompleteStringCollection();
+
+            //Abfrage aller Mitarbeiternamen
+            MySqlCommand cmdMitarbeiter = new MySqlCommand("SELECT Nachname, Vorname FROM Mitarbeiter", Program.conn2);
+            MySqlDataReader rdrMitarbeiter;
+            try
+            {
+                rdrMitarbeiter = cmdMitarbeiter.ExecuteReader();
+                while (rdrMitarbeiter.Read())
+                {
+                    autocompleteMitarbeiter.Add(rdrMitarbeiter[0].ToString() + ", " + rdrMitarbeiter[1].ToString());
+                }
+                rdrMitarbeiter.Close();
+            }
+            catch (Exception sqlEx)
+            {
+                return;
+            }
+        }
+
 
 
         // Stellt einen check zum Überprüfen von Kundendaten zur Verfügung

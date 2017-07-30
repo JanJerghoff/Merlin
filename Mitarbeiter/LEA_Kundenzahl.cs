@@ -23,30 +23,12 @@ namespace Mitarbeiter
         public LEA_Kundenzahl()
         {
             InitializeComponent();
-
-            AutoCompleteStringCollection autocomplete0 = new AutoCompleteStringCollection(); // Mitarbeiter
+            
             AutoCompleteStringCollection autocomplete1 = new AutoCompleteStringCollection(); // Touren
             AutoCompleteStringCollection autocomplete2 = new AutoCompleteStringCollection(); // Fahrzeuge
-
-            //Abfrage aller Mitarbeiternamen
-            MySqlCommand cmdMitarbeiter = new MySqlCommand("SELECT Nachname, Vorname FROM Mitarbeiter", Program.conn2);
-            MySqlDataReader rdrMitarbeiter;
-            try
-            {
-                rdrMitarbeiter = cmdMitarbeiter.ExecuteReader();
-                while (rdrMitarbeiter.Read())
-                {
-                    autocomplete0.Add(rdrMitarbeiter[0].ToString() + ", " + rdrMitarbeiter[1].ToString());
-                }
-                rdrMitarbeiter.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                textLog.Text += sqlEx.ToString();
-                return;
-            }
+            
             // Autocomplete vorlegen
-            textSucheName.AutoCompleteCustomSource = autocomplete0;
+            textSucheName.AutoCompleteCustomSource = Program.getAutocompleteMitarbeiter();
             textSucheName.AutoCompleteMode = AutoCompleteMode.Suggest;
 
             //

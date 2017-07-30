@@ -17,52 +17,12 @@ namespace Mitarbeiter
         {
             InitializeComponent();
             // String-collection anlegen
-            AutoCompleteStringCollection autocomplete0 = new AutoCompleteStringCollection(); // Mitarbeiter
-            AutoCompleteStringCollection autocomplete1 = new AutoCompleteStringCollection(); // Kunden
             AutoCompleteStringCollection autocomplete2 = new AutoCompleteStringCollection(); // Fahrzeuge
-
-            //Abfrage aller Mitarbeiternamen
-            MySqlCommand cmdMitarbeiter = new MySqlCommand("SELECT Nachname, Vorname FROM Mitarbeiter", Program.conn2);
-            MySqlDataReader rdrMitarbeiter;
-            try
-            {
-                rdrMitarbeiter = cmdMitarbeiter.ExecuteReader();
-                while (rdrMitarbeiter.Read())
-                {
-                    autocomplete0.Add(rdrMitarbeiter[0].ToString() + ", " + rdrMitarbeiter[1].ToString());
-                }
-                rdrMitarbeiter.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                textLog.Text += sqlEx.ToString();
-                return;
-            }
-            // Autocomplete vorlegen
-            textSucheName.AutoCompleteCustomSource = autocomplete0;
+                        
+            textSucheName.AutoCompleteCustomSource = Program.getAutocompleteMitarbeiter();
             textSucheName.AutoCompleteMode = AutoCompleteMode.Suggest;
 
-            //
-
-            //Abfrage aller Kundennamen
-            MySqlCommand cmdKunden = new MySqlCommand("SELECT k.Nachname, k.Vorname FROM Kunden k, Umzuege u WHERE u.Kunden_idKunden = k.idKunden;", Program.conn);
-            MySqlDataReader rdrKunden;
-            try
-            {
-                rdrKunden = cmdKunden.ExecuteReader();
-                while (rdrKunden.Read())
-                { 
-                    autocomplete1.Add(rdrKunden[0].ToString() + ", " + rdrKunden[1].ToString());
-                }
-                rdrKunden.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                textLog.Text += sqlEx.ToString();
-                return;
-            }
-            // Autocomplete vorlegen
-            textKundenname.AutoCompleteCustomSource = autocomplete1;
+            textKundenname.AutoCompleteCustomSource = Program.getAutocompleteKunden();
             textKundenname.AutoCompleteMode = AutoCompleteMode.Suggest;
 
             //
