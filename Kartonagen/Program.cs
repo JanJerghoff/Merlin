@@ -21,6 +21,7 @@ using System.Globalization;
 using iText.Forms;
 using iText.Forms.Fields;
 using System.Diagnostics;
+using System.Xml;
 
 namespace Kartonagen
 {
@@ -295,8 +296,12 @@ namespace Kartonagen
             // Define parameters of request.
             EventsResource.ListRequest request = dienst.Events.List("primary");
 
-            request.TimeMin = datum.Date;
-            request.TimeMax = datum.Date.AddDays(1);
+            DateTime keks = DateTime.Now;
+
+            String x = XmlConvert.ToString(keks, XmlDateTimeSerializationMode.Utc);
+
+            request.TimeMin = DateTime.Now.AddDays(-2);
+            request.TimeMax = DateTime.Now.AddDays(2);
             request.ShowDeleted = false;
             request.SingleEvents = true;
             request.MaxResults = 2500;

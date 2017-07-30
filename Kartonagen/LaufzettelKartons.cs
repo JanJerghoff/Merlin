@@ -22,11 +22,18 @@ namespace Kartonagen
         private void buttonDrucken_Click(object sender, EventArgs e)
         {
             Events eve = Program.kalenderDatumFinder(dateTransaktion.Value);
+            if (eve.Items.Count == 0)
+            {
+                textLog.AppendText("Anzeige durch " + eve.Items.Count.ToString());
+                return;
+            }
 
             foreach (var item in eve.Items)
             {
-                textLog.AppendText(item.Summary.ToString() + " " + item.Description.ToString() + " " + item.ColorId.ToString() + "\r\n");
+                textLog.AppendText(item.Summary.ToString() + " " + item.ColorId.ToString() + "\r\n");
             }
+
+            textLog.AppendText("Anzeige durch " + eve.Items.Count.ToString());
         }
     }
 }
