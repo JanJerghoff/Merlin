@@ -222,6 +222,9 @@ namespace Mitarbeiter
                 textLog.Text += sqlEx.ToString();
                 return;
             }
+
+            // Autocomplete Updaten
+            Program.refreshAutocompleteFahrzeug();
         }
 
         private void buttonTourAdd_Click(object sender, EventArgs e)
@@ -258,6 +261,9 @@ namespace Mitarbeiter
                 textLog.Text += sqlEx.ToString();
                 return;
             }
+
+            //Autocomplete Updaten
+            Program.refreshAutocompleteTour();
         }
 
         private void buttonFahrzeugChange_Click(object sender, EventArgs e)

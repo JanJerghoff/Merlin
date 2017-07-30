@@ -14,8 +14,6 @@ namespace Mitarbeiter
     public partial class LEA_Mitarbeiter_Details : Form
     {
         // String-collection anlegen
-        AutoCompleteStringCollection autocomplete0 = new AutoCompleteStringCollection(); // Mitarbeiter
-        AutoCompleteStringCollection autocomplete1 = new AutoCompleteStringCollection(); // Touren
         Dictionary<int, String> Fahrzeugsammlung = new Dictionary<int, String>(); // Zwischenspeicher Fahrzeuge für LAdegeschwindigkeit
         Dictionary<int, String> Tourensammlung = new Dictionary<int, String>(); // Zwischenspeicher Touren
         Dictionary<int, String> Mitarbeitersammlung = new Dictionary<int, String>(); // Zwischenspeicher Mitarbeiter
@@ -24,50 +22,11 @@ namespace Mitarbeiter
         {
             InitializeComponent();
             
-
-            //Abfrage aller Mitarbeiternamen
-            MySqlCommand cmdMitarbeiter = new MySqlCommand("SELECT Nachname, Vorname, idMitarbeiter FROM Mitarbeiter", Program.conn2);
-            MySqlDataReader rdrMitarbeiter;
-            try
-            {
-                rdrMitarbeiter = cmdMitarbeiter.ExecuteReader();
-                while (rdrMitarbeiter.Read())
-                {
-                    autocomplete0.Add(rdrMitarbeiter[0].ToString() + ", " + rdrMitarbeiter[1].ToString());
-                    Mitarbeitersammlung.Add(rdrMitarbeiter.GetInt32(2), (rdrMitarbeiter[0].ToString() + ", " + rdrMitarbeiter[1].ToString()));
-                }
-                rdrMitarbeiter.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                var bestätigung = MessageBox.Show(sqlEx.ToString(), "Fehlermeldung");
-                return;
-            }
-            // Autocomplete vorlegen
-            textSucheName.AutoCompleteCustomSource = autocomplete0;
+            
+            textSucheName.AutoCompleteCustomSource = Program.getAutocompleteMitarbeiter();
             textSucheName.AutoCompleteMode = AutoCompleteMode.Suggest;
-
-
-            //Abfrage aller Tourennamen
-            MySqlCommand cmdTour = new MySqlCommand("SELECT Name, idTour FROM Tour WHERE TYPE >= 0 AND TYPE <=3;", Program.conn2); // Zulässige Touren finden / definieren
-            MySqlDataReader rdrTour;
-            try
-            {
-                rdrTour = cmdTour.ExecuteReader();
-                while (rdrTour.Read())
-                {
-                    autocomplete1.Add(rdrTour[0].ToString());
-                    Tourensammlung.Add(rdrTour.GetInt32(1), rdrTour.GetString(0));
-                }
-                rdrTour.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                var bestätigung = MessageBox.Show(sqlEx.ToString(), "Fehlermeldung");
-                return;
-            }
-            // Autocomplete vorlegen
-            textSucheTour.AutoCompleteCustomSource = autocomplete1;
+            
+            textSucheTour.AutoCompleteCustomSource = Program.getAutocompleteTour();
             textSucheTour.AutoCompleteMode = AutoCompleteMode.Suggest;
 
             //Fahrzeug-Dictionary anlegen

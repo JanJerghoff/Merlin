@@ -16,6 +16,12 @@ namespace Mitarbeiter
 {
     static class Program
     {
+
+        // Singleton-Autocomplete-Listen
+        private static AutoCompleteStringCollection autocompleteKunden;
+        private static AutoCompleteStringCollection autocompleteMitarbeiter;
+        private static AutoCompleteStringCollection autocompleteTour;
+        private static AutoCompleteStringCollection autocompleteFahrzeug;
         // Vorhalte-Listen für schnellen Lookup, Singletons
 
         private static Dictionary<String, int> Tour;
@@ -104,8 +110,146 @@ namespace Mitarbeiter
         // Aufbewahrung für Sollminuten pro Mitarbeiter
         internal static Dictionary <int, int> Sollminuten = new Dictionary<int, int>();
 
-        // Hol die MitarbeiterID - Sollminuten in den Speicher
+        // Getter  Resetter für Singletopn Autocomplete
 
+        public static AutoCompleteStringCollection getAutocompleteKunden()
+        {
+
+            if (autocompleteKunden == null)
+            {
+                refreshAutocompleteKunden();
+            }
+
+            return autocompleteKunden;
+        }
+
+        public static void refreshAutocompleteKunden()
+        {
+
+            autocompleteKunden = new AutoCompleteStringCollection();
+
+            //Abfrage aller Namen
+            MySqlCommand cmdRead = new MySqlCommand("SELECT Nachname FROM Kunden", Program.conn);
+            MySqlDataReader rdr;
+
+            try
+            {
+                rdr = cmdRead.ExecuteReader();
+                while (rdr.Read())
+                {
+                    autocompleteKunden.Add(rdr[0].ToString());
+                }
+                rdr.Close();
+            }
+            catch (Exception sqlEx)
+            {
+                return;
+            }
+        }
+
+        public static AutoCompleteStringCollection getAutocompleteMitarbeiter()
+        {
+
+            if (autocompleteMitarbeiter == null)
+            {
+                refreshAutocompleteMitarbeiter();
+            }
+
+            return autocompleteMitarbeiter;
+        }
+
+        public static void refreshAutocompleteMitarbeiter()
+        {
+
+            autocompleteMitarbeiter = new AutoCompleteStringCollection();
+
+            //Abfrage aller Mitarbeiternamen
+            MySqlCommand cmdMitarbeiter = new MySqlCommand("SELECT Nachname, Vorname FROM Mitarbeiter", Program.conn2);
+            MySqlDataReader rdrMitarbeiter;
+            try
+            {
+                rdrMitarbeiter = cmdMitarbeiter.ExecuteReader();
+                while (rdrMitarbeiter.Read())
+                {
+                    autocompleteMitarbeiter.Add(rdrMitarbeiter[0].ToString() + ", " + rdrMitarbeiter[1].ToString());
+                }
+                rdrMitarbeiter.Close();
+            }
+            catch (Exception sqlEx)
+            {
+                return;
+            }
+        }
+
+        public static AutoCompleteStringCollection getAutocompleteFahrzeug()
+        {
+
+            if (autocompleteKunden == null)
+            {
+                refreshAutocompleteFahrzeug();
+            }
+
+            return autocompleteFahrzeug;
+        }
+
+        public static void refreshAutocompleteFahrzeug()
+        {
+
+            autocompleteFahrzeug = new AutoCompleteStringCollection();
+
+            //Abfrage aller Fahrzeuge
+            MySqlCommand cmdFahrzeug = new MySqlCommand("SELECT Name FROM Fahrzeug", Program.conn2);
+            MySqlDataReader rdrFahrzeug;
+            try
+            {
+                rdrFahrzeug = cmdFahrzeug.ExecuteReader();
+                while (rdrFahrzeug.Read())
+                {
+                    autocompleteFahrzeug.Add(rdrFahrzeug[0].ToString());
+                }
+                rdrFahrzeug.Close();
+            }
+            catch (Exception sqlEx)
+            {
+                return;
+            }
+        }
+
+        public static AutoCompleteStringCollection getAutocompleteTour()
+        {
+
+            if (autocompleteMitarbeiter == null)
+            {
+                refreshAutocompleteTour();
+            }
+
+            return autocompleteTour;
+        }
+
+        public static void refreshAutocompleteTour()
+        {
+
+            autocompleteTour = new AutoCompleteStringCollection();
+
+            //Abfrage aller Tourennamen
+            MySqlCommand cmdTour = new MySqlCommand("SELECT Name FROM Tour WHERE TYPE >= 0 AND TYPE <=3;", Program.conn2); // Zulässige Touren finden / definieren
+            MySqlDataReader rdrTour;
+            try
+            {
+                rdrTour = cmdTour.ExecuteReader();
+                while (rdrTour.Read())
+                {
+                    autocompleteTour.Add(rdrTour[0].ToString());
+                }
+                rdrTour.Close();
+            }
+            catch (Exception sqlEx)
+            {
+                return;
+            }
+        }
+
+        // Hol die MitarbeiterID - Sollminuten in den Speicher
         public static void Sollminute() {
 
             Sollminuten = new Dictionary<int, int>();
