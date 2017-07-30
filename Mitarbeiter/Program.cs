@@ -16,9 +16,13 @@ namespace Mitarbeiter
 {
     static class Program
     {
+        // Vorhalte-Listen für schnellen Lookup, Singletons
+
+        private static Dictionary<String, int> Tour;
+        private static Dictionary<String, int> Mitarbeiter;
+        private static Dictionary<String, int> Fahrzeuge;
 
         // Google vorbereitungen
-
 
         static string[] Scopes = { CalendarService.Scope.Calendar };
         static string ApplicationName = "Google Calendar API";
@@ -71,6 +75,11 @@ namespace Mitarbeiter
                 System.Windows.Forms.Application.Exit();
             }
 
+            //Füllen der Singletons (nicht optimal, aber einfacher)
+            getFahrzeug("");
+            getTour("");
+            getMitarbeiter("");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Start());
@@ -78,18 +87,19 @@ namespace Mitarbeiter
             // Bei Programmstart Stundenkonto aktualisieren
 
             Sollminute();
-            StundenkontoUpdate();           
+            StundenkontoUpdate();
+            
         }
 
         // Buero-geänderte-version
 
         // Deployment
-        internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=Umzuege;port=3306;password=he62okv;");
-        internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
+        //internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=Umzuege;port=3306;password=he62okv;");
+        //internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
 
         ////Test
-        //internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;");
-        //internal static MySqlConnection conn2 = new MySqlConnection("server = 10.0.0.0;user=test;database=Mitarbeiter;port=3306;password=he62okv;");
+        internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;");
+        internal static MySqlConnection conn2 = new MySqlConnection("server = 10.0.0.0;user=test;database=Mitarbeiter;port=3306;password=he62okv;");
 
         // Aufbewahrung für Sollminuten pro Mitarbeiter
         internal static Dictionary <int, int> Sollminuten = new Dictionary<int, int>();
@@ -241,33 +251,31 @@ namespace Mitarbeiter
 
         public static int getFahrzeug(String Name)
         {
+            int ret;
 
-            MySqlCommand cmdFahrzeug = new MySqlCommand("SELECT idFahrzeug FROM Fahrzeug WHERE Name = '" + Name + "';", Program.conn2);
-            MySqlDataReader rdrFahrzeug;
-            int count = 0;
-            int nummer = 0;
-            try
-            {
-                rdrFahrzeug = cmdFahrzeug.ExecuteReader();
-                while (rdrFahrzeug.Read())
+            if (Fahrzeuge == null) {
+                Fahrzeuge = new Dictionary<String, int>();
+
+                //Abfrage aller Fahrzeuge
+                MySqlCommand cmdFahrzeug = new MySqlCommand("SELECT idFahrzeug, Name FROM Fahrzeug", Program.conn2);
+                MySqlDataReader rdrFahrzeug;
+                try
                 {
-                    count++;
-                    nummer = rdrFahrzeug.GetInt32(0);
+                    rdrFahrzeug = cmdFahrzeug.ExecuteReader();
+                    while (rdrFahrzeug.Read())
+                    {
+                        Fahrzeuge.Add(rdrFahrzeug.GetString(1), rdrFahrzeug.GetInt32(0));
+                    }
+                    rdrFahrzeug.Close();
                 }
-                rdrFahrzeug.Close();
+                catch (Exception sqlEx)
+                {
+                    throw sqlEx;
+                }
             }
-            catch (Exception sqlEx)
-            {
 
-            }
-            if (count > 1)
-            {
-                return -2;
-            }
-            else
-            {
-                return nummer;
-            }
+            Fahrzeuge.TryGetValue(Name, out ret);
+            return ret;            
         }
 
         public static String getFahrzeugName(int ID) {
@@ -295,32 +303,32 @@ namespace Mitarbeiter
         public static int getTour(String Name)
         {
 
-            MySqlCommand cmdTour = new MySqlCommand("SELECT idTour FROM Tour WHERE Name = '" + Name + "';", Program.conn2);
-            MySqlDataReader rdrTour;
-            int count = 0;
-            int nummer = 0;
-            try
-            {
-                rdrTour = cmdTour.ExecuteReader();
-                while (rdrTour.Read())
-                {
-                    count++;
-                    nummer = rdrTour.GetInt32(0);
-                }
-                rdrTour.Close();
-            }
-            catch (Exception sqlEx)
-            {
+            int ret;
 
-            }
-            if (count > 1)
+            if (Tour == null)
             {
-                return -2;
+                Tour = new Dictionary<String, int>();
+
+                //Abfrage aller Tourennamen
+                MySqlCommand cmdTour = new MySqlCommand("SELECT idTour, Name FROM Tour;", Program.conn2); // Zulässige Touren finden / definieren
+                MySqlDataReader rdrTour;
+                try
+                {
+                    rdrTour = cmdTour.ExecuteReader();
+                    while (rdrTour.Read())
+                    {
+                        Tour.Add(rdrTour.GetString(1), rdrTour.GetInt32(0));
+                    }
+                    rdrTour.Close();
+                }
+                catch (Exception sqlEx)
+                {
+                    throw sqlEx;
+                }
             }
-            else
-            {
-                return nummer;
-            }
+
+            Tour.TryGetValue(Name, out ret);
+            return ret;
         }
 
         public static int getTourCode(String Name)
@@ -370,32 +378,32 @@ namespace Mitarbeiter
         public static int getMitarbeiter(String Name)
         {
 
-            MySqlCommand cmdMitarbeiter = new MySqlCommand("SELECT idMitarbeiter FROM Mitarbeiter WHERE Nachname = '" + Name.Split(' ')[0].Split(',')[0] + "' AND Vorname = '"+ Name.Split(' ')[1] +"';", Program.conn2);
-            MySqlDataReader rdrMitarbeiter;
-            int count = 0;
-            int nummer = 0;
-            try
-            {
-                rdrMitarbeiter = cmdMitarbeiter.ExecuteReader();
-                while (rdrMitarbeiter.Read())
-                {
-                    count++;
-                    nummer = rdrMitarbeiter.GetInt32(0);
-                }
-                rdrMitarbeiter.Close();
-            }
-            catch (Exception sqlEx)
-            {
+            int ret;
 
-            }
-            if (count > 1)
+            if (Mitarbeiter == null)
             {
-                return -2;
+                Mitarbeiter = new Dictionary<String, int>();
+
+                //Abfrage aller Mitarbeiternamen
+                MySqlCommand cmdMitarbeiter = new MySqlCommand("SELECT idMitarbeiter, Nachname, Vorname FROM Mitarbeiter", Program.conn2);
+                MySqlDataReader rdrMitarbeiter;
+                try
+                {
+                    rdrMitarbeiter = cmdMitarbeiter.ExecuteReader();
+                    while (rdrMitarbeiter.Read())
+                    {
+                        Mitarbeiter.Add((rdrMitarbeiter[1].ToString() + ", " + rdrMitarbeiter[2].ToString()), rdrMitarbeiter.GetInt32(0));
+                    }
+                    rdrMitarbeiter.Close();
+                }
+                catch (Exception sqlEx)
+                {
+                    throw sqlEx;
+                }
             }
-            else
-            {
-                return nummer;
-            }
+
+            Mitarbeiter.TryGetValue(Name, out ret);
+            return ret;            
         }
 
         public static String getMitarbeiterName(int ID) {
@@ -419,6 +427,37 @@ namespace Mitarbeiter
             }
             return "-";
         }
+
+        public static bool validMitarbeiter(String Name) {
+
+            if (Mitarbeiter.ContainsKey(Name))
+            {
+                return true;
+            }
+            else { return false; }
+        }
+
+        public static bool validTour(String Name)
+        {
+
+            if (Tour.ContainsKey(Name))
+            {
+                return true;
+            }
+            else { return false; }
+        }
+
+        public static bool validFahrzeug(String Name)
+        {
+
+            if (Fahrzeuge.ContainsKey(Name))
+            {
+                return true;
+            }
+            else { return false; }
+        }
+
+
         // Beschafft Urlaubstage zu einem Mitarbeiter am Datum
         public static int getUrlaub(int ID, DateTime datum) {
             DateTime vollMonate = new DateTime();
@@ -631,6 +670,102 @@ namespace Mitarbeiter
             Events temp = new Events();
 
             return events;
+        }
+
+        // Umzug nicht zulässig
+        // Push einer Fahrt (über Namen), return "" Erfolgreich, sonst Fehlermeldung
+        public static String pushFahrt(String Mitarbeiter, String Tour, String Fahrzeug, DateTime Datum, DateTime Start, DateTime End, int Pause, int KMStart, int KMEnde, int Kunden, int Stueck, int Handbeilagen, String Bemerkung, int idBearbeitend) {
+
+            int Typ = -1;
+            int TourNr = -1;
+            int MitarbeiterNr = -1;
+            int FahrzeugNr = -1;
+
+            TourNr = getTour(Tour);
+            FahrzeugNr = getFahrzeug(Fahrzeug);
+            MitarbeiterNr = getMitarbeiter(Mitarbeiter);
+            Typ = getTourCode(Tour);
+
+            DateTime Anfang = DateTime.Now;
+            DateTime Ende = DateTime.Now;
+
+            // Daten vorbereiten
+            if (Start.TimeOfDay.CompareTo(End.TimeOfDay) > 0)
+            {
+                // Über Mitternacht
+                Anfang = new DateTime(Datum.Year, Datum.Month, Datum.Day, Start.Hour, Start.Minute, 0);
+                Ende = new DateTime(Datum.Year, Datum.Month, Datum.Day + 1, End.Hour, End.Minute, 0);
+            }
+            else if (Start.TimeOfDay.CompareTo(End.TimeOfDay) < 0)
+            {
+                // Selber Tag
+                Anfang = new DateTime(Datum.Year, Datum.Month, Datum.Day, Start.Hour, Start.Minute, 0);
+                Ende = new DateTime(Datum.Year, Datum.Month, Datum.Day, End.Hour, End.Minute, 0);
+            }
+            else { return "Start und Endzeit dürfen nicht identisch sein"; }
+
+
+            // Legitimitätschecks
+            if (TourNr == -1) { return "Tour ist ungültig"; }
+            if (FahrzeugNr == -1 ) { return "Fahrzeug ist ungültig"; }
+            if (MitarbeiterNr == -1) { return "Mitarbeiter ist ungültig"; } 
+            if (Typ == -1) { return "Typ der Tour kann nicht gefunden werden"; }
+            if (Typ == 0) { return "Umzüge sind nicht zulässig"; }
+            if (Fahrzeug == "" && (KMStart != 0 || KMEnde != 0)) {return "Wenn Beifahrer dann dürfen keine Kilometer gegeben sein, wenn kein Beifahrer fehlt das Fahrzeug"; }
+            if (KMStart > KMEnde) { return "Endkilometer müssen größer sein als Startkilometer"; }
+            if ((Ende-Anfang).TotalMinutes < Pause) { return "Die Pause darf nicht länger sein als die Arbeitszeit"; }
+
+            // Stringbau
+            String insert = "";
+
+            if (Fahrzeug == "")
+            {
+                insert += "INSERT INTO Fahrt (Mitarbeiter_idMitarbeiter, Start, Ende, Pause, AnfangsKM, EndKM, Bemerkung, UserChanged, Kunden, Stückzahl, Beilagen, Tour_idTour) VALUES (";
+
+                insert += MitarbeiterNr + ", ";
+                insert += "'" + DateTimeMachine(Anfang, Anfang) + "', ";
+                insert += "'" + DateTimeMachine(Ende, Ende) + "', ";
+                insert += Pause + ", ";
+                insert += KMStart + ", ";
+                insert += KMEnde + ", ";
+                insert += "'" + Bemerkung + "', ";
+                insert += idBearbeitend + ", ";
+                insert += Kunden + ", ";
+                insert += Stueck + ", ";
+                insert += Handbeilagen + ", ";
+                insert += TourNr + ");";
+            }
+            else
+            {
+                insert += "INSERT INTO Fahrt (Mitarbeiter_idMitarbeiter, Start, Ende, Pause, AnfangsKM, EndKM, Bemerkung, UserChanged, Kunden, Stückzahl, Beilagen, Tour_idTour, Fahrzeug_idFahrzeug) VALUES (";
+
+                insert += MitarbeiterNr + ", ";
+                insert += "'" + DateTimeMachine(Anfang, Anfang) + "', ";
+                insert += "'" + DateTimeMachine(Ende, Ende) + "', ";
+                insert += Pause + ", ";
+                insert += KMStart + ", ";
+                insert += KMEnde + ", ";
+                insert += "'" + Bemerkung + "', ";
+                insert += idBearbeitend + ", ";
+                insert += Kunden + ", ";
+                insert += Stueck + ", ";
+                insert += Handbeilagen + ", ";
+                insert += TourNr + ", ";
+                insert += FahrzeugNr + ");";
+            }
+            // String fertig, absenden
+            MySqlCommand cmdAdd = new MySqlCommand(insert, Program.conn2);
+            try
+            {
+                cmdAdd.ExecuteNonQuery();
+                return "";
+
+            }
+            catch (Exception sqlEx)
+            {
+                return sqlEx.ToString(); 
+            }
+            
         }
     }
 

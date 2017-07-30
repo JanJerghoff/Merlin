@@ -181,6 +181,9 @@
     <Compile Include="Tour_Fahrzeug.Designer.cs">
       <DependentUpon>Tour_Fahrzeug.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="LEA_Fahrtentabelle.resx">
+      <DependentUpon>LEA_Fahrtentabelle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LEA_Kundenzahl.resx">
       <DependentUpon>LEA_Kundenzahl.cs</DependentUpon>
     </EmbeddedResource>

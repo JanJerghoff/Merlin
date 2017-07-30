@@ -158,6 +158,16 @@ namespace Mitarbeiter
             Rep.Show();
         }
 
-        
+        private void buttonEintragTabelle_Click(object sender, EventArgs e)
+        {
+            if (radioMainBenutzerSonst.Checked)
+            {
+                textStartLog.AppendText("Bitte Angeben, wer bearbeiten möchte \r\n");
+                return;
+            }
+            LEA_Fahrtentabelle FT = new LEA_Fahrtentabelle();
+            FT.setBearbeitend(getBearbeitender());
+            FT.Show();
+        }
     }
 }
