@@ -288,9 +288,26 @@ namespace Kartonagen
             return events;
         }
 
+        // Finde alle Einträge zu einem Datum
+        public static Events kalenderDatumFinder(DateTime datum)
+        {
+
+            // Define parameters of request.
+            EventsResource.ListRequest request = dienst.Events.List("primary");
+
+            request.TimeMin = datum.Date;
+            request.TimeMax = datum.Date.AddDays(1);
+            request.ShowDeleted = false;
+            request.SingleEvents = true;
+            request.MaxResults = 2500;
+            // List events.
+            Events events = request.Execute();
+
+            return events;
+        }
+
         // Return Match und ID für das löschen von Events
-        public static String EventListMatch(Events e, DateTime date, String color) {
-                     
+        public static String EventListMatch(Events e, DateTime date, String color) {                     
 
             String ID = "";
             String datum = DateMachine(date);
@@ -358,6 +375,7 @@ namespace Kartonagen
             }
 
         }
+        
 
         public static String AdresseErsaetzen(int IDKunde, String Strasse, String Hausnummer, String Ort, int PLZ, String Land) {
 

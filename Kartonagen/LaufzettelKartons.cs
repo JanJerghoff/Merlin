@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Google.Apis.Calendar.v3.Data;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +21,12 @@ namespace Kartonagen
 
         private void buttonDrucken_Click(object sender, EventArgs e)
         {
-            
+            Events eve = Program.kalenderDatumFinder(dateTransaktion.Value);
+
+            foreach (var item in eve.Items)
+            {
+                textLog.AppendText(item.Summary.ToString() + " " + item.Description.ToString() + " " + item.ColorId.ToString() + "\r\n");
+            }
         }
     }
 }
