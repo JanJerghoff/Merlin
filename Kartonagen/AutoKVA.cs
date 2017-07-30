@@ -110,5 +110,10 @@ namespace Kartonagen
         private String Wandregal() {
             return "Für die Montage der Wandregale wird der Schreiner mit 35,00€ die Stunde zzgl. 19% MwSt. \r\n auf Zeit berechnet.";
         }
+
+        private void buttonPauschal_Click(object sender, EventArgs e)
+        {
+            textBlock.Text = Pauschal(1337, DateTime.Now.ToShortDateString());
+        }
     }
 }
