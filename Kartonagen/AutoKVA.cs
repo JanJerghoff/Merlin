@@ -17,7 +17,12 @@ namespace Kartonagen
             InitializeComponent();
         }
 
+
+
         private String Einleitung (String Anrede, String Nachname, String Datum, String OrtA, String OrtB, String AnschriftA, String AnschriftB) {
+
+
+
 
             String result = "";
 
@@ -52,12 +57,12 @@ namespace Kartonagen
             result += Autos() + " \r\n";
             result += Packer() + " \r\n";
             //result += Montage() + " \r\n";
-            result += "- Versicherung nach HBG siehe Anhang";
-            result += HVZInfo() + "\r\n ";
+            result += "- Versicherung nach HBG siehe Anhang";            
             result += "Verpackungspauschale";
-            result += "                                                         zzgl. gesetzl. MwSt. 19%   " + mwst + " €";
-            result += "                                                               ´       Gesamtpreis  " + gesamt + " €";
-
+            result += "                                                         zzgl. gesetzl. MwSt. 19%   " + mwst + " € \r\n";
+            result += "                                                               ´       Gesamtpreis  " + gesamt + " € \r\n \r\n";
+            result += HVZInfo() + "\r\n";
+            result += Bohr();
             return result;
         }
 
@@ -85,7 +90,7 @@ namespace Kartonagen
             String result = "";
             result += "Für Haltemöglichkeiten, 12m, direkt vor den jeweiligen Adressen sorgt der Kunde. \r\n ";
             result += "Wenn von uns Halteverbotszonen eingerichtet werden sollen kosten diese pro Stelle 70,00 € zzgl Mwst. \r\n ";
-            result += "Falls gewünscht bitte um baldige Rückmeldung wegen der Beantragungsfrist.";
+            result += "Falls gewünscht bitte um baldige Rückmeldung wegen der Beantragungsfrist. \r\n";
 
             return result;
         }
