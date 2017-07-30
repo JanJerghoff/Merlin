@@ -23,59 +23,15 @@ namespace Mitarbeiter
         public LEA_Kundenzahl()
         {
             InitializeComponent();
-            
-            AutoCompleteStringCollection autocomplete1 = new AutoCompleteStringCollection(); // Touren
-            AutoCompleteStringCollection autocomplete2 = new AutoCompleteStringCollection(); // Fahrzeuge
-            
+                        
             // Autocomplete vorlegen
             textSucheName.AutoCompleteCustomSource = Program.getAutocompleteMitarbeiter();
             textSucheName.AutoCompleteMode = AutoCompleteMode.Suggest;
 
-            //
-
-            //Abfrage aller Tourennamen
-            MySqlCommand cmdTour = new MySqlCommand("SELECT Name FROM Tour WHERE TYPE >= 0 AND TYPE <=3;", Program.conn2); // Zulässige Touren finden / definieren
-            MySqlDataReader rdrTour;
-            try
-            {
-                rdrTour = cmdTour.ExecuteReader();
-                while (rdrTour.Read())
-                {
-                    autocomplete1.Add(rdrTour[0].ToString());
-                }
-                rdrTour.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                textLog.Text += sqlEx.ToString();
-                return;
-            }
-            // Autocomplete vorlegen
-            textTour.AutoCompleteCustomSource = autocomplete1;
+            textTour.AutoCompleteCustomSource = Program.getAutocompleteTour();
             textTour.AutoCompleteMode = AutoCompleteMode.Suggest;
-
-
-            //
-
-            //Abfrage aller Fahrzeuge
-            MySqlCommand cmdFahrzeug = new MySqlCommand("SELECT Name FROM Fahrzeug", Program.conn2);
-            MySqlDataReader rdrFahrzeug;
-            try
-            {
-                rdrFahrzeug = cmdFahrzeug.ExecuteReader();
-                while (rdrFahrzeug.Read())
-                {
-                    autocomplete2.Add(rdrFahrzeug[0].ToString());
-                }
-                rdrFahrzeug.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                textLog.Text += sqlEx.ToString();
-                return;
-            }
-            // Autocomplete vorlegen
-            textFahrzeug.AutoCompleteCustomSource = autocomplete2;
+            
+            textFahrzeug.AutoCompleteCustomSource = Program.getAutocompleteFahrzeug();
             textFahrzeug.AutoCompleteMode = AutoCompleteMode.Suggest;
 
             leeren();

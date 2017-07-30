@@ -16,8 +16,6 @@ namespace Mitarbeiter
         public LEA_Umzug()
         {
             InitializeComponent();
-            // String-collection anlegen
-            AutoCompleteStringCollection autocomplete2 = new AutoCompleteStringCollection(); // Fahrzeuge
                         
             textSucheName.AutoCompleteCustomSource = Program.getAutocompleteMitarbeiter();
             textSucheName.AutoCompleteMode = AutoCompleteMode.Suggest;
@@ -25,27 +23,7 @@ namespace Mitarbeiter
             textKundenname.AutoCompleteCustomSource = Program.getAutocompleteKunden();
             textKundenname.AutoCompleteMode = AutoCompleteMode.Suggest;
 
-            //
-
-            //Abfrage aller Fahrzeuge
-            MySqlCommand cmdFahrzeug = new MySqlCommand("SELECT Name FROM Fahrzeug", Program.conn2);
-            MySqlDataReader rdrFahrzeug;
-            try
-            {
-                rdrFahrzeug = cmdFahrzeug.ExecuteReader();
-                while (rdrFahrzeug.Read())
-                {
-                    autocomplete2.Add(rdrFahrzeug[0].ToString());
-                }
-                rdrFahrzeug.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                textLog.Text += sqlEx.ToString();
-                return;
-            }
-            // Autocomplete vorlegen
-            textFahrzeug.AutoCompleteCustomSource = autocomplete2;
+            textFahrzeug.AutoCompleteCustomSource = Program.getAutocompleteFahrzeug();
             textFahrzeug.AutoCompleteMode = AutoCompleteMode.Suggest;
 
             //Standarddaten setzen
