@@ -873,16 +873,20 @@
             // 
             this.textLog.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.textLog.Location = new System.Drawing.Point(15, 486);
+            this.textLog.MaxLength = 999999;
             this.textLog.Multiline = true;
             this.textLog.Name = "textLog";
             this.textLog.ReadOnly = true;
-            this.textLog.Size = new System.Drawing.Size(1193, 119);
+            this.textLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textLog.Size = new System.Drawing.Size(1193, 263);
             this.textLog.TabIndex = 190;
+            this.textLog.TabStop = false;
             // 
             // LaufzettelKartons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1768, 776);
             this.Controls.Add(this.textLog);
             this.Controls.Add(this.label2);

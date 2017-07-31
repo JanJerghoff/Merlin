@@ -300,8 +300,8 @@ namespace Kartonagen
 
             String x = XmlConvert.ToString(keks, XmlDateTimeSerializationMode.Utc);
 
-            request.TimeMin = DateTime.Now.AddDays(-2);
-            request.TimeMax = DateTime.Now.AddDays(2);
+            request.TimeMin = DateTime.Now.Date;
+            request.TimeMax = DateTime.Now.Date.AddDays(1);
             request.ShowDeleted = false;
             request.SingleEvents = true;
             request.MaxResults = 2500;

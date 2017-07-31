@@ -30,7 +30,10 @@ namespace Kartonagen
 
             foreach (var item in eve.Items)
             {
-                textLog.AppendText(item.Summary.ToString() + " " + item.ColorId.ToString() + "\r\n");
+                if (item.ColorId == "8")
+                {
+                    textLog.AppendText(item.Summary.ToString() + " " + item.ColorId.ToString() + "\r\n");
+                }
             }
 
             textLog.AppendText("Anzeige durch " + eve.Items.Count.ToString());
