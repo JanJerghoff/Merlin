@@ -31,6 +31,11 @@ namespace Kartonagen
         private static AutoCompleteStringCollection autocompleteKunden;
         private static AutoCompleteStringCollection autocompleteMitarbeiter;
 
+        // Singleton Lookup-Dictionaries
+
+        private static Dictionary<String, int> dictionaryKunden;
+        private static Dictionary<String, int> dictionaryMitarbeiter;
+
         // Google vorbereitungen
         static string[] Scopes = { CalendarService.Scope.Calendar };
         static string ApplicationName = "Google Calendar API";
@@ -64,9 +69,10 @@ namespace Kartonagen
         public static void refreshAutocompleteKunden() {
 
             autocompleteKunden = new AutoCompleteStringCollection();
-            
+            dictionaryKunden = new Dictionary<string, int>();
+
             //Abfrage aller Namen
-            MySqlCommand cmdRead = new MySqlCommand("SELECT Nachname FROM Kunden", Program.conn);
+            MySqlCommand cmdRead = new MySqlCommand("SELECT Nachname, idKunden FROM Kunden", Program.conn);
             MySqlDataReader rdr;
 
             try
@@ -75,6 +81,7 @@ namespace Kartonagen
                 while (rdr.Read())
                 {
                     autocompleteKunden.Add(rdr[0].ToString());
+                    dictionaryKunden.Add(rdr.GetString(0), rdr.GetInt32(1));
                 }
                 rdr.Close();
             }
@@ -99,9 +106,10 @@ namespace Kartonagen
         {
 
             autocompleteMitarbeiter = new AutoCompleteStringCollection();
+            dictionaryMitarbeiter = new Dictionary<string, int>();
 
             //Abfrage aller Mitarbeiternamen
-            MySqlCommand cmdMitarbeiter = new MySqlCommand("SELECT Nachname, Vorname FROM Mitarbeiter", Program.conn2);
+            MySqlCommand cmdMitarbeiter = new MySqlCommand("SELECT Nachname, Vorname, idMitarbeiter FROM Mitarbeiter", Program.conn2);
             MySqlDataReader rdrMitarbeiter;
             try
             {
@@ -109,6 +117,7 @@ namespace Kartonagen
                 while (rdrMitarbeiter.Read())
                 {
                     autocompleteMitarbeiter.Add(rdrMitarbeiter[0].ToString() + ", " + rdrMitarbeiter[1].ToString());
+                    dictionaryMitarbeiter.Add((rdrMitarbeiter[0].ToString() + ", " + rdrMitarbeiter[1].ToString()), rdrMitarbeiter.GetInt32(2));
                 }
                 rdrMitarbeiter.Close();
             }
@@ -118,6 +127,33 @@ namespace Kartonagen
             }
         }
 
+        public static int getKundenNr(String Kundenname) {
+
+            int ret = 0;
+
+            if (dictionaryKunden == null) {
+                refreshAutocompleteKunden();
+            }
+
+            dictionaryKunden.TryGetValue(Kundenname, out ret);
+
+            return ret;
+        }
+
+        public static int getMitarbeiterNr(String Mitarbeitername)
+        {
+
+            int ret = 0;
+
+            if (dictionaryMitarbeiter == null)
+            {
+                refreshAutocompleteMitarbeiter();
+            }
+
+            dictionaryMitarbeiter.TryGetValue(Mitarbeitername, out ret);
+
+            return ret;
+        }
 
 
         // Stellt einen check zum Überprüfen von Kundendaten zur Verfügung
