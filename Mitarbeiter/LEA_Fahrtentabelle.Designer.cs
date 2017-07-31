@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.buttonAbsenden = new System.Windows.Forms.Button();
             this.dateTag10 = new System.Windows.Forms.DateTimePicker();
             this.dateTag9 = new System.Windows.Forms.DateTimePicker();
             this.dateTag8 = new System.Windows.Forms.DateTimePicker();
@@ -163,7 +164,6 @@
             this.textLog = new System.Windows.Forms.TextBox();
             this.textMitarbeiter = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.buttonAbsenden = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericHand10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKundenStueck10)).BeginInit();
@@ -359,6 +359,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "d";
             // 
+            // buttonAbsenden
+            // 
+            this.buttonAbsenden.Location = new System.Drawing.Point(6, 308);
+            this.buttonAbsenden.Name = "buttonAbsenden";
+            this.buttonAbsenden.Size = new System.Drawing.Size(189, 70);
+            this.buttonAbsenden.TabIndex = 110;
+            this.buttonAbsenden.Text = "Absenden";
+            this.buttonAbsenden.UseVisualStyleBackColor = true;
+            this.buttonAbsenden.Click += new System.EventHandler(this.buttonAbsenden_Click);
+            // 
             // dateTag10
             // 
             this.dateTag10.Enabled = false;
@@ -366,7 +376,7 @@
             this.dateTag10.Location = new System.Drawing.Point(466, 280);
             this.dateTag10.Name = "dateTag10";
             this.dateTag10.Size = new System.Drawing.Size(120, 20);
-            this.dateTag10.TabIndex = 255;
+            this.dateTag10.TabIndex = 101;
             // 
             // dateTag9
             // 
@@ -375,7 +385,7 @@
             this.dateTag9.Location = new System.Drawing.Point(466, 254);
             this.dateTag9.Name = "dateTag9";
             this.dateTag9.Size = new System.Drawing.Size(120, 20);
-            this.dateTag9.TabIndex = 254;
+            this.dateTag9.TabIndex = 90;
             // 
             // dateTag8
             // 
@@ -384,7 +394,7 @@
             this.dateTag8.Location = new System.Drawing.Point(466, 228);
             this.dateTag8.Name = "dateTag8";
             this.dateTag8.Size = new System.Drawing.Size(120, 20);
-            this.dateTag8.TabIndex = 253;
+            this.dateTag8.TabIndex = 79;
             // 
             // dateTag7
             // 
@@ -393,7 +403,7 @@
             this.dateTag7.Location = new System.Drawing.Point(466, 202);
             this.dateTag7.Name = "dateTag7";
             this.dateTag7.Size = new System.Drawing.Size(120, 20);
-            this.dateTag7.TabIndex = 252;
+            this.dateTag7.TabIndex = 68;
             // 
             // dateTag6
             // 
@@ -402,7 +412,7 @@
             this.dateTag6.Location = new System.Drawing.Point(466, 176);
             this.dateTag6.Name = "dateTag6";
             this.dateTag6.Size = new System.Drawing.Size(120, 20);
-            this.dateTag6.TabIndex = 251;
+            this.dateTag6.TabIndex = 57;
             // 
             // dateTag5
             // 
@@ -411,7 +421,7 @@
             this.dateTag5.Location = new System.Drawing.Point(466, 150);
             this.dateTag5.Name = "dateTag5";
             this.dateTag5.Size = new System.Drawing.Size(120, 20);
-            this.dateTag5.TabIndex = 250;
+            this.dateTag5.TabIndex = 46;
             // 
             // dateTag4
             // 
@@ -420,7 +430,7 @@
             this.dateTag4.Location = new System.Drawing.Point(466, 124);
             this.dateTag4.Name = "dateTag4";
             this.dateTag4.Size = new System.Drawing.Size(120, 20);
-            this.dateTag4.TabIndex = 249;
+            this.dateTag4.TabIndex = 35;
             // 
             // dateTag3
             // 
@@ -429,7 +439,7 @@
             this.dateTag3.Location = new System.Drawing.Point(466, 98);
             this.dateTag3.Name = "dateTag3";
             this.dateTag3.Size = new System.Drawing.Size(120, 20);
-            this.dateTag3.TabIndex = 248;
+            this.dateTag3.TabIndex = 24;
             // 
             // dateTag2
             // 
@@ -438,7 +448,7 @@
             this.dateTag2.Location = new System.Drawing.Point(466, 72);
             this.dateTag2.Name = "dateTag2";
             this.dateTag2.Size = new System.Drawing.Size(120, 20);
-            this.dateTag2.TabIndex = 247;
+            this.dateTag2.TabIndex = 13;
             // 
             // label1
             // 
@@ -457,7 +467,7 @@
             this.dateTag1.Location = new System.Drawing.Point(466, 46);
             this.dateTag1.Name = "dateTag1";
             this.dateTag1.Size = new System.Drawing.Size(120, 20);
-            this.dateTag1.TabIndex = 245;
+            this.dateTag1.TabIndex = 2;
             // 
             // buttonLoeschen10
             // 
@@ -465,6 +475,7 @@
             this.buttonLoeschen10.Name = "buttonLoeschen10";
             this.buttonLoeschen10.Size = new System.Drawing.Size(106, 20);
             this.buttonLoeschen10.TabIndex = 244;
+            this.buttonLoeschen10.TabStop = false;
             this.buttonLoeschen10.Text = "Löschen";
             this.buttonLoeschen10.UseVisualStyleBackColor = true;
             this.buttonLoeschen10.Click += new System.EventHandler(this.buttonLoeschen10_Click);
@@ -475,6 +486,7 @@
             this.buttonLoeschen9.Name = "buttonLoeschen9";
             this.buttonLoeschen9.Size = new System.Drawing.Size(106, 20);
             this.buttonLoeschen9.TabIndex = 243;
+            this.buttonLoeschen9.TabStop = false;
             this.buttonLoeschen9.Text = "Löschen";
             this.buttonLoeschen9.UseVisualStyleBackColor = true;
             this.buttonLoeschen9.Click += new System.EventHandler(this.buttonLoeschen9_Click);
@@ -485,6 +497,7 @@
             this.buttonLoeschen8.Name = "buttonLoeschen8";
             this.buttonLoeschen8.Size = new System.Drawing.Size(106, 20);
             this.buttonLoeschen8.TabIndex = 242;
+            this.buttonLoeschen8.TabStop = false;
             this.buttonLoeschen8.Text = "Löschen";
             this.buttonLoeschen8.UseVisualStyleBackColor = true;
             this.buttonLoeschen8.Click += new System.EventHandler(this.buttonLoeschen8_Click);
@@ -495,6 +508,7 @@
             this.buttonLoeschen7.Name = "buttonLoeschen7";
             this.buttonLoeschen7.Size = new System.Drawing.Size(106, 20);
             this.buttonLoeschen7.TabIndex = 241;
+            this.buttonLoeschen7.TabStop = false;
             this.buttonLoeschen7.Text = "Löschen";
             this.buttonLoeschen7.UseVisualStyleBackColor = true;
             this.buttonLoeschen7.Click += new System.EventHandler(this.buttonLoeschen7_Click);
@@ -505,6 +519,7 @@
             this.buttonLoeschen6.Name = "buttonLoeschen6";
             this.buttonLoeschen6.Size = new System.Drawing.Size(106, 20);
             this.buttonLoeschen6.TabIndex = 240;
+            this.buttonLoeschen6.TabStop = false;
             this.buttonLoeschen6.Text = "Löschen";
             this.buttonLoeschen6.UseVisualStyleBackColor = true;
             this.buttonLoeschen6.Click += new System.EventHandler(this.buttonLoeschen6_Click);
@@ -515,6 +530,7 @@
             this.buttonLoeschen5.Name = "buttonLoeschen5";
             this.buttonLoeschen5.Size = new System.Drawing.Size(106, 20);
             this.buttonLoeschen5.TabIndex = 239;
+            this.buttonLoeschen5.TabStop = false;
             this.buttonLoeschen5.Text = "Löschen";
             this.buttonLoeschen5.UseVisualStyleBackColor = true;
             this.buttonLoeschen5.Click += new System.EventHandler(this.buttonLoeschen5_Click);
@@ -525,6 +541,7 @@
             this.buttonLoeschen4.Name = "buttonLoeschen4";
             this.buttonLoeschen4.Size = new System.Drawing.Size(106, 20);
             this.buttonLoeschen4.TabIndex = 238;
+            this.buttonLoeschen4.TabStop = false;
             this.buttonLoeschen4.Text = "Löschen";
             this.buttonLoeschen4.UseVisualStyleBackColor = true;
             this.buttonLoeschen4.Click += new System.EventHandler(this.buttonLoeschen4_Click);
@@ -535,6 +552,7 @@
             this.buttonLoeschen3.Name = "buttonLoeschen3";
             this.buttonLoeschen3.Size = new System.Drawing.Size(106, 20);
             this.buttonLoeschen3.TabIndex = 237;
+            this.buttonLoeschen3.TabStop = false;
             this.buttonLoeschen3.Text = "Löschen";
             this.buttonLoeschen3.UseVisualStyleBackColor = true;
             this.buttonLoeschen3.Click += new System.EventHandler(this.buttonLoeschen3_Click);
@@ -545,6 +563,7 @@
             this.buttonLoeschen2.Name = "buttonLoeschen2";
             this.buttonLoeschen2.Size = new System.Drawing.Size(106, 20);
             this.buttonLoeschen2.TabIndex = 236;
+            this.buttonLoeschen2.TabStop = false;
             this.buttonLoeschen2.Text = "Löschen";
             this.buttonLoeschen2.UseVisualStyleBackColor = true;
             this.buttonLoeschen2.Click += new System.EventHandler(this.buttonLoeschen2_Click);
@@ -555,6 +574,7 @@
             this.buttonLoeschen1.Name = "buttonLoeschen1";
             this.buttonLoeschen1.Size = new System.Drawing.Size(106, 20);
             this.buttonLoeschen1.TabIndex = 235;
+            this.buttonLoeschen1.TabStop = false;
             this.buttonLoeschen1.Text = "Löschen";
             this.buttonLoeschen1.UseVisualStyleBackColor = true;
             this.buttonLoeschen1.Click += new System.EventHandler(this.buttonLoeschen1_Click);
@@ -566,7 +586,7 @@
             this.textTour10.Location = new System.Drawing.Point(118, 281);
             this.textTour10.Name = "textTour10";
             this.textTour10.Size = new System.Drawing.Size(188, 20);
-            this.textTour10.TabIndex = 234;
+            this.textTour10.TabIndex = 99;
             this.textTour10.TextChanged += new System.EventHandler(this.textTour10_TextChanged);
             // 
             // textFahrzeug10
@@ -576,7 +596,7 @@
             this.textFahrzeug10.Location = new System.Drawing.Point(312, 280);
             this.textFahrzeug10.Name = "textFahrzeug10";
             this.textFahrzeug10.Size = new System.Drawing.Size(148, 20);
-            this.textFahrzeug10.TabIndex = 233;
+            this.textFahrzeug10.TabIndex = 100;
             // 
             // numericHand10
             // 
@@ -589,7 +609,7 @@
             0});
             this.numericHand10.Name = "numericHand10";
             this.numericHand10.Size = new System.Drawing.Size(114, 20);
-            this.numericHand10.TabIndex = 232;
+            this.numericHand10.TabIndex = 108;
             // 
             // numericKundenStueck10
             // 
@@ -602,7 +622,7 @@
             0});
             this.numericKundenStueck10.Name = "numericKundenStueck10";
             this.numericKundenStueck10.Size = new System.Drawing.Size(113, 20);
-            this.numericKundenStueck10.TabIndex = 231;
+            this.numericKundenStueck10.TabIndex = 107;
             // 
             // textBemerkung10
             // 
@@ -613,7 +633,7 @@
             this.textBemerkung10.Name = "textBemerkung10";
             this.textBemerkung10.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBemerkung10.Size = new System.Drawing.Size(343, 19);
-            this.textBemerkung10.TabIndex = 230;
+            this.textBemerkung10.TabIndex = 109;
             // 
             // numericKMStart10
             // 
@@ -626,7 +646,7 @@
             0});
             this.numericKMStart10.Name = "numericKMStart10";
             this.numericKMStart10.Size = new System.Drawing.Size(125, 20);
-            this.numericKMStart10.TabIndex = 229;
+            this.numericKMStart10.TabIndex = 106;
             // 
             // numericKMEnde10
             // 
@@ -639,7 +659,7 @@
             0});
             this.numericKMEnde10.Name = "numericKMEnde10";
             this.numericKMEnde10.Size = new System.Drawing.Size(118, 20);
-            this.numericKMEnde10.TabIndex = 228;
+            this.numericKMEnde10.TabIndex = 105;
             // 
             // numericPause10
             // 
@@ -652,7 +672,7 @@
             0});
             this.numericPause10.Name = "numericPause10";
             this.numericPause10.Size = new System.Drawing.Size(101, 20);
-            this.numericPause10.TabIndex = 227;
+            this.numericPause10.TabIndex = 104;
             // 
             // timeEnde10
             // 
@@ -661,7 +681,7 @@
             this.timeEnde10.Location = new System.Drawing.Point(718, 281);
             this.timeEnde10.Name = "timeEnde10";
             this.timeEnde10.Size = new System.Drawing.Size(88, 20);
-            this.timeEnde10.TabIndex = 226;
+            this.timeEnde10.TabIndex = 103;
             this.timeEnde10.Value = new System.DateTime(2017, 1, 1, 13, 0, 0, 0);
             // 
             // timeStart10
@@ -671,7 +691,7 @@
             this.timeStart10.Location = new System.Drawing.Point(592, 281);
             this.timeStart10.Name = "timeStart10";
             this.timeStart10.Size = new System.Drawing.Size(120, 20);
-            this.timeStart10.TabIndex = 225;
+            this.timeStart10.TabIndex = 102;
             this.timeStart10.Value = new System.DateTime(2017, 1, 1, 12, 0, 0, 0);
             // 
             // textTour9
@@ -681,7 +701,7 @@
             this.textTour9.Location = new System.Drawing.Point(118, 255);
             this.textTour9.Name = "textTour9";
             this.textTour9.Size = new System.Drawing.Size(188, 20);
-            this.textTour9.TabIndex = 224;
+            this.textTour9.TabIndex = 88;
             this.textTour9.TextChanged += new System.EventHandler(this.textTour9_TextChanged);
             // 
             // textFahrzeug9
@@ -691,7 +711,7 @@
             this.textFahrzeug9.Location = new System.Drawing.Point(312, 254);
             this.textFahrzeug9.Name = "textFahrzeug9";
             this.textFahrzeug9.Size = new System.Drawing.Size(148, 20);
-            this.textFahrzeug9.TabIndex = 223;
+            this.textFahrzeug9.TabIndex = 89;
             // 
             // numericHand9
             // 
@@ -704,7 +724,7 @@
             0});
             this.numericHand9.Name = "numericHand9";
             this.numericHand9.Size = new System.Drawing.Size(114, 20);
-            this.numericHand9.TabIndex = 222;
+            this.numericHand9.TabIndex = 97;
             // 
             // numericKundenStueck9
             // 
@@ -717,7 +737,7 @@
             0});
             this.numericKundenStueck9.Name = "numericKundenStueck9";
             this.numericKundenStueck9.Size = new System.Drawing.Size(113, 20);
-            this.numericKundenStueck9.TabIndex = 221;
+            this.numericKundenStueck9.TabIndex = 96;
             // 
             // textBemerkung9
             // 
@@ -728,7 +748,7 @@
             this.textBemerkung9.Name = "textBemerkung9";
             this.textBemerkung9.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBemerkung9.Size = new System.Drawing.Size(343, 19);
-            this.textBemerkung9.TabIndex = 220;
+            this.textBemerkung9.TabIndex = 98;
             // 
             // numericKMStart9
             // 
@@ -741,7 +761,7 @@
             0});
             this.numericKMStart9.Name = "numericKMStart9";
             this.numericKMStart9.Size = new System.Drawing.Size(125, 20);
-            this.numericKMStart9.TabIndex = 219;
+            this.numericKMStart9.TabIndex = 95;
             // 
             // numericKMEnde9
             // 
@@ -754,7 +774,7 @@
             0});
             this.numericKMEnde9.Name = "numericKMEnde9";
             this.numericKMEnde9.Size = new System.Drawing.Size(118, 20);
-            this.numericKMEnde9.TabIndex = 218;
+            this.numericKMEnde9.TabIndex = 94;
             // 
             // numericPause9
             // 
@@ -767,7 +787,7 @@
             0});
             this.numericPause9.Name = "numericPause9";
             this.numericPause9.Size = new System.Drawing.Size(101, 20);
-            this.numericPause9.TabIndex = 217;
+            this.numericPause9.TabIndex = 93;
             // 
             // timeEnde9
             // 
@@ -776,7 +796,7 @@
             this.timeEnde9.Location = new System.Drawing.Point(718, 255);
             this.timeEnde9.Name = "timeEnde9";
             this.timeEnde9.Size = new System.Drawing.Size(88, 20);
-            this.timeEnde9.TabIndex = 216;
+            this.timeEnde9.TabIndex = 92;
             this.timeEnde9.Value = new System.DateTime(2017, 1, 1, 13, 0, 0, 0);
             // 
             // timeStart9
@@ -786,7 +806,7 @@
             this.timeStart9.Location = new System.Drawing.Point(592, 255);
             this.timeStart9.Name = "timeStart9";
             this.timeStart9.Size = new System.Drawing.Size(120, 20);
-            this.timeStart9.TabIndex = 215;
+            this.timeStart9.TabIndex = 91;
             this.timeStart9.Value = new System.DateTime(2017, 1, 1, 12, 0, 0, 0);
             // 
             // textTour8
@@ -796,7 +816,7 @@
             this.textTour8.Location = new System.Drawing.Point(118, 229);
             this.textTour8.Name = "textTour8";
             this.textTour8.Size = new System.Drawing.Size(188, 20);
-            this.textTour8.TabIndex = 214;
+            this.textTour8.TabIndex = 77;
             this.textTour8.TextChanged += new System.EventHandler(this.textTour8_TextChanged);
             // 
             // textFahrzeug8
@@ -806,7 +826,7 @@
             this.textFahrzeug8.Location = new System.Drawing.Point(312, 228);
             this.textFahrzeug8.Name = "textFahrzeug8";
             this.textFahrzeug8.Size = new System.Drawing.Size(148, 20);
-            this.textFahrzeug8.TabIndex = 213;
+            this.textFahrzeug8.TabIndex = 78;
             // 
             // numericHand8
             // 
@@ -819,7 +839,7 @@
             0});
             this.numericHand8.Name = "numericHand8";
             this.numericHand8.Size = new System.Drawing.Size(114, 20);
-            this.numericHand8.TabIndex = 212;
+            this.numericHand8.TabIndex = 86;
             // 
             // numericKundenStueck8
             // 
@@ -832,7 +852,7 @@
             0});
             this.numericKundenStueck8.Name = "numericKundenStueck8";
             this.numericKundenStueck8.Size = new System.Drawing.Size(113, 20);
-            this.numericKundenStueck8.TabIndex = 211;
+            this.numericKundenStueck8.TabIndex = 85;
             // 
             // textBemerkung8
             // 
@@ -843,7 +863,7 @@
             this.textBemerkung8.Name = "textBemerkung8";
             this.textBemerkung8.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBemerkung8.Size = new System.Drawing.Size(343, 19);
-            this.textBemerkung8.TabIndex = 210;
+            this.textBemerkung8.TabIndex = 87;
             // 
             // numericKMStart8
             // 
@@ -856,7 +876,7 @@
             0});
             this.numericKMStart8.Name = "numericKMStart8";
             this.numericKMStart8.Size = new System.Drawing.Size(125, 20);
-            this.numericKMStart8.TabIndex = 209;
+            this.numericKMStart8.TabIndex = 84;
             // 
             // numericKMEnde8
             // 
@@ -869,7 +889,7 @@
             0});
             this.numericKMEnde8.Name = "numericKMEnde8";
             this.numericKMEnde8.Size = new System.Drawing.Size(118, 20);
-            this.numericKMEnde8.TabIndex = 208;
+            this.numericKMEnde8.TabIndex = 83;
             // 
             // numericPause8
             // 
@@ -882,7 +902,7 @@
             0});
             this.numericPause8.Name = "numericPause8";
             this.numericPause8.Size = new System.Drawing.Size(101, 20);
-            this.numericPause8.TabIndex = 207;
+            this.numericPause8.TabIndex = 82;
             // 
             // timeEnde8
             // 
@@ -891,7 +911,7 @@
             this.timeEnde8.Location = new System.Drawing.Point(718, 229);
             this.timeEnde8.Name = "timeEnde8";
             this.timeEnde8.Size = new System.Drawing.Size(88, 20);
-            this.timeEnde8.TabIndex = 206;
+            this.timeEnde8.TabIndex = 81;
             this.timeEnde8.Value = new System.DateTime(2017, 1, 1, 13, 0, 0, 0);
             // 
             // timeStart8
@@ -901,7 +921,7 @@
             this.timeStart8.Location = new System.Drawing.Point(592, 229);
             this.timeStart8.Name = "timeStart8";
             this.timeStart8.Size = new System.Drawing.Size(120, 20);
-            this.timeStart8.TabIndex = 205;
+            this.timeStart8.TabIndex = 80;
             this.timeStart8.Value = new System.DateTime(2017, 1, 1, 12, 0, 0, 0);
             // 
             // textTour7
@@ -911,7 +931,7 @@
             this.textTour7.Location = new System.Drawing.Point(118, 203);
             this.textTour7.Name = "textTour7";
             this.textTour7.Size = new System.Drawing.Size(188, 20);
-            this.textTour7.TabIndex = 204;
+            this.textTour7.TabIndex = 66;
             this.textTour7.TextChanged += new System.EventHandler(this.textTour7_TextChanged);
             // 
             // textFahrzeug7
@@ -921,7 +941,7 @@
             this.textFahrzeug7.Location = new System.Drawing.Point(312, 202);
             this.textFahrzeug7.Name = "textFahrzeug7";
             this.textFahrzeug7.Size = new System.Drawing.Size(148, 20);
-            this.textFahrzeug7.TabIndex = 203;
+            this.textFahrzeug7.TabIndex = 67;
             // 
             // numericHand7
             // 
@@ -934,7 +954,7 @@
             0});
             this.numericHand7.Name = "numericHand7";
             this.numericHand7.Size = new System.Drawing.Size(114, 20);
-            this.numericHand7.TabIndex = 202;
+            this.numericHand7.TabIndex = 75;
             // 
             // numericKundenStueck7
             // 
@@ -947,7 +967,7 @@
             0});
             this.numericKundenStueck7.Name = "numericKundenStueck7";
             this.numericKundenStueck7.Size = new System.Drawing.Size(113, 20);
-            this.numericKundenStueck7.TabIndex = 201;
+            this.numericKundenStueck7.TabIndex = 74;
             // 
             // textBemerkung7
             // 
@@ -958,7 +978,7 @@
             this.textBemerkung7.Name = "textBemerkung7";
             this.textBemerkung7.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBemerkung7.Size = new System.Drawing.Size(343, 19);
-            this.textBemerkung7.TabIndex = 200;
+            this.textBemerkung7.TabIndex = 76;
             // 
             // numericKMStart7
             // 
@@ -971,7 +991,7 @@
             0});
             this.numericKMStart7.Name = "numericKMStart7";
             this.numericKMStart7.Size = new System.Drawing.Size(125, 20);
-            this.numericKMStart7.TabIndex = 199;
+            this.numericKMStart7.TabIndex = 73;
             // 
             // numericKMEnde7
             // 
@@ -984,7 +1004,7 @@
             0});
             this.numericKMEnde7.Name = "numericKMEnde7";
             this.numericKMEnde7.Size = new System.Drawing.Size(118, 20);
-            this.numericKMEnde7.TabIndex = 198;
+            this.numericKMEnde7.TabIndex = 72;
             // 
             // numericPause7
             // 
@@ -997,7 +1017,7 @@
             0});
             this.numericPause7.Name = "numericPause7";
             this.numericPause7.Size = new System.Drawing.Size(101, 20);
-            this.numericPause7.TabIndex = 197;
+            this.numericPause7.TabIndex = 71;
             // 
             // timeEnde7
             // 
@@ -1006,7 +1026,7 @@
             this.timeEnde7.Location = new System.Drawing.Point(718, 203);
             this.timeEnde7.Name = "timeEnde7";
             this.timeEnde7.Size = new System.Drawing.Size(88, 20);
-            this.timeEnde7.TabIndex = 196;
+            this.timeEnde7.TabIndex = 70;
             this.timeEnde7.Value = new System.DateTime(2017, 1, 1, 13, 0, 0, 0);
             // 
             // timeStart7
@@ -1016,7 +1036,7 @@
             this.timeStart7.Location = new System.Drawing.Point(592, 203);
             this.timeStart7.Name = "timeStart7";
             this.timeStart7.Size = new System.Drawing.Size(120, 20);
-            this.timeStart7.TabIndex = 195;
+            this.timeStart7.TabIndex = 69;
             this.timeStart7.Value = new System.DateTime(2017, 1, 1, 12, 0, 0, 0);
             // 
             // textTour6
@@ -1026,7 +1046,7 @@
             this.textTour6.Location = new System.Drawing.Point(118, 177);
             this.textTour6.Name = "textTour6";
             this.textTour6.Size = new System.Drawing.Size(188, 20);
-            this.textTour6.TabIndex = 194;
+            this.textTour6.TabIndex = 55;
             this.textTour6.TextChanged += new System.EventHandler(this.textTour6_TextChanged);
             // 
             // textFahrzeug6
@@ -1036,7 +1056,7 @@
             this.textFahrzeug6.Location = new System.Drawing.Point(312, 176);
             this.textFahrzeug6.Name = "textFahrzeug6";
             this.textFahrzeug6.Size = new System.Drawing.Size(148, 20);
-            this.textFahrzeug6.TabIndex = 193;
+            this.textFahrzeug6.TabIndex = 56;
             // 
             // numericHand6
             // 
@@ -1049,7 +1069,7 @@
             0});
             this.numericHand6.Name = "numericHand6";
             this.numericHand6.Size = new System.Drawing.Size(114, 20);
-            this.numericHand6.TabIndex = 192;
+            this.numericHand6.TabIndex = 64;
             // 
             // numericKundenStueck6
             // 
@@ -1062,7 +1082,7 @@
             0});
             this.numericKundenStueck6.Name = "numericKundenStueck6";
             this.numericKundenStueck6.Size = new System.Drawing.Size(113, 20);
-            this.numericKundenStueck6.TabIndex = 191;
+            this.numericKundenStueck6.TabIndex = 63;
             // 
             // textBemerkung6
             // 
@@ -1073,7 +1093,7 @@
             this.textBemerkung6.Name = "textBemerkung6";
             this.textBemerkung6.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBemerkung6.Size = new System.Drawing.Size(343, 19);
-            this.textBemerkung6.TabIndex = 190;
+            this.textBemerkung6.TabIndex = 65;
             // 
             // numericKMStart6
             // 
@@ -1086,7 +1106,7 @@
             0});
             this.numericKMStart6.Name = "numericKMStart6";
             this.numericKMStart6.Size = new System.Drawing.Size(125, 20);
-            this.numericKMStart6.TabIndex = 189;
+            this.numericKMStart6.TabIndex = 62;
             // 
             // numericKMEnde6
             // 
@@ -1099,7 +1119,7 @@
             0});
             this.numericKMEnde6.Name = "numericKMEnde6";
             this.numericKMEnde6.Size = new System.Drawing.Size(118, 20);
-            this.numericKMEnde6.TabIndex = 188;
+            this.numericKMEnde6.TabIndex = 61;
             // 
             // numericPause6
             // 
@@ -1112,7 +1132,7 @@
             0});
             this.numericPause6.Name = "numericPause6";
             this.numericPause6.Size = new System.Drawing.Size(101, 20);
-            this.numericPause6.TabIndex = 187;
+            this.numericPause6.TabIndex = 60;
             // 
             // timeEnde6
             // 
@@ -1121,7 +1141,7 @@
             this.timeEnde6.Location = new System.Drawing.Point(718, 177);
             this.timeEnde6.Name = "timeEnde6";
             this.timeEnde6.Size = new System.Drawing.Size(88, 20);
-            this.timeEnde6.TabIndex = 186;
+            this.timeEnde6.TabIndex = 59;
             this.timeEnde6.Value = new System.DateTime(2017, 1, 1, 13, 0, 0, 0);
             // 
             // timeStart6
@@ -1131,7 +1151,7 @@
             this.timeStart6.Location = new System.Drawing.Point(592, 177);
             this.timeStart6.Name = "timeStart6";
             this.timeStart6.Size = new System.Drawing.Size(120, 20);
-            this.timeStart6.TabIndex = 185;
+            this.timeStart6.TabIndex = 58;
             this.timeStart6.Value = new System.DateTime(2017, 1, 1, 12, 0, 0, 0);
             // 
             // textTour5
@@ -1141,7 +1161,7 @@
             this.textTour5.Location = new System.Drawing.Point(118, 151);
             this.textTour5.Name = "textTour5";
             this.textTour5.Size = new System.Drawing.Size(188, 20);
-            this.textTour5.TabIndex = 184;
+            this.textTour5.TabIndex = 44;
             this.textTour5.TextChanged += new System.EventHandler(this.textTour5_TextChanged);
             // 
             // textFahrzeug5
@@ -1151,7 +1171,7 @@
             this.textFahrzeug5.Location = new System.Drawing.Point(312, 150);
             this.textFahrzeug5.Name = "textFahrzeug5";
             this.textFahrzeug5.Size = new System.Drawing.Size(148, 20);
-            this.textFahrzeug5.TabIndex = 183;
+            this.textFahrzeug5.TabIndex = 45;
             // 
             // numericHand5
             // 
@@ -1164,7 +1184,7 @@
             0});
             this.numericHand5.Name = "numericHand5";
             this.numericHand5.Size = new System.Drawing.Size(114, 20);
-            this.numericHand5.TabIndex = 182;
+            this.numericHand5.TabIndex = 53;
             // 
             // numericKundenStueck5
             // 
@@ -1177,7 +1197,7 @@
             0});
             this.numericKundenStueck5.Name = "numericKundenStueck5";
             this.numericKundenStueck5.Size = new System.Drawing.Size(113, 20);
-            this.numericKundenStueck5.TabIndex = 181;
+            this.numericKundenStueck5.TabIndex = 52;
             // 
             // textBemerkung5
             // 
@@ -1188,7 +1208,7 @@
             this.textBemerkung5.Name = "textBemerkung5";
             this.textBemerkung5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBemerkung5.Size = new System.Drawing.Size(343, 19);
-            this.textBemerkung5.TabIndex = 180;
+            this.textBemerkung5.TabIndex = 54;
             // 
             // numericKMStart5
             // 
@@ -1201,7 +1221,7 @@
             0});
             this.numericKMStart5.Name = "numericKMStart5";
             this.numericKMStart5.Size = new System.Drawing.Size(125, 20);
-            this.numericKMStart5.TabIndex = 179;
+            this.numericKMStart5.TabIndex = 51;
             // 
             // numericKMEnde5
             // 
@@ -1214,7 +1234,7 @@
             0});
             this.numericKMEnde5.Name = "numericKMEnde5";
             this.numericKMEnde5.Size = new System.Drawing.Size(118, 20);
-            this.numericKMEnde5.TabIndex = 178;
+            this.numericKMEnde5.TabIndex = 50;
             // 
             // numericPause5
             // 
@@ -1227,7 +1247,7 @@
             0});
             this.numericPause5.Name = "numericPause5";
             this.numericPause5.Size = new System.Drawing.Size(101, 20);
-            this.numericPause5.TabIndex = 177;
+            this.numericPause5.TabIndex = 49;
             // 
             // timeEnde5
             // 
@@ -1236,7 +1256,7 @@
             this.timeEnde5.Location = new System.Drawing.Point(718, 151);
             this.timeEnde5.Name = "timeEnde5";
             this.timeEnde5.Size = new System.Drawing.Size(88, 20);
-            this.timeEnde5.TabIndex = 176;
+            this.timeEnde5.TabIndex = 48;
             this.timeEnde5.Value = new System.DateTime(2017, 1, 1, 13, 0, 0, 0);
             // 
             // timeStart5
@@ -1246,7 +1266,7 @@
             this.timeStart5.Location = new System.Drawing.Point(592, 151);
             this.timeStart5.Name = "timeStart5";
             this.timeStart5.Size = new System.Drawing.Size(120, 20);
-            this.timeStart5.TabIndex = 175;
+            this.timeStart5.TabIndex = 47;
             this.timeStart5.Value = new System.DateTime(2017, 1, 1, 12, 0, 0, 0);
             // 
             // textTour4
@@ -1256,7 +1276,7 @@
             this.textTour4.Location = new System.Drawing.Point(118, 125);
             this.textTour4.Name = "textTour4";
             this.textTour4.Size = new System.Drawing.Size(188, 20);
-            this.textTour4.TabIndex = 174;
+            this.textTour4.TabIndex = 33;
             this.textTour4.TextChanged += new System.EventHandler(this.textTour4_TextChanged);
             // 
             // textFahrzeug4
@@ -1266,7 +1286,7 @@
             this.textFahrzeug4.Location = new System.Drawing.Point(312, 124);
             this.textFahrzeug4.Name = "textFahrzeug4";
             this.textFahrzeug4.Size = new System.Drawing.Size(148, 20);
-            this.textFahrzeug4.TabIndex = 173;
+            this.textFahrzeug4.TabIndex = 34;
             // 
             // numericHand4
             // 
@@ -1279,7 +1299,7 @@
             0});
             this.numericHand4.Name = "numericHand4";
             this.numericHand4.Size = new System.Drawing.Size(114, 20);
-            this.numericHand4.TabIndex = 172;
+            this.numericHand4.TabIndex = 42;
             // 
             // numericKundenStueck4
             // 
@@ -1292,7 +1312,7 @@
             0});
             this.numericKundenStueck4.Name = "numericKundenStueck4";
             this.numericKundenStueck4.Size = new System.Drawing.Size(113, 20);
-            this.numericKundenStueck4.TabIndex = 171;
+            this.numericKundenStueck4.TabIndex = 41;
             // 
             // textBemerkung4
             // 
@@ -1303,7 +1323,7 @@
             this.textBemerkung4.Name = "textBemerkung4";
             this.textBemerkung4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBemerkung4.Size = new System.Drawing.Size(343, 19);
-            this.textBemerkung4.TabIndex = 170;
+            this.textBemerkung4.TabIndex = 43;
             // 
             // numericKMStart4
             // 
@@ -1316,7 +1336,7 @@
             0});
             this.numericKMStart4.Name = "numericKMStart4";
             this.numericKMStart4.Size = new System.Drawing.Size(125, 20);
-            this.numericKMStart4.TabIndex = 169;
+            this.numericKMStart4.TabIndex = 40;
             // 
             // numericKMEnde4
             // 
@@ -1329,7 +1349,7 @@
             0});
             this.numericKMEnde4.Name = "numericKMEnde4";
             this.numericKMEnde4.Size = new System.Drawing.Size(118, 20);
-            this.numericKMEnde4.TabIndex = 168;
+            this.numericKMEnde4.TabIndex = 39;
             // 
             // numericPause4
             // 
@@ -1342,7 +1362,7 @@
             0});
             this.numericPause4.Name = "numericPause4";
             this.numericPause4.Size = new System.Drawing.Size(101, 20);
-            this.numericPause4.TabIndex = 167;
+            this.numericPause4.TabIndex = 38;
             // 
             // timeEnde4
             // 
@@ -1351,7 +1371,7 @@
             this.timeEnde4.Location = new System.Drawing.Point(718, 125);
             this.timeEnde4.Name = "timeEnde4";
             this.timeEnde4.Size = new System.Drawing.Size(88, 20);
-            this.timeEnde4.TabIndex = 166;
+            this.timeEnde4.TabIndex = 37;
             this.timeEnde4.Value = new System.DateTime(2017, 1, 1, 13, 0, 0, 0);
             // 
             // timeStart4
@@ -1361,7 +1381,7 @@
             this.timeStart4.Location = new System.Drawing.Point(592, 125);
             this.timeStart4.Name = "timeStart4";
             this.timeStart4.Size = new System.Drawing.Size(120, 20);
-            this.timeStart4.TabIndex = 165;
+            this.timeStart4.TabIndex = 36;
             this.timeStart4.Value = new System.DateTime(2017, 1, 1, 12, 0, 0, 0);
             // 
             // textTour3
@@ -1371,7 +1391,7 @@
             this.textTour3.Location = new System.Drawing.Point(118, 99);
             this.textTour3.Name = "textTour3";
             this.textTour3.Size = new System.Drawing.Size(188, 20);
-            this.textTour3.TabIndex = 164;
+            this.textTour3.TabIndex = 22;
             this.textTour3.TextChanged += new System.EventHandler(this.textTour3_TextChanged);
             // 
             // textFahrzeug3
@@ -1381,7 +1401,7 @@
             this.textFahrzeug3.Location = new System.Drawing.Point(312, 98);
             this.textFahrzeug3.Name = "textFahrzeug3";
             this.textFahrzeug3.Size = new System.Drawing.Size(148, 20);
-            this.textFahrzeug3.TabIndex = 163;
+            this.textFahrzeug3.TabIndex = 23;
             // 
             // numericHand3
             // 
@@ -1394,7 +1414,7 @@
             0});
             this.numericHand3.Name = "numericHand3";
             this.numericHand3.Size = new System.Drawing.Size(114, 20);
-            this.numericHand3.TabIndex = 162;
+            this.numericHand3.TabIndex = 31;
             // 
             // numericKundenStueck3
             // 
@@ -1407,7 +1427,7 @@
             0});
             this.numericKundenStueck3.Name = "numericKundenStueck3";
             this.numericKundenStueck3.Size = new System.Drawing.Size(113, 20);
-            this.numericKundenStueck3.TabIndex = 161;
+            this.numericKundenStueck3.TabIndex = 30;
             // 
             // textBemerkung3
             // 
@@ -1418,7 +1438,7 @@
             this.textBemerkung3.Name = "textBemerkung3";
             this.textBemerkung3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBemerkung3.Size = new System.Drawing.Size(343, 19);
-            this.textBemerkung3.TabIndex = 160;
+            this.textBemerkung3.TabIndex = 32;
             // 
             // numericKMStart3
             // 
@@ -1431,7 +1451,7 @@
             0});
             this.numericKMStart3.Name = "numericKMStart3";
             this.numericKMStart3.Size = new System.Drawing.Size(125, 20);
-            this.numericKMStart3.TabIndex = 159;
+            this.numericKMStart3.TabIndex = 29;
             // 
             // numericKMEnde3
             // 
@@ -1444,7 +1464,7 @@
             0});
             this.numericKMEnde3.Name = "numericKMEnde3";
             this.numericKMEnde3.Size = new System.Drawing.Size(118, 20);
-            this.numericKMEnde3.TabIndex = 158;
+            this.numericKMEnde3.TabIndex = 28;
             // 
             // numericPause3
             // 
@@ -1457,7 +1477,7 @@
             0});
             this.numericPause3.Name = "numericPause3";
             this.numericPause3.Size = new System.Drawing.Size(101, 20);
-            this.numericPause3.TabIndex = 157;
+            this.numericPause3.TabIndex = 27;
             // 
             // timeEnde3
             // 
@@ -1466,7 +1486,7 @@
             this.timeEnde3.Location = new System.Drawing.Point(718, 99);
             this.timeEnde3.Name = "timeEnde3";
             this.timeEnde3.Size = new System.Drawing.Size(88, 20);
-            this.timeEnde3.TabIndex = 156;
+            this.timeEnde3.TabIndex = 26;
             this.timeEnde3.Value = new System.DateTime(2017, 1, 1, 13, 0, 0, 0);
             // 
             // timeStart3
@@ -1476,7 +1496,7 @@
             this.timeStart3.Location = new System.Drawing.Point(592, 99);
             this.timeStart3.Name = "timeStart3";
             this.timeStart3.Size = new System.Drawing.Size(120, 20);
-            this.timeStart3.TabIndex = 155;
+            this.timeStart3.TabIndex = 25;
             this.timeStart3.Value = new System.DateTime(2017, 1, 1, 12, 0, 0, 0);
             // 
             // textTour2
@@ -1486,7 +1506,7 @@
             this.textTour2.Location = new System.Drawing.Point(118, 73);
             this.textTour2.Name = "textTour2";
             this.textTour2.Size = new System.Drawing.Size(188, 20);
-            this.textTour2.TabIndex = 154;
+            this.textTour2.TabIndex = 11;
             this.textTour2.TextChanged += new System.EventHandler(this.textTour2_TextChanged);
             // 
             // textFahrzeug2
@@ -1496,7 +1516,7 @@
             this.textFahrzeug2.Location = new System.Drawing.Point(312, 72);
             this.textFahrzeug2.Name = "textFahrzeug2";
             this.textFahrzeug2.Size = new System.Drawing.Size(148, 20);
-            this.textFahrzeug2.TabIndex = 153;
+            this.textFahrzeug2.TabIndex = 12;
             // 
             // numericHand2
             // 
@@ -1509,7 +1529,7 @@
             0});
             this.numericHand2.Name = "numericHand2";
             this.numericHand2.Size = new System.Drawing.Size(114, 20);
-            this.numericHand2.TabIndex = 152;
+            this.numericHand2.TabIndex = 20;
             // 
             // numericKundenStueck2
             // 
@@ -1522,7 +1542,7 @@
             0});
             this.numericKundenStueck2.Name = "numericKundenStueck2";
             this.numericKundenStueck2.Size = new System.Drawing.Size(113, 20);
-            this.numericKundenStueck2.TabIndex = 151;
+            this.numericKundenStueck2.TabIndex = 19;
             // 
             // textBemerkung2
             // 
@@ -1533,7 +1553,7 @@
             this.textBemerkung2.Name = "textBemerkung2";
             this.textBemerkung2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBemerkung2.Size = new System.Drawing.Size(343, 19);
-            this.textBemerkung2.TabIndex = 150;
+            this.textBemerkung2.TabIndex = 21;
             // 
             // numericKMStart2
             // 
@@ -1546,7 +1566,7 @@
             0});
             this.numericKMStart2.Name = "numericKMStart2";
             this.numericKMStart2.Size = new System.Drawing.Size(125, 20);
-            this.numericKMStart2.TabIndex = 149;
+            this.numericKMStart2.TabIndex = 18;
             // 
             // numericKMEnde2
             // 
@@ -1559,7 +1579,7 @@
             0});
             this.numericKMEnde2.Name = "numericKMEnde2";
             this.numericKMEnde2.Size = new System.Drawing.Size(118, 20);
-            this.numericKMEnde2.TabIndex = 148;
+            this.numericKMEnde2.TabIndex = 17;
             // 
             // numericPause2
             // 
@@ -1572,7 +1592,7 @@
             0});
             this.numericPause2.Name = "numericPause2";
             this.numericPause2.Size = new System.Drawing.Size(101, 20);
-            this.numericPause2.TabIndex = 147;
+            this.numericPause2.TabIndex = 16;
             // 
             // timeEnde2
             // 
@@ -1581,7 +1601,7 @@
             this.timeEnde2.Location = new System.Drawing.Point(718, 73);
             this.timeEnde2.Name = "timeEnde2";
             this.timeEnde2.Size = new System.Drawing.Size(88, 20);
-            this.timeEnde2.TabIndex = 146;
+            this.timeEnde2.TabIndex = 15;
             this.timeEnde2.Value = new System.DateTime(2017, 1, 1, 13, 0, 0, 0);
             // 
             // timeStart2
@@ -1591,7 +1611,7 @@
             this.timeStart2.Location = new System.Drawing.Point(592, 73);
             this.timeStart2.Name = "timeStart2";
             this.timeStart2.Size = new System.Drawing.Size(120, 20);
-            this.timeStart2.TabIndex = 145;
+            this.timeStart2.TabIndex = 14;
             this.timeStart2.Value = new System.DateTime(2017, 1, 1, 12, 0, 0, 0);
             // 
             // label3
@@ -1611,7 +1631,7 @@
             this.textTour1.Location = new System.Drawing.Point(118, 47);
             this.textTour1.Name = "textTour1";
             this.textTour1.Size = new System.Drawing.Size(188, 20);
-            this.textTour1.TabIndex = 143;
+            this.textTour1.TabIndex = 0;
             this.textTour1.TextChanged += new System.EventHandler(this.textTour1_TextChanged);
             // 
             // label4
@@ -1631,7 +1651,7 @@
             this.textFahrzeug1.Location = new System.Drawing.Point(312, 46);
             this.textFahrzeug1.Name = "textFahrzeug1";
             this.textFahrzeug1.Size = new System.Drawing.Size(148, 20);
-            this.textFahrzeug1.TabIndex = 141;
+            this.textFahrzeug1.TabIndex = 1;
             // 
             // label2Zahlenfeld
             // 
@@ -1654,7 +1674,7 @@
             0});
             this.numericHand1.Name = "numericHand1";
             this.numericHand1.Size = new System.Drawing.Size(114, 20);
-            this.numericHand1.TabIndex = 139;
+            this.numericHand1.TabIndex = 9;
             // 
             // label1ZahlenFeld
             // 
@@ -1687,7 +1707,7 @@
             0});
             this.numericKundenStueck1.Name = "numericKundenStueck1";
             this.numericKundenStueck1.Size = new System.Drawing.Size(113, 20);
-            this.numericKundenStueck1.TabIndex = 135;
+            this.numericKundenStueck1.TabIndex = 8;
             // 
             // textBemerkung1
             // 
@@ -1698,7 +1718,7 @@
             this.textBemerkung1.Name = "textBemerkung1";
             this.textBemerkung1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBemerkung1.Size = new System.Drawing.Size(343, 19);
-            this.textBemerkung1.TabIndex = 133;
+            this.textBemerkung1.TabIndex = 10;
             // 
             // label9
             // 
@@ -1731,7 +1751,7 @@
             0});
             this.numericKMStart1.Name = "numericKMStart1";
             this.numericKMStart1.Size = new System.Drawing.Size(125, 20);
-            this.numericKMStart1.TabIndex = 129;
+            this.numericKMStart1.TabIndex = 7;
             // 
             // numericKMEnde1
             // 
@@ -1744,7 +1764,7 @@
             0});
             this.numericKMEnde1.Name = "numericKMEnde1";
             this.numericKMEnde1.Size = new System.Drawing.Size(118, 20);
-            this.numericKMEnde1.TabIndex = 128;
+            this.numericKMEnde1.TabIndex = 6;
             // 
             // label11
             // 
@@ -1767,7 +1787,7 @@
             0});
             this.numericPause1.Name = "numericPause1";
             this.numericPause1.Size = new System.Drawing.Size(101, 20);
-            this.numericPause1.TabIndex = 126;
+            this.numericPause1.TabIndex = 5;
             // 
             // label12
             // 
@@ -1796,7 +1816,7 @@
             this.timeEnde1.Location = new System.Drawing.Point(718, 47);
             this.timeEnde1.Name = "timeEnde1";
             this.timeEnde1.Size = new System.Drawing.Size(88, 20);
-            this.timeEnde1.TabIndex = 1;
+            this.timeEnde1.TabIndex = 4;
             this.timeEnde1.Value = new System.DateTime(2017, 1, 1, 13, 0, 0, 0);
             // 
             // timeStart1
@@ -1806,7 +1826,7 @@
             this.timeStart1.Location = new System.Drawing.Point(592, 47);
             this.timeStart1.Name = "timeStart1";
             this.timeStart1.Size = new System.Drawing.Size(120, 20);
-            this.timeStart1.TabIndex = 0;
+            this.timeStart1.TabIndex = 3;
             this.timeStart1.Value = new System.DateTime(2017, 1, 1, 12, 0, 0, 0);
             // 
             // textLog
@@ -1827,7 +1847,7 @@
             this.textMitarbeiter.Location = new System.Drawing.Point(128, 73);
             this.textMitarbeiter.Name = "textMitarbeiter";
             this.textMitarbeiter.Size = new System.Drawing.Size(188, 20);
-            this.textMitarbeiter.TabIndex = 256;
+            this.textMitarbeiter.TabIndex = 0;
             // 
             // label2
             // 
@@ -1838,16 +1858,6 @@
             this.label2.Size = new System.Drawing.Size(77, 15);
             this.label2.TabIndex = 256;
             this.label2.Text = "Mitarbeiter";
-            // 
-            // buttonAbsenden
-            // 
-            this.buttonAbsenden.Location = new System.Drawing.Point(6, 308);
-            this.buttonAbsenden.Name = "buttonAbsenden";
-            this.buttonAbsenden.Size = new System.Drawing.Size(189, 70);
-            this.buttonAbsenden.TabIndex = 256;
-            this.buttonAbsenden.Text = "Absenden";
-            this.buttonAbsenden.UseVisualStyleBackColor = true;
-            this.buttonAbsenden.Click += new System.EventHandler(this.buttonAbsenden_Click);
             // 
             // LEA_Fahrtentabelle
             // 
