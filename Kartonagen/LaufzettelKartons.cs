@@ -134,7 +134,7 @@ namespace Kartonagen
 
         private void buttonDrucken_Click(object sender, EventArgs e)
         {
-            MySqlCommand cmdRead = new MySqlCommand("SELECT t.Kartons, t.Flaschenkartons, t.Glaeserkartons, t.Kleiderkartons, t.timeTransaktion, k.Anrede, k.Vorname, k.Nachname, k.Telefonnummer, k.Handynummer, k.Straße, k.Hausnummer, k.Ort, k.PLZ, t.Bemerkungen FROM Transaktionen t, Kunden k WHERE t.Umzuege_Kunden_idKunden = k.idKunden AND t.datTransaktion = " + Program.DateMachine(dateTransaktion.Value) + "ORDER BY timeTransaktion ASC;",Program.conn);
+            MySqlCommand cmdRead = new MySqlCommand("SELECT t.Kartons, t.Flaschenkartons, t.Glaeserkartons, t.Kleiderkartons, t.timeTransaktion, k.Anrede, k.Vorname, k.Nachname, k.Telefonnummer, k.Handynummer, k.Straße, k.Hausnummer, k.Ort, k.PLZ, t.Bemerkungen FROM Transaktionen t, Kunden k WHERE t.Umzuege_Kunden_idKunden = k.idKunden AND t.datTransaktion = '" + Program.DateMachine(dateTransaktion.Value) + "' ORDER BY timeTransaktion ASC;",Program.conn);
             MySqlDataReader rdr;
 
             int count = 0;
@@ -147,7 +147,7 @@ namespace Kartonagen
                 while (rdr.Read())
                 {
                     // Sortiert Zeiten um genau Mitternacht aus
-                    if (rdr.GetDateTime(4).TimeOfDay.CompareTo(comparison) != 0) {
+                    if (rdr.GetDateTime(4).TimeOfDay.CompareTo(comparison) != 0 || true) { //Test, remove!
                         // Name
                         KundenName[count].AppendText(rdr.GetString(5) + " " + rdr.GetString(6) + " " + rdr.GetString(7));
                         
@@ -208,32 +208,24 @@ namespace Kartonagen
                 textLog.Text += sqlEx.ToString();
             }
 
+            // Gegenprüfen mittels Kalender
+            Events eve = Program.kalenderDatumFinder(dateTransaktion.Value);            
+            foreach (var item in eve.Items)
+            {
+                if (item.ColorId == "8")
+                {
+                    count--;
+                }
+            }
 
-
-
-
-
-
-
-
-
-
-            //Events eve = Program.kalenderDatumFinder(dateTransaktion.Value);
-            //if (eve.Items.Count == 0)
-            //{
-            //    textLog.AppendText("Anzeige durch " + eve.Items.Count.ToString());
-            //    return;
-            //}
-
-            //foreach (var item in eve.Items)
-            //{
-            //    if (item.ColorId == "8")
-            //    {
-            //        textLog.AppendText(item.Summary.ToString() + " " + item.ColorId.ToString() + "\r\n");
-            //    }
-            //}
-
-            //textLog.AppendText("Anzeige durch " + eve.Items.Count.ToString());
+            if (count > 0)
+            {
+                var Meldung = MessageBox.Show("Im Kalender sind mehr Termine als Transaktionen in der Datenbank \r\n Bitte überprüfen" , "Warnung");
+            }
+            else if (count < 0)
+            {
+                var Meldung = MessageBox.Show("Im Kalender sind weniger Termine als Transaktionen in der Datenbank \r\n Bitte überprüfen", "Warnung");
+            }            
         }
     }
 }
