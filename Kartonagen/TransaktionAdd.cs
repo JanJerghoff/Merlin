@@ -232,9 +232,16 @@ namespace Kartonagen
             }
 
             //String bauen
-            String push = "INSERT INTO Transaktionen (datTransaktion, Kartons, FlaschenKartons, GlaeserKartons, KleiderKartons, Umzuege_idUmzuege, Umzuege_Kunden_idKunden, Bemerkungen, UserChanged, Erstelldatum, unbenutzt, RechnungsNr) VALUES (";
+            String push = "INSERT INTO Transaktionen (datTransaktion, timeTransaktion, Kartons, FlaschenKartons, GlaeserKartons, KleiderKartons, Umzuege_idUmzuege, Umzuege_Kunden_idKunden, Bemerkungen, UserChanged, Erstelldatum, unbenutzt, RechnungsNr) VALUES (";
 
             push += "'" + Program.DateMachine(dateTimeTransaktion.Value) + "', ";
+
+            // Zeitkomponente pushen wenn Termin in der Zukunft
+            if (checkTermin.Checked)
+            {
+                push += "'" + Program.DateMachine(dateTimeTransaktion.Value) + " " + Program.ZeitMachine(timeLieferzeit.Value) + "', ";
+            }
+            else { push += "'" + Program.DateMachine(dateTimeTransaktion.Value) + " 00-00-00', "; }
 
             if (radioAusgang.Checked)
             {
@@ -307,7 +314,7 @@ namespace Kartonagen
 
 
             // Termine in Kalender pushen wenn relevant
-            if (checkBox1.Checked)
+            if (checkTermin.Checked)
             {
                 Kalendereintrag();
             }
@@ -405,7 +412,7 @@ namespace Kartonagen
                 Body += numericKleiderKarton.Value.ToString() + " Kleiderkartons ";
             }
 
-            Body += "\r\n Transaktionsnummer =" + textTransNummer.Text;
+            Body += "\r\n Transaktionsnummer =" + textResultatsNummer.Text;
             if (radioEingang.Checked) { Body += " tatsächliche Kartonzahl nachkorrigieren"; }
 
             DateTime start = new DateTime(dateTimeTransaktion.Value.Year, dateTimeTransaktion.Value.Month, dateTimeTransaktion.Value.Day, timeLieferzeit.Value.Hour, timeLieferzeit.Value.Minute, 0);
@@ -583,7 +590,7 @@ namespace Kartonagen
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
+            if (checkTermin.Checked)
             {
                 timeLieferzeit.Enabled = true;
             }

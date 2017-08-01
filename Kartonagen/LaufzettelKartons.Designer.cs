@@ -114,6 +114,24 @@
             this.dateTransaktion = new System.Windows.Forms.DateTimePicker();
             this.buttonDrucken = new System.Windows.Forms.Button();
             this.textLog = new System.Windows.Forms.TextBox();
+            this.textAnAbZahl16 = new System.Windows.Forms.TextBox();
+            this.textAnAbZahl15 = new System.Windows.Forms.TextBox();
+            this.textAnAbZahl14 = new System.Windows.Forms.TextBox();
+            this.textKontakt16 = new System.Windows.Forms.TextBox();
+            this.textBemerkung16 = new System.Windows.Forms.TextBox();
+            this.textUhrzeit16 = new System.Windows.Forms.TextBox();
+            this.textAnschrift16 = new System.Windows.Forms.TextBox();
+            this.textName16 = new System.Windows.Forms.TextBox();
+            this.textKontakt15 = new System.Windows.Forms.TextBox();
+            this.textBemerkung15 = new System.Windows.Forms.TextBox();
+            this.textUhrzeit15 = new System.Windows.Forms.TextBox();
+            this.textAnschrift15 = new System.Windows.Forms.TextBox();
+            this.textName15 = new System.Windows.Forms.TextBox();
+            this.textKontakt14 = new System.Windows.Forms.TextBox();
+            this.textBemerkung14 = new System.Windows.Forms.TextBox();
+            this.textUhrzeit14 = new System.Windows.Forms.TextBox();
+            this.textAnschrift14 = new System.Windows.Forms.TextBox();
+            this.textName14 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textKontakt13
@@ -137,7 +155,6 @@
             // 
             this.textUhrzeit13.Location = new System.Drawing.Point(12, 460);
             this.textUhrzeit13.Name = "textUhrzeit13";
-            this.textUhrzeit13.ReadOnly = true;
             this.textUhrzeit13.Size = new System.Drawing.Size(108, 20);
             this.textUhrzeit13.TabIndex = 167;
             this.textUhrzeit13.TabStop = false;
@@ -146,7 +163,6 @@
             // 
             this.textAnschrift13.Location = new System.Drawing.Point(313, 460);
             this.textAnschrift13.Name = "textAnschrift13";
-            this.textAnschrift13.ReadOnly = true;
             this.textAnschrift13.Size = new System.Drawing.Size(459, 20);
             this.textAnschrift13.TabIndex = 166;
             this.textAnschrift13.TabStop = false;
@@ -181,7 +197,6 @@
             // 
             this.textUhrzeit12.Location = new System.Drawing.Point(12, 434);
             this.textUhrzeit12.Name = "textUhrzeit12";
-            this.textUhrzeit12.ReadOnly = true;
             this.textUhrzeit12.Size = new System.Drawing.Size(108, 20);
             this.textUhrzeit12.TabIndex = 162;
             this.textUhrzeit12.TabStop = false;
@@ -190,7 +205,6 @@
             // 
             this.textAnschrift12.Location = new System.Drawing.Point(313, 434);
             this.textAnschrift12.Name = "textAnschrift12";
-            this.textAnschrift12.ReadOnly = true;
             this.textAnschrift12.Size = new System.Drawing.Size(459, 20);
             this.textAnschrift12.TabIndex = 161;
             this.textAnschrift12.TabStop = false;
@@ -225,7 +239,6 @@
             // 
             this.textUhrzeit11.Location = new System.Drawing.Point(12, 408);
             this.textUhrzeit11.Name = "textUhrzeit11";
-            this.textUhrzeit11.ReadOnly = true;
             this.textUhrzeit11.Size = new System.Drawing.Size(108, 20);
             this.textUhrzeit11.TabIndex = 157;
             this.textUhrzeit11.TabStop = false;
@@ -234,7 +247,6 @@
             // 
             this.textAnschrift11.Location = new System.Drawing.Point(313, 408);
             this.textAnschrift11.Name = "textAnschrift11";
-            this.textAnschrift11.ReadOnly = true;
             this.textAnschrift11.Size = new System.Drawing.Size(459, 20);
             this.textAnschrift11.TabIndex = 156;
             this.textAnschrift11.TabStop = false;
@@ -350,7 +362,6 @@
             // 
             this.textUhrzeit10.Location = new System.Drawing.Point(12, 382);
             this.textUhrzeit10.Name = "textUhrzeit10";
-            this.textUhrzeit10.ReadOnly = true;
             this.textUhrzeit10.Size = new System.Drawing.Size(108, 20);
             this.textUhrzeit10.TabIndex = 143;
             this.textUhrzeit10.TabStop = false;
@@ -359,7 +370,6 @@
             // 
             this.textAnschrift10.Location = new System.Drawing.Point(313, 382);
             this.textAnschrift10.Name = "textAnschrift10";
-            this.textAnschrift10.ReadOnly = true;
             this.textAnschrift10.Size = new System.Drawing.Size(459, 20);
             this.textAnschrift10.TabIndex = 142;
             this.textAnschrift10.TabStop = false;
@@ -385,7 +395,6 @@
             // 
             this.textUhrzeit9.Location = new System.Drawing.Point(12, 356);
             this.textUhrzeit9.Name = "textUhrzeit9";
-            this.textUhrzeit9.ReadOnly = true;
             this.textUhrzeit9.Size = new System.Drawing.Size(108, 20);
             this.textUhrzeit9.TabIndex = 139;
             this.textUhrzeit9.TabStop = false;
@@ -394,7 +403,6 @@
             // 
             this.textAnschrift9.Location = new System.Drawing.Point(313, 356);
             this.textAnschrift9.Name = "textAnschrift9";
-            this.textAnschrift9.ReadOnly = true;
             this.textAnschrift9.Size = new System.Drawing.Size(459, 20);
             this.textAnschrift9.TabIndex = 138;
             this.textAnschrift9.TabStop = false;
@@ -420,7 +428,6 @@
             // 
             this.textUhrzeit8.Location = new System.Drawing.Point(12, 330);
             this.textUhrzeit8.Name = "textUhrzeit8";
-            this.textUhrzeit8.ReadOnly = true;
             this.textUhrzeit8.Size = new System.Drawing.Size(108, 20);
             this.textUhrzeit8.TabIndex = 135;
             this.textUhrzeit8.TabStop = false;
@@ -429,7 +436,6 @@
             // 
             this.textAnschrift8.Location = new System.Drawing.Point(313, 330);
             this.textAnschrift8.Name = "textAnschrift8";
-            this.textAnschrift8.ReadOnly = true;
             this.textAnschrift8.Size = new System.Drawing.Size(459, 20);
             this.textAnschrift8.TabIndex = 134;
             this.textAnschrift8.TabStop = false;
@@ -455,7 +461,6 @@
             // 
             this.textUhrzeit7.Location = new System.Drawing.Point(12, 304);
             this.textUhrzeit7.Name = "textUhrzeit7";
-            this.textUhrzeit7.ReadOnly = true;
             this.textUhrzeit7.Size = new System.Drawing.Size(108, 20);
             this.textUhrzeit7.TabIndex = 131;
             this.textUhrzeit7.TabStop = false;
@@ -464,7 +469,6 @@
             // 
             this.textAnschrift7.Location = new System.Drawing.Point(313, 304);
             this.textAnschrift7.Name = "textAnschrift7";
-            this.textAnschrift7.ReadOnly = true;
             this.textAnschrift7.Size = new System.Drawing.Size(459, 20);
             this.textAnschrift7.TabIndex = 130;
             this.textAnschrift7.TabStop = false;
@@ -490,7 +494,6 @@
             // 
             this.textUhrzeit6.Location = new System.Drawing.Point(12, 278);
             this.textUhrzeit6.Name = "textUhrzeit6";
-            this.textUhrzeit6.ReadOnly = true;
             this.textUhrzeit6.Size = new System.Drawing.Size(108, 20);
             this.textUhrzeit6.TabIndex = 127;
             this.textUhrzeit6.TabStop = false;
@@ -499,7 +502,6 @@
             // 
             this.textAnschrift6.Location = new System.Drawing.Point(313, 278);
             this.textAnschrift6.Name = "textAnschrift6";
-            this.textAnschrift6.ReadOnly = true;
             this.textAnschrift6.Size = new System.Drawing.Size(459, 20);
             this.textAnschrift6.TabIndex = 126;
             this.textAnschrift6.TabStop = false;
@@ -525,7 +527,6 @@
             // 
             this.textUhrzeit5.Location = new System.Drawing.Point(12, 252);
             this.textUhrzeit5.Name = "textUhrzeit5";
-            this.textUhrzeit5.ReadOnly = true;
             this.textUhrzeit5.Size = new System.Drawing.Size(108, 20);
             this.textUhrzeit5.TabIndex = 123;
             this.textUhrzeit5.TabStop = false;
@@ -534,7 +535,6 @@
             // 
             this.textAnschrift5.Location = new System.Drawing.Point(313, 252);
             this.textAnschrift5.Name = "textAnschrift5";
-            this.textAnschrift5.ReadOnly = true;
             this.textAnschrift5.Size = new System.Drawing.Size(459, 20);
             this.textAnschrift5.TabIndex = 122;
             this.textAnschrift5.TabStop = false;
@@ -560,7 +560,6 @@
             // 
             this.textUhrzeit4.Location = new System.Drawing.Point(12, 226);
             this.textUhrzeit4.Name = "textUhrzeit4";
-            this.textUhrzeit4.ReadOnly = true;
             this.textUhrzeit4.Size = new System.Drawing.Size(108, 20);
             this.textUhrzeit4.TabIndex = 119;
             this.textUhrzeit4.TabStop = false;
@@ -569,7 +568,6 @@
             // 
             this.textAnschrift4.Location = new System.Drawing.Point(313, 226);
             this.textAnschrift4.Name = "textAnschrift4";
-            this.textAnschrift4.ReadOnly = true;
             this.textAnschrift4.Size = new System.Drawing.Size(459, 20);
             this.textAnschrift4.TabIndex = 118;
             this.textAnschrift4.TabStop = false;
@@ -595,7 +593,6 @@
             // 
             this.textUhrzeit3.Location = new System.Drawing.Point(12, 200);
             this.textUhrzeit3.Name = "textUhrzeit3";
-            this.textUhrzeit3.ReadOnly = true;
             this.textUhrzeit3.Size = new System.Drawing.Size(108, 20);
             this.textUhrzeit3.TabIndex = 115;
             this.textUhrzeit3.TabStop = false;
@@ -604,7 +601,6 @@
             // 
             this.textAnschrift3.Location = new System.Drawing.Point(313, 200);
             this.textAnschrift3.Name = "textAnschrift3";
-            this.textAnschrift3.ReadOnly = true;
             this.textAnschrift3.Size = new System.Drawing.Size(459, 20);
             this.textAnschrift3.TabIndex = 114;
             this.textAnschrift3.TabStop = false;
@@ -630,7 +626,6 @@
             // 
             this.textUhrzeit2.Location = new System.Drawing.Point(12, 174);
             this.textUhrzeit2.Name = "textUhrzeit2";
-            this.textUhrzeit2.ReadOnly = true;
             this.textUhrzeit2.Size = new System.Drawing.Size(108, 20);
             this.textUhrzeit2.TabIndex = 111;
             this.textUhrzeit2.TabStop = false;
@@ -639,7 +634,6 @@
             // 
             this.textAnschrift2.Location = new System.Drawing.Point(313, 174);
             this.textAnschrift2.Name = "textAnschrift2";
-            this.textAnschrift2.ReadOnly = true;
             this.textAnschrift2.Size = new System.Drawing.Size(459, 20);
             this.textAnschrift2.TabIndex = 110;
             this.textAnschrift2.TabStop = false;
@@ -665,7 +659,6 @@
             // 
             this.textUhrzeit1.Location = new System.Drawing.Point(12, 148);
             this.textUhrzeit1.Name = "textUhrzeit1";
-            this.textUhrzeit1.ReadOnly = true;
             this.textUhrzeit1.Size = new System.Drawing.Size(108, 20);
             this.textUhrzeit1.TabIndex = 107;
             this.textUhrzeit1.TabStop = false;
@@ -674,7 +667,6 @@
             // 
             this.textAnschrift1.Location = new System.Drawing.Point(313, 148);
             this.textAnschrift1.Name = "textAnschrift1";
-            this.textAnschrift1.ReadOnly = true;
             this.textAnschrift1.Size = new System.Drawing.Size(459, 20);
             this.textAnschrift1.TabIndex = 106;
             this.textAnschrift1.TabStop = false;
@@ -692,7 +684,6 @@
             // 
             this.textAnAbZahl13.Location = new System.Drawing.Point(1037, 460);
             this.textAnAbZahl13.Name = "textAnAbZahl13";
-            this.textAnAbZahl13.ReadOnly = true;
             this.textAnAbZahl13.Size = new System.Drawing.Size(370, 20);
             this.textAnAbZahl13.TabIndex = 182;
             this.textAnAbZahl13.TabStop = false;
@@ -701,7 +692,6 @@
             // 
             this.textAnAbZahl12.Location = new System.Drawing.Point(1037, 434);
             this.textAnAbZahl12.Name = "textAnAbZahl12";
-            this.textAnAbZahl12.ReadOnly = true;
             this.textAnAbZahl12.Size = new System.Drawing.Size(370, 20);
             this.textAnAbZahl12.TabIndex = 181;
             this.textAnAbZahl12.TabStop = false;
@@ -710,7 +700,6 @@
             // 
             this.textAnAbZahl11.Location = new System.Drawing.Point(1037, 408);
             this.textAnAbZahl11.Name = "textAnAbZahl11";
-            this.textAnAbZahl11.ReadOnly = true;
             this.textAnAbZahl11.Size = new System.Drawing.Size(370, 20);
             this.textAnAbZahl11.TabIndex = 180;
             this.textAnAbZahl11.TabStop = false;
@@ -719,7 +708,6 @@
             // 
             this.textAnAbZahl10.Location = new System.Drawing.Point(1037, 382);
             this.textAnAbZahl10.Name = "textAnAbZahl10";
-            this.textAnAbZahl10.ReadOnly = true;
             this.textAnAbZahl10.Size = new System.Drawing.Size(370, 20);
             this.textAnAbZahl10.TabIndex = 179;
             this.textAnAbZahl10.TabStop = false;
@@ -728,7 +716,6 @@
             // 
             this.textAnAbZahl9.Location = new System.Drawing.Point(1037, 356);
             this.textAnAbZahl9.Name = "textAnAbZahl9";
-            this.textAnAbZahl9.ReadOnly = true;
             this.textAnAbZahl9.Size = new System.Drawing.Size(370, 20);
             this.textAnAbZahl9.TabIndex = 178;
             this.textAnAbZahl9.TabStop = false;
@@ -737,7 +724,6 @@
             // 
             this.textAnAbZahl8.Location = new System.Drawing.Point(1037, 330);
             this.textAnAbZahl8.Name = "textAnAbZahl8";
-            this.textAnAbZahl8.ReadOnly = true;
             this.textAnAbZahl8.Size = new System.Drawing.Size(370, 20);
             this.textAnAbZahl8.TabIndex = 177;
             this.textAnAbZahl8.TabStop = false;
@@ -746,7 +732,6 @@
             // 
             this.textAnAbZahl7.Location = new System.Drawing.Point(1037, 304);
             this.textAnAbZahl7.Name = "textAnAbZahl7";
-            this.textAnAbZahl7.ReadOnly = true;
             this.textAnAbZahl7.Size = new System.Drawing.Size(370, 20);
             this.textAnAbZahl7.TabIndex = 176;
             this.textAnAbZahl7.TabStop = false;
@@ -755,7 +740,6 @@
             // 
             this.textAnAbZahl6.Location = new System.Drawing.Point(1037, 278);
             this.textAnAbZahl6.Name = "textAnAbZahl6";
-            this.textAnAbZahl6.ReadOnly = true;
             this.textAnAbZahl6.Size = new System.Drawing.Size(370, 20);
             this.textAnAbZahl6.TabIndex = 175;
             this.textAnAbZahl6.TabStop = false;
@@ -764,7 +748,6 @@
             // 
             this.textAnAbZahl5.Location = new System.Drawing.Point(1037, 252);
             this.textAnAbZahl5.Name = "textAnAbZahl5";
-            this.textAnAbZahl5.ReadOnly = true;
             this.textAnAbZahl5.Size = new System.Drawing.Size(370, 20);
             this.textAnAbZahl5.TabIndex = 174;
             this.textAnAbZahl5.TabStop = false;
@@ -773,7 +756,6 @@
             // 
             this.textAnAbZahl4.Location = new System.Drawing.Point(1037, 226);
             this.textAnAbZahl4.Name = "textAnAbZahl4";
-            this.textAnAbZahl4.ReadOnly = true;
             this.textAnAbZahl4.Size = new System.Drawing.Size(370, 20);
             this.textAnAbZahl4.TabIndex = 173;
             this.textAnAbZahl4.TabStop = false;
@@ -782,7 +764,6 @@
             // 
             this.textAnAbZahl3.Location = new System.Drawing.Point(1037, 200);
             this.textAnAbZahl3.Name = "textAnAbZahl3";
-            this.textAnAbZahl3.ReadOnly = true;
             this.textAnAbZahl3.Size = new System.Drawing.Size(370, 20);
             this.textAnAbZahl3.TabIndex = 172;
             this.textAnAbZahl3.TabStop = false;
@@ -791,7 +772,6 @@
             // 
             this.textAnAbZahl2.Location = new System.Drawing.Point(1037, 174);
             this.textAnAbZahl2.Name = "textAnAbZahl2";
-            this.textAnAbZahl2.ReadOnly = true;
             this.textAnAbZahl2.Size = new System.Drawing.Size(370, 20);
             this.textAnAbZahl2.TabIndex = 171;
             this.textAnAbZahl2.TabStop = false;
@@ -800,7 +780,6 @@
             // 
             this.textAnAbZahl1.Location = new System.Drawing.Point(1037, 148);
             this.textAnAbZahl1.Name = "textAnAbZahl1";
-            this.textAnAbZahl1.ReadOnly = true;
             this.textAnAbZahl1.Size = new System.Drawing.Size(370, 20);
             this.textAnAbZahl1.TabIndex = 170;
             this.textAnAbZahl1.TabStop = false;
@@ -872,15 +851,165 @@
             // textLog
             // 
             this.textLog.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textLog.Location = new System.Drawing.Point(15, 486);
+            this.textLog.Location = new System.Drawing.Point(15, 564);
             this.textLog.MaxLength = 999999;
             this.textLog.Multiline = true;
             this.textLog.Name = "textLog";
             this.textLog.ReadOnly = true;
             this.textLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textLog.Size = new System.Drawing.Size(1193, 263);
+            this.textLog.Size = new System.Drawing.Size(1193, 185);
             this.textLog.TabIndex = 190;
             this.textLog.TabStop = false;
+            // 
+            // textAnAbZahl16
+            // 
+            this.textAnAbZahl16.Location = new System.Drawing.Point(1037, 538);
+            this.textAnAbZahl16.Name = "textAnAbZahl16";
+            this.textAnAbZahl16.Size = new System.Drawing.Size(370, 20);
+            this.textAnAbZahl16.TabIndex = 208;
+            this.textAnAbZahl16.TabStop = false;
+            // 
+            // textAnAbZahl15
+            // 
+            this.textAnAbZahl15.Location = new System.Drawing.Point(1037, 512);
+            this.textAnAbZahl15.Name = "textAnAbZahl15";
+            this.textAnAbZahl15.Size = new System.Drawing.Size(370, 20);
+            this.textAnAbZahl15.TabIndex = 207;
+            this.textAnAbZahl15.TabStop = false;
+            // 
+            // textAnAbZahl14
+            // 
+            this.textAnAbZahl14.Location = new System.Drawing.Point(1037, 486);
+            this.textAnAbZahl14.Name = "textAnAbZahl14";
+            this.textAnAbZahl14.Size = new System.Drawing.Size(370, 20);
+            this.textAnAbZahl14.TabIndex = 206;
+            this.textAnAbZahl14.TabStop = false;
+            // 
+            // textKontakt16
+            // 
+            this.textKontakt16.Location = new System.Drawing.Point(778, 538);
+            this.textKontakt16.Name = "textKontakt16";
+            this.textKontakt16.ReadOnly = true;
+            this.textKontakt16.Size = new System.Drawing.Size(253, 20);
+            this.textKontakt16.TabIndex = 205;
+            this.textKontakt16.TabStop = false;
+            // 
+            // textBemerkung16
+            // 
+            this.textBemerkung16.Location = new System.Drawing.Point(1413, 538);
+            this.textBemerkung16.Name = "textBemerkung16";
+            this.textBemerkung16.Size = new System.Drawing.Size(343, 20);
+            this.textBemerkung16.TabIndex = 204;
+            this.textBemerkung16.Text = " ";
+            // 
+            // textUhrzeit16
+            // 
+            this.textUhrzeit16.Location = new System.Drawing.Point(12, 538);
+            this.textUhrzeit16.Name = "textUhrzeit16";
+            this.textUhrzeit16.Size = new System.Drawing.Size(108, 20);
+            this.textUhrzeit16.TabIndex = 203;
+            this.textUhrzeit16.TabStop = false;
+            // 
+            // textAnschrift16
+            // 
+            this.textAnschrift16.Location = new System.Drawing.Point(313, 538);
+            this.textAnschrift16.Name = "textAnschrift16";
+            this.textAnschrift16.Size = new System.Drawing.Size(459, 20);
+            this.textAnschrift16.TabIndex = 202;
+            this.textAnschrift16.TabStop = false;
+            // 
+            // textName16
+            // 
+            this.textName16.Location = new System.Drawing.Point(126, 538);
+            this.textName16.Name = "textName16";
+            this.textName16.ReadOnly = true;
+            this.textName16.Size = new System.Drawing.Size(181, 20);
+            this.textName16.TabIndex = 201;
+            this.textName16.TabStop = false;
+            // 
+            // textKontakt15
+            // 
+            this.textKontakt15.Location = new System.Drawing.Point(778, 512);
+            this.textKontakt15.Name = "textKontakt15";
+            this.textKontakt15.ReadOnly = true;
+            this.textKontakt15.Size = new System.Drawing.Size(253, 20);
+            this.textKontakt15.TabIndex = 200;
+            this.textKontakt15.TabStop = false;
+            // 
+            // textBemerkung15
+            // 
+            this.textBemerkung15.Location = new System.Drawing.Point(1413, 512);
+            this.textBemerkung15.Name = "textBemerkung15";
+            this.textBemerkung15.Size = new System.Drawing.Size(343, 20);
+            this.textBemerkung15.TabIndex = 199;
+            this.textBemerkung15.Text = " ";
+            // 
+            // textUhrzeit15
+            // 
+            this.textUhrzeit15.Location = new System.Drawing.Point(12, 512);
+            this.textUhrzeit15.Name = "textUhrzeit15";
+            this.textUhrzeit15.Size = new System.Drawing.Size(108, 20);
+            this.textUhrzeit15.TabIndex = 198;
+            this.textUhrzeit15.TabStop = false;
+            // 
+            // textAnschrift15
+            // 
+            this.textAnschrift15.Location = new System.Drawing.Point(313, 512);
+            this.textAnschrift15.Name = "textAnschrift15";
+            this.textAnschrift15.Size = new System.Drawing.Size(459, 20);
+            this.textAnschrift15.TabIndex = 197;
+            this.textAnschrift15.TabStop = false;
+            // 
+            // textName15
+            // 
+            this.textName15.Location = new System.Drawing.Point(126, 512);
+            this.textName15.Name = "textName15";
+            this.textName15.ReadOnly = true;
+            this.textName15.Size = new System.Drawing.Size(181, 20);
+            this.textName15.TabIndex = 196;
+            this.textName15.TabStop = false;
+            // 
+            // textKontakt14
+            // 
+            this.textKontakt14.Location = new System.Drawing.Point(778, 486);
+            this.textKontakt14.Name = "textKontakt14";
+            this.textKontakt14.ReadOnly = true;
+            this.textKontakt14.Size = new System.Drawing.Size(253, 20);
+            this.textKontakt14.TabIndex = 195;
+            this.textKontakt14.TabStop = false;
+            // 
+            // textBemerkung14
+            // 
+            this.textBemerkung14.Location = new System.Drawing.Point(1413, 486);
+            this.textBemerkung14.Name = "textBemerkung14";
+            this.textBemerkung14.Size = new System.Drawing.Size(343, 20);
+            this.textBemerkung14.TabIndex = 194;
+            this.textBemerkung14.Text = " ";
+            // 
+            // textUhrzeit14
+            // 
+            this.textUhrzeit14.Location = new System.Drawing.Point(12, 486);
+            this.textUhrzeit14.Name = "textUhrzeit14";
+            this.textUhrzeit14.Size = new System.Drawing.Size(108, 20);
+            this.textUhrzeit14.TabIndex = 193;
+            this.textUhrzeit14.TabStop = false;
+            // 
+            // textAnschrift14
+            // 
+            this.textAnschrift14.Location = new System.Drawing.Point(313, 486);
+            this.textAnschrift14.Name = "textAnschrift14";
+            this.textAnschrift14.Size = new System.Drawing.Size(459, 20);
+            this.textAnschrift14.TabIndex = 192;
+            this.textAnschrift14.TabStop = false;
+            // 
+            // textName14
+            // 
+            this.textName14.Location = new System.Drawing.Point(126, 486);
+            this.textName14.Name = "textName14";
+            this.textName14.ReadOnly = true;
+            this.textName14.Size = new System.Drawing.Size(181, 20);
+            this.textName14.TabIndex = 191;
+            this.textName14.TabStop = false;
             // 
             // LaufzettelKartons
             // 
@@ -888,6 +1017,24 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1768, 776);
+            this.Controls.Add(this.textAnAbZahl16);
+            this.Controls.Add(this.textAnAbZahl15);
+            this.Controls.Add(this.textAnAbZahl14);
+            this.Controls.Add(this.textKontakt16);
+            this.Controls.Add(this.textBemerkung16);
+            this.Controls.Add(this.textUhrzeit16);
+            this.Controls.Add(this.textAnschrift16);
+            this.Controls.Add(this.textName16);
+            this.Controls.Add(this.textKontakt15);
+            this.Controls.Add(this.textBemerkung15);
+            this.Controls.Add(this.textUhrzeit15);
+            this.Controls.Add(this.textAnschrift15);
+            this.Controls.Add(this.textName15);
+            this.Controls.Add(this.textKontakt14);
+            this.Controls.Add(this.textBemerkung14);
+            this.Controls.Add(this.textUhrzeit14);
+            this.Controls.Add(this.textAnschrift14);
+            this.Controls.Add(this.textName14);
             this.Controls.Add(this.textLog);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonDrucker);
@@ -1069,5 +1216,23 @@
         private System.Windows.Forms.DateTimePicker dateTransaktion;
         private System.Windows.Forms.Button buttonDrucken;
         private System.Windows.Forms.TextBox textLog;
+        private System.Windows.Forms.TextBox textAnAbZahl16;
+        private System.Windows.Forms.TextBox textAnAbZahl15;
+        private System.Windows.Forms.TextBox textAnAbZahl14;
+        private System.Windows.Forms.TextBox textKontakt16;
+        private System.Windows.Forms.TextBox textBemerkung16;
+        private System.Windows.Forms.TextBox textUhrzeit16;
+        private System.Windows.Forms.TextBox textAnschrift16;
+        private System.Windows.Forms.TextBox textName16;
+        private System.Windows.Forms.TextBox textKontakt15;
+        private System.Windows.Forms.TextBox textBemerkung15;
+        private System.Windows.Forms.TextBox textUhrzeit15;
+        private System.Windows.Forms.TextBox textAnschrift15;
+        private System.Windows.Forms.TextBox textName15;
+        private System.Windows.Forms.TextBox textKontakt14;
+        private System.Windows.Forms.TextBox textBemerkung14;
+        private System.Windows.Forms.TextBox textUhrzeit14;
+        private System.Windows.Forms.TextBox textAnschrift14;
+        private System.Windows.Forms.TextBox textName14;
     }
 }

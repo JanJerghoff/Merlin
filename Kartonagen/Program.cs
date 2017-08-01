@@ -187,10 +187,12 @@ namespace Kartonagen
                 Uhrzeit += "0" + input.Hour + ":";
             }
             else { Uhrzeit += input.Hour+":"; }
+
             if (input.Minute <= 9) {
                 Uhrzeit += "0" + input.Minute + ":";
             }
             else { Uhrzeit += input.Minute + ":"; }
+
             if (input.Second <= 9)
             {
                 Uhrzeit += "0" + input.Second;
