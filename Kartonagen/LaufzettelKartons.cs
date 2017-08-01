@@ -134,10 +134,11 @@ namespace Kartonagen
 
         private void buttonDrucken_Click(object sender, EventArgs e)
         {
-            MySqlCommand cmdRead = new MySqlCommand("SELECT t.Kartons, t.Flaschenkartons, t.Glaeserkartons, t.Kleiderkartons, t.timeTransaktion, k.Anrede, k.Vorname, k.Nachname, k.Telefonnummer, k.Handynummer, k.Straße, k.Hausnummer, k.Ort, k.PLZ FROM Transaktionen t, Kunden k WHERE t.Umzuege_Kunden_idKunden = k.idKunden AND t.datTransaktion = " + Program.DateMachine(dateTransaktion.Value) + "ORDER BY timeTransaktion ASC;",Program.conn);
+            MySqlCommand cmdRead = new MySqlCommand("SELECT t.Kartons, t.Flaschenkartons, t.Glaeserkartons, t.Kleiderkartons, t.timeTransaktion, k.Anrede, k.Vorname, k.Nachname, k.Telefonnummer, k.Handynummer, k.Straße, k.Hausnummer, k.Ort, k.PLZ, t.Bemerkungen FROM Transaktionen t, Kunden k WHERE t.Umzuege_Kunden_idKunden = k.idKunden AND t.datTransaktion = " + Program.DateMachine(dateTransaktion.Value) + "ORDER BY timeTransaktion ASC;",Program.conn);
             MySqlDataReader rdr;
 
             int count = 0;
+            TimeSpan comparison = new TimeSpan(0);
 
             try
             {
@@ -145,7 +146,59 @@ namespace Kartonagen
                 rdr = cmdRead.ExecuteReader();
                 while (rdr.Read())
                 {
+                    // Sortiert Zeiten um genau Mitternacht aus
+                    if (rdr.GetDateTime(4).TimeOfDay.CompareTo(comparison) != 0) {
+                        // Name
+                        KundenName[count].AppendText(rdr.GetString(5) + " " + rdr.GetString(6) + " " + rdr.GetString(7));
+                        
+                        //Kontakt (Handy vor Festnetz)
+                        if (rdr.GetString(9) != "0")
+                        {
+                            Kontakt[count].AppendText(rdr.GetString(9));
+                        }
+                        else
+                        {
+                            Kontakt[count].AppendText(rdr.GetString(8));
+                        }
 
+                        //Anschrift
+                        Anschrift[count].AppendText(rdr.GetString(10) + " " + rdr.GetString(11) + " " + rdr.GetString(13) + " " + rdr.GetString(12));
+
+                        //Uhrzeit
+                        Uhrzeit[count].AppendText(rdr.GetDateTime(4).ToShortTimeString());
+
+                        //Bemerkung
+                        Bemerkung[count].AppendText(rdr.GetString(14));
+
+                        //Transaktion
+                        if (rdr.GetInt32(0) < 0 || rdr.GetInt32(1) < 0 || rdr.GetInt32(2) < 0 || rdr.GetInt32(3) < 0)
+                        {
+                            Transaktion[count].AppendText("Ausliefern ");
+                        }
+                        else { Transaktion[count].AppendText("Abholen ca. "); }
+
+                        if (rdr.GetInt32(0) != 0)
+                        {
+                            Transaktion[count].AppendText(Math.Abs(rdr.GetInt32(0)) + " Kartons, ");
+                        }
+
+                        if (rdr.GetInt32(1) != 0)
+                        {
+                            Transaktion[count].AppendText(Math.Abs(rdr.GetInt32(1)) + " Flaschenkartons, ");
+                        }
+
+                        if (rdr.GetInt32(2) != 0)
+                        {
+                            Transaktion[count].AppendText(Math.Abs(rdr.GetInt32(2)) + " Glaeserkartons, ");
+                        }
+
+                        if (rdr.GetInt32(3) != 0)
+                        {
+                            Transaktion[count].AppendText(Math.Abs(rdr.GetInt32(3)) + " Kleiderkartons, ");
+                        }
+                        count++;
+                    }
+                    
                 }
                 rdr.Close();
 
