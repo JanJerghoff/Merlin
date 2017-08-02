@@ -132,6 +132,8 @@
             this.textUhrzeit14 = new System.Windows.Forms.TextBox();
             this.textAnschrift14 = new System.Windows.Forms.TextBox();
             this.textName14 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textFahrzeug = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textKontakt13
@@ -802,6 +804,7 @@
             this.buttonDrucker.TabIndex = 188;
             this.buttonDrucker.Text = "Drucker";
             this.buttonDrucker.UseVisualStyleBackColor = true;
+            this.buttonDrucker.Click += new System.EventHandler(this.buttonDrucker_Click);
             // 
             // label1
             // 
@@ -1011,12 +1014,32 @@
             this.textName14.TabIndex = 191;
             this.textName14.TabStop = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(412, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 15);
+            this.label3.TabIndex = 210;
+            this.label3.Text = "Fahrzeug";
+            // 
+            // textFahrzeug
+            // 
+            this.textFahrzeug.Location = new System.Drawing.Point(412, 27);
+            this.textFahrzeug.Name = "textFahrzeug";
+            this.textFahrzeug.Size = new System.Drawing.Size(181, 20);
+            this.textFahrzeug.TabIndex = 209;
+            this.textFahrzeug.Text = " ";
+            // 
             // LaufzettelKartons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1768, 776);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textFahrzeug);
             this.Controls.Add(this.textAnAbZahl16);
             this.Controls.Add(this.textAnAbZahl15);
             this.Controls.Add(this.textAnAbZahl14);
@@ -1234,5 +1257,7 @@
         private System.Windows.Forms.TextBox textUhrzeit14;
         private System.Windows.Forms.TextBox textAnschrift14;
         private System.Windows.Forms.TextBox textName14;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textFahrzeug;
     }
 }

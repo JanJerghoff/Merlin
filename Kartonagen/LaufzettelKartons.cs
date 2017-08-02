@@ -1,4 +1,7 @@
 ﻿using Google.Apis.Calendar.v3.Data;
+using iText.Forms;
+using iText.Forms.Fields;
+using iText.Kernel.Pdf;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -20,6 +23,7 @@ namespace Kartonagen
         List<TextBox> Kontakt = new List<TextBox>();
         List<TextBox> Transaktion = new List<TextBox>();
         List<TextBox> Bemerkung = new List<TextBox>();
+        List<int> Kartonzahl = new List<int>();   
 
 
         public LaufzettelKartons()
@@ -180,7 +184,12 @@ namespace Kartonagen
                         if (rdr.GetInt32(0) != 0)
                         {
                             Transaktion[count].AppendText(Math.Abs(rdr.GetInt32(0)) + " Kartons, ");
+                            Kartonzahl.Add(Math.Abs(rdr.GetInt32(0)));
                         }
+                        else {
+                            Kartonzahl.Add(0);
+                        }
+
 
                         if (rdr.GetInt32(1) != 0)
                         {
@@ -226,6 +235,71 @@ namespace Kartonagen
             {
                 var Meldung = MessageBox.Show("Im Kalender sind weniger Termine als Transaktionen in der Datenbank \r\n Bitte überprüfen", "Warnung");
             }            
+        }
+
+        private void buttonDrucker_Click(object sender, EventArgs e)
+        {
+            PdfDocument pdf = new PdfDocument(new PdfReader(System.IO.Path.Combine(Environment.CurrentDirectory, "Laufzettel Kartonagen+Schilder.pdf")), new PdfWriter(Program.druckPfad));
+            PdfAcroForm form = PdfAcroForm.GetAcroForm(pdf, true);
+            IDictionary<String, PdfFormField> fields = form.GetFormFields();
+            PdfFormField toSet;
+
+            int count = 1;
+
+            foreach (var item in Uhrzeit)
+            {
+                if (item.Text != "")
+                {
+                    fields.TryGetValue("Name " + count, out toSet);
+                    toSet.SetValue(KundenName[count-1].Text);
+
+                    fields.TryGetValue("Uhrzeit " + count, out toSet);
+                    toSet.SetValue(Uhrzeit[count - 1].Text);
+
+                    if (Transaktion[count].Text.Contains("Ausliefern"))
+                    {
+                        fields.TryGetValue("AnAb " + count, out toSet);
+                        toSet.SetValue("Anliefern");
+                    }
+                    else {
+                        fields.TryGetValue("AnAb " + count, out toSet);
+                        toSet.SetValue("Abholen");
+                    }
+                    
+                    fields.TryGetValue("Anzahl " + count, out toSet);
+                    toSet.SetValue(Kartonzahl[count - 1].ToString());
+
+                    fields.TryGetValue("Adresse " + count, out toSet);
+                    toSet.SetValue(Anschrift[count - 1].Text);
+
+                    fields.TryGetValue("Telefon " + count, out toSet);
+                    toSet.SetValue(Kontakt[count - 1].Text);
+
+                    fields.TryGetValue("Besonderheit " + count, out toSet);
+                    toSet.SetValue(Bemerkung[count - 1].Text);
+
+                    count++;
+                }
+            }
+
+            fields.TryGetValue("Datum", out toSet);
+            toSet.SetValue(dateTransaktion.Value.ToShortDateString());
+
+            fields.TryGetValue("Mitarbeiter", out toSet);
+            toSet.SetValue(textMitarbeiter.Text);
+
+            fields.TryGetValue("Fahrzeug", out toSet);
+            toSet.SetValue(textFahrzeug.Text);
+
+
+            form.FlattenFields();
+            try { pdf.Close(); }
+            catch (Exception ex)
+            { textLog.Text += "why?" + ex.ToString(); }
+
+            Program.SendToPrinter();
+
+            textLog.AppendText("PDF Erfolgreich erzeugt");
         }
     }
 }
