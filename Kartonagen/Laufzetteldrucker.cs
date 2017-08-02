@@ -176,6 +176,7 @@ namespace Kartonagen
                         fields.TryGetValue("Telefon " + zaehler, out toSet);
                         toSet.SetValue(rdr[3] + "");
                     }
+                    
                     zaehler++;
                 }
                 rdr.Close();

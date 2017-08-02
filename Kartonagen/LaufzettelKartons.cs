@@ -1,4 +1,5 @@
-﻿using Google.Apis.Calendar.v3.Data;
+﻿
+using Google.Apis.Calendar.v3.Data;
 using iText.Forms;
 using iText.Forms.Fields;
 using iText.Kernel.Pdf;
@@ -44,6 +45,7 @@ namespace Kartonagen
             Uhrzeit.Add(textUhrzeit8);
             Uhrzeit.Add(textUhrzeit9);
             Uhrzeit.Add(textUhrzeit10);
+            Uhrzeit.Add(textUhrzeit11);
             Uhrzeit.Add(textUhrzeit12);
             Uhrzeit.Add(textUhrzeit13);
             Uhrzeit.Add(textUhrzeit14);
@@ -153,7 +155,7 @@ namespace Kartonagen
                     // Sortiert Zeiten um genau Mitternacht aus
                     if (rdr.GetDateTime(4).TimeOfDay.CompareTo(comparison) != 0 || true) { //Test, remove!
                         // Name
-                        KundenName[count].AppendText(rdr.GetString(5) + " " + rdr.GetString(6) + " " + rdr.GetString(7));
+                        KundenName[count].AppendText(rdr.GetString(5) + " " + rdr.GetString(7)); // Auslassung des Vornamens auf rdr[6]
                         
                         //Kontakt (Handy vor Festnetz)
                         if (rdr.GetString(9) != "0")
@@ -239,6 +241,7 @@ namespace Kartonagen
 
         private void buttonDrucker_Click(object sender, EventArgs e)
         {
+
             PdfDocument pdf = new PdfDocument(new PdfReader(System.IO.Path.Combine(Environment.CurrentDirectory, "Laufzettel Kartonagen+Schilder.pdf")), new PdfWriter(Program.druckPfad));
             PdfAcroForm form = PdfAcroForm.GetAcroForm(pdf, true);
             IDictionary<String, PdfFormField> fields = form.GetFormFields();
@@ -246,12 +249,14 @@ namespace Kartonagen
 
             int count = 1;
 
+            textLog.AppendText(Uhrzeit.Count.ToString());
+
             foreach (var item in Uhrzeit)
             {
                 if (item.Text != "")
                 {
                     fields.TryGetValue("Name " + count, out toSet);
-                    toSet.SetValue(KundenName[count-1].Text);
+                    toSet.SetValue(KundenName[count - 1].Text);
 
                     fields.TryGetValue("Uhrzeit " + count, out toSet);
                     toSet.SetValue(Uhrzeit[count - 1].Text);
@@ -261,15 +266,16 @@ namespace Kartonagen
                         fields.TryGetValue("AnAb " + count, out toSet);
                         toSet.SetValue("Anliefern");
                     }
-                    else {
+                    else
+                    {
                         fields.TryGetValue("AnAb " + count, out toSet);
                         toSet.SetValue("Abholen");
                     }
-                    
+
                     fields.TryGetValue("Anzahl " + count, out toSet);
                     toSet.SetValue(Kartonzahl[count - 1].ToString());
 
-                    fields.TryGetValue("Adresse " + count, out toSet);
+                    fields.TryGetValue("Strasse " + count, out toSet);
                     toSet.SetValue(Anschrift[count - 1].Text);
 
                     fields.TryGetValue("Telefon " + count, out toSet);
