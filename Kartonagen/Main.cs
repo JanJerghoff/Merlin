@@ -159,5 +159,11 @@ namespace Kartonagen
             TransaktionenUebersicht uber = new TransaktionenUebersicht();
             uber.Show();
         }
+
+        private void buttonLaufKarton_Click(object sender, EventArgs e)
+        {
+            LaufzettelKartons lk = new LaufzettelKartons();
+            lk.Show();
+        }
     }
 }

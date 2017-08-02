@@ -21,6 +21,7 @@ using System.Globalization;
 using iText.Forms;
 using iText.Forms.Fields;
 using System.Diagnostics;
+using System.Xml;
 
 namespace Kartonagen
 {
@@ -222,10 +223,12 @@ namespace Kartonagen
                 Uhrzeit += "0" + input.Hour + ":";
             }
             else { Uhrzeit += input.Hour+":"; }
+
             if (input.Minute <= 9) {
                 Uhrzeit += "0" + input.Minute + ":";
             }
             else { Uhrzeit += input.Minute + ":"; }
+
             if (input.Second <= 9)
             {
                 Uhrzeit += "0" + input.Second;
@@ -324,9 +327,30 @@ namespace Kartonagen
             return events;
         }
 
+        // Finde alle Einträge zu einem Datum
+        public static Events kalenderDatumFinder(DateTime datum)
+        {
+
+            // Define parameters of request.
+            EventsResource.ListRequest request = dienst.Events.List("primary");
+
+            DateTime keks = DateTime.Now;
+
+            String x = XmlConvert.ToString(keks, XmlDateTimeSerializationMode.Utc);
+
+            request.TimeMin = DateTime.Now.Date;
+            request.TimeMax = DateTime.Now.Date.AddDays(1);
+            request.ShowDeleted = false;
+            request.SingleEvents = true;
+            request.MaxResults = 2500;
+            // List events.
+            Events events = request.Execute();
+
+            return events;
+        }
+
         // Return Match und ID für das löschen von Events
-        public static String EventListMatch(Events e, DateTime date, String color) {
-                     
+        public static String EventListMatch(Events e, DateTime date, String color) {                     
 
             String ID = "";
             String datum = DateMachine(date);
@@ -394,6 +418,7 @@ namespace Kartonagen
             }
 
         }
+        
 
         public static String AdresseErsaetzen(int IDKunde, String Strasse, String Hausnummer, String Ort, int PLZ, String Land) {
 

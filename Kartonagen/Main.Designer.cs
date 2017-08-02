@@ -66,7 +66,6 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -84,38 +83,34 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.textMainLog);
-            this.splitContainer1.Size = new System.Drawing.Size(1779, 774);
-            this.splitContainer1.SplitterDistance = 604;
-            this.splitContainer1.SplitterWidth = 5;
+            this.splitContainer1.Size = new System.Drawing.Size(1334, 629);
+            this.splitContainer1.SplitterDistance = 490;
             this.splitContainer1.TabIndex = 0;
             // 
             // buttonErinnerungen
             // 
-            this.buttonErinnerungen.Location = new System.Drawing.Point(1472, 228);
-            this.buttonErinnerungen.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonErinnerungen.Location = new System.Drawing.Point(1104, 185);
             this.buttonErinnerungen.Name = "buttonErinnerungen";
-            this.buttonErinnerungen.Size = new System.Drawing.Size(239, 144);
+            this.buttonErinnerungen.Size = new System.Drawing.Size(179, 117);
             this.buttonErinnerungen.TabIndex = 7;
             this.buttonErinnerungen.Text = "Erinnerungen";
             this.buttonErinnerungen.UseVisualStyleBackColor = true;
             // 
             // buttonLaufKarton
             // 
-            this.buttonLaufKarton.Enabled = false;
-            this.buttonLaufKarton.Location = new System.Drawing.Point(1225, 228);
-            this.buttonLaufKarton.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonLaufKarton.Location = new System.Drawing.Point(919, 185);
             this.buttonLaufKarton.Name = "buttonLaufKarton";
-            this.buttonLaufKarton.Size = new System.Drawing.Size(239, 144);
+            this.buttonLaufKarton.Size = new System.Drawing.Size(179, 117);
             this.buttonLaufKarton.TabIndex = 6;
             this.buttonLaufKarton.Text = "Laufzettel Kartons";
             this.buttonLaufKarton.UseVisualStyleBackColor = true;
+            this.buttonLaufKarton.Click += new System.EventHandler(this.buttonLaufKarton_Click);
             // 
             // buttonLaufzettel
             // 
-            this.buttonLaufzettel.Location = new System.Drawing.Point(1225, 46);
-            this.buttonLaufzettel.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonLaufzettel.Location = new System.Drawing.Point(919, 37);
             this.buttonLaufzettel.Name = "buttonLaufzettel";
-            this.buttonLaufzettel.Size = new System.Drawing.Size(239, 144);
+            this.buttonLaufzettel.Size = new System.Drawing.Size(179, 117);
             this.buttonLaufzettel.TabIndex = 5;
             this.buttonLaufzettel.Text = "Laufzettel Besichtigung";
             this.buttonLaufzettel.UseVisualStyleBackColor = true;
@@ -123,10 +118,9 @@
             // 
             // buttonSonderabfragen
             // 
-            this.buttonSonderabfragen.Location = new System.Drawing.Point(1225, 410);
-            this.buttonSonderabfragen.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSonderabfragen.Location = new System.Drawing.Point(919, 333);
             this.buttonSonderabfragen.Name = "buttonSonderabfragen";
-            this.buttonSonderabfragen.Size = new System.Drawing.Size(239, 144);
+            this.buttonSonderabfragen.Size = new System.Drawing.Size(179, 117);
             this.buttonSonderabfragen.TabIndex = 4;
             this.buttonSonderabfragen.Text = "Sonderabfragen";
             this.buttonSonderabfragen.UseVisualStyleBackColor = true;
@@ -137,21 +131,18 @@
             this.groupMainKartonagen.Controls.Add(this.buttonUebersichtKartons);
             this.groupMainKartonagen.Controls.Add(this.buttonMainKartonagenChange);
             this.groupMainKartonagen.Controls.Add(this.buttonMainKartonagenAdd);
-            this.groupMainKartonagen.Location = new System.Drawing.Point(164, 386);
-            this.groupMainKartonagen.Margin = new System.Windows.Forms.Padding(4);
+            this.groupMainKartonagen.Location = new System.Drawing.Point(123, 314);
             this.groupMainKartonagen.Name = "groupMainKartonagen";
-            this.groupMainKartonagen.Padding = new System.Windows.Forms.Padding(4);
-            this.groupMainKartonagen.Size = new System.Drawing.Size(755, 175);
+            this.groupMainKartonagen.Size = new System.Drawing.Size(566, 142);
             this.groupMainKartonagen.TabIndex = 4;
             this.groupMainKartonagen.TabStop = false;
             this.groupMainKartonagen.Text = "Kartonagen";
             // 
             // buttonUebersichtKartons
             // 
-            this.buttonUebersichtKartons.Location = new System.Drawing.Point(501, 23);
-            this.buttonUebersichtKartons.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonUebersichtKartons.Location = new System.Drawing.Point(376, 19);
             this.buttonUebersichtKartons.Name = "buttonUebersichtKartons";
-            this.buttonUebersichtKartons.Size = new System.Drawing.Size(239, 144);
+            this.buttonUebersichtKartons.Size = new System.Drawing.Size(179, 117);
             this.buttonUebersichtKartons.TabIndex = 4;
             this.buttonUebersichtKartons.Text = "Übersicht Kartons";
             this.buttonUebersichtKartons.UseVisualStyleBackColor = true;
@@ -159,10 +150,9 @@
             // 
             // buttonMainKartonagenChange
             // 
-            this.buttonMainKartonagenChange.Location = new System.Drawing.Point(255, 23);
-            this.buttonMainKartonagenChange.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonMainKartonagenChange.Location = new System.Drawing.Point(191, 19);
             this.buttonMainKartonagenChange.Name = "buttonMainKartonagenChange";
-            this.buttonMainKartonagenChange.Size = new System.Drawing.Size(239, 144);
+            this.buttonMainKartonagenChange.Size = new System.Drawing.Size(179, 117);
             this.buttonMainKartonagenChange.TabIndex = 1;
             this.buttonMainKartonagenChange.Text = "Suchen / Ändern";
             this.buttonMainKartonagenChange.UseVisualStyleBackColor = true;
@@ -170,10 +160,9 @@
             // 
             // buttonMainKartonagenAdd
             // 
-            this.buttonMainKartonagenAdd.Location = new System.Drawing.Point(8, 23);
-            this.buttonMainKartonagenAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonMainKartonagenAdd.Location = new System.Drawing.Point(6, 19);
             this.buttonMainKartonagenAdd.Name = "buttonMainKartonagenAdd";
-            this.buttonMainKartonagenAdd.Size = new System.Drawing.Size(239, 144);
+            this.buttonMainKartonagenAdd.Size = new System.Drawing.Size(179, 117);
             this.buttonMainKartonagenAdd.TabIndex = 0;
             this.buttonMainKartonagenAdd.Text = "Anlegen";
             this.buttonMainKartonagenAdd.UseVisualStyleBackColor = true;
@@ -184,21 +173,18 @@
             this.groupMainUmzuege.Controls.Add(this.buttonMainUmzuegeShow);
             this.groupMainUmzuege.Controls.Add(this.buttonMainUmzuegeChange);
             this.groupMainUmzuege.Controls.Add(this.buttonMainUmzuegeAdd);
-            this.groupMainUmzuege.Location = new System.Drawing.Point(164, 204);
-            this.groupMainUmzuege.Margin = new System.Windows.Forms.Padding(4);
+            this.groupMainUmzuege.Location = new System.Drawing.Point(123, 166);
             this.groupMainUmzuege.Name = "groupMainUmzuege";
-            this.groupMainUmzuege.Padding = new System.Windows.Forms.Padding(4);
-            this.groupMainUmzuege.Size = new System.Drawing.Size(755, 175);
+            this.groupMainUmzuege.Size = new System.Drawing.Size(566, 142);
             this.groupMainUmzuege.TabIndex = 3;
             this.groupMainUmzuege.TabStop = false;
             this.groupMainUmzuege.Text = "Umzüge";
             // 
             // buttonMainUmzuegeShow
             // 
-            this.buttonMainUmzuegeShow.Location = new System.Drawing.Point(501, 23);
-            this.buttonMainUmzuegeShow.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonMainUmzuegeShow.Location = new System.Drawing.Point(376, 19);
             this.buttonMainUmzuegeShow.Name = "buttonMainUmzuegeShow";
-            this.buttonMainUmzuegeShow.Size = new System.Drawing.Size(239, 144);
+            this.buttonMainUmzuegeShow.Size = new System.Drawing.Size(179, 117);
             this.buttonMainUmzuegeShow.TabIndex = 3;
             this.buttonMainUmzuegeShow.Text = "Übersichten";
             this.buttonMainUmzuegeShow.UseVisualStyleBackColor = true;
@@ -206,10 +192,9 @@
             // 
             // buttonMainUmzuegeChange
             // 
-            this.buttonMainUmzuegeChange.Location = new System.Drawing.Point(255, 23);
-            this.buttonMainUmzuegeChange.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonMainUmzuegeChange.Location = new System.Drawing.Point(191, 19);
             this.buttonMainUmzuegeChange.Name = "buttonMainUmzuegeChange";
-            this.buttonMainUmzuegeChange.Size = new System.Drawing.Size(239, 144);
+            this.buttonMainUmzuegeChange.Size = new System.Drawing.Size(179, 117);
             this.buttonMainUmzuegeChange.TabIndex = 1;
             this.buttonMainUmzuegeChange.Text = "Suchen / Ändern";
             this.buttonMainUmzuegeChange.UseVisualStyleBackColor = true;
@@ -217,10 +202,9 @@
             // 
             // buttonMainUmzuegeAdd
             // 
-            this.buttonMainUmzuegeAdd.Location = new System.Drawing.Point(8, 23);
-            this.buttonMainUmzuegeAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonMainUmzuegeAdd.Location = new System.Drawing.Point(6, 19);
             this.buttonMainUmzuegeAdd.Name = "buttonMainUmzuegeAdd";
-            this.buttonMainUmzuegeAdd.Size = new System.Drawing.Size(239, 144);
+            this.buttonMainUmzuegeAdd.Size = new System.Drawing.Size(179, 117);
             this.buttonMainUmzuegeAdd.TabIndex = 0;
             this.buttonMainUmzuegeAdd.Text = "Anlegen";
             this.buttonMainUmzuegeAdd.UseVisualStyleBackColor = true;
@@ -231,21 +215,18 @@
             this.groupMainKunden.Controls.Add(this.buttonMainKundenShow);
             this.groupMainKunden.Controls.Add(this.buttonMainKundenChange);
             this.groupMainKunden.Controls.Add(this.buttonMainKundenAdd);
-            this.groupMainKunden.Location = new System.Drawing.Point(164, 22);
-            this.groupMainKunden.Margin = new System.Windows.Forms.Padding(4);
+            this.groupMainKunden.Location = new System.Drawing.Point(123, 18);
             this.groupMainKunden.Name = "groupMainKunden";
-            this.groupMainKunden.Padding = new System.Windows.Forms.Padding(4);
-            this.groupMainKunden.Size = new System.Drawing.Size(755, 175);
+            this.groupMainKunden.Size = new System.Drawing.Size(566, 142);
             this.groupMainKunden.TabIndex = 1;
             this.groupMainKunden.TabStop = false;
             this.groupMainKunden.Text = "Kunden";
             // 
             // buttonMainKundenShow
             // 
-            this.buttonMainKundenShow.Location = new System.Drawing.Point(501, 23);
-            this.buttonMainKundenShow.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonMainKundenShow.Location = new System.Drawing.Point(376, 19);
             this.buttonMainKundenShow.Name = "buttonMainKundenShow";
-            this.buttonMainKundenShow.Size = new System.Drawing.Size(239, 144);
+            this.buttonMainKundenShow.Size = new System.Drawing.Size(179, 117);
             this.buttonMainKundenShow.TabIndex = 2;
             this.buttonMainKundenShow.Text = "Übersichten";
             this.buttonMainKundenShow.UseVisualStyleBackColor = true;
@@ -253,10 +234,9 @@
             // 
             // buttonMainKundenChange
             // 
-            this.buttonMainKundenChange.Location = new System.Drawing.Point(255, 23);
-            this.buttonMainKundenChange.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonMainKundenChange.Location = new System.Drawing.Point(191, 19);
             this.buttonMainKundenChange.Name = "buttonMainKundenChange";
-            this.buttonMainKundenChange.Size = new System.Drawing.Size(239, 144);
+            this.buttonMainKundenChange.Size = new System.Drawing.Size(179, 117);
             this.buttonMainKundenChange.TabIndex = 1;
             this.buttonMainKundenChange.Text = "Suchen / Ändern";
             this.buttonMainKundenChange.UseVisualStyleBackColor = true;
@@ -264,10 +244,9 @@
             // 
             // buttonMainKundenAdd
             // 
-            this.buttonMainKundenAdd.Location = new System.Drawing.Point(8, 23);
-            this.buttonMainKundenAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonMainKundenAdd.Location = new System.Drawing.Point(6, 19);
             this.buttonMainKundenAdd.Name = "buttonMainKundenAdd";
-            this.buttonMainKundenAdd.Size = new System.Drawing.Size(239, 144);
+            this.buttonMainKundenAdd.Size = new System.Drawing.Size(179, 117);
             this.buttonMainKundenAdd.TabIndex = 0;
             this.buttonMainKundenAdd.Text = "Anlegen";
             this.buttonMainKundenAdd.UseVisualStyleBackColor = true;
@@ -280,11 +259,9 @@
             this.groupMainBenutzer.Controls.Add(this.radioMainBenutzerEva);
             this.groupMainBenutzer.Controls.Add(this.radioMainBenutzerJonas);
             this.groupMainBenutzer.Controls.Add(this.radioMainBenutzerRita);
-            this.groupMainBenutzer.Location = new System.Drawing.Point(16, 15);
-            this.groupMainBenutzer.Margin = new System.Windows.Forms.Padding(4);
+            this.groupMainBenutzer.Location = new System.Drawing.Point(12, 12);
             this.groupMainBenutzer.Name = "groupMainBenutzer";
-            this.groupMainBenutzer.Padding = new System.Windows.Forms.Padding(4);
-            this.groupMainBenutzer.Size = new System.Drawing.Size(140, 182);
+            this.groupMainBenutzer.Size = new System.Drawing.Size(105, 148);
             this.groupMainBenutzer.TabIndex = 0;
             this.groupMainBenutzer.TabStop = false;
             this.groupMainBenutzer.Text = "Benutzer";
@@ -293,10 +270,9 @@
             // 
             this.radioMainBenutzerSonst.AutoSize = true;
             this.radioMainBenutzerSonst.Checked = true;
-            this.radioMainBenutzerSonst.Location = new System.Drawing.Point(8, 138);
-            this.radioMainBenutzerSonst.Margin = new System.Windows.Forms.Padding(4);
+            this.radioMainBenutzerSonst.Location = new System.Drawing.Point(6, 112);
             this.radioMainBenutzerSonst.Name = "radioMainBenutzerSonst";
-            this.radioMainBenutzerSonst.Size = new System.Drawing.Size(84, 21);
+            this.radioMainBenutzerSonst.Size = new System.Drawing.Size(66, 17);
             this.radioMainBenutzerSonst.TabIndex = 4;
             this.radioMainBenutzerSonst.TabStop = true;
             this.radioMainBenutzerSonst.Text = "Sonstige";
@@ -305,10 +281,9 @@
             // radioMainBenutzerJan
             // 
             this.radioMainBenutzerJan.AutoSize = true;
-            this.radioMainBenutzerJan.Location = new System.Drawing.Point(8, 110);
-            this.radioMainBenutzerJan.Margin = new System.Windows.Forms.Padding(4);
+            this.radioMainBenutzerJan.Location = new System.Drawing.Point(6, 89);
             this.radioMainBenutzerJan.Name = "radioMainBenutzerJan";
-            this.radioMainBenutzerJan.Size = new System.Drawing.Size(52, 21);
+            this.radioMainBenutzerJan.Size = new System.Drawing.Size(42, 17);
             this.radioMainBenutzerJan.TabIndex = 3;
             this.radioMainBenutzerJan.Text = "Jan";
             this.radioMainBenutzerJan.UseVisualStyleBackColor = true;
@@ -316,10 +291,9 @@
             // radioMainBenutzerEva
             // 
             this.radioMainBenutzerEva.AutoSize = true;
-            this.radioMainBenutzerEva.Location = new System.Drawing.Point(8, 81);
-            this.radioMainBenutzerEva.Margin = new System.Windows.Forms.Padding(4);
+            this.radioMainBenutzerEva.Location = new System.Drawing.Point(6, 66);
             this.radioMainBenutzerEva.Name = "radioMainBenutzerEva";
-            this.radioMainBenutzerEva.Size = new System.Drawing.Size(53, 21);
+            this.radioMainBenutzerEva.Size = new System.Drawing.Size(44, 17);
             this.radioMainBenutzerEva.TabIndex = 2;
             this.radioMainBenutzerEva.Text = "Eva";
             this.radioMainBenutzerEva.UseVisualStyleBackColor = true;
@@ -327,10 +301,9 @@
             // radioMainBenutzerJonas
             // 
             this.radioMainBenutzerJonas.AutoSize = true;
-            this.radioMainBenutzerJonas.Location = new System.Drawing.Point(8, 53);
-            this.radioMainBenutzerJonas.Margin = new System.Windows.Forms.Padding(4);
+            this.radioMainBenutzerJonas.Location = new System.Drawing.Point(6, 43);
             this.radioMainBenutzerJonas.Name = "radioMainBenutzerJonas";
-            this.radioMainBenutzerJonas.Size = new System.Drawing.Size(67, 21);
+            this.radioMainBenutzerJonas.Size = new System.Drawing.Size(53, 17);
             this.radioMainBenutzerJonas.TabIndex = 1;
             this.radioMainBenutzerJonas.Text = "Jonas";
             this.radioMainBenutzerJonas.UseVisualStyleBackColor = true;
@@ -338,10 +311,9 @@
             // radioMainBenutzerRita
             // 
             this.radioMainBenutzerRita.AutoSize = true;
-            this.radioMainBenutzerRita.Location = new System.Drawing.Point(8, 25);
-            this.radioMainBenutzerRita.Margin = new System.Windows.Forms.Padding(4);
+            this.radioMainBenutzerRita.Location = new System.Drawing.Point(6, 20);
             this.radioMainBenutzerRita.Name = "radioMainBenutzerRita";
-            this.radioMainBenutzerRita.Size = new System.Drawing.Size(54, 21);
+            this.radioMainBenutzerRita.Size = new System.Drawing.Size(44, 17);
             this.radioMainBenutzerRita.TabIndex = 0;
             this.radioMainBenutzerRita.Text = "Rita";
             this.radioMainBenutzerRita.UseVisualStyleBackColor = true;
@@ -349,22 +321,20 @@
             // textMainLog
             // 
             this.textMainLog.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textMainLog.Location = new System.Drawing.Point(16, 4);
-            this.textMainLog.Margin = new System.Windows.Forms.Padding(4);
+            this.textMainLog.Location = new System.Drawing.Point(12, 3);
             this.textMainLog.Multiline = true;
             this.textMainLog.Name = "textMainLog";
             this.textMainLog.ReadOnly = true;
-            this.textMainLog.Size = new System.Drawing.Size(1600, 146);
+            this.textMainLog.Size = new System.Drawing.Size(1201, 119);
             this.textMainLog.TabIndex = 0;
             // 
             // mainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1779, 774);
+            this.ClientSize = new System.Drawing.Size(1334, 629);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "mainForm";
             this.Text = "Hauptmenü";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
