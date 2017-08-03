@@ -276,7 +276,7 @@ namespace Kartonagen
                 push += 0 + ",";
             }
 
-            // Buchung final oder vorläufig?
+            // Buchung final oder vorläufig? (0 ist vorläufig, 1 final)
 
             if (checkTermin.Checked || (dateTimeTransaktion.Value.Date.CompareTo(DateTime.Now.Date) > 0))
             {

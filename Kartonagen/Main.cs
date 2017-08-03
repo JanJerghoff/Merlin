@@ -165,5 +165,11 @@ namespace Kartonagen
             LaufzettelKartons lk = new LaufzettelKartons();
             lk.Show();
         }
+
+        private void buttonErinnerungen_Click(object sender, EventArgs e)
+        {
+            Erinnerungen er = new Erinnerungen();
+            er.Show();
+        }
     }
 }
