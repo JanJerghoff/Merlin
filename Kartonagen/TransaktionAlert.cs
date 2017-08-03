@@ -34,8 +34,11 @@ namespace Kartonagen
         }
 
         public void showAlert()
+
         {
-            throw new NotImplementedException();
+            TransaktionErinnerung win = new TransaktionErinnerung();
+            win.set(UserChanged, time, name, Adresse, bemerkung, id, kartons, Flaschenkartons, Glaeserkartons, Kleiderkartons);
+            win.Show();
         }
     }
 }

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textZeit = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textKunde = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.numericKleiderKarton = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,19 +40,24 @@
             this.numericFlaschenKarton = new System.Windows.Forms.NumericUpDown();
             this.label25 = new System.Windows.Forms.Label();
             this.numericKarton = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textAdresse = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBemerkung = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericKleiderKarton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericGlaeserkarton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericFlaschenKarton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKarton)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textZeit
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(16, 54);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(181, 26);
-            this.textBox1.TabIndex = 0;
+            this.textZeit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textZeit.Location = new System.Drawing.Point(16, 54);
+            this.textZeit.Name = "textZeit";
+            this.textZeit.ReadOnly = true;
+            this.textZeit.Size = new System.Drawing.Size(181, 26);
+            this.textZeit.TabIndex = 0;
             // 
             // label33
             // 
@@ -74,19 +79,20 @@
             this.label1.TabIndex = 189;
             this.label1.Text = "Kunde";
             // 
-            // textBox2
+            // textKunde
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(203, 54);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(262, 26);
-            this.textBox2.TabIndex = 188;
+            this.textKunde.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textKunde.Location = new System.Drawing.Point(203, 54);
+            this.textKunde.Name = "textKunde";
+            this.textKunde.ReadOnly = true;
+            this.textKunde.Size = new System.Drawing.Size(262, 26);
+            this.textKunde.TabIndex = 188;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(602, 196);
+            this.label2.Location = new System.Drawing.Point(130, 162);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 20);
             this.label2.TabIndex = 197;
@@ -95,12 +101,17 @@
             // numericKleiderKarton
             // 
             this.numericKleiderKarton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericKleiderKarton.Location = new System.Drawing.Point(488, 234);
+            this.numericKleiderKarton.Location = new System.Drawing.Point(16, 194);
             this.numericKleiderKarton.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
+            this.numericKleiderKarton.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.numericKleiderKarton.Name = "numericKleiderKarton";
             this.numericKleiderKarton.Size = new System.Drawing.Size(108, 26);
             this.numericKleiderKarton.TabIndex = 193;
@@ -109,7 +120,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(602, 222);
+            this.label3.Location = new System.Drawing.Point(130, 194);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(124, 20);
             this.label3.TabIndex = 196;
@@ -118,12 +129,17 @@
             // numericGlaeserkarton
             // 
             this.numericGlaeserkarton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericGlaeserkarton.Location = new System.Drawing.Point(488, 202);
+            this.numericGlaeserkarton.Location = new System.Drawing.Point(16, 162);
             this.numericGlaeserkarton.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
+            this.numericGlaeserkarton.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.numericGlaeserkarton.Name = "numericGlaeserkarton";
             this.numericGlaeserkarton.Size = new System.Drawing.Size(108, 26);
             this.numericGlaeserkarton.TabIndex = 192;
@@ -132,7 +148,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(602, 170);
+            this.label26.Location = new System.Drawing.Point(130, 130);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(142, 20);
             this.label26.TabIndex = 195;
@@ -141,12 +157,17 @@
             // numericFlaschenKarton
             // 
             this.numericFlaschenKarton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericFlaschenKarton.Location = new System.Drawing.Point(488, 170);
+            this.numericFlaschenKarton.Location = new System.Drawing.Point(16, 130);
             this.numericFlaschenKarton.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
+            this.numericFlaschenKarton.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.numericFlaschenKarton.Name = "numericFlaschenKarton";
             this.numericFlaschenKarton.Size = new System.Drawing.Size(108, 26);
             this.numericFlaschenKarton.TabIndex = 191;
@@ -155,7 +176,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(602, 140);
+            this.label25.Location = new System.Drawing.Point(130, 100);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(142, 20);
             this.label25.TabIndex = 194;
@@ -164,21 +185,68 @@
             // numericKarton
             // 
             this.numericKarton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericKarton.Location = new System.Drawing.Point(488, 140);
+            this.numericKarton.Location = new System.Drawing.Point(16, 100);
             this.numericKarton.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
+            this.numericKarton.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.numericKarton.Name = "numericKarton";
             this.numericKarton.Size = new System.Drawing.Size(108, 26);
             this.numericKarton.TabIndex = 190;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(467, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 20);
+            this.label4.TabIndex = 199;
+            this.label4.Text = "Adresse";
+            // 
+            // textAdresse
+            // 
+            this.textAdresse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textAdresse.Location = new System.Drawing.Point(471, 54);
+            this.textAdresse.Name = "textAdresse";
+            this.textAdresse.ReadOnly = true;
+            this.textAdresse.Size = new System.Drawing.Size(308, 26);
+            this.textAdresse.TabIndex = 198;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(781, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 20);
+            this.label5.TabIndex = 201;
+            this.label5.Text = "Bemerkung";
+            // 
+            // textBemerkung
+            // 
+            this.textBemerkung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBemerkung.Location = new System.Drawing.Point(785, 54);
+            this.textBemerkung.Multiline = true;
+            this.textBemerkung.Name = "textBemerkung";
+            this.textBemerkung.Size = new System.Drawing.Size(262, 166);
+            this.textBemerkung.TabIndex = 200;
             // 
             // TransaktionErinnerung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1204, 384);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBemerkung);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textAdresse);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.numericKleiderKarton);
             this.Controls.Add(this.label3);
@@ -188,9 +256,9 @@
             this.Controls.Add(this.label25);
             this.Controls.Add(this.numericKarton);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textKunde);
             this.Controls.Add(this.label33);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textZeit);
             this.Name = "TransaktionErinnerung";
             this.Text = "TransaktionAlertW";
             ((System.ComponentModel.ISupportInitialize)(this.numericKleiderKarton)).EndInit();
@@ -204,10 +272,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textZeit;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textKunde;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numericKleiderKarton;
         private System.Windows.Forms.Label label3;
@@ -216,5 +284,9 @@
         private System.Windows.Forms.NumericUpDown numericFlaschenKarton;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.NumericUpDown numericKarton;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textAdresse;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBemerkung;
     }
 }

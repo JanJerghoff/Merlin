@@ -102,6 +102,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractAlert.cs" />
     <Compile Include="AutoKVA.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,16 +115,22 @@
     <Compile Include="Erinnerung.Designer.cs">
       <DependentUpon>Erinnerung.cs</DependentUpon>
     </Compile>
-    <Compile Include="KundenAdd.cs">
+    <Compile Include="Erinnerungen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KundenAdd.Designer.cs">
+    <Compile Include="Erinnerungen.Designer.cs">
+      <DependentUpon>Erinnerungen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KundenOperationen\KundenAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KundenOperationen\KundenAdd.Designer.cs">
       <DependentUpon>KundenAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="KundenSearch.cs">
+    <Compile Include="KundenOperationen\KundenSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KundenSearch.Designer.cs">
+    <Compile Include="KundenOperationen\KundenSearch.Designer.cs">
       <DependentUpon>KundenSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="KundenUebersicht.cs">
@@ -163,6 +170,13 @@
     </Compile>
     <Compile Include="TransaktionAdd.Designer.cs">
       <DependentUpon>TransaktionAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransaktionAlert.cs" />
+    <Compile Include="TransaktionErinnerung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransaktionErinnerung.Designer.cs">
+      <DependentUpon>TransaktionErinnerung.cs</DependentUpon>
     </Compile>
     <Compile Include="TransaktionenSearch.cs">
       <SubType>Form</SubType>
@@ -206,10 +220,13 @@
     <EmbeddedResource Include="Erinnerung.resx">
       <DependentUpon>Erinnerung.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KundenAdd.resx">
+    <EmbeddedResource Include="Erinnerungen.resx">
+      <DependentUpon>Erinnerungen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KundenOperationen\KundenAdd.resx">
       <DependentUpon>KundenAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KundenSearch.resx">
+    <EmbeddedResource Include="KundenOperationen\KundenSearch.resx">
       <DependentUpon>KundenSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KundenUebersicht.resx">
@@ -238,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TransaktionAdd.resx">
       <DependentUpon>TransaktionAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransaktionErinnerung.resx">
+      <DependentUpon>TransaktionErinnerung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransaktionenSearch.resx">
       <DependentUpon>TransaktionenSearch.cs</DependentUpon>
@@ -286,6 +306,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
