@@ -84,7 +84,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.textResultatsNummer = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonTransaktionHinzufuegen = new System.Windows.Forms.Button();
             this.textTransaktionLog = new System.Windows.Forms.TextBox();
             this.textBemerkung = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -480,7 +480,7 @@
             // 
             this.checkTermin.AutoSize = true;
             this.checkTermin.Location = new System.Drawing.Point(138, 292);
-            this.checkTermin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkTermin.Margin = new System.Windows.Forms.Padding(2);
             this.checkTermin.Name = "checkTermin";
             this.checkTermin.Size = new System.Drawing.Size(15, 14);
             this.checkTermin.TabIndex = 80;
@@ -751,15 +751,15 @@
             this.label12.TabIndex = 84;
             this.label12.Text = ">>> Transaktiosnummer";
             // 
-            // button3
+            // buttonTransaktionHinzufuegen
             // 
-            this.button3.Location = new System.Drawing.Point(425, 319);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(235, 83);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Transaktion hinzufügen";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.buttonTransaktionHinzufuegen.Location = new System.Drawing.Point(425, 319);
+            this.buttonTransaktionHinzufuegen.Name = "buttonTransaktionHinzufuegen";
+            this.buttonTransaktionHinzufuegen.Size = new System.Drawing.Size(235, 83);
+            this.buttonTransaktionHinzufuegen.TabIndex = 3;
+            this.buttonTransaktionHinzufuegen.Text = "Transaktion hinzufügen";
+            this.buttonTransaktionHinzufuegen.UseVisualStyleBackColor = true;
+            this.buttonTransaktionHinzufuegen.Click += new System.EventHandler(this.button3_Click);
             // 
             // textTransaktionLog
             // 
@@ -976,7 +976,7 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textBemerkung);
             this.Controls.Add(this.textTransaktionLog);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.buttonTransaktionHinzufuegen);
             this.Controls.Add(this.textResultatsNummer);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.button2);
@@ -1060,7 +1060,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textResultatsNummer;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonTransaktionHinzufuegen;
         private System.Windows.Forms.TextBox textTransaktionLog;
         private System.Windows.Forms.TextBox textBemerkung;
         private System.Windows.Forms.Label label13;

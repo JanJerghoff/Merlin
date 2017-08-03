@@ -229,11 +229,11 @@ namespace Kartonagen
                 }
             }
 
-            if (count > 0)
+            if (count < 0)
             {
                 var Meldung = MessageBox.Show("Im Kalender sind mehr Termine als Transaktionen in der Datenbank \r\n Bitte überprüfen" , "Warnung");
             }
-            else if (count < 0)
+            else if (count > 0)
             {
                 var Meldung = MessageBox.Show("Im Kalender sind weniger Termine als Transaktionen in der Datenbank \r\n Bitte überprüfen", "Warnung");
             }            

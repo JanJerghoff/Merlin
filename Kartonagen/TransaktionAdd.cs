@@ -232,7 +232,7 @@ namespace Kartonagen
             }
 
             //String bauen
-            String push = "INSERT INTO Transaktionen (datTransaktion, timeTransaktion, Kartons, FlaschenKartons, GlaeserKartons, KleiderKartons, Umzuege_idUmzuege, Umzuege_Kunden_idKunden, Bemerkungen, UserChanged, Erstelldatum, unbenutzt, RechnungsNr) VALUES (";
+            String push = "INSERT INTO Transaktionen (datTransaktion, timeTransaktion, Kartons, FlaschenKartons, GlaeserKartons, KleiderKartons, Umzuege_idUmzuege, Umzuege_Kunden_idKunden, Bemerkungen, UserChanged, Erstelldatum, unbenutzt, final, RechnungsNr) VALUES (";
 
             push += "'" + Program.DateMachine(dateTimeTransaktion.Value) + "', ";
 
@@ -274,6 +274,16 @@ namespace Kartonagen
             }
             else {
                 push += 0 + ",";
+            }
+
+            // Buchung final oder vorläufig?
+
+            if (checkTermin.Checked || (dateTimeTransaktion.Value.Date.CompareTo(DateTime.Now.Date) > 0))
+            {
+                push += 0 + ",";
+            }
+            else {
+                push += 1 + ",";
             }
 
             // Rechnungsnummer
