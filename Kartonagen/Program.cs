@@ -139,8 +139,9 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                
+
             }
+        }
 
         public static int getKundenNr(String Kundenname) {
 
