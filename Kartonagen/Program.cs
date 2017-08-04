@@ -128,6 +128,20 @@ namespace Kartonagen
             }
         }
 
+
+        // Schubst daten in die DB
+        public static void absender(String befehl)
+        {
+            MySqlCommand cmdAdd = new MySqlCommand(befehl, Program.conn);
+            try
+            {
+                cmdAdd.ExecuteNonQuery();
+            }
+            catch (Exception sqlEx)
+            {
+                
+            }
+
         public static int getKundenNr(String Kundenname) {
 
             int ret = 0;
@@ -154,6 +168,7 @@ namespace Kartonagen
             dictionaryMitarbeiter.TryGetValue(Mitarbeitername, out ret);
 
             return ret;
+
         }
 
 
@@ -499,61 +514,7 @@ namespace Kartonagen
             });
 
             dienst = service;
-
-            //// TEST TEST TEST TESTEVENT
-            
-
-            //Event test = new Event()
-            //{
-            //    Summary = "X Test",
-            //    Location = "800 Howard St., San Francisco, CA 94103",
-            //    Description = "A chance to hear more about Google's developer products.",
-            //    Start = new EventDateTime()
-            //    {
-            //        DateTime = DateTime.Parse("2017-02-28T09:00:00-07:00"),
-            //        TimeZone = "America/Los_Angeles"
-            //    },
-            //    End = new EventDateTime()
-            //    {
-            //        DateTime = DateTime.Parse("2017-02-28T17:00:00-07:00"),
-            //        TimeZone = "America/Los_Angeles"
-            //    }
-            //};
-            //String calendarId = "primary";
-            //EventsResource.InsertRequest request = service.Events.Insert(test, calendarId);
-            //Event createdEvent = request.Execute();
-
-
-            // TEST TEST TESTPDF ITEXT 5
-
-            //FileStream fs = new FileStream("Test.pdf", FileMode.Create, FileAccess.Write, FileShare.None);
-            //Document dox = new Document();
-            //var writer = PdfWriter.GetInstance(dox,fs);
-
-            //dox.Open();
-            //dox.Add(new Paragraph("Test"));
-            //dox.Close();
-
-            //TEST TEST TESTPDF ITEXT7
-
-            //var writer = new PdfWriter("test.pdf");
-            //var pdf = new PdfDocument(writer);
-            //var dox = new Document(pdf, PageSize.A4.Rotate());
-            //dox.SetMargins(20, 20, 20, 20);
-            //dox.Add(new Paragraph("Hello World!"));
-            //dox.Close();
-
-            //Table ganz = new Table(new float[] { 1, 1, 1 });
-            //ganz.SetWidthPercent(100);
-
-            //ganz.AddCell("Test");
-            //ganz.AddCell("Test2");
-            //ganz.AddCell("Test3");
-
-            //dox.Add(ganz);
-
-
-
+                        
             //Öffne Verbindung
             try
             {

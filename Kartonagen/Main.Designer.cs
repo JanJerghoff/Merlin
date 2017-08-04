@@ -52,6 +52,7 @@
             this.radioMainBenutzerJonas = new System.Windows.Forms.RadioButton();
             this.radioMainBenutzerRita = new System.Windows.Forms.RadioButton();
             this.textMainLog = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -60,6 +61,7 @@
             this.groupMainUmzuege.SuspendLayout();
             this.groupMainKunden.SuspendLayout();
             this.groupMainBenutzer.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -71,9 +73,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.buttonErinnerungen);
-            this.splitContainer1.Panel1.Controls.Add(this.buttonLaufKarton);
-            this.splitContainer1.Panel1.Controls.Add(this.buttonLaufzettel);
             this.splitContainer1.Panel1.Controls.Add(this.buttonSonderabfragen);
             this.splitContainer1.Panel1.Controls.Add(this.groupMainKartonagen);
             this.splitContainer1.Panel1.Controls.Add(this.groupMainUmzuege);
@@ -89,16 +90,17 @@
             // 
             // buttonErinnerungen
             // 
-            this.buttonErinnerungen.Location = new System.Drawing.Point(1104, 185);
+            this.buttonErinnerungen.Location = new System.Drawing.Point(734, 333);
             this.buttonErinnerungen.Name = "buttonErinnerungen";
             this.buttonErinnerungen.Size = new System.Drawing.Size(179, 117);
             this.buttonErinnerungen.TabIndex = 7;
             this.buttonErinnerungen.Text = "Erinnerungen";
             this.buttonErinnerungen.UseVisualStyleBackColor = true;
+            this.buttonErinnerungen.Click += new System.EventHandler(this.buttonErinnerungen_Click);
             // 
             // buttonLaufKarton
             // 
-            this.buttonLaufKarton.Location = new System.Drawing.Point(919, 185);
+            this.buttonLaufKarton.Location = new System.Drawing.Point(191, 19);
             this.buttonLaufKarton.Name = "buttonLaufKarton";
             this.buttonLaufKarton.Size = new System.Drawing.Size(179, 117);
             this.buttonLaufKarton.TabIndex = 6;
@@ -108,7 +110,7 @@
             // 
             // buttonLaufzettel
             // 
-            this.buttonLaufzettel.Location = new System.Drawing.Point(919, 37);
+            this.buttonLaufzettel.Location = new System.Drawing.Point(6, 19);
             this.buttonLaufzettel.Name = "buttonLaufzettel";
             this.buttonLaufzettel.Size = new System.Drawing.Size(179, 117);
             this.buttonLaufzettel.TabIndex = 5;
@@ -118,7 +120,7 @@
             // 
             // buttonSonderabfragen
             // 
-            this.buttonSonderabfragen.Location = new System.Drawing.Point(919, 333);
+            this.buttonSonderabfragen.Location = new System.Drawing.Point(1109, 333);
             this.buttonSonderabfragen.Name = "buttonSonderabfragen";
             this.buttonSonderabfragen.Size = new System.Drawing.Size(179, 117);
             this.buttonSonderabfragen.TabIndex = 4;
@@ -328,6 +330,17 @@
             this.textMainLog.Size = new System.Drawing.Size(1201, 119);
             this.textMainLog.TabIndex = 0;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.buttonLaufzettel);
+            this.groupBox1.Controls.Add(this.buttonLaufKarton);
+            this.groupBox1.Location = new System.Drawing.Point(708, 18);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(381, 142);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Ausdrucke";
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,6 +361,7 @@
             this.groupMainKunden.ResumeLayout(false);
             this.groupMainBenutzer.ResumeLayout(false);
             this.groupMainBenutzer.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -378,6 +392,7 @@
         private System.Windows.Forms.Button buttonLaufKarton;
         private System.Windows.Forms.Button buttonErinnerungen;
         private System.Windows.Forms.Button buttonUebersichtKartons;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 
