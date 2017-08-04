@@ -102,25 +102,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractAlert.cs" />
+    <Compile Include="Erinnerungssystem\AbstractAlert.cs" />
     <Compile Include="AutoKVA.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AutoKVA.Designer.cs">
       <DependentUpon>AutoKVA.cs</DependentUpon>
     </Compile>
-    <Compile Include="Erinnerung.cs">
+    <Compile Include="Erinnerungssystem\Erinnerung.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Erinnerung.Designer.cs">
+    <Compile Include="Erinnerungssystem\Erinnerung.Designer.cs">
       <DependentUpon>Erinnerung.cs</DependentUpon>
     </Compile>
-    <Compile Include="Erinnerungen.cs">
+    <Compile Include="Erinnerungssystem\Erinnerungen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Erinnerungen.Designer.cs">
+    <Compile Include="Erinnerungssystem\Erinnerungen.Designer.cs">
       <DependentUpon>Erinnerungen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Erinnerungssystem\UmzugAbgeschlossenAlert.cs" />
     <Compile Include="KundenOperationen\KundenAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,7 +172,7 @@
     <Compile Include="TransaktionAdd.Designer.cs">
       <DependentUpon>TransaktionAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="TransaktionAlert.cs" />
+    <Compile Include="Erinnerungssystem\TransaktionAlert.cs" />
     <Compile Include="TransaktionErinnerung.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,10 +218,10 @@
     <EmbeddedResource Include="AutoKVA.resx">
       <DependentUpon>AutoKVA.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Erinnerung.resx">
+    <EmbeddedResource Include="Erinnerungssystem\Erinnerung.resx">
       <DependentUpon>Erinnerung.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Erinnerungen.resx">
+    <EmbeddedResource Include="Erinnerungssystem\Erinnerungen.resx">
       <DependentUpon>Erinnerungen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KundenOperationen\KundenAdd.resx">
