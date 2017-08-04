@@ -826,7 +826,10 @@ namespace Mitarbeiter
             int FahrzeugNr = -1;
 
             TourNr = getTour(Tour);
-            FahrzeugNr = getFahrzeug(Fahrzeug);
+
+            
+            FahrzeugNr = getFahrzeug(Fahrzeug);         
+
             MitarbeiterNr = getMitarbeiter(Mitarbeiter);
             Typ = getTourCode(Tour);
 
@@ -851,7 +854,7 @@ namespace Mitarbeiter
 
             // Legitimitätschecks
             if (TourNr == -1) { return "Tour ist ungültig"; }
-            if (FahrzeugNr == -1 ) { return "Fahrzeug ist ungültig"; }
+            if (FahrzeugNr == -1 && Fahrzeug != "") { return "Fahrzeug ist ungültig"; }
             if (MitarbeiterNr == -1) { return "Mitarbeiter ist ungültig"; } 
             if (Typ == -1) { return "Typ der Tour kann nicht gefunden werden"; }
             if (Typ == 0) { return "Umzüge sind nicht zulässig"; }
