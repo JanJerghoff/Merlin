@@ -183,7 +183,7 @@ namespace Kartonagen
         {
             
             
-            //String bauen (get it? eh?)
+            //String bauen
             String push = "UPDATE Transaktionen SET ";
             String shove = " WHERE idTransaktionen = " + textTransaktion.Text + ";"; 
 

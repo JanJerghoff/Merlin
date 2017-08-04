@@ -44,6 +44,8 @@
             this.textAdresse = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBemerkung = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonSpeichern = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericKleiderKarton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericGlaeserkarton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericFlaschenKarton)).BeginInit();
@@ -115,6 +117,7 @@
             this.numericKleiderKarton.Name = "numericKleiderKarton";
             this.numericKleiderKarton.Size = new System.Drawing.Size(108, 26);
             this.numericKleiderKarton.TabIndex = 193;
+            this.numericKleiderKarton.ValueChanged += new System.EventHandler(this.numericKleiderKarton_ValueChanged);
             // 
             // label3
             // 
@@ -143,6 +146,7 @@
             this.numericGlaeserkarton.Name = "numericGlaeserkarton";
             this.numericGlaeserkarton.Size = new System.Drawing.Size(108, 26);
             this.numericGlaeserkarton.TabIndex = 192;
+            this.numericGlaeserkarton.ValueChanged += new System.EventHandler(this.numericGlaeserkarton_ValueChanged);
             // 
             // label26
             // 
@@ -171,6 +175,7 @@
             this.numericFlaschenKarton.Name = "numericFlaschenKarton";
             this.numericFlaschenKarton.Size = new System.Drawing.Size(108, 26);
             this.numericFlaschenKarton.TabIndex = 191;
+            this.numericFlaschenKarton.ValueChanged += new System.EventHandler(this.numericFlaschenKarton_ValueChanged);
             // 
             // label25
             // 
@@ -199,6 +204,7 @@
             this.numericKarton.Name = "numericKarton";
             this.numericKarton.Size = new System.Drawing.Size(108, 26);
             this.numericKarton.TabIndex = 190;
+            this.numericKarton.ValueChanged += new System.EventHandler(this.numericKarton_ValueChanged);
             // 
             // label4
             // 
@@ -237,12 +243,37 @@
             this.textBemerkung.Name = "textBemerkung";
             this.textBemerkung.Size = new System.Drawing.Size(262, 166);
             this.textBemerkung.TabIndex = 200;
+            this.textBemerkung.TextChanged += new System.EventHandler(this.textBemerkung_TextChanged);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(16, 259);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(144, 70);
+            this.button1.TabIndex = 202;
+            this.button1.Text = "Abbrechen";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // buttonSpeichern
+            // 
+            this.buttonSpeichern.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSpeichern.Location = new System.Drawing.Point(903, 259);
+            this.buttonSpeichern.Name = "buttonSpeichern";
+            this.buttonSpeichern.Size = new System.Drawing.Size(144, 70);
+            this.buttonSpeichern.TabIndex = 203;
+            this.buttonSpeichern.Text = "Speichern";
+            this.buttonSpeichern.UseVisualStyleBackColor = true;
+            this.buttonSpeichern.Click += new System.EventHandler(this.buttonSpeichern_Click);
             // 
             // TransaktionErinnerung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1204, 384);
+            this.Controls.Add(this.buttonSpeichern);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBemerkung);
             this.Controls.Add(this.label4);
@@ -288,5 +319,7 @@
         private System.Windows.Forms.TextBox textAdresse;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBemerkung;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonSpeichern;
     }
 }
