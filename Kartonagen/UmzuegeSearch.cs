@@ -1817,7 +1817,7 @@ namespace Kartonagen
                 // Anlegen Besichtigung
                 DateTime date = dateBesicht.Value.Date.Add(timeBesichtigung.Value.TimeOfDay);
                 DateTime schluss = date.AddMinutes(60);
-                Program.kalenderEintrag(textKundennummer.Text + " " + textVorNachname.Text, KalenderString(), 9, date, schluss);
+                Program.kalenderEintrag(textKundennummer.Text + " " + textVorNachname.Text + " " + textNoteKalender.Text, KalenderString(), 9, date, schluss);
                 textUmzugLog.AppendText("Besichtigung hinzugefügt \r\n");
             }
 
