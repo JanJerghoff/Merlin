@@ -1439,8 +1439,27 @@ namespace Kartonagen
                 fields.TryGetValue("NameKundennummer", out toSet);
                 toSet.SetValue(textKundennummer.Text + " " + textVorNachname.Text);
 
-                fields.TryGetValue("Telefonnummer", out toSet);
-                toSet.SetValue(textTelefonnummer.Text + " / " + textHandynummer.Text);
+                // Telefonnummern sauber auflösen
+                if (textTelefonnummer.Text != "0" && textHandynummer.Text != "0")
+                {
+                    fields.TryGetValue("Telefonnummer", out toSet);
+                    toSet.SetValue(textTelefonnummer.Text + " / " + textHandynummer.Text);
+                }
+                else if (textTelefonnummer.Text == "0" && textHandynummer.Text != "0")
+                {
+                    fields.TryGetValue("Telefonnummer", out toSet);
+                    toSet.SetValue(textHandynummer.Text);
+                }
+                else if (textTelefonnummer.Text != "0" && textHandynummer.Text == "0")
+                {
+                    fields.TryGetValue("Telefonnummer", out toSet);
+                    toSet.SetValue(textTelefonnummer.Text);
+                }
+                else {
+                    fields.TryGetValue("Telefonnummer", out toSet);
+                    toSet.SetValue("Keine Nummer!");
+                }
+
 
                 fields.TryGetValue("Email", out toSet);
                 toSet.SetValue(textEmail.Text);
