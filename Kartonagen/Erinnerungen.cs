@@ -14,7 +14,7 @@ namespace Kartonagen
     public partial class Erinnerungen : Form
     {
 
-        int idBearbeitend;
+        int idBearbeitend = -1;
 
 
         List <AbstractAlert> gesamt = new List <AbstractAlert>();
@@ -67,7 +67,7 @@ namespace Kartonagen
                     teststring = rdr.GetString(14);
 
 
-                    gesamt.Add(new TransaktionAlert(rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetInt32(2), rdr.GetInt32(3), rdr.GetInt32(4), (rdr.GetDateTime(6).ToShortDateString() + " " + rdr.GetDateTime(5).ToShortTimeString()), rdr.GetString(7), (rdr.GetString(10) + " " + rdr.GetString(11) + " " + rdr.GetString(13) + " " + rdr.GetString(12)), (rdr.GetString(8) + " " + rdr.GetString(9)), rdr.GetString(14)));
+                    gesamt.Add(new TransaktionAlert(rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetInt32(2), rdr.GetInt32(3), rdr.GetInt32(4), (rdr.GetDateTime(6).ToShortDateString() + " " + rdr.GetDateTime(5).ToShortTimeString()), rdr.GetString(7), (rdr.GetString(10) + " " + rdr.GetString(11) + " " + rdr.GetString(13) + " " + rdr.GetString(12)), (rdr.GetString(8) + " " + rdr.GetString(9)), rdr.GetString(14),idBearbeitend));
                 }
                 rdr.Close();
             }

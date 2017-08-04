@@ -39,38 +39,7 @@ namespace Kartonagen
         public UmzugFortschritt()
         {
             InitializeComponent();
-
-            // String-collection anlegen
-            AutoCompleteStringCollection autocomplete = new AutoCompleteStringCollection();
-
-            //Abfrage aller Namen
-            //MySqlCommand cmdRead = new MySqlCommand("SELECT Nachname, Vorname, StundenGehalt FROM Mitarbeiter WHERE Ausgeschieden = '2017-01-01'", Program.conn2);
-            //MySqlDataReader rdr;
-
-            //int count = 0;
-
-            //try
-            //{
-            //    rdr = cmdRead.ExecuteReader();
-            //    while (rdr.Read())
-            //    {
-            //        autocomplete.Add(rdr[0].ToString() + ", " + rdr[1].ToString());
-            //        arbeiter.Add(rdr[0].ToString() + ", " + rdr[1].ToString());
-            //        loehne.Add(rdr.GetDecimal(2));
-                    
-            //    }
-            //    rdr.Close();
-            //    arbeiter1 = arbeiter.ToArray();
-            //    loehne1 = loehne.ToArray();
-            //}
-            //catch (Exception sqlEx)
-            //{
-            //    textUmzugLog.Text += sqlEx.ToString();
-            //    return;
-            //}
-
-            // Anhängen an Textfelder
-            
+                        
         }
 
         public void fuellen(int umzNr)
@@ -184,6 +153,10 @@ namespace Kartonagen
                         buttonKVAPost.Enabled = false;
                         buttonKVAMail.Enabled = false;
 
+                        buttonKueche.Enabled = true;
+                        buttonHVZWunder.Enabled = true;
+                        buttonLKW.Enabled = true;
+
                         buttonUmzugEingtragen.Enabled = true;
                         buttonErinnerung.Enabled = true;
 
@@ -196,8 +169,7 @@ namespace Kartonagen
                         buttonTelBuch.Enabled = false;
                         buttonKVAPost.Enabled = false;
                         buttonKVAMail.Enabled = false;
-                        buttonErinnerung.Enabled = false;
-                        
+                        buttonErinnerung.Enabled = false;                      
 
                     }
 

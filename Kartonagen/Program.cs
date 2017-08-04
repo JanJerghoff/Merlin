@@ -34,7 +34,7 @@ namespace Kartonagen
 
         // Singleton Lookup-Dictionaries
 
-        private static Dictionary<String, int> dictionaryKunden;
+        private static Dictionary<int, String> dictionaryKunden;
         private static Dictionary<String, int> dictionaryMitarbeiter;
 
         // Google vorbereitungen
@@ -70,7 +70,7 @@ namespace Kartonagen
         public static void refreshAutocompleteKunden() {
 
             autocompleteKunden = new AutoCompleteStringCollection();
-            dictionaryKunden = new Dictionary<string, int>();
+            dictionaryKunden = new Dictionary<int,string>();
 
             //Abfrage aller Namen
             MySqlCommand cmdRead = new MySqlCommand("SELECT Nachname, idKunden FROM Kunden", Program.conn);
@@ -82,13 +82,13 @@ namespace Kartonagen
                 while (rdr.Read())
                 {
                     autocompleteKunden.Add(rdr[0].ToString());
-                    dictionaryKunden.Add(rdr.GetString(0), rdr.GetInt32(1));
+                    // dictionaryKunden.Add(rdr.GetInt32(1),rdr.GetString(0));
                 }
                 rdr.Close();
             }
             catch (Exception sqlEx)
             {
-                return;
+                var box = MessageBox.Show(sqlEx.ToString(),"");
             }
         }
 
@@ -124,7 +124,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                return;
+                var box = MessageBox.Show(sqlEx.ToString(),"");
             }
         }
 
@@ -143,18 +143,31 @@ namespace Kartonagen
             }
         }
         
-        public static int getKundenNr(String Kundenname) {
+        // Baustelle
+        //public static int getKundenNr(String Kundenname) {
 
-            int ret = 0;
+        //    List<int> nummern = new List<int>();
 
-            if (dictionaryKunden == null) {
-                refreshAutocompleteKunden();
-            }
+        //    //Abfrage aller Namen
+        //    MySqlCommand cmdRead = new MySqlCommand("SELECT idKunden, Vorname FROM Kunden", Program.conn);
+        //    MySqlDataReader rdr;
 
-            dictionaryKunden.TryGetValue(Kundenname, out ret);
+        //    try
+        //    {
+        //        rdr = cmdRead.ExecuteReader();
+        //        while (rdr.Read())
+        //        {
+        //            autocompleteKunden.Add(rdr[0].ToString());
+        //            // dictionaryKunden.Add(rdr.GetInt32(1),rdr.GetString(0));
+        //        }
+        //        rdr.Close();
+        //    }
+        //    catch (Exception sqlEx)
+        //    {
+        //        var box = MessageBox.Show(sqlEx.ToString(), "");
+        //    }
 
-            return ret;
-        }
+        //}
 
         public static int getMitarbeiterNr(String Mitarbeitername)
         {

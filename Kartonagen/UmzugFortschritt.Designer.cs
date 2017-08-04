@@ -36,25 +36,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonUmzugEingtragen = new System.Windows.Forms.Button();
-            this.buttonKueche = new System.Windows.Forms.Button();
             this.buttonHVZ = new System.Windows.Forms.Button();
-            this.buttonHVZWunder = new System.Windows.Forms.Button();
-            this.buttonLKW = new System.Windows.Forms.Button();
             this.buttonBestaetigung = new System.Windows.Forms.Button();
-            this.dateKueche = new System.Windows.Forms.DateTimePicker();
             this.dateHVZ = new System.Windows.Forms.DateTimePicker();
-            this.dateHVZWunder = new System.Windows.Forms.DateTimePicker();
-            this.dateLKW = new System.Windows.Forms.DateTimePicker();
             this.dateBestaetigung = new System.Windows.Forms.DateTimePicker();
             this.dateUmzugEintrag = new System.Windows.Forms.DateTimePicker();
-            this.textKueche = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
             this.textHVZ = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textHVZWunder = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textLKW = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.textKundennummer = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
@@ -121,6 +109,18 @@
             this.buttonAbschluss = new System.Windows.Forms.Button();
             this.textSchließer = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
+            this.buttonLKW = new System.Windows.Forms.Button();
+            this.dateLKW = new System.Windows.Forms.DateTimePicker();
+            this.textLKW = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.buttonHVZWunder = new System.Windows.Forms.Button();
+            this.dateHVZWunder = new System.Windows.Forms.DateTimePicker();
+            this.textHVZWunder = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.buttonKueche = new System.Windows.Forms.Button();
+            this.dateKueche = new System.Windows.Forms.DateTimePicker();
+            this.textKueche = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -157,7 +157,7 @@
             // textBestaetigung
             // 
             this.textBestaetigung.Location = new System.Drawing.Point(440, 68);
-            this.textBestaetigung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBestaetigung.Margin = new System.Windows.Forms.Padding(4);
             this.textBestaetigung.Name = "textBestaetigung";
             this.textBestaetigung.ReadOnly = true;
             this.textBestaetigung.Size = new System.Drawing.Size(212, 22);
@@ -167,7 +167,7 @@
             // textUmzugEintrag
             // 
             this.textUmzugEintrag.Location = new System.Drawing.Point(440, 28);
-            this.textUmzugEintrag.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUmzugEintrag.Margin = new System.Windows.Forms.Padding(4);
             this.textUmzugEintrag.Name = "textUmzugEintrag";
             this.textUmzugEintrag.ReadOnly = true;
             this.textUmzugEintrag.Size = new System.Drawing.Size(212, 22);
@@ -199,34 +199,22 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.buttonUmzugEingtragen);
-            this.groupBox2.Controls.Add(this.buttonKueche);
             this.groupBox2.Controls.Add(this.buttonHVZ);
-            this.groupBox2.Controls.Add(this.buttonHVZWunder);
-            this.groupBox2.Controls.Add(this.buttonLKW);
             this.groupBox2.Controls.Add(this.buttonBestaetigung);
-            this.groupBox2.Controls.Add(this.dateKueche);
             this.groupBox2.Controls.Add(this.dateHVZ);
-            this.groupBox2.Controls.Add(this.dateHVZWunder);
-            this.groupBox2.Controls.Add(this.dateLKW);
             this.groupBox2.Controls.Add(this.dateBestaetigung);
             this.groupBox2.Controls.Add(this.dateUmzugEintrag);
-            this.groupBox2.Controls.Add(this.textKueche);
-            this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.textHVZ);
             this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.textHVZWunder);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.textLKW);
-            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.textBestaetigung);
             this.groupBox2.Controls.Add(this.textUmzugEintrag);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(16, 860);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Location = new System.Drawing.Point(16, 895);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Size = new System.Drawing.Size(988, 265);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(988, 148);
             this.groupBox2.TabIndex = 105;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Umzug";
@@ -235,7 +223,7 @@
             // 
             this.buttonUmzugEingtragen.Enabled = false;
             this.buttonUmzugEingtragen.Location = new System.Drawing.Point(245, 25);
-            this.buttonUmzugEingtragen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonUmzugEingtragen.Margin = new System.Windows.Forms.Padding(4);
             this.buttonUmzugEingtragen.Name = "buttonUmzugEingtragen";
             this.buttonUmzugEingtragen.Size = new System.Drawing.Size(187, 28);
             this.buttonUmzugEingtragen.TabIndex = 113;
@@ -243,23 +231,11 @@
             this.buttonUmzugEingtragen.UseVisualStyleBackColor = true;
             this.buttonUmzugEingtragen.Click += new System.EventHandler(this.buttonUmzugEingtragen_Click);
             // 
-            // buttonKueche
-            // 
-            this.buttonKueche.Enabled = false;
-            this.buttonKueche.Location = new System.Drawing.Point(245, 207);
-            this.buttonKueche.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonKueche.Name = "buttonKueche";
-            this.buttonKueche.Size = new System.Drawing.Size(187, 28);
-            this.buttonKueche.TabIndex = 130;
-            this.buttonKueche.Text = "Bestätigen";
-            this.buttonKueche.UseVisualStyleBackColor = true;
-            this.buttonKueche.Click += new System.EventHandler(this.buttonKueche_Click);
-            // 
             // buttonHVZ
             // 
             this.buttonHVZ.Enabled = false;
-            this.buttonHVZ.Location = new System.Drawing.Point(245, 171);
-            this.buttonHVZ.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonHVZ.Location = new System.Drawing.Point(245, 100);
+            this.buttonHVZ.Margin = new System.Windows.Forms.Padding(4);
             this.buttonHVZ.Name = "buttonHVZ";
             this.buttonHVZ.Size = new System.Drawing.Size(187, 28);
             this.buttonHVZ.TabIndex = 129;
@@ -267,35 +243,11 @@
             this.buttonHVZ.UseVisualStyleBackColor = true;
             this.buttonHVZ.Click += new System.EventHandler(this.buttonHVZ_Click);
             // 
-            // buttonHVZWunder
-            // 
-            this.buttonHVZWunder.Enabled = false;
-            this.buttonHVZWunder.Location = new System.Drawing.Point(245, 135);
-            this.buttonHVZWunder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonHVZWunder.Name = "buttonHVZWunder";
-            this.buttonHVZWunder.Size = new System.Drawing.Size(187, 28);
-            this.buttonHVZWunder.TabIndex = 128;
-            this.buttonHVZWunder.Text = "Bestätigen";
-            this.buttonHVZWunder.UseVisualStyleBackColor = true;
-            this.buttonHVZWunder.Click += new System.EventHandler(this.buttonHVZWunder_Click);
-            // 
-            // buttonLKW
-            // 
-            this.buttonLKW.Enabled = false;
-            this.buttonLKW.Location = new System.Drawing.Point(245, 100);
-            this.buttonLKW.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonLKW.Name = "buttonLKW";
-            this.buttonLKW.Size = new System.Drawing.Size(187, 28);
-            this.buttonLKW.TabIndex = 127;
-            this.buttonLKW.Text = "Bestätigen";
-            this.buttonLKW.UseVisualStyleBackColor = true;
-            this.buttonLKW.Click += new System.EventHandler(this.buttonLKW_Click);
-            // 
             // buttonBestaetigung
             // 
             this.buttonBestaetigung.Enabled = false;
             this.buttonBestaetigung.Location = new System.Drawing.Point(245, 64);
-            this.buttonBestaetigung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonBestaetigung.Margin = new System.Windows.Forms.Padding(4);
             this.buttonBestaetigung.Name = "buttonBestaetigung";
             this.buttonBestaetigung.Size = new System.Drawing.Size(187, 28);
             this.buttonBestaetigung.TabIndex = 126;
@@ -303,51 +255,21 @@
             this.buttonBestaetigung.UseVisualStyleBackColor = true;
             this.buttonBestaetigung.Click += new System.EventHandler(this.buttonBestaetigung_Click);
             // 
-            // dateKueche
-            // 
-            this.dateKueche.Enabled = false;
-            this.dateKueche.Location = new System.Drawing.Point(661, 210);
-            this.dateKueche.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dateKueche.Name = "dateKueche";
-            this.dateKueche.Size = new System.Drawing.Size(265, 22);
-            this.dateKueche.TabIndex = 124;
-            this.dateKueche.Value = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
-            // 
             // dateHVZ
             // 
             this.dateHVZ.Enabled = false;
-            this.dateHVZ.Location = new System.Drawing.Point(661, 175);
-            this.dateHVZ.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateHVZ.Location = new System.Drawing.Point(661, 104);
+            this.dateHVZ.Margin = new System.Windows.Forms.Padding(4);
             this.dateHVZ.Name = "dateHVZ";
             this.dateHVZ.Size = new System.Drawing.Size(265, 22);
             this.dateHVZ.TabIndex = 123;
             this.dateHVZ.Value = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
             // 
-            // dateHVZWunder
-            // 
-            this.dateHVZWunder.Enabled = false;
-            this.dateHVZWunder.Location = new System.Drawing.Point(661, 139);
-            this.dateHVZWunder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dateHVZWunder.Name = "dateHVZWunder";
-            this.dateHVZWunder.Size = new System.Drawing.Size(265, 22);
-            this.dateHVZWunder.TabIndex = 122;
-            this.dateHVZWunder.Value = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
-            // 
-            // dateLKW
-            // 
-            this.dateLKW.Enabled = false;
-            this.dateLKW.Location = new System.Drawing.Point(661, 103);
-            this.dateLKW.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dateLKW.Name = "dateLKW";
-            this.dateLKW.Size = new System.Drawing.Size(265, 22);
-            this.dateLKW.TabIndex = 121;
-            this.dateLKW.Value = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
-            // 
             // dateBestaetigung
             // 
             this.dateBestaetigung.Enabled = false;
             this.dateBestaetigung.Location = new System.Drawing.Point(661, 68);
-            this.dateBestaetigung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateBestaetigung.Margin = new System.Windows.Forms.Padding(4);
             this.dateBestaetigung.Name = "dateBestaetigung";
             this.dateBestaetigung.Size = new System.Drawing.Size(265, 22);
             this.dateBestaetigung.TabIndex = 120;
@@ -357,37 +279,16 @@
             // 
             this.dateUmzugEintrag.Enabled = false;
             this.dateUmzugEintrag.Location = new System.Drawing.Point(661, 28);
-            this.dateUmzugEintrag.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateUmzugEintrag.Margin = new System.Windows.Forms.Padding(4);
             this.dateUmzugEintrag.Name = "dateUmzugEintrag";
             this.dateUmzugEintrag.Size = new System.Drawing.Size(265, 22);
             this.dateUmzugEintrag.TabIndex = 112;
             this.dateUmzugEintrag.Value = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
             // 
-            // textKueche
-            // 
-            this.textKueche.Location = new System.Drawing.Point(440, 210);
-            this.textKueche.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textKueche.Name = "textKueche";
-            this.textKueche.ReadOnly = true;
-            this.textKueche.Size = new System.Drawing.Size(212, 22);
-            this.textKueche.TabIndex = 117;
-            this.textKueche.TabStop = false;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(15, 208);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(163, 18);
-            this.label18.TabIndex = 116;
-            this.label18.Text = "Küchenbauer Termin";
-            // 
             // textHVZ
             // 
-            this.textHVZ.Location = new System.Drawing.Point(440, 175);
-            this.textHVZ.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textHVZ.Location = new System.Drawing.Point(440, 104);
+            this.textHVZ.Margin = new System.Windows.Forms.Padding(4);
             this.textHVZ.Name = "textHVZ";
             this.textHVZ.ReadOnly = true;
             this.textHVZ.Size = new System.Drawing.Size(212, 22);
@@ -398,54 +299,12 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(15, 172);
+            this.label17.Location = new System.Drawing.Point(15, 101);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(117, 18);
             this.label17.TabIndex = 112;
             this.label17.Text = "HVZ Beantragt";
-            // 
-            // textHVZWunder
-            // 
-            this.textHVZWunder.Location = new System.Drawing.Point(440, 139);
-            this.textHVZWunder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textHVZWunder.Name = "textHVZWunder";
-            this.textHVZWunder.ReadOnly = true;
-            this.textHVZWunder.Size = new System.Drawing.Size(212, 22);
-            this.textHVZWunder.TabIndex = 109;
-            this.textHVZWunder.TabStop = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(15, 137);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(143, 18);
-            this.label9.TabIndex = 108;
-            this.label9.Text = "HVZ in Wunderlist";
-            // 
-            // textLKW
-            // 
-            this.textLKW.Location = new System.Drawing.Point(440, 103);
-            this.textLKW.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textLKW.Name = "textLKW";
-            this.textLKW.ReadOnly = true;
-            this.textLKW.Size = new System.Drawing.Size(212, 22);
-            this.textLKW.TabIndex = 105;
-            this.textLKW.TabStop = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(15, 101);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(121, 18);
-            this.label7.TabIndex = 104;
-            this.label7.Text = "2. Lkw gebucht";
             // 
             // groupBox5
             // 
@@ -461,9 +320,9 @@
             this.groupBox5.Controls.Add(this.label13);
             this.groupBox5.Controls.Add(this.textVorNachname);
             this.groupBox5.Location = new System.Drawing.Point(16, 135);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox5.Size = new System.Drawing.Size(492, 201);
             this.groupBox5.TabIndex = 107;
             this.groupBox5.TabStop = false;
@@ -472,7 +331,7 @@
             // textKundennummer
             // 
             this.textKundennummer.Location = new System.Drawing.Point(9, 22);
-            this.textKundennummer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKundennummer.Margin = new System.Windows.Forms.Padding(4);
             this.textKundennummer.Name = "textKundennummer";
             this.textKundennummer.ReadOnly = true;
             this.textKundennummer.Size = new System.Drawing.Size(240, 22);
@@ -504,7 +363,7 @@
             // textEmail
             // 
             this.textEmail.Location = new System.Drawing.Point(8, 150);
-            this.textEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textEmail.Margin = new System.Windows.Forms.Padding(4);
             this.textEmail.Name = "textEmail";
             this.textEmail.ReadOnly = true;
             this.textEmail.Size = new System.Drawing.Size(240, 22);
@@ -525,7 +384,7 @@
             // textHandynummer
             // 
             this.textHandynummer.Location = new System.Drawing.Point(8, 118);
-            this.textHandynummer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textHandynummer.Margin = new System.Windows.Forms.Padding(4);
             this.textHandynummer.Name = "textHandynummer";
             this.textHandynummer.ReadOnly = true;
             this.textHandynummer.Size = new System.Drawing.Size(240, 22);
@@ -546,7 +405,7 @@
             // textTelefonnummer
             // 
             this.textTelefonnummer.Location = new System.Drawing.Point(8, 86);
-            this.textTelefonnummer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textTelefonnummer.Margin = new System.Windows.Forms.Padding(4);
             this.textTelefonnummer.Name = "textTelefonnummer";
             this.textTelefonnummer.ReadOnly = true;
             this.textTelefonnummer.Size = new System.Drawing.Size(240, 22);
@@ -567,7 +426,7 @@
             // textVorNachname
             // 
             this.textVorNachname.Location = new System.Drawing.Point(8, 54);
-            this.textVorNachname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textVorNachname.Margin = new System.Windows.Forms.Padding(4);
             this.textVorNachname.Name = "textVorNachname";
             this.textVorNachname.ReadOnly = true;
             this.textVorNachname.Size = new System.Drawing.Size(324, 22);
@@ -577,7 +436,7 @@
             // textUmzNummerBlock
             // 
             this.textUmzNummerBlock.Location = new System.Drawing.Point(9, 23);
-            this.textUmzNummerBlock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUmzNummerBlock.Margin = new System.Windows.Forms.Padding(4);
             this.textUmzNummerBlock.Name = "textUmzNummerBlock";
             this.textUmzNummerBlock.ReadOnly = true;
             this.textUmzNummerBlock.Size = new System.Drawing.Size(240, 22);
@@ -598,9 +457,9 @@
             this.groupBox3.Controls.Add(this.label19);
             this.groupBox3.Controls.Add(this.textEinzug);
             this.groupBox3.Location = new System.Drawing.Point(516, 135);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(593, 201);
             this.groupBox3.TabIndex = 108;
             this.groupBox3.TabStop = false;
@@ -610,7 +469,7 @@
             // 
             this.dateUmzug.Enabled = false;
             this.dateUmzug.Location = new System.Drawing.Point(9, 150);
-            this.dateUmzug.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateUmzug.Margin = new System.Windows.Forms.Padding(4);
             this.dateUmzug.Name = "dateUmzug";
             this.dateUmzug.Size = new System.Drawing.Size(265, 22);
             this.dateUmzug.TabIndex = 40;
@@ -631,7 +490,7 @@
             // 
             this.dateBesicht.Enabled = false;
             this.dateBesicht.Location = new System.Drawing.Point(9, 118);
-            this.dateBesicht.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateBesicht.Margin = new System.Windows.Forms.Padding(4);
             this.dateBesicht.Name = "dateBesicht";
             this.dateBesicht.Size = new System.Drawing.Size(265, 22);
             this.dateBesicht.TabIndex = 38;
@@ -662,7 +521,7 @@
             // textAuszug
             // 
             this.textAuszug.Location = new System.Drawing.Point(9, 54);
-            this.textAuszug.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAuszug.Margin = new System.Windows.Forms.Padding(4);
             this.textAuszug.Name = "textAuszug";
             this.textAuszug.ReadOnly = true;
             this.textAuszug.Size = new System.Drawing.Size(344, 22);
@@ -694,7 +553,7 @@
             // textEinzug
             // 
             this.textEinzug.Location = new System.Drawing.Point(8, 86);
-            this.textEinzug.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textEinzug.Margin = new System.Windows.Forms.Padding(4);
             this.textEinzug.Name = "textEinzug";
             this.textEinzug.ReadOnly = true;
             this.textEinzug.Size = new System.Drawing.Size(345, 22);
@@ -703,6 +562,18 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.buttonKueche);
+            this.groupBox4.Controls.Add(this.dateKueche);
+            this.groupBox4.Controls.Add(this.textKueche);
+            this.groupBox4.Controls.Add(this.label18);
+            this.groupBox4.Controls.Add(this.buttonHVZWunder);
+            this.groupBox4.Controls.Add(this.dateHVZWunder);
+            this.groupBox4.Controls.Add(this.textHVZWunder);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.buttonLKW);
+            this.groupBox4.Controls.Add(this.dateLKW);
+            this.groupBox4.Controls.Add(this.textLKW);
+            this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.buttonErinnerung);
             this.groupBox4.Controls.Add(this.dateErinnerung);
             this.groupBox4.Controls.Add(this.textErinnerung);
@@ -716,10 +587,10 @@
             this.groupBox4.Controls.Add(this.label21);
             this.groupBox4.Controls.Add(this.label22);
             this.groupBox4.Location = new System.Drawing.Point(16, 615);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox4.Size = new System.Drawing.Size(985, 204);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox4.Size = new System.Drawing.Size(985, 272);
             this.groupBox4.TabIndex = 105;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Zusage";
@@ -728,7 +599,7 @@
             // 
             this.buttonErinnerung.Enabled = false;
             this.buttonErinnerung.Location = new System.Drawing.Point(260, 71);
-            this.buttonErinnerung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonErinnerung.Margin = new System.Windows.Forms.Padding(4);
             this.buttonErinnerung.Name = "buttonErinnerung";
             this.buttonErinnerung.Size = new System.Drawing.Size(172, 28);
             this.buttonErinnerung.TabIndex = 116;
@@ -740,7 +611,7 @@
             // 
             this.dateErinnerung.Enabled = false;
             this.dateErinnerung.Location = new System.Drawing.Point(661, 78);
-            this.dateErinnerung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateErinnerung.Margin = new System.Windows.Forms.Padding(4);
             this.dateErinnerung.Name = "dateErinnerung";
             this.dateErinnerung.Size = new System.Drawing.Size(265, 22);
             this.dateErinnerung.TabIndex = 115;
@@ -749,7 +620,7 @@
             // textErinnerung
             // 
             this.textErinnerung.Location = new System.Drawing.Point(440, 78);
-            this.textErinnerung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textErinnerung.Margin = new System.Windows.Forms.Padding(4);
             this.textErinnerung.Name = "textErinnerung";
             this.textErinnerung.ReadOnly = true;
             this.textErinnerung.Size = new System.Drawing.Size(212, 22);
@@ -770,8 +641,8 @@
             // buttonTextBuch
             // 
             this.buttonTextBuch.Enabled = false;
-            this.buttonTextBuch.Location = new System.Drawing.Point(245, 107);
-            this.buttonTextBuch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonTextBuch.Location = new System.Drawing.Point(245, 215);
+            this.buttonTextBuch.Margin = new System.Windows.Forms.Padding(4);
             this.buttonTextBuch.Name = "buttonTextBuch";
             this.buttonTextBuch.Size = new System.Drawing.Size(187, 28);
             this.buttonTextBuch.TabIndex = 112;
@@ -782,8 +653,8 @@
             // dateSchriftBuch
             // 
             this.dateSchriftBuch.Enabled = false;
-            this.dateSchriftBuch.Location = new System.Drawing.Point(661, 113);
-            this.dateSchriftBuch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateSchriftBuch.Location = new System.Drawing.Point(661, 221);
+            this.dateSchriftBuch.Margin = new System.Windows.Forms.Padding(4);
             this.dateSchriftBuch.Name = "dateSchriftBuch";
             this.dateSchriftBuch.Size = new System.Drawing.Size(265, 22);
             this.dateSchriftBuch.TabIndex = 111;
@@ -793,7 +664,7 @@
             // 
             this.dateTelBuch.Enabled = false;
             this.dateTelBuch.Location = new System.Drawing.Point(661, 39);
-            this.dateTelBuch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTelBuch.Margin = new System.Windows.Forms.Padding(4);
             this.dateTelBuch.Name = "dateTelBuch";
             this.dateTelBuch.Size = new System.Drawing.Size(265, 22);
             this.dateTelBuch.TabIndex = 105;
@@ -803,7 +674,7 @@
             // 
             this.buttonTelBuch.Enabled = false;
             this.buttonTelBuch.Location = new System.Drawing.Point(245, 36);
-            this.buttonTelBuch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonTelBuch.Margin = new System.Windows.Forms.Padding(4);
             this.buttonTelBuch.Name = "buttonTelBuch";
             this.buttonTelBuch.Size = new System.Drawing.Size(187, 28);
             this.buttonTelBuch.TabIndex = 109;
@@ -813,8 +684,8 @@
             // 
             // textSchriftBuch
             // 
-            this.textSchriftBuch.Location = new System.Drawing.Point(440, 113);
-            this.textSchriftBuch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textSchriftBuch.Location = new System.Drawing.Point(440, 221);
+            this.textSchriftBuch.Margin = new System.Windows.Forms.Padding(4);
             this.textSchriftBuch.Name = "textSchriftBuch";
             this.textSchriftBuch.ReadOnly = true;
             this.textSchriftBuch.Size = new System.Drawing.Size(212, 22);
@@ -824,7 +695,7 @@
             // textTelBuch
             // 
             this.textTelBuch.Location = new System.Drawing.Point(440, 38);
-            this.textTelBuch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textTelBuch.Margin = new System.Windows.Forms.Padding(4);
             this.textTelBuch.Name = "textTelBuch";
             this.textTelBuch.ReadOnly = true;
             this.textTelBuch.Size = new System.Drawing.Size(212, 22);
@@ -835,7 +706,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(15, 111);
+            this.label21.Location = new System.Drawing.Point(15, 219);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(162, 18);
@@ -863,9 +734,9 @@
             this.groupBox6.Controls.Add(this.buttonNrSuche);
             this.groupBox6.Controls.Add(this.numericSucheKundennr);
             this.groupBox6.Location = new System.Drawing.Point(16, 15);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox6.Size = new System.Drawing.Size(1092, 113);
             this.groupBox6.TabIndex = 109;
             this.groupBox6.TabStop = false;
@@ -874,7 +745,7 @@
             // buttonUmzugsnummer
             // 
             this.buttonUmzugsnummer.Location = new System.Drawing.Point(5, 58);
-            this.buttonUmzugsnummer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonUmzugsnummer.Margin = new System.Windows.Forms.Padding(4);
             this.buttonUmzugsnummer.Name = "buttonUmzugsnummer";
             this.buttonUmzugsnummer.Size = new System.Drawing.Size(160, 48);
             this.buttonUmzugsnummer.TabIndex = 93;
@@ -884,7 +755,7 @@
             // numericUmzugsnummer
             // 
             this.numericUmzugsnummer.Location = new System.Drawing.Point(5, 26);
-            this.numericUmzugsnummer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUmzugsnummer.Margin = new System.Windows.Forms.Padding(4);
             this.numericUmzugsnummer.Maximum = new decimal(new int[] {
             20000,
             0,
@@ -907,7 +778,7 @@
             // textSuchBox
             // 
             this.textSuchBox.Location = new System.Drawing.Point(547, 26);
-            this.textSuchBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textSuchBox.Margin = new System.Windows.Forms.Padding(4);
             this.textSuchBox.Multiline = true;
             this.textSuchBox.Name = "textSuchBox";
             this.textSuchBox.ReadOnly = true;
@@ -920,7 +791,7 @@
             this.textSucheName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textSucheName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textSucheName.Location = new System.Drawing.Point(341, 26);
-            this.textSucheName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textSucheName.Margin = new System.Windows.Forms.Padding(4);
             this.textSucheName.Name = "textSucheName";
             this.textSucheName.Size = new System.Drawing.Size(196, 22);
             this.textSucheName.TabIndex = 88;
@@ -928,7 +799,7 @@
             // buttonNameSuche
             // 
             this.buttonNameSuche.Location = new System.Drawing.Point(341, 58);
-            this.buttonNameSuche.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonNameSuche.Margin = new System.Windows.Forms.Padding(4);
             this.buttonNameSuche.Name = "buttonNameSuche";
             this.buttonNameSuche.Size = new System.Drawing.Size(197, 48);
             this.buttonNameSuche.TabIndex = 91;
@@ -938,7 +809,7 @@
             // buttonNrSuche
             // 
             this.buttonNrSuche.Location = new System.Drawing.Point(173, 58);
-            this.buttonNrSuche.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonNrSuche.Margin = new System.Windows.Forms.Padding(4);
             this.buttonNrSuche.Name = "buttonNrSuche";
             this.buttonNrSuche.Size = new System.Drawing.Size(160, 48);
             this.buttonNrSuche.TabIndex = 90;
@@ -948,7 +819,7 @@
             // numericSucheKundennr
             // 
             this.numericSucheKundennr.Location = new System.Drawing.Point(173, 26);
-            this.numericSucheKundennr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericSucheKundennr.Margin = new System.Windows.Forms.Padding(4);
             this.numericSucheKundennr.Maximum = new decimal(new int[] {
             20000,
             0,
@@ -993,7 +864,7 @@
             // textKVAPost
             // 
             this.textKVAPost.Location = new System.Drawing.Point(440, 71);
-            this.textKVAPost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKVAPost.Margin = new System.Windows.Forms.Padding(4);
             this.textKVAPost.Name = "textKVAPost";
             this.textKVAPost.ReadOnly = true;
             this.textKVAPost.Size = new System.Drawing.Size(212, 22);
@@ -1003,7 +874,7 @@
             // textKVAMail
             // 
             this.textKVAMail.Location = new System.Drawing.Point(440, 111);
-            this.textKVAMail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKVAMail.Margin = new System.Windows.Forms.Padding(4);
             this.textKVAMail.Name = "textKVAMail";
             this.textKVAMail.ReadOnly = true;
             this.textKVAMail.Size = new System.Drawing.Size(212, 22);
@@ -1013,7 +884,7 @@
             // buttonKVAPost
             // 
             this.buttonKVAPost.Location = new System.Drawing.Point(245, 69);
-            this.buttonKVAPost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonKVAPost.Margin = new System.Windows.Forms.Padding(4);
             this.buttonKVAPost.Name = "buttonKVAPost";
             this.buttonKVAPost.Size = new System.Drawing.Size(187, 28);
             this.buttonKVAPost.TabIndex = 89;
@@ -1035,7 +906,7 @@
             // textBesichtigung
             // 
             this.textBesichtigung.Location = new System.Drawing.Point(440, 34);
-            this.textBesichtigung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBesichtigung.Margin = new System.Windows.Forms.Padding(4);
             this.textBesichtigung.Name = "textBesichtigung";
             this.textBesichtigung.ReadOnly = true;
             this.textBesichtigung.Size = new System.Drawing.Size(212, 22);
@@ -1045,7 +916,7 @@
             // buttonKVAMail
             // 
             this.buttonKVAMail.Location = new System.Drawing.Point(245, 106);
-            this.buttonKVAMail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonKVAMail.Margin = new System.Windows.Forms.Padding(4);
             this.buttonKVAMail.Name = "buttonKVAMail";
             this.buttonKVAMail.Size = new System.Drawing.Size(187, 28);
             this.buttonKVAMail.TabIndex = 102;
@@ -1071,9 +942,9 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Location = new System.Drawing.Point(16, 383);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(985, 225);
             this.groupBox1.TabIndex = 104;
             this.groupBox1.TabStop = false;
@@ -1083,7 +954,7 @@
             // 
             this.dateKorrektur.Enabled = false;
             this.dateKorrektur.Location = new System.Drawing.Point(661, 148);
-            this.dateKorrektur.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateKorrektur.Margin = new System.Windows.Forms.Padding(4);
             this.dateKorrektur.Name = "dateKorrektur";
             this.dateKorrektur.Size = new System.Drawing.Size(265, 22);
             this.dateKorrektur.TabIndex = 108;
@@ -1092,7 +963,7 @@
             // buttonKorrektur
             // 
             this.buttonKorrektur.Location = new System.Drawing.Point(245, 143);
-            this.buttonKorrektur.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonKorrektur.Margin = new System.Windows.Forms.Padding(4);
             this.buttonKorrektur.Name = "buttonKorrektur";
             this.buttonKorrektur.Size = new System.Drawing.Size(187, 28);
             this.buttonKorrektur.TabIndex = 107;
@@ -1103,7 +974,7 @@
             // textKorrektur
             // 
             this.textKorrektur.Location = new System.Drawing.Point(440, 148);
-            this.textKorrektur.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKorrektur.Margin = new System.Windows.Forms.Padding(4);
             this.textKorrektur.Name = "textKorrektur";
             this.textKorrektur.ReadOnly = true;
             this.textKorrektur.Size = new System.Drawing.Size(212, 22);
@@ -1125,7 +996,7 @@
             // 
             this.dateKVAMail.Enabled = false;
             this.dateKVAMail.Location = new System.Drawing.Point(661, 111);
-            this.dateKVAMail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateKVAMail.Margin = new System.Windows.Forms.Padding(4);
             this.dateKVAMail.Name = "dateKVAMail";
             this.dateKVAMail.Size = new System.Drawing.Size(265, 22);
             this.dateKVAMail.TabIndex = 104;
@@ -1135,7 +1006,7 @@
             // 
             this.dateKVAPost.Enabled = false;
             this.dateKVAPost.Location = new System.Drawing.Point(661, 73);
-            this.dateKVAPost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateKVAPost.Margin = new System.Windows.Forms.Padding(4);
             this.dateKVAPost.Name = "dateKVAPost";
             this.dateKVAPost.Size = new System.Drawing.Size(265, 22);
             this.dateKVAPost.TabIndex = 103;
@@ -1145,7 +1016,7 @@
             // 
             this.dateBesichtigung.Enabled = false;
             this.dateBesichtigung.Location = new System.Drawing.Point(661, 34);
-            this.dateBesichtigung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateBesichtigung.Margin = new System.Windows.Forms.Padding(4);
             this.dateBesichtigung.Name = "dateBesichtigung";
             this.dateBesichtigung.Size = new System.Drawing.Size(265, 22);
             this.dateBesichtigung.TabIndex = 41;
@@ -1154,7 +1025,7 @@
             // textUmzugLog
             // 
             this.textUmzugLog.Location = new System.Drawing.Point(16, 1132);
-            this.textUmzugLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUmzugLog.Margin = new System.Windows.Forms.Padding(4);
             this.textUmzugLog.Multiline = true;
             this.textUmzugLog.Name = "textUmzugLog";
             this.textUmzugLog.ReadOnly = true;
@@ -1167,9 +1038,9 @@
             this.groupBox24.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox24.Controls.Add(this.textNote);
             this.groupBox24.Location = new System.Drawing.Point(1117, 140);
-            this.groupBox24.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox24.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox24.Name = "groupBox24";
-            this.groupBox24.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox24.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox24.Size = new System.Drawing.Size(644, 196);
             this.groupBox24.TabIndex = 114;
             this.groupBox24.TabStop = false;
@@ -1178,7 +1049,7 @@
             // textNote
             // 
             this.textNote.Location = new System.Drawing.Point(8, 22);
-            this.textNote.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textNote.Margin = new System.Windows.Forms.Padding(4);
             this.textNote.Multiline = true;
             this.textNote.Name = "textNote";
             this.textNote.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -1188,7 +1059,7 @@
             // buttonBemerkung
             // 
             this.buttonBemerkung.Location = new System.Drawing.Point(1769, 175);
-            this.buttonBemerkung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonBemerkung.Margin = new System.Windows.Forms.Padding(4);
             this.buttonBemerkung.Name = "buttonBemerkung";
             this.buttonBemerkung.Size = new System.Drawing.Size(132, 153);
             this.buttonBemerkung.TabIndex = 109;
@@ -1199,7 +1070,7 @@
             // buttonAbschluss
             // 
             this.buttonAbschluss.Location = new System.Drawing.Point(1257, 889);
-            this.buttonAbschluss.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonAbschluss.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAbschluss.Name = "buttonAbschluss";
             this.buttonAbschluss.Size = new System.Drawing.Size(291, 153);
             this.buttonAbschluss.TabIndex = 115;
@@ -1210,7 +1081,7 @@
             // textSchließer
             // 
             this.textSchließer.Location = new System.Drawing.Point(1257, 1074);
-            this.textSchließer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textSchließer.Margin = new System.Windows.Forms.Padding(4);
             this.textSchließer.Name = "textSchließer";
             this.textSchließer.ReadOnly = true;
             this.textSchließer.Size = new System.Drawing.Size(212, 22);
@@ -1228,12 +1099,138 @@
             this.label25.TabIndex = 131;
             this.label25.Text = "geschlossen durch";
             // 
+            // buttonLKW
+            // 
+            this.buttonLKW.Enabled = false;
+            this.buttonLKW.Location = new System.Drawing.Point(245, 107);
+            this.buttonLKW.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonLKW.Name = "buttonLKW";
+            this.buttonLKW.Size = new System.Drawing.Size(187, 28);
+            this.buttonLKW.TabIndex = 131;
+            this.buttonLKW.Text = "Bestätigen";
+            this.buttonLKW.UseVisualStyleBackColor = true;
+            // 
+            // dateLKW
+            // 
+            this.dateLKW.Enabled = false;
+            this.dateLKW.Location = new System.Drawing.Point(661, 110);
+            this.dateLKW.Margin = new System.Windows.Forms.Padding(4);
+            this.dateLKW.Name = "dateLKW";
+            this.dateLKW.Size = new System.Drawing.Size(265, 22);
+            this.dateLKW.TabIndex = 130;
+            this.dateLKW.Value = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
+            // 
+            // textLKW
+            // 
+            this.textLKW.Location = new System.Drawing.Point(440, 110);
+            this.textLKW.Margin = new System.Windows.Forms.Padding(4);
+            this.textLKW.Name = "textLKW";
+            this.textLKW.ReadOnly = true;
+            this.textLKW.Size = new System.Drawing.Size(212, 22);
+            this.textLKW.TabIndex = 129;
+            this.textLKW.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(15, 108);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(121, 18);
+            this.label7.TabIndex = 128;
+            this.label7.Text = "2. Lkw gebucht";
+            // 
+            // buttonHVZWunder
+            // 
+            this.buttonHVZWunder.Enabled = false;
+            this.buttonHVZWunder.Location = new System.Drawing.Point(245, 143);
+            this.buttonHVZWunder.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonHVZWunder.Name = "buttonHVZWunder";
+            this.buttonHVZWunder.Size = new System.Drawing.Size(187, 28);
+            this.buttonHVZWunder.TabIndex = 135;
+            this.buttonHVZWunder.Text = "Bestätigen";
+            this.buttonHVZWunder.UseVisualStyleBackColor = true;
+            // 
+            // dateHVZWunder
+            // 
+            this.dateHVZWunder.Enabled = false;
+            this.dateHVZWunder.Location = new System.Drawing.Point(661, 147);
+            this.dateHVZWunder.Margin = new System.Windows.Forms.Padding(4);
+            this.dateHVZWunder.Name = "dateHVZWunder";
+            this.dateHVZWunder.Size = new System.Drawing.Size(265, 22);
+            this.dateHVZWunder.TabIndex = 134;
+            this.dateHVZWunder.Value = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
+            // 
+            // textHVZWunder
+            // 
+            this.textHVZWunder.Location = new System.Drawing.Point(440, 147);
+            this.textHVZWunder.Margin = new System.Windows.Forms.Padding(4);
+            this.textHVZWunder.Name = "textHVZWunder";
+            this.textHVZWunder.ReadOnly = true;
+            this.textHVZWunder.Size = new System.Drawing.Size(212, 22);
+            this.textHVZWunder.TabIndex = 133;
+            this.textHVZWunder.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(15, 145);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(143, 18);
+            this.label9.TabIndex = 132;
+            this.label9.Text = "HVZ in Wunderlist";
+            // 
+            // buttonKueche
+            // 
+            this.buttonKueche.Enabled = false;
+            this.buttonKueche.Location = new System.Drawing.Point(245, 179);
+            this.buttonKueche.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonKueche.Name = "buttonKueche";
+            this.buttonKueche.Size = new System.Drawing.Size(187, 28);
+            this.buttonKueche.TabIndex = 139;
+            this.buttonKueche.Text = "Bestätigen";
+            this.buttonKueche.UseVisualStyleBackColor = true;
+            // 
+            // dateKueche
+            // 
+            this.dateKueche.Enabled = false;
+            this.dateKueche.Location = new System.Drawing.Point(661, 182);
+            this.dateKueche.Margin = new System.Windows.Forms.Padding(4);
+            this.dateKueche.Name = "dateKueche";
+            this.dateKueche.Size = new System.Drawing.Size(265, 22);
+            this.dateKueche.TabIndex = 138;
+            this.dateKueche.Value = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
+            // 
+            // textKueche
+            // 
+            this.textKueche.Location = new System.Drawing.Point(440, 182);
+            this.textKueche.Margin = new System.Windows.Forms.Padding(4);
+            this.textKueche.Name = "textKueche";
+            this.textKueche.ReadOnly = true;
+            this.textKueche.Size = new System.Drawing.Size(212, 22);
+            this.textKueche.TabIndex = 137;
+            this.textKueche.TabStop = false;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(15, 180);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(163, 18);
+            this.label18.TabIndex = 136;
+            this.label18.Text = "Küchenbauer Termin";
+            // 
             // UmzugFortschritt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1906, 1037);
+            this.ClientSize = new System.Drawing.Size(1914, 1045);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.textSchließer);
             this.Controls.Add(this.buttonAbschluss);
@@ -1248,7 +1245,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UmzugFortschritt";
             this.Text = "UmzugFortschritt";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -1281,8 +1278,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textLKW;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox textKundennummer;
         private System.Windows.Forms.Label label28;
@@ -1301,12 +1296,8 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox textEinzug;
-        private System.Windows.Forms.TextBox textKueche;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textHVZ;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textHVZWunder;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dateUmzug;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.DateTimePicker dateBesicht;
@@ -1334,10 +1325,7 @@
         private System.Windows.Forms.TextBox textBesichtigung;
         private System.Windows.Forms.Button buttonKVAMail;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dateKueche;
         private System.Windows.Forms.DateTimePicker dateHVZ;
-        private System.Windows.Forms.DateTimePicker dateHVZWunder;
-        private System.Windows.Forms.DateTimePicker dateLKW;
         private System.Windows.Forms.DateTimePicker dateBestaetigung;
         private System.Windows.Forms.DateTimePicker dateUmzugEintrag;
         private System.Windows.Forms.DateTimePicker dateSchriftBuch;
@@ -1345,10 +1333,7 @@
         private System.Windows.Forms.DateTimePicker dateKVAMail;
         private System.Windows.Forms.DateTimePicker dateKVAPost;
         private System.Windows.Forms.DateTimePicker dateBesichtigung;
-        private System.Windows.Forms.Button buttonKueche;
         private System.Windows.Forms.Button buttonHVZ;
-        private System.Windows.Forms.Button buttonHVZWunder;
-        private System.Windows.Forms.Button buttonLKW;
         private System.Windows.Forms.Button buttonBestaetigung;
         private System.Windows.Forms.Button buttonTextBuch;
         private System.Windows.Forms.TextBox textUmzugLog;
@@ -1367,5 +1352,17 @@
         private System.Windows.Forms.Button buttonAbschluss;
         private System.Windows.Forms.TextBox textSchließer;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Button buttonKueche;
+        private System.Windows.Forms.DateTimePicker dateKueche;
+        private System.Windows.Forms.TextBox textKueche;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button buttonHVZWunder;
+        private System.Windows.Forms.DateTimePicker dateHVZWunder;
+        private System.Windows.Forms.TextBox textHVZWunder;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button buttonLKW;
+        private System.Windows.Forms.DateTimePicker dateLKW;
+        private System.Windows.Forms.TextBox textLKW;
+        private System.Windows.Forms.Label label7;
     }
 }
