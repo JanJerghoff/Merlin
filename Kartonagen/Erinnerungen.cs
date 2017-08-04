@@ -14,6 +14,9 @@ namespace Kartonagen
     public partial class Erinnerungen : Form
     {
 
+        int idBearbeitend;
+
+
         List <AbstractAlert> gesamt = new List <AbstractAlert>();
 
         public Erinnerungen()
@@ -29,6 +32,14 @@ namespace Kartonagen
                 item.showAlert();
             }
 
+            this.Hide();
+
+        }
+
+
+        public void setIdBearbeitend(int id)
+        {
+            idBearbeitend = id;
         }
 
         private List<AbstractAlert> Transaktionen (List<AbstractAlert> gesamt)

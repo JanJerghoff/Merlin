@@ -169,6 +169,7 @@ namespace Kartonagen
         private void buttonErinnerungen_Click(object sender, EventArgs e)
         {
             Erinnerungen er = new Erinnerungen();
+            er.setIdBearbeitend(getBearbeitender());
             er.Show();
         }
     }

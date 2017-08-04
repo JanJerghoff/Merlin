@@ -19,8 +19,9 @@ namespace Kartonagen
         string bemerkung;
         string Adresse;
         string UserChanged;
+        int idBearbeitend;
 
-        public TransaktionAlert(int id, int kartons, int Flaschenkartons, int Glaeserkartons, int Kleiderkartons, string time, string UserChanged,string adresse, string name, string bemerkung) {
+        public TransaktionAlert(int id, int kartons, int Flaschenkartons, int Glaeserkartons, int Kleiderkartons, string time, string UserChanged,string adresse, string name, string bemerkung, int idBearbeitend) {
             this.id = id;
             this.kartons = kartons;
             this.Flaschenkartons = Flaschenkartons;
@@ -29,16 +30,18 @@ namespace Kartonagen
             this.time = time;
             this.name = name;
             this.bemerkung = bemerkung;
-            this.Adresse = adresse;
+            Adresse = adresse;
             this.UserChanged = UserChanged;
+            this.idBearbeitend = idBearbeitend;
         }
 
         public void showAlert()
 
         {
             TransaktionErinnerung win = new TransaktionErinnerung();
-            win.set(UserChanged, time, name, Adresse, bemerkung, id, kartons, Flaschenkartons, Glaeserkartons, Kleiderkartons);
+            win.set(UserChanged, time, name, Adresse, bemerkung, id, kartons, Flaschenkartons, Glaeserkartons, Kleiderkartons, idBearbeitend);
             win.Show();
+                       
         }
     }
 }

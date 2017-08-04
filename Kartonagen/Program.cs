@@ -119,6 +119,19 @@ namespace Kartonagen
             }
         }
 
+        // Schubst daten in die DB
+        public static void absender(String befehl)
+        {
+            MySqlCommand cmdAdd = new MySqlCommand(befehl, Program.conn);
+            try
+            {
+                cmdAdd.ExecuteNonQuery();
+            }
+            catch (Exception sqlEx)
+            {
+                
+            }
+        }
 
 
         // Stellt einen check zum Überprüfen von Kundendaten zur Verfügung

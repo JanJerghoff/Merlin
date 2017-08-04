@@ -117,7 +117,6 @@
             this.numericKleiderKarton.Name = "numericKleiderKarton";
             this.numericKleiderKarton.Size = new System.Drawing.Size(108, 26);
             this.numericKleiderKarton.TabIndex = 193;
-            this.numericKleiderKarton.ValueChanged += new System.EventHandler(this.numericKleiderKarton_ValueChanged);
             // 
             // label3
             // 
@@ -146,7 +145,6 @@
             this.numericGlaeserkarton.Name = "numericGlaeserkarton";
             this.numericGlaeserkarton.Size = new System.Drawing.Size(108, 26);
             this.numericGlaeserkarton.TabIndex = 192;
-            this.numericGlaeserkarton.ValueChanged += new System.EventHandler(this.numericGlaeserkarton_ValueChanged);
             // 
             // label26
             // 
@@ -175,7 +173,6 @@
             this.numericFlaschenKarton.Name = "numericFlaschenKarton";
             this.numericFlaschenKarton.Size = new System.Drawing.Size(108, 26);
             this.numericFlaschenKarton.TabIndex = 191;
-            this.numericFlaschenKarton.ValueChanged += new System.EventHandler(this.numericFlaschenKarton_ValueChanged);
             // 
             // label25
             // 
@@ -204,7 +201,6 @@
             this.numericKarton.Name = "numericKarton";
             this.numericKarton.Size = new System.Drawing.Size(108, 26);
             this.numericKarton.TabIndex = 190;
-            this.numericKarton.ValueChanged += new System.EventHandler(this.numericKarton_ValueChanged);
             // 
             // label4
             // 
@@ -243,7 +239,6 @@
             this.textBemerkung.Name = "textBemerkung";
             this.textBemerkung.Size = new System.Drawing.Size(262, 166);
             this.textBemerkung.TabIndex = 200;
-            this.textBemerkung.TextChanged += new System.EventHandler(this.textBemerkung_TextChanged);
             // 
             // button1
             // 
