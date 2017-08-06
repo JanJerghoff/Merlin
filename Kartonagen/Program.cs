@@ -128,6 +128,26 @@ namespace Kartonagen
             }
         }
 
+        public static String getBearbeitender(int ID)
+        {
+            if (ID == 0)
+            {
+                return "Rita";
+            }
+            if (ID == 1)
+            {
+                return "Jonas";
+            }
+            if (ID == 2)
+            {
+                return "Eva"; ;
+            }
+            if (ID == 4)
+            {
+                return "Jan";
+            }
+            
+        }
 
         // Schubst daten in die DB
         public static void absender(String befehl)

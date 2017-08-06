@@ -225,7 +225,7 @@ namespace Kartonagen
 
             // Rechnungsnummer gesetzt?
 
-            if (textRechnungsnr.Text == "")
+            if (textRechnungsnr.Text == "" && checkTermin.Checked == false)
             {
                 textTransaktionLog.AppendText("Die Rechnungsnummer muss gesetzt sein");
                 return;
@@ -368,7 +368,7 @@ namespace Kartonagen
             String Body = "";
 
             //Adresse in den Body
-            MySqlCommand cmdRead = new MySqlCommand("SELECT Straße, Hausnummer, PLZ, Ort FROM Kunden WHERE idKunden = "+textKundennummer.Text+";", Program.conn);
+            MySqlCommand cmdRead = new MySqlCommand("SELECT Straße, Hausnummer, PLZ, Ort, Handynummer, Telefonnummer FROM Kunden WHERE idKunden = "+textKundennummer.Text+";", Program.conn);
             MySqlDataReader rdr;
 
             try
@@ -377,6 +377,12 @@ namespace Kartonagen
                 while (rdr.Read())
                 {
                     Body += rdr[0] + " " + rdr[1] + "\r\n" + rdr[2] + " " + rdr[3] + "\r\n";
+
+                    if (rdr.GetString(4) == "0")
+                    {
+                        Body += "Telefon = " + rdr.GetString(5)+"\r\n";
+                    }
+                    else { Body += "Handy = " + rdr.GetString(4) + "\r\n"; }
                 }
                 rdr.Close();
             }
@@ -423,6 +429,9 @@ namespace Kartonagen
             }
 
             Body += "\r\n Transaktionsnummer =" + textResultatsNummer.Text;
+
+            Body += ", Zeichen =" + Program.getBearbeitender(idBearbeitend);
+
             if (radioEingang.Checked) { Body += " tatsächliche Kartonzahl nachkorrigieren"; }
 
             DateTime start = new DateTime(dateTimeTransaktion.Value.Year, dateTimeTransaktion.Value.Month, dateTimeTransaktion.Value.Day, timeLieferzeit.Value.Hour, timeLieferzeit.Value.Minute, 0);
