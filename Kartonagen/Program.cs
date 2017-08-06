@@ -146,7 +146,7 @@ namespace Kartonagen
             {
                 return "Jan";
             }
-            
+            return "fehler";
         }
 
         // Schubst daten in die DB

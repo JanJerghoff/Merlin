@@ -179,9 +179,9 @@ namespace Kartonagen
                         //Transaktion
                         if (rdr.GetInt32(0) < 0 || rdr.GetInt32(1) < 0 || rdr.GetInt32(2) < 0 || rdr.GetInt32(3) < 0)
                         {
-                            Transaktion[count].AppendText("Ausliefern ");
+                            Transaktion[count].AppendText("Abholen ca. ");
                         }
-                        else { Transaktion[count].AppendText("Abholen ca. "); }
+                        else { Transaktion[count].AppendText("Ausliefern "); }
 
                         if (rdr.GetInt32(0) != 0)
                         {

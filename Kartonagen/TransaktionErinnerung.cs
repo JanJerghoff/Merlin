@@ -22,7 +22,7 @@ namespace Kartonagen
             InitializeComponent();
         }
 
-        public void set(string UserChanged, string zeit, string name, string adresse, string bemerkung, int id, int kartons, int Flaschenkartons, int Glaeserkartons, int Kleiderkartons, int idBearbeitend) {
+        public void set(string UserChanged, string Rechnungsnummer, string zeit, string name, string adresse, string bemerkung, int id, int kartons, int Flaschenkartons, int Glaeserkartons, int Kleiderkartons, int idBearbeitend) {
 
             this.UserChanged = UserChanged;
             this.id = id;
@@ -31,6 +31,7 @@ namespace Kartonagen
             textKunde.AppendText(name);
             textAdresse.AppendText(adresse);
             textBemerkung.AppendText(bemerkung);
+            textRechnungsnummer.AppendText(Rechnungsnummer);
 
             numericKarton.Value = kartons;
             numericGlaeserkarton.Value = Glaeserkartons;
@@ -45,12 +46,18 @@ namespace Kartonagen
 
         private void buttonSpeichern_Click(object sender, EventArgs e)
         {
+            if (textRechnungsnummer.Text == "") {
+                var box = MessageBox.Show("Es muss eine Rechnungsnummer gesetzt sein, um eine Transaktion abzuschließen \r\n Bitte erneut versuchen", "Abgebrochen");
+                return;
+            }
+
             String update = "UPDATE Transaktionen SET Kartons = " + numericKarton.Value + ", " +
                 "FlaschenKartons = " + numericFlaschenKarton.Value + ", " +
                 "GlaeserKartons = " + numericGlaeserkarton.Value + ", " +
                 "KleiderKartons = " + numericKleiderKarton.Value + ", " +
                 "Bemerkungen = '" + textBemerkung.Text + "', " +
                 "GlaeserKartons = " + numericGlaeserkarton.Value + ", " +
+                "RechnungsNr = '" + textRechnungsnummer.Text + "', " +
                 "UserChanged = '" + UserChanged + idBearbeitend + "', " +
                 "final = 1 WHERE idTransaktionen = " + id + ";";
 
