@@ -66,6 +66,18 @@
             this.label19 = new System.Windows.Forms.Label();
             this.textEinzug = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.buttonKueche = new System.Windows.Forms.Button();
+            this.dateKueche = new System.Windows.Forms.DateTimePicker();
+            this.textKueche = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.buttonHVZWunder = new System.Windows.Forms.Button();
+            this.dateHVZWunder = new System.Windows.Forms.DateTimePicker();
+            this.textHVZWunder = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.buttonLKW = new System.Windows.Forms.Button();
+            this.dateLKW = new System.Windows.Forms.DateTimePicker();
+            this.textLKW = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.buttonErinnerung = new System.Windows.Forms.Button();
             this.dateErinnerung = new System.Windows.Forms.DateTimePicker();
             this.textErinnerung = new System.Windows.Forms.TextBox();
@@ -109,18 +121,6 @@
             this.buttonAbschluss = new System.Windows.Forms.Button();
             this.textSchließer = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.buttonLKW = new System.Windows.Forms.Button();
-            this.dateLKW = new System.Windows.Forms.DateTimePicker();
-            this.textLKW = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.buttonHVZWunder = new System.Windows.Forms.Button();
-            this.dateHVZWunder = new System.Windows.Forms.DateTimePicker();
-            this.textHVZWunder = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.buttonKueche = new System.Windows.Forms.Button();
-            this.dateKueche = new System.Windows.Forms.DateTimePicker();
-            this.textKueche = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -241,7 +241,6 @@
             this.buttonHVZ.TabIndex = 129;
             this.buttonHVZ.Text = "Bestätigen";
             this.buttonHVZ.UseVisualStyleBackColor = true;
-            this.buttonHVZ.Click += new System.EventHandler(this.buttonHVZ_Click);
             // 
             // buttonBestaetigung
             // 
@@ -594,6 +593,135 @@
             this.groupBox4.TabIndex = 105;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Zusage";
+            // 
+            // buttonKueche
+            // 
+            this.buttonKueche.Enabled = false;
+            this.buttonKueche.Location = new System.Drawing.Point(245, 179);
+            this.buttonKueche.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonKueche.Name = "buttonKueche";
+            this.buttonKueche.Size = new System.Drawing.Size(187, 28);
+            this.buttonKueche.TabIndex = 139;
+            this.buttonKueche.Text = "Bestätigen";
+            this.buttonKueche.UseVisualStyleBackColor = true;
+            this.buttonKueche.Click += new System.EventHandler(this.buttonKueche_Click);
+            // 
+            // dateKueche
+            // 
+            this.dateKueche.Enabled = false;
+            this.dateKueche.Location = new System.Drawing.Point(661, 182);
+            this.dateKueche.Margin = new System.Windows.Forms.Padding(4);
+            this.dateKueche.Name = "dateKueche";
+            this.dateKueche.Size = new System.Drawing.Size(265, 22);
+            this.dateKueche.TabIndex = 138;
+            this.dateKueche.Value = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
+            // 
+            // textKueche
+            // 
+            this.textKueche.Location = new System.Drawing.Point(440, 182);
+            this.textKueche.Margin = new System.Windows.Forms.Padding(4);
+            this.textKueche.Name = "textKueche";
+            this.textKueche.ReadOnly = true;
+            this.textKueche.Size = new System.Drawing.Size(212, 22);
+            this.textKueche.TabIndex = 137;
+            this.textKueche.TabStop = false;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(15, 180);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(163, 18);
+            this.label18.TabIndex = 136;
+            this.label18.Text = "Küchenbauer Termin";
+            // 
+            // buttonHVZWunder
+            // 
+            this.buttonHVZWunder.Enabled = false;
+            this.buttonHVZWunder.Location = new System.Drawing.Point(245, 143);
+            this.buttonHVZWunder.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonHVZWunder.Name = "buttonHVZWunder";
+            this.buttonHVZWunder.Size = new System.Drawing.Size(187, 28);
+            this.buttonHVZWunder.TabIndex = 135;
+            this.buttonHVZWunder.Text = "Bestätigen";
+            this.buttonHVZWunder.UseVisualStyleBackColor = true;
+            this.buttonHVZWunder.Click += new System.EventHandler(this.buttonHVZWunder_Click);
+            // 
+            // dateHVZWunder
+            // 
+            this.dateHVZWunder.Enabled = false;
+            this.dateHVZWunder.Location = new System.Drawing.Point(661, 147);
+            this.dateHVZWunder.Margin = new System.Windows.Forms.Padding(4);
+            this.dateHVZWunder.Name = "dateHVZWunder";
+            this.dateHVZWunder.Size = new System.Drawing.Size(265, 22);
+            this.dateHVZWunder.TabIndex = 134;
+            this.dateHVZWunder.Value = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
+            // 
+            // textHVZWunder
+            // 
+            this.textHVZWunder.Location = new System.Drawing.Point(440, 147);
+            this.textHVZWunder.Margin = new System.Windows.Forms.Padding(4);
+            this.textHVZWunder.Name = "textHVZWunder";
+            this.textHVZWunder.ReadOnly = true;
+            this.textHVZWunder.Size = new System.Drawing.Size(212, 22);
+            this.textHVZWunder.TabIndex = 133;
+            this.textHVZWunder.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(15, 145);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(143, 18);
+            this.label9.TabIndex = 132;
+            this.label9.Text = "HVZ in Wunderlist";
+            // 
+            // buttonLKW
+            // 
+            this.buttonLKW.Enabled = false;
+            this.buttonLKW.Location = new System.Drawing.Point(245, 107);
+            this.buttonLKW.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonLKW.Name = "buttonLKW";
+            this.buttonLKW.Size = new System.Drawing.Size(187, 28);
+            this.buttonLKW.TabIndex = 131;
+            this.buttonLKW.Text = "Bestätigen";
+            this.buttonLKW.UseVisualStyleBackColor = true;
+            this.buttonLKW.Click += new System.EventHandler(this.buttonLKW_Click_1);
+            // 
+            // dateLKW
+            // 
+            this.dateLKW.Enabled = false;
+            this.dateLKW.Location = new System.Drawing.Point(661, 110);
+            this.dateLKW.Margin = new System.Windows.Forms.Padding(4);
+            this.dateLKW.Name = "dateLKW";
+            this.dateLKW.Size = new System.Drawing.Size(265, 22);
+            this.dateLKW.TabIndex = 130;
+            this.dateLKW.Value = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
+            // 
+            // textLKW
+            // 
+            this.textLKW.Location = new System.Drawing.Point(440, 110);
+            this.textLKW.Margin = new System.Windows.Forms.Padding(4);
+            this.textLKW.Name = "textLKW";
+            this.textLKW.ReadOnly = true;
+            this.textLKW.Size = new System.Drawing.Size(212, 22);
+            this.textLKW.TabIndex = 129;
+            this.textLKW.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(15, 108);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(121, 18);
+            this.label7.TabIndex = 128;
+            this.label7.Text = "2. Lkw gebucht";
             // 
             // buttonErinnerung
             // 
@@ -1098,132 +1226,6 @@
             this.label25.Size = new System.Drawing.Size(150, 18);
             this.label25.TabIndex = 131;
             this.label25.Text = "geschlossen durch";
-            // 
-            // buttonLKW
-            // 
-            this.buttonLKW.Enabled = false;
-            this.buttonLKW.Location = new System.Drawing.Point(245, 107);
-            this.buttonLKW.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonLKW.Name = "buttonLKW";
-            this.buttonLKW.Size = new System.Drawing.Size(187, 28);
-            this.buttonLKW.TabIndex = 131;
-            this.buttonLKW.Text = "Bestätigen";
-            this.buttonLKW.UseVisualStyleBackColor = true;
-            // 
-            // dateLKW
-            // 
-            this.dateLKW.Enabled = false;
-            this.dateLKW.Location = new System.Drawing.Point(661, 110);
-            this.dateLKW.Margin = new System.Windows.Forms.Padding(4);
-            this.dateLKW.Name = "dateLKW";
-            this.dateLKW.Size = new System.Drawing.Size(265, 22);
-            this.dateLKW.TabIndex = 130;
-            this.dateLKW.Value = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
-            // 
-            // textLKW
-            // 
-            this.textLKW.Location = new System.Drawing.Point(440, 110);
-            this.textLKW.Margin = new System.Windows.Forms.Padding(4);
-            this.textLKW.Name = "textLKW";
-            this.textLKW.ReadOnly = true;
-            this.textLKW.Size = new System.Drawing.Size(212, 22);
-            this.textLKW.TabIndex = 129;
-            this.textLKW.TabStop = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(15, 108);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(121, 18);
-            this.label7.TabIndex = 128;
-            this.label7.Text = "2. Lkw gebucht";
-            // 
-            // buttonHVZWunder
-            // 
-            this.buttonHVZWunder.Enabled = false;
-            this.buttonHVZWunder.Location = new System.Drawing.Point(245, 143);
-            this.buttonHVZWunder.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonHVZWunder.Name = "buttonHVZWunder";
-            this.buttonHVZWunder.Size = new System.Drawing.Size(187, 28);
-            this.buttonHVZWunder.TabIndex = 135;
-            this.buttonHVZWunder.Text = "Bestätigen";
-            this.buttonHVZWunder.UseVisualStyleBackColor = true;
-            // 
-            // dateHVZWunder
-            // 
-            this.dateHVZWunder.Enabled = false;
-            this.dateHVZWunder.Location = new System.Drawing.Point(661, 147);
-            this.dateHVZWunder.Margin = new System.Windows.Forms.Padding(4);
-            this.dateHVZWunder.Name = "dateHVZWunder";
-            this.dateHVZWunder.Size = new System.Drawing.Size(265, 22);
-            this.dateHVZWunder.TabIndex = 134;
-            this.dateHVZWunder.Value = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
-            // 
-            // textHVZWunder
-            // 
-            this.textHVZWunder.Location = new System.Drawing.Point(440, 147);
-            this.textHVZWunder.Margin = new System.Windows.Forms.Padding(4);
-            this.textHVZWunder.Name = "textHVZWunder";
-            this.textHVZWunder.ReadOnly = true;
-            this.textHVZWunder.Size = new System.Drawing.Size(212, 22);
-            this.textHVZWunder.TabIndex = 133;
-            this.textHVZWunder.TabStop = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(15, 145);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(143, 18);
-            this.label9.TabIndex = 132;
-            this.label9.Text = "HVZ in Wunderlist";
-            // 
-            // buttonKueche
-            // 
-            this.buttonKueche.Enabled = false;
-            this.buttonKueche.Location = new System.Drawing.Point(245, 179);
-            this.buttonKueche.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonKueche.Name = "buttonKueche";
-            this.buttonKueche.Size = new System.Drawing.Size(187, 28);
-            this.buttonKueche.TabIndex = 139;
-            this.buttonKueche.Text = "Bestätigen";
-            this.buttonKueche.UseVisualStyleBackColor = true;
-            // 
-            // dateKueche
-            // 
-            this.dateKueche.Enabled = false;
-            this.dateKueche.Location = new System.Drawing.Point(661, 182);
-            this.dateKueche.Margin = new System.Windows.Forms.Padding(4);
-            this.dateKueche.Name = "dateKueche";
-            this.dateKueche.Size = new System.Drawing.Size(265, 22);
-            this.dateKueche.TabIndex = 138;
-            this.dateKueche.Value = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
-            // 
-            // textKueche
-            // 
-            this.textKueche.Location = new System.Drawing.Point(440, 182);
-            this.textKueche.Margin = new System.Windows.Forms.Padding(4);
-            this.textKueche.Name = "textKueche";
-            this.textKueche.ReadOnly = true;
-            this.textKueche.Size = new System.Drawing.Size(212, 22);
-            this.textKueche.TabIndex = 137;
-            this.textKueche.TabStop = false;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(15, 180);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(163, 18);
-            this.label18.TabIndex = 136;
-            this.label18.Text = "Küchenbauer Termin";
             // 
             // UmzugFortschritt
             // 

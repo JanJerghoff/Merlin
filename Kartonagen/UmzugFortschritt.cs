@@ -102,7 +102,7 @@ namespace Kartonagen
 
             // Fortschrittsdaten aus der DB ziehen
 
-            MySqlCommand cmdFort = new MySqlCommand("SELECT * FROM Umzugsfortschritt WHERE Umzuege_idUmzuege = '" + umzNr + "';", Program.conn);
+            MySqlCommand cmdFort = new MySqlCommand("SELECT * FROM Umzugsfortschritt WHERE Umzuege_idUmzuege = '" + umzNr + "' LIMIT 1;", Program.conn);
             MySqlDataReader rdrF;
 
             try
@@ -458,7 +458,7 @@ namespace Kartonagen
             fuellen(Umzugsnummer);
         }
 
-        private void buttonLKW_Click(object sender, EventArgs e)
+        private void buttonLKW_Click_1(object sender, EventArgs e)
         {
             buttonTextBuch.Enabled = false;
             buttonTelBuch.Enabled = false;
@@ -584,7 +584,8 @@ namespace Kartonagen
                 textUmzugLog.AppendText(Program.AdresseErsaetzen(IDKunde, Strasse, Hausnummer, Ort, PLZ, Land));
             }
 
-        }
+        }       
+
 
 
         //private void numericMasterMitarbeiter_ValueChanged(object sender, EventArgs e)

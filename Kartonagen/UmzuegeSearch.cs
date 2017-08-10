@@ -96,9 +96,7 @@ namespace Kartonagen
 
             try
             {
-
                 rdr = cmdRead.ExecuteReader();
-
                 while (rdr.Read())
                 {
                     nummern[tempCounter] = rdr.GetInt32(0);
