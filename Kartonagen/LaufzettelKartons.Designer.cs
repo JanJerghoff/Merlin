@@ -145,7 +145,7 @@
             // textKontakt13
             // 
             this.textKontakt13.Location = new System.Drawing.Point(1037, 566);
-            this.textKontakt13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKontakt13.Margin = new System.Windows.Forms.Padding(4);
             this.textKontakt13.Name = "textKontakt13";
             this.textKontakt13.ReadOnly = true;
             this.textKontakt13.Size = new System.Drawing.Size(336, 22);
@@ -155,7 +155,7 @@
             // textBemerkung13
             // 
             this.textBemerkung13.Location = new System.Drawing.Point(1884, 566);
-            this.textBemerkung13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBemerkung13.Margin = new System.Windows.Forms.Padding(4);
             this.textBemerkung13.Name = "textBemerkung13";
             this.textBemerkung13.Size = new System.Drawing.Size(456, 22);
             this.textBemerkung13.TabIndex = 168;
@@ -164,7 +164,7 @@
             // textUhrzeit13
             // 
             this.textUhrzeit13.Location = new System.Drawing.Point(16, 566);
-            this.textUhrzeit13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUhrzeit13.Margin = new System.Windows.Forms.Padding(4);
             this.textUhrzeit13.Name = "textUhrzeit13";
             this.textUhrzeit13.Size = new System.Drawing.Size(143, 22);
             this.textUhrzeit13.TabIndex = 167;
@@ -173,7 +173,7 @@
             // textAnschrift13
             // 
             this.textAnschrift13.Location = new System.Drawing.Point(417, 566);
-            this.textAnschrift13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnschrift13.Margin = new System.Windows.Forms.Padding(4);
             this.textAnschrift13.Name = "textAnschrift13";
             this.textAnschrift13.Size = new System.Drawing.Size(611, 22);
             this.textAnschrift13.TabIndex = 166;
@@ -182,7 +182,7 @@
             // textName13
             // 
             this.textName13.Location = new System.Drawing.Point(168, 566);
-            this.textName13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textName13.Margin = new System.Windows.Forms.Padding(4);
             this.textName13.Name = "textName13";
             this.textName13.ReadOnly = true;
             this.textName13.Size = new System.Drawing.Size(240, 22);
@@ -192,7 +192,7 @@
             // textKontakt12
             // 
             this.textKontakt12.Location = new System.Drawing.Point(1037, 534);
-            this.textKontakt12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKontakt12.Margin = new System.Windows.Forms.Padding(4);
             this.textKontakt12.Name = "textKontakt12";
             this.textKontakt12.ReadOnly = true;
             this.textKontakt12.Size = new System.Drawing.Size(336, 22);
@@ -202,7 +202,7 @@
             // textBemerkung12
             // 
             this.textBemerkung12.Location = new System.Drawing.Point(1884, 534);
-            this.textBemerkung12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBemerkung12.Margin = new System.Windows.Forms.Padding(4);
             this.textBemerkung12.Name = "textBemerkung12";
             this.textBemerkung12.Size = new System.Drawing.Size(456, 22);
             this.textBemerkung12.TabIndex = 163;
@@ -211,7 +211,7 @@
             // textUhrzeit12
             // 
             this.textUhrzeit12.Location = new System.Drawing.Point(16, 534);
-            this.textUhrzeit12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUhrzeit12.Margin = new System.Windows.Forms.Padding(4);
             this.textUhrzeit12.Name = "textUhrzeit12";
             this.textUhrzeit12.Size = new System.Drawing.Size(143, 22);
             this.textUhrzeit12.TabIndex = 162;
@@ -220,7 +220,7 @@
             // textAnschrift12
             // 
             this.textAnschrift12.Location = new System.Drawing.Point(417, 534);
-            this.textAnschrift12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnschrift12.Margin = new System.Windows.Forms.Padding(4);
             this.textAnschrift12.Name = "textAnschrift12";
             this.textAnschrift12.Size = new System.Drawing.Size(611, 22);
             this.textAnschrift12.TabIndex = 161;
@@ -229,7 +229,7 @@
             // textName12
             // 
             this.textName12.Location = new System.Drawing.Point(168, 534);
-            this.textName12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textName12.Margin = new System.Windows.Forms.Padding(4);
             this.textName12.Name = "textName12";
             this.textName12.ReadOnly = true;
             this.textName12.Size = new System.Drawing.Size(240, 22);
@@ -239,7 +239,7 @@
             // textKontakt11
             // 
             this.textKontakt11.Location = new System.Drawing.Point(1037, 502);
-            this.textKontakt11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKontakt11.Margin = new System.Windows.Forms.Padding(4);
             this.textKontakt11.Name = "textKontakt11";
             this.textKontakt11.ReadOnly = true;
             this.textKontakt11.Size = new System.Drawing.Size(336, 22);
@@ -249,7 +249,7 @@
             // textBemerkung11
             // 
             this.textBemerkung11.Location = new System.Drawing.Point(1884, 502);
-            this.textBemerkung11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBemerkung11.Margin = new System.Windows.Forms.Padding(4);
             this.textBemerkung11.Name = "textBemerkung11";
             this.textBemerkung11.Size = new System.Drawing.Size(456, 22);
             this.textBemerkung11.TabIndex = 158;
@@ -258,7 +258,7 @@
             // textUhrzeit11
             // 
             this.textUhrzeit11.Location = new System.Drawing.Point(16, 502);
-            this.textUhrzeit11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUhrzeit11.Margin = new System.Windows.Forms.Padding(4);
             this.textUhrzeit11.Name = "textUhrzeit11";
             this.textUhrzeit11.Size = new System.Drawing.Size(143, 22);
             this.textUhrzeit11.TabIndex = 157;
@@ -267,7 +267,7 @@
             // textAnschrift11
             // 
             this.textAnschrift11.Location = new System.Drawing.Point(417, 502);
-            this.textAnschrift11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnschrift11.Margin = new System.Windows.Forms.Padding(4);
             this.textAnschrift11.Name = "textAnschrift11";
             this.textAnschrift11.Size = new System.Drawing.Size(611, 22);
             this.textAnschrift11.TabIndex = 156;
@@ -276,7 +276,7 @@
             // textName11
             // 
             this.textName11.Location = new System.Drawing.Point(168, 502);
-            this.textName11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textName11.Margin = new System.Windows.Forms.Padding(4);
             this.textName11.Name = "textName11";
             this.textName11.ReadOnly = true;
             this.textName11.Size = new System.Drawing.Size(240, 22);
@@ -286,7 +286,7 @@
             // textKontakt10
             // 
             this.textKontakt10.Location = new System.Drawing.Point(1037, 470);
-            this.textKontakt10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKontakt10.Margin = new System.Windows.Forms.Padding(4);
             this.textKontakt10.Name = "textKontakt10";
             this.textKontakt10.ReadOnly = true;
             this.textKontakt10.Size = new System.Drawing.Size(336, 22);
@@ -296,7 +296,7 @@
             // textKontakt9
             // 
             this.textKontakt9.Location = new System.Drawing.Point(1037, 438);
-            this.textKontakt9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKontakt9.Margin = new System.Windows.Forms.Padding(4);
             this.textKontakt9.Name = "textKontakt9";
             this.textKontakt9.ReadOnly = true;
             this.textKontakt9.Size = new System.Drawing.Size(336, 22);
@@ -306,7 +306,7 @@
             // textKontakt8
             // 
             this.textKontakt8.Location = new System.Drawing.Point(1037, 406);
-            this.textKontakt8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKontakt8.Margin = new System.Windows.Forms.Padding(4);
             this.textKontakt8.Name = "textKontakt8";
             this.textKontakt8.ReadOnly = true;
             this.textKontakt8.Size = new System.Drawing.Size(336, 22);
@@ -316,7 +316,7 @@
             // textKontakt7
             // 
             this.textKontakt7.Location = new System.Drawing.Point(1037, 374);
-            this.textKontakt7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKontakt7.Margin = new System.Windows.Forms.Padding(4);
             this.textKontakt7.Name = "textKontakt7";
             this.textKontakt7.ReadOnly = true;
             this.textKontakt7.Size = new System.Drawing.Size(336, 22);
@@ -326,7 +326,7 @@
             // textKontakt6
             // 
             this.textKontakt6.Location = new System.Drawing.Point(1037, 342);
-            this.textKontakt6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKontakt6.Margin = new System.Windows.Forms.Padding(4);
             this.textKontakt6.Name = "textKontakt6";
             this.textKontakt6.ReadOnly = true;
             this.textKontakt6.Size = new System.Drawing.Size(336, 22);
@@ -336,7 +336,7 @@
             // textKontakt5
             // 
             this.textKontakt5.Location = new System.Drawing.Point(1037, 310);
-            this.textKontakt5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKontakt5.Margin = new System.Windows.Forms.Padding(4);
             this.textKontakt5.Name = "textKontakt5";
             this.textKontakt5.ReadOnly = true;
             this.textKontakt5.Size = new System.Drawing.Size(336, 22);
@@ -346,7 +346,7 @@
             // textKontakt4
             // 
             this.textKontakt4.Location = new System.Drawing.Point(1037, 278);
-            this.textKontakt4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKontakt4.Margin = new System.Windows.Forms.Padding(4);
             this.textKontakt4.Name = "textKontakt4";
             this.textKontakt4.ReadOnly = true;
             this.textKontakt4.Size = new System.Drawing.Size(336, 22);
@@ -356,7 +356,7 @@
             // textKontakt3
             // 
             this.textKontakt3.Location = new System.Drawing.Point(1037, 246);
-            this.textKontakt3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKontakt3.Margin = new System.Windows.Forms.Padding(4);
             this.textKontakt3.Name = "textKontakt3";
             this.textKontakt3.ReadOnly = true;
             this.textKontakt3.Size = new System.Drawing.Size(336, 22);
@@ -366,7 +366,7 @@
             // textKontakt2
             // 
             this.textKontakt2.Location = new System.Drawing.Point(1037, 214);
-            this.textKontakt2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKontakt2.Margin = new System.Windows.Forms.Padding(4);
             this.textKontakt2.Name = "textKontakt2";
             this.textKontakt2.ReadOnly = true;
             this.textKontakt2.Size = new System.Drawing.Size(336, 22);
@@ -376,7 +376,7 @@
             // textKontakt1
             // 
             this.textKontakt1.Location = new System.Drawing.Point(1037, 182);
-            this.textKontakt1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKontakt1.Margin = new System.Windows.Forms.Padding(4);
             this.textKontakt1.Name = "textKontakt1";
             this.textKontakt1.ReadOnly = true;
             this.textKontakt1.Size = new System.Drawing.Size(336, 22);
@@ -386,7 +386,7 @@
             // textBemerkung10
             // 
             this.textBemerkung10.Location = new System.Drawing.Point(1884, 470);
-            this.textBemerkung10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBemerkung10.Margin = new System.Windows.Forms.Padding(4);
             this.textBemerkung10.Name = "textBemerkung10";
             this.textBemerkung10.Size = new System.Drawing.Size(456, 22);
             this.textBemerkung10.TabIndex = 144;
@@ -395,7 +395,7 @@
             // textUhrzeit10
             // 
             this.textUhrzeit10.Location = new System.Drawing.Point(16, 470);
-            this.textUhrzeit10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUhrzeit10.Margin = new System.Windows.Forms.Padding(4);
             this.textUhrzeit10.Name = "textUhrzeit10";
             this.textUhrzeit10.Size = new System.Drawing.Size(143, 22);
             this.textUhrzeit10.TabIndex = 143;
@@ -404,7 +404,7 @@
             // textAnschrift10
             // 
             this.textAnschrift10.Location = new System.Drawing.Point(417, 470);
-            this.textAnschrift10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnschrift10.Margin = new System.Windows.Forms.Padding(4);
             this.textAnschrift10.Name = "textAnschrift10";
             this.textAnschrift10.Size = new System.Drawing.Size(611, 22);
             this.textAnschrift10.TabIndex = 142;
@@ -413,7 +413,7 @@
             // textName10
             // 
             this.textName10.Location = new System.Drawing.Point(168, 470);
-            this.textName10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textName10.Margin = new System.Windows.Forms.Padding(4);
             this.textName10.Name = "textName10";
             this.textName10.ReadOnly = true;
             this.textName10.Size = new System.Drawing.Size(240, 22);
@@ -423,7 +423,7 @@
             // textBemerkung9
             // 
             this.textBemerkung9.Location = new System.Drawing.Point(1884, 438);
-            this.textBemerkung9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBemerkung9.Margin = new System.Windows.Forms.Padding(4);
             this.textBemerkung9.Name = "textBemerkung9";
             this.textBemerkung9.Size = new System.Drawing.Size(456, 22);
             this.textBemerkung9.TabIndex = 140;
@@ -432,7 +432,7 @@
             // textUhrzeit9
             // 
             this.textUhrzeit9.Location = new System.Drawing.Point(16, 438);
-            this.textUhrzeit9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUhrzeit9.Margin = new System.Windows.Forms.Padding(4);
             this.textUhrzeit9.Name = "textUhrzeit9";
             this.textUhrzeit9.Size = new System.Drawing.Size(143, 22);
             this.textUhrzeit9.TabIndex = 139;
@@ -441,7 +441,7 @@
             // textAnschrift9
             // 
             this.textAnschrift9.Location = new System.Drawing.Point(417, 438);
-            this.textAnschrift9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnschrift9.Margin = new System.Windows.Forms.Padding(4);
             this.textAnschrift9.Name = "textAnschrift9";
             this.textAnschrift9.Size = new System.Drawing.Size(611, 22);
             this.textAnschrift9.TabIndex = 138;
@@ -450,7 +450,7 @@
             // textName9
             // 
             this.textName9.Location = new System.Drawing.Point(168, 438);
-            this.textName9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textName9.Margin = new System.Windows.Forms.Padding(4);
             this.textName9.Name = "textName9";
             this.textName9.ReadOnly = true;
             this.textName9.Size = new System.Drawing.Size(240, 22);
@@ -460,7 +460,7 @@
             // textBemerkung8
             // 
             this.textBemerkung8.Location = new System.Drawing.Point(1884, 406);
-            this.textBemerkung8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBemerkung8.Margin = new System.Windows.Forms.Padding(4);
             this.textBemerkung8.Name = "textBemerkung8";
             this.textBemerkung8.Size = new System.Drawing.Size(456, 22);
             this.textBemerkung8.TabIndex = 136;
@@ -469,7 +469,7 @@
             // textUhrzeit8
             // 
             this.textUhrzeit8.Location = new System.Drawing.Point(16, 406);
-            this.textUhrzeit8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUhrzeit8.Margin = new System.Windows.Forms.Padding(4);
             this.textUhrzeit8.Name = "textUhrzeit8";
             this.textUhrzeit8.Size = new System.Drawing.Size(143, 22);
             this.textUhrzeit8.TabIndex = 135;
@@ -478,7 +478,7 @@
             // textAnschrift8
             // 
             this.textAnschrift8.Location = new System.Drawing.Point(417, 406);
-            this.textAnschrift8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnschrift8.Margin = new System.Windows.Forms.Padding(4);
             this.textAnschrift8.Name = "textAnschrift8";
             this.textAnschrift8.Size = new System.Drawing.Size(611, 22);
             this.textAnschrift8.TabIndex = 134;
@@ -487,7 +487,7 @@
             // textName8
             // 
             this.textName8.Location = new System.Drawing.Point(168, 406);
-            this.textName8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textName8.Margin = new System.Windows.Forms.Padding(4);
             this.textName8.Name = "textName8";
             this.textName8.ReadOnly = true;
             this.textName8.Size = new System.Drawing.Size(240, 22);
@@ -497,7 +497,7 @@
             // textBemerkung7
             // 
             this.textBemerkung7.Location = new System.Drawing.Point(1884, 374);
-            this.textBemerkung7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBemerkung7.Margin = new System.Windows.Forms.Padding(4);
             this.textBemerkung7.Name = "textBemerkung7";
             this.textBemerkung7.Size = new System.Drawing.Size(456, 22);
             this.textBemerkung7.TabIndex = 132;
@@ -506,7 +506,7 @@
             // textUhrzeit7
             // 
             this.textUhrzeit7.Location = new System.Drawing.Point(16, 374);
-            this.textUhrzeit7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUhrzeit7.Margin = new System.Windows.Forms.Padding(4);
             this.textUhrzeit7.Name = "textUhrzeit7";
             this.textUhrzeit7.Size = new System.Drawing.Size(143, 22);
             this.textUhrzeit7.TabIndex = 131;
@@ -515,7 +515,7 @@
             // textAnschrift7
             // 
             this.textAnschrift7.Location = new System.Drawing.Point(417, 374);
-            this.textAnschrift7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnschrift7.Margin = new System.Windows.Forms.Padding(4);
             this.textAnschrift7.Name = "textAnschrift7";
             this.textAnschrift7.Size = new System.Drawing.Size(611, 22);
             this.textAnschrift7.TabIndex = 130;
@@ -524,7 +524,7 @@
             // textName7
             // 
             this.textName7.Location = new System.Drawing.Point(168, 374);
-            this.textName7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textName7.Margin = new System.Windows.Forms.Padding(4);
             this.textName7.Name = "textName7";
             this.textName7.ReadOnly = true;
             this.textName7.Size = new System.Drawing.Size(240, 22);
@@ -534,7 +534,7 @@
             // textBemerkung6
             // 
             this.textBemerkung6.Location = new System.Drawing.Point(1884, 342);
-            this.textBemerkung6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBemerkung6.Margin = new System.Windows.Forms.Padding(4);
             this.textBemerkung6.Name = "textBemerkung6";
             this.textBemerkung6.Size = new System.Drawing.Size(456, 22);
             this.textBemerkung6.TabIndex = 128;
@@ -543,7 +543,7 @@
             // textUhrzeit6
             // 
             this.textUhrzeit6.Location = new System.Drawing.Point(16, 342);
-            this.textUhrzeit6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUhrzeit6.Margin = new System.Windows.Forms.Padding(4);
             this.textUhrzeit6.Name = "textUhrzeit6";
             this.textUhrzeit6.Size = new System.Drawing.Size(143, 22);
             this.textUhrzeit6.TabIndex = 127;
@@ -552,7 +552,7 @@
             // textAnschrift6
             // 
             this.textAnschrift6.Location = new System.Drawing.Point(417, 342);
-            this.textAnschrift6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnschrift6.Margin = new System.Windows.Forms.Padding(4);
             this.textAnschrift6.Name = "textAnschrift6";
             this.textAnschrift6.Size = new System.Drawing.Size(611, 22);
             this.textAnschrift6.TabIndex = 126;
@@ -561,7 +561,7 @@
             // textName6
             // 
             this.textName6.Location = new System.Drawing.Point(168, 342);
-            this.textName6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textName6.Margin = new System.Windows.Forms.Padding(4);
             this.textName6.Name = "textName6";
             this.textName6.ReadOnly = true;
             this.textName6.Size = new System.Drawing.Size(240, 22);
@@ -571,7 +571,7 @@
             // textBemerkung5
             // 
             this.textBemerkung5.Location = new System.Drawing.Point(1884, 310);
-            this.textBemerkung5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBemerkung5.Margin = new System.Windows.Forms.Padding(4);
             this.textBemerkung5.Name = "textBemerkung5";
             this.textBemerkung5.Size = new System.Drawing.Size(456, 22);
             this.textBemerkung5.TabIndex = 124;
@@ -580,7 +580,7 @@
             // textUhrzeit5
             // 
             this.textUhrzeit5.Location = new System.Drawing.Point(16, 310);
-            this.textUhrzeit5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUhrzeit5.Margin = new System.Windows.Forms.Padding(4);
             this.textUhrzeit5.Name = "textUhrzeit5";
             this.textUhrzeit5.Size = new System.Drawing.Size(143, 22);
             this.textUhrzeit5.TabIndex = 123;
@@ -589,7 +589,7 @@
             // textAnschrift5
             // 
             this.textAnschrift5.Location = new System.Drawing.Point(417, 310);
-            this.textAnschrift5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnschrift5.Margin = new System.Windows.Forms.Padding(4);
             this.textAnschrift5.Name = "textAnschrift5";
             this.textAnschrift5.Size = new System.Drawing.Size(611, 22);
             this.textAnschrift5.TabIndex = 122;
@@ -598,7 +598,7 @@
             // textName5
             // 
             this.textName5.Location = new System.Drawing.Point(168, 310);
-            this.textName5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textName5.Margin = new System.Windows.Forms.Padding(4);
             this.textName5.Name = "textName5";
             this.textName5.ReadOnly = true;
             this.textName5.Size = new System.Drawing.Size(240, 22);
@@ -608,7 +608,7 @@
             // textBemerkung4
             // 
             this.textBemerkung4.Location = new System.Drawing.Point(1884, 278);
-            this.textBemerkung4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBemerkung4.Margin = new System.Windows.Forms.Padding(4);
             this.textBemerkung4.Name = "textBemerkung4";
             this.textBemerkung4.Size = new System.Drawing.Size(456, 22);
             this.textBemerkung4.TabIndex = 120;
@@ -617,7 +617,7 @@
             // textUhrzeit4
             // 
             this.textUhrzeit4.Location = new System.Drawing.Point(16, 278);
-            this.textUhrzeit4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUhrzeit4.Margin = new System.Windows.Forms.Padding(4);
             this.textUhrzeit4.Name = "textUhrzeit4";
             this.textUhrzeit4.Size = new System.Drawing.Size(143, 22);
             this.textUhrzeit4.TabIndex = 119;
@@ -626,7 +626,7 @@
             // textAnschrift4
             // 
             this.textAnschrift4.Location = new System.Drawing.Point(417, 278);
-            this.textAnschrift4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnschrift4.Margin = new System.Windows.Forms.Padding(4);
             this.textAnschrift4.Name = "textAnschrift4";
             this.textAnschrift4.Size = new System.Drawing.Size(611, 22);
             this.textAnschrift4.TabIndex = 118;
@@ -635,7 +635,7 @@
             // textName4
             // 
             this.textName4.Location = new System.Drawing.Point(168, 278);
-            this.textName4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textName4.Margin = new System.Windows.Forms.Padding(4);
             this.textName4.Name = "textName4";
             this.textName4.ReadOnly = true;
             this.textName4.Size = new System.Drawing.Size(240, 22);
@@ -645,7 +645,7 @@
             // textBemerkung3
             // 
             this.textBemerkung3.Location = new System.Drawing.Point(1884, 246);
-            this.textBemerkung3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBemerkung3.Margin = new System.Windows.Forms.Padding(4);
             this.textBemerkung3.Name = "textBemerkung3";
             this.textBemerkung3.Size = new System.Drawing.Size(456, 22);
             this.textBemerkung3.TabIndex = 116;
@@ -654,7 +654,7 @@
             // textUhrzeit3
             // 
             this.textUhrzeit3.Location = new System.Drawing.Point(16, 246);
-            this.textUhrzeit3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUhrzeit3.Margin = new System.Windows.Forms.Padding(4);
             this.textUhrzeit3.Name = "textUhrzeit3";
             this.textUhrzeit3.Size = new System.Drawing.Size(143, 22);
             this.textUhrzeit3.TabIndex = 115;
@@ -663,7 +663,7 @@
             // textAnschrift3
             // 
             this.textAnschrift3.Location = new System.Drawing.Point(417, 246);
-            this.textAnschrift3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnschrift3.Margin = new System.Windows.Forms.Padding(4);
             this.textAnschrift3.Name = "textAnschrift3";
             this.textAnschrift3.Size = new System.Drawing.Size(611, 22);
             this.textAnschrift3.TabIndex = 114;
@@ -672,7 +672,7 @@
             // textName3
             // 
             this.textName3.Location = new System.Drawing.Point(168, 246);
-            this.textName3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textName3.Margin = new System.Windows.Forms.Padding(4);
             this.textName3.Name = "textName3";
             this.textName3.ReadOnly = true;
             this.textName3.Size = new System.Drawing.Size(240, 22);
@@ -682,7 +682,7 @@
             // textBemerkung2
             // 
             this.textBemerkung2.Location = new System.Drawing.Point(1884, 214);
-            this.textBemerkung2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBemerkung2.Margin = new System.Windows.Forms.Padding(4);
             this.textBemerkung2.Name = "textBemerkung2";
             this.textBemerkung2.Size = new System.Drawing.Size(456, 22);
             this.textBemerkung2.TabIndex = 112;
@@ -691,7 +691,7 @@
             // textUhrzeit2
             // 
             this.textUhrzeit2.Location = new System.Drawing.Point(16, 214);
-            this.textUhrzeit2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUhrzeit2.Margin = new System.Windows.Forms.Padding(4);
             this.textUhrzeit2.Name = "textUhrzeit2";
             this.textUhrzeit2.Size = new System.Drawing.Size(143, 22);
             this.textUhrzeit2.TabIndex = 111;
@@ -700,7 +700,7 @@
             // textAnschrift2
             // 
             this.textAnschrift2.Location = new System.Drawing.Point(417, 214);
-            this.textAnschrift2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnschrift2.Margin = new System.Windows.Forms.Padding(4);
             this.textAnschrift2.Name = "textAnschrift2";
             this.textAnschrift2.Size = new System.Drawing.Size(611, 22);
             this.textAnschrift2.TabIndex = 110;
@@ -709,7 +709,7 @@
             // textName2
             // 
             this.textName2.Location = new System.Drawing.Point(168, 214);
-            this.textName2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textName2.Margin = new System.Windows.Forms.Padding(4);
             this.textName2.Name = "textName2";
             this.textName2.ReadOnly = true;
             this.textName2.Size = new System.Drawing.Size(240, 22);
@@ -719,7 +719,7 @@
             // textBemerkung1
             // 
             this.textBemerkung1.Location = new System.Drawing.Point(1884, 182);
-            this.textBemerkung1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBemerkung1.Margin = new System.Windows.Forms.Padding(4);
             this.textBemerkung1.Name = "textBemerkung1";
             this.textBemerkung1.Size = new System.Drawing.Size(456, 22);
             this.textBemerkung1.TabIndex = 108;
@@ -728,7 +728,7 @@
             // textUhrzeit1
             // 
             this.textUhrzeit1.Location = new System.Drawing.Point(16, 182);
-            this.textUhrzeit1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUhrzeit1.Margin = new System.Windows.Forms.Padding(4);
             this.textUhrzeit1.Name = "textUhrzeit1";
             this.textUhrzeit1.Size = new System.Drawing.Size(143, 22);
             this.textUhrzeit1.TabIndex = 107;
@@ -737,7 +737,7 @@
             // textAnschrift1
             // 
             this.textAnschrift1.Location = new System.Drawing.Point(417, 182);
-            this.textAnschrift1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnschrift1.Margin = new System.Windows.Forms.Padding(4);
             this.textAnschrift1.Name = "textAnschrift1";
             this.textAnschrift1.Size = new System.Drawing.Size(611, 22);
             this.textAnschrift1.TabIndex = 106;
@@ -746,7 +746,7 @@
             // textName1
             // 
             this.textName1.Location = new System.Drawing.Point(168, 182);
-            this.textName1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textName1.Margin = new System.Windows.Forms.Padding(4);
             this.textName1.Name = "textName1";
             this.textName1.ReadOnly = true;
             this.textName1.Size = new System.Drawing.Size(240, 22);
@@ -756,7 +756,7 @@
             // textAnAbZahl13
             // 
             this.textAnAbZahl13.Location = new System.Drawing.Point(1383, 566);
-            this.textAnAbZahl13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnAbZahl13.Margin = new System.Windows.Forms.Padding(4);
             this.textAnAbZahl13.Name = "textAnAbZahl13";
             this.textAnAbZahl13.Size = new System.Drawing.Size(492, 22);
             this.textAnAbZahl13.TabIndex = 182;
@@ -765,7 +765,7 @@
             // textAnAbZahl12
             // 
             this.textAnAbZahl12.Location = new System.Drawing.Point(1383, 534);
-            this.textAnAbZahl12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnAbZahl12.Margin = new System.Windows.Forms.Padding(4);
             this.textAnAbZahl12.Name = "textAnAbZahl12";
             this.textAnAbZahl12.Size = new System.Drawing.Size(492, 22);
             this.textAnAbZahl12.TabIndex = 181;
@@ -774,7 +774,7 @@
             // textAnAbZahl11
             // 
             this.textAnAbZahl11.Location = new System.Drawing.Point(1383, 502);
-            this.textAnAbZahl11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnAbZahl11.Margin = new System.Windows.Forms.Padding(4);
             this.textAnAbZahl11.Name = "textAnAbZahl11";
             this.textAnAbZahl11.Size = new System.Drawing.Size(492, 22);
             this.textAnAbZahl11.TabIndex = 180;
@@ -783,7 +783,7 @@
             // textAnAbZahl10
             // 
             this.textAnAbZahl10.Location = new System.Drawing.Point(1383, 470);
-            this.textAnAbZahl10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnAbZahl10.Margin = new System.Windows.Forms.Padding(4);
             this.textAnAbZahl10.Name = "textAnAbZahl10";
             this.textAnAbZahl10.Size = new System.Drawing.Size(492, 22);
             this.textAnAbZahl10.TabIndex = 179;
@@ -792,7 +792,7 @@
             // textAnAbZahl9
             // 
             this.textAnAbZahl9.Location = new System.Drawing.Point(1383, 438);
-            this.textAnAbZahl9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnAbZahl9.Margin = new System.Windows.Forms.Padding(4);
             this.textAnAbZahl9.Name = "textAnAbZahl9";
             this.textAnAbZahl9.Size = new System.Drawing.Size(492, 22);
             this.textAnAbZahl9.TabIndex = 178;
@@ -801,7 +801,7 @@
             // textAnAbZahl8
             // 
             this.textAnAbZahl8.Location = new System.Drawing.Point(1383, 406);
-            this.textAnAbZahl8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnAbZahl8.Margin = new System.Windows.Forms.Padding(4);
             this.textAnAbZahl8.Name = "textAnAbZahl8";
             this.textAnAbZahl8.Size = new System.Drawing.Size(492, 22);
             this.textAnAbZahl8.TabIndex = 177;
@@ -810,7 +810,7 @@
             // textAnAbZahl7
             // 
             this.textAnAbZahl7.Location = new System.Drawing.Point(1383, 374);
-            this.textAnAbZahl7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnAbZahl7.Margin = new System.Windows.Forms.Padding(4);
             this.textAnAbZahl7.Name = "textAnAbZahl7";
             this.textAnAbZahl7.Size = new System.Drawing.Size(492, 22);
             this.textAnAbZahl7.TabIndex = 176;
@@ -819,7 +819,7 @@
             // textAnAbZahl6
             // 
             this.textAnAbZahl6.Location = new System.Drawing.Point(1383, 342);
-            this.textAnAbZahl6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnAbZahl6.Margin = new System.Windows.Forms.Padding(4);
             this.textAnAbZahl6.Name = "textAnAbZahl6";
             this.textAnAbZahl6.Size = new System.Drawing.Size(492, 22);
             this.textAnAbZahl6.TabIndex = 175;
@@ -828,7 +828,7 @@
             // textAnAbZahl5
             // 
             this.textAnAbZahl5.Location = new System.Drawing.Point(1383, 310);
-            this.textAnAbZahl5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnAbZahl5.Margin = new System.Windows.Forms.Padding(4);
             this.textAnAbZahl5.Name = "textAnAbZahl5";
             this.textAnAbZahl5.Size = new System.Drawing.Size(492, 22);
             this.textAnAbZahl5.TabIndex = 174;
@@ -837,7 +837,7 @@
             // textAnAbZahl4
             // 
             this.textAnAbZahl4.Location = new System.Drawing.Point(1383, 278);
-            this.textAnAbZahl4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnAbZahl4.Margin = new System.Windows.Forms.Padding(4);
             this.textAnAbZahl4.Name = "textAnAbZahl4";
             this.textAnAbZahl4.Size = new System.Drawing.Size(492, 22);
             this.textAnAbZahl4.TabIndex = 173;
@@ -846,7 +846,7 @@
             // textAnAbZahl3
             // 
             this.textAnAbZahl3.Location = new System.Drawing.Point(1383, 246);
-            this.textAnAbZahl3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnAbZahl3.Margin = new System.Windows.Forms.Padding(4);
             this.textAnAbZahl3.Name = "textAnAbZahl3";
             this.textAnAbZahl3.Size = new System.Drawing.Size(492, 22);
             this.textAnAbZahl3.TabIndex = 172;
@@ -855,7 +855,7 @@
             // textAnAbZahl2
             // 
             this.textAnAbZahl2.Location = new System.Drawing.Point(1383, 214);
-            this.textAnAbZahl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnAbZahl2.Margin = new System.Windows.Forms.Padding(4);
             this.textAnAbZahl2.Name = "textAnAbZahl2";
             this.textAnAbZahl2.Size = new System.Drawing.Size(492, 22);
             this.textAnAbZahl2.TabIndex = 171;
@@ -864,7 +864,7 @@
             // textAnAbZahl1
             // 
             this.textAnAbZahl1.Location = new System.Drawing.Point(1383, 182);
-            this.textAnAbZahl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnAbZahl1.Margin = new System.Windows.Forms.Padding(4);
             this.textAnAbZahl1.Name = "textAnAbZahl1";
             this.textAnAbZahl1.Size = new System.Drawing.Size(492, 22);
             this.textAnAbZahl1.TabIndex = 170;
@@ -884,7 +884,7 @@
             // buttonDrucker
             // 
             this.buttonDrucker.Location = new System.Drawing.Point(300, 65);
-            this.buttonDrucker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDrucker.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDrucker.Name = "buttonDrucker";
             this.buttonDrucker.Size = new System.Drawing.Size(241, 28);
             this.buttonDrucker.TabIndex = 188;
@@ -917,7 +917,7 @@
             // textMitarbeiter
             // 
             this.textMitarbeiter.Location = new System.Drawing.Point(16, 33);
-            this.textMitarbeiter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textMitarbeiter.Margin = new System.Windows.Forms.Padding(4);
             this.textMitarbeiter.Name = "textMitarbeiter";
             this.textMitarbeiter.Size = new System.Drawing.Size(240, 22);
             this.textMitarbeiter.TabIndex = 185;
@@ -926,7 +926,7 @@
             // dateTransaktion
             // 
             this.dateTransaktion.Location = new System.Drawing.Point(275, 33);
-            this.dateTransaktion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTransaktion.Margin = new System.Windows.Forms.Padding(4);
             this.dateTransaktion.Name = "dateTransaktion";
             this.dateTransaktion.Size = new System.Drawing.Size(265, 22);
             this.dateTransaktion.TabIndex = 184;
@@ -934,7 +934,7 @@
             // buttonDrucken
             // 
             this.buttonDrucken.Location = new System.Drawing.Point(16, 65);
-            this.buttonDrucken.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDrucken.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDrucken.Name = "buttonDrucken";
             this.buttonDrucken.Size = new System.Drawing.Size(241, 28);
             this.buttonDrucken.TabIndex = 183;
@@ -946,7 +946,7 @@
             // 
             this.textLog.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.textLog.Location = new System.Drawing.Point(20, 694);
-            this.textLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textLog.Margin = new System.Windows.Forms.Padding(4);
             this.textLog.MaxLength = 999999;
             this.textLog.Multiline = true;
             this.textLog.Name = "textLog";
@@ -959,7 +959,7 @@
             // textAnAbZahl16
             // 
             this.textAnAbZahl16.Location = new System.Drawing.Point(1383, 662);
-            this.textAnAbZahl16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnAbZahl16.Margin = new System.Windows.Forms.Padding(4);
             this.textAnAbZahl16.Name = "textAnAbZahl16";
             this.textAnAbZahl16.Size = new System.Drawing.Size(492, 22);
             this.textAnAbZahl16.TabIndex = 208;
@@ -968,7 +968,7 @@
             // textAnAbZahl15
             // 
             this.textAnAbZahl15.Location = new System.Drawing.Point(1383, 630);
-            this.textAnAbZahl15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnAbZahl15.Margin = new System.Windows.Forms.Padding(4);
             this.textAnAbZahl15.Name = "textAnAbZahl15";
             this.textAnAbZahl15.Size = new System.Drawing.Size(492, 22);
             this.textAnAbZahl15.TabIndex = 207;
@@ -977,7 +977,7 @@
             // textAnAbZahl14
             // 
             this.textAnAbZahl14.Location = new System.Drawing.Point(1383, 598);
-            this.textAnAbZahl14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnAbZahl14.Margin = new System.Windows.Forms.Padding(4);
             this.textAnAbZahl14.Name = "textAnAbZahl14";
             this.textAnAbZahl14.Size = new System.Drawing.Size(492, 22);
             this.textAnAbZahl14.TabIndex = 206;
@@ -986,7 +986,7 @@
             // textKontakt16
             // 
             this.textKontakt16.Location = new System.Drawing.Point(1037, 662);
-            this.textKontakt16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKontakt16.Margin = new System.Windows.Forms.Padding(4);
             this.textKontakt16.Name = "textKontakt16";
             this.textKontakt16.ReadOnly = true;
             this.textKontakt16.Size = new System.Drawing.Size(336, 22);
@@ -996,7 +996,7 @@
             // textBemerkung16
             // 
             this.textBemerkung16.Location = new System.Drawing.Point(1884, 662);
-            this.textBemerkung16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBemerkung16.Margin = new System.Windows.Forms.Padding(4);
             this.textBemerkung16.Name = "textBemerkung16";
             this.textBemerkung16.Size = new System.Drawing.Size(456, 22);
             this.textBemerkung16.TabIndex = 204;
@@ -1005,7 +1005,7 @@
             // textUhrzeit16
             // 
             this.textUhrzeit16.Location = new System.Drawing.Point(16, 662);
-            this.textUhrzeit16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUhrzeit16.Margin = new System.Windows.Forms.Padding(4);
             this.textUhrzeit16.Name = "textUhrzeit16";
             this.textUhrzeit16.Size = new System.Drawing.Size(143, 22);
             this.textUhrzeit16.TabIndex = 203;
@@ -1014,7 +1014,7 @@
             // textAnschrift16
             // 
             this.textAnschrift16.Location = new System.Drawing.Point(417, 662);
-            this.textAnschrift16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnschrift16.Margin = new System.Windows.Forms.Padding(4);
             this.textAnschrift16.Name = "textAnschrift16";
             this.textAnschrift16.Size = new System.Drawing.Size(611, 22);
             this.textAnschrift16.TabIndex = 202;
@@ -1023,7 +1023,7 @@
             // textName16
             // 
             this.textName16.Location = new System.Drawing.Point(168, 662);
-            this.textName16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textName16.Margin = new System.Windows.Forms.Padding(4);
             this.textName16.Name = "textName16";
             this.textName16.ReadOnly = true;
             this.textName16.Size = new System.Drawing.Size(240, 22);
@@ -1033,7 +1033,7 @@
             // textKontakt15
             // 
             this.textKontakt15.Location = new System.Drawing.Point(1037, 630);
-            this.textKontakt15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKontakt15.Margin = new System.Windows.Forms.Padding(4);
             this.textKontakt15.Name = "textKontakt15";
             this.textKontakt15.ReadOnly = true;
             this.textKontakt15.Size = new System.Drawing.Size(336, 22);
@@ -1043,7 +1043,7 @@
             // textBemerkung15
             // 
             this.textBemerkung15.Location = new System.Drawing.Point(1884, 630);
-            this.textBemerkung15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBemerkung15.Margin = new System.Windows.Forms.Padding(4);
             this.textBemerkung15.Name = "textBemerkung15";
             this.textBemerkung15.Size = new System.Drawing.Size(456, 22);
             this.textBemerkung15.TabIndex = 199;
@@ -1052,7 +1052,7 @@
             // textUhrzeit15
             // 
             this.textUhrzeit15.Location = new System.Drawing.Point(16, 630);
-            this.textUhrzeit15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUhrzeit15.Margin = new System.Windows.Forms.Padding(4);
             this.textUhrzeit15.Name = "textUhrzeit15";
             this.textUhrzeit15.Size = new System.Drawing.Size(143, 22);
             this.textUhrzeit15.TabIndex = 198;
@@ -1061,7 +1061,7 @@
             // textAnschrift15
             // 
             this.textAnschrift15.Location = new System.Drawing.Point(417, 630);
-            this.textAnschrift15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnschrift15.Margin = new System.Windows.Forms.Padding(4);
             this.textAnschrift15.Name = "textAnschrift15";
             this.textAnschrift15.Size = new System.Drawing.Size(611, 22);
             this.textAnschrift15.TabIndex = 197;
@@ -1070,7 +1070,7 @@
             // textName15
             // 
             this.textName15.Location = new System.Drawing.Point(168, 630);
-            this.textName15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textName15.Margin = new System.Windows.Forms.Padding(4);
             this.textName15.Name = "textName15";
             this.textName15.ReadOnly = true;
             this.textName15.Size = new System.Drawing.Size(240, 22);
@@ -1080,7 +1080,7 @@
             // textKontakt14
             // 
             this.textKontakt14.Location = new System.Drawing.Point(1037, 598);
-            this.textKontakt14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKontakt14.Margin = new System.Windows.Forms.Padding(4);
             this.textKontakt14.Name = "textKontakt14";
             this.textKontakt14.ReadOnly = true;
             this.textKontakt14.Size = new System.Drawing.Size(336, 22);
@@ -1090,7 +1090,7 @@
             // textBemerkung14
             // 
             this.textBemerkung14.Location = new System.Drawing.Point(1884, 598);
-            this.textBemerkung14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBemerkung14.Margin = new System.Windows.Forms.Padding(4);
             this.textBemerkung14.Name = "textBemerkung14";
             this.textBemerkung14.Size = new System.Drawing.Size(456, 22);
             this.textBemerkung14.TabIndex = 194;
@@ -1099,7 +1099,7 @@
             // textUhrzeit14
             // 
             this.textUhrzeit14.Location = new System.Drawing.Point(16, 598);
-            this.textUhrzeit14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUhrzeit14.Margin = new System.Windows.Forms.Padding(4);
             this.textUhrzeit14.Name = "textUhrzeit14";
             this.textUhrzeit14.Size = new System.Drawing.Size(143, 22);
             this.textUhrzeit14.TabIndex = 193;
@@ -1108,7 +1108,7 @@
             // textAnschrift14
             // 
             this.textAnschrift14.Location = new System.Drawing.Point(417, 598);
-            this.textAnschrift14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAnschrift14.Margin = new System.Windows.Forms.Padding(4);
             this.textAnschrift14.Name = "textAnschrift14";
             this.textAnschrift14.Size = new System.Drawing.Size(611, 22);
             this.textAnschrift14.TabIndex = 192;
@@ -1117,7 +1117,7 @@
             // textName14
             // 
             this.textName14.Location = new System.Drawing.Point(168, 598);
-            this.textName14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textName14.Margin = new System.Windows.Forms.Padding(4);
             this.textName14.Name = "textName14";
             this.textName14.ReadOnly = true;
             this.textName14.Size = new System.Drawing.Size(240, 22);
@@ -1138,7 +1138,7 @@
             // textFahrzeug
             // 
             this.textFahrzeug.Location = new System.Drawing.Point(549, 33);
-            this.textFahrzeug.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textFahrzeug.Margin = new System.Windows.Forms.Padding(4);
             this.textFahrzeug.Name = "textFahrzeug";
             this.textFahrzeug.Size = new System.Drawing.Size(240, 22);
             this.textFahrzeug.TabIndex = 209;
@@ -1215,7 +1215,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1914, 955);
+            this.ClientSize = new System.Drawing.Size(1906, 976);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -1328,7 +1328,7 @@
             this.Controls.Add(this.textUhrzeit1);
             this.Controls.Add(this.textAnschrift1);
             this.Controls.Add(this.textName1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LaufzettelKartons";
             this.Text = "LaufzettelKartons";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

@@ -107,77 +107,53 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LEA_Fahrtentabelle.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="LEA_Fahrtentabelle.cs" />
     <Compile Include="LEA_Fahrtentabelle.Designer.cs">
       <DependentUpon>LEA_Fahrtentabelle.cs</DependentUpon>
     </Compile>
-    <Compile Include="LEA_Kundenzahl.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="LEA_Kundenzahl.cs" />
     <Compile Include="LEA_Kundenzahl.Designer.cs">
       <DependentUpon>LEA_Kundenzahl.cs</DependentUpon>
     </Compile>
-    <Compile Include="LEA_Mehrfach_Umzug.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="LEA_Mehrfach_Umzug.cs" />
     <Compile Include="LEA_Mehrfach_Umzug.Designer.cs">
       <DependentUpon>LEA_Mehrfach_Umzug.cs</DependentUpon>
     </Compile>
-    <Compile Include="LEA_Mitarbeiter_Details.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="LEA_Mitarbeiter_Details.cs" />
     <Compile Include="LEA_Mitarbeiter_Details.Designer.cs">
       <DependentUpon>LEA_Mitarbeiter_Details.cs</DependentUpon>
     </Compile>
-    <Compile Include="LEA_Umzug.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="LEA_Umzug.cs" />
     <Compile Include="LEA_Umzug.Designer.cs">
       <DependentUpon>LEA_Umzug.cs</DependentUpon>
     </Compile>
-    <Compile Include="LEA_UrlaubFeiertag.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="LEA_UrlaubFeiertag.cs" />
     <Compile Include="LEA_UrlaubFeiertag.Designer.cs">
       <DependentUpon>LEA_UrlaubFeiertag.cs</DependentUpon>
     </Compile>
-    <Compile Include="Repetoire.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Repetoire.cs" />
     <Compile Include="Repetoire.Designer.cs">
       <DependentUpon>Repetoire.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stammdaten.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Stammdaten.cs" />
     <Compile Include="Stammdaten.Designer.cs">
       <DependentUpon>Stammdaten.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stammdaten_Check.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Stammdaten_Check.cs" />
     <Compile Include="Stammdaten_Check.Designer.cs">
       <DependentUpon>Stammdaten_Check.cs</DependentUpon>
     </Compile>
-    <Compile Include="Start.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Start.cs" />
     <Compile Include="Start.Designer.cs">
       <DependentUpon>Start.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Stundenübersicht.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Stundenübersicht.cs" />
     <Compile Include="Stundenübersicht.Designer.cs">
       <DependentUpon>Stundenübersicht.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tour_Fahrzeug.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Tour_Fahrzeug.cs" />
     <Compile Include="Tour_Fahrzeug.Designer.cs">
       <DependentUpon>Tour_Fahrzeug.cs</DependentUpon>
     </Compile>

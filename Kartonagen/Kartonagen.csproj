@@ -103,27 +103,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractAlert.cs" />
-    <Compile Include="AutoKVA.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="AutoKVA.cs" />
     <Compile Include="AutoKVA.Designer.cs">
       <DependentUpon>AutoKVA.cs</DependentUpon>
     </Compile>
-    <Compile Include="Erinnerung.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Erinnerung.cs" />
     <Compile Include="Erinnerung.Designer.cs">
       <DependentUpon>Erinnerung.cs</DependentUpon>
     </Compile>
-    <Compile Include="Erinnerungen.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Erinnerungen.cs" />
     <Compile Include="Erinnerungen.Designer.cs">
       <DependentUpon>Erinnerungen.cs</DependentUpon>
     </Compile>
-    <Compile Include="KundenOperationen\KundenAdd.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="KundenOperationen\KundenAdd.cs" />
     <Compile Include="KundenOperationen\KundenAdd.Designer.cs">
       <DependentUpon>KundenAdd.cs</DependentUpon>
     </Compile>
@@ -133,78 +125,54 @@
     <Compile Include="KundenOperationen\KundenSearch.Designer.cs">
       <DependentUpon>KundenSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="KundenUebersicht.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="KundenUebersicht.cs" />
     <Compile Include="KundenUebersicht.Designer.cs">
       <DependentUpon>KundenUebersicht.cs</DependentUpon>
     </Compile>
-    <Compile Include="Laufzetteldrucker.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Laufzetteldrucker.cs" />
     <Compile Include="Laufzetteldrucker.Designer.cs">
       <DependentUpon>Laufzetteldrucker.cs</DependentUpon>
     </Compile>
-    <Compile Include="LaufzettelKartons.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="LaufzettelKartons.cs" />
     <Compile Include="LaufzettelKartons.Designer.cs">
       <DependentUpon>LaufzettelKartons.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Main.cs" />
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sonderabfragen.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Sonderabfragen.cs" />
     <Compile Include="Sonderabfragen.Designer.cs">
       <DependentUpon>Sonderabfragen.cs</DependentUpon>
     </Compile>
-    <Compile Include="TransaktionAdd.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="TransaktionAdd.cs" />
     <Compile Include="TransaktionAdd.Designer.cs">
       <DependentUpon>TransaktionAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="TransaktionAlert.cs" />
-    <Compile Include="TransaktionErinnerung.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="TransaktionErinnerung.cs" />
     <Compile Include="TransaktionErinnerung.Designer.cs">
       <DependentUpon>TransaktionErinnerung.cs</DependentUpon>
     </Compile>
-    <Compile Include="TransaktionenSearch.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="TransaktionenSearch.cs" />
     <Compile Include="TransaktionenSearch.Designer.cs">
       <DependentUpon>TransaktionenSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="TransaktionenUebersicht.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="TransaktionenUebersicht.cs" />
     <Compile Include="TransaktionenUebersicht.Designer.cs">
       <DependentUpon>TransaktionenUebersicht.cs</DependentUpon>
     </Compile>
-    <Compile Include="UmzuegeSearch.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="UmzuegeSearch.cs" />
     <Compile Include="UmzuegeSearch.Designer.cs">
       <DependentUpon>UmzuegeSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="UmzuegeUebersicht.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="UmzuegeUebersicht.cs" />
     <Compile Include="UmzuegeUebersicht.Designer.cs">
       <DependentUpon>UmzuegeUebersicht.cs</DependentUpon>
     </Compile>
-    <Compile Include="UmzugAdd.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="UmzugAdd.cs" />
     <Compile Include="UmzugAdd.Designer.cs">
       <DependentUpon>UmzugAdd.cs</DependentUpon>
     </Compile>

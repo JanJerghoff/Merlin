@@ -289,6 +289,56 @@ namespace Kartonagen
             auffüllen(decimal.ToInt32(numericAendernNummer.Value));
         }
 
+        private void UmzugsAdresseAendern ()
+        {
+            // Merken der Umzugsnummern und Daten
+            List<int> umzNr = new List<int>();
+            List<string> umzDat = new List<string>();
+            String aufzaehlung = "";
+
+            // Checken ob aktiver Umzug
+            MySqlCommand cmdRead = new MySqlCommand("SELECT u.idUmzuege, u.datUmzug FROM Umzuge u, Umzugsfortschritt f WHERE u.Kunden_idKunden = "+numericAendernNummer.Value+" AND u.idUmzuege = f.Umzuege_idUmzuge AND f.abgeschlossen = 8;", Program.conn);
+            MySqlDataReader rdr;
+
+            try
+            {
+                rdr = cmdRead.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    umzNr.Add(rdr.GetInt32(0));
+                    umzDat.Add(rdr.GetDateTime(1).ToShortDateString());
+                }
+                rdr.Close();
+            }
+            catch (Exception sqlEx)
+            {
+                textKundenSearchLog.Text += sqlEx.ToString();
+                return;
+            }
+
+            int count = 0;
+            foreach (var item in umzNr)
+            {
+                aufzaehlung += "Umzug " + item + " am " + umzDat[count]+", \r\n ";
+                count++;
+            }
+
+
+            // Abfrage ob Änderung übernommen werden soll.
+            if (aufzaehlung.Length > 0)
+            {
+                var bestätigung = MessageBox.Show("Sollen die Änderungen an der Adresse  /r/n in die Auszugsadresse der folgenden Umzuege übernommen werden? /r/n"+aufzaehlung, "Adresse in Umzüge übernehmen?", MessageBoxButtons.YesNo);
+                if (bestätigung == DialogResult.Yes)
+                                   
+                    // Abschicken aller Änderungen
+                {
+                    
+
+                }
+            }
+        }
+
         private void buttonLöschen_Click(object sender, EventArgs e)
         {
             var bestätigung = MessageBox.Show("Den Kunden wirklich entgültig löschen? \r\n Nur wenn kein Umzug / Kartonagen vorhanden", "Löschen bestätigen", MessageBoxButtons.YesNo);
