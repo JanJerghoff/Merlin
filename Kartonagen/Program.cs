@@ -159,6 +159,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
+                var bestätigung = MessageBox.Show(sqlEx.ToString(), "Adresse in Umzüge übernehmen?");
 
             }
         }

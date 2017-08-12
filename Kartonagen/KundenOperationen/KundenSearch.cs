@@ -263,6 +263,7 @@ namespace Kartonagen
             pushChange(change);
             textKundenSearchLog.AppendText("Änderung vorgenommen \r\n");
             auffüllen(decimal.ToInt32(numericAendernNummer.Value));
+            UmzugsAdresseAendern();
         }
 
         private void buttonKundeAendernPLZ_Click(object sender, EventArgs e)
@@ -271,6 +272,7 @@ namespace Kartonagen
             pushChange(change);
             textKundenSearchLog.AppendText("Änderung vorgenommen \r\n");
             auffüllen(decimal.ToInt32(numericAendernNummer.Value));
+            UmzugsAdresseAendern();
         }
 
         private void buttonKundeAendernLand_Click(object sender, EventArgs e)
@@ -297,7 +299,7 @@ namespace Kartonagen
             String aufzaehlung = "";
 
             // Checken ob aktiver Umzug
-            MySqlCommand cmdRead = new MySqlCommand("SELECT u.idUmzuege, u.datUmzug FROM Umzuge u, Umzugsfortschritt f WHERE u.Kunden_idKunden = "+numericAendernNummer.Value+" AND u.idUmzuege = f.Umzuege_idUmzuge AND f.abgeschlossen = 8;", Program.conn);
+            MySqlCommand cmdRead = new MySqlCommand("SELECT u.idUmzuege, u.datUmzug FROM Umzuege u, Umzugsfortschritt f WHERE u.Kunden_idKunden = "+numericAendernNummer.Value+" AND u.idUmzuege = f.Umzuege_idUmzuege AND f.abgeschlossen = 8;", Program.conn);
             MySqlDataReader rdr;
 
             try
@@ -307,7 +309,7 @@ namespace Kartonagen
                 while (rdr.Read())
                 {
                     umzNr.Add(rdr.GetInt32(0));
-                    umzDat.Add(rdr.GetDateTime(1).ToShortDateString());
+                    umzDat.Add(rdr.GetDateTime(1).ToShortDateString());                    
                 }
                 rdr.Close();
             }
@@ -326,14 +328,49 @@ namespace Kartonagen
 
 
             // Abfrage ob Änderung übernommen werden soll.
-            if (aufzaehlung.Length > 0)
+            if (aufzaehlung.Length > 0 || true)
             {
-                var bestätigung = MessageBox.Show("Sollen die Änderungen an der Adresse  /r/n in die Auszugsadresse der folgenden Umzuege übernommen werden? /r/n"+aufzaehlung, "Adresse in Umzüge übernehmen?", MessageBoxButtons.YesNo);
+                var bestätigung = MessageBox.Show("Sollen die Änderungen an der Adresse in die Auszugsadresse der folgenden Umzuege übernommen werden? \r\n "+aufzaehlung, "Adresse in Umzüge übernehmen?", MessageBoxButtons.YesNo);
                 if (bestätigung == DialogResult.Yes)
                                    
-                    // Abschicken aller Änderungen
-                {
                     
+                {
+                    // Präparieren der änderungen
+                    string Straße = "";
+                    string Hausnummer = "";
+                    string Ort = "";
+                    string PLZ = "";
+
+                    if (textAendernStraße.TextLength != 0)
+                    {
+                        Straße = textAendernStraße.Text;
+                    }
+                    else { Straße = textShowStraße.Text; }
+
+                    if (textAendernHausnummer.TextLength != 0)
+                    {
+                        Hausnummer = textAendernHausnummer.Text;
+                    }
+                    else { Hausnummer = textShowHausnummer.Text; }
+
+                    if (textAendernOrt.TextLength != 0)
+                    {
+                        Ort = textAendernOrt.Text;
+                    }
+                    else { Ort = textShowOrt.Text; }
+
+                    if (textAendernPLZ.TextLength != 0)
+                    {
+                        PLZ = textAendernPLZ.Text;
+                    }
+                    else { PLZ = textShowPLZ.Text; }
+
+                    // Abschicken an alle einzelnen Umzüge
+                    foreach (var item in umzNr)
+                    {
+                        String push = "UPDATE Umzuege SET StraßeA = '"+Straße+ "', HausnummerA= '" + Hausnummer + "', OrtA= '" + Ort + "', PLZA= '" + PLZ + "' WHERE idUmzuege = " + item;
+                        Program.absender(push);
+                    }
 
                 }
             }
