@@ -261,7 +261,7 @@ namespace Kartonagen
                     fields.TryGetValue("Uhrzeit " + count, out toSet);
                     toSet.SetValue(Uhrzeit[count - 1].Text);
 
-                    if (Transaktion[count].Text.Contains("Ausliefern"))
+                    if (Transaktion[count-1].Text.Contains("Ausliefern"))
                     {
                         fields.TryGetValue("AnAb " + count, out toSet);
                         toSet.SetValue("Anliefern");
