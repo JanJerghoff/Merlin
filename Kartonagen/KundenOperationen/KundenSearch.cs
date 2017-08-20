@@ -328,7 +328,7 @@ namespace Kartonagen
 
 
             // Abfrage ob Änderung übernommen werden soll.
-            if (aufzaehlung.Length > 0 || true)
+            if (aufzaehlung.Length > 0)
             {
                 var bestätigung = MessageBox.Show("Sollen die Änderungen an der Adresse in die Auszugsadresse der folgenden Umzuege übernommen werden? \r\n "+aufzaehlung, "Adresse in Umzüge übernehmen?", MessageBoxButtons.YesNo);
                 if (bestätigung == DialogResult.Yes)
