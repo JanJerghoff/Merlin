@@ -114,16 +114,12 @@ namespace Kartonagen
                     if (rdrF.GetInt32(1) != 8) {
                         textBesichtigung.AppendText(getName(rdrF.GetInt32(1)));
                         dateBesichtigung.Value = rdrF.GetDateTime(2);
-                        buttonKVAMail.Enabled = true;
-                        buttonKVAPost.Enabled = true;
                     }
                     //KVA Mail-> Post
                     if (rdrF.GetInt32(3) != 8)
                     {
                         textKVAMail.AppendText(getName(rdrF.GetInt32(3)));
                         dateKVAMail.Value = rdrF.GetDateTime(4);
-                        buttonTelBuch.Enabled = true;
-                        buttonTextBuch.Enabled = true;
                         buttonKVAMail.Enabled = false;
                     }
 
@@ -131,8 +127,6 @@ namespace Kartonagen
                     {
                         textKVAPost.AppendText(getName(rdrF.GetInt32(5)));
                         dateKVAPost.Value = rdrF.GetDateTime(6);
-                        buttonTelBuch.Enabled = true;
-                        buttonTextBuch.Enabled = true;
                         buttonKVAPost.Enabled = false;
                     }
 
@@ -140,7 +134,6 @@ namespace Kartonagen
                     {
                         textKorrektur.AppendText(getName(rdrF.GetInt32(23)));
                         dateKorrektur.Value = rdrF.GetDateTime(24);
-
                         buttonKorrektur.Enabled = false;
                     }
                     // Buchungen
@@ -150,25 +143,12 @@ namespace Kartonagen
                         textTelBuch.AppendText(getName(rdrF.GetInt32(7)));
                         dateTelBuch.Value = rdrF.GetDateTime(8);
                         buttonTelBuch.Enabled = false;
-                        buttonKVAPost.Enabled = false;
-                        buttonKVAMail.Enabled = false;
-
-                        buttonKueche.Enabled = true;
-                        buttonHVZWunder.Enabled = true;
-                        buttonLKW.Enabled = true;
-
-                        buttonUmzugEingtragen.Enabled = true;
-                        buttonErinnerung.Enabled = true;
-
                     }
 
                     if (rdrF.GetInt32(31) != 8)
                     {
                         textErinnerung.AppendText(getName(rdrF.GetInt32(31)));
                         dateErinnerung.Value = rdrF.GetDateTime(32);
-                        buttonTelBuch.Enabled = false;
-                        buttonKVAPost.Enabled = false;
-                        buttonKVAMail.Enabled = false;
                         buttonErinnerung.Enabled = false;                      
 
                     }
@@ -178,11 +158,6 @@ namespace Kartonagen
                         textSchriftBuch.AppendText(getName(rdrF.GetInt32(9)));
                         dateSchriftBuch.Value = rdrF.GetDateTime(10);
                         buttonTextBuch.Enabled = false;
-                        buttonTelBuch.Enabled = false;
-                        buttonKVAPost.Enabled = false;
-                        buttonKVAMail.Enabled = false;
-
-                        buttonUmzugEingtragen.Enabled = true;
                     }
 
                     // Buchung
@@ -191,29 +166,14 @@ namespace Kartonagen
                     {
                         textUmzugEintrag.AppendText(getName(rdrF.GetInt32(11)));
                         dateUmzugEintrag.Value = rdrF.GetDateTime(12);
-                        buttonTextBuch.Enabled = false;
-                        buttonTelBuch.Enabled = false;
-                        buttonKVAPost.Enabled = false;
-                        buttonKVAMail.Enabled = false;
 
                         buttonUmzugEingtragen.Enabled = false;
-
-                        buttonBestaetigung.Enabled = true;
-                        buttonHVZ.Enabled = true;
-                        buttonHVZWunder.Enabled = true;
-                        buttonKueche.Enabled = true;
-                        buttonLKW.Enabled = true;
                     }
                     // Buchungsbestätigung
                     if (rdrF.GetInt32(13) != 8)
                     {
                         textBestaetigung.AppendText(getName(rdrF.GetInt32(13)));
                         dateBestaetigung.Value = rdrF.GetDateTime(14);
-                        buttonTextBuch.Enabled = false;
-                        buttonTelBuch.Enabled = false;
-                        buttonKVAPost.Enabled = false;
-                        buttonKVAMail.Enabled = false;
-
                         buttonBestaetigung.Enabled = false;
                     }
                     // LKW
@@ -221,12 +181,6 @@ namespace Kartonagen
                     {
                         textLKW.AppendText(getName(rdrF.GetInt32(15)));
                         dateLKW.Value = rdrF.GetDateTime(16);
-                        buttonTextBuch.Enabled = false;
-                        buttonTelBuch.Enabled = false;
-                        buttonKVAPost.Enabled = false;
-                        buttonKVAMail.Enabled = false;
-
-                        buttonBestaetigung.Enabled = false;
                         buttonLKW.Enabled = false;
                     }
                     // HVZ Wunder -> Antrag
@@ -234,11 +188,6 @@ namespace Kartonagen
                     {
                         textHVZWunder.AppendText(getName(rdrF.GetInt32(17)));
                         dateHVZWunder.Value = rdrF.GetDateTime(18);
-                        buttonTextBuch.Enabled = false;
-                        buttonTelBuch.Enabled = false;
-                        buttonKVAPost.Enabled = false;
-                        buttonKVAMail.Enabled = false;
-
                         buttonHVZWunder.Enabled = false;
                     }
 
@@ -246,11 +195,6 @@ namespace Kartonagen
                     {
                         textHVZ.AppendText(getName(rdrF.GetInt32(19)));
                         dateHVZ.Value = rdrF.GetDateTime(20);
-                        buttonTextBuch.Enabled = false;
-                        buttonTelBuch.Enabled = false;
-                        buttonKVAPost.Enabled = false;
-                        buttonKVAMail.Enabled = false;
-
                         buttonHVZ.Enabled = false;
                     }
                     // Kueche
@@ -258,11 +202,6 @@ namespace Kartonagen
                     {
                         textKueche.AppendText(getName(rdrF.GetInt32(21)));
                         dateKueche.Value = rdrF.GetDateTime(22);
-                        buttonTextBuch.Enabled = false;
-                        buttonTelBuch.Enabled = false;
-                        buttonKVAPost.Enabled = false;
-                        buttonKVAMail.Enabled = false;
-
                         buttonKueche.Enabled = false;
                     }
 
@@ -336,20 +275,20 @@ namespace Kartonagen
             textKorrektur.ResetText();
             textErinnerung.ResetText();
 
-            buttonKVAMail.Enabled = false;
-            buttonKVAPost.Enabled = false;
-            buttonKueche.Enabled = false;
-            buttonBestaetigung.Enabled = false;
-            buttonHVZWunder.Enabled = false;
-            buttonHVZ.Enabled = false;
-            buttonLKW.Enabled = false;
-            buttonTelBuch.Enabled = false;
-            buttonTextBuch.Enabled = false; // TextBuch <=> SchriftBuch
-            buttonErinnerung.Enabled = false;
+            buttonKVAMail.Enabled = true;
+            buttonKVAPost.Enabled = true;
+            buttonKueche.Enabled = true;
+            buttonBestaetigung.Enabled = true;
+            buttonHVZWunder.Enabled = true;
+            buttonHVZ.Enabled = true;
+            buttonLKW.Enabled = true;
+            buttonTelBuch.Enabled = true;
+            buttonTextBuch.Enabled = true; // TextBuch <=> SchriftBuch
+            buttonErinnerung.Enabled = true;
 
             //Testfall
-            buttonKorrektur.Enabled = false;
-            buttonUmzugEingtragen.Enabled = false;
+            buttonKorrektur.Enabled = true;
+            buttonUmzugEingtragen.Enabled = true;
 
         }
 
@@ -367,10 +306,6 @@ namespace Kartonagen
 
         private void buttonKVAPost_Click(object sender, EventArgs e)
         {
-            buttonTelBuch.Enabled = true;
-            buttonTextBuch.Enabled = true;
-            buttonKVAPost.Enabled = false;
-
             String k = "UPDATE Umzugsfortschritt SET KVAPost = " + idBearbeitend + ", datKVAPost = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
             push(k);
             fuellen(Umzugsnummer);
@@ -378,9 +313,6 @@ namespace Kartonagen
 
         private void buttonKVAMail_Click(object sender, EventArgs e)
         {
-            buttonTelBuch.Enabled = true;
-            buttonTextBuch.Enabled = true;
-            buttonKVAMail.Enabled = false;
 
             String k = "UPDATE Umzugsfortschritt SET KVAMail = " + idBearbeitend + ", datKVAMail = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
             push(k);
@@ -389,21 +321,6 @@ namespace Kartonagen
 
         private void buttonTelBuch_Click(object sender, EventArgs e)
         {
-            buttonTelBuch.Enabled = false;
-            buttonKVAPost.Enabled = false;
-            buttonKVAMail.Enabled = false;
-            buttonErinnerung.Enabled = true;
-
-            //Temp
-            buttonKueche.Enabled = true;
-            buttonHVZ.Enabled = true;
-            buttonHVZWunder.Enabled = true;
-            buttonLKW.Enabled = true;
-            buttonBestaetigung.Enabled = true;
-
-            //Temp
-            buttonUmzugEingtragen.Enabled = true;
-
             String k = "UPDATE Umzugsfortschritt SET BuchungTel = " + idBearbeitend + ", datBuchungTel = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
             push(k);
             fuellen(Umzugsnummer);
@@ -420,24 +337,6 @@ namespace Kartonagen
 
         private void buttonTextBuch_Click(object sender, EventArgs e)
         {
-            buttonTelBuch.Enabled = false;
-            buttonTextBuch.Enabled = false;
-            buttonErinnerung.Enabled = false;
-
-            buttonKVAPost.Enabled = false;
-            buttonKVAMail.Enabled = false;
-
-            //Temp
-
-            buttonKueche.Enabled = true;
-            buttonHVZ.Enabled = true;
-            buttonHVZWunder.Enabled = true;
-            buttonLKW.Enabled = true;
-            buttonBestaetigung.Enabled = true;
-
-            //Temp
-            buttonUmzugEingtragen.Enabled = true;
-
             String k = "UPDATE Umzugsfortschritt SET BuchungSchrift = " + idBearbeitend + ", datBuchungSchrift = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
             push(k);
             fuellen(Umzugsnummer);
@@ -445,14 +344,6 @@ namespace Kartonagen
 
         private void buttonBestaetigung_Click(object sender, EventArgs e)
         {
-            buttonTextBuch.Enabled = false;
-            buttonTelBuch.Enabled = false;
-
-            buttonKVAPost.Enabled = false;
-            buttonKVAMail.Enabled = false;
-
-            buttonBestaetigung.Enabled = false;
-
             String k = "UPDATE Umzugsfortschritt SET Bestaetigung = " + idBearbeitend + ", datBestaetigung = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
             push(k);
             fuellen(Umzugsnummer);
@@ -460,14 +351,6 @@ namespace Kartonagen
 
         private void buttonLKW_Click_1(object sender, EventArgs e)
         {
-            buttonTextBuch.Enabled = false;
-            buttonTelBuch.Enabled = false;
-
-            buttonKVAPost.Enabled = false;
-            buttonKVAMail.Enabled = false;
-
-            buttonLKW.Enabled = false;
-
             String k = "UPDATE Umzugsfortschritt SET LKW = " + idBearbeitend + ", datLKW = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
             push(k);
             fuellen(Umzugsnummer);
@@ -475,44 +358,20 @@ namespace Kartonagen
 
         private void buttonHVZWunder_Click(object sender, EventArgs e)
         {
-            buttonTextBuch.Enabled = false;
-            buttonTelBuch.Enabled = false;
-
-            buttonKVAPost.Enabled = false;
-            buttonKVAMail.Enabled = false;
-
-            buttonHVZWunder.Enabled = false;
-
             String k = "UPDATE Umzugsfortschritt SET HVZWunder = " + idBearbeitend + ", datHVZWunder = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
             push(k);
             fuellen(Umzugsnummer);
         }
 
-        private void buttonHVZ_Click(object sender, EventArgs e)
+        private void buttonHVZ_Click_1(object sender, EventArgs e)
         {
-            buttonTextBuch.Enabled = false;
-            buttonTelBuch.Enabled = false;
-
-            buttonKVAPost.Enabled = false;
-            buttonKVAMail.Enabled = false;
-
-            buttonHVZ.Enabled = false;
-
             String k = "UPDATE Umzugsfortschritt SET HVZAntrag = " + idBearbeitend + ", datHVZAntrag = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
             push(k);
             fuellen(Umzugsnummer);
         }
 
         private void buttonKueche_Click(object sender, EventArgs e)
-        {
-            buttonTextBuch.Enabled = false;
-            buttonTelBuch.Enabled = false;
-
-            buttonKVAPost.Enabled = false;
-            buttonKVAMail.Enabled = false;
-
-            buttonKueche.Enabled = false;
-
+        {           
             String k = "UPDATE Umzugsfortschritt SET KuecheTermin = " + idBearbeitend + ", datKuecheTermin = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
             push(k);
             fuellen(Umzugsnummer);
@@ -520,20 +379,6 @@ namespace Kartonagen
 
         private void buttonUmzugEingtragen_Click(object sender, EventArgs e)
         {
-            buttonTextBuch.Enabled = false;
-            buttonTelBuch.Enabled = false;
-
-            buttonKVAPost.Enabled = false;
-            buttonKVAMail.Enabled = false;
-
-            buttonKueche.Enabled = true;
-            buttonHVZ.Enabled = true;
-            buttonHVZWunder.Enabled = true;
-            buttonLKW.Enabled = true;
-            buttonBestaetigung.Enabled = true;
-
-            buttonUmzugEingtragen.Enabled = false;
-
             String k = "UPDATE Umzugsfortschritt SET BuchungFin = " + idBearbeitend + ", datBuchungFin = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
             push(k);
             fuellen(Umzugsnummer);
@@ -541,8 +386,6 @@ namespace Kartonagen
 
         private void buttonKorrektur_Click(object sender, EventArgs e)
         {
-            buttonKorrektur.Enabled = false;
-
             String k = "UPDATE Umzugsfortschritt SET KVAKorrektur = " + idBearbeitend + ", datKVAKorrektur = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
             push(k);
             fuellen(Umzugsnummer);
@@ -557,21 +400,6 @@ namespace Kartonagen
 
         private void buttonAbschluss_Click(object sender, EventArgs e)
         {
-            //Alle Buttons deaktivieren
-
-            buttonKVAMail.Enabled = false;
-            buttonKVAPost.Enabled = false;
-            buttonKueche.Enabled = false;
-            buttonBestaetigung.Enabled = false;
-            buttonHVZWunder.Enabled = false;
-            buttonHVZ.Enabled = false;
-            buttonLKW.Enabled = false;
-            buttonTelBuch.Enabled = false;
-            buttonTextBuch.Enabled = false; // TextBuch <=> SchriftBuch
-            buttonErinnerung.Enabled = false;
-            buttonKorrektur.Enabled = false;
-            buttonUmzugEingtragen.Enabled = false;
-
             // Als Abgeschlossen markieren
             String abs = "UPDATE Umzugsfortschritt SET abgeschlossen = " + idBearbeitend + " WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
             push(abs);
@@ -584,7 +412,8 @@ namespace Kartonagen
                 textUmzugLog.AppendText(Program.AdresseErsaetzen(IDKunde, Strasse, Hausnummer, Ort, PLZ, Land));
             }
 
-        }       
+        }
+        
 
 
 

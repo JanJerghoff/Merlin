@@ -241,6 +241,7 @@
             this.buttonHVZ.TabIndex = 129;
             this.buttonHVZ.Text = "Bestätigen";
             this.buttonHVZ.UseVisualStyleBackColor = true;
+            this.buttonHVZ.Click += new System.EventHandler(this.buttonHVZ_Click_1);
             // 
             // buttonBestaetigung
             // 
