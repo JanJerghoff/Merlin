@@ -410,6 +410,7 @@ namespace Kartonagen
             if (bestätigungAdressaenderung == DialogResult.Yes)
             {
                 textUmzugLog.AppendText(Program.AdresseErsaetzen(IDKunde, Strasse, Hausnummer, Ort, PLZ, Land));
+                
             }
 
         }

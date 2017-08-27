@@ -164,22 +164,28 @@
     <Compile Include="TransaktionenUebersicht.Designer.cs">
       <DependentUpon>TransaktionenUebersicht.cs</DependentUpon>
     </Compile>
-    <Compile Include="UmzuegeSearch.cs" />
-    <Compile Include="UmzuegeSearch.Designer.cs">
-      <DependentUpon>UmzuegeSearch.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UmzuegeUebersicht.cs" />
-    <Compile Include="UmzuegeUebersicht.Designer.cs">
-      <DependentUpon>UmzuegeUebersicht.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UmzugAdd.cs" />
-    <Compile Include="UmzugAdd.Designer.cs">
-      <DependentUpon>UmzugAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UmzugFortschritt.cs">
+    <Compile Include="UmzugsOperationen\UmzuegeSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UmzugFortschritt.Designer.cs">
+    <Compile Include="UmzugsOperationen\UmzuegeSearch.Designer.cs">
+      <DependentUpon>UmzuegeSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UmzugsOperationen\UmzuegeUebersicht.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UmzugsOperationen\UmzuegeUebersicht.Designer.cs">
+      <DependentUpon>UmzuegeUebersicht.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UmzugsOperationen\UmzugAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UmzugsOperationen\UmzugAdd.Designer.cs">
+      <DependentUpon>UmzugAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UmzugsOperationen\UmzugFortschritt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UmzugsOperationen\UmzugFortschritt.Designer.cs">
       <DependentUpon>UmzugFortschritt.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AutoKVA.resx">
@@ -233,16 +239,16 @@
     <EmbeddedResource Include="TransaktionenUebersicht.resx">
       <DependentUpon>TransaktionenUebersicht.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UmzuegeSearch.resx">
+    <EmbeddedResource Include="UmzugsOperationen\UmzuegeSearch.resx">
       <DependentUpon>UmzuegeSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UmzuegeUebersicht.resx">
+    <EmbeddedResource Include="UmzugsOperationen\UmzuegeUebersicht.resx">
       <DependentUpon>UmzuegeUebersicht.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UmzugAdd.resx">
+    <EmbeddedResource Include="UmzugsOperationen\UmzugAdd.resx">
       <DependentUpon>UmzugAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UmzugFortschritt.resx">
+    <EmbeddedResource Include="UmzugsOperationen\UmzugFortschritt.resx">
       <DependentUpon>UmzugFortschritt.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Besichtigungs Vordruck.pdf">
