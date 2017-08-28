@@ -506,13 +506,19 @@ namespace Kartonagen
 
             string path = Directory.GetCurrentDirectory() + "\\FehlerLog.txt";
 
+            var box = MessageBox.Show(Kurzbeschreibung, "1");
+
             if (!File.Exists(path)) {
+
+                var box3 = MessageBox.Show(Kurzbeschreibung, "1");
 
                 // Datei erstellen
                 using (StreamWriter sw = File.CreateText(path))
                 {
                     sw.WriteLine("Start");
                 }
+
+                var box1 = MessageBox.Show(Kurzbeschreibung, "2");
 
                 // Eintrag machen
                 using (StreamWriter sw = File.AppendText(path))
@@ -523,7 +529,7 @@ namespace Kartonagen
                     sw.WriteLine("");
                 }
                 
-                var box = MessageBox.Show(Kurzbeschreibung, Fehlermeldung);
+                var box2 = MessageBox.Show(Kurzbeschreibung, "3");
             }
         }
 
