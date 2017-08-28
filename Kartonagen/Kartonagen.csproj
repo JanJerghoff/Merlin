@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Apis, Version=1.21.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Apis.1.21.0\lib\net45\Google.Apis.dll</HintPath>
     </Reference>
@@ -86,7 +89,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -102,18 +109,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractAlert.cs" />
+    <Compile Include="Alerts\AbstractAlert.cs" />
     <Compile Include="AutoKVA.cs" />
     <Compile Include="AutoKVA.Designer.cs">
       <DependentUpon>AutoKVA.cs</DependentUpon>
     </Compile>
-    <Compile Include="Erinnerung.cs" />
-    <Compile Include="Erinnerung.Designer.cs">
+    <Compile Include="Alerts\Erinnerung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alerts\Erinnerung.Designer.cs">
       <DependentUpon>Erinnerung.cs</DependentUpon>
     </Compile>
-    <Compile Include="Erinnerungen.cs" />
-    <Compile Include="Erinnerungen.Designer.cs">
+    <Compile Include="Alerts\Erinnerungen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alerts\Erinnerungen.Designer.cs">
       <DependentUpon>Erinnerungen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kunden.cs">
+      <DependentUpon>Umzuege.tt</DependentUpon>
     </Compile>
     <Compile Include="KundenOperationen\KundenAdd.cs" />
     <Compile Include="KundenOperationen\KundenAdd.Designer.cs">
@@ -125,16 +139,25 @@
     <Compile Include="KundenOperationen\KundenSearch.Designer.cs">
       <DependentUpon>KundenSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="KundenUebersicht.cs" />
-    <Compile Include="KundenUebersicht.Designer.cs">
+    <Compile Include="KundenOperationen\KundenUebersicht.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KundenOperationen\KundenUebersicht.Designer.cs">
       <DependentUpon>KundenUebersicht.cs</DependentUpon>
     </Compile>
-    <Compile Include="Laufzetteldrucker.cs" />
-    <Compile Include="Laufzetteldrucker.Designer.cs">
+    <Compile Include="Lagerbestaende.cs">
+      <DependentUpon>Umzuege.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Laufzettel\Laufzetteldrucker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laufzettel\Laufzetteldrucker.Designer.cs">
       <DependentUpon>Laufzetteldrucker.cs</DependentUpon>
     </Compile>
-    <Compile Include="LaufzettelKartons.cs" />
-    <Compile Include="LaufzettelKartons.Designer.cs">
+    <Compile Include="Laufzettel\LaufzettelKartons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laufzettel\LaufzettelKartons.Designer.cs">
       <DependentUpon>LaufzettelKartons.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs" />
@@ -147,22 +170,49 @@
     <Compile Include="Sonderabfragen.Designer.cs">
       <DependentUpon>Sonderabfragen.cs</DependentUpon>
     </Compile>
-    <Compile Include="TransaktionAdd.cs" />
-    <Compile Include="TransaktionAdd.Designer.cs">
+    <Compile Include="TransaktionenOperationen\TransaktionAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransaktionenOperationen\TransaktionAdd.Designer.cs">
       <DependentUpon>TransaktionAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="TransaktionAlert.cs" />
-    <Compile Include="TransaktionErinnerung.cs" />
-    <Compile Include="TransaktionErinnerung.Designer.cs">
+    <Compile Include="Alerts\TransaktionAlert.cs" />
+    <Compile Include="Transaktionen.cs">
+      <DependentUpon>Umzuege.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Alerts\TransaktionErinnerung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alerts\TransaktionErinnerung.Designer.cs">
       <DependentUpon>TransaktionErinnerung.cs</DependentUpon>
     </Compile>
-    <Compile Include="TransaktionenSearch.cs" />
-    <Compile Include="TransaktionenSearch.Designer.cs">
+    <Compile Include="TransaktionenOperationen\TransaktionenSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransaktionenOperationen\TransaktionenSearch.Designer.cs">
       <DependentUpon>TransaktionenSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="TransaktionenUebersicht.cs" />
-    <Compile Include="TransaktionenUebersicht.Designer.cs">
+    <Compile Include="TransaktionenOperationen\TransaktionenUebersicht.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransaktionenOperationen\TransaktionenUebersicht.Designer.cs">
       <DependentUpon>TransaktionenUebersicht.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Umzuege.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Umzuege.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Umzuege.cs">
+      <DependentUpon>Umzuege.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Umzuege.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Umzuege.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Umzugsfortschritt.cs">
+      <DependentUpon>Umzuege.tt</DependentUpon>
     </Compile>
     <Compile Include="UmzugsOperationen\UmzuegeSearch.cs">
       <SubType>Form</SubType>
@@ -191,10 +241,10 @@
     <EmbeddedResource Include="AutoKVA.resx">
       <DependentUpon>AutoKVA.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Erinnerung.resx">
+    <EmbeddedResource Include="Alerts\Erinnerung.resx">
       <DependentUpon>Erinnerung.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Erinnerungen.resx">
+    <EmbeddedResource Include="Alerts\Erinnerungen.resx">
       <DependentUpon>Erinnerungen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KundenOperationen\KundenAdd.resx">
@@ -203,13 +253,13 @@
     <EmbeddedResource Include="KundenOperationen\KundenSearch.resx">
       <DependentUpon>KundenSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KundenUebersicht.resx">
+    <EmbeddedResource Include="KundenOperationen\KundenUebersicht.resx">
       <DependentUpon>KundenUebersicht.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Laufzetteldrucker.resx">
+    <EmbeddedResource Include="Laufzettel\Laufzetteldrucker.resx">
       <DependentUpon>Laufzetteldrucker.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LaufzettelKartons.resx">
+    <EmbeddedResource Include="Laufzettel\LaufzettelKartons.resx">
       <DependentUpon>LaufzettelKartons.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
@@ -227,16 +277,16 @@
     <EmbeddedResource Include="Sonderabfragen.resx">
       <DependentUpon>Sonderabfragen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TransaktionAdd.resx">
+    <EmbeddedResource Include="TransaktionenOperationen\TransaktionAdd.resx">
       <DependentUpon>TransaktionAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TransaktionErinnerung.resx">
+    <EmbeddedResource Include="Alerts\TransaktionErinnerung.resx">
       <DependentUpon>TransaktionErinnerung.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TransaktionenSearch.resx">
+    <EmbeddedResource Include="TransaktionenOperationen\TransaktionenSearch.resx">
       <DependentUpon>TransaktionenSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TransaktionenUebersicht.resx">
+    <EmbeddedResource Include="TransaktionenOperationen\TransaktionenUebersicht.resx">
       <DependentUpon>TransaktionenUebersicht.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UmzugsOperationen\UmzuegeSearch.resx">
@@ -251,16 +301,16 @@
     <EmbeddedResource Include="UmzugsOperationen\UmzugFortschritt.resx">
       <DependentUpon>UmzugFortschritt.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Besichtigungs Vordruck.pdf">
+    <None Include="Laufzettel\Besichtigungs Vordruck.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="client_secret.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Laufzettel Besichtigung.pdf">
+    <None Include="Laufzettel\Laufzettel Besichtigung.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Laufzettel Kartonagen+Schilder.pdf">
+    <None Include="Laufzettel\Laufzettel Kartonagen+Schilder.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
@@ -276,11 +326,32 @@
     <None Include="Testformular.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <EntityDeploy Include="Umzuege.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Umzuege.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Umzuege.edmx.diagram">
+      <DependentUpon>Umzuege.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Umzuege.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Umzuege.Context.cs</LastGenOutput>
+      <DependentUpon>Umzuege.edmx</DependentUpon>
+    </Content>
+    <Content Include="Umzuege.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Umzuege.edmx</DependentUpon>
+      <LastGenOutput>Umzuege1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,0 +1,614 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="UmzuegeModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Kunden">
+          <Key>
+            <PropertyRef Name="idKunden" />
+          </Key>
+          <Property Name="idKunden" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Anrede" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Vorname" Type="varchar" MaxLength="45" />
+          <Property Name="Nachname" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Telefonnummer" Type="varchar" MaxLength="45" />
+          <Property Name="Handynummer" Type="varchar" MaxLength="45" />
+          <Property Name="Email" Type="varchar" MaxLength="45" />
+          <Property Name="Straße" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Hausnummer" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="PLZ" Type="int" Nullable="false" />
+          <Property Name="Ort" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Land" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="UserChanged" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Erstelldatum" Type="date" Nullable="false" />
+          <Property Name="Bemerkung" Type="text" />
+        </EntityType>
+        <EntityType Name="Lagerbestaende">
+          <Key>
+            <PropertyRef Name="idLagerbestaende" />
+          </Key>
+          <Property Name="idLagerbestaende" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BuChungsdatum" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Kartons" Type="int" />
+          <Property Name="GlaeserKartons" Type="int" />
+          <Property Name="FlasChenKartons" Type="int" />
+          <Property Name="KleiderKartons" Type="int" />
+          <Property Name="UserChanged" Type="varchar" MaxLength="45" />
+          <Property Name="Bemerkung" Type="text" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'def.Umzuege.Lagerbestand' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Lagerbestand">
+          <Property Name="buchDatum" Type="date" />
+          <Property Name="Kartons" Type="int" />
+          <Property Name="FlaschenKartons" Type="int" />
+          <Property Name="GlaeserKartons" Type="int" />
+          <Property Name="KleiderKartons" Type="int" />
+          <Property Name="Bemerkungen" Type="text" />
+          <Property Name="UserChanged" Type="int" />
+        </EntityType>-->
+        <EntityType Name="Transaktionen">
+          <Key>
+            <PropertyRef Name="idTransaktionen" />
+            <PropertyRef Name="Umzuege_idUmzuege" />
+            <PropertyRef Name="Umzuege_Kunden_idKunden" />
+          </Key>
+          <Property Name="idTransaktionen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="datTransaktion" Type="date" />
+          <Property Name="Kartons" Type="int" />
+          <Property Name="FlaschenKartons" Type="int" />
+          <Property Name="GlaeserKartons" Type="int" />
+          <Property Name="KleiderKartons" Type="int" />
+          <Property Name="Umzuege_idUmzuege" Type="int" Nullable="false" />
+          <Property Name="Umzuege_Kunden_idKunden" Type="int" Nullable="false" />
+          <Property Name="Bemerkungen" Type="text" />
+          <Property Name="UserChanged" Type="varchar" MaxLength="45" />
+          <Property Name="Erstelldatum" Type="date" />
+          <Property Name="unbenutzt" Type="int" />
+          <Property Name="RechnungsNr" Type="varchar" MaxLength="30" />
+          <Property Name="timeTransaktion" Type="datetime" Precision="0" />
+          <Property Name="final" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Umzuege">
+          <Key>
+            <PropertyRef Name="idUmzuege" />
+            <PropertyRef Name="Kunden_idKunden" />
+          </Key>
+          <Property Name="idUmzuege" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kunden_idKunden" Type="int" Nullable="false" />
+          <Property Name="datBesichtigung" Type="date" />
+          <Property Name="datUmzug" Type="date" />
+          <Property Name="datRuempelung" Type="date" />
+          <Property Name="datEinpacken" Type="date" />
+          <Property Name="datAuspacken" Type="date" />
+          <Property Name="AufzugA" Type="int" />
+          <Property Name="AufzugB" Type="int" />
+          <Property Name="HVZA" Type="int" />
+          <Property Name="HVZB" Type="int" />
+          <Property Name="StockwerkeA" Type="int" />
+          <Property Name="StockwerkeB" Type="int" />
+          <Property Name="LaufmeterA" Type="int" />
+          <Property Name="LaufmeterB" Type="int" />
+          <Property Name="Einpacken" Type="int" />
+          <Property Name="Auspacken" Type="int" />
+          <Property Name="PackerZahl" Type="int" />
+          <Property Name="Kartons" Type="int" />
+          <Property Name="Kleiderkisten" Type="int" />
+          <Property Name="Mann" Type="int" />
+          <Property Name="Stunden" Type="int" />
+          <Property Name="SchilderBool" Type="int" />
+          <Property Name="SchilderZeit" Type="date" />
+          <Property Name="KuecheAb" Type="int" />
+          <Property Name="KuecheAuf" Type="int" />
+          <Property Name="KuecheBau" Type="int" />
+          <Property Name="KuechePausch" Type="int" />
+          <Property Name="UmzugsDauer" Type="int" />
+          <Property Name="Autos" Type="varchar" MaxLength="45" />
+          <Property Name="StraßeA" Type="varchar" MaxLength="45" />
+          <Property Name="HausnummerA" Type="varchar" MaxLength="45" />
+          <Property Name="PLZA" Type="int" />
+          <Property Name="OrtA" Type="varchar" MaxLength="45" />
+          <Property Name="LandA" Type="varchar" MaxLength="45" />
+          <Property Name="StraßeB" Type="varchar" MaxLength="45" />
+          <Property Name="HausnummerB" Type="varchar" MaxLength="45" />
+          <Property Name="PLZB" Type="int" />
+          <Property Name="OrtB" Type="varchar" MaxLength="45" />
+          <Property Name="LandB" Type="varchar" MaxLength="45" />
+          <Property Name="NotizBuero" Type="text" />
+          <Property Name="NotizFahrer" Type="text" />
+          <Property Name="UserChanged" Type="varchar" MaxLength="45" />
+          <Property Name="Erstelldatum" Type="date" />
+          <Property Name="PackerStunden" Type="int" />
+          <Property Name="StatUmz" Type="int" />
+          <Property Name="StatBes" Type="int" />
+          <Property Name="StatAus" Type="int" />
+          <Property Name="StatEin" Type="int" />
+          <Property Name="StatEnt" Type="int" />
+          <Property Name="umzugsZeit" Type="time" Precision="0" />
+          <Property Name="HausTypA" Type="varchar" MaxLength="20" />
+          <Property Name="HausTypB" Type="varchar" MaxLength="20" />
+          <Property Name="AussenAufzugA" Type="int" />
+          <Property Name="AussenAufzugB" Type="int" />
+          <Property Name="BemerkungTitel" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Umzugsfortschritt">
+          <Key>
+            <PropertyRef Name="idUmzugsfortschritt" />
+            <PropertyRef Name="Umzuege_idUmzuege" />
+          </Key>
+          <Property Name="idUmzugsfortschritt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Besichtigung" Type="int" />
+          <Property Name="datBesichtigung" Type="date" />
+          <Property Name="KVAMail" Type="int" />
+          <Property Name="datKVAMail" Type="date" />
+          <Property Name="KVAPost" Type="int" />
+          <Property Name="datKVAPost" Type="date" />
+          <Property Name="BuchungTel" Type="int" />
+          <Property Name="datBuchungTel" Type="date" />
+          <Property Name="BuchungSchrift" Type="int" />
+          <Property Name="datBuchungSchrift" Type="date" />
+          <Property Name="BuchungFin" Type="int" />
+          <Property Name="datBuchungFin" Type="date" />
+          <Property Name="Bestaetigung" Type="int" />
+          <Property Name="datBestaetigung" Type="date" />
+          <Property Name="LKW" Type="int" />
+          <Property Name="datLKW" Type="date" />
+          <Property Name="HVZWunder" Type="int" />
+          <Property Name="datHVZWunder" Type="date" />
+          <Property Name="HVZAntrag" Type="int" />
+          <Property Name="datHVZAntrag" Type="date" />
+          <Property Name="KuecheTermin" Type="int" />
+          <Property Name="datKuecheTermin" Type="date" />
+          <Property Name="KVAKorrektur" Type="int" />
+          <Property Name="datKVAKorrektur" Type="date" />
+          <Property Name="Bemerkung" Type="text" />
+          <Property Name="Umzuege_idUmzuege" Type="int" Nullable="false" />
+          <Property Name="Schaden" Type="int" />
+          <Property Name="HVZKosten" Type="int" />
+          <Property Name="Sonderkosten" Type="int" />
+          <Property Name="SummeKosten" Type="int" />
+          <Property Name="Erinnerung" Type="int" />
+          <Property Name="datErinnerung" Type="date" />
+          <Property Name="abgeschlossen" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_Transaktionen_Umzuege1">
+          <End Role="Umzuege" Type="Self.Umzuege" Multiplicity="1" />
+          <End Role="Transaktionen" Type="Self.Transaktionen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Umzuege">
+              <PropertyRef Name="idUmzuege" />
+              <PropertyRef Name="Kunden_idKunden" />
+            </Principal>
+            <Dependent Role="Transaktionen">
+              <PropertyRef Name="Umzuege_idUmzuege" />
+              <PropertyRef Name="Umzuege_Kunden_idKunden" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Umzuege_Kunden">
+          <End Role="Kunden" Type="Self.Kunden" Multiplicity="1" />
+          <End Role="Umzuege" Type="Self.Umzuege" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kunden">
+              <PropertyRef Name="idKunden" />
+            </Principal>
+            <Dependent Role="Umzuege">
+              <PropertyRef Name="Kunden_idKunden" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'fk_Umzugsfortschritt_Umzuege' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="fk_Umzugsfortschritt_Umzuege" />-->
+        <EntityContainer Name="UmzuegeModelStoreContainer">
+          <EntitySet Name="Kunden" EntityType="Self.Kunden" Schema="Umzuege" store:Type="Tables" />
+          <EntitySet Name="Lagerbestaende" EntityType="Self.Lagerbestaende" Schema="Umzuege" store:Type="Tables" />
+          <EntitySet Name="Transaktionen" EntityType="Self.Transaktionen" Schema="Umzuege" store:Type="Tables" />
+          <EntitySet Name="Umzuege" EntityType="Self.Umzuege" Schema="Umzuege" store:Type="Tables" />
+          <EntitySet Name="Umzugsfortschritt" EntityType="Self.Umzugsfortschritt" Schema="Umzuege" store:Type="Tables" />
+          <AssociationSet Name="fk_Transaktionen_Umzuege1" Association="Self.fk_Transaktionen_Umzuege1">
+            <End Role="Umzuege" EntitySet="Umzuege" />
+            <End Role="Transaktionen" EntitySet="Transaktionen" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Umzuege_Kunden" Association="Self.fk_Umzuege_Kunden">
+            <End Role="Kunden" EntitySet="Kunden" />
+            <End Role="Umzuege" EntitySet="Umzuege" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UmzuegeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Kunden">
+          <Key>
+            <PropertyRef Name="idKunden" />
+          </Key>
+          <Property Name="idKunden" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Anrede" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Vorname" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Nachname" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefonnummer" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Handynummer" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Straße" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Hausnummer" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PLZ" Type="Int32" Nullable="false" />
+          <Property Name="Ort" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Land" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserChanged" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Erstelldatum" Type="DateTime" Nullable="false" />
+          <Property Name="Bemerkung" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Umzueges" Relationship="Self.fk_Umzuege_Kunden" FromRole="Kunden" ToRole="Umzuege" />
+        </EntityType>
+        <EntityType Name="Lagerbestaende">
+          <Key>
+            <PropertyRef Name="idLagerbestaende" />
+          </Key>
+          <Property Name="idLagerbestaende" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BuChungsdatum" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Kartons" Type="Int32" />
+          <Property Name="GlaeserKartons" Type="Int32" />
+          <Property Name="FlasChenKartons" Type="Int32" />
+          <Property Name="KleiderKartons" Type="Int32" />
+          <Property Name="UserChanged" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Bemerkung" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Transaktionen">
+          <Key>
+            <PropertyRef Name="idTransaktionen" />
+            <PropertyRef Name="Umzuege_idUmzuege" />
+            <PropertyRef Name="Umzuege_Kunden_idKunden" />
+          </Key>
+          <Property Name="idTransaktionen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="datTransaktion" Type="DateTime" />
+          <Property Name="Kartons" Type="Int32" />
+          <Property Name="FlaschenKartons" Type="Int32" />
+          <Property Name="GlaeserKartons" Type="Int32" />
+          <Property Name="KleiderKartons" Type="Int32" />
+          <Property Name="Umzuege_idUmzuege" Type="Int32" Nullable="false" />
+          <Property Name="Umzuege_Kunden_idKunden" Type="Int32" Nullable="false" />
+          <Property Name="Bemerkungen" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="UserChanged" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Erstelldatum" Type="DateTime" />
+          <Property Name="unbenutzt" Type="Int32" />
+          <Property Name="RechnungsNr" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="timeTransaktion" Type="DateTime" />
+          <Property Name="final" Type="SByte" />
+          <NavigationProperty Name="Umzuege" Relationship="Self.fk_Transaktionen_Umzuege1" FromRole="Transaktionen" ToRole="Umzuege" />
+        </EntityType>
+        <EntityType Name="Umzuege">
+          <Key>
+            <PropertyRef Name="idUmzuege" />
+            <PropertyRef Name="Kunden_idKunden" />
+          </Key>
+          <Property Name="idUmzuege" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kunden_idKunden" Type="Int32" Nullable="false" />
+          <Property Name="datBesichtigung" Type="DateTime" />
+          <Property Name="datUmzug" Type="DateTime" />
+          <Property Name="datRuempelung" Type="DateTime" />
+          <Property Name="datEinpacken" Type="DateTime" />
+          <Property Name="datAuspacken" Type="DateTime" />
+          <Property Name="AufzugA" Type="Int32" />
+          <Property Name="AufzugB" Type="Int32" />
+          <Property Name="HVZA" Type="Int32" />
+          <Property Name="HVZB" Type="Int32" />
+          <Property Name="StockwerkeA" Type="Int32" />
+          <Property Name="StockwerkeB" Type="Int32" />
+          <Property Name="LaufmeterA" Type="Int32" />
+          <Property Name="LaufmeterB" Type="Int32" />
+          <Property Name="Einpacken" Type="Int32" />
+          <Property Name="Auspacken" Type="Int32" />
+          <Property Name="PackerZahl" Type="Int32" />
+          <Property Name="Kartons" Type="Int32" />
+          <Property Name="Kleiderkisten" Type="Int32" />
+          <Property Name="Mann" Type="Int32" />
+          <Property Name="Stunden" Type="Int32" />
+          <Property Name="SchilderBool" Type="Int32" />
+          <Property Name="SchilderZeit" Type="DateTime" />
+          <Property Name="KuecheAb" Type="Int32" />
+          <Property Name="KuecheAuf" Type="Int32" />
+          <Property Name="KuecheBau" Type="Int32" />
+          <Property Name="KuechePausch" Type="Int32" />
+          <Property Name="UmzugsDauer" Type="Int32" />
+          <Property Name="Autos" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="StraßeA" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="HausnummerA" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="PLZA" Type="Int32" />
+          <Property Name="OrtA" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="LandA" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="StraßeB" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="HausnummerB" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="PLZB" Type="Int32" />
+          <Property Name="OrtB" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="LandB" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="NotizBuero" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="NotizFahrer" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="UserChanged" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Erstelldatum" Type="DateTime" />
+          <Property Name="PackerStunden" Type="Int32" />
+          <Property Name="StatUmz" Type="Int32" />
+          <Property Name="StatBes" Type="Int32" />
+          <Property Name="StatAus" Type="Int32" />
+          <Property Name="StatEin" Type="Int32" />
+          <Property Name="StatEnt" Type="Int32" />
+          <Property Name="umzugsZeit" Type="Time" />
+          <Property Name="HausTypA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="HausTypB" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AussenAufzugA" Type="Int32" />
+          <Property Name="AussenAufzugB" Type="Int32" />
+          <Property Name="BemerkungTitel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Kunden" Relationship="Self.fk_Umzuege_Kunden" FromRole="Umzuege" ToRole="Kunden" />
+          <NavigationProperty Name="Transaktionens" Relationship="Self.fk_Transaktionen_Umzuege1" FromRole="Umzuege" ToRole="Transaktionen" />
+        </EntityType>
+        <EntityType Name="Umzugsfortschritt">
+          <Key>
+            <PropertyRef Name="idUmzugsfortschritt" />
+            <PropertyRef Name="Umzuege_idUmzuege" />
+          </Key>
+          <Property Name="idUmzugsfortschritt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Besichtigung" Type="Int32" />
+          <Property Name="datBesichtigung" Type="DateTime" />
+          <Property Name="KVAMail" Type="Int32" />
+          <Property Name="datKVAMail" Type="DateTime" />
+          <Property Name="KVAPost" Type="Int32" />
+          <Property Name="datKVAPost" Type="DateTime" />
+          <Property Name="BuchungTel" Type="Int32" />
+          <Property Name="datBuchungTel" Type="DateTime" />
+          <Property Name="BuchungSchrift" Type="Int32" />
+          <Property Name="datBuchungSchrift" Type="DateTime" />
+          <Property Name="BuchungFin" Type="Int32" />
+          <Property Name="datBuchungFin" Type="DateTime" />
+          <Property Name="Bestaetigung" Type="Int32" />
+          <Property Name="datBestaetigung" Type="DateTime" />
+          <Property Name="LKW" Type="Int32" />
+          <Property Name="datLKW" Type="DateTime" />
+          <Property Name="HVZWunder" Type="Int32" />
+          <Property Name="datHVZWunder" Type="DateTime" />
+          <Property Name="HVZAntrag" Type="Int32" />
+          <Property Name="datHVZAntrag" Type="DateTime" />
+          <Property Name="KuecheTermin" Type="Int32" />
+          <Property Name="datKuecheTermin" Type="DateTime" />
+          <Property Name="KVAKorrektur" Type="Int32" />
+          <Property Name="datKVAKorrektur" Type="DateTime" />
+          <Property Name="Bemerkung" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Umzuege_idUmzuege" Type="Int32" Nullable="false" />
+          <Property Name="Schaden" Type="Int32" />
+          <Property Name="HVZKosten" Type="Int32" />
+          <Property Name="Sonderkosten" Type="Int32" />
+          <Property Name="SummeKosten" Type="Int32" />
+          <Property Name="Erinnerung" Type="Int32" />
+          <Property Name="datErinnerung" Type="DateTime" />
+          <Property Name="abgeschlossen" Type="SByte" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_Umzuege_Kunden">
+          <End Role="Kunden" Type="Self.Kunden" Multiplicity="1" />
+          <End Role="Umzuege" Type="Self.Umzuege" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kunden">
+              <PropertyRef Name="idKunden" />
+            </Principal>
+            <Dependent Role="Umzuege">
+              <PropertyRef Name="Kunden_idKunden" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Transaktionen_Umzuege1">
+          <End Role="Umzuege" Type="Self.Umzuege" Multiplicity="1" />
+          <End Role="Transaktionen" Type="Self.Transaktionen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Umzuege">
+              <PropertyRef Name="idUmzuege" />
+              <PropertyRef Name="Kunden_idKunden" />
+            </Principal>
+            <Dependent Role="Transaktionen">
+              <PropertyRef Name="Umzuege_idUmzuege" />
+              <PropertyRef Name="Umzuege_Kunden_idKunden" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UmzuegeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Kundens" EntityType="Self.Kunden" />
+          <EntitySet Name="Lagerbestaendes" EntityType="Self.Lagerbestaende" />
+          <EntitySet Name="Transaktionens" EntityType="Self.Transaktionen" />
+          <EntitySet Name="Umzueges" EntityType="Self.Umzuege" />
+          <EntitySet Name="Umzugsfortschritts" EntityType="Self.Umzugsfortschritt" />
+          <AssociationSet Name="fk_Umzuege_Kunden" Association="Self.fk_Umzuege_Kunden">
+            <End Role="Kunden" EntitySet="Kundens" />
+            <End Role="Umzuege" EntitySet="Umzueges" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Transaktionen_Umzuege1" Association="Self.fk_Transaktionen_Umzuege1">
+            <End Role="Umzuege" EntitySet="Umzueges" />
+            <End Role="Transaktionen" EntitySet="Transaktionens" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UmzuegeModelStoreContainer" CdmEntityContainer="UmzuegeEntities">
+          <EntitySetMapping Name="Kundens">
+            <EntityTypeMapping TypeName="UmzuegeModel.Kunden">
+              <MappingFragment StoreEntitySet="Kunden">
+                <ScalarProperty Name="idKunden" ColumnName="idKunden" />
+                <ScalarProperty Name="Anrede" ColumnName="Anrede" />
+                <ScalarProperty Name="Vorname" ColumnName="Vorname" />
+                <ScalarProperty Name="Nachname" ColumnName="Nachname" />
+                <ScalarProperty Name="Telefonnummer" ColumnName="Telefonnummer" />
+                <ScalarProperty Name="Handynummer" ColumnName="Handynummer" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Straße" ColumnName="Straße" />
+                <ScalarProperty Name="Hausnummer" ColumnName="Hausnummer" />
+                <ScalarProperty Name="PLZ" ColumnName="PLZ" />
+                <ScalarProperty Name="Ort" ColumnName="Ort" />
+                <ScalarProperty Name="Land" ColumnName="Land" />
+                <ScalarProperty Name="UserChanged" ColumnName="UserChanged" />
+                <ScalarProperty Name="Erstelldatum" ColumnName="Erstelldatum" />
+                <ScalarProperty Name="Bemerkung" ColumnName="Bemerkung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lagerbestaendes">
+            <EntityTypeMapping TypeName="UmzuegeModel.Lagerbestaende">
+              <MappingFragment StoreEntitySet="Lagerbestaende">
+                <ScalarProperty Name="idLagerbestaende" ColumnName="idLagerbestaende" />
+                <ScalarProperty Name="BuChungsdatum" ColumnName="BuChungsdatum" />
+                <ScalarProperty Name="Kartons" ColumnName="Kartons" />
+                <ScalarProperty Name="GlaeserKartons" ColumnName="GlaeserKartons" />
+                <ScalarProperty Name="FlasChenKartons" ColumnName="FlasChenKartons" />
+                <ScalarProperty Name="KleiderKartons" ColumnName="KleiderKartons" />
+                <ScalarProperty Name="UserChanged" ColumnName="UserChanged" />
+                <ScalarProperty Name="Bemerkung" ColumnName="Bemerkung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transaktionens">
+            <EntityTypeMapping TypeName="UmzuegeModel.Transaktionen">
+              <MappingFragment StoreEntitySet="Transaktionen">
+                <ScalarProperty Name="idTransaktionen" ColumnName="idTransaktionen" />
+                <ScalarProperty Name="datTransaktion" ColumnName="datTransaktion" />
+                <ScalarProperty Name="Kartons" ColumnName="Kartons" />
+                <ScalarProperty Name="FlaschenKartons" ColumnName="FlaschenKartons" />
+                <ScalarProperty Name="GlaeserKartons" ColumnName="GlaeserKartons" />
+                <ScalarProperty Name="KleiderKartons" ColumnName="KleiderKartons" />
+                <ScalarProperty Name="Umzuege_idUmzuege" ColumnName="Umzuege_idUmzuege" />
+                <ScalarProperty Name="Umzuege_Kunden_idKunden" ColumnName="Umzuege_Kunden_idKunden" />
+                <ScalarProperty Name="Bemerkungen" ColumnName="Bemerkungen" />
+                <ScalarProperty Name="UserChanged" ColumnName="UserChanged" />
+                <ScalarProperty Name="Erstelldatum" ColumnName="Erstelldatum" />
+                <ScalarProperty Name="unbenutzt" ColumnName="unbenutzt" />
+                <ScalarProperty Name="RechnungsNr" ColumnName="RechnungsNr" />
+                <ScalarProperty Name="timeTransaktion" ColumnName="timeTransaktion" />
+                <ScalarProperty Name="final" ColumnName="final" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Umzueges">
+            <EntityTypeMapping TypeName="UmzuegeModel.Umzuege">
+              <MappingFragment StoreEntitySet="Umzuege">
+                <ScalarProperty Name="idUmzuege" ColumnName="idUmzuege" />
+                <ScalarProperty Name="Kunden_idKunden" ColumnName="Kunden_idKunden" />
+                <ScalarProperty Name="datBesichtigung" ColumnName="datBesichtigung" />
+                <ScalarProperty Name="datUmzug" ColumnName="datUmzug" />
+                <ScalarProperty Name="datRuempelung" ColumnName="datRuempelung" />
+                <ScalarProperty Name="datEinpacken" ColumnName="datEinpacken" />
+                <ScalarProperty Name="datAuspacken" ColumnName="datAuspacken" />
+                <ScalarProperty Name="AufzugA" ColumnName="AufzugA" />
+                <ScalarProperty Name="AufzugB" ColumnName="AufzugB" />
+                <ScalarProperty Name="HVZA" ColumnName="HVZA" />
+                <ScalarProperty Name="HVZB" ColumnName="HVZB" />
+                <ScalarProperty Name="StockwerkeA" ColumnName="StockwerkeA" />
+                <ScalarProperty Name="StockwerkeB" ColumnName="StockwerkeB" />
+                <ScalarProperty Name="LaufmeterA" ColumnName="LaufmeterA" />
+                <ScalarProperty Name="LaufmeterB" ColumnName="LaufmeterB" />
+                <ScalarProperty Name="Einpacken" ColumnName="Einpacken" />
+                <ScalarProperty Name="Auspacken" ColumnName="Auspacken" />
+                <ScalarProperty Name="PackerZahl" ColumnName="PackerZahl" />
+                <ScalarProperty Name="Kartons" ColumnName="Kartons" />
+                <ScalarProperty Name="Kleiderkisten" ColumnName="Kleiderkisten" />
+                <ScalarProperty Name="Mann" ColumnName="Mann" />
+                <ScalarProperty Name="Stunden" ColumnName="Stunden" />
+                <ScalarProperty Name="SchilderBool" ColumnName="SchilderBool" />
+                <ScalarProperty Name="SchilderZeit" ColumnName="SchilderZeit" />
+                <ScalarProperty Name="KuecheAb" ColumnName="KuecheAb" />
+                <ScalarProperty Name="KuecheAuf" ColumnName="KuecheAuf" />
+                <ScalarProperty Name="KuecheBau" ColumnName="KuecheBau" />
+                <ScalarProperty Name="KuechePausch" ColumnName="KuechePausch" />
+                <ScalarProperty Name="UmzugsDauer" ColumnName="UmzugsDauer" />
+                <ScalarProperty Name="Autos" ColumnName="Autos" />
+                <ScalarProperty Name="StraßeA" ColumnName="StraßeA" />
+                <ScalarProperty Name="HausnummerA" ColumnName="HausnummerA" />
+                <ScalarProperty Name="PLZA" ColumnName="PLZA" />
+                <ScalarProperty Name="OrtA" ColumnName="OrtA" />
+                <ScalarProperty Name="LandA" ColumnName="LandA" />
+                <ScalarProperty Name="StraßeB" ColumnName="StraßeB" />
+                <ScalarProperty Name="HausnummerB" ColumnName="HausnummerB" />
+                <ScalarProperty Name="PLZB" ColumnName="PLZB" />
+                <ScalarProperty Name="OrtB" ColumnName="OrtB" />
+                <ScalarProperty Name="LandB" ColumnName="LandB" />
+                <ScalarProperty Name="NotizBuero" ColumnName="NotizBuero" />
+                <ScalarProperty Name="NotizFahrer" ColumnName="NotizFahrer" />
+                <ScalarProperty Name="UserChanged" ColumnName="UserChanged" />
+                <ScalarProperty Name="Erstelldatum" ColumnName="Erstelldatum" />
+                <ScalarProperty Name="PackerStunden" ColumnName="PackerStunden" />
+                <ScalarProperty Name="StatUmz" ColumnName="StatUmz" />
+                <ScalarProperty Name="StatBes" ColumnName="StatBes" />
+                <ScalarProperty Name="StatAus" ColumnName="StatAus" />
+                <ScalarProperty Name="StatEin" ColumnName="StatEin" />
+                <ScalarProperty Name="StatEnt" ColumnName="StatEnt" />
+                <ScalarProperty Name="umzugsZeit" ColumnName="umzugsZeit" />
+                <ScalarProperty Name="HausTypA" ColumnName="HausTypA" />
+                <ScalarProperty Name="HausTypB" ColumnName="HausTypB" />
+                <ScalarProperty Name="AussenAufzugA" ColumnName="AussenAufzugA" />
+                <ScalarProperty Name="AussenAufzugB" ColumnName="AussenAufzugB" />
+                <ScalarProperty Name="BemerkungTitel" ColumnName="BemerkungTitel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Umzugsfortschritts">
+            <EntityTypeMapping TypeName="UmzuegeModel.Umzugsfortschritt">
+              <MappingFragment StoreEntitySet="Umzugsfortschritt">
+                <ScalarProperty Name="idUmzugsfortschritt" ColumnName="idUmzugsfortschritt" />
+                <ScalarProperty Name="Besichtigung" ColumnName="Besichtigung" />
+                <ScalarProperty Name="datBesichtigung" ColumnName="datBesichtigung" />
+                <ScalarProperty Name="KVAMail" ColumnName="KVAMail" />
+                <ScalarProperty Name="datKVAMail" ColumnName="datKVAMail" />
+                <ScalarProperty Name="KVAPost" ColumnName="KVAPost" />
+                <ScalarProperty Name="datKVAPost" ColumnName="datKVAPost" />
+                <ScalarProperty Name="BuchungTel" ColumnName="BuchungTel" />
+                <ScalarProperty Name="datBuchungTel" ColumnName="datBuchungTel" />
+                <ScalarProperty Name="BuchungSchrift" ColumnName="BuchungSchrift" />
+                <ScalarProperty Name="datBuchungSchrift" ColumnName="datBuchungSchrift" />
+                <ScalarProperty Name="BuchungFin" ColumnName="BuchungFin" />
+                <ScalarProperty Name="datBuchungFin" ColumnName="datBuchungFin" />
+                <ScalarProperty Name="Bestaetigung" ColumnName="Bestaetigung" />
+                <ScalarProperty Name="datBestaetigung" ColumnName="datBestaetigung" />
+                <ScalarProperty Name="LKW" ColumnName="LKW" />
+                <ScalarProperty Name="datLKW" ColumnName="datLKW" />
+                <ScalarProperty Name="HVZWunder" ColumnName="HVZWunder" />
+                <ScalarProperty Name="datHVZWunder" ColumnName="datHVZWunder" />
+                <ScalarProperty Name="HVZAntrag" ColumnName="HVZAntrag" />
+                <ScalarProperty Name="datHVZAntrag" ColumnName="datHVZAntrag" />
+                <ScalarProperty Name="KuecheTermin" ColumnName="KuecheTermin" />
+                <ScalarProperty Name="datKuecheTermin" ColumnName="datKuecheTermin" />
+                <ScalarProperty Name="KVAKorrektur" ColumnName="KVAKorrektur" />
+                <ScalarProperty Name="datKVAKorrektur" ColumnName="datKVAKorrektur" />
+                <ScalarProperty Name="Bemerkung" ColumnName="Bemerkung" />
+                <ScalarProperty Name="Umzuege_idUmzuege" ColumnName="Umzuege_idUmzuege" />
+                <ScalarProperty Name="Schaden" ColumnName="Schaden" />
+                <ScalarProperty Name="HVZKosten" ColumnName="HVZKosten" />
+                <ScalarProperty Name="Sonderkosten" ColumnName="Sonderkosten" />
+                <ScalarProperty Name="SummeKosten" ColumnName="SummeKosten" />
+                <ScalarProperty Name="Erinnerung" ColumnName="Erinnerung" />
+                <ScalarProperty Name="datErinnerung" ColumnName="datErinnerung" />
+                <ScalarProperty Name="abgeschlossen" ColumnName="abgeschlossen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data;
 using MySql.Data.MySqlClient;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Calendar.v3;
@@ -10,16 +8,7 @@ using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using iText.Kernel.Pdf;
-using iText.Layout;
-using iText.Layout.Element;
-using iText.Kernel.Geom;
-using System.Globalization;
-using iText.Forms;
-using iText.Forms.Fields;
 using System.Diagnostics;
 using System.Xml;
 
