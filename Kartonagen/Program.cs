@@ -502,6 +502,31 @@ namespace Kartonagen
                 p.Kill();
         }
 
+        public static void FehlerLog(string Fehlermeldung, string Kurzbeschreibung) {
+
+            string path = Directory.GetCurrentDirectory() + "\\FehlerLog.txt";
+
+            if (!File.Exists(path)) {
+
+                // Datei erstellen
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine("Start");
+                }
+
+                // Eintrag machen
+                using (StreamWriter sw = File.AppendText(path))
+                {
+                    sw.WriteLine(Kurzbeschreibung +" "+ DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
+                    sw.WriteLine("");
+                    sw.WriteLine(Fehlermeldung);
+                    sw.WriteLine("");
+                }
+                
+                var box = MessageBox.Show(Kurzbeschreibung, Fehlermeldung);
+            }
+        }
+
         /// <summary>
         /// Der Haupteinstiegspunkt für die Anwendung.
         /// </summary>
@@ -550,8 +575,7 @@ namespace Kartonagen
                 System.Windows.Forms.Application.Exit();
             }
             // Öffnen des Fensters
-            Application.Run(new mainForm());
-                       
+            Application.Run(new mainForm());                       
         }
     }
 }
