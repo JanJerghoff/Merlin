@@ -246,16 +246,8 @@ namespace Kartonagen
             {
                 
                 String delete = "DELETE FROM Transaktionen WHERE idTransaktionen = " + textTransaktion.Text + " ;";
-                MySqlCommand cmdSend = new MySqlCommand(delete, Program.conn);
-                try
-                {
-                    cmdSend.ExecuteNonQuery();
-                    textTransaktionLog.AppendText("Transaktion erfolgreich gelöscht\r\n");
-                }
-                catch (Exception sqlEx)
-                {
-                    textTransaktionLog.Text += sqlEx.ToString();
-                }
+                
+                Program.absender(delete, "Löschen der Transaktion");
 
             }
             else

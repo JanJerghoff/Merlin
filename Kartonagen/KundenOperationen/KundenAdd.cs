@@ -157,7 +157,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textKundenAddLog.Text += sqlEx.ToString();
+                Program.FehlerLog(sqlEx.ToString(), "Hinzugefügten Kunden nicht gefunden \r\n Bereits dokumentiert.");
             }
 
             // Reset aller Datenfelder

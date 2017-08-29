@@ -67,7 +67,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textTransaktionLog.Text += sqlEx.ToString();
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Mitarbeiternamen \r\n Bereits dokumentiert.");
                 return;
             }
 
@@ -110,7 +110,7 @@ namespace Kartonagen
                 }
                 catch (Exception sqlEx)
                 {
-                    textTransaktionLog.Text += sqlEx.ToString();
+                    Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auffüllen der Transaktionsdaten \r\n Bereits dokumentiert.");
                     return;
                 }
             }
@@ -140,7 +140,7 @@ namespace Kartonagen
                     }
                     catch (Exception sqlEx)
                     {
-                        textTransaktionLog.Text += sqlEx.ToString();
+                        Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auffüllen der Kundendaten \r\n Bereits dokumentiert.");
                         return;
                     }
                 }
