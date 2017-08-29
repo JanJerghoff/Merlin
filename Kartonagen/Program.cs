@@ -33,17 +33,17 @@ namespace Kartonagen
 
         // PDF-Druckvorbereitung
         public static string druckPfad = System.IO.Path.Combine(Environment.CurrentDirectory, "temp2.pdf");
-
+        public static string fehlerPfad = System.IO.Path.Combine(Environment.CurrentDirectory, "fehler.txt");
 
         // Buero-geänderte-version
 
         // Deployment
-        //internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=Umzuege;port=3306;password=he62okv;");
-        //internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
+        internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=Umzuege;port=3306;password=he62okv;");
+        internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
 
         //Test
-        internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;");
-        internal static MySqlConnection conn2 = new MySqlConnection("server = 10.0.0.0;user=test;database=Mitarbeiter;port=3306;password=he62okv;");
+        //internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;");
+        //internal static MySqlConnection conn2 = new MySqlConnection("server = 10.0.0.0;user=test;database=Mitarbeiter;port=3306;password=he62okv;");
 
         // -------------- Methoden ---------------
 
@@ -503,34 +503,33 @@ namespace Kartonagen
         }
 
         public static void FehlerLog(string Fehlermeldung, string Kurzbeschreibung) {
-
-            string path = Directory.GetCurrentDirectory() + "\\FehlerLog.txt";
-
+            
             var box = MessageBox.Show(Kurzbeschreibung, "1");
 
-            if (!File.Exists(path)) {
+            if (!File.Exists(fehlerPfad))
+            {
 
                 var box3 = MessageBox.Show(Kurzbeschreibung, "1");
 
                 // Datei erstellen
-                using (StreamWriter sw = File.CreateText(path))
+                using (StreamWriter sw = File.CreateText(fehlerPfad))
                 {
                     sw.WriteLine("Start");
                 }
-
+            }
                 var box1 = MessageBox.Show(Kurzbeschreibung, "2");
 
-                // Eintrag machen
-                using (StreamWriter sw = File.AppendText(path))
-                {
-                    sw.WriteLine(Kurzbeschreibung +" "+ DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
-                    sw.WriteLine("");
-                    sw.WriteLine(Fehlermeldung);
-                    sw.WriteLine("");
-                }
-                
-                var box2 = MessageBox.Show(Kurzbeschreibung, "3");
+            // Eintrag machen
+            using (StreamWriter sw = File.AppendText(fehlerPfad))
+            {
+                sw.WriteLine(Kurzbeschreibung +" "+ DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
+                sw.WriteLine("");
+                sw.WriteLine(Fehlermeldung);
+                sw.WriteLine("");
             }
+                
+            var box2 = MessageBox.Show(Kurzbeschreibung, "3");
+            
         }
 
         /// <summary>
