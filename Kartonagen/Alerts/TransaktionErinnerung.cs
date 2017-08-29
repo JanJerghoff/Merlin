@@ -61,7 +61,7 @@ namespace Kartonagen
                 "UserChanged = '" + UserChanged + idBearbeitend + "', " +
                 "final = 1 WHERE idTransaktionen = " + id + ";";
 
-            Program.absender(update);
+            Program.absender(update, "Absenden der Transaktion aus einer Erinnerung");
         }
     }
 }
