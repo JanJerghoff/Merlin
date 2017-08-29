@@ -504,20 +504,17 @@ namespace Kartonagen
 
         public static void FehlerLog(string Fehlermeldung, string Kurzbeschreibung) {
             
-            var box = MessageBox.Show(Kurzbeschreibung, "1");
-
             if (!File.Exists(fehlerPfad))
-            {
-
-                var box3 = MessageBox.Show(Kurzbeschreibung, "1");
-
+            {                
                 // Datei erstellen
                 using (StreamWriter sw = File.CreateText(fehlerPfad))
                 {
+                    sw.WriteLine("");
                     sw.WriteLine("Start");
+                    sw.WriteLine("");
                 }
             }
-                var box1 = MessageBox.Show(Kurzbeschreibung, "2");
+            
 
             // Eintrag machen
             using (StreamWriter sw = File.AppendText(fehlerPfad))
@@ -528,7 +525,7 @@ namespace Kartonagen
                 sw.WriteLine("");
             }
                 
-            var box2 = MessageBox.Show(Kurzbeschreibung, "3");
+            var box2 = MessageBox.Show(Kurzbeschreibung, "Fehler");
             
         }
 
