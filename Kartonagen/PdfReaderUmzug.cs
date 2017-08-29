@@ -9,9 +9,11 @@ namespace Kartonagen
     class PdfReaderUmzug
     {
 
-        public PdfReaderUmzug () {
+        int umzugsnr = 0;
 
+        public PdfReaderUmzug (int UmzugsNummer) {
+            umzugsnr = UmzugsNummer;
         }
-
+        
     }
 }
