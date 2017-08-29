@@ -216,7 +216,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textLog.Text += sqlEx.ToString();
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Kartondaten \r\n Bereits dokumentiert.");
             }
 
             // Gegenprüfen mittels Kalender
@@ -301,7 +301,7 @@ namespace Kartonagen
             form.FlattenFields();
             try { pdf.Close(); }
             catch (Exception ex)
-            { textLog.Text += "why?" + ex.ToString(); }
+            { Program.FehlerLog(ex.ToString(), "Fehler beim schließen des PDF \r\n Bereits dokumentiert."); }
 
             Program.SendToPrinter();
 

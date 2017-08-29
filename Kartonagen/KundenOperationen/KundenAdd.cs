@@ -138,16 +138,7 @@ namespace Kartonagen
             insert += "'" + textKundenAddBemerkung.Text + "'); ";
 
             // String fertig, absenden
-            MySqlCommand cmdAdd = new MySqlCommand(insert, Program.conn);
-            try
-            {
-                cmdAdd.ExecuteNonQuery();
-            }
-            catch (Exception sqlEx)
-            {
-                textKundenAddLog.Text += sqlEx.ToString();
-                return;
-            }
+            Program.absender(insert, "Einfügen des Kunden in die DB");
 
             //Abfrage und Bestädtigungsmeldung.
             MySqlCommand cmdShow = new MySqlCommand("SELECT * FROM Kunden ORDER BY idKunden DESC LIMIT 1;", Program.conn);
@@ -166,7 +157,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textKundenAddLog.Text += sqlEx.ToString();
+                Program.FehlerLog(sqlEx.ToString(), "Hinzugefügten Kunden nicht gefunden \r\n Bereits dokumentiert.");
             }
 
             // Reset aller Datenfelder

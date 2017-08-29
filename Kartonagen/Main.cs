@@ -168,9 +168,11 @@ namespace Kartonagen
 
         private void buttonErinnerungen_Click(object sender, EventArgs e)
         {
-            Erinnerungen er = new Erinnerungen();
-            er.setIdBearbeitend(getBearbeitender());
-            er.Show();
+            //Erinnerungen er = new Erinnerungen();
+            //er.setIdBearbeitend(getBearbeitender());
+            //er.Show();
+
+            Program.FehlerLog("BLABLABLA SQL XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", "Ein Fehler Oh noes");
         }
     }
 }

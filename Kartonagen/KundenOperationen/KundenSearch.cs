@@ -84,7 +84,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textKundenSearchLog.Text += sqlEx.ToString();
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auffüllen der Kundendaten \r\n Bereits dokumentiert.");
                 return;
             }
 
@@ -165,7 +165,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textKundenSearchLog.Text += sqlEx.ToString();
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim finden des Kunden in der DB \r\n Bereits dokumentiert.");
                 return;
             }
 
@@ -186,20 +186,7 @@ namespace Kartonagen
                 }
             }
 
-        }
-
-        private void pushChange(String command) {
-            MySqlCommand change = new MySqlCommand(command, Program.conn);
-            try
-            {
-                change.ExecuteNonQuery();
-            }
-            catch (Exception sqlEx)
-            {
-                textKundenSearchLog.Text += sqlEx.ToString();
-                return;
-            }
-        }
+        }        
 
         //  Einzelne Updatefunktionen
         //  für die jeweiligen Felder
@@ -315,7 +302,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textKundenSearchLog.Text += sqlEx.ToString();
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Umzugsadresse \r\n Bereits dokumentiert.");
                 return;
             }
 
@@ -390,7 +377,7 @@ namespace Kartonagen
                 }
                 catch (Exception sqlEx)
                 {
-                    textKundenSearchLog.Text += sqlEx.ToString();
+                    Program.FehlerLog(sqlEx.ToString(), "Fehler beim Mitarbeiter löschen \r\n Bereits dokumentiert.");
                 }
             }
             else

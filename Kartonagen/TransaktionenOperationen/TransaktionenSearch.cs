@@ -36,7 +36,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textTransaktionLog.Text += sqlEx.ToString();
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der max Transaktionsnummer \r\n Bereits dokumentiert.");
                 return;
             }
         }
@@ -126,7 +126,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textTransaktionLog.Text += sqlEx.ToString();
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auffüllen der Transaktionen \r\n Bereits dokumentiert.");
                 return;
             }
 
@@ -148,7 +148,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textTransaktionLog.Text += sqlEx.ToString();
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Umzugsdaten fürs Auffüllen \r\n Bereits dokumentiert.");
                 return;
             }
 
@@ -169,7 +169,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textTransaktionLog.Text += sqlEx.ToString();
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Personendaten \r\n Bereits dokumentiert.");
                 return;
             }
         }
@@ -225,19 +225,8 @@ namespace Kartonagen
                 push += "unbenutzt = 0 ";
             }
 
-            MySqlCommand cmdAdd = new MySqlCommand(push+shove, Program.conn);
-            try
-            {
+            Program.absender(push + shove, "Fehler beim ändern einer Transaktion in der DB");
 
-                cmdAdd.ExecuteNonQuery();
-                textTransaktionLog.AppendText("Erfolgreich gespeichert.\r\n");
-            }
-            catch (Exception sqlEx)
-            {
-                textTransaktionLog.Text += sqlEx.ToString() + "\r\n";
-                return;
-            }
-                        
             //Neu Fuellen
             fuellen(int.Parse(textTransaktion.Text));
             
@@ -257,16 +246,8 @@ namespace Kartonagen
             {
                 
                 String delete = "DELETE FROM Transaktionen WHERE idTransaktionen = " + textTransaktion.Text + " ;";
-                MySqlCommand cmdSend = new MySqlCommand(delete, Program.conn);
-                try
-                {
-                    cmdSend.ExecuteNonQuery();
-                    textTransaktionLog.AppendText("Transaktion erfolgreich gelöscht\r\n");
-                }
-                catch (Exception sqlEx)
-                {
-                    textTransaktionLog.Text += sqlEx.ToString();
-                }
+                
+                Program.absender(delete, "Löschen der Transaktion");
 
             }
             else

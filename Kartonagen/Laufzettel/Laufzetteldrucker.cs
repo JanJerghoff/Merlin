@@ -68,8 +68,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-
-                textLog.Text += sqlEx.ToString();
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der zu druckenden Daten \r\n Bereits dokumentiert.");
             }
 
             textAnschrift1.Text = Anschriften[0];
@@ -235,7 +234,9 @@ namespace Kartonagen
             form.FlattenFields();
             try { pdf.Close(); }
             catch (Exception ex)
-            { textLog.Text += "why?" + ex.ToString(); }
+            {
+                Program.FehlerLog(ex.ToString(), "Fehler beim schließen des PDF \r\n Bereits dokumentiert.");
+            }
 
             Program.SendToPrinter();
 

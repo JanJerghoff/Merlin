@@ -61,7 +61,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textLog.AppendText(sqlEx.ToString());
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Transaktionen \r\n Bereits dokumentiert.");
                 return gesamt;
             }
 
