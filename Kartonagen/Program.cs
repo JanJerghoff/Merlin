@@ -77,7 +77,8 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                var box = MessageBox.Show(sqlEx.ToString(),"");
+                
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Kundennamen \r\n Bereits dokumentiert.");
             }
         }
 
@@ -113,7 +114,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                var box = MessageBox.Show(sqlEx.ToString(),"");
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Mitarbeiternamen \r\n Bereits dokumentiert.");
             }
         }
 
@@ -138,8 +139,8 @@ namespace Kartonagen
             return "fehler";
         }
 
-        // Schubst daten in die DB
-        public static void absender(String befehl)
+        // Schubst daten in die DB, mit begründung falls fehler
+        public static void absender(String befehl, string Aufgabe)
         {
             MySqlCommand cmdAdd = new MySqlCommand(befehl, Program.conn);
             try
@@ -148,8 +149,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                var bestätigung = MessageBox.Show(sqlEx.ToString(), "Adresse in Umzüge übernehmen?");
-
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Speichern in die DB \r\n "+Aufgabe+" \r\n Bereits dokumentiert.");
             }
         }
         
@@ -577,7 +577,7 @@ namespace Kartonagen
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.Application.Exit();
+                Program.FehlerLog(ex.ToString(), "Konnte keine Datenbankverbindung aufbauen \r\n Bereits dokumentiert.");
             }
             // Öffnen des Fensters
             Application.Run(new mainForm());                       
