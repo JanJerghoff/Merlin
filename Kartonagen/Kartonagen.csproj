@@ -211,6 +211,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Umzuege.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Umzug.cs" />
     <Compile Include="Umzugsfortschritt.cs">
       <DependentUpon>Umzuege.tt</DependentUpon>
     </Compile>
