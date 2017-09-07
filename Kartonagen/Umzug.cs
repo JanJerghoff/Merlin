@@ -94,7 +94,7 @@ namespace Kartonagen
                     datEinraeumen = rdr.GetDateTime(5).Date;
                     datAusraeumen = rdr.GetDateTime(6).Date;
                     
-                    statUmzug = = rdr.GetInt32(0);
+                    statUmzug = rdr.GetInt32(0);
                     statAus = rdr.GetInt32(0);
                     statEin = rdr.GetInt32(0);
                     statRuempeln = rdr.GetInt32(0);
@@ -117,39 +117,45 @@ namespace Kartonagen
                     Einpacker = rdr.GetInt32(16);
                     Auspacker = rdr.GetInt32(17);       // Datenbank Änderung Abends
 
-                    EinStunden;
-                     AusStunden;
-                     Karton;         // Benötigt?
-                     Kleiderkartons;
-                     Mann;
-                     Stunden;
-                     Schilder;
-                     SchilderZeit;
-                     KucheAuf;
-                     KuecheAb;
-                     KuecheBau;
-                     KuechePausch;
-                     Umzugsdauer;
-                     Autos;       // Beizeiten ersetzen durch kodierten Int?
+                    EinStunden = rdr.GetInt32(0);
+                    AusStunden = rdr.GetInt32(0);
+                    Karton = rdr.GetInt32(0);         // Benötigt?
+                    Kleiderkartons = rdr.GetInt32(0);
+                    Mann = rdr.GetInt32(0);
+                    Stunden = rdr.GetInt32(0);
 
-                     StrasseA;    // Adressobjekt einführen?
-                     HausnummerA;
-                     OrtA;
-                     PLZA;
-                     LandA;
+                    int SchilderTemp = rdr.GetInt32(0);
+                    if (SchilderTemp == 1)
+                    {
+                        Schilder = true;
+                    }
 
-                     StrasseB;    // Adressobjekt einführen?
-                     HausnummerB;
-                     OrtB;
-                     PLZB;
-                     LandB;
+                    SchilderZeit = rdr.GetDateTime(0);
+                    KucheAuf = rdr.GetInt32(0);
+                    KuecheAb = rdr.GetInt32(0);
+                    KuecheBau = rdr.GetInt32(0);
+                    KuechePausch = rdr.GetInt32(0);
+                    Umzugsdauer = rdr.GetInt32(0);
+                    Autos = rdr.GetString(0);         // Beizeiten ersetzen durch kodierten Int?
 
-                     NotizTitel;
-                     NotizBuero;
-                     NotizFahrer;
+                    StrasseA = rdr.GetString(0);      // Adressobjekt einführen?
+                    HausnummerA = rdr.GetString(0);
+                    OrtA = rdr.GetString(0);
+                    PLZA = rdr.GetString(0);
+                    LandA = rdr.GetString(0);
 
-                     UserChanged;
-                     erstelldatum;
+                    StrasseB = rdr.GetString(0);      // Adressobjekt einführen?
+                    HausnummerB = rdr.GetString(0);
+                    OrtB = rdr.GetString(0);
+                    PLZB = rdr.GetString(0);
+                    LandB = rdr.GetString(0);
+
+                    NotizTitel = rdr.GetString(0);
+                    NotizBuero = rdr.GetString(0);
+                    NotizFahrer = rdr.GetString(0);
+
+                    UserChanged = rdr.GetString(0);
+                    erstelldatum = rdr.GetDateTime(0);
                 }
                 rdr.Close();
             }
@@ -158,19 +164,30 @@ namespace Kartonagen
                 Program.FehlerLog(sqlEx.ToString(), "Abrufen der Umzugsdaten zur Objekterstellung");
             }
         }
-
-
-
-
-
-
+        
         // Ausgabemethoden
 
-        public String Geschosse() {
-
+        public String Geschosse(int EinAusZug) {
+            
             string ret = string.Empty;
+            string Geschoss;
+            string Haustyp;
 
-            ret += Haus
+            if (EinAusZug == 0) {
+                Geschoss = GeschossA;
+                Haustyp = HaustypA;
+            }
+            else
+            {
+                Geschoss = GeschossB;
+                Haustyp = HaustypB;
+            }
+
+            ret += Haustyp;
+            ret += "\r\n " + Geschoss;
+
+            return ret;
+
         }
 
 
