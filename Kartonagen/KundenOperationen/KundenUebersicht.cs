@@ -48,7 +48,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textNachname.Text += sqlEx.ToString();
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Abrufen der letzten Kunden aus der DB \r\n Bereits dokumentiert.");
                 return;
             }
         }

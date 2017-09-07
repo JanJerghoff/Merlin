@@ -33,17 +33,17 @@ namespace Kartonagen
 
         // PDF-Druckvorbereitung
         public static string druckPfad = System.IO.Path.Combine(Environment.CurrentDirectory, "temp2.pdf");
-
+        public static string fehlerPfad = System.IO.Path.Combine(Environment.CurrentDirectory, "fehler.txt");
 
         // Buero-geänderte-version
 
         // Deployment
-        //internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=Umzuege;port=3306;password=he62okv;");
-        //internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
+        internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=Umzuege;port=3306;password=he62okv;");
+        internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
 
         //Test
-        internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;");
-        internal static MySqlConnection conn2 = new MySqlConnection("server = 10.0.0.0;user=test;database=Mitarbeiter;port=3306;password=he62okv;");
+        //internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;");
+        //internal static MySqlConnection conn2 = new MySqlConnection("server = 10.0.0.0;user=test;database=Mitarbeiter;port=3306;password=he62okv;");
 
         // -------------- Methoden ---------------
 
@@ -77,7 +77,8 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                var box = MessageBox.Show(sqlEx.ToString(),"");
+                
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Kundennamen \r\n Bereits dokumentiert.");
             }
         }
 
@@ -113,7 +114,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                var box = MessageBox.Show(sqlEx.ToString(),"");
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Mitarbeiternamen \r\n Bereits dokumentiert.");
             }
         }
 
@@ -138,8 +139,8 @@ namespace Kartonagen
             return "fehler";
         }
 
-        // Schubst daten in die DB
-        public static void absender(String befehl)
+        // Schubst daten in die DB, mit begründung falls fehler
+        public static void absender(String befehl, string Aufgabe)
         {
             MySqlCommand cmdAdd = new MySqlCommand(befehl, Program.conn);
             try
@@ -148,8 +149,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                var bestätigung = MessageBox.Show(sqlEx.ToString(), "Adresse in Umzüge übernehmen?");
-
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Speichern in die DB \r\n "+Aufgabe+" \r\n Bereits dokumentiert.");
             }
         }
         
@@ -502,6 +502,33 @@ namespace Kartonagen
                 p.Kill();
         }
 
+        public static void FehlerLog(string Fehlermeldung, string Kurzbeschreibung) {
+            
+            if (!File.Exists(fehlerPfad))
+            {                
+                // Datei erstellen
+                using (StreamWriter sw = File.CreateText(fehlerPfad))
+                {
+                    sw.WriteLine("");
+                    sw.WriteLine("Start");
+                    sw.WriteLine("");
+                }
+            }
+            
+
+            // Eintrag machen
+            using (StreamWriter sw = File.AppendText(fehlerPfad))
+            {
+                sw.WriteLine(Kurzbeschreibung +" "+ DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
+                sw.WriteLine("");
+                sw.WriteLine(Fehlermeldung);
+                sw.WriteLine("");
+            }
+                
+            var box2 = MessageBox.Show(Kurzbeschreibung, "Fehler");
+            
+        }
+
         /// <summary>
         /// Der Haupteinstiegspunkt für die Anwendung.
         /// </summary>
@@ -547,11 +574,10 @@ namespace Kartonagen
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.Application.Exit();
+                Program.FehlerLog(ex.ToString(), "Konnte keine Datenbankverbindung aufbauen \r\n Bereits dokumentiert.");
             }
             // Öffnen des Fensters
-            Application.Run(new mainForm());
-                       
+            Application.Run(new mainForm());                       
         }
     }
 }

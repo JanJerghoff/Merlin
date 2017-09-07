@@ -84,7 +84,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textKundenSearchLog.Text += sqlEx.ToString();
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auffüllen der Kundendaten \r\n Bereits dokumentiert.");
                 return;
             }
 
@@ -165,7 +165,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textKundenSearchLog.Text += sqlEx.ToString();
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim finden des Kunden in der DB \r\n Bereits dokumentiert.");
                 return;
             }
 
@@ -186,20 +186,7 @@ namespace Kartonagen
                 }
             }
 
-        }
-
-        private void pushChange(String command) {
-            MySqlCommand change = new MySqlCommand(command, Program.conn);
-            try
-            {
-                change.ExecuteNonQuery();
-            }
-            catch (Exception sqlEx)
-            {
-                textKundenSearchLog.Text += sqlEx.ToString();
-                return;
-            }
-        }
+        }        
 
         //  Einzelne Updatefunktionen
         //  für die jeweiligen Felder
@@ -212,7 +199,7 @@ namespace Kartonagen
                 return;
             }
             String change = "UPDATE Kunden SET Anrede = '" + textAendernAnrede.Text + "' WHERE idKunden = " + numericAendernNummer.Value + ";";
-            pushChange(change);
+            Program.absender(change,"Kunden ändern: Anrede");
             textKundenSearchLog.AppendText("Änderung vorgenommen \r\n");
             auffüllen(decimal.ToInt32(numericAendernNummer.Value));
         }
@@ -220,7 +207,7 @@ namespace Kartonagen
         private void buttonKundeAendernVorname_Click(object sender, EventArgs e)
         {
             String change = "UPDATE Kunden SET Vorname = '" + textAendernVorname.Text + "' WHERE idKunden = " + numericAendernNummer.Value + ";";
-            pushChange(change);
+            Program.absender(change, "Kunden ändern: Vorname");
             textKundenSearchLog.AppendText("Änderung vorgenommen \r\n");
             auffüllen(decimal.ToInt32(numericAendernNummer.Value));
         }
@@ -228,7 +215,7 @@ namespace Kartonagen
         private void buttonKundeAendernNachname_Click(object sender, EventArgs e)
         {
             String change = "UPDATE Kunden SET Nachname = '" + textAendernNachname.Text + "' WHERE idKunden = " + numericAendernNummer.Value + ";";
-            pushChange(change);
+            Program.absender(change, "Kunden ändern: Nachname");
             textKundenSearchLog.AppendText("Änderung vorgenommen \r\n");
             auffüllen(decimal.ToInt32(numericAendernNummer.Value));
         }
@@ -236,7 +223,7 @@ namespace Kartonagen
         private void buttonKundeAendernTelefonnummer_Click(object sender, EventArgs e)
         {
             String change = "UPDATE Kunden SET Telefonnummer = '" + textAendernTelefonnummer.Text + "' WHERE idKunden = " + numericAendernNummer.Value + ";";
-            pushChange(change);
+            Program.absender(change, "Kunden ändern: Telefonnummer");
             textKundenSearchLog.AppendText("Änderung vorgenommen \r\n");
             auffüllen(decimal.ToInt32(numericAendernNummer.Value));
         }
@@ -244,7 +231,7 @@ namespace Kartonagen
         private void buttonKundeAendernHandynummer_Click(object sender, EventArgs e)
         {
             String change = "UPDATE Kunden SET Handynummer = '" + textAendernHandynummer.Text + "' WHERE idKunden = " + numericAendernNummer.Value + ";";
-            pushChange(change);
+            Program.absender(change, "Kunden ändern: Handynummer");
             textKundenSearchLog.AppendText("Änderung vorgenommen \r\n");
             auffüllen(decimal.ToInt32(numericAendernNummer.Value));
         }
@@ -252,7 +239,7 @@ namespace Kartonagen
         private void buttonKundeAendernEmail_Click(object sender, EventArgs e)
         {
             String change = "UPDATE Kunden SET Email = '" + textAendernEmail.Text + "' WHERE idKunden = " + numericAendernNummer.Value + ";";
-            pushChange(change);
+            Program.absender(change, "Kunden ändern: Email");
             textKundenSearchLog.AppendText("Änderung vorgenommen \r\n");
             auffüllen(decimal.ToInt32(numericAendernNummer.Value));
         }
@@ -260,7 +247,7 @@ namespace Kartonagen
         private void buttonKundeAendernStraße_Click(object sender, EventArgs e)
         {
             String change = "UPDATE Kunden SET Straße = '" + textAendernStraße.Text + "', Hausnummer = '"+textAendernHausnummer.Text+"' WHERE idKunden = " + numericAendernNummer.Value + ";";
-            pushChange(change);
+            Program.absender(change, "Kunden ändern: Straße");
             textKundenSearchLog.AppendText("Änderung vorgenommen \r\n");
             auffüllen(decimal.ToInt32(numericAendernNummer.Value));
             UmzugsAdresseAendern();
@@ -269,7 +256,7 @@ namespace Kartonagen
         private void buttonKundeAendernPLZ_Click(object sender, EventArgs e)
         {
             String change = "UPDATE Kunden SET PLZ = " + textAendernPLZ.Text + ", Ort = '" + textAendernOrt + "' WHERE idKunden = " + numericAendernNummer.Value + ";";
-            pushChange(change);
+            Program.absender(change, "Kunden ändern: PLZ");
             textKundenSearchLog.AppendText("Änderung vorgenommen \r\n");
             auffüllen(decimal.ToInt32(numericAendernNummer.Value));
             UmzugsAdresseAendern();
@@ -278,7 +265,7 @@ namespace Kartonagen
         private void buttonKundeAendernLand_Click(object sender, EventArgs e)
         {
             String change = "UPDATE Kunden SET Land = '" + textAendernLand.Text + "' WHERE idKunden = " + numericAendernNummer.Value + ";";
-            pushChange(change);
+            Program.absender(change, "Kunden ändern: Land");
             textKundenSearchLog.AppendText("Änderung vorgenommen \r\n");
             auffüllen(decimal.ToInt32(numericAendernNummer.Value));
         }
@@ -286,7 +273,7 @@ namespace Kartonagen
         private void buttonKundeAendernBemerkung_Click(object sender, EventArgs e)
         {
             String change = "UPDATE Kunden SET Bemerkung = '" + textAendernBemerkung.Text + "' WHERE idKunden = " + numericAendernNummer.Value + ";";
-            pushChange(change);
+            Program.absender(change, "Kunden ändern: Bemerkung");
             textKundenSearchLog.AppendText("Änderung vorgenommen \r\n");
             auffüllen(decimal.ToInt32(numericAendernNummer.Value));
         }
@@ -315,7 +302,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textKundenSearchLog.Text += sqlEx.ToString();
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Umzugsadresse \r\n Bereits dokumentiert.");
                 return;
             }
 
@@ -369,7 +356,7 @@ namespace Kartonagen
                     foreach (var item in umzNr)
                     {
                         String push = "UPDATE Umzuege SET StraßeA = '"+Straße+ "', HausnummerA= '" + Hausnummer + "', OrtA= '" + Ort + "', PLZA= '" + PLZ + "' WHERE idUmzuege = " + item;
-                        Program.absender(push);
+                        Program.absender(push,"Absenden Adressänderung");
                     }
 
                 }
@@ -390,7 +377,7 @@ namespace Kartonagen
                 }
                 catch (Exception sqlEx)
                 {
-                    textKundenSearchLog.Text += sqlEx.ToString();
+                    Program.FehlerLog(sqlEx.ToString(), "Fehler beim Mitarbeiter löschen \r\n Bereits dokumentiert.");
                 }
             }
             else

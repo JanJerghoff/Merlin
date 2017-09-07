@@ -76,7 +76,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textTransaktionLog.Text += sqlEx.ToString();
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Umzugsdaten \r\n Bereits dokumentiert.");
                 return;
             }
             
@@ -97,7 +97,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textTransaktionLog.Text += sqlEx.ToString();
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Personendaten \r\n Bereits dokumentiert.");
                 return;
             }
 
@@ -131,7 +131,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textTransaktionLog.Text += sqlEx.ToString();
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Berechnen des Kartonagenkontos \r\n Bereits dokumentiert.");
                 return;
             }
 
@@ -180,7 +180,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textTransaktionLog.AppendText(sqlEx.ToString());
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Finden bisheriger Buchungen \r\n Bereits dokumentiert.");
                 return;
             }
 
@@ -289,18 +289,7 @@ namespace Kartonagen
             // Rechnungsnummer
             push += "'"+textRechnungsnr.Text+"');";
 
-            MySqlCommand cmdAdd = new MySqlCommand(push, Program.conn);
-            try
-            {
-                
-                cmdAdd.ExecuteNonQuery();
-                textTransaktionLog.AppendText("Erfolgreich gespeichert.\r\n");
-            }
-            catch (Exception sqlEx)
-            {
-                textTransaktionLog.AppendText(sqlEx.ToString() + "\r\n");
-                return;
-            }
+            Program.absender(push, "Fehler beim Speichern der Transaktion in die DB");
 
             
 
@@ -319,7 +308,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textTransaktionLog.Text += sqlEx.ToString();
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim finden der Ergebnis-Transaktion \r\n Bereits dokumentiert.");
             }
 
 
@@ -388,7 +377,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textTransaktionLog.Text += sqlEx.ToString();
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Kundenadresse \r\n Bereits dokumentiert.");
                 return;
             }
 
@@ -509,7 +498,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textTransaktionLog.AppendText(sqlEx.ToString());
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen des Kunden \r\n Bereits dokumentiert.");
                 return;
             }
 
@@ -557,7 +546,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textTransaktionLog.Text += sqlEx.ToString();
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auffüllen der Umzugsdaten \r\n Bereits dokumentiert.");
                 return;
             }
 
