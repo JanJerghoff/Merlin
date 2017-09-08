@@ -29,6 +29,8 @@ namespace Kartonagen
         int PLZ = 0;
         String Land;
 
+        Boolean versicherungBenoetigt = false;
+
         //
 
         public void setBearbeitend(int code) {
@@ -75,6 +77,12 @@ namespace Kartonagen
                     PLZ = rdr.GetInt32(37);
                     Ort = rdr.GetString(38);
                     Land = rdr.GetString(39);
+                    // Trigger für Versicherungen
+                    if (true)
+                    {
+                        versicherungBenoetigt = true;
+                    }
+
                 }
                 rdr.Close();
             }
@@ -221,6 +229,18 @@ namespace Kartonagen
                         buttonRechnung.Enabled = false;
                     }
 
+                    // Versicherung
+                    if (rdrF.GetInt32(38) != 8)
+                    {
+                        textVersicherung.AppendText(getName(rdrF.GetInt32(38)));
+                        dateVersicherung.Value = rdrF.GetDateTime(39);
+                        buttonVersicherung.Enabled = false;
+                    }
+
+                    if (!versicherungBenoetigt)
+                    {
+                        buttonVersicherung.Enabled = false;
+                    }
                     textNote.Text = rdrF[25].ToString();
                     //numericSchaden.Value = rdrF.GetDecimal(27);
                     //numericHVZKosten.Value = rdrF.GetDecimal(28);
@@ -242,6 +262,10 @@ namespace Kartonagen
                         buttonErinnerung.Enabled = false;
                         buttonKorrektur.Enabled = false;
                         buttonUmzugEingtragen.Enabled = false;
+                        buttonSchaden.Enabled = false;
+                        buttonRechnung.Enabled = false;
+                        buttonVersicherung.Enabled = false;
+
                         //
                         buttonAbschluss.Enabled = false;
 
@@ -292,6 +316,9 @@ namespace Kartonagen
             textSchriftBuch.ResetText();
             textKorrektur.ResetText();
             textErinnerung.ResetText();
+            textSchaden.ResetText();
+            textRechnung.ResetText();
+            textVersicherung.ResetText();
 
             buttonKVAMail.Enabled = true;
             buttonKVAPost.Enabled = true;
@@ -303,6 +330,9 @@ namespace Kartonagen
             buttonTelBuch.Enabled = true;
             buttonTextBuch.Enabled = true; // TextBuch <=> SchriftBuch
             buttonErinnerung.Enabled = true;
+            buttonSchaden.Enabled = true;
+            buttonRechnung.Enabled = true;
+            buttonVersicherung.Enabled = true;
 
             //Testfall
             buttonKorrektur.Enabled = true;
@@ -428,6 +458,13 @@ namespace Kartonagen
         private void buttonRechnung_Click(object sender, EventArgs e)
         {
             String k = "UPDATE Umzugsfortschritt SET Rechnung = " + idBearbeitend + ", datRechnung = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
+            push(k);
+            fuellen(Umzugsnummer);
+        }
+
+        private void buttonVersicherung_Click(object sender, EventArgs e)
+        {
+            String k = "UPDATE Umzugsfortschritt SET Versicherung = " + idBearbeitend + ", datVersicherung = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
             push(k);
             fuellen(Umzugsnummer);
         }

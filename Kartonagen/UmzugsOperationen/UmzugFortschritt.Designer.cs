@@ -1155,6 +1155,7 @@
             this.buttonVersicherung.TabIndex = 143;
             this.buttonVersicherung.Text = "Bestätigen";
             this.buttonVersicherung.UseVisualStyleBackColor = true;
+            this.buttonVersicherung.Click += new System.EventHandler(this.buttonVersicherung_Click);
             // 
             // dateVersicherung
             // 
