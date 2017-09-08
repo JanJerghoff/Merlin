@@ -1210,6 +1210,7 @@
             this.buttonRechnung.TabIndex = 133;
             this.buttonRechnung.Text = "Bestätigen";
             this.buttonRechnung.UseVisualStyleBackColor = true;
+            this.buttonRechnung.Click += new System.EventHandler(this.buttonRechnung_Click);
             // 
             // dateRechnung
             // 
@@ -1248,6 +1249,7 @@
             this.buttonSchaden.TabIndex = 137;
             this.buttonSchaden.Text = "Bestätigen";
             this.buttonSchaden.UseVisualStyleBackColor = true;
+            this.buttonSchaden.Click += new System.EventHandler(this.buttonSchaden_Click);
             // 
             // dateSchaden
             // 

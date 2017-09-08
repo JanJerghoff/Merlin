@@ -205,6 +205,22 @@ namespace Kartonagen
                         buttonKueche.Enabled = false;
                     }
 
+                    // Schadensmeldung
+                    if (rdrF.GetInt32(34) != 8)
+                    {
+                        textSchaden.AppendText(getName(rdrF.GetInt32(34)));
+                        dateSchaden.Value = rdrF.GetDateTime(35);
+                        buttonSchaden.Enabled = false;
+                    }
+
+                    // Rechnung
+                    if (rdrF.GetInt32(36) != 8)
+                    {
+                        textRechnung.AppendText(getName(rdrF.GetInt32(36)));
+                        dateRechnung.Value = rdrF.GetDateTime(37);
+                        buttonRechnung.Enabled = false;
+                    }
+
                     textNote.Text = rdrF[25].ToString();
                     //numericSchaden.Value = rdrF.GetDecimal(27);
                     //numericHVZKosten.Value = rdrF.GetDecimal(28);
@@ -235,7 +251,9 @@ namespace Kartonagen
                 }
                 rdrF.Close();
             }
-            catch (Exception exc) { }
+            catch (Exception exc) {
+                Program.FehlerLog(exc.ToString(),"Abrufen der Fortschrittsdaten aus der DB zum Füllen");
+            }
         }
 
         private String getName(int ID) {
@@ -398,6 +416,22 @@ namespace Kartonagen
             fuellen(Umzugsnummer);
         }
 
+
+        private void buttonSchaden_Click(object sender, EventArgs e)
+        {
+            String k = "UPDATE Umzugsfortschritt SET Schaden = " + idBearbeitend + ", datSchaden = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
+            push(k);
+            fuellen(Umzugsnummer);
+        }
+
+
+        private void buttonRechnung_Click(object sender, EventArgs e)
+        {
+            String k = "UPDATE Umzugsfortschritt SET Rechnung = " + idBearbeitend + ", datRechnung = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
+            push(k);
+            fuellen(Umzugsnummer);
+        }
+
         private void buttonAbschluss_Click(object sender, EventArgs e)
         {
             // Als Abgeschlossen markieren
@@ -415,7 +449,9 @@ namespace Kartonagen
 
             fuellen(Umzugsnummer);
         }
-        
+
+
+
 
 
 
