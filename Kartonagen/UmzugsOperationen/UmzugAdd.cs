@@ -257,9 +257,9 @@ namespace Kartonagen
             else { longInsert += 2 + ", "; }
 
 
-            longInsert += numericPacker.Value + ", ";
+            longInsert += numericEinPacker.Value + ", ";
 
-            longInsert += numericPackKartons.Value + ", ";
+            longInsert += numericEinPackKartons.Value + ", ";
 
             longInsert += numericKleiderkisten.Value + ", ";
 
@@ -357,7 +357,7 @@ namespace Kartonagen
 
             longInsert += "'" + Program.DateMachine(DateTime.Now) + "', ";
 
-            longInsert += numericPackStunden.Value + ", ";
+            longInsert += numericEinPackStunden.Value + ", ";
 
             // Status des Datums. 0 = nicht festgelegt, 1 = festgelegt, 2 = vorläufig (wenn möglich), 3 = Vorläufig gebucht (bei Umzügen)
             // Reihenfolge ist Umz, Bes, Aus, Ein, Ent
@@ -769,7 +769,7 @@ namespace Kartonagen
 
             String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericMannZahl.Value + " Mann, " + numericArbeitszeit.Value + " Stunden, " + AutoString() + " " + textNoteKalender.Text;
             String SchilderHeader = textKundennummer.Text + " " + textVorNachname.Text + ", Schilder stellen";
-            String RaeumHeader = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericPacker.Value + " Mann, " + numericPackStunden.Value + " Stunden";
+            String RaeumHeader = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericEinPacker.Value + " Mann, " + numericEinPackStunden.Value + " Stunden";
 
             // Einzeln die Termine Abfragen und absenden
 
@@ -1187,16 +1187,16 @@ namespace Kartonagen
                 }
 
                 // Packen
-                if (numericPacker.Value != 0)
+                if (numericEinPacker.Value != 0)
                 {
                     fields.TryGetValue("MannPacken", out toSet);
-                    toSet.SetValue(numericPacker.Value.ToString());
+                    toSet.SetValue(numericEinPacker.Value.ToString());
                 }
 
-                if (numericPackStunden.Value != 0)
+                if (numericEinPackStunden.Value != 0)
                 {
                     fields.TryGetValue("StundenPacken", out toSet);
-                    toSet.SetValue(numericPackStunden.Value.ToString());
+                    toSet.SetValue(numericEinPackStunden.Value.ToString());
                 }
 
                 //

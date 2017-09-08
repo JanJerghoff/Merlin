@@ -62,6 +62,19 @@
             this.radioKuecheAbNein = new System.Windows.Forms.RadioButton();
             this.radioKuecheAbJa = new System.Windows.Forms.RadioButton();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.groupBox26 = new System.Windows.Forms.GroupBox();
+            this.textSonderEtageB = new System.Windows.Forms.TextBox();
+            this.checkDBB = new System.Windows.Forms.CheckBox();
+            this.checkOG4B = new System.Windows.Forms.CheckBox();
+            this.checkOG5B = new System.Windows.Forms.CheckBox();
+            this.checkOG3B = new System.Windows.Forms.CheckBox();
+            this.checkOG2B = new System.Windows.Forms.CheckBox();
+            this.checkMAB = new System.Windows.Forms.CheckBox();
+            this.checkOG1B = new System.Windows.Forms.CheckBox();
+            this.checkSTB = new System.Windows.Forms.CheckBox();
+            this.checkHPB = new System.Windows.Forms.CheckBox();
+            this.checkEGB = new System.Windows.Forms.CheckBox();
+            this.checkKellerB = new System.Windows.Forms.CheckBox();
             this.groupBox23 = new System.Windows.Forms.GroupBox();
             this.radioAussenAufzugBNein = new System.Windows.Forms.RadioButton();
             this.radioAussenAufzugBJa = new System.Windows.Forms.RadioButton();
@@ -86,12 +99,16 @@
             this.textHausnummerB = new System.Windows.Forms.TextBox();
             this.textStraßeB = new System.Windows.Forms.TextBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.numericPackStunden = new System.Windows.Forms.NumericUpDown();
+            this.numericAusPackStunden = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.numericAusPacker = new System.Windows.Forms.NumericUpDown();
+            this.numericEinPackStunden = new System.Windows.Forms.NumericUpDown();
             this.label35 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.numericPackKartons = new System.Windows.Forms.NumericUpDown();
+            this.numericEinPackKartons = new System.Windows.Forms.NumericUpDown();
             this.label25 = new System.Windows.Forms.Label();
-            this.numericPacker = new System.Windows.Forms.NumericUpDown();
+            this.numericEinPacker = new System.Windows.Forms.NumericUpDown();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.radioAuspackenV = new System.Windows.Forms.RadioButton();
             this.radioAuspackenNein = new System.Windows.Forms.RadioButton();
@@ -169,6 +186,19 @@
             this.dateBesicht = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox25 = new System.Windows.Forms.GroupBox();
+            this.textSonderEtageA = new System.Windows.Forms.TextBox();
+            this.checkDBA = new System.Windows.Forms.CheckBox();
+            this.checkOG4A = new System.Windows.Forms.CheckBox();
+            this.checkOG5A = new System.Windows.Forms.CheckBox();
+            this.checkOG3A = new System.Windows.Forms.CheckBox();
+            this.checkOG2A = new System.Windows.Forms.CheckBox();
+            this.checkMAA = new System.Windows.Forms.CheckBox();
+            this.checkOG1A = new System.Windows.Forms.CheckBox();
+            this.checkSTA = new System.Windows.Forms.CheckBox();
+            this.checkHPA = new System.Windows.Forms.CheckBox();
+            this.checkEGA = new System.Windows.Forms.CheckBox();
+            this.checkKellerA = new System.Windows.Forms.CheckBox();
             this.groupBox22 = new System.Windows.Forms.GroupBox();
             this.radioAussenAufzugANein = new System.Windows.Forms.RadioButton();
             this.radioAussenAufzugAJa = new System.Windows.Forms.RadioButton();
@@ -197,38 +227,9 @@
             this.buttonNrSuche = new System.Windows.Forms.Button();
             this.numericSucheKundennr = new System.Windows.Forms.NumericUpDown();
             this.textUmzugLog = new System.Windows.Forms.TextBox();
-            this.groupBox25 = new System.Windows.Forms.GroupBox();
-            this.checkKellerA = new System.Windows.Forms.CheckBox();
-            this.checkEGA = new System.Windows.Forms.CheckBox();
-            this.checkHPA = new System.Windows.Forms.CheckBox();
-            this.checkSTA = new System.Windows.Forms.CheckBox();
-            this.checkOG1A = new System.Windows.Forms.CheckBox();
-            this.checkMAA = new System.Windows.Forms.CheckBox();
-            this.checkOG2A = new System.Windows.Forms.CheckBox();
-            this.checkOG3A = new System.Windows.Forms.CheckBox();
-            this.checkDBA = new System.Windows.Forms.CheckBox();
-            this.checkOG4A = new System.Windows.Forms.CheckBox();
-            this.checkOG5A = new System.Windows.Forms.CheckBox();
-            this.textSonderEtageA = new System.Windows.Forms.TextBox();
-            this.groupBox26 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.checkBox13 = new System.Windows.Forms.CheckBox();
-            this.checkBox14 = new System.Windows.Forms.CheckBox();
-            this.checkBox15 = new System.Windows.Forms.CheckBox();
-            this.checkBox16 = new System.Windows.Forms.CheckBox();
-            this.checkBox17 = new System.Windows.Forms.CheckBox();
-            this.checkBox18 = new System.Windows.Forms.CheckBox();
-            this.checkBox19 = new System.Windows.Forms.CheckBox();
-            this.checkBox20 = new System.Windows.Forms.CheckBox();
-            this.checkBox21 = new System.Windows.Forms.CheckBox();
-            this.checkBox22 = new System.Windows.Forms.CheckBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.label19 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.groupBox27 = new System.Windows.Forms.GroupBox();
+            this.radioVersicherungJa = new System.Windows.Forms.RadioButton();
+            this.radioVersicherungNein = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -242,13 +243,16 @@
             this.groupBox15.SuspendLayout();
             this.groupBox16.SuspendLayout();
             this.groupBox10.SuspendLayout();
+            this.groupBox26.SuspendLayout();
             this.groupBox23.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericPackStunden)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericPackKartons)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericPacker)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericAusPackStunden)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericAusPacker)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEinPackStunden)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEinPackKartons)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEinPacker)).BeginInit();
             this.groupBox13.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -270,15 +274,12 @@
             this.groupBoxBesichtigungsDat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUmzugsDauer)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox25.SuspendLayout();
             this.groupBox22.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericSucheKundennr)).BeginInit();
-            this.groupBox25.SuspendLayout();
-            this.groupBox26.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            this.groupBox27.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -290,6 +291,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox27);
             this.splitContainer1.Panel1.Controls.Add(this.buttonLaufzettel);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox24);
             this.splitContainer1.Panel1.Controls.Add(this.buttonDruck);
@@ -678,6 +680,144 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Adresse Einzug";
             // 
+            // groupBox26
+            // 
+            this.groupBox26.Controls.Add(this.textSonderEtageB);
+            this.groupBox26.Controls.Add(this.checkDBB);
+            this.groupBox26.Controls.Add(this.checkOG4B);
+            this.groupBox26.Controls.Add(this.checkOG5B);
+            this.groupBox26.Controls.Add(this.checkOG3B);
+            this.groupBox26.Controls.Add(this.checkOG2B);
+            this.groupBox26.Controls.Add(this.checkMAB);
+            this.groupBox26.Controls.Add(this.checkOG1B);
+            this.groupBox26.Controls.Add(this.checkSTB);
+            this.groupBox26.Controls.Add(this.checkHPB);
+            this.groupBox26.Controls.Add(this.checkEGB);
+            this.groupBox26.Controls.Add(this.checkKellerB);
+            this.groupBox26.Location = new System.Drawing.Point(119, 146);
+            this.groupBox26.Name = "groupBox26";
+            this.groupBox26.Size = new System.Drawing.Size(344, 109);
+            this.groupBox26.TabIndex = 42;
+            this.groupBox26.TabStop = false;
+            this.groupBox26.Text = "Etagen";
+            // 
+            // textSonderEtageB
+            // 
+            this.textSonderEtageB.Location = new System.Drawing.Point(183, 84);
+            this.textSonderEtageB.Name = "textSonderEtageB";
+            this.textSonderEtageB.Size = new System.Drawing.Size(90, 20);
+            this.textSonderEtageB.TabIndex = 41;
+            // 
+            // checkDBB
+            // 
+            this.checkDBB.AutoSize = true;
+            this.checkDBB.Location = new System.Drawing.Point(183, 65);
+            this.checkDBB.Name = "checkDBB";
+            this.checkDBB.Size = new System.Drawing.Size(82, 17);
+            this.checkDBB.TabIndex = 10;
+            this.checkDBB.Text = "Dachboden";
+            this.checkDBB.UseVisualStyleBackColor = true;
+            // 
+            // checkOG4B
+            // 
+            this.checkOG4B.AutoSize = true;
+            this.checkOG4B.Location = new System.Drawing.Point(183, 19);
+            this.checkOG4B.Name = "checkOG4B";
+            this.checkOG4B.Size = new System.Drawing.Size(54, 17);
+            this.checkOG4B.TabIndex = 9;
+            this.checkOG4B.Text = "4. OG";
+            this.checkOG4B.UseVisualStyleBackColor = true;
+            // 
+            // checkOG5B
+            // 
+            this.checkOG5B.AutoSize = true;
+            this.checkOG5B.Location = new System.Drawing.Point(183, 42);
+            this.checkOG5B.Name = "checkOG5B";
+            this.checkOG5B.Size = new System.Drawing.Size(54, 17);
+            this.checkOG5B.TabIndex = 8;
+            this.checkOG5B.Text = "5. OG";
+            this.checkOG5B.UseVisualStyleBackColor = true;
+            // 
+            // checkOG3B
+            // 
+            this.checkOG3B.AutoSize = true;
+            this.checkOG3B.Location = new System.Drawing.Point(99, 88);
+            this.checkOG3B.Name = "checkOG3B";
+            this.checkOG3B.Size = new System.Drawing.Size(54, 17);
+            this.checkOG3B.TabIndex = 7;
+            this.checkOG3B.Text = "3. OG";
+            this.checkOG3B.UseVisualStyleBackColor = true;
+            // 
+            // checkOG2B
+            // 
+            this.checkOG2B.AutoSize = true;
+            this.checkOG2B.Location = new System.Drawing.Point(99, 65);
+            this.checkOG2B.Name = "checkOG2B";
+            this.checkOG2B.Size = new System.Drawing.Size(54, 17);
+            this.checkOG2B.TabIndex = 6;
+            this.checkOG2B.Text = "2. OG";
+            this.checkOG2B.UseVisualStyleBackColor = true;
+            // 
+            // checkMAB
+            // 
+            this.checkMAB.AutoSize = true;
+            this.checkMAB.Location = new System.Drawing.Point(99, 19);
+            this.checkMAB.Name = "checkMAB";
+            this.checkMAB.Size = new System.Drawing.Size(78, 17);
+            this.checkMAB.TabIndex = 5;
+            this.checkMAB.Text = "Maisonette";
+            this.checkMAB.UseVisualStyleBackColor = true;
+            // 
+            // checkOG1B
+            // 
+            this.checkOG1B.AutoSize = true;
+            this.checkOG1B.Location = new System.Drawing.Point(99, 42);
+            this.checkOG1B.Name = "checkOG1B";
+            this.checkOG1B.Size = new System.Drawing.Size(54, 17);
+            this.checkOG1B.TabIndex = 4;
+            this.checkOG1B.Text = "1. OG";
+            this.checkOG1B.UseVisualStyleBackColor = true;
+            // 
+            // checkSTB
+            // 
+            this.checkSTB.AutoSize = true;
+            this.checkSTB.Location = new System.Drawing.Point(6, 88);
+            this.checkSTB.Name = "checkSTB";
+            this.checkSTB.Size = new System.Drawing.Size(74, 17);
+            this.checkSTB.TabIndex = 3;
+            this.checkSTB.Text = "Souterrain";
+            this.checkSTB.UseVisualStyleBackColor = true;
+            // 
+            // checkHPB
+            // 
+            this.checkHPB.AutoSize = true;
+            this.checkHPB.Location = new System.Drawing.Point(6, 65);
+            this.checkHPB.Name = "checkHPB";
+            this.checkHPB.Size = new System.Drawing.Size(85, 17);
+            this.checkHPB.TabIndex = 2;
+            this.checkHPB.Text = "Hochpaterre";
+            this.checkHPB.UseVisualStyleBackColor = true;
+            // 
+            // checkEGB
+            // 
+            this.checkEGB.AutoSize = true;
+            this.checkEGB.Location = new System.Drawing.Point(6, 42);
+            this.checkEGB.Name = "checkEGB";
+            this.checkEGB.Size = new System.Drawing.Size(87, 17);
+            this.checkEGB.TabIndex = 1;
+            this.checkEGB.Text = "Erdgeschoss";
+            this.checkEGB.UseVisualStyleBackColor = true;
+            // 
+            // checkKellerB
+            // 
+            this.checkKellerB.AutoSize = true;
+            this.checkKellerB.Location = new System.Drawing.Point(6, 19);
+            this.checkKellerB.Name = "checkKellerB";
+            this.checkKellerB.Size = new System.Drawing.Size(52, 17);
+            this.checkKellerB.TabIndex = 0;
+            this.checkKellerB.Text = "Keller";
+            this.checkKellerB.UseVisualStyleBackColor = true;
+            // 
             // groupBox23
             // 
             this.groupBox23.Controls.Add(this.radioAussenAufzugBNein);
@@ -903,18 +1043,16 @@
             // groupBox8
             // 
             this.groupBox8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox8.Controls.Add(this.numericUpDown1);
+            this.groupBox8.Controls.Add(this.numericAusPackStunden);
             this.groupBox8.Controls.Add(this.label14);
-            this.groupBox8.Controls.Add(this.label18);
-            this.groupBox8.Controls.Add(this.numericUpDown2);
             this.groupBox8.Controls.Add(this.label19);
-            this.groupBox8.Controls.Add(this.numericUpDown3);
-            this.groupBox8.Controls.Add(this.numericPackStunden);
+            this.groupBox8.Controls.Add(this.numericAusPacker);
+            this.groupBox8.Controls.Add(this.numericEinPackStunden);
             this.groupBox8.Controls.Add(this.label35);
             this.groupBox8.Controls.Add(this.label26);
-            this.groupBox8.Controls.Add(this.numericPackKartons);
+            this.groupBox8.Controls.Add(this.numericEinPackKartons);
             this.groupBox8.Controls.Add(this.label25);
-            this.groupBox8.Controls.Add(this.numericPacker);
+            this.groupBox8.Controls.Add(this.numericEinPacker);
             this.groupBox8.Controls.Add(this.groupBox13);
             this.groupBox8.Controls.Add(this.groupBox3);
             this.groupBox8.Location = new System.Drawing.Point(12, 588);
@@ -924,13 +1062,48 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Packen";
             // 
-            // numericPackStunden
+            // numericAusPackStunden
             // 
-            this.numericPackStunden.Location = new System.Drawing.Point(7, 94);
-            this.numericPackStunden.Name = "numericPackStunden";
-            this.numericPackStunden.Size = new System.Drawing.Size(108, 20);
-            this.numericPackStunden.TabIndex = 32;
-            this.numericPackStunden.TabStop = false;
+            this.numericAusPackStunden.Location = new System.Drawing.Point(282, 94);
+            this.numericAusPackStunden.Name = "numericAusPackStunden";
+            this.numericAusPackStunden.Size = new System.Drawing.Size(108, 20);
+            this.numericAusPackStunden.TabIndex = 37;
+            this.numericAusPackStunden.TabStop = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(396, 94);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(60, 15);
+            this.label14.TabIndex = 38;
+            this.label14.Text = "Stunden";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(396, 68);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(107, 15);
+            this.label19.TabIndex = 36;
+            this.label19.Text = "Packer benötigt";
+            // 
+            // numericAusPacker
+            // 
+            this.numericAusPacker.Location = new System.Drawing.Point(282, 68);
+            this.numericAusPacker.Name = "numericAusPacker";
+            this.numericAusPacker.Size = new System.Drawing.Size(108, 20);
+            this.numericAusPacker.TabIndex = 34;
+            // 
+            // numericEinPackStunden
+            // 
+            this.numericEinPackStunden.Location = new System.Drawing.Point(7, 94);
+            this.numericEinPackStunden.Name = "numericEinPackStunden";
+            this.numericEinPackStunden.Size = new System.Drawing.Size(108, 20);
+            this.numericEinPackStunden.TabIndex = 32;
+            this.numericEinPackStunden.TabStop = false;
             // 
             // label35
             // 
@@ -952,12 +1125,12 @@
             this.label26.TabIndex = 33;
             this.label26.Text = "Kartons benötigt";
             // 
-            // numericPackKartons
+            // numericEinPackKartons
             // 
-            this.numericPackKartons.Location = new System.Drawing.Point(7, 120);
-            this.numericPackKartons.Name = "numericPackKartons";
-            this.numericPackKartons.Size = new System.Drawing.Size(108, 20);
-            this.numericPackKartons.TabIndex = 1;
+            this.numericEinPackKartons.Location = new System.Drawing.Point(7, 120);
+            this.numericEinPackKartons.Name = "numericEinPackKartons";
+            this.numericEinPackKartons.Size = new System.Drawing.Size(108, 20);
+            this.numericEinPackKartons.TabIndex = 1;
             // 
             // label25
             // 
@@ -969,12 +1142,12 @@
             this.label25.TabIndex = 31;
             this.label25.Text = "Packer benötigt";
             // 
-            // numericPacker
+            // numericEinPacker
             // 
-            this.numericPacker.Location = new System.Drawing.Point(7, 68);
-            this.numericPacker.Name = "numericPacker";
-            this.numericPacker.Size = new System.Drawing.Size(108, 20);
-            this.numericPacker.TabIndex = 0;
+            this.numericEinPacker.Location = new System.Drawing.Point(7, 68);
+            this.numericEinPacker.Name = "numericEinPacker";
+            this.numericEinPacker.Size = new System.Drawing.Size(108, 20);
+            this.numericEinPacker.TabIndex = 0;
             // 
             // groupBox13
             // 
@@ -1802,6 +1975,144 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Adresse Auszug";
             // 
+            // groupBox25
+            // 
+            this.groupBox25.Controls.Add(this.textSonderEtageA);
+            this.groupBox25.Controls.Add(this.checkDBA);
+            this.groupBox25.Controls.Add(this.checkOG4A);
+            this.groupBox25.Controls.Add(this.checkOG5A);
+            this.groupBox25.Controls.Add(this.checkOG3A);
+            this.groupBox25.Controls.Add(this.checkOG2A);
+            this.groupBox25.Controls.Add(this.checkMAA);
+            this.groupBox25.Controls.Add(this.checkOG1A);
+            this.groupBox25.Controls.Add(this.checkSTA);
+            this.groupBox25.Controls.Add(this.checkHPA);
+            this.groupBox25.Controls.Add(this.checkEGA);
+            this.groupBox25.Controls.Add(this.checkKellerA);
+            this.groupBox25.Location = new System.Drawing.Point(120, 147);
+            this.groupBox25.Name = "groupBox25";
+            this.groupBox25.Size = new System.Drawing.Size(369, 109);
+            this.groupBox25.TabIndex = 40;
+            this.groupBox25.TabStop = false;
+            this.groupBox25.Text = "Etagen";
+            // 
+            // textSonderEtageA
+            // 
+            this.textSonderEtageA.Location = new System.Drawing.Point(183, 84);
+            this.textSonderEtageA.Name = "textSonderEtageA";
+            this.textSonderEtageA.Size = new System.Drawing.Size(90, 20);
+            this.textSonderEtageA.TabIndex = 41;
+            // 
+            // checkDBA
+            // 
+            this.checkDBA.AutoSize = true;
+            this.checkDBA.Location = new System.Drawing.Point(183, 65);
+            this.checkDBA.Name = "checkDBA";
+            this.checkDBA.Size = new System.Drawing.Size(82, 17);
+            this.checkDBA.TabIndex = 10;
+            this.checkDBA.Text = "Dachboden";
+            this.checkDBA.UseVisualStyleBackColor = true;
+            // 
+            // checkOG4A
+            // 
+            this.checkOG4A.AutoSize = true;
+            this.checkOG4A.Location = new System.Drawing.Point(183, 19);
+            this.checkOG4A.Name = "checkOG4A";
+            this.checkOG4A.Size = new System.Drawing.Size(54, 17);
+            this.checkOG4A.TabIndex = 9;
+            this.checkOG4A.Text = "4. OG";
+            this.checkOG4A.UseVisualStyleBackColor = true;
+            // 
+            // checkOG5A
+            // 
+            this.checkOG5A.AutoSize = true;
+            this.checkOG5A.Location = new System.Drawing.Point(183, 42);
+            this.checkOG5A.Name = "checkOG5A";
+            this.checkOG5A.Size = new System.Drawing.Size(54, 17);
+            this.checkOG5A.TabIndex = 8;
+            this.checkOG5A.Text = "5. OG";
+            this.checkOG5A.UseVisualStyleBackColor = true;
+            // 
+            // checkOG3A
+            // 
+            this.checkOG3A.AutoSize = true;
+            this.checkOG3A.Location = new System.Drawing.Point(99, 88);
+            this.checkOG3A.Name = "checkOG3A";
+            this.checkOG3A.Size = new System.Drawing.Size(54, 17);
+            this.checkOG3A.TabIndex = 7;
+            this.checkOG3A.Text = "3. OG";
+            this.checkOG3A.UseVisualStyleBackColor = true;
+            // 
+            // checkOG2A
+            // 
+            this.checkOG2A.AutoSize = true;
+            this.checkOG2A.Location = new System.Drawing.Point(99, 65);
+            this.checkOG2A.Name = "checkOG2A";
+            this.checkOG2A.Size = new System.Drawing.Size(54, 17);
+            this.checkOG2A.TabIndex = 6;
+            this.checkOG2A.Text = "2. OG";
+            this.checkOG2A.UseVisualStyleBackColor = true;
+            // 
+            // checkMAA
+            // 
+            this.checkMAA.AutoSize = true;
+            this.checkMAA.Location = new System.Drawing.Point(99, 19);
+            this.checkMAA.Name = "checkMAA";
+            this.checkMAA.Size = new System.Drawing.Size(78, 17);
+            this.checkMAA.TabIndex = 5;
+            this.checkMAA.Text = "Maisonette";
+            this.checkMAA.UseVisualStyleBackColor = true;
+            // 
+            // checkOG1A
+            // 
+            this.checkOG1A.AutoSize = true;
+            this.checkOG1A.Location = new System.Drawing.Point(99, 42);
+            this.checkOG1A.Name = "checkOG1A";
+            this.checkOG1A.Size = new System.Drawing.Size(54, 17);
+            this.checkOG1A.TabIndex = 4;
+            this.checkOG1A.Text = "1. OG";
+            this.checkOG1A.UseVisualStyleBackColor = true;
+            // 
+            // checkSTA
+            // 
+            this.checkSTA.AutoSize = true;
+            this.checkSTA.Location = new System.Drawing.Point(6, 88);
+            this.checkSTA.Name = "checkSTA";
+            this.checkSTA.Size = new System.Drawing.Size(74, 17);
+            this.checkSTA.TabIndex = 3;
+            this.checkSTA.Text = "Souterrain";
+            this.checkSTA.UseVisualStyleBackColor = true;
+            // 
+            // checkHPA
+            // 
+            this.checkHPA.AutoSize = true;
+            this.checkHPA.Location = new System.Drawing.Point(6, 65);
+            this.checkHPA.Name = "checkHPA";
+            this.checkHPA.Size = new System.Drawing.Size(85, 17);
+            this.checkHPA.TabIndex = 2;
+            this.checkHPA.Text = "Hochpaterre";
+            this.checkHPA.UseVisualStyleBackColor = true;
+            // 
+            // checkEGA
+            // 
+            this.checkEGA.AutoSize = true;
+            this.checkEGA.Location = new System.Drawing.Point(6, 42);
+            this.checkEGA.Name = "checkEGA";
+            this.checkEGA.Size = new System.Drawing.Size(87, 17);
+            this.checkEGA.TabIndex = 1;
+            this.checkEGA.Text = "Erdgeschoss";
+            this.checkEGA.UseVisualStyleBackColor = true;
+            // 
+            // checkKellerA
+            // 
+            this.checkKellerA.AutoSize = true;
+            this.checkKellerA.Location = new System.Drawing.Point(6, 19);
+            this.checkKellerA.Name = "checkKellerA";
+            this.checkKellerA.Size = new System.Drawing.Size(52, 17);
+            this.checkKellerA.TabIndex = 0;
+            this.checkKellerA.Text = "Keller";
+            this.checkKellerA.UseVisualStyleBackColor = true;
+            // 
             // groupBox22
             // 
             this.groupBox22.Controls.Add(this.radioAussenAufzugANein);
@@ -2084,333 +2395,39 @@
             this.textUmzugLog.Size = new System.Drawing.Size(1639, 114);
             this.textUmzugLog.TabIndex = 63;
             // 
-            // groupBox25
+            // groupBox27
             // 
-            this.groupBox25.Controls.Add(this.textSonderEtageA);
-            this.groupBox25.Controls.Add(this.checkDBA);
-            this.groupBox25.Controls.Add(this.checkOG4A);
-            this.groupBox25.Controls.Add(this.checkOG5A);
-            this.groupBox25.Controls.Add(this.checkOG3A);
-            this.groupBox25.Controls.Add(this.checkOG2A);
-            this.groupBox25.Controls.Add(this.checkMAA);
-            this.groupBox25.Controls.Add(this.checkOG1A);
-            this.groupBox25.Controls.Add(this.checkSTA);
-            this.groupBox25.Controls.Add(this.checkHPA);
-            this.groupBox25.Controls.Add(this.checkEGA);
-            this.groupBox25.Controls.Add(this.checkKellerA);
-            this.groupBox25.Location = new System.Drawing.Point(120, 147);
-            this.groupBox25.Name = "groupBox25";
-            this.groupBox25.Size = new System.Drawing.Size(369, 109);
-            this.groupBox25.TabIndex = 40;
-            this.groupBox25.TabStop = false;
-            this.groupBox25.Text = "Etagen";
+            this.groupBox27.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox27.Controls.Add(this.radioVersicherungNein);
+            this.groupBox27.Controls.Add(this.radioVersicherungJa);
+            this.groupBox27.Location = new System.Drawing.Point(573, 728);
+            this.groupBox27.Name = "groupBox27";
+            this.groupBox27.Size = new System.Drawing.Size(435, 52);
+            this.groupBox27.TabIndex = 18;
+            this.groupBox27.TabStop = false;
+            this.groupBox27.Text = "zusätzliche Umzugsgutversicherung";
             // 
-            // checkKellerA
+            // radioVersicherungJa
             // 
-            this.checkKellerA.AutoSize = true;
-            this.checkKellerA.Location = new System.Drawing.Point(6, 19);
-            this.checkKellerA.Name = "checkKellerA";
-            this.checkKellerA.Size = new System.Drawing.Size(52, 17);
-            this.checkKellerA.TabIndex = 0;
-            this.checkKellerA.Text = "Keller";
-            this.checkKellerA.UseVisualStyleBackColor = true;
+            this.radioVersicherungJa.AutoSize = true;
+            this.radioVersicherungJa.Location = new System.Drawing.Point(6, 19);
+            this.radioVersicherungJa.Name = "radioVersicherungJa";
+            this.radioVersicherungJa.Size = new System.Drawing.Size(79, 17);
+            this.radioVersicherungJa.TabIndex = 0;
+            this.radioVersicherungJa.TabStop = true;
+            this.radioVersicherungJa.Text = "Gewünscht";
+            this.radioVersicherungJa.UseVisualStyleBackColor = true;
             // 
-            // checkEGA
+            // radioVersicherungNein
             // 
-            this.checkEGA.AutoSize = true;
-            this.checkEGA.Location = new System.Drawing.Point(6, 42);
-            this.checkEGA.Name = "checkEGA";
-            this.checkEGA.Size = new System.Drawing.Size(87, 17);
-            this.checkEGA.TabIndex = 1;
-            this.checkEGA.Text = "Erdgeschoss";
-            this.checkEGA.UseVisualStyleBackColor = true;
-            // 
-            // checkHPA
-            // 
-            this.checkHPA.AutoSize = true;
-            this.checkHPA.Location = new System.Drawing.Point(6, 65);
-            this.checkHPA.Name = "checkHPA";
-            this.checkHPA.Size = new System.Drawing.Size(85, 17);
-            this.checkHPA.TabIndex = 2;
-            this.checkHPA.Text = "Hochpaterre";
-            this.checkHPA.UseVisualStyleBackColor = true;
-            // 
-            // checkSTA
-            // 
-            this.checkSTA.AutoSize = true;
-            this.checkSTA.Location = new System.Drawing.Point(6, 88);
-            this.checkSTA.Name = "checkSTA";
-            this.checkSTA.Size = new System.Drawing.Size(74, 17);
-            this.checkSTA.TabIndex = 3;
-            this.checkSTA.Text = "Souterrain";
-            this.checkSTA.UseVisualStyleBackColor = true;
-            // 
-            // checkOG1A
-            // 
-            this.checkOG1A.AutoSize = true;
-            this.checkOG1A.Location = new System.Drawing.Point(99, 42);
-            this.checkOG1A.Name = "checkOG1A";
-            this.checkOG1A.Size = new System.Drawing.Size(54, 17);
-            this.checkOG1A.TabIndex = 4;
-            this.checkOG1A.Text = "1. OG";
-            this.checkOG1A.UseVisualStyleBackColor = true;
-            // 
-            // checkMAA
-            // 
-            this.checkMAA.AutoSize = true;
-            this.checkMAA.Location = new System.Drawing.Point(99, 19);
-            this.checkMAA.Name = "checkMAA";
-            this.checkMAA.Size = new System.Drawing.Size(78, 17);
-            this.checkMAA.TabIndex = 5;
-            this.checkMAA.Text = "Maisonette";
-            this.checkMAA.UseVisualStyleBackColor = true;
-            // 
-            // checkOG2A
-            // 
-            this.checkOG2A.AutoSize = true;
-            this.checkOG2A.Location = new System.Drawing.Point(99, 65);
-            this.checkOG2A.Name = "checkOG2A";
-            this.checkOG2A.Size = new System.Drawing.Size(54, 17);
-            this.checkOG2A.TabIndex = 6;
-            this.checkOG2A.Text = "2. OG";
-            this.checkOG2A.UseVisualStyleBackColor = true;
-            // 
-            // checkOG3A
-            // 
-            this.checkOG3A.AutoSize = true;
-            this.checkOG3A.Location = new System.Drawing.Point(99, 88);
-            this.checkOG3A.Name = "checkOG3A";
-            this.checkOG3A.Size = new System.Drawing.Size(54, 17);
-            this.checkOG3A.TabIndex = 7;
-            this.checkOG3A.Text = "3. OG";
-            this.checkOG3A.UseVisualStyleBackColor = true;
-            // 
-            // checkDBA
-            // 
-            this.checkDBA.AutoSize = true;
-            this.checkDBA.Location = new System.Drawing.Point(183, 65);
-            this.checkDBA.Name = "checkDBA";
-            this.checkDBA.Size = new System.Drawing.Size(82, 17);
-            this.checkDBA.TabIndex = 10;
-            this.checkDBA.Text = "Dachboden";
-            this.checkDBA.UseVisualStyleBackColor = true;
-            // 
-            // checkOG4A
-            // 
-            this.checkOG4A.AutoSize = true;
-            this.checkOG4A.Location = new System.Drawing.Point(183, 19);
-            this.checkOG4A.Name = "checkOG4A";
-            this.checkOG4A.Size = new System.Drawing.Size(54, 17);
-            this.checkOG4A.TabIndex = 9;
-            this.checkOG4A.Text = "4. OG";
-            this.checkOG4A.UseVisualStyleBackColor = true;
-            // 
-            // checkOG5A
-            // 
-            this.checkOG5A.AutoSize = true;
-            this.checkOG5A.Location = new System.Drawing.Point(183, 42);
-            this.checkOG5A.Name = "checkOG5A";
-            this.checkOG5A.Size = new System.Drawing.Size(54, 17);
-            this.checkOG5A.TabIndex = 8;
-            this.checkOG5A.Text = "5. OG";
-            this.checkOG5A.UseVisualStyleBackColor = true;
-            // 
-            // textSonderEtageA
-            // 
-            this.textSonderEtageA.Location = new System.Drawing.Point(183, 84);
-            this.textSonderEtageA.Name = "textSonderEtageA";
-            this.textSonderEtageA.Size = new System.Drawing.Size(90, 20);
-            this.textSonderEtageA.TabIndex = 41;
-            // 
-            // groupBox26
-            // 
-            this.groupBox26.Controls.Add(this.textBox2);
-            this.groupBox26.Controls.Add(this.checkBox9);
-            this.groupBox26.Controls.Add(this.checkBox13);
-            this.groupBox26.Controls.Add(this.checkBox14);
-            this.groupBox26.Controls.Add(this.checkBox15);
-            this.groupBox26.Controls.Add(this.checkBox16);
-            this.groupBox26.Controls.Add(this.checkBox17);
-            this.groupBox26.Controls.Add(this.checkBox18);
-            this.groupBox26.Controls.Add(this.checkBox19);
-            this.groupBox26.Controls.Add(this.checkBox20);
-            this.groupBox26.Controls.Add(this.checkBox21);
-            this.groupBox26.Controls.Add(this.checkBox22);
-            this.groupBox26.Location = new System.Drawing.Point(119, 146);
-            this.groupBox26.Name = "groupBox26";
-            this.groupBox26.Size = new System.Drawing.Size(344, 109);
-            this.groupBox26.TabIndex = 42;
-            this.groupBox26.TabStop = false;
-            this.groupBox26.Text = "Etagen";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(183, 84);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(90, 20);
-            this.textBox2.TabIndex = 41;
-            // 
-            // checkBox9
-            // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(183, 65);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(82, 17);
-            this.checkBox9.TabIndex = 10;
-            this.checkBox9.Text = "Dachboden";
-            this.checkBox9.UseVisualStyleBackColor = true;
-            // 
-            // checkBox13
-            // 
-            this.checkBox13.AutoSize = true;
-            this.checkBox13.Location = new System.Drawing.Point(183, 19);
-            this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(54, 17);
-            this.checkBox13.TabIndex = 9;
-            this.checkBox13.Text = "4. OG";
-            this.checkBox13.UseVisualStyleBackColor = true;
-            // 
-            // checkBox14
-            // 
-            this.checkBox14.AutoSize = true;
-            this.checkBox14.Location = new System.Drawing.Point(183, 42);
-            this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(54, 17);
-            this.checkBox14.TabIndex = 8;
-            this.checkBox14.Text = "5. OG";
-            this.checkBox14.UseVisualStyleBackColor = true;
-            // 
-            // checkBox15
-            // 
-            this.checkBox15.AutoSize = true;
-            this.checkBox15.Location = new System.Drawing.Point(99, 88);
-            this.checkBox15.Name = "checkBox15";
-            this.checkBox15.Size = new System.Drawing.Size(54, 17);
-            this.checkBox15.TabIndex = 7;
-            this.checkBox15.Text = "3. OG";
-            this.checkBox15.UseVisualStyleBackColor = true;
-            // 
-            // checkBox16
-            // 
-            this.checkBox16.AutoSize = true;
-            this.checkBox16.Location = new System.Drawing.Point(99, 65);
-            this.checkBox16.Name = "checkBox16";
-            this.checkBox16.Size = new System.Drawing.Size(54, 17);
-            this.checkBox16.TabIndex = 6;
-            this.checkBox16.Text = "2. OG";
-            this.checkBox16.UseVisualStyleBackColor = true;
-            // 
-            // checkBox17
-            // 
-            this.checkBox17.AutoSize = true;
-            this.checkBox17.Location = new System.Drawing.Point(99, 19);
-            this.checkBox17.Name = "checkBox17";
-            this.checkBox17.Size = new System.Drawing.Size(78, 17);
-            this.checkBox17.TabIndex = 5;
-            this.checkBox17.Text = "Maisonette";
-            this.checkBox17.UseVisualStyleBackColor = true;
-            // 
-            // checkBox18
-            // 
-            this.checkBox18.AutoSize = true;
-            this.checkBox18.Location = new System.Drawing.Point(99, 42);
-            this.checkBox18.Name = "checkBox18";
-            this.checkBox18.Size = new System.Drawing.Size(54, 17);
-            this.checkBox18.TabIndex = 4;
-            this.checkBox18.Text = "1. OG";
-            this.checkBox18.UseVisualStyleBackColor = true;
-            // 
-            // checkBox19
-            // 
-            this.checkBox19.AutoSize = true;
-            this.checkBox19.Location = new System.Drawing.Point(6, 88);
-            this.checkBox19.Name = "checkBox19";
-            this.checkBox19.Size = new System.Drawing.Size(74, 17);
-            this.checkBox19.TabIndex = 3;
-            this.checkBox19.Text = "Souterrain";
-            this.checkBox19.UseVisualStyleBackColor = true;
-            // 
-            // checkBox20
-            // 
-            this.checkBox20.AutoSize = true;
-            this.checkBox20.Location = new System.Drawing.Point(6, 65);
-            this.checkBox20.Name = "checkBox20";
-            this.checkBox20.Size = new System.Drawing.Size(85, 17);
-            this.checkBox20.TabIndex = 2;
-            this.checkBox20.Text = "Hochpaterre";
-            this.checkBox20.UseVisualStyleBackColor = true;
-            // 
-            // checkBox21
-            // 
-            this.checkBox21.AutoSize = true;
-            this.checkBox21.Location = new System.Drawing.Point(6, 42);
-            this.checkBox21.Name = "checkBox21";
-            this.checkBox21.Size = new System.Drawing.Size(87, 17);
-            this.checkBox21.TabIndex = 1;
-            this.checkBox21.Text = "Erdgeschoss";
-            this.checkBox21.UseVisualStyleBackColor = true;
-            // 
-            // checkBox22
-            // 
-            this.checkBox22.AutoSize = true;
-            this.checkBox22.Location = new System.Drawing.Point(6, 19);
-            this.checkBox22.Name = "checkBox22";
-            this.checkBox22.Size = new System.Drawing.Size(52, 17);
-            this.checkBox22.TabIndex = 0;
-            this.checkBox22.Text = "Keller";
-            this.checkBox22.UseVisualStyleBackColor = true;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(282, 94);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(108, 20);
-            this.numericUpDown1.TabIndex = 37;
-            this.numericUpDown1.TabStop = false;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(396, 94);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(60, 15);
-            this.label14.TabIndex = 38;
-            this.label14.Text = "Stunden";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(396, 120);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(112, 15);
-            this.label18.TabIndex = 39;
-            this.label18.Text = "Kartons benötigt";
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(282, 120);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(108, 20);
-            this.numericUpDown2.TabIndex = 35;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(396, 68);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(107, 15);
-            this.label19.TabIndex = 36;
-            this.label19.Text = "Packer benötigt";
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Location = new System.Drawing.Point(282, 68);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(108, 20);
-            this.numericUpDown3.TabIndex = 34;
+            this.radioVersicherungNein.AutoSize = true;
+            this.radioVersicherungNein.Location = new System.Drawing.Point(91, 19);
+            this.radioVersicherungNein.Name = "radioVersicherungNein";
+            this.radioVersicherungNein.Size = new System.Drawing.Size(105, 17);
+            this.radioVersicherungNein.TabIndex = 1;
+            this.radioVersicherungNein.TabStop = true;
+            this.radioVersicherungNein.Text = "Nicht gewünscht";
+            this.radioVersicherungNein.UseVisualStyleBackColor = true;
             // 
             // UmzugAdd
             // 
@@ -2446,6 +2463,8 @@
             this.groupBox16.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
+            this.groupBox26.ResumeLayout(false);
+            this.groupBox26.PerformLayout();
             this.groupBox23.ResumeLayout(false);
             this.groupBox23.PerformLayout();
             this.groupBox11.ResumeLayout(false);
@@ -2454,9 +2473,11 @@
             this.groupBox12.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericPackStunden)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericPackKartons)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericPacker)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericAusPackStunden)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericAusPacker)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEinPackStunden)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEinPackKartons)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEinPacker)).EndInit();
             this.groupBox13.ResumeLayout(false);
             this.groupBox13.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -2491,6 +2512,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUmzugsDauer)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox25.ResumeLayout(false);
+            this.groupBox25.PerformLayout();
             this.groupBox22.ResumeLayout(false);
             this.groupBox22.PerformLayout();
             this.groupBox9.ResumeLayout(false);
@@ -2498,13 +2521,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericSucheKundennr)).EndInit();
-            this.groupBox25.ResumeLayout(false);
-            this.groupBox25.PerformLayout();
-            this.groupBox26.ResumeLayout(false);
-            this.groupBox26.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            this.groupBox27.ResumeLayout(false);
+            this.groupBox27.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2588,9 +2606,9 @@
         private System.Windows.Forms.TextBox textStraßeB;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.NumericUpDown numericPackKartons;
+        private System.Windows.Forms.NumericUpDown numericEinPackKartons;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.NumericUpDown numericPacker;
+        private System.Windows.Forms.NumericUpDown numericEinPacker;
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.RadioButton radioAuspackenV;
         private System.Windows.Forms.RadioButton radioAuspackenNein;
@@ -2656,7 +2674,7 @@
         private System.Windows.Forms.RadioButton radioAusVllt;
         private System.Windows.Forms.RadioButton radioEinVllt;
         private System.Windows.Forms.RadioButton radioUmzVllt;
-        private System.Windows.Forms.NumericUpDown numericPackStunden;
+        private System.Windows.Forms.NumericUpDown numericEinPackStunden;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.ListBox listBoxB;
         private System.Windows.Forms.ListBox listBoxA;
@@ -2681,24 +2699,22 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.NumericUpDown numericSprinterMit;
         private System.Windows.Forms.GroupBox groupBox26;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.CheckBox checkBox9;
-        private System.Windows.Forms.CheckBox checkBox13;
-        private System.Windows.Forms.CheckBox checkBox14;
-        private System.Windows.Forms.CheckBox checkBox15;
-        private System.Windows.Forms.CheckBox checkBox16;
-        private System.Windows.Forms.CheckBox checkBox17;
-        private System.Windows.Forms.CheckBox checkBox18;
-        private System.Windows.Forms.CheckBox checkBox19;
-        private System.Windows.Forms.CheckBox checkBox20;
-        private System.Windows.Forms.CheckBox checkBox21;
-        private System.Windows.Forms.CheckBox checkBox22;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.TextBox textSonderEtageB;
+        private System.Windows.Forms.CheckBox checkDBB;
+        private System.Windows.Forms.CheckBox checkOG4B;
+        private System.Windows.Forms.CheckBox checkOG5B;
+        private System.Windows.Forms.CheckBox checkOG3B;
+        private System.Windows.Forms.CheckBox checkOG2B;
+        private System.Windows.Forms.CheckBox checkMAB;
+        private System.Windows.Forms.CheckBox checkOG1B;
+        private System.Windows.Forms.CheckBox checkSTB;
+        private System.Windows.Forms.CheckBox checkHPB;
+        private System.Windows.Forms.CheckBox checkEGB;
+        private System.Windows.Forms.CheckBox checkKellerB;
+        private System.Windows.Forms.NumericUpDown numericAusPackStunden;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown numericAusPacker;
         private System.Windows.Forms.GroupBox groupBox25;
         private System.Windows.Forms.TextBox textSonderEtageA;
         private System.Windows.Forms.CheckBox checkDBA;
@@ -2712,5 +2728,8 @@
         private System.Windows.Forms.CheckBox checkHPA;
         private System.Windows.Forms.CheckBox checkEGA;
         private System.Windows.Forms.CheckBox checkKellerA;
+        private System.Windows.Forms.GroupBox groupBox27;
+        private System.Windows.Forms.RadioButton radioVersicherungNein;
+        private System.Windows.Forms.RadioButton radioVersicherungJa;
     }
 }
