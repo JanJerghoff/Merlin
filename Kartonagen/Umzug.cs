@@ -98,7 +98,7 @@ namespace Kartonagen
                     statAus = rdr.GetInt32(0);
                     statEin = rdr.GetInt32(0);
                     statRuempeln = rdr.GetInt32(0);
-                    zeitUmzug = rdr.GetInt32(0);
+                    zeitUmzug = rdr.GetDateTime(0);
 
                     AufzugA = rdr.GetInt32(7);
                     AufzugB = rdr.GetInt32(8);
@@ -165,6 +165,8 @@ namespace Kartonagen
             }
         }
         
+
+
         // Ausgabemethoden
 
         public String Geschosse(int EinAusZug) {

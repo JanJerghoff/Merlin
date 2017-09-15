@@ -167,7 +167,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textUmzugLog.AppendText(sqlEx.ToString());
+                Program.FehlerLog(sqlEx.ToString(),"Pushen des neuen Umzugs");
                 //return "Fehlgeschlagen \r\n";
                 return sqlEx.ToString()+"\r\n"+push;
             }
@@ -593,7 +593,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                textUmzugLog.AppendText(sqlEx.ToString());
+                Program.FehlerLog(sqlEx.ToString(),"Ergebnis-Umzugsnummer Anzeigen");
             }
             // Daten in Kalender Speichern
 
