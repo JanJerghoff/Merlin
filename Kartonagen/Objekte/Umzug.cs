@@ -162,7 +162,60 @@ namespace Kartonagen
                 Program.FehlerLog(sqlEx.ToString(), "Abrufen der Umzugsdaten zur Objekterstellung");
             }
         }
-        
+
+        public Umzug(int idKunden, DateTime datBesichtigung, DateTime datUmzug, DateTime datEinraeumen, DateTime datAusraeumen, DateTime datRuempeln, DateTime zeitUmzug, int statBesichtigung, int statUmzug, int statAus, int statEin, int statRuempeln, int umzugsdauer, string autos, int mann, int stunden, bool versicherung, int einpacken, int einpacker, int einStunden, int karton, int auspacken, int auspacker, int ausStunden, int kleiderkartons, int kucheAuf, int kuecheAb, int kuecheBau, int kuechePausch, Adresse auszug, Adresse einzug, bool schilder, DateTime schilderZeit, string notizTitel, string notizBuero, string notizFahrer, string userChanged, DateTime erstelldatum)
+        {
+
+            String longInsert = "INSERT INTO Umzuege (Kunden_idKunden, datBesichtigung, datUmzug, datRuempelung, datEinpacken, datAuspacken, umzugsZeit, " +
+                "StatBes, StatUmz, StatAus, StatEin, StatEnt, Autos, Mann, Stunden, Versicherung" +
+                "Einpacken, EinPackerZahl, EinPackStunden, Kartons, Auspacken, AusPackerZahl, AusPackStunden, Kleiderkisten, SchilderZurueck, " +
+                "KuecheAb, KuecheAuf, KuecheBau, KuechePausch, " +
+                "StraßeA, HausnummerA, PLZA, OrtA, LandA, AufzugA, StockwerkeA, HausTypA, HVZA, LaufmeterA, AussenAufzugA, " +
+                "StraßeB, HausnummerB, PLZB, OrtB, LandB, AufzugB, StockwerkeB, HausTypB, HVZB, LaufmeterB, AussenAufzugB, " +
+                "NotizBuero, NotizFahrer, BemerkungTitel, SchilderZeit, UserChanged, Erstelldatum) VALUES (";
+
+            longInsert += idKunden + ", ";
+            longInsert += "'" + Program.DateMachine(datBesichtigung) + "', ";
+            longInsert += "'" + Program.DateMachine(datUmzug) + "', ";
+            longInsert += "'" + Program.DateMachine(datRuempeln) + "', ";
+            longInsert += "'" + Program.DateMachine(datEinraeumen) + "', ";
+            longInsert += "'" + Program.DateMachine(datAusraeumen) + "', ";
+            longInsert += "'" + Program.ZeitMachine(zeitUmzug) + "', ";
+
+            longInsert +=  statBesichtigung+ ", ";
+            longInsert +=  statUmzug + ", ";
+            longInsert += statAus + ", ";
+            longInsert += statEin + ", ";
+            longInsert += statRuempeln + ", ";
+
+            longInsert += "'" + autos +"', ";
+            longInsert += mann + ", ";
+            longInsert += stunden + ", ";
+            if (versicherung)
+            {
+                longInsert += 1 + ", ";
+            }
+            else { longInsert += 0 + ", "; }
+
+            longInsert += einpacken + ", ";
+            longInsert += einpacker + ", ";
+            longInsert += einStunden + ", ";
+            longInsert += karton + ", ";
+            longInsert += auspacken + ", ";
+            longInsert += auspacker + ", ";
+            longInsert += ausStunden + ", ";
+            longInsert += kleiderkartons + ", ";
+            if (schilder)
+            {
+                longInsert += 1 + ", ";
+            }
+            else { longInsert += 0 + ", "; }
+
+
+
+        }
+
+
 
         // Ausgabemethoden
 
@@ -190,22 +243,16 @@ namespace Kartonagen
         }
 
         //Updatemechanik
-        public void Push ()
+        public void UpdateDB ()
         {
 
-            String longInsert = "INSERT INTO Umzuege (Kunden_idKunden, datBesichtigung, datUmzug, datRuempelung, datEinpacken, datAuspacken, " +
-                "StatUmz, StatBes, StatAus, StatEin, StatEnt, umzugsZeit, Autos, Mann, Stunden, Versicherung" +
-                "Einpacken, EinPackerZahl, EinPackStunden, Kartons, Auspacken, AusPackerZahl, AusPackStunden, Kleiderkisten, SchilderZurueck, " +
-                "KuecheAb, KuecheAuf, KuecheBau, KuechePausch, "+
-                "StraßeA, HausnummerA, PLZA, OrtA, LandA, AufzugA, StockwerkeA, HausTypA, HVZA, LaufmeterA, AussenAufzugA, " +
-                "StraßeB, HausnummerB, PLZB, OrtB, LandB, AufzugB, StockwerkeB, HausTypB, HVZB, LaufmeterB, AussenAufzugB, " +
+            String longInsert = "UPDATE umzuege SET ";
 
-                "AufzugA, AufzugB, HVZA, HVZB, StockwerkeA, StockwerkeB, LaufmeterA, LaufmeterB, Einpacken, Auspacken, Packerzahl, Kartons, Kleiderkisten, " +
-                "Mann, Stunden, SchilderBool, SchilderZeit, KuecheAb, KuecheAuf, KuecheBau, KuechePausch, UmzugsDauer, Autos, " +
-                "StraßeA, HausnummerA, PLZA, OrtA, LandA, AussenAufzugA, " +
-                "StraßeB, HausnummerB, PLZB, OrtB, LandB, AussenaufzugB, NotizBuero, NotizFahrer, BemerkungTitel, UserChanged, Erstelldatum, PackerStunden, " +
-                "StatUmz, StatBes, StatAus, StatEin, StatEnt, HausTypA, HausTypB, umzugsZeit) VALUES (";
+            longInsert +=  +", ";
 
+            longInsert += "'"+ +"', "
+
+            longInsert += " WHERE idUmzuege = " + id + ";";
 
         }
     }
