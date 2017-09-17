@@ -46,7 +46,7 @@ namespace Kartonagen
         int Kleiderkartons;
 
         //Küche
-        int KucheAuf;
+        int KuecheAuf;
         int KuecheAb;
         int KuecheBau;
         int KuechePausch;
@@ -163,7 +163,7 @@ namespace Kartonagen
             }
         }
 
-        public Umzug(int idKunden, DateTime datBesichtigung, DateTime datUmzug, DateTime datEinraeumen, DateTime datAusraeumen, DateTime datRuempeln, DateTime zeitUmzug, int statBesichtigung, int statUmzug, int statAus, int statEin, int statRuempeln, int umzugsdauer, string autos, int mann, int stunden, bool versicherung, int einpacken, int einpacker, int einStunden, int karton, int auspacken, int auspacker, int ausStunden, int kleiderkartons, int kucheAuf, int kuecheAb, int kuecheBau, int kuechePausch, Adresse auszug, Adresse einzug, bool schilder, DateTime schilderZeit, string notizTitel, string notizBuero, string notizFahrer, string userChanged, DateTime erstelldatum)
+        public Umzug(int idKunden, DateTime datBesichtigung, DateTime datUmzug, DateTime datEinraeumen, DateTime datAusraeumen, DateTime datRuempeln, DateTime zeitUmzug, int statBesichtigung, int statUmzug, int statAus, int statEin, int statRuempeln, int umzugsdauer, string autos, int mann, int stunden, bool versicherung, int einpacken, int einpacker, int einStunden, int karton, int auspacken, int auspacker, int ausStunden, int kleiderkartons, int kuecheAuf, int kuecheAb, int kuecheBau, int kuechePausch, Adresse auszug, Adresse einzug, bool schilder, DateTime schilderZeit, string notizTitel, string notizBuero, string notizFahrer, string userChanged, DateTime erstelldatum)
         {
 
             String longInsert = "INSERT INTO Umzuege (Kunden_idKunden, datBesichtigung, datUmzug, datRuempelung, datEinpacken, datAuspacken, umzugsZeit, " +
@@ -211,9 +211,47 @@ namespace Kartonagen
             }
             else { longInsert += 0 + ", "; }
 
+            longInsert += kuecheAuf + ", ";
+            longInsert += kuecheAb + ", ";
+            longInsert += kuecheBau + ", ";
+            longInsert += kuechePausch + ", ";
 
+            longInsert += "'" + auszug.Straße1 + "', ";
+            longInsert += "'" + auszug.Hausnummer1 + "', ";
+            longInsert += "'" + auszug.PLZ1 + "', ";
+            longInsert += "'" + auszug.Ort1 + "', ";
+            longInsert += "'" + auszug.Land1 + "', ";
+            longInsert += auszug.Aufzug1 + ", ";            
+            longInsert += "'" + auszug.Stockwerke1 + "', ";
+            longInsert += "'" + auszug.Haustyp1 + "', ";
+            longInsert += auszug.HVZ1 + ", ";
+            longInsert += auszug.Laufmeter1 + ", ";
+            longInsert += auszug.AussenAufzug1 + ", ";
 
-        }
+            longInsert += "'" + einzug.Straße1 + "', ";
+            longInsert += "'" + einzug.Hausnummer1 + "', ";
+            longInsert += "'" + einzug.PLZ1 + "', ";
+            longInsert += "'" + einzug.Ort1 + "', ";
+            longInsert += "'" + einzug.Land1 + "', ";
+            longInsert += einzug.Aufzug1 + ", ";
+            longInsert += "'" + einzug.Stockwerke1 + "', ";
+            longInsert += "'" + einzug.Haustyp1 + "', ";
+            longInsert += einzug.HVZ1 + ", ";
+            longInsert += einzug.Laufmeter1 + ", ";
+            longInsert += einzug.AussenAufzug1 + ", ";
+
+            longInsert += "'" + einzug.Haustyp1 + "', ";
+            longInsert += "'" + einzug.Haustyp1 + "', ";
+            longInsert += "'" + einzug.Haustyp1 + "', ";
+            longInsert += "'" + Program.DateMachine(schilderZeit) + "', ";
+            longInsert += "'" + einzug.Haustyp1 + "', ";
+            longInsert += "'" + Program.DateMachine(DateTime.Now) + ");";
+
+            // Merkt den Query
+            Program.QueryLog(longInsert);
+            
+            Program.absender(longInsert, "Einfügen des neuen Umzuges zum erstellen des Umzugsobjekts");
+            }
 
 
 

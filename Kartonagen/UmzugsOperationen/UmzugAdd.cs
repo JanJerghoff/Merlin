@@ -1,6 +1,7 @@
 ﻿using iText.Forms;
 using iText.Forms.Fields;
 using iText.Kernel.Pdf;
+using Kartonagen.Objekte;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -547,6 +548,177 @@ namespace Kartonagen
             textUmzugLog.AppendText(datumInKalender());
 
 
+        }
+
+        private void umzugBauer ()
+        {
+            int aufzugtemp;
+            string stockwerketemp = "";
+            int hvztemp;
+            int aussenaufzugtemp;
+
+            // Belegung der Temps für die Adresserstellung.
+            if (radioAufzugAJa.Checked)
+            {
+                aufzugtemp = 1;
+            }
+            else { aufzugtemp = 0; }
+
+            if (radioAussenAufzugAJa.Checked)
+            {
+                aussenaufzugtemp = 1;
+            }
+            else { aussenaufzugtemp = 0; }
+
+            if (radioHVZAJa.Checked)
+            {
+                hvztemp = 1;
+            }
+            else if (radioHVZAV.Checked) {
+                hvztemp = 2;
+            }
+            else { hvztemp = 0; }
+
+            // Zusammensetzung Stockwerke-String
+            if (checkKellerA.Checked) { stockwerketemp += "K,"; }
+            if (checkEGA.Checked) { stockwerketemp += "EG,"; }
+            if (checkDBA.Checked) { stockwerketemp += "DB,"; }
+            if (checkMAA.Checked) { stockwerketemp += "MA,"; }
+            if (checkSTA.Checked) { stockwerketemp += "ST,"; }
+            if (checkHPA.Checked) { stockwerketemp += "HP,"; }
+            if (checkOG1A.Checked) { stockwerketemp += "1,"; }
+            if (checkOG2A.Checked) { stockwerketemp += "2,"; }
+            if (checkOG3A.Checked) { stockwerketemp += "3,"; }
+            if (checkOG4A.Checked) { stockwerketemp += "4,"; }
+            if (checkOG5A.Checked) { stockwerketemp += "5,"; }
+            if (textSonderEtageA.TextLength != 0)
+            {
+                stockwerketemp += textSonderEtageA.Text;
+            }
+
+            Adresse aus = new Adresse(textStraßeA.Text, textHausnummerA.Text, textOrtA.Text, textPLZA.Text, textLandA.Text, aufzugtemp, stockwerketemp, listBoxA.SelectedItem.ToString(), hvztemp, int.Parse(textLaufMeterA.Text), aussenaufzugtemp);
+
+            // Belegung der Temps für die Adresserstellung.
+            if (radioAufzugBJa.Checked)
+            {
+                aufzugtemp = 1;
+            }
+            else { aufzugtemp = 0; }
+
+            if (radioAussenAufzugBJa.Checked)
+            {
+                aussenaufzugtemp = 1;
+            }
+            else { aussenaufzugtemp = 0; }
+
+            if (radioHVZBJa.Checked)
+            {
+                hvztemp = 1;
+            }
+            else if (radioHVZBV.Checked)
+            {
+                hvztemp = 2;
+            }
+            else { hvztemp = 0; }
+
+            // Zusammensetzung Stockwerke-String
+            stockwerketemp = "";
+            if (checkKellerB.Checked) { stockwerketemp += "K,"; }
+            if (checkEGB.Checked) { stockwerketemp += "EG,"; }
+            if (checkDBB.Checked) { stockwerketemp += "DB,"; }
+            if (checkMAB.Checked) { stockwerketemp += "MA,"; }
+            if (checkSTB.Checked) { stockwerketemp += "ST,"; }
+            if (checkHPB.Checked) { stockwerketemp += "HP,"; }
+            if (checkOG1B.Checked) { stockwerketemp += "1,"; }
+            if (checkOG2B.Checked) { stockwerketemp += "2,"; }
+            if (checkOG3B.Checked) { stockwerketemp += "3,"; }
+            if (checkOG4B.Checked) { stockwerketemp += "4,"; }
+            if (checkOG5B.Checked) { stockwerketemp += "5,"; }
+            if (textSonderEtageB.TextLength != 0)
+            {
+                stockwerketemp += textSonderEtageB.Text;
+            }
+
+            Adresse ein = new Adresse(textStraßeB.Text, textHausnummerB.Text, textOrtB.Text, textPLZB.Text, textLandB.Text, aufzugtemp, stockwerketemp, listBoxB.SelectedItem.ToString(), hvztemp, int.Parse(textLaufMeterB.Text), aussenaufzugtemp);
+
+            // Temps für die Umzugserstellung
+            // Status des Datums. 0 = nicht festgelegt, 1 = festgelegt, 2 = vorläufig (wenn möglich), 3 = Vorläufig gebucht (bei Umzügen)
+            // Reihenfolge ist Umz, Bes, Aus, Ein, Ent
+            List<int> stat = new List<int>();
+
+            if (radioUmzJa.Checked)
+            {
+                stat.Add(1);
+            }
+            else if (radioUmzVllt.Checked)
+            {
+                stat.Add(2);
+            }
+            else if (radioUmzVorlaeufig.Checked)
+            {
+                stat.Add(3);
+            }
+            else { stat.Add(0); }
+            //
+            if (radioBesJa.Checked)
+            {
+                stat.Add(1);
+            }
+            else { stat.Add(0); }
+            //
+            if (radioAusJa.Checked)
+            {
+                stat.Add(1);
+            }
+            else if (radioAusVllt.Checked)
+            {
+                stat.Add(2);
+            }
+            else { stat.Add(0); }
+            //
+            if (radioEinJa.Checked)
+            {
+                stat.Add(1);
+            }
+            else if (radioEinVllt.Checked)
+            {
+                stat.Add(2);
+            }
+            else { stat.Add(0); }
+            //
+            if (radioEntJa.Checked)
+            {
+                stat.Add(1);
+            }
+            else if (radioEntVllt.Checked)
+            {
+                stat.Add(2);
+            }
+            else
+            {
+                stat.Add(0);
+            }
+
+            // String Autos
+            String tempAuto = "";
+            tempAuto = tempAuto + decimal.ToInt32(numericSprinterMit.Value).ToString();
+            tempAuto = tempAuto + decimal.ToInt32(numericSprinterOhne.Value).ToString();
+            tempAuto = tempAuto + decimal.ToInt32(numericLKW.Value).ToString();
+            tempAuto = tempAuto + decimal.ToInt32(numericLKWGroß.Value).ToString();
+
+            int versicherungtemp = 0;
+            if (radioVersicherungJa.Checked) { versicherungtemp = 1; } else { versicherungtemp = 0; }
+
+            int einpacktemp = 0;
+            int auspacktemp = 0;
+            if (radioEinpackenJa.Checked) { einpacktemp = 1; } else if ( radioEinpackenV.Checked) { einpacktemp = 2; } else { einpacktemp = 0; }
+            if (radioAuspackenJa.Checked) { auspacktemp = 1; } else if (radioAuspackenV.Checked) { auspacktemp = 2; } else { auspacktemp = 0; }
+
+
+
+            Umzug neu = new Umzug (int.Parse(textKundennummer.Text),dateBesicht.Value,dateUmzug.Value,dateEinpack.Value,dateAuspack.Value,dateEntruempel.Value,timeBesichtigung.Value,stat[1],stat[0],stat[2],stat[3],stat[4],
+                numericUmzugsDauer.Value,tempAuto,numericMannZahl.Value, numericArbeitszeit.Value, versicherungtemp, einpacktemp, numericEinPacker.Value, numericEinPackStunden.Value, numericEinPackKartons,
+                auspacktemp, numericAusPacker.Value, numericAusPackStunden.Value, numericKleiderkisten.Value, )
         }
 
         private void buttonSchnellSpeichern_Click(object sender, EventArgs e)
