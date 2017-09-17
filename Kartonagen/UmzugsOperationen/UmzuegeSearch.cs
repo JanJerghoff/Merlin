@@ -254,8 +254,6 @@ namespace Kartonagen
                     }
                     else { radioHVZBV.Checked = true; }
                     //
-                    numericStockwerkeA.Value = rdr.GetInt32(11);
-                    numericStockwerkeB.Value = rdr.GetInt32(12);
                     //
                     textLaufMeterA.Text = rdr[13].ToString();
                     textLaufMeterB.Text = rdr[14].ToString();
@@ -280,8 +278,6 @@ namespace Kartonagen
                     }
                     else { radioAuspackenV.Checked = true; }
                     //
-                    numericPacker.Value = rdr.GetInt32(17);
-                    numericPackKartons.Value = rdr.GetInt32(18);
                     numericKleiderkisten.Value = rdr.GetInt32(19);
                     numericMannZahl.Value = rdr.GetInt32(20);
                     numericArbeitszeit.Value = rdr.GetInt32(21);
@@ -341,7 +337,7 @@ namespace Kartonagen
                     //
                     UserSpeicher = rdr[42].ToString();
                     //
-                    numericPackStunden.Value = rdr.GetInt32(44);
+                    
                     //
                     //Setzen der Terminzustände, elend umständlich.
                     // Umzug
@@ -624,36 +620,9 @@ namespace Kartonagen
             //Konstruktion String Kalerndereintragsinhalt
             // Name + Auszugsadresse
             String Body = textVorNachname.Text + "\r\n Aus: " + textStraßeA.Text + " " + textHausnummerA.Text + ", " + textPLZA.Text + " " + textOrtA.Text + "\r\n";
-            if (listBoxA.SelectedItem.ToString() == "EFH")
-            {
-                if (numericStockwerkeA.Value == 1)
-                {
-                    Body += " EFH Eingeschossig ";
-                }
-                else if (numericStockwerkeA.Value == 2)
-                {
-                    Body += " EFH Zweigeschossig ";
-                }
-                else if (numericStockwerkeA.Value == 3)
-                {
-                    Body += " EFH Dreigeschossig ";
-                }
-                else if (numericStockwerkeA.Value == 4)
-                {
-                    Body += " EFH Viergeschossig ";
-                }
-            }
-            else
-            {
-                if (numericStockwerkeA.Value == 0)
-                {
-                    Body += " Erdgeschoss " + listBoxA.SelectedItem + ",";
-                }
-                else
-                {
-                    Body += numericStockwerkeA.Value + " ET, " + listBoxA.SelectedItem + ", ";
-                }
-            }
+
+            // Geschoss + HausTyp
+
             if (radioAufzugAJa.Checked)
             {
                 Body += "mit Aufzug \r\n";
@@ -662,36 +631,9 @@ namespace Kartonagen
 
             //Einzugsadresse
             Body += "\r\n Nach: " + textStraßeB.Text + " " + textHausnummerB.Text + ", " + textPLZB.Text + " " + textOrtB.Text + "\r\n";
-            if (listBoxB.SelectedItem.ToString() == "EFH")
-            {
-                if (numericStockwerkeB.Value == 1)
-                {
-                    Body += " EFH Eingeschossig ";
-                }
-                else if (numericStockwerkeB.Value == 2)
-                {
-                    Body += " EFH Zweigeschossig ";
-                }
-                else if (numericStockwerkeB.Value == 3)
-                {
-                    Body += " EFH Dreigeschossig ";
-                }
-                else if (numericStockwerkeB.Value == 4)
-                {
-                    Body += " EFH Viergeschossig ";
-                }
-            }
-            else
-            {
-                if (numericStockwerkeB.Value == 0)
-                {
-                    Body += " Erdgeschoss " + listBoxB.SelectedItem + ",";
-                }
-                else
-                {
-                    Body += numericStockwerkeB.Value + " ET, " + listBoxB.SelectedItem + ", ";
-                }
-            }
+
+            // Geschoss + HausTyp
+
             if (radioAufzugBJa.Checked)
             {
                 Body += "mit Aufzug \r\n";
@@ -772,7 +714,7 @@ namespace Kartonagen
 
         private String RaeumHeader()
         {
-            return textKundennummer.Text + " " + textVorNachname.Text + ", " + numericPacker.Value + " Mann, " + numericPackStunden.Value + " Stunden";
+            return textKundennummer.Text + " " + textVorNachname.Text + ", ";//+ numericPacker.Value + " Mann, " + numericPackStunden.Value + " Stunden";
         }
 
         private void UmzugEinfuegen(int code) {
@@ -1036,9 +978,9 @@ namespace Kartonagen
                     textUmzugLog.AppendText("Vorläufiges Entrümpeln entfernt \r\n");
                 }
                 // Entrümpelung hinzufügen
-                String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericPacker.Value + " Mann, " + numericPackStunden.Value + " Stunden ENTRÜMPELN, ";
-                Program.kalenderEintragGanz(Header, KalenderString(), "", 11, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
-                textUmzugLog.AppendText("Entrümpeln hinzugefügt \r\n");
+                //String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericPacker.Value + " Mann, " + numericPackStunden.Value + " Stunden ENTRÜMPELN, ";
+                //Program.kalenderEintragGanz(Header, KalenderString(), "", 11, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
+                //textUmzugLog.AppendText("Entrümpeln hinzugefügt \r\n");
 
                 InsertDaten += "StatEnt = " + 1 + ", ";
             }
@@ -1052,9 +994,9 @@ namespace Kartonagen
                     textUmzugLog.AppendText("Entrümpeln entfernt \r\n");
                 }
                 // Vorläufiges Entrümpeln hinzufügen
-                String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericPacker.Value + " Mann, " + numericPackStunden.Value + " Stunden ENTRÜMPELN, ";
-                Program.kalenderEintragGanz(Header, KalenderString(), "", 10, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
-                textUmzugLog.AppendText("Vorläufiges Entrümpeln hinzugefügt \r\n");
+                //String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericPacker.Value + " Mann, " + numericPackStunden.Value + " Stunden ENTRÜMPELN, ";
+                //Program.kalenderEintragGanz(Header, KalenderString(), "", 10, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
+                //textUmzugLog.AppendText("Vorläufiges Entrümpeln hinzugefügt \r\n");
 
                 InsertDaten += "StatEnt = " + 2 + ", ";
             }
@@ -1161,14 +1103,14 @@ namespace Kartonagen
             }
             else { ausPacken = 2; }
 
-            String InsertDaten = "UPDATE Umzuege SET Einpacken = " + einPacken + ", " +
-                "UserChanged = '" + UserSpeicher.ToString() + idBearbeitend.ToString() + "', " +
-                "Auspacken = " + ausPacken + ", " +
-                "PackerZahl = " + numericPacker.Value + ", " +
-                "PackerStunden = " + numericPackStunden.Value + ", " +
-                "Kartons = " + numericPackKartons.Value +
-                " WHERE idUmzuege = " + textUmzNummerBlock.Text + ";";
-            absender(InsertDaten);
+            //String InsertDaten = "UPDATE Umzuege SET Einpacken = " + einPacken + ", " +
+            //    "UserChanged = '" + UserSpeicher.ToString() + idBearbeitend.ToString() + "', " +
+            //    "Auspacken = " + ausPacken + ", " +
+            //    "PackerZahl = " + numericPacker.Value + ", " +
+            //    "PackerStunden = " + numericPackStunden.Value + ", " +
+            //    "Kartons = " + numericPackKartons.Value +
+            //    " WHERE idUmzuege = " + textUmzNummerBlock.Text + ";";
+            //absender(InsertDaten);
 
             //Kalender aktualisieren
             refreshAusraeumen();
@@ -1268,7 +1210,7 @@ namespace Kartonagen
                 "AussenAufzugB = " + aussenAuf + ", " +
                 "HausTypB = '" + listBoxB.SelectedItem.ToString() + "', " +
                 "LaufmeterB = " + int.Parse(textLaufMeterB.Text) + ", " +
-                "StockwerkeB = " + numericStockwerkeB.Value +
+                //"StockwerkeB = " + numericStockwerkeB.Value +
                 " WHERE idUmzuege = " + textUmzNummerBlock.Text + ";";
             absender(InsertDaten);
             //Kalender aktualisieren
@@ -1321,8 +1263,8 @@ namespace Kartonagen
                 "AufzugA = " + aufzug + ", " +
                 "AussenAufzugA = " + aussenAuf + ", " +
                 "HausTypA = '" + listBoxA.SelectedItem.ToString() + "', " +
-                "LaufmeterA = " + int.Parse(textLaufMeterA.Text) + ", " +
-                "StockwerkeA = " + numericStockwerkeA.Value +
+                "LaufmeterA = " + int.Parse(textLaufMeterA.Text) +
+                //"StockwerkeA = " + numericStockwerkeA.Value +
                 " WHERE idUmzuege = " + textUmzNummerBlock.Text + ";";
             absender(InsertDaten);
 
@@ -1494,48 +1436,7 @@ namespace Kartonagen
                 toSet.SetValue(textPLZA.Text + " " + textOrtA.Text);
 
                 //Geschossigkeit
-                if (listBoxA.SelectedItem.ToString() == "EFH")
-                {
-                    if (numericStockwerkeA.Value == 0)
-                    {
-                        fields.TryGetValue("StockwerkeA", out toSet);
-                        toSet.SetValue("Bungalow");
-                    }
-                    if (numericStockwerkeA.Value == 1)
-                    {
-                        fields.TryGetValue("StockwerkeA", out toSet);
-                        toSet.SetValue("Eingeschossig");
-                    }
-                    if (numericStockwerkeA.Value == 2)
-                    {
-                        fields.TryGetValue("StockwerkeA", out toSet);
-                        toSet.SetValue("Zweigeschossig");
-                    }
-                    if (numericStockwerkeA.Value == 3)
-                    {
-                        fields.TryGetValue("StockwerkeA", out toSet);
-                        toSet.SetValue("Dreigeschossig");
-                    }
-                    if (numericStockwerkeA.Value == 4)
-                    {
-                        fields.TryGetValue("StockwerkeA", out toSet);
-                        toSet.SetValue("Viergeschossig");
-                    }
-                }
-
-                else
-                {
-                    if (numericStockwerkeA.Value != 0)
-                    {
-                        fields.TryGetValue("StockwerkeA", out toSet);
-                        toSet.SetValue(numericStockwerkeA.Value.ToString());
-                    }
-                    else
-                    {
-                        fields.TryGetValue("StockwerkeA", out toSet);
-                        toSet.SetValue("EG");
-                    }
-                }
+                
 
                 if (textLaufMeterA.Text != "0")
                 {
@@ -1592,48 +1493,7 @@ namespace Kartonagen
                 toSet.SetValue(textPLZB.Text + " " + textOrtB.Text);
 
                 //Geschossigkeit
-                if (listBoxB.SelectedItem.ToString() == "EFH")
-                {
-                    if (numericStockwerkeB.Value == 0)
-                    {
-                        fields.TryGetValue("StockwerkeB", out toSet);
-                        toSet.SetValue("Bungalow");
-                    }
-                    if (numericStockwerkeB.Value == 1)
-                    {
-                        fields.TryGetValue("StockwerkeB", out toSet);
-                        toSet.SetValue("Eingeschossig");
-                    }
-                    if (numericStockwerkeB.Value == 2)
-                    {
-                        fields.TryGetValue("StockwerkeB", out toSet);
-                        toSet.SetValue("Zweigeschossig");
-                    }
-                    if (numericStockwerkeB.Value == 3)
-                    {
-                        fields.TryGetValue("StockwerkeB", out toSet);
-                        toSet.SetValue("Dreigeschossig");
-                    }
-                    if (numericStockwerkeB.Value == 4)
-                    {
-                        fields.TryGetValue("StockwerkeB", out toSet);
-                        toSet.SetValue("Viergeschossig");
-                    }
-                }
-
-                else
-                {
-                    if (numericStockwerkeB.Value != 0)
-                    {
-                        fields.TryGetValue("StockwerkeB", out toSet);
-                        toSet.SetValue(numericStockwerkeB.Value.ToString());
-                    }
-                    else
-                    {
-                        fields.TryGetValue("StockwerkeB", out toSet);
-                        toSet.SetValue("EG");
-                    }
-                }
+                
 
                 if (textLaufMeterB.Text != "0")
                 {
@@ -1683,17 +1543,6 @@ namespace Kartonagen
                 }
 
                 // Packen
-                if (numericPacker.Value != 0)
-                {
-                    fields.TryGetValue("MannPacken", out toSet);
-                    toSet.SetValue(numericPacker.Value.ToString());
-                }
-
-                if (numericPackStunden.Value != 0)
-                {
-                    fields.TryGetValue("StundenPacken", out toSet);
-                    toSet.SetValue(numericPackStunden.Value.ToString());
-                }
 
                 //
                 if (radioEinpackenJa.Checked)
@@ -1884,9 +1733,9 @@ namespace Kartonagen
                 textUmzugLog.AppendText("Vorläufiges Entrümpeln entfernt \r\n");
 
                 // Vorläufiges Entrümpeln hinzufügen
-                String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericPacker.Value + " Mann, " + numericPackStunden.Value + " Stunden ENTRÜMPELN, ";
-                Program.kalenderEintragGanz(Header, KalenderString(), "", 10, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
-                textUmzugLog.AppendText("Vorläufiges Entrümpeln hinzugefügt \r\n");
+                //String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericPacker.Value + " Mann, " + numericPackStunden.Value + " Stunden ENTRÜMPELN, ";
+                //Program.kalenderEintragGanz(Header, KalenderString(), "", 10, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
+                //textUmzugLog.AppendText("Vorläufiges Entrümpeln hinzugefügt \r\n");
             }
             else if (EntruempelungSet == 1) {
                 // Entrümpeln entfernen
@@ -1894,9 +1743,9 @@ namespace Kartonagen
                 textUmzugLog.AppendText("Entrümpeln entfernt \r\n");
 
                 // Entrümpelung hinzufügen
-                String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericPacker.Value + " Mann, " + numericPackStunden.Value + " Stunden ENTRÜMPELN, ";
-                Program.kalenderEintragGanz(Header, KalenderString(), "", 11, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
-                textUmzugLog.AppendText("Entrümpeln hinzugefügt \r\n");
+                //String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericPacker.Value + " Mann, " + numericPackStunden.Value + " Stunden ENTRÜMPELN, ";
+                //Program.kalenderEintragGanz(Header, KalenderString(), "", 11, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
+                //textUmzugLog.AppendText("Entrümpeln hinzugefügt \r\n");
             }
         }
 

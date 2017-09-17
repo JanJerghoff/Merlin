@@ -137,7 +137,7 @@ namespace Kartonagen
 
                     // Küche
                     KuecheAb = rdr.GetInt32(27);
-                    KucheAuf = rdr.GetInt32(28);                    
+                    KuecheAuf = rdr.GetInt32(28);                    
                     KuecheBau = rdr.GetInt32(29);
                     KuechePausch = rdr.GetInt32(30);
 
@@ -256,29 +256,7 @@ namespace Kartonagen
 
 
         // Ausgabemethoden
-
-        public String Geschosse(int EinAusZug) {
-            
-            string ret = string.Empty;
-            string Geschoss;
-            string Haustyp;
-
-            if (EinAusZug == 0) {
-                Geschoss = GeschossA;
-                Haustyp = HaustypA;
-            }
-            else
-            {
-                Geschoss = GeschossB;
-                Haustyp = HaustypB;
-            }
-
-            ret += Haustyp;
-            ret += "\r\n " + Geschoss;
-
-            return ret;
-
-        }
+        
 
         //Updatemechanik
         public void UpdateDB ()
@@ -286,9 +264,9 @@ namespace Kartonagen
 
             String longInsert = "UPDATE umzuege SET ";
 
-            longInsert +=  +", ";
+            //longInsert +=  +", ";
 
-            longInsert += "'"+ +"', "
+            //longInsert += "'"+ +"', "
 
             longInsert += " WHERE idUmzuege = " + id + ";";
 
