@@ -175,381 +175,6 @@ namespace Kartonagen
             
         }
 
-        private String stringbauer() {
-            String longInsert = "INSERT INTO Umzuege (Kunden_idKunden, datBesichtigung, datUmzug, datRuempelung, datEinpacken, datAuspacken, " +
-                "AufzugA, AufzugB, HVZA, HVZB, StockwerkeA, StockwerkeB, LaufmeterA, LaufmeterB, Einpacken, Auspacken, Packerzahl, Kartons, Kleiderkisten, " +
-                "Mann, Stunden, SchilderBool, SchilderZeit, KuecheAb, KuecheAuf, KuecheBau, KuechePausch, UmzugsDauer, Autos, " +
-                "StraßeA, HausnummerA, PLZA, OrtA, LandA, AussenAufzugA, " +
-                "StraßeB, HausnummerB, PLZB, OrtB, LandB, AussenaufzugB, NotizBuero, NotizFahrer, BemerkungTitel, UserChanged, Erstelldatum, PackerStunden, " +
-                "StatUmz, StatBes, StatAus, StatEin, StatEnt, HausTypA, HausTypB, umzugsZeit) VALUES (";
-
-            //Anfügen
-            longInsert += textKundennummer.Text + ", ";
-            longInsert += "'" + Program.DateMachine(dateBesicht.Value) + "', ";
-            longInsert += "'" + Program.DateMachine(dateUmzug.Value) + "', ";
-            longInsert += "'" + Program.DateMachine(dateEntruempel.Value) + "', ";
-            longInsert += "'" + Program.DateMachine(dateEinpack.Value) + "', ";
-            longInsert += "'" + Program.DateMachine(dateAuspack.Value) + "', ";
-            //Checks der Radiobuttons 1=Ja, 0=Nein, 2=Vllt
-
-            if (radioAufzugAJa.Checked)
-            {
-                longInsert += 1 + ", ";
-            }
-            else { longInsert += 0 + ", "; }
-
-
-            if (radioAufzugBJa.Checked)
-            {
-                longInsert += 1 + ", ";
-            }
-            else { longInsert += 0 + ", "; }
-
-
-            if (radioHVZAJa.Checked)
-            {
-                longInsert += 1 + ", ";
-            }
-            else if (radioHVZANein.Checked)
-            {
-                longInsert += 0 + ", ";
-            }
-            else { longInsert += 2 + ", "; }
-
-
-            if (radioHVZBJa.Checked)
-            {
-                longInsert += 1 + ", ";
-            }
-            else if (radioHVZBNein.Checked)
-            {
-                longInsert += 0 + ", ";
-            }
-            else { longInsert += 2 + ", "; }
-
-
-            longInsert += numericStockwerkeA.Value + ", ";
-
-            longInsert += numericStockwerkeB.Value + ", ";
-
-            longInsert += int.Parse(textLaufMeterA.Text) + ", ";
-
-            longInsert += int.Parse(textLaufMeterB.Text) + ", ";
-
-            if (radioEinpackenJa.Checked)
-            {
-                longInsert += 1 + ", ";
-            }
-            else if (radioEinpackenNein.Checked)
-            {
-                longInsert += 0 + ", ";
-            }
-            else { longInsert += 2 + ", "; }
-
-
-            if (radioAuspackenJa.Checked)
-            {
-                longInsert += 1 + ", ";
-            }
-            else if (radioAuspackenNein.Checked)
-            {
-                longInsert += 0 + ", ";
-            }
-            else { longInsert += 2 + ", "; }
-
-
-            longInsert += numericEinPacker.Value + ", ";
-
-            longInsert += numericEinPackKartons.Value + ", ";
-
-            longInsert += numericKleiderkisten.Value + ", ";
-
-            longInsert += numericMannZahl.Value + ", ";
-
-            longInsert += numericArbeitszeit.Value +", ";
-
-            if (radioSchilderJa.Checked)
-            {
-                longInsert += 1 + ", ";
-            }
-            else { longInsert += 0 + ", "; }
-
-
-            longInsert += "'" + Program.DateMachine(dateSchilderVerweildauer.Value) + "', ";
-            
-            if (radioKuecheAbJa.Checked)
-            {
-                longInsert += 1 + ", ";
-            }
-            else if (radioKuecheAbNein.Checked)
-            {
-                longInsert += 0 + ", ";
-            }
-            else { longInsert += 2 + ", "; }
-
-            if (radioKuecheAufJa.Checked)
-            {
-                longInsert += 1 + ", ";
-            }
-            else if (radioKuecheAufNein.Checked)
-            {
-                longInsert += 0 + ", ";
-            }
-            else { longInsert += 2 + ", "; }
-
-            if (radioKuecheIntern.Checked)          // Küchenbau Intern = 1, Extern = 0;
-            {
-                longInsert += 1 + ", ";
-            }
-            else { longInsert += 0 + ", "; }
-
-            longInsert += "'" + textKuechenPreis.Text + "', ";
-
-            longInsert += numericUmzugsDauer.Value + ", ";
-
-            // Auto Coding => "SprinterMit-SprinterOhne-7,5-12"
-            String temp = "";
-            temp = temp + decimal.ToInt32(numericSprinterMit.Value).ToString();
-            temp = temp + decimal.ToInt32(numericSprinterOhne.Value).ToString();
-            temp = temp + decimal.ToInt32(numericLKW.Value).ToString();
-            temp = temp + decimal.ToInt32(numericLKWGroß.Value).ToString();
-
-            longInsert += "'" + temp + "', ";
-
-            longInsert += "'" + textStraßeA.Text + "', ";
-
-            longInsert += "'" + textHausnummerA.Text + "', ";
-
-            longInsert += textPLZA.Text + ", ";                 // Ohne '' da Int in der DB, Plz ist immer Int
-
-            longInsert += "'" + textOrtA.Text + "', ";
-
-            longInsert += "'" + textLandA.Text + "', ";
-
-            if (radioAussenAufzugAJa.Checked)
-            {
-                longInsert += 1 + ", ";
-            }
-            else { longInsert += 0 + ", "; }
-
-            longInsert += "'" + textStraßeB.Text + "', ";
-
-            longInsert += "'" + textHausnummerB.Text + "', ";
-
-            longInsert += textPLZB.Text + ", ";                 // Ohne '' da Int in der DB, Plz ist immer Int
-
-            longInsert += "'" + textOrtB.Text + "', ";
-
-            longInsert += "'" + textLandB.Text + "', ";
-
-            if (radioAussenAufzugBJa.Checked)
-            {
-                longInsert += 1 + ", ";
-            }
-            else { longInsert += 0 + ", "; }
-
-            longInsert += "'" + textNoteBuero.Text + "', ";
-
-            longInsert += "'" + textNoteFahrer.Text + "', ";
-
-            longInsert += "'" + textNoteKalender.Text + "', ";
-
-            longInsert += "'"+ idBearbeitend + "', ";
-
-            longInsert += "'" + Program.DateMachine(DateTime.Now) + "', ";
-
-            longInsert += numericEinPackStunden.Value + ", ";
-
-            // Status des Datums. 0 = nicht festgelegt, 1 = festgelegt, 2 = vorläufig (wenn möglich), 3 = Vorläufig gebucht (bei Umzügen)
-            // Reihenfolge ist Umz, Bes, Aus, Ein, Ent
-
-            if (radioUmzJa.Checked)
-            {
-                longInsert += 1 + ", ";
-            }
-            else if (radioUmzVllt.Checked)
-            {
-                longInsert += 2 + ", ";
-            }
-            else if (radioUmzVorlaeufig.Checked)
-            {
-                longInsert += 3 + ", ";
-            }
-            else { longInsert += 0 + ", "; }
-            //
-            if (radioBesJa.Checked)
-            {
-                longInsert += 1 + ", ";
-            }            
-            else { longInsert += 0 + ", "; }
-            //
-            if (radioAusJa.Checked)
-            {
-                longInsert += 1 + ", ";
-            }
-            else if (radioAusVllt.Checked)
-            {
-                longInsert += 2 + ", ";
-            }
-            else { longInsert += 0 + ", "; }
-            //
-            if (radioEinJa.Checked)
-            {
-                longInsert += 1 + ", ";
-            }
-            else if (radioEinVllt.Checked)
-            {
-                longInsert += 2 + ", ";
-            }
-            else { longInsert += 0 + ", "; }
-            //
-            if (radioEntJa.Checked)
-            {
-                longInsert += 1 + ", ";
-            }
-            else if (radioEntVllt.Checked)
-            {
-                longInsert += 2 + ", ";
-            }
-            else {
-                longInsert += 0 + ", ";
-            }
-            //
-            longInsert += "'" + listBoxA.SelectedItem + "', ";
-            longInsert += "'" + listBoxB.SelectedItem + "', ";
-            //
-            longInsert += "'" + Program.ZeitMachine(timeBesichtigung.Value)+"');";
-            //
-            return longInsert;
-
-        }
-
-        private void buttonUmzugSpeichern_Click(object sender, EventArgs e)
-        {
-            // Wirklich?
-
-            var bestätigung = MessageBox.Show("Den Umzug wirklich hinzufügen?", "Hinzufügen bestätigen", MessageBoxButtons.YesNo);
-            if (bestätigung == DialogResult.Yes)
-            {
-                
-            }
-            else
-            {
-                textUmzugLog.AppendText("Vorgang abgebrochen\r\n");
-                return;
-            }
-
-
-            // Validieren das alles In Ordnung
-            if (textKundennummer.Text.Length == 0)
-            {
-                textUmzugLog.AppendText("Umzug hinzufügen gescheitert, Bitte einen Kunden auswählen \r\n");
-                return;
-            }
-            // Check Adressen
-            if (textStraßeB.Text.Length == 0 || textHausnummerB.Text.Length == 0 || textPLZB.Text.Length == 0 || textOrtB.Text.Length == 0 || textLandB.Text.Length == 0)
-            {
-                textUmzugLog.AppendText("Umzug hinzufügen gescheitert, Einzugsadresse Unvollständig \r\n");
-                return;
-            }
-
-            if (textStraßeA.Text.Length == 0 || textHausnummerA.Text.Length == 0 || textPLZA.Text.Length == 0 || textOrtA.Text.Length == 0 || textLandA.Text.Length == 0)
-            {
-                textUmzugLog.AppendText("Umzug hinzufügen gescheitert, Auszugsadresse Unvollständig \r\n");
-                return;
-            }
-
-            // Check Radiobuttons
-            if (radioAufzugAJa.Checked == false && radioAufzugANein.Checked == false) {
-                textUmzugLog.AppendText("Umzug hinzufügen gescheitert, Bitte Auswahl Aufzug Auszugsadresse Treffen \r\n");
-                return;
-            }
-
-            if (radioAufzugBJa.Checked == false && radioAufzugBNein.Checked == false)
-            {
-                textUmzugLog.AppendText("Umzug hinzufügen gescheitert, Bitte Auswahl Aufzug Einzugsadresse Treffen \r\n");
-                return;
-            }
-
-            if (radioHVZAJa.Checked == false && radioHVZANein.Checked == false && radioHVZAV.Checked == false)
-            {
-                textUmzugLog.AppendText("Umzug hinzufügen gescheitert, Bitte Auswahl HVZ Auszugsadresse Treffen \r\n");
-                return;
-            }
-
-            if (radioHVZBJa.Checked == false && radioHVZBNein.Checked == false && radioHVZBV.Checked == false)
-            {
-                textUmzugLog.AppendText("Umzug hinzufügen gescheitert, Bitte Auswahl HVZ Einzugsadresse Treffen \r\n");
-                return;
-            }
-
-            if (radioEinpackenJa.Checked == false && radioEinpackenNein.Checked == false && radioEinpackenV.Checked == false)
-            {
-                textUmzugLog.AppendText("Umzug hinzufügen gescheitert, Bitte Auswahl Einpacken Treffen \r\n");
-                return;
-            }
-
-            if (radioAuspackenJa.Checked == false && radioAuspackenNein.Checked == false && radioAuspackenV.Checked == false)
-            {
-                textUmzugLog.AppendText("Umzug hinzufügen gescheitert, Bitte Auswahl Auspacken Treffen \r\n");
-                return;
-            }
-
-            if (radioKuecheAbJa.Checked == false && radioKuecheAbNein.Checked == false && radioKuecheAbV.Checked == false)
-            {
-                textUmzugLog.AppendText("Umzug hinzufügen gescheitert, Bitte Auswahl Küchenabbau Treffen \r\n");
-                return;
-            }
-
-            if (radioKuecheAufJa.Checked == false && radioKuecheAufNein.Checked == false && radioKuecheAufV.Checked == false)
-            {
-                textUmzugLog.AppendText("Umzug hinzufügen gescheitert, Bitte Auswahl Küchenaufbau Treffen \r\n");
-                return;
-            }
-
-            if (radioKuecheExtern.Checked == false && radioKuecheIntern.Checked == false)
-            {
-                textUmzugLog.AppendText("Umzug hinzufügen gescheitert, Bitte Auswahl Küchenbau Treffen \r\n");
-                return;
-            }
-
-            if (radioKuecheIntern.Checked && textKuechenPreis.Text == "")
-            {
-                textUmzugLog.AppendText("Umzug hinzufügen gescheitert, Wenn Kueche Intern, dann muss Pauschale größer 0 sein. \r\n");
-                return;
-            }
-            
-            // String-Monstter in DB pushen
-
-            textUmzugLog.AppendText(push(stringbauer()));
-
-            // Ergebnis - Umzugsnummer anzeigen
-
-            textUmzugsNummer.Text = "";
-
-            MySqlCommand cmdShow = new MySqlCommand("SELECT * FROM Umzuege ORDER BY idUmzuege DESC LIMIT 1;", Program.conn);
-            MySqlDataReader rdr;
-            try
-            {
-                rdr = cmdShow.ExecuteReader();
-                while (rdr.Read())
-                {
-                    textUmzugsNummer.Text += rdr.GetInt32(0);
-                }
-                rdr.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                textUmzugLog.AppendText(sqlEx.ToString());
-            }
-
-            // Daten in Kalender Speichern
-
-            textUmzugLog.AppendText(datumInKalender());
-
-
-        }
-
         private void umzugBauer ()
         {
             int aufzugtemp;
@@ -705,20 +330,21 @@ namespace Kartonagen
             tempAuto = tempAuto + decimal.ToInt32(numericSprinterOhne.Value).ToString();
             tempAuto = tempAuto + decimal.ToInt32(numericLKW.Value).ToString();
             tempAuto = tempAuto + decimal.ToInt32(numericLKWGroß.Value).ToString();
-
-            int versicherungtemp = 0;
-            if (radioVersicherungJa.Checked) { versicherungtemp = 1; } else { versicherungtemp = 0; }
-
+            
             int einpacktemp = 0;
             int auspacktemp = 0;
             if (radioEinpackenJa.Checked) { einpacktemp = 1; } else if ( radioEinpackenV.Checked) { einpacktemp = 2; } else { einpacktemp = 0; }
             if (radioAuspackenJa.Checked) { auspacktemp = 1; } else if (radioAuspackenV.Checked) { auspacktemp = 2; } else { auspacktemp = 0; }
 
+            List<int> kueche = new List<int>();
+            if (radioKuecheAufJa.Checked) { kueche.Add(1); } else if (radioKuecheAufV.Checked) { kueche.Add(2); } else { kueche.Add(0); }
+            if (radioKuecheAbJa.Checked) { kueche.Add(1); } else if (radioKuecheAbV.Checked) { kueche.Add(2); } else { kueche.Add(0); }
+            if (radioKuecheIntern.Checked) { kueche.Add(1); } else { kueche.Add(0); }
 
-
-            Umzug neu = new Umzug (int.Parse(textKundennummer.Text),dateBesicht.Value,dateUmzug.Value,dateEinpack.Value,dateAuspack.Value,dateEntruempel.Value,timeBesichtigung.Value,stat[1],stat[0],stat[2],stat[3],stat[4],
-                numericUmzugsDauer.Value,tempAuto,numericMannZahl.Value, numericArbeitszeit.Value, versicherungtemp, einpacktemp, numericEinPacker.Value, numericEinPackStunden.Value, numericEinPackKartons,
-                auspacktemp, numericAusPacker.Value, numericAusPackStunden.Value, numericKleiderkisten.Value, )
+            Umzug neu = new Umzug(int.Parse(textKundennummer.Text), dateBesicht.Value, dateUmzug.Value, dateEinpack.Value, dateAuspack.Value, dateEntruempel.Value, timeBesichtigung.Value, stat[1], stat[0], stat[2], stat[3], stat[4],
+                decimal.ToInt32(numericUmzugsDauer.Value), tempAuto, decimal.ToInt32(numericMannZahl.Value), decimal.ToInt32(numericArbeitszeit.Value), radioVersicherungJa.Checked, einpacktemp, decimal.ToInt32(numericEinPacker.Value), decimal.ToInt32(numericEinPackStunden.Value), decimal.ToInt32(numericEinPackKartons.Value),
+                auspacktemp, decimal.ToInt32(numericAusPacker.Value), decimal.ToInt32(numericAusPackStunden.Value), decimal.ToInt32(numericKleiderkisten.Value), kueche[0], kueche[1], kueche[2], int.Parse(textKuechenPreis.Text), aus, ein, radioSchilderJa.Checked, dateSchilderVerweildauer.Value,
+                textNoteKalender.Text, textNoteBuero.Text, textNoteFahrer.Text, idBearbeitend.ToString(), DateTime.Now);
         }
 
         private void buttonSchnellSpeichern_Click(object sender, EventArgs e)
@@ -746,7 +372,7 @@ namespace Kartonagen
 
             // String-Monstter in DB pushen
 
-            textUmzugLog.AppendText(push(stringbauer()));
+            umzugBauer();
 
             // Ergebnis - Umzugsnummer anzeigen
 
@@ -800,36 +426,8 @@ namespace Kartonagen
             //Konstruktion String Kalerndereintragsinhalt
             // Name + Auszugsadresse
             String Body = textVorNachname.Text + "\r\n Aus: " + textStraßeA.Text + " " + textHausnummerA.Text + ", " + textPLZA.Text + " " + textOrtA.Text +"\r\n";
-            if (listBoxA.SelectedItem.ToString() == "EFH")
-            {
-                if (numericStockwerkeA.Value == 1)
-                {
-                    Body += " EFH Eingeschossig ";
-                }
-                else if (numericStockwerkeA.Value == 2)
-                {
-                    Body += " EFH Zweigeschossig ";
-                }
-                else if (numericStockwerkeA.Value == 3)
-                {
-                    Body += " EFH Dreigeschossig ";
-                }
-                else if (numericStockwerkeA.Value == 4)
-                {
-                    Body += " EFH Viergeschossig ";
-                }
-            }
-            else
-            {
-                if (numericStockwerkeA.Value == 0)
-                {
-                    Body += " Erdgeschoss " + listBoxA.SelectedItem + ",";
-                }
-                else {
-                    Body += numericStockwerkeA.Value + " ET, " + listBoxA.SelectedItem + ", ";
-                }
-                
-            }
+            
+            // Etage + HausTyp String
 
             if (radioAufzugAJa.Checked)
             {
@@ -839,36 +437,9 @@ namespace Kartonagen
 
             //Einzugsadresse
             Body += "\r\n Nach: " + textStraßeB.Text + " " + textHausnummerB.Text + ", " + textPLZB.Text + " " + textOrtB.Text+ "\r\n";
-            if (listBoxB.SelectedItem.ToString() == "EFH")
-            {
-                if (numericStockwerkeB.Value == 1)
-                {
-                    Body += " EFH Eingeschossig ";
-                }
-                else if (numericStockwerkeB.Value == 2)
-                {
-                    Body += " EFH Zweigeschossig ";
-                }
-                else if (numericStockwerkeB.Value == 3)
-                {
-                    Body += " EFH Dreigeschossig ";
-                }
-                else if (numericStockwerkeB.Value == 4)
-                {
-                    Body += " EFH Viergeschossig ";
-                }
-            }
-            else
-            {
-                if (numericStockwerkeB.Value == 0)
-                {
-                    Body += " Erdgeschoss " + listBoxB.SelectedItem + ",";
-                }
-                else
-                {
-                    Body += numericStockwerkeB.Value + " ET, " + listBoxB.SelectedItem + ", ";
-                }
-            }
+
+            // Etage + HausTyp String
+
             if (radioAufzugBJa.Checked)
             {
                 Body += "mit Aufzug \r\n";
@@ -1172,46 +743,7 @@ namespace Kartonagen
                 toSet.SetValue(textPLZA.Text + " " + textOrtA.Text);
 
                 //Geschossigkeit
-                if (listBoxA.SelectedItem.ToString() == "EFH") {
-                    if (numericStockwerkeA.Value == 0) {
-                        fields.TryGetValue("StockwerkeA", out toSet);
-                        toSet.SetValue("Bungalow");
-                    }
-                    if (numericStockwerkeA.Value == 1)
-                    {
-                        fields.TryGetValue("StockwerkeA", out toSet);
-                        toSet.SetValue("Eingeschossig");
-                    }
-                    if (numericStockwerkeA.Value == 2)
-                    {
-                        fields.TryGetValue("StockwerkeA", out toSet);
-                        toSet.SetValue("Zweigeschossig");
-                    }
-                    if (numericStockwerkeA.Value == 3)
-                    {
-                        fields.TryGetValue("StockwerkeA", out toSet);
-                        toSet.SetValue("Dreigeschossig");
-                    }
-                    if (numericStockwerkeA.Value == 4)
-                    {
-                        fields.TryGetValue("StockwerkeA", out toSet);
-                        toSet.SetValue("Viergeschossig");
-                    }
-                }
-
-                else
-                {
-                    if (numericStockwerkeA.Value != 0)
-                    {
-                        fields.TryGetValue("StockwerkeA", out toSet);
-                        toSet.SetValue(numericStockwerkeA.Value.ToString());
-                    }
-                    else
-                    {
-                        fields.TryGetValue("StockwerkeA", out toSet);
-                        toSet.SetValue("EG");
-                    }
-                }
+               
 
                 if (textLaufMeterA.Text != "0")
                 {
@@ -1268,48 +800,7 @@ namespace Kartonagen
                 toSet.SetValue(textPLZB.Text + " " + textOrtB.Text);
 
                 //Geschossigkeit
-                if (listBoxB.SelectedItem.ToString() == "EFH")
-                {
-                    if (numericStockwerkeB.Value == 0)
-                    {
-                        fields.TryGetValue("StockwerkeB", out toSet);
-                        toSet.SetValue("Bungalow");
-                    }
-                    if (numericStockwerkeB.Value == 1)
-                    {
-                        fields.TryGetValue("StockwerkeB", out toSet);
-                        toSet.SetValue("Eingeschossig");
-                    }
-                    if (numericStockwerkeB.Value == 2)
-                    {
-                        fields.TryGetValue("StockwerkeB", out toSet);
-                        toSet.SetValue("Zweigeschossig");
-                    }
-                    if (numericStockwerkeB.Value == 3)
-                    {
-                        fields.TryGetValue("StockwerkeB", out toSet);
-                        toSet.SetValue("Dreigeschossig");
-                    }
-                    if (numericStockwerkeB.Value == 4)
-                    {
-                        fields.TryGetValue("StockwerkeB", out toSet);
-                        toSet.SetValue("Viergeschossig");
-                    }
-                }
-
-                else
-                {
-                    if (numericStockwerkeB.Value != 0)
-                    {
-                        fields.TryGetValue("StockwerkeB", out toSet);
-                        toSet.SetValue(numericStockwerkeB.Value.ToString());
-                    }
-                    else
-                    {
-                        fields.TryGetValue("StockwerkeB", out toSet);
-                        toSet.SetValue("EG");
-                    }
-                }
+                
 
                 if (textLaufMeterB.Text != "0")
                 {

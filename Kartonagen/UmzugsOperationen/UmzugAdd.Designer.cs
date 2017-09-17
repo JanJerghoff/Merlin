@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.groupBox27 = new System.Windows.Forms.GroupBox();
+            this.radioVersicherungNein = new System.Windows.Forms.RadioButton();
+            this.radioVersicherungJa = new System.Windows.Forms.RadioButton();
             this.buttonLaufzettel = new System.Windows.Forms.Button();
             this.groupBox24 = new System.Windows.Forms.GroupBox();
             this.textNoteKalender = new System.Windows.Forms.TextBox();
@@ -227,13 +230,11 @@
             this.buttonNrSuche = new System.Windows.Forms.Button();
             this.numericSucheKundennr = new System.Windows.Forms.NumericUpDown();
             this.textUmzugLog = new System.Windows.Forms.TextBox();
-            this.groupBox27 = new System.Windows.Forms.GroupBox();
-            this.radioVersicherungJa = new System.Windows.Forms.RadioButton();
-            this.radioVersicherungNein = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.groupBox27.SuspendLayout();
             this.groupBox24.SuspendLayout();
             this.groupBox21.SuspendLayout();
             this.groupBox19.SuspendLayout();
@@ -279,7 +280,6 @@
             this.groupBox9.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericSucheKundennr)).BeginInit();
-            this.groupBox27.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -322,6 +322,40 @@
             this.splitContainer1.Size = new System.Drawing.Size(1668, 940);
             this.splitContainer1.SplitterDistance = 793;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // groupBox27
+            // 
+            this.groupBox27.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox27.Controls.Add(this.radioVersicherungNein);
+            this.groupBox27.Controls.Add(this.radioVersicherungJa);
+            this.groupBox27.Location = new System.Drawing.Point(573, 728);
+            this.groupBox27.Name = "groupBox27";
+            this.groupBox27.Size = new System.Drawing.Size(435, 52);
+            this.groupBox27.TabIndex = 18;
+            this.groupBox27.TabStop = false;
+            this.groupBox27.Text = "zusätzliche Umzugsgutversicherung";
+            // 
+            // radioVersicherungNein
+            // 
+            this.radioVersicherungNein.AutoSize = true;
+            this.radioVersicherungNein.Location = new System.Drawing.Point(91, 19);
+            this.radioVersicherungNein.Name = "radioVersicherungNein";
+            this.radioVersicherungNein.Size = new System.Drawing.Size(105, 17);
+            this.radioVersicherungNein.TabIndex = 1;
+            this.radioVersicherungNein.TabStop = true;
+            this.radioVersicherungNein.Text = "Nicht gewünscht";
+            this.radioVersicherungNein.UseVisualStyleBackColor = true;
+            // 
+            // radioVersicherungJa
+            // 
+            this.radioVersicherungJa.AutoSize = true;
+            this.radioVersicherungJa.Location = new System.Drawing.Point(6, 19);
+            this.radioVersicherungJa.Name = "radioVersicherungJa";
+            this.radioVersicherungJa.Size = new System.Drawing.Size(79, 17);
+            this.radioVersicherungJa.TabIndex = 0;
+            this.radioVersicherungJa.TabStop = true;
+            this.radioVersicherungJa.Text = "Gewünscht";
+            this.radioVersicherungJa.UseVisualStyleBackColor = true;
             // 
             // buttonLaufzettel
             // 
@@ -537,6 +571,7 @@
             this.textKuechenPreis.Name = "textKuechenPreis";
             this.textKuechenPreis.Size = new System.Drawing.Size(79, 20);
             this.textKuechenPreis.TabIndex = 0;
+            this.textKuechenPreis.Text = "0";
             // 
             // groupBox17
             // 
@@ -2395,40 +2430,6 @@
             this.textUmzugLog.Size = new System.Drawing.Size(1639, 114);
             this.textUmzugLog.TabIndex = 63;
             // 
-            // groupBox27
-            // 
-            this.groupBox27.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox27.Controls.Add(this.radioVersicherungNein);
-            this.groupBox27.Controls.Add(this.radioVersicherungJa);
-            this.groupBox27.Location = new System.Drawing.Point(573, 728);
-            this.groupBox27.Name = "groupBox27";
-            this.groupBox27.Size = new System.Drawing.Size(435, 52);
-            this.groupBox27.TabIndex = 18;
-            this.groupBox27.TabStop = false;
-            this.groupBox27.Text = "zusätzliche Umzugsgutversicherung";
-            // 
-            // radioVersicherungJa
-            // 
-            this.radioVersicherungJa.AutoSize = true;
-            this.radioVersicherungJa.Location = new System.Drawing.Point(6, 19);
-            this.radioVersicherungJa.Name = "radioVersicherungJa";
-            this.radioVersicherungJa.Size = new System.Drawing.Size(79, 17);
-            this.radioVersicherungJa.TabIndex = 0;
-            this.radioVersicherungJa.TabStop = true;
-            this.radioVersicherungJa.Text = "Gewünscht";
-            this.radioVersicherungJa.UseVisualStyleBackColor = true;
-            // 
-            // radioVersicherungNein
-            // 
-            this.radioVersicherungNein.AutoSize = true;
-            this.radioVersicherungNein.Location = new System.Drawing.Point(91, 19);
-            this.radioVersicherungNein.Name = "radioVersicherungNein";
-            this.radioVersicherungNein.Size = new System.Drawing.Size(105, 17);
-            this.radioVersicherungNein.TabIndex = 1;
-            this.radioVersicherungNein.TabStop = true;
-            this.radioVersicherungNein.Text = "Nicht gewünscht";
-            this.radioVersicherungNein.UseVisualStyleBackColor = true;
-            // 
             // UmzugAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2445,6 +2446,8 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.groupBox27.ResumeLayout(false);
+            this.groupBox27.PerformLayout();
             this.groupBox24.ResumeLayout(false);
             this.groupBox24.PerformLayout();
             this.groupBox21.ResumeLayout(false);
@@ -2521,8 +2524,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericSucheKundennr)).EndInit();
-            this.groupBox27.ResumeLayout(false);
-            this.groupBox27.PerformLayout();
             this.ResumeLayout(false);
 
         }
