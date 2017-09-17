@@ -167,7 +167,7 @@ namespace Kartonagen
         {
 
             String longInsert = "INSERT INTO Umzuege (Kunden_idKunden, datBesichtigung, datUmzug, datRuempelung, datEinpacken, datAuspacken, umzugsZeit, " +
-                "StatBes, StatUmz, StatAus, StatEin, StatEnt, Autos, Mann, Stunden, Versicherung" +
+                "StatBes, StatUmz, StatAus, StatEin, StatEnt, Autos, Mann, Stunden, Versicherung, " +
                 "Einpacken, EinPackerZahl, EinPackStunden, Kartons, Auspacken, AusPackerZahl, AusPackStunden, Kleiderkisten, SchilderZurueck, " +
                 "KuecheAb, KuecheAuf, KuecheBau, KuechePausch, " +
                 "StraßeA, HausnummerA, PLZA, OrtA, LandA, AufzugA, StockwerkeA, HausTypA, HVZA, LaufmeterA, AussenAufzugA, " +
@@ -245,7 +245,7 @@ namespace Kartonagen
             longInsert += "'" + einzug.Haustyp1 + "', ";
             longInsert += "'" + Program.DateMachine(schilderZeit) + "', ";
             longInsert += "'" + einzug.Haustyp1 + "', ";
-            longInsert += "'" + Program.DateMachine(DateTime.Now) + ");";
+            longInsert += "'" + Program.DateMachine(DateTime.Now) + "');";
 
             // Merkt den Query
             Program.QueryLog(longInsert);
