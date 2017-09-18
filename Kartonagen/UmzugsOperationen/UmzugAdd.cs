@@ -17,8 +17,12 @@ namespace Kartonagen
 {
     public partial class UmzugAdd : Form
     {
+        static Umzug umzObj;
+
         public UmzugAdd()
         {
+            
+
             InitializeComponent();
             
             textSucheName.AutoCompleteCustomSource = Program.getAutocompleteKunden();
@@ -346,7 +350,7 @@ namespace Kartonagen
             if (radioVersicherungJa.Checked) { versicherungtemp = 1; }
             if (radioSchilderJa.Checked) { Schildertemp = 1; }
 
-            Umzug neu = new Umzug(int.Parse(textKundennummer.Text), dateBesicht.Value, dateUmzug.Value, dateEinpack.Value, dateAuspack.Value, dateEntruempel.Value, timeBesichtigung.Value, stat[1], stat[0], stat[2], stat[3], stat[4],
+            umzObj = new Umzug(int.Parse(textKundennummer.Text), dateBesicht.Value, dateUmzug.Value, dateEinpack.Value, dateAuspack.Value, dateEntruempel.Value, timeBesichtigung.Value, stat[1], stat[0], stat[2], stat[3], stat[4],
                 decimal.ToInt32(numericUmzugsDauer.Value), tempAuto, decimal.ToInt32(numericMannZahl.Value), decimal.ToInt32(numericArbeitszeit.Value), versicherungtemp, einpacktemp, decimal.ToInt32(numericEinPacker.Value), decimal.ToInt32(numericEinPackStunden.Value), decimal.ToInt32(numericEinPackKartons.Value),
                 auspacktemp, decimal.ToInt32(numericAusPacker.Value), decimal.ToInt32(numericAusPackStunden.Value), decimal.ToInt32(numericKleiderkisten.Value), kueche[1], kueche[0], kueche[2], int.Parse(textKuechenPreis.Text), aus, ein, Schildertemp, dateSchilderVerweildauer.Value,
                 textNoteKalender.Text, textNoteBuero.Text, textNoteFahrer.Text, idBearbeitend.ToString(), DateTime.Now);
@@ -399,7 +403,9 @@ namespace Kartonagen
                 Program.FehlerLog(sqlEx.ToString(),"Ergebnis-Umzugsnummer Anzeigen");
             }
             // Daten in Kalender Speichern
+            // explizit, weil sonst nicht geht
 
+            umzObj = new Umzug(int.Parse(textUmzugsNummer.Text));
             textUmzugLog.AppendText(datumInKalender());
 
             // Laufzettel anlegen
@@ -431,8 +437,8 @@ namespace Kartonagen
             //Konstruktion String Kalerndereintragsinhalt
             // Name + Auszugsadresse
             String Body = textVorNachname.Text + "\r\n Aus: " + textStraßeA.Text + " " + textHausnummerA.Text + ", " + textPLZA.Text + " " + textOrtA.Text +"\r\n";
-            
-            // Etage + HausTyp String
+
+            Body += umzObj.auszug.KalenderStringEtageHaustyp();
 
             if (radioAufzugAJa.Checked)
             {
@@ -443,7 +449,7 @@ namespace Kartonagen
             //Einzugsadresse
             Body += "\r\n Nach: " + textStraßeB.Text + " " + textHausnummerB.Text + ", " + textPLZB.Text + " " + textOrtB.Text+ "\r\n";
 
-            // Etage + HausTyp String
+            Body += umzObj.einzug.KalenderStringEtageHaustyp();
 
             if (radioAufzugBJa.Checked)
             {

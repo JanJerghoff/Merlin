@@ -48,5 +48,102 @@ namespace Kartonagen.Objekte
         public int HVZ1 { get => HVZ; set => HVZ = value; }
         public int Laufmeter1 { get => Laufmeter; set => Laufmeter = value; }
         public int AussenAufzug1 { get => AussenAufzug; set => AussenAufzug = value; }
+
+
+        public string KalenderStringEtageHaustyp()
+        {
+
+            string temp = "";
+
+            if (Haustyp == "Wohnung") {
+                temp += "Wohnung im ";
+                temp += GeschosseListe();
+                temp += "\r\n";
+            }
+            else if (Haustyp == "EFH")
+            {
+                temp += "Einfamilienhaus mit ";
+                temp += GeschosseListe();
+                temp += "\r\n";
+            }
+            else if (Haustyp == "RH")
+            {
+                temp += "Reihenhaus mit ";
+                temp += GeschosseListe();
+                temp += "\r\n";
+            }
+            else
+            {
+                temp += "Doppelhaushälfte mit ";
+                temp += GeschosseListe();
+                temp += "\r\n";
+            }
+            return temp;
+
+        }
+
+        private string GeschosseListe() {
+
+            string temp = "";
+
+            string[] tempList = Stockwerke.Split(',');
+
+            foreach (var item in tempList)
+            {
+                if (item.Contains("K"))
+                {
+                    temp += "Keller, ";
+                }
+                else if (item.Contains("EG"))
+                {
+                    temp += "Erdgeschoss, ";
+                }
+                else if (item.Contains("DB"))
+                {
+                    temp += "Dachboden, ";
+                }
+                else if (item.Contains("MA"))
+                {
+                    temp += "Maisonette, ";
+                }
+                else if (item.Contains("ST"))
+                {
+                    temp += "Souterrain, ";
+                }
+                else if (item.Contains("HP"))
+                {
+                    temp += "Hochpaterre, ";
+                }
+                else if (item.Contains("1"))
+                {
+                    temp += "1.OG, ";
+                }
+                else if (item.Contains("2"))
+                {
+                    temp += "2.OG, ";
+                }
+                else if (item.Contains("3"))
+                {
+                    temp += "3.OG, ";
+                }
+                else if (item.Contains("4"))
+                {
+                    temp += "4.OG, ";
+                }
+                else if (temp.Contains("5"))
+                {
+                    temp += "5.OG, ";
+                }
+                else
+                {
+                    temp += item + ", ";
+                }
+            }
+
+            string ret = temp.Remove(temp.Length - 2);
+
+           return ret;
+
+        }
     }
 }
