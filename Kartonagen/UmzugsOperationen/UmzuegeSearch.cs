@@ -243,26 +243,7 @@ namespace Kartonagen
             //
             textLaufMeterA.Text = umzObj.auszug.Laufmeter1.ToString();
             textLaufMeterB.Text = umzObj.einzug.Laufmeter1.ToString();
-            //
-            if (umzObj.Einpacken1 == 1)
-            {
-                radioEinpackenJa.Checked = true;
-            }
-            else if (umzObj.Einpacken1 == 0)
-            {
-                radioEinpackenNein.Checked = true;
-            }
-            else { radioEinpackenV.Checked = true; }
-            //
-            if (umzObj.Auspacken1 == 1)
-            {
-                radioAuspackenJa.Checked = true;
-            }
-            else if (umzObj.Auspacken1 == 0)
-            {
-                radioAuspackenNein.Checked = true;
-            }
-            else { radioAuspackenV.Checked = true; }
+            
             //
             numericKleiderkisten.Value = umzObj.Kleiderkartons1;
             numericMannZahl.Value = umzObj.Mann;
@@ -452,11 +433,48 @@ namespace Kartonagen
             else
             {
                 radioAussenAufzugBNein.Checked = true;
-            }                               
+            }
 
-            Regex regex = new Regex(@"^\d+$");
+            // Geändertes UI
+
+            parseEtagen();
+
+            if (umzObj.Versicherung == 1)
+            {
+                radioVersicherungJa.Checked = true;
+            }
+            else { radioVersicherungJa.Checked = false; }
+
+            //
+            if (umzObj.Einpacken1 == 1)
+            {
+                radioEinpackenJa.Checked = true;
+            }
+            else if (umzObj.Einpacken1 == 0)
+            {
+                radioEinpackenNein.Checked = true;
+            }
+            else { radioEinpackenV.Checked = true; }
+            //
+            if (umzObj.Auspacken1 == 1)
+            {
+                radioAuspackenJa.Checked = true;
+            }
+            else if (umzObj.Auspacken1 == 0)
+            {
+                radioAuspackenNein.Checked = true;
+            }
+            else { radioAuspackenV.Checked = true; }
+
+            numericEinPacker.Value = umzObj.Einpacker1;
+            numericAusPacker.Value = umzObj.Auspacker1;
+            numericEinPackStunden.Value = umzObj.EinStunden1;
+            numericAusPackStunden.Value = umzObj.AusStunden1;
+            numericEinPackKartons.Value = umzObj.Karton1;
 
             // Autos dekodieren
+            Regex regex = new Regex(@"^\d+$");
+
             if (tempAutos.Length == 4 && regex.IsMatch(tempAutos))
             {
                 if (tempAutos[0] != 0)
@@ -512,6 +530,131 @@ namespace Kartonagen
             }
 
         }
+
+        private void parseEtagen()
+        {
+
+            if (umzObj.auszug.Stockwerke1.Length != 0)
+            {
+
+                string[] temp = umzObj.auszug.Stockwerke1.Split(',');
+
+                foreach (var item in temp)
+                {
+                    if (temp.Contains("K,"))
+                    {
+                        checkKellerA.Checked = true;
+                    }
+                    else if (temp.Contains("EG,"))
+                    {
+                        checkEGA.Checked = true;
+                    }
+                    else if (temp.Contains("DB,"))
+                    {
+                        checkDBA.Checked = true;
+                    }
+                    else if (temp.Contains("MA,"))
+                    {
+                        checkMAA.Checked = true;
+                    }
+                    else if (temp.Contains("ST,"))
+                    {
+                        checkSTA.Checked = true;
+                    }
+                    else if (temp.Contains("HP,"))
+                    {
+                        checkHPA.Checked = true;
+                    }
+                    else if (temp.Contains("1,"))
+                    {
+                        checkOG1A.Checked = true;
+                    }
+                    else if (temp.Contains("2,"))
+                    {
+                        checkOG2A.Checked = true;
+                    }
+                    else if (temp.Contains("3,"))
+                    {
+                        checkOG3A.Checked = true;
+                    }
+                    else if (temp.Contains("4,"))
+                    {
+                        checkOG4A.Checked = true;
+                    }
+                    else if (temp.Contains("5,"))
+                    {
+                        checkOG5A.Checked = true;
+                    }
+                    else
+                    {
+                        textSonderEtageA.AppendText(item);
+                    }
+                }
+
+            }
+
+            if (umzObj.einzug.Stockwerke1.Length != 0)
+            {
+
+                string[] temp = umzObj.einzug.Stockwerke1.Split(',');
+
+                foreach (var item in temp)
+                {
+                    if (temp.Contains("K,"))
+                    {
+                        checkKellerB.Checked = true;
+                    }
+                    else if (temp.Contains("EG,"))
+                    {
+                        checkEGB.Checked = true;
+                    }
+                    else if (temp.Contains("DB,"))
+                    {
+                        checkDBB.Checked = true;
+                    }
+                    else if (temp.Contains("MA,"))
+                    {
+                        checkMAB.Checked = true;
+                    }
+                    else if (temp.Contains("ST,"))
+                    {
+                        checkSTB.Checked = true;
+                    }
+                    else if (temp.Contains("HP,"))
+                    {
+                        checkHPB.Checked = true;
+                    }
+                    else if (temp.Contains("1,"))
+                    {
+                        checkOG1B.Checked = true;
+                    }
+                    else if (temp.Contains("2,"))
+                    {
+                        checkOG2B.Checked = true;
+                    }
+                    else if (temp.Contains("3,"))
+                    {
+                        checkOG3B.Checked = true;
+                    }
+                    else if (temp.Contains("4,"))
+                    {
+                        checkOG4B.Checked = true;
+                    }
+                    else if (temp.Contains("5,"))
+                    {
+                        checkOG5B.Checked = true;
+                    }
+                    else
+                    {
+                        textSonderEtageB.AppendText(item);
+                    }
+                }
+
+
+            }
+
+        }
+
 
         private void buttonNrSuche_Click(object sender, EventArgs e)
         {
