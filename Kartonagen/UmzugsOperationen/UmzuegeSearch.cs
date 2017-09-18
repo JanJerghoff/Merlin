@@ -541,47 +541,47 @@ namespace Kartonagen
 
                 foreach (var item in temp)
                 {
-                    if (temp.Contains("K,"))
+                    if (item.Contains("K"))
                     {
                         checkKellerA.Checked = true;
                     }
-                    else if (temp.Contains("EG,"))
+                    else if (item.Contains("EG"))
                     {
                         checkEGA.Checked = true;
                     }
-                    else if (temp.Contains("DB,"))
+                    else if (item.Contains("DB"))
                     {
                         checkDBA.Checked = true;
                     }
-                    else if (temp.Contains("MA,"))
+                    else if (item.Contains("MA"))
                     {
                         checkMAA.Checked = true;
                     }
-                    else if (temp.Contains("ST,"))
+                    else if (item.Contains("ST"))
                     {
                         checkSTA.Checked = true;
                     }
-                    else if (temp.Contains("HP,"))
+                    else if (item.Contains("HP"))
                     {
                         checkHPA.Checked = true;
                     }
-                    else if (temp.Contains("1,"))
+                    else if (item.Contains("1"))
                     {
                         checkOG1A.Checked = true;
                     }
-                    else if (temp.Contains("2,"))
+                    else if (item.Contains("2"))
                     {
                         checkOG2A.Checked = true;
                     }
-                    else if (temp.Contains("3,"))
+                    else if (item.Contains("3"))
                     {
                         checkOG3A.Checked = true;
                     }
-                    else if (temp.Contains("4,"))
+                    else if (item.Contains("4"))
                     {
                         checkOG4A.Checked = true;
                     }
-                    else if (temp.Contains("5,"))
+                    else if (item.Contains("5"))
                     {
                         checkOG5A.Checked = true;
                     }
@@ -600,47 +600,47 @@ namespace Kartonagen
 
                 foreach (var item in temp)
                 {
-                    if (temp.Contains("K,"))
+                    if (item.Contains("K"))
                     {
                         checkKellerB.Checked = true;
                     }
-                    else if (temp.Contains("EG,"))
+                    else if (item.Contains("EG"))
                     {
                         checkEGB.Checked = true;
                     }
-                    else if (temp.Contains("DB,"))
+                    else if (item.Contains("DB"))
                     {
                         checkDBB.Checked = true;
                     }
-                    else if (temp.Contains("MA,"))
+                    else if (item.Contains("MA"))
                     {
                         checkMAB.Checked = true;
                     }
-                    else if (temp.Contains("ST,"))
+                    else if (item.Contains("ST"))
                     {
                         checkSTB.Checked = true;
                     }
-                    else if (temp.Contains("HP,"))
+                    else if (item.Contains("HP"))
                     {
                         checkHPB.Checked = true;
                     }
-                    else if (temp.Contains("1,"))
+                    else if (item.Contains("1"))
                     {
                         checkOG1B.Checked = true;
                     }
-                    else if (temp.Contains("2,"))
+                    else if (item.Contains("2"))
                     {
                         checkOG2B.Checked = true;
                     }
-                    else if (temp.Contains("3,"))
+                    else if (item.Contains("3"))
                     {
                         checkOG3B.Checked = true;
                     }
-                    else if (temp.Contains("4,"))
+                    else if (item.Contains("4"))
                     {
                         checkOG4B.Checked = true;
                     }
-                    else if (temp.Contains("5,"))
+                    else if (temp.Contains("5"))
                     {
                         checkOG5B.Checked = true;
                     }
