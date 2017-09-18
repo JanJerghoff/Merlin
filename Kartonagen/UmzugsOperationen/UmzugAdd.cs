@@ -341,9 +341,14 @@ namespace Kartonagen
             if (radioKuecheAbJa.Checked) { kueche.Add(1); } else if (radioKuecheAbV.Checked) { kueche.Add(2); } else { kueche.Add(0); }
             if (radioKuecheIntern.Checked) { kueche.Add(1); } else { kueche.Add(0); }
 
+            int versicherungtemp = 0;
+            int Schildertemp = 0;
+            if (radioVersicherungJa.Checked) { versicherungtemp = 1; }
+            if (radioSchilderJa.Checked) { Schildertemp = 1; }
+
             Umzug neu = new Umzug(int.Parse(textKundennummer.Text), dateBesicht.Value, dateUmzug.Value, dateEinpack.Value, dateAuspack.Value, dateEntruempel.Value, timeBesichtigung.Value, stat[1], stat[0], stat[2], stat[3], stat[4],
-                decimal.ToInt32(numericUmzugsDauer.Value), tempAuto, decimal.ToInt32(numericMannZahl.Value), decimal.ToInt32(numericArbeitszeit.Value), radioVersicherungJa.Checked, einpacktemp, decimal.ToInt32(numericEinPacker.Value), decimal.ToInt32(numericEinPackStunden.Value), decimal.ToInt32(numericEinPackKartons.Value),
-                auspacktemp, decimal.ToInt32(numericAusPacker.Value), decimal.ToInt32(numericAusPackStunden.Value), decimal.ToInt32(numericKleiderkisten.Value), kueche[0], kueche[1], kueche[2], int.Parse(textKuechenPreis.Text), aus, ein, radioSchilderJa.Checked, dateSchilderVerweildauer.Value,
+                decimal.ToInt32(numericUmzugsDauer.Value), tempAuto, decimal.ToInt32(numericMannZahl.Value), decimal.ToInt32(numericArbeitszeit.Value), versicherungtemp, einpacktemp, decimal.ToInt32(numericEinPacker.Value), decimal.ToInt32(numericEinPackStunden.Value), decimal.ToInt32(numericEinPackKartons.Value),
+                auspacktemp, decimal.ToInt32(numericAusPacker.Value), decimal.ToInt32(numericAusPackStunden.Value), decimal.ToInt32(numericKleiderkisten.Value), kueche[0], kueche[1], kueche[2], int.Parse(textKuechenPreis.Text), aus, ein, Schildertemp, dateSchilderVerweildauer.Value,
                 textNoteKalender.Text, textNoteBuero.Text, textNoteFahrer.Text, idBearbeitend.ToString(), DateTime.Now);
         }
 

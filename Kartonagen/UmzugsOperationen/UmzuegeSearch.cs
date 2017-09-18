@@ -19,6 +19,8 @@ namespace Kartonagen
     public partial class UmzuegeSearch : Form
     {
 
+        //Primärobjekt, der geladene Umzug:
+        Umzug umzObj;
 
         private int idBearbeitend = 0; // 0= Rita, 1=Jonas, 2=Eva, 3=Jan, 4, Sonst.
 
@@ -196,302 +198,261 @@ namespace Kartonagen
         public void umzugAenderungFuellem(int umzNum)
         {         // FulleM. Sic!           
 
+            umzObj = new Umzug(umzNum);
 
-            MySqlCommand cmdRead = new MySqlCommand("SELECT * FROM Umzuege WHERE idUmzuege = '" + umzNum + "';", Program.conn);
-            MySqlDataReader rdr;
-
-            String tempAutos = "0000"; 
-
-            try
+            textUmzNummerBlock.Text = umzNum.ToString();
+            textKundennummer.Text = umzObj.IdKunden.ToString();                       //Impliziter Cast weil Typ des SQL-Attributs bekannt
+            dateBesicht.Value = umzObj.DatBesichtigung;
+            dateUmzug.Value = umzObj.DatUmzug;
+            dateEntruempel.Value = umzObj.DatRuempeln;
+            dateEinpack.Value = umzObj.DatEinraeumen;
+            dateAuspack.Value = umzObj.DatAusraeumen;
+            //
+            if (umzObj.auszug.Aufzug1 == 1)
             {
-
-                rdr = cmdRead.ExecuteReader();
-                while (rdr.Read())
-                {
-                    textUmzNummerBlock.Text = rdr[0].ToString();
-                    textKundennummer.Text = rdr[1].ToString();                       //Impliziter Cast weil Typ des SQL-Attributs bekannt
-                    dateBesicht.Value = rdr.GetDateTime(2);
-                    dateUmzug.Value = rdr.GetDateTime(3);
-                    dateEntruempel.Value = rdr.GetDateTime(4);
-                    dateEinpack.Value = rdr.GetDateTime(5);
-                    dateAuspack.Value = rdr.GetDateTime(6);
-                    // Daten auch merken, für den Fall das sie geändert werden
-                    Umzug = dateUmzug.Value;
-                    Besichtigung = dateBesicht.Value;
-                    Auspacken = dateAuspack.Value;
-                    Einpacken = dateEinpack.Value;
-                    Entruempelung = dateEntruempel.Value;
-                    //
-                    if (rdr.GetInt32(7) == 1)
-                    {
-                        radioAufzugAJa.Checked = true;
-                    }
-                    else { radioAufzugANein.Checked = true; }
-                    //
-                    if (rdr.GetInt32(8) == 1)
-                    {
-                        radioAufzugBJa.Checked = true;
-                    }
-                    else { radioAufzugBNein.Checked = true; }
-                    //
-                    if (rdr.GetInt32(9) == 1)
-                    {
-                        radioHVZAJa.Checked = true;
-                    }
-                    else if (rdr.GetInt32(9) == 0)
-                    {
-                        radioHVZANein.Checked = true;
-                    }
-                    else { radioHVZAV.Checked = true; }
-                    //
-                    if (rdr.GetInt32(10) == 1)
-                    {
-                        radioHVZBJa.Checked = true;
-                    }
-                    else if (rdr.GetInt32(10) == 0)
-                    {
-                        radioHVZBNein.Checked = true;
-                    }
-                    else { radioHVZBV.Checked = true; }
-                    //
-                    //
-                    textLaufMeterA.Text = rdr[13].ToString();
-                    textLaufMeterB.Text = rdr[14].ToString();
-                    //
-                    if (rdr.GetInt32(15) == 1)
-                    {
-                        radioEinpackenJa.Checked = true;
-                    }
-                    else if (rdr.GetInt32(15) == 0)
-                    {
-                        radioEinpackenNein.Checked = true;
-                    }
-                    else { radioEinpackenV.Checked = true; }
-                    //
-                    if (rdr.GetInt32(16) == 1)
-                    {
-                        radioAuspackenJa.Checked = true;
-                    }
-                    else if (rdr.GetInt32(16) == 0)
-                    {
-                        radioAuspackenNein.Checked = true;
-                    }
-                    else { radioAuspackenV.Checked = true; }
-                    //
-                    numericKleiderkisten.Value = rdr.GetInt32(19);
-                    numericMannZahl.Value = rdr.GetInt32(20);
-                    numericArbeitszeit.Value = rdr.GetInt32(21);
-                    //
-                    if (rdr.GetInt32(22) == 1)
-                    {
-                        radioSchilderJa.Checked = true;
-                    }
-                    else { radioSchilderNein.Checked = true; }
-                    //
-                    dateSchilderVerweildauer.Value = rdr.GetDateTime(23);
-                    //
-                    if (rdr.GetInt32(24) == 1)
-                    {
-                        radioKuecheAbJa.Checked = true;
-                    }
-                    else if (rdr.GetInt32(24) == 0)
-                    {
-                        radioKuecheAbNein.Checked = true;
-                    }
-                    else { radioKuecheAbV.Checked = true; }
-                    //
-                    if (rdr.GetInt32(25) == 1)
-                    {
-                        radioKuecheAufJa.Checked = true;
-                    }
-                    else if (rdr.GetInt32(25) == 0)
-                    {
-                        radioKuecheAufNein.Checked = true;
-                    }
-                    else { radioKuecheAufV.Checked = true; }
-                    //
-                    if (rdr.GetInt32(26) == 1)
-                    {
-                        radioKuecheIntern.Checked = true;
-                    }
-                    else { radioKuecheExtern.Checked = true; }
-                    //
-                    textKuechenPreis.Text = rdr[27].ToString();
-                    numericUmzugsDauer.Value = rdr.GetInt32(28);
-                    tempAutos = rdr[29].ToString();
-                    //
-                    textStraßeA.Text = rdr[30].ToString();
-                    textHausnummerA.Text = rdr[31].ToString();
-                    textPLZA.Text = rdr[32].ToString();
-                    textOrtA.Text = rdr[33].ToString();
-                    textLandA.Text = rdr[34].ToString();
-                    //
-                    textStraßeB.Text = rdr[35].ToString();
-                    textHausnummerB.Text = rdr[36].ToString();
-                    textPLZB.Text = rdr[37].ToString();
-                    textOrtB.Text = rdr[38].ToString();
-                    textLandB.Text = rdr[39].ToString();
-                    //
-                    textNoteBuero.Text = rdr[40].ToString();
-                    textNoteFahrer.Text = rdr[41].ToString();
-                    //
-                    UserSpeicher = rdr[42].ToString();
-                    //
-                    
-                    //
-                    //Setzen der Terminzustände, elend umständlich.
-                    // Umzug
-                    if (rdr.GetInt32(45) == 0)
-                    {
-                        UmzugSet = 0;
-                        radioUmzNein.Checked = true;
-                    }
-                    else if (rdr.GetInt32(45) == 1)
-                    {
-                        UmzugSet = 1;
-                        radioUmzJa.Checked = true;
-                    }
-                    else if (rdr.GetInt32(45) == 3)
-                    {
-                        UmzugSet = 3;
-                        radioUmzVorlaeufig.Checked = true;
-                    }
-                    else
-                    {
-                        UmzugSet = 2;
-                        radioUmzVllt.Checked = true;
-                    }
-                    // Besichtigung
-                    if (rdr.GetInt32(46) == 0)
-                    {
-                        BesichtigungSet = 0;
-                        radioBesNein.Checked = true;
-                    }
-                    else
-                    {
-                        BesichtigungSet = 1;
-                        radioBesJa.Checked = true;
-                    }
-                    // Auspacken
-                    if (rdr.GetInt32(47) == 0)
-                    {
-                        AuspackenSet = 0;
-                        radioAusNein.Checked = true;
-                    }
-                    else if (rdr.GetInt32(47) == 1)
-                    {
-                        AuspackenSet = 1;
-                        radioAusJa.Checked = true;
-                    }
-                    else
-                    {
-                        AuspackenSet = 2;
-                        radioAusVllt.Checked = true;
-                    }
-                    // Einpacken
-                    if (rdr.GetInt32(48) == 0)
-                    {
-                        EinpackenSet = 0;
-                        radioEinNein.Checked = true;
-                    }
-                    else if (rdr.GetInt32(48) == 1)
-                    {
-                        EinpackenSet = 1;
-                        radioEinJa.Checked = true;
-                    }
-                    else
-                    {
-                        EinpackenSet = 2;
-                        radioEinVllt.Checked = true;
-                    }
-                    // Entrümpeln
-                    if (rdr.GetInt32(49) == 0)
-                    {
-                        EntruempelungSet = 0;
-                        radioEntNein.Checked = true;
-                    }
-                    else if (rdr.GetInt32(49) == 1)
-                    {
-                        EntruempelungSet = 1;
-                        radioEntJa.Checked = true;
-                    }
-                    else
-                    {
-                        EntruempelungSet = 2;
-                        radioEntVllt.Checked = true;
-                    }
-                    // umzugsZeit (Besichtigungszeit!)
-                    //String temp = rdr[51].ToString();
-                    DateTime transplant = new DateTime(2000, 1, 1, 0, 0, 0);
-
-                    TimeSpan t = rdr.GetTimeSpan(50);
-                    timeBesichtigung.Value = transplant.Add(t);
-                    //
-                    // Setzen der Listboxen         CHANGE SWITHCASE?
-                    if (rdr[51].ToString() == "EFH")
-                    {
-                        listBoxA.SelectedIndex = 0;
-                    }
-                    else if (rdr[51].ToString() == "DHH")
-                    {
-                        listBoxA.SelectedIndex = 1;
-                    }
-                    else if (rdr[51].ToString() == "RH")
-                    {
-                        listBoxA.SelectedIndex = 2;
-                    }
-                    else
-                    {
-                        listBoxA.SelectedIndex = 3;
-                    }
-                    //
-                    if (rdr[52].ToString() == "EFH")
-                    {
-                        listBoxB.SelectedIndex = 0;
-                    }
-                    else if (rdr[52].ToString() == "DHH")
-                    {
-                        listBoxB.SelectedIndex = 1;
-                    }
-                    else if (rdr[52].ToString() == "RH")
-                    {
-                        listBoxB.SelectedIndex = 2;
-                    }
-                    else
-                    {
-                        listBoxB.SelectedIndex = 3;
-                    }
-                    // Aussenaufzüge
-                    if (rdr.GetInt32(53) == 1)
-                    {
-                        radioAussenAufzugAJa.Checked = true;
-                    }
-                    else
-                    {
-                        radioAussenAufzugANein.Checked = true;
-                    }
-                    //
-                    if (rdr.GetInt32(54) == 1)
-                    {
-                        radioAussenAufzugBJa.Checked = true;
-                    }
-                    else
-                    {
-                        radioAussenAufzugBNein.Checked = true;
-                    }
-                    //
-                    textNoteKalender.Text = rdr[55].ToString();
-
-                    textUmzugLog.AppendText("Gesuchte Daten Eingefüllt! \r\n");
-
-                }
-                rdr.Close();
+                radioAufzugAJa.Checked = true;
             }
-            catch (Exception sqlEx)
+            else { radioAufzugANein.Checked = true; }
+            //
+            if (umzObj.einzug.Aufzug1 == 1)
             {
-                textUmzugLog.Text += sqlEx.ToString();
-                return;
+                radioAufzugBJa.Checked = true;
             }
+            else { radioAufzugBNein.Checked = true; }
+            //
+            if (umzObj.auszug.HVZ1 == 1)
+            {
+                radioHVZAJa.Checked = true;
+            }
+            else if (umzObj.auszug.HVZ1 == 0)
+            {
+                radioHVZANein.Checked = true;
+            }
+            else { radioHVZAV.Checked = true; }
+            //
+            if (umzObj.einzug.HVZ1 == 1)
+            {
+                radioHVZBJa.Checked = true;
+            }
+            else if (umzObj.einzug.HVZ1 == 0)
+            {
+                radioHVZBNein.Checked = true;
+            }
+            else { radioHVZBV.Checked = true; }
+            //
+            //
+            textLaufMeterA.Text = umzObj.auszug.Laufmeter1.ToString();
+            textLaufMeterB.Text = umzObj.einzug.Laufmeter1.ToString();
+            //
+            if (umzObj.Einpacken1 == 1)
+            {
+                radioEinpackenJa.Checked = true;
+            }
+            else if (umzObj.Einpacken1 == 0)
+            {
+                radioEinpackenNein.Checked = true;
+            }
+            else { radioEinpackenV.Checked = true; }
+            //
+            if (umzObj.Auspacken1 == 1)
+            {
+                radioAuspackenJa.Checked = true;
+            }
+            else if (umzObj.Auspacken1 == 0)
+            {
+                radioAuspackenNein.Checked = true;
+            }
+            else { radioAuspackenV.Checked = true; }
+            //
+            numericKleiderkisten.Value = umzObj.Kleiderkartons1;
+            numericMannZahl.Value = umzObj.Mann;
+            numericArbeitszeit.Value = umzObj.Stunden;
+            //
+            if (umzObj.Schilder1 == 1)
+            {
+                radioSchilderJa.Checked = true;
+            }
+            else { radioSchilderNein.Checked = true; }
+            //
+            dateSchilderVerweildauer.Value = umzObj.SchilderZeit1;
+            //
+            if (umzObj.KuecheAb1 == 1)
+            {
+                radioKuecheAbJa.Checked = true;
+            }
+            else if (umzObj.KuecheAb1 == 0)
+            {
+                radioKuecheAbNein.Checked = true;
+            }
+            else { radioKuecheAbV.Checked = true; }
+            //
+            if (umzObj.KuecheAuf1 == 1)
+            {
+                radioKuecheAufJa.Checked = true;
+            }
+            else if (umzObj.KuecheAuf1 == 0)
+            {
+                radioKuecheAufNein.Checked = true;
+            }
+            else { radioKuecheAufV.Checked = true; }
+            //
+            if (umzObj.KuecheBau1 == 1)
+            {
+                radioKuecheIntern.Checked = true;
+            }
+            else { radioKuecheExtern.Checked = true; }
+            //
+            textKuechenPreis.Text = umzObj.KuechePausch1.ToString();
+            numericUmzugsDauer.Value = umzObj.Umzugsdauer;
+            string tempAutos = umzObj.Autos;
+            //
+            textStraßeA.Text = umzObj.auszug.Straße1;
+            textHausnummerA.Text = umzObj.auszug.Hausnummer1;
+            textPLZA.Text = umzObj.auszug.PLZ1;
+            textOrtA.Text = umzObj.auszug.Ort1;
+            textLandA.Text = umzObj.auszug.Land1;
+            //
+            textStraßeB.Text = umzObj.einzug.Straße1;
+            textHausnummerB.Text = umzObj.einzug.Hausnummer1;
+            textPLZB.Text = umzObj.einzug.PLZ1;
+            textOrtB.Text = umzObj.einzug.Ort1;
+            textLandB.Text = umzObj.einzug.Land1;
+            //
+            textNoteBuero.Text = umzObj.NotizBuero1;
+            textNoteFahrer.Text = umzObj.NotizFahrer1;
+            textNoteKalender.Text = umzObj.NotizTitel1;
+            
+            //
+            //Setzen der Terminzustände, elend umständlich.
+            // Umzug
+            if (umzObj.StatUmzug == 0)
+            {
+                radioUmzNein.Checked = true;
+            }
+            else if (umzObj.StatUmzug == 1)
+            {
+                radioUmzJa.Checked = true;
+            }
+            else if (umzObj.StatUmzug == 3)
+            {
+                radioUmzVorlaeufig.Checked = true;
+            }
+            else
+            {
+                radioUmzVllt.Checked = true;
+            }
+            // Besichtigung
+            if (umzObj.StatBesichtigung == 0)
+            {
+                radioBesNein.Checked = true;
+            }
+            else
+            {
+                radioBesJa.Checked = true;
+            }
+            // Auspacken
+            if (umzObj.StatAus == 0)
+            {
+                radioAusNein.Checked = true;
+            }
+            else if (umzObj.StatAus == 1)
+            {
+                radioAusJa.Checked = true;
+            }
+            else
+            {
+                radioAusVllt.Checked = true;
+            }
+            // Einpacken
+            if (umzObj.StatEin == 0)
+            {
+                radioEinNein.Checked = true;
+            }
+            else if (umzObj.StatEin == 1)
+            {
+                radioEinJa.Checked = true;
+            }
+            else
+            {
+                radioEinVllt.Checked = true;
+            }
+            // Entrümpeln
+            if (umzObj.StatRuempeln == 0)
+            {
+                radioEntNein.Checked = true;
+            }
+            else if (umzObj.StatRuempeln == 1)
+            {
+                radioEntJa.Checked = true;
+            }
+            else
+            {
+                radioEntVllt.Checked = true;
+            }
+            // umzugsZeit (Besichtigungszeit!)
+            //String temp = rdr[51].ToString();
+            DateTime transplant = new DateTime(2000, 1, 1, 0, 0, 0);
+
+            TimeSpan t = umzObj.ZeitUmzug.TimeOfDay;
+            timeBesichtigung.Value = transplant.Add(t);
+            //
+            // Setzen der Listboxen         CHANGE SWITHCASE?
+
+            switch (umzObj.auszug.Haustyp1)
+            {
+                case "EFH":
+                    listBoxA.SelectedIndex = 0;
+                    break;
+
+                case "DHH":
+                    listBoxA.SelectedIndex = 1;
+                    break;
+
+                case "RH":
+                    listBoxA.SelectedIndex = 2;
+                    break;
+
+                default:
+                    listBoxA.SelectedIndex = 3;
+                    break;
+            }
+            //
+            switch (umzObj.einzug.Haustyp1)
+            {
+                case "EFH":
+                    listBoxB.SelectedIndex = 0;
+                    break;
+
+                case "DHH":
+                    listBoxB.SelectedIndex = 1;
+                    break;
+
+                case "RH":
+                    listBoxB.SelectedIndex = 2;
+                    break;
+
+                default:
+                    listBoxB.SelectedIndex = 3;
+                    break;
+            }            
+            // Aussenaufzüge
+            if (umzObj.auszug.AussenAufzug1 == 1)
+            {
+                radioAussenAufzugAJa.Checked = true;
+            }
+            else
+            {
+                radioAussenAufzugANein.Checked = true;
+            }
+            //
+            if (umzObj.einzug.AussenAufzug1 == 1)
+            {
+                radioAussenAufzugBJa.Checked = true;
+            }
+            else
+            {
+                radioAussenAufzugBNein.Checked = true;
+            }                               
 
             Regex regex = new Regex(@"^\d+$");
 

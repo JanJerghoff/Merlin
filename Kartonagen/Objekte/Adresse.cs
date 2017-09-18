@@ -15,7 +15,7 @@ namespace Kartonagen.Objekte
         string Ort;
         string PLZ;
         string Land;
-        Boolean Aufzug;
+        int Aufzug;
         string Stockwerke;
         string Haustyp;
         int HVZ;
@@ -29,13 +29,7 @@ namespace Kartonagen.Objekte
             Ort = ort;
             PLZ = pLZ;
             Land = land;
-
-            if (aufzug == 1)
-            {
-                Aufzug = true;
-            }
-            else Aufzug = false;
-
+            Aufzug = aufzug;
             Stockwerke = stockwerke;
             Haustyp = haustyp;
             HVZ = hVZ;
@@ -48,7 +42,7 @@ namespace Kartonagen.Objekte
         public string Ort1 { get => Ort; set => Ort = value; }
         public string PLZ1 { get => PLZ; set => PLZ = value; }
         public string Land1 { get => Land; set => Land = value; }
-        public bool Aufzug1 { get => Aufzug; set => Aufzug = value; }
+        public int Aufzug1 { get => Aufzug; set => Aufzug = value; }
         public string Stockwerke1 { get => Stockwerke; set => Stockwerke = value; }
         public string Haustyp1 { get => Haustyp; set => Haustyp = value; }
         public int HVZ1 { get => HVZ; set => HVZ = value; }

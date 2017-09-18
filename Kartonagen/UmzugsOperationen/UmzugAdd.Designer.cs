@@ -132,9 +132,6 @@
             this.numericSprinterMit = new System.Windows.Forms.NumericUpDown();
             this.numericMannZahl = new System.Windows.Forms.NumericUpDown();
             this.dateSchilderVerweildauer = new System.Windows.Forms.DateTimePicker();
-            this.groupBox20 = new System.Windows.Forms.GroupBox();
-            this.radioAussenaufzugNein = new System.Windows.Forms.RadioButton();
-            this.radioAussenaufzugJa = new System.Windows.Forms.RadioButton();
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.radioSchilderNein = new System.Windows.Forms.RadioButton();
@@ -263,7 +260,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericArbeitszeit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericSprinterMit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMannZahl)).BeginInit();
-            this.groupBox20.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericKleiderkisten)).BeginInit();
             this.groupBox5.SuspendLayout();
@@ -1282,7 +1278,6 @@
             this.groupBox6.Controls.Add(this.numericSprinterMit);
             this.groupBox6.Controls.Add(this.numericMannZahl);
             this.groupBox6.Controls.Add(this.dateSchilderVerweildauer);
-            this.groupBox6.Controls.Add(this.groupBox20);
             this.groupBox6.Controls.Add(this.label17);
             this.groupBox6.Controls.Add(this.groupBox7);
             this.groupBox6.Controls.Add(this.label16);
@@ -1384,37 +1379,6 @@
             this.dateSchilderVerweildauer.Name = "dateSchilderVerweildauer";
             this.dateSchilderVerweildauer.Size = new System.Drawing.Size(200, 20);
             this.dateSchilderVerweildauer.TabIndex = 4;
-            // 
-            // groupBox20
-            // 
-            this.groupBox20.Controls.Add(this.radioAussenaufzugNein);
-            this.groupBox20.Controls.Add(this.radioAussenaufzugJa);
-            this.groupBox20.Location = new System.Drawing.Point(6, 95);
-            this.groupBox20.Name = "groupBox20";
-            this.groupBox20.Size = new System.Drawing.Size(144, 43);
-            this.groupBox20.TabIndex = 15;
-            this.groupBox20.TabStop = false;
-            this.groupBox20.Text = "Aussenaufzug";
-            // 
-            // radioAussenaufzugNein
-            // 
-            this.radioAussenaufzugNein.AutoSize = true;
-            this.radioAussenaufzugNein.Location = new System.Drawing.Point(48, 19);
-            this.radioAussenaufzugNein.Name = "radioAussenaufzugNein";
-            this.radioAussenaufzugNein.Size = new System.Drawing.Size(47, 17);
-            this.radioAussenaufzugNein.TabIndex = 12;
-            this.radioAussenaufzugNein.Text = "Nein";
-            this.radioAussenaufzugNein.UseVisualStyleBackColor = true;
-            // 
-            // radioAussenaufzugJa
-            // 
-            this.radioAussenaufzugJa.AutoSize = true;
-            this.radioAussenaufzugJa.Location = new System.Drawing.Point(6, 19);
-            this.radioAussenaufzugJa.Name = "radioAussenaufzugJa";
-            this.radioAussenaufzugJa.Size = new System.Drawing.Size(36, 17);
-            this.radioAussenaufzugJa.TabIndex = 11;
-            this.radioAussenaufzugJa.Text = "Ja";
-            this.radioAussenaufzugJa.UseVisualStyleBackColor = true;
             // 
             // label17
             // 
@@ -2493,8 +2457,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericArbeitszeit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericSprinterMit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericMannZahl)).EndInit();
-            this.groupBox20.ResumeLayout(false);
-            this.groupBox20.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericKleiderkisten)).EndInit();
@@ -2628,9 +2590,6 @@
         private System.Windows.Forms.RadioButton radioHVZANein;
         private System.Windows.Forms.RadioButton radioHVZAJa;
         private System.Windows.Forms.TextBox textUmzugLog;
-        private System.Windows.Forms.GroupBox groupBox20;
-        private System.Windows.Forms.RadioButton radioAussenaufzugNein;
-        private System.Windows.Forms.RadioButton radioAussenaufzugJa;
         private System.Windows.Forms.TextBox textSuchBox;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label31;

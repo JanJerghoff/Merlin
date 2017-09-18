@@ -31,7 +31,7 @@ namespace Kartonagen
         string autos;       // Beizeiten ersetzen durch kodierten String?
         int mann;
         int stunden;
-        Boolean versicherung;
+        int versicherung;
 
         //Packen
         int Einpacken;
@@ -53,11 +53,11 @@ namespace Kartonagen
 
         // Adressobjekte
 
-        Adresse auszug;
-        Adresse einzug;
+        public Adresse auszug;
+        public Adresse einzug;
         
         // Schilder
-        Boolean Schilder;
+        int Schilder;
         DateTime SchilderZeit;
                 
         // Notizen
@@ -68,6 +68,41 @@ namespace Kartonagen
         //Metadata
         string UserChanged;
         DateTime erstelldatum;
+
+        public DateTime DatBesichtigung { get => datBesichtigung; set => datBesichtigung = value; }
+        public DateTime DatUmzug { get => datUmzug; set => datUmzug = value; }
+        public DateTime DatEinraeumen { get => datEinraeumen; set => datEinraeumen = value; }
+        public DateTime DatAusraeumen { get => datAusraeumen; set => datAusraeumen = value; }
+        public DateTime DatRuempeln { get => datRuempeln; set => datRuempeln = value; }
+        public DateTime ZeitUmzug { get => zeitUmzug; set => zeitUmzug = value; }
+        public int StatBesichtigung { get => statBesichtigung; set => statBesichtigung = value; }
+        public int StatUmzug { get => statUmzug; set => statUmzug = value; }
+        public int StatAus { get => statAus; set => statAus = value; }
+        public int StatEin { get => statEin; set => statEin = value; }
+        public int StatRuempeln { get => statRuempeln; set => statRuempeln = value; }
+        public int Umzugsdauer { get => umzugsdauer; set => umzugsdauer = value; }
+        public string Autos { get => autos; set => autos = value; }
+        public int Mann { get => mann; set => mann = value; }
+        public int Stunden { get => stunden; set => stunden = value; }
+        public int Versicherung { get => versicherung; set => versicherung = value; }
+        public int Einpacken1 { get => Einpacken; set => Einpacken = value; }
+        public int Einpacker1 { get => Einpacker; set => Einpacker = value; }
+        public int EinStunden1 { get => EinStunden; set => EinStunden = value; }
+        public int Karton1 { get => Karton; set => Karton = value; }
+        public int Auspacken1 { get => Auspacken; set => Auspacken = value; }
+        public int Auspacker1 { get => Auspacker; set => Auspacker = value; }
+        public int AusStunden1 { get => AusStunden; set => AusStunden = value; }
+        public int Kleiderkartons1 { get => Kleiderkartons; set => Kleiderkartons = value; }
+        public int KuecheAuf1 { get => KuecheAuf; set => KuecheAuf = value; }
+        public int KuecheAb1 { get => KuecheAb; set => KuecheAb = value; }
+        public int KuecheBau1 { get => KuecheBau; set => KuecheBau = value; }
+        public int KuechePausch1 { get => KuechePausch; set => KuechePausch = value; }
+        public int Schilder1 { get => Schilder; set => Schilder = value; }
+        public DateTime SchilderZeit1 { get => SchilderZeit; set => SchilderZeit = value; }
+        public string NotizTitel1 { get => NotizTitel; set => NotizTitel = value; }
+        public string NotizBuero1 { get => NotizBuero; set => NotizBuero = value; }
+        public string NotizFahrer1 { get => NotizFahrer; set => NotizFahrer = value; }
+        public int IdKunden { get => idKunden; }
 
         // Konstruktor
         public Umzug (int ID)
@@ -103,14 +138,7 @@ namespace Kartonagen
                     autos = rdr.GetString(14);       // Beizeiten ersetzen durch kodierten String?
                     mann = rdr.GetInt32(15);
                     stunden = rdr.GetInt32(16);
-
-                    if (rdr.GetInt32(17) == 1)
-                    {
-                        versicherung = true;
-                    }
-                    else {
-                        versicherung = false;
-                         }
+                    versicherung = rdr.GetInt32(17);
 
                     //Packen
                     Einpacken = rdr.GetInt32(18);
@@ -125,14 +153,7 @@ namespace Kartonagen
                     Kleiderkartons = rdr.GetInt32(25);
 
                     //Schilder
-                    if (rdr.GetInt32(26) == 1)
-                    {
-                        Schilder = true;
-                    }
-                    else
-                    {
-                        Schilder = false;
-                    }
+                    Schilder = rdr.GetInt32(26);                    
                     SchilderZeit = rdr.GetDateTime(rdr.GetString(56)); // Hinterfragt, ans Ende gesetzt
 
                     // Küche
@@ -163,7 +184,7 @@ namespace Kartonagen
             }
         }
 
-        public Umzug(int idKunden, DateTime datBesichtigung, DateTime datUmzug, DateTime datEinraeumen, DateTime datAusraeumen, DateTime datRuempeln, DateTime zeitUmzug, int statBesichtigung, int statUmzug, int statAus, int statEin, int statRuempeln, int umzugsdauer, string autos, int mann, int stunden, bool versicherung, int einpacken, int einpacker, int einStunden, int karton, int auspacken, int auspacker, int ausStunden, int kleiderkartons, int kuecheAuf, int kuecheAb, int kuecheBau, int kuechePausch, Adresse auszug, Adresse einzug, bool schilder, DateTime schilderZeit, string notizTitel, string notizBuero, string notizFahrer, string userChanged, DateTime erstelldatum)
+        public Umzug(int idKunden, DateTime datBesichtigung, DateTime datUmzug, DateTime datEinraeumen, DateTime datAusraeumen, DateTime datRuempeln, DateTime zeitUmzug, int statBesichtigung, int statUmzug, int statAus, int statEin, int statRuempeln, int umzugsdauer, string autos, int mann, int stunden, int versicherung, int einpacken, int einpacker, int einStunden, int karton, int auspacken, int auspacker, int ausStunden, int kleiderkartons, int kuecheAuf, int kuecheAb, int kuecheBau, int kuechePausch, Adresse auszug, Adresse einzug, int schilder, DateTime schilderZeit, string notizTitel, string notizBuero, string notizFahrer, string userChanged, DateTime erstelldatum)
         {
 
             String longInsert = "INSERT INTO Umzuege (Kunden_idKunden, datBesichtigung, datUmzug, datRuempelung, datEinpacken, datAuspacken, umzugsZeit, " +
@@ -190,12 +211,9 @@ namespace Kartonagen
 
             longInsert += "'" + autos +"', ";
             longInsert += mann + ", ";
-            longInsert += stunden + ", ";
-            if (versicherung)
-            {
-                longInsert += 1 + ", ";
-            }
-            else { longInsert += 0 + ", "; }
+            longInsert += stunden + ", ";            
+            longInsert += versicherung + ", ";
+            
 
             longInsert += einpacken + ", ";
             longInsert += einpacker + ", ";
@@ -205,11 +223,7 @@ namespace Kartonagen
             longInsert += auspacker + ", ";
             longInsert += ausStunden + ", ";
             longInsert += kleiderkartons + ", ";
-            if (schilder)
-            {
-                longInsert += 1 + ", ";
-            }
-            else { longInsert += 0 + ", "; }
+            longInsert += schilder + ", ";
 
             longInsert += kuecheAuf + ", ";
             longInsert += kuecheAb + ", ";
@@ -259,16 +273,77 @@ namespace Kartonagen
         
 
         //Updatemechanik
-        public void UpdateDB ()
+        public void UpdateDB (string idUser)
         {
 
             String longInsert = "UPDATE umzuege SET ";
+            
+            longInsert += "Kunden_idKunden = " + idKunden + ", ";
+            longInsert += "StatBes = " + statBesichtigung + ", ";
+            longInsert += "StatUmz = " + statUmzug + ", ";
+            longInsert += "StatAus = " + statAus + ", ";
+            longInsert += "StatEin = " + statEin + ", ";
+            longInsert += "StatEnt = " + statRuempeln + ", ";
+            longInsert += "Mann = " + mann + ", ";
+            longInsert += "Stunden = " + stunden + ", ";
+            longInsert += "Versicherung = " + versicherung + ", ";
+            longInsert += "Einpacken = " + Einpacken + ", ";
+            longInsert += "EinPackerZahl = " + Einpacker + ", ";
+            longInsert += "EinPackStunden = " + EinStunden + ", ";
+            longInsert += "Kartons = " + Karton + ", ";
+            longInsert += "Auspacken = " + Auspacken + ", ";
+            longInsert += "AusPackerZahl = " + Auspacker + ", ";
+            longInsert += "AusPackStunden = " + AusStunden + ", ";
+            longInsert += "Kleiderkisten = " + Kleiderkartons + ", ";
+            longInsert += "SchilderZurueck = " + Schilder + ", ";
+            longInsert += "KuecheAb = " + KuecheAb + ", ";
+            longInsert += "KuecheAuf = " + KuecheAuf + ", ";
+            longInsert += "KuecheBau = " + KuecheBau + ", ";
+            longInsert += "KuechePausch = " + KuechePausch + ", ";
 
-            //longInsert +=  +", ";
+            longInsert += "datBesichtigung = '" + Program.DateMachine(datBesichtigung.Date) + "', ";
+            longInsert += "datUmzug = '" + Program.DateMachine(datUmzug.Date) + "', ";
+            longInsert += "datRuempelung = '" + Program.DateMachine(datRuempeln.Date) + "', ";
+            longInsert += "datEinpacken = '" + Program.DateMachine(datEinraeumen.Date) + "', ";
+            longInsert += "datAuspacken = '" + Program.DateMachine(datAusraeumen.Date) + "', ";
+            longInsert += "umzugsZeit = '" + Program.ZeitMachine(zeitUmzug.Date) + "', ";
+            longInsert += "SchilderZeit = '" + Program.DateMachine(SchilderZeit.Date) + "', ";
 
-            //longInsert += "'"+ +"', "
+            longInsert += "Autos = '" + autos + "', ";
+            longInsert += "NotizBuero = '" + NotizBuero + "', ";
+            longInsert += "NotizFahrer = '" + NotizFahrer + "', ";
+            longInsert += "BemerkungTitel = '" + NotizTitel + "', ";
+            longInsert += "UserChanged = '" + UserChanged + idUser + "', "; 
+            
+            longInsert += "StraßeA = '" + auszug.Straße1  + "', ";
+            longInsert += "HausnummerA = '" + auszug.Hausnummer1 + "', ";
+            longInsert += "PLZA = '" + auszug.PLZ1 + "', ";
+            longInsert += "OrtA = '" + auszug.Ort1 + "', ";
+            longInsert += "LandA = '" + auszug.Land1 + "', ";
+            longInsert += "AufzugA = " + auszug.Aufzug1 + ", ";    
+            longInsert += "StockwerkeA = '" + auszug.Stockwerke1 + "', ";
+            longInsert += "HausTypA = '" + auszug.Haustyp1 + "', ";
+            longInsert += "HVZA = " + auszug.HVZ1 + ", ";        
+            longInsert += "LaufmeterA = " + auszug.Laufmeter1+ ", ";  
+            longInsert += "AussenAufzugA = " + auszug.AussenAufzug1 + ", ";
+
+            longInsert += "StraßeB = '" + einzug.Straße1 + "', ";
+            longInsert += "HausnummerB = '" + einzug.Hausnummer1 + "', ";
+            longInsert += "PLZB = '" + einzug.PLZ1 + "', ";
+            longInsert += "OrtB = '" + einzug.Ort1 + "', ";
+            longInsert += "LandB = '" + einzug.Land1 + "', ";
+            longInsert += "AufzugB = " + einzug.Aufzug1 + ", ";
+            longInsert += "StockwerkeB = '" + einzug.Stockwerke1 + "', ";
+            longInsert += "HausTypB = '" + einzug.Haustyp1 + "', ";
+            longInsert += "HVZB = " + einzug.HVZ1 + ", ";
+            longInsert += "LaufmeterB = " + einzug.Laufmeter1 + ", ";
+            longInsert += "AussenAufzugB = " + einzug.AussenAufzug1;
 
             longInsert += " WHERE idUmzuege = " + id + ";";
+
+            Program.QueryLog(longInsert);
+
+            Program.absender(longInsert, "Absenden der Änderung am Umzug");
 
         }
     }
