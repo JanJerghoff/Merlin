@@ -124,7 +124,11 @@ namespace Kartonagen
                     datRuempeln = rdr.GetDateTime(4).Date;
                     datEinraeumen = rdr.GetDateTime(5).Date;
                     datAusraeumen = rdr.GetDateTime(6).Date;
-                    zeitUmzug = rdr.GetDateTime(7);
+
+                    TimeSpan zeittemp = rdr.GetTimeSpan(7);
+
+                    zeitUmzug = new DateTime(2000, 1, 1);
+                    zeitUmzug.Add(zeittemp);
 
                     statBesichtigung = rdr.GetInt32(8);
                     statUmzug = rdr.GetInt32(9);
@@ -154,7 +158,7 @@ namespace Kartonagen
 
                     //Schilder
                     Schilder = rdr.GetInt32(26);                    
-                    SchilderZeit = rdr.GetDateTime(rdr.GetString(56)); // Hinterfragt, ans Ende gesetzt
+                    SchilderZeit = rdr.GetDateTime(56); // Hinterfragt, ans Ende gesetzt
 
                     // Küche
                     KuecheAb = rdr.GetInt32(27);
@@ -188,7 +192,7 @@ namespace Kartonagen
         {
 
             String longInsert = "INSERT INTO Umzuege (Kunden_idKunden, datBesichtigung, datUmzug, datRuempelung, datEinpacken, datAuspacken, umzugsZeit, " +
-                "StatBes, StatUmz, StatAus, StatEin, StatEnt, Autos, Mann, Stunden, Versicherung, " +
+                "StatBes, StatUmz, StatAus, StatEin, StatEnt, Umzugsdauer, Autos, Mann, Stunden, Versicherung, " +
                 "Einpacken, EinPackerZahl, EinPackStunden, Kartons, Auspacken, AusPackerZahl, AusPackStunden, Kleiderkisten, SchilderZurueck, " +
                 "KuecheAb, KuecheAuf, KuecheBau, KuechePausch, " +
                 "StraßeA, HausnummerA, PLZA, OrtA, LandA, AufzugA, StockwerkeA, HausTypA, HVZA, LaufmeterA, AussenAufzugA, " +
@@ -208,6 +212,7 @@ namespace Kartonagen
             longInsert += statAus + ", ";
             longInsert += statEin + ", ";
             longInsert += statRuempeln + ", ";
+            longInsert += umzugsdauer + ", ";
 
             longInsert += "'" + autos +"', ";
             longInsert += mann + ", ";
@@ -254,11 +259,11 @@ namespace Kartonagen
             longInsert += einzug.Laufmeter1 + ", ";
             longInsert += einzug.AussenAufzug1 + ", ";
 
-            longInsert += "'" + einzug.Haustyp1 + "', ";
-            longInsert += "'" + einzug.Haustyp1 + "', ";
-            longInsert += "'" + einzug.Haustyp1 + "', ";
+            longInsert += "'" + notizBuero + "', ";
+            longInsert += "'" + notizFahrer + "', ";
+            longInsert += "'" + notizTitel + "', ";
             longInsert += "'" + Program.DateMachine(schilderZeit) + "', ";
-            longInsert += "'" + einzug.Haustyp1 + "', ";
+            longInsert += "'" + userChanged+ "', ";
             longInsert += "'" + Program.DateMachine(DateTime.Now) + "');";
 
             // Merkt den Query
