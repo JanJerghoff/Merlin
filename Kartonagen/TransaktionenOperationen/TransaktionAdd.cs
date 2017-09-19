@@ -363,7 +363,8 @@ namespace Kartonagen
 
             //Adresse in den Body
 
-            var bestätigung = MessageBox.Show("Auszugsadresse (Ja auswählen) oder Einzugsadresse (Nein auswählen) für den Kalendereintrag nutzen?", "Adresswahl", MessageBoxButtons.YesNo);
+            var bestätigung = MessageBox.Show("Auszugsadresse (Ja auswählen) oder Einzugsadresse (Nein auswählen) für den Kalendereintrag nutzen? /r/n Auszug: "+ umzObj.auszug.Straße1 + " " + umzObj.auszug.Hausnummer1 +" "+ umzObj.auszug.PLZ1 + " " + umzObj.auszug.Ort1 + " /r/n Einzug "+
+                 umzObj.einzug.Straße1 + " " + umzObj.einzug.Hausnummer1 + " " + umzObj.einzug.PLZ1 + " " + umzObj.einzug.Ort1 + " ", "Adresswahl", MessageBoxButtons.YesNo);
             if (bestätigung == DialogResult.Yes)
             { Body += umzObj.auszug.Straße1 + " " + umzObj.auszug.Hausnummer1 + "\r\n" + umzObj.auszug.PLZ1 + " " + umzObj.auszug.Ort1 + "\r\n"; }
             else { Body += umzObj.einzug.Straße1 + " " + umzObj.einzug.Hausnummer1 + "\r\n" + umzObj.einzug.PLZ1 + " " + umzObj.einzug.Ort1 + "\r\n"; }
