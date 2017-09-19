@@ -142,6 +142,7 @@
             this.radioKuecheAbNein = new System.Windows.Forms.RadioButton();
             this.radioKuecheAbJa = new System.Windows.Forms.RadioButton();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox26 = new System.Windows.Forms.GroupBox();
             this.textSonderEtageB = new System.Windows.Forms.TextBox();
             this.checkDBB = new System.Windows.Forms.CheckBox();
@@ -198,6 +199,7 @@
             this.radioEinpackenNein = new System.Windows.Forms.RadioButton();
             this.radioEinpackenJa = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ButtonBlockAuszug = new System.Windows.Forms.Button();
             this.groupBox25 = new System.Windows.Forms.GroupBox();
             this.textSonderEtageA = new System.Windows.Forms.TextBox();
             this.checkDBA = new System.Windows.Forms.CheckBox();
@@ -234,8 +236,6 @@
             this.textPLZA = new System.Windows.Forms.TextBox();
             this.textHausnummerA = new System.Windows.Forms.TextBox();
             this.textStraßeA = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericLKWGroß)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLKW)).BeginInit();
@@ -1510,6 +1510,15 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Adresse Einzug";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(305, 261);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(158, 25);
+            this.button2.TabIndex = 43;
+            this.button2.Text = "Block Ändern";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // groupBox26
             // 
             this.groupBox26.Controls.Add(this.textSonderEtageB);
@@ -2066,7 +2075,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.ButtonBlockAuszug);
             this.groupBox1.Controls.Add(this.groupBox25);
             this.groupBox1.Controls.Add(this.groupBox22);
             this.groupBox1.Controls.Add(this.listBoxA);
@@ -2090,6 +2099,16 @@
             this.groupBox1.TabIndex = 99;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Adresse Auszug";
+            // 
+            // ButtonBlockAuszug
+            // 
+            this.ButtonBlockAuszug.Location = new System.Drawing.Point(331, 262);
+            this.ButtonBlockAuszug.Name = "ButtonBlockAuszug";
+            this.ButtonBlockAuszug.Size = new System.Drawing.Size(158, 25);
+            this.ButtonBlockAuszug.TabIndex = 41;
+            this.ButtonBlockAuszug.Text = "Block Ändern";
+            this.ButtonBlockAuszug.UseVisualStyleBackColor = true;
+            this.ButtonBlockAuszug.Click += new System.EventHandler(this.ButtonBlockAuszug_Click_1);
             // 
             // groupBox25
             // 
@@ -2449,30 +2468,12 @@
             this.textStraßeA.Size = new System.Drawing.Size(181, 20);
             this.textStraßeA.TabIndex = 0;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(331, 262);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 25);
-            this.button1.TabIndex = 41;
-            this.button1.Text = "Block Ändern";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(305, 261);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(158, 25);
-            this.button2.TabIndex = 43;
-            this.button2.Text = "Block Ändern";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // UmzuegeSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1652, 1026);
+            this.ClientSize = new System.Drawing.Size(1652, 1043);
             this.Controls.Add(this.groupBox27);
             this.Controls.Add(this.groupBox14);
             this.Controls.Add(this.groupBox10);
@@ -2795,6 +2796,6 @@
         private System.Windows.Forms.TextBox textHausnummerA;
         private System.Windows.Forms.TextBox textStraßeA;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ButtonBlockAuszug;
     }
 }

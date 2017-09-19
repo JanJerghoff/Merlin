@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kartonagen.Objekte
 {
-    class Adresse
+    public class Adresse
     {
         // Felder
 

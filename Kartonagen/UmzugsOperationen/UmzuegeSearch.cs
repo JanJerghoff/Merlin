@@ -5,13 +5,8 @@ using iText.Kernel.Pdf;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Kartonagen
@@ -78,6 +73,10 @@ namespace Kartonagen
 
         }
 
+        public void SetUmzugObjekt(Umzug umz)
+        {
+            umzObj = umz;
+        }
 
         public void setBearbeiter(int wer)
         {
@@ -655,6 +654,50 @@ namespace Kartonagen
 
         }
 
+        private string StockwerkString(int x)
+        {
+
+            string stockwerketemp = "";
+            if (x == 0)
+            {
+                if (checkKellerA.Checked) { stockwerketemp += "K,"; }
+                if (checkEGA.Checked) { stockwerketemp += "EG,"; }
+                if (checkDBA.Checked) { stockwerketemp += "DB,"; }
+                if (checkMAA.Checked) { stockwerketemp += "MA,"; }
+                if (checkSTA.Checked) { stockwerketemp += "ST,"; }
+                if (checkHPA.Checked) { stockwerketemp += "HP,"; }
+                if (checkOG1A.Checked) { stockwerketemp += "1,"; }
+                if (checkOG2A.Checked) { stockwerketemp += "2,"; }
+                if (checkOG3A.Checked) { stockwerketemp += "3,"; }
+                if (checkOG4A.Checked) { stockwerketemp += "4,"; }
+                if (checkOG5A.Checked) { stockwerketemp += "5,"; }
+                if (textSonderEtageA.TextLength != 0)
+                {
+                    stockwerketemp += textSonderEtageA.Text;
+                }
+            }
+            else if (x == 1)
+            {
+                if (checkKellerB.Checked) { stockwerketemp += "K,"; }
+                if (checkEGB.Checked) { stockwerketemp += "EG,"; }
+                if (checkDBB.Checked) { stockwerketemp += "DB,"; }
+                if (checkMAB.Checked) { stockwerketemp += "MA,"; }
+                if (checkSTB.Checked) { stockwerketemp += "ST,"; }
+                if (checkHPB.Checked) { stockwerketemp += "HP,"; }
+                if (checkOG1B.Checked) { stockwerketemp += "1,"; }
+                if (checkOG2B.Checked) { stockwerketemp += "2,"; }
+                if (checkOG3B.Checked) { stockwerketemp += "3,"; }
+                if (checkOG4B.Checked) { stockwerketemp += "4,"; }
+                if (checkOG5B.Checked) { stockwerketemp += "5,"; }
+                if (textSonderEtageB.TextLength != 0)
+                {
+                    stockwerketemp += textSonderEtageB.Text;
+                }
+            }
+
+            return stockwerketemp;
+
+        }
 
         private void buttonNrSuche_Click(object sender, EventArgs e)
         {
@@ -1322,7 +1365,7 @@ namespace Kartonagen
             erinnerungsPopup();
         }
 
-        private void buttonBlockAuszug_Click(object sender, EventArgs e)
+        private void ButtonBlockAuszug_Click_1(object sender, EventArgs e)
         {
             int aufzug = 0;
             int hvz = 0;
@@ -1357,20 +1400,21 @@ namespace Kartonagen
             }
             else { hvz = 2; }
 
-            String InsertDaten = "UPDATE Umzuege SET StraßeA = '" + textStraßeA.Text + "', " +
-                "UserChanged = '" + UserSpeicher.ToString() + idBearbeitend.ToString() + "', " +
-                "HausnummerA = '" + textHausnummerA.Text + "', " +
-                "PLZA = " + textPLZA.Text + ", " +
-                "OrtA = '" + textOrtA.Text + "', " +
-                "LandA = '" + textLandA.Text + "', " +
-                "HVZA = " + hvz + ", " +
-                "AufzugA = " + aufzug + ", " +
-                "AussenAufzugA = " + aussenAuf + ", " +
-                "HausTypA = '" + listBoxA.SelectedItem.ToString() + "', " +
-                "LaufmeterA = " + int.Parse(textLaufMeterA.Text) +
-                //"StockwerkeA = " + numericStockwerkeA.Value +
-                " WHERE idUmzuege = " + textUmzNummerBlock.Text + ";";
-            absender(InsertDaten);
+            // Daten ins Objekt
+            umzObj.auszug.Straße1 = textStraßeA.Text;
+            umzObj.auszug.Hausnummer1 = textHausnummerA.Text;
+            umzObj.auszug.PLZ1 = textPLZA.Text;
+            umzObj.auszug.Ort1 = textOrtA.Text;
+            umzObj.auszug.Land1 = textLandA.Text;
+            umzObj.auszug.HVZ1 = hvz;
+            umzObj.auszug.Aufzug1 = aufzug;
+            umzObj.auszug.AussenAufzug1 = aussenAuf;
+            umzObj.auszug.Haustyp1 = listBoxA.SelectedItem.ToString();
+            umzObj.auszug.Laufmeter1 = int.Parse(textLaufMeterA.Text);
+            umzObj.auszug.Stockwerke1 = StockwerkString(0);
+
+            //Absenden
+            umzObj.UpdateDB(idBearbeitend.ToString());
 
             //Kalender aktualisieren
             refreshAll();

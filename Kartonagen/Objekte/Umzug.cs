@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Kartonagen
 {
-    class Umzug
+    public class Umzug
     {
         // Felder
         int id;
@@ -168,9 +168,9 @@ namespace Kartonagen
 
                     // Adressen
 
-                    auszug = new Adresse(rdr.GetString(31), rdr.GetString(32), rdr.GetString(33), rdr.GetString(34), rdr.GetString(35), rdr.GetInt32(36), rdr.GetString(37), rdr.GetString(38), rdr.GetInt32(39), rdr.GetInt32(40), rdr.GetInt32(41));
+                    auszug = new Adresse(rdr.GetString(31), rdr.GetString(32), rdr.GetString(34), rdr.GetString(33), rdr.GetString(35), rdr.GetInt32(36), rdr.GetString(37), rdr.GetString(38), rdr.GetInt32(39), rdr.GetInt32(40), rdr.GetInt32(41));
 
-                    einzug = new Adresse(rdr.GetString(42), rdr.GetString(43), rdr.GetString(44), rdr.GetString(45), rdr.GetString(46), rdr.GetInt32(47), rdr.GetString(48), rdr.GetString(49), rdr.GetInt32(50), rdr.GetInt32(51), rdr.GetInt32(52));
+                    einzug = new Adresse(rdr.GetString(42), rdr.GetString(43), rdr.GetString(45), rdr.GetString(44), rdr.GetString(46), rdr.GetInt32(47), rdr.GetString(48), rdr.GetString(49), rdr.GetInt32(50), rdr.GetInt32(51), rdr.GetInt32(52));
                                         
                     
                     NotizBuero = rdr.GetString(53);
@@ -281,7 +281,7 @@ namespace Kartonagen
         public void UpdateDB (string idUser)
         {
 
-            String longInsert = "UPDATE umzuege SET ";
+            String longInsert = "UPDATE Umzuege SET ";
             
             longInsert += "Kunden_idKunden = " + idKunden + ", ";
             longInsert += "StatBes = " + statBesichtigung + ", ";

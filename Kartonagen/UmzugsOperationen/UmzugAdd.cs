@@ -182,7 +182,6 @@ namespace Kartonagen
         private void umzugBauer ()
         {
             int aufzugtemp;
-            string stockwerketemp = "";
             int hvztemp;
             int aussenaufzugtemp;
 
@@ -206,26 +205,9 @@ namespace Kartonagen
             else if (radioHVZAV.Checked) {
                 hvztemp = 2;
             }
-            else { hvztemp = 0; }
+            else { hvztemp = 0; }                        
 
-            // Zusammensetzung Stockwerke-String
-            if (checkKellerA.Checked) { stockwerketemp += "K,"; }
-            if (checkEGA.Checked) { stockwerketemp += "EG,"; }
-            if (checkDBA.Checked) { stockwerketemp += "DB,"; }
-            if (checkMAA.Checked) { stockwerketemp += "MA,"; }
-            if (checkSTA.Checked) { stockwerketemp += "ST,"; }
-            if (checkHPA.Checked) { stockwerketemp += "HP,"; }
-            if (checkOG1A.Checked) { stockwerketemp += "1,"; }
-            if (checkOG2A.Checked) { stockwerketemp += "2,"; }
-            if (checkOG3A.Checked) { stockwerketemp += "3,"; }
-            if (checkOG4A.Checked) { stockwerketemp += "4,"; }
-            if (checkOG5A.Checked) { stockwerketemp += "5,"; }
-            if (textSonderEtageA.TextLength != 0)
-            {
-                stockwerketemp += textSonderEtageA.Text;
-            }
-
-            Adresse aus = new Adresse(textStraßeA.Text, textHausnummerA.Text, textOrtA.Text, textPLZA.Text, textLandA.Text, aufzugtemp, stockwerketemp, listBoxA.SelectedItem.ToString(), hvztemp, int.Parse(textLaufMeterA.Text), aussenaufzugtemp);
+            Adresse aus = new Adresse(textStraßeA.Text, textHausnummerA.Text, textOrtA.Text, textPLZA.Text, textLandA.Text, aufzugtemp, StockwerkString(0), listBoxA.SelectedItem.ToString(), hvztemp, int.Parse(textLaufMeterA.Text), aussenaufzugtemp);
 
             // Belegung der Temps für die Adresserstellung.
             if (radioAufzugBJa.Checked)
@@ -249,26 +231,8 @@ namespace Kartonagen
                 hvztemp = 2;
             }
             else { hvztemp = 0; }
-
-            // Zusammensetzung Stockwerke-String
-            stockwerketemp = "";
-            if (checkKellerB.Checked) { stockwerketemp += "K,"; }
-            if (checkEGB.Checked) { stockwerketemp += "EG,"; }
-            if (checkDBB.Checked) { stockwerketemp += "DB,"; }
-            if (checkMAB.Checked) { stockwerketemp += "MA,"; }
-            if (checkSTB.Checked) { stockwerketemp += "ST,"; }
-            if (checkHPB.Checked) { stockwerketemp += "HP,"; }
-            if (checkOG1B.Checked) { stockwerketemp += "1,"; }
-            if (checkOG2B.Checked) { stockwerketemp += "2,"; }
-            if (checkOG3B.Checked) { stockwerketemp += "3,"; }
-            if (checkOG4B.Checked) { stockwerketemp += "4,"; }
-            if (checkOG5B.Checked) { stockwerketemp += "5,"; }
-            if (textSonderEtageB.TextLength != 0)
-            {
-                stockwerketemp += textSonderEtageB.Text;
-            }
-
-            Adresse ein = new Adresse(textStraßeB.Text, textHausnummerB.Text, textOrtB.Text, textPLZB.Text, textLandB.Text, aufzugtemp, stockwerketemp, listBoxB.SelectedItem.ToString(), hvztemp, int.Parse(textLaufMeterB.Text), aussenaufzugtemp);
+            
+            Adresse ein = new Adresse(textStraßeB.Text, textHausnummerB.Text, textOrtB.Text, textPLZB.Text, textLandB.Text, aufzugtemp, StockwerkString(1), listBoxB.SelectedItem.ToString(), hvztemp, int.Parse(textLaufMeterB.Text), aussenaufzugtemp);
 
             // Temps für die Umzugserstellung
             // Status des Datums. 0 = nicht festgelegt, 1 = festgelegt, 2 = vorläufig (wenn möglich), 3 = Vorläufig gebucht (bei Umzügen)
@@ -356,6 +320,50 @@ namespace Kartonagen
                 textNoteKalender.Text, textNoteBuero.Text, textNoteFahrer.Text, idBearbeitend.ToString(), DateTime.Now);
         }
 
+        private string StockwerkString(int x) {
+
+            string stockwerketemp = "";
+            if (x == 0)
+            {
+                if (checkKellerA.Checked) { stockwerketemp += "K,"; }
+                if (checkEGA.Checked) { stockwerketemp += "EG,"; }
+                if (checkDBA.Checked) { stockwerketemp += "DB,"; }
+                if (checkMAA.Checked) { stockwerketemp += "MA,"; }
+                if (checkSTA.Checked) { stockwerketemp += "ST,"; }
+                if (checkHPA.Checked) { stockwerketemp += "HP,"; }
+                if (checkOG1A.Checked) { stockwerketemp += "1,"; }
+                if (checkOG2A.Checked) { stockwerketemp += "2,"; }
+                if (checkOG3A.Checked) { stockwerketemp += "3,"; }
+                if (checkOG4A.Checked) { stockwerketemp += "4,"; }
+                if (checkOG5A.Checked) { stockwerketemp += "5,"; }
+                if (textSonderEtageA.TextLength != 0)
+                {
+                    stockwerketemp += textSonderEtageA.Text;
+                }
+            }
+            else if (x == 1)
+            {
+                if (checkKellerB.Checked) { stockwerketemp += "K,"; }
+                if (checkEGB.Checked) { stockwerketemp += "EG,"; }
+                if (checkDBB.Checked) { stockwerketemp += "DB,"; }
+                if (checkMAB.Checked) { stockwerketemp += "MA,"; }
+                if (checkSTB.Checked) { stockwerketemp += "ST,"; }
+                if (checkHPB.Checked) { stockwerketemp += "HP,"; }
+                if (checkOG1B.Checked) { stockwerketemp += "1,"; }
+                if (checkOG2B.Checked) { stockwerketemp += "2,"; }
+                if (checkOG3B.Checked) { stockwerketemp += "3,"; }
+                if (checkOG4B.Checked) { stockwerketemp += "4,"; }
+                if (checkOG5B.Checked) { stockwerketemp += "5,"; }
+                if (textSonderEtageB.TextLength != 0)
+                {
+                    stockwerketemp += textSonderEtageB.Text;
+                }
+            }
+
+            return stockwerketemp;
+
+        }
+
         private void buttonSchnellSpeichern_Click(object sender, EventArgs e)
         {
             // Wirklich?
@@ -419,6 +427,8 @@ namespace Kartonagen
             UmzuegeSearch umzAendern = new UmzuegeSearch();
             umzAendern.setBearbeiter(idBearbeitend);
             umzAendern.umzugAenderungFuellem(int.Parse(textUmzugsNummer.Text));
+            //umzAendern.umzObj = umzObj;
+            // Funktion bestehendes umzObj refreshen / füllen
             umzAendern.Show();
         }
 
