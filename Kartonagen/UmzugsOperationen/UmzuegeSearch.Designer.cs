@@ -142,7 +142,7 @@
             this.radioKuecheAbNein = new System.Windows.Forms.RadioButton();
             this.radioKuecheAbJa = new System.Windows.Forms.RadioButton();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonBlockEinzug = new System.Windows.Forms.Button();
             this.groupBox26 = new System.Windows.Forms.GroupBox();
             this.textSonderEtageB = new System.Windows.Forms.TextBox();
             this.checkDBB = new System.Windows.Forms.CheckBox();
@@ -236,6 +236,7 @@
             this.textPLZA = new System.Windows.Forms.TextBox();
             this.textHausnummerA = new System.Windows.Forms.TextBox();
             this.textStraßeA = new System.Windows.Forms.TextBox();
+            this.buttonBlockPacken = new System.Windows.Forms.Button();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericLKWGroß)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLKW)).BeginInit();
@@ -1485,7 +1486,7 @@
             // groupBox10
             // 
             this.groupBox10.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox10.Controls.Add(this.button2);
+            this.groupBox10.Controls.Add(this.buttonBlockEinzug);
             this.groupBox10.Controls.Add(this.groupBox26);
             this.groupBox10.Controls.Add(this.groupBox23);
             this.groupBox10.Controls.Add(this.listBoxB);
@@ -1510,14 +1511,15 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Adresse Einzug";
             // 
-            // button2
+            // buttonBlockEinzug
             // 
-            this.button2.Location = new System.Drawing.Point(305, 261);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(158, 25);
-            this.button2.TabIndex = 43;
-            this.button2.Text = "Block Ändern";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonBlockEinzug.Location = new System.Drawing.Point(305, 261);
+            this.buttonBlockEinzug.Name = "buttonBlockEinzug";
+            this.buttonBlockEinzug.Size = new System.Drawing.Size(158, 25);
+            this.buttonBlockEinzug.TabIndex = 43;
+            this.buttonBlockEinzug.Text = "Block Ändern";
+            this.buttonBlockEinzug.UseVisualStyleBackColor = true;
+            this.buttonBlockEinzug.Click += new System.EventHandler(this.buttonBlockEinzug_Click);
             // 
             // groupBox26
             // 
@@ -1882,6 +1884,7 @@
             // groupBox8
             // 
             this.groupBox8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox8.Controls.Add(this.buttonBlockPacken);
             this.groupBox8.Controls.Add(this.numericAusPackStunden);
             this.groupBox8.Controls.Add(this.label1);
             this.groupBox8.Controls.Add(this.label19);
@@ -2468,6 +2471,16 @@
             this.textStraßeA.Size = new System.Drawing.Size(181, 20);
             this.textStraßeA.TabIndex = 0;
             // 
+            // buttonBlockPacken
+            // 
+            this.buttonBlockPacken.Location = new System.Drawing.Point(282, 120);
+            this.buttonBlockPacken.Name = "buttonBlockPacken";
+            this.buttonBlockPacken.Size = new System.Drawing.Size(158, 25);
+            this.buttonBlockPacken.TabIndex = 42;
+            this.buttonBlockPacken.Text = "Block Ändern";
+            this.buttonBlockPacken.UseVisualStyleBackColor = true;
+            this.buttonBlockPacken.Click += new System.EventHandler(this.buttonBlockPacken_Click_1);
+            // 
             // UmzuegeSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2795,7 +2808,8 @@
         private System.Windows.Forms.TextBox textPLZA;
         private System.Windows.Forms.TextBox textHausnummerA;
         private System.Windows.Forms.TextBox textStraßeA;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonBlockEinzug;
         private System.Windows.Forms.Button ButtonBlockAuszug;
+        private System.Windows.Forms.Button buttonBlockPacken;
     }
 }

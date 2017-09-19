@@ -1225,7 +1225,7 @@ namespace Kartonagen
             erinnerungsPopup();
         }
 
-        private void buttonBlockPacken_Click(object sender, EventArgs e)
+        private void buttonBlockPacken_Click_1(object sender, EventArgs e)
         {
             int einPacken = 0;
             int ausPacken = 0;
@@ -1249,15 +1249,18 @@ namespace Kartonagen
                 ausPacken = 0;
             }
             else { ausPacken = 2; }
+            
+            // Setzen
+            umzObj.Einpacken1 = einPacken;
+            umzObj.Einpacker1 = decimal.ToInt32(numericEinPacker.Value);
+            umzObj.EinStunden1 = decimal.ToInt32(numericEinPackStunden.Value);
+            umzObj.Karton1 = decimal.ToInt32(numericEinPackKartons.Value);
+            umzObj.Auspacken1 = ausPacken;
+            umzObj.Auspacker1 = decimal.ToInt32(numericAusPacker.Value);
+            umzObj.AusStunden1 = decimal.ToInt32(numericAusPackStunden.Value);
 
-            //String InsertDaten = "UPDATE Umzuege SET Einpacken = " + einPacken + ", " +
-            //    "UserChanged = '" + UserSpeicher.ToString() + idBearbeitend.ToString() + "', " +
-            //    "Auspacken = " + ausPacken + ", " +
-            //    "PackerZahl = " + numericPacker.Value + ", " +
-            //    "PackerStunden = " + numericPackStunden.Value + ", " +
-            //    "Kartons = " + numericPackKartons.Value +
-            //    " WHERE idUmzuege = " + textUmzNummerBlock.Text + ";";
-            //absender(InsertDaten);
+            // Absenden
+            umzObj.UpdateDB(idBearbeitend.ToString());
 
             //Kalender aktualisieren
             refreshAusraeumen();
@@ -1284,16 +1287,17 @@ namespace Kartonagen
             temp = temp + decimal.ToInt32(numericSprinterOhne.Value).ToString();
             temp = temp + decimal.ToInt32(numericLKW.Value).ToString();
             temp = temp + decimal.ToInt32(numericLKWGroß.Value).ToString();
+            
+            // Setzen
+            umzObj.Schilder1 = schilder;
+            umzObj.Kleiderkartons1 = decimal.ToInt32(numericKleiderkisten.Value);
+            umzObj.Mann = decimal.ToInt32(numericMannZahl.Value);
+            umzObj.Autos = temp;
+            umzObj.Stunden = decimal.ToInt32(numericArbeitszeit.Value);
+            umzObj.SchilderZeit1 = dateSchilderVerweildauer.Value;
 
-            String InsertDaten = "UPDATE Umzuege SET SchilderBool = " + schilder + ", " +
-                "UserChanged = '" + UserSpeicher.ToString() + idBearbeitend.ToString() + "', " +
-                "Kleiderkisten = " + numericKleiderkisten.Value + ", " +
-                "Mann = " + numericMannZahl.Value + ", " +
-                "Autos = '" + temp + "', " +
-                "Stunden = " + numericArbeitszeit.Value + ", " +
-                "SchilderZeit = " + "'" + Program.DateMachine(dateSchilderVerweildauer.Value) + "' " +
-                " WHERE idUmzuege = " + textUmzNummerBlock.Text + ";";
-            absender(InsertDaten);
+            // Absenden
+            umzObj.UpdateDB(idBearbeitend.ToString());
 
             //Kalender aktualisieren
             refreshUmzug();
@@ -1303,16 +1307,21 @@ namespace Kartonagen
         }
 
         private void buttonBlockBemerkungen_Click(object sender, EventArgs e)
-        {
-            String aenderung = "UPDATE Umzuege SET NotizFahrer = '" + textNoteFahrer.Text + "', NotizBuero = '" + textNoteBuero.Text + "', BemerkungTitel = '" + textNoteKalender.Text + "', " +
-                "UserChanged = '" + UserSpeicher.ToString() + idBearbeitend.ToString() + "' " + " WHERE idUmzuege = " + textUmzNummerBlock.Text + ";";
-            absender(aenderung);
+        {            
+            // Setzen
+            umzObj.NotizFahrer1 = textNoteFahrer.Text;
+            umzObj.NotizBuero1 = textNoteBuero.Text;
+            umzObj.NotizTitel1 = textNoteKalender.Text;
+
+            // Absenden
+            umzObj.UpdateDB(idBearbeitend.ToString());
+
             // Kalenderaktualisierung
             refreshAll();
             erinnerungsPopup();
         }
 
-        private void buttonBlockEinzug_Click_1(object sender, EventArgs e)
+        private void buttonBlockEinzug_Click(object sender, EventArgs e)
         {
             int aufzug = 0;
             int hvz = 0;
@@ -1346,20 +1355,21 @@ namespace Kartonagen
             }
             else { hvz = 2; }
 
-            String InsertDaten = "UPDATE Umzuege SET StraßeB = '" + textStraßeB.Text + "', " +
-                "UserChanged = '" + UserSpeicher.ToString() + idBearbeitend.ToString() + "', " +
-                "HausnummerB = '" + textHausnummerB.Text + "', " +
-                "PLZB = " + textPLZB.Text + ", " +
-                "OrtB = '" + textOrtB.Text + "', " +
-                "LandB = '" + textLandB.Text + "', " +
-                "HVZB = " + hvz + ", " +
-                "AufzugB = " + aufzug + ", " +
-                "AussenAufzugB = " + aussenAuf + ", " +
-                "HausTypB = '" + listBoxB.SelectedItem.ToString() + "', " +
-                "LaufmeterB = " + int.Parse(textLaufMeterB.Text) + ", " +
-                //"StockwerkeB = " + numericStockwerkeB.Value +
-                " WHERE idUmzuege = " + textUmzNummerBlock.Text + ";";
-            absender(InsertDaten);
+            umzObj.auszug.Straße1 = textStraßeB.Text;
+            umzObj.auszug.Hausnummer1 = textHausnummerB.Text;
+            umzObj.auszug.PLZ1 = textPLZB.Text;
+            umzObj.auszug.Ort1 = textOrtB.Text;
+            umzObj.auszug.Land1 = textLandB.Text;
+            umzObj.auszug.HVZ1 = hvz;
+            umzObj.auszug.Aufzug1 = aufzug;
+            umzObj.auszug.AussenAufzug1 = aussenAuf;
+            umzObj.auszug.Haustyp1 = listBoxB.SelectedItem.ToString();
+            umzObj.auszug.Laufmeter1 = int.Parse(textLaufMeterB.Text);
+            umzObj.auszug.Stockwerke1 = StockwerkString(1);
+
+            //Absenden
+            umzObj.UpdateDB(idBearbeitend.ToString());
+
             //Kalender aktualisieren
             refreshAll();
             erinnerungsPopup();
