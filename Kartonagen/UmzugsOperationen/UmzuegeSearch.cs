@@ -1177,7 +1177,7 @@ namespace Kartonagen
             erinnerungsPopup();
         }
 
-        private void buttonBlockKueche_Click(object sender, EventArgs e)
+        private void buttonBlockKueche_Click_1(object sender, EventArgs e)
         {
             //Deklaration und setzen der Werte
 
@@ -1431,6 +1431,16 @@ namespace Kartonagen
             erinnerungsPopup();
         }
 
+        private void buttonBlockVersicherung_Click(object sender, EventArgs e)
+        {
+            int VersTemp = 0;
+            if (radioVersicherungJa.Checked) { VersTemp = 1; }
+
+            //Absenden
+            umzObj.UpdateDB(idBearbeitend.ToString());
+
+        }
+
         private void buttonTransaktion_Click(object sender, EventArgs e)
         {
 
@@ -1594,7 +1604,9 @@ namespace Kartonagen
                 toSet.SetValue(textPLZA.Text + " " + textOrtA.Text);
 
                 //Geschossigkeit
-                
+
+                fields.TryGetValue("StockwerkA", out toSet);
+                toSet.SetValue(umzObj.auszug.KalenderStringEtageHaustyp());
 
                 if (textLaufMeterA.Text != "0")
                 {
@@ -1651,7 +1663,9 @@ namespace Kartonagen
                 toSet.SetValue(textPLZB.Text + " " + textOrtB.Text);
 
                 //Geschossigkeit
-                
+
+                fields.TryGetValue("StockwerkB", out toSet);
+                toSet.SetValue(umzObj.einzug.KalenderStringEtageHaustyp());
 
                 if (textLaufMeterB.Text != "0")
                 {
@@ -1734,6 +1748,7 @@ namespace Kartonagen
                     fields.TryGetValue("AusNein", out toSet);
                     toSet.SetValue("Yes");
                 }
+                
                 //Küche
                 if (radioKuecheAbJa.Checked)
                 {
@@ -1950,6 +1965,6 @@ namespace Kartonagen
                 return;
             }
         }
-        
+
     }
 }

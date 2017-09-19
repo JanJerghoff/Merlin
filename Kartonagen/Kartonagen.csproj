@@ -303,10 +303,10 @@
     <EmbeddedResource Include="UmzugsOperationen\UmzugFortschritt.resx">
       <DependentUpon>UmzugFortschritt.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Laufzettel\Besichtigungs Vordruck.pdf">
+    <None Include="client_secret.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="client_secret.json">
+    <None Include="Laufzettel\Besichtigungs Vordruck.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Laufzettel\Laufzettel Besichtigung.pdf">
