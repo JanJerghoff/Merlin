@@ -13,6 +13,7 @@ namespace Kartonagen
 {
     public partial class UmzugFortschritt : Form
     {
+        Umzug umzObj;
         int idBearbeitend;
         int Umzugsnummer;
         List <String> arbeiter = new List<string> ();
@@ -28,8 +29,6 @@ namespace Kartonagen
         String Ort;
         int PLZ = 0;
         String Land;
-
-        Boolean versicherungBenoetigt = false;
 
         //
 
@@ -47,6 +46,8 @@ namespace Kartonagen
         public void fuellen(int umzNr)
         {
             reset();
+
+            umzObj = new Umzug(umzNr);
 
             MySqlCommand cmdRead = new MySqlCommand("SELECT * FROM Umzuege WHERE idUmzuege = '" + umzNr + "';", Program.conn);
             MySqlDataReader rdr;
@@ -78,10 +79,7 @@ namespace Kartonagen
                     Ort = rdr.GetString(38);
                     Land = rdr.GetString(39);
                     // Trigger für Versicherungen
-                    if (true)
-                    {
-                        versicherungBenoetigt = true;
-                    }
+                    
 
                 }
                 rdr.Close();
@@ -237,7 +235,7 @@ namespace Kartonagen
                         buttonVersicherung.Enabled = false;
                     }
 
-                    if (!versicherungBenoetigt)
+                    if (umzObj.Versicherung == 0)
                     {
                         buttonVersicherung.Enabled = false;
                     }
@@ -246,6 +244,7 @@ namespace Kartonagen
                     //numericHVZKosten.Value = rdrF.GetDecimal(28);
                     //numericSonderkosten.Value = rdrF.GetDecimal(29);
                     //numericSumme.Value = rdrF.GetDecimal(30);
+                    
 
                     // Schon geschlossen?
                     if (rdrF.GetInt32(33) != 8)
@@ -449,7 +448,7 @@ namespace Kartonagen
 
         private void buttonSchaden_Click(object sender, EventArgs e)
         {
-            String k = "UPDATE Umzugsfortschritt SET Schaden = " + idBearbeitend + ", datSchaden = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
+            String k = "UPDATE Umzugsfortschritt SET SchadenMeldung = " + idBearbeitend + ", datSchadenMeldung = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
             push(k);
             fuellen(Umzugsnummer);
         }
