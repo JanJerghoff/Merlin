@@ -1213,15 +1213,16 @@ namespace Kartonagen
             else { kuechebau = 0; }
 
             kuechepausch = textKuechenPreis.Text;
+            
+            // Setzen
+            umzObj.KuecheAb1 = kuecheab;
+            umzObj.KuecheAuf1 = kuecheauf;
+            umzObj.KuecheBau1 = kuechebau;
+            umzObj.KuechePausch1 = int.Parse(textKuechenPreis.Text);
 
-            String longInsert = "UPDATE Umzuege SET KuecheAb = " + kuecheab + "," +
-                "UserChanged = '" + UserSpeicher.ToString() + idBearbeitend.ToString() + "', " +
-                "Kuecheauf = " + kuecheauf + "," +
-                "KuecheBau = " + kuechebau + "," +
-                "KuechePausch = " + kuechepausch +
-                " WHERE idUmzuege = " + textUmzNummerBlock.Text + ";";
-
-            absender(longInsert);
+            // Absenden
+            umzObj.UpdateDB(idBearbeitend.ToString());
+            
             erinnerungsPopup();
         }
 
