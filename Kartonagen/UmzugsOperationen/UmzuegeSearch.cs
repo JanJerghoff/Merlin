@@ -30,6 +30,13 @@ namespace Kartonagen
 
         Events events;
 
+        int UmzugSet = 0;
+        int BesichtigungSet = 0;
+        int EntruempelungSet = 0;
+        int EinpackenSet = 0;
+        int AuspackenSet = 0;
+        
+
         public UmzuegeSearch()
         {
             InitializeComponent();
@@ -194,12 +201,24 @@ namespace Kartonagen
             umzObj = new Umzug(umzNum);
 
             textUmzNummerBlock.Text = umzNum.ToString();
-            textKundennummer.Text = umzObj.IdKunden.ToString();                       //Impliziter Cast weil Typ des SQL-Attributs bekannt
+            textKundennummer.Text = umzObj.IdKunden.ToString();                       
             dateBesicht.Value = umzObj.DatBesichtigung;
             dateUmzug.Value = umzObj.DatUmzug;
             dateEntruempel.Value = umzObj.DatRuempeln;
             dateEinpack.Value = umzObj.DatEinraeumen;
             dateAuspack.Value = umzObj.DatAusraeumen;
+            //
+            UmzugSet = umzObj.StatUmzug;
+            BesichtigungSet = umzObj.StatBesichtigung;
+            EntruempelungSet = umzObj.StatRuempeln;
+            AuspackenSet = umzObj.StatAus;
+            EinpackenSet = umzObj.StatEin;
+            //
+            Umzug = umzObj.DatUmzug;
+            Besichtigung = umzObj.DatBesichtigung;
+            Einpacken = umzObj.DatEinraeumen;
+            Auspacken = umzObj.DatAusraeumen;
+            Entruempelung = umzObj.DatRuempeln;
             //
             if (umzObj.auszug.Aufzug1 == 1)
             {
@@ -999,7 +1018,7 @@ namespace Kartonagen
                 "umzugsZeit = " + "'" + Program.ZeitMachine(timeBesichtigung.Value) + "', ";
 
             // Check und abgleich der Termine und TerminStats ... Google änderungscode!
-            if (radioBesJa.Checked && umzObj.StatBesichtigung != 1)
+            if (radioBesJa.Checked && BesichtigungSet != 1)
             {
                 // Anlegen Besichtigung
                 DateTime date = dateBesicht.Value.Date.Add(timeBesichtigung.Value.TimeOfDay);
@@ -1009,7 +1028,7 @@ namespace Kartonagen
                 // Merken
                 InsertDaten += "StatBes = " + 1 + ", ";
             }
-            else if (radioBesNein.Checked && umzObj.StatBesichtigung != 0)
+            else if (radioBesNein.Checked && BesichtigungSet != 0)
             {
                 //find&kill Besichtigung           
                 Program.EventDeleteId(Program.EventListMatch(events, Besichtigung, "9"));
@@ -1024,30 +1043,31 @@ namespace Kartonagen
             //
 
 
-            if (radioUmzNein.Checked && umzObj.StatUmzug != 0)
+            if (radioUmzNein.Checked && UmzugSet != 0)
             {
-                UmzugLoeschen(umzObj.StatUmzug);
+                UmzugLoeschen(UmzugSet);
                 InsertDaten += "StatUmz = " + 0 + ", ";
                 pop = true;
             }
 
-            else if (radioUmzJa.Checked && umzObj.StatUmzug != 1)
+            else if (radioUmzJa.Checked && UmzugSet != 1)
             {
-                UmzugLoeschen(umzObj.StatUmzug);
+                UmzugLoeschen(UmzugSet);
                 UmzugEinfuegen(1);
                 InsertDaten += "StatUmz = " + 1 + ", ";
             }
 
-            else if (radioUmzVllt.Checked && umzObj.StatUmzug != 2)
+            else if (radioUmzVllt.Checked && UmzugSet != 2)
             {
-                UmzugLoeschen(umzObj.StatUmzug);
+                UmzugLoeschen(UmzugSet);
                 UmzugEinfuegen(2);
                 InsertDaten += "StatUmz = " + 2 + ", ";
             }
 
 
-            else if (radioUmzVorlaeufig.Checked && umzObj.StatUmzug != 3) {
-                UmzugLoeschen(umzObj.StatUmzug);
+            else if (radioUmzVorlaeufig.Checked && UmzugSet != 3)
+            {
+                UmzugLoeschen(UmzugSet);
                 UmzugEinfuegen(3);
                 InsertDaten += "StatUmz = " + 3 + ", ";
                 pop = true;
@@ -1058,31 +1078,32 @@ namespace Kartonagen
             // EINPACKEN
             //
 
-            if (radioEinJa.Checked && umzObj.StatEin != 1)
+            if (radioEinJa.Checked && EinpackenSet != 1)
             {
-                PackenLoeschen(umzObj.StatEin);
+                PackenLoeschen(EinpackenSet);
                 PackenHinzufuegen(1);
                 InsertDaten += "StatEin = " + 1 + ", ";
             }
 
-            else if (radioEinVllt.Checked && umzObj.StatEin != 2)
+            else if (radioEinVllt.Checked && EinpackenSet != 2)
             {
-                PackenLoeschen(umzObj.StatEin);
+                PackenLoeschen(EinpackenSet);
                 PackenHinzufuegen(2);
                 InsertDaten += "StatEin = " + 2 + ", ";
             }
 
-            else if (radioEinNein.Checked && umzObj.StatEin != 0) {
-                PackenLoeschen(umzObj.StatEin);
+            else if (radioEinNein.Checked && EinpackenSet != 0)
+            {
+                PackenLoeschen(EinpackenSet);
                 InsertDaten += "StatEin = " + 0 + ", ";
             }
             else { refreshEinraeumen(); }
 
             // Auspacken
 
-            if (radioAusJa.Checked && umzObj.StatAus != 1)
+            if (radioAusJa.Checked && AuspackenSet != 1)
             {
-                if (umzObj.StatAus != 0)
+                if (AuspackenSet != 0)
                 {
                     PackenLoeschen(4);
                 }
@@ -1090,9 +1111,9 @@ namespace Kartonagen
                 InsertDaten += "StatAus = " + 1 + ", ";
             }
 
-            else if (radioAusVllt.Checked && umzObj.StatAus != 2)
+            else if (radioAusVllt.Checked && AuspackenSet != 2)
             {
-                if (umzObj.StatAus != 0)
+                if (AuspackenSet != 0)
                 {
                     PackenLoeschen(3);
                 }
@@ -1100,9 +1121,9 @@ namespace Kartonagen
                 InsertDaten += "StatAus = " + 2 + ", ";
             }
 
-            else if (radioAusNein.Checked && umzObj.StatAus != 0)
+            else if (radioAusNein.Checked && AuspackenSet != 0)
             {
-                PackenLoeschen(umzObj.StatAus);
+                PackenLoeschen(AuspackenSet);
                 InsertDaten += "StatAus = " + 0 + ", ";
             }
             else { refreshAusraeumen(); }
@@ -1110,48 +1131,48 @@ namespace Kartonagen
             // ENTRÜMPELN
             //
 
-            if (radioEntJa.Checked && umzObj.StatRuempeln != 1)
+            if (radioEntJa.Checked && EntruempelungSet != 1)
             {
                 // Vorläufige Entrümpelung entfernen
-                if (umzObj.StatRuempeln == 2)
+                if (EntruempelungSet == 2)
                 {
                     Program.EventDeleteId(Program.EventListMatch(events, Entruempelung, "10"));
                     textUmzugLog.AppendText("Vorläufiges Entrümpeln entfernt \r\n");
                 }
                 // Entrümpelung hinzufügen
-                //String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericPacker.Value + " Mann, " + numericPackStunden.Value + " Stunden ENTRÜMPELN, ";
-                //Program.kalenderEintragGanz(Header, KalenderString(), "", 11, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
-                //textUmzugLog.AppendText("Entrümpeln hinzugefügt \r\n");
+                String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericEinPacker.Value + " Mann, " + numericEinPackStunden.Value + " Stunden ENTRÜMPELN, ";
+                Program.kalenderEintragGanz(Header, KalenderString(), "", 11, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
+                textUmzugLog.AppendText("Entrümpeln hinzugefügt \r\n");
 
                 InsertDaten += "StatEnt = " + 1 + ", ";
             }
 
-            else if (radioEntVllt.Checked && umzObj.StatRuempeln != 2)
+            else if (radioEntVllt.Checked && EntruempelungSet != 2)
             {
                 // Entrümpeln entfernen
-                if (umzObj.StatRuempeln == 1)
+                if (EntruempelungSet == 1)
                 {
                     Program.EventDeleteId(Program.EventListMatch(events, Entruempelung, "11"));
                     textUmzugLog.AppendText("Entrümpeln entfernt \r\n");
                 }
                 // Vorläufiges Entrümpeln hinzufügen
-                //String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericPacker.Value + " Mann, " + numericPackStunden.Value + " Stunden ENTRÜMPELN, ";
-                //Program.kalenderEintragGanz(Header, KalenderString(), "", 10, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
-                //textUmzugLog.AppendText("Vorläufiges Entrümpeln hinzugefügt \r\n");
+                String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericEinPacker.Value + " Mann, " + numericEinPackStunden.Value + " Stunden ENTRÜMPELN, ";
+                Program.kalenderEintragGanz(Header, KalenderString(), "", 10, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
+                textUmzugLog.AppendText("Vorläufiges Entrümpeln hinzugefügt \r\n");
 
                 InsertDaten += "StatEnt = " + 2 + ", ";
             }
-            else if (radioEntNein.Checked && umzObj.StatRuempeln != 0)
+            else if (radioEntNein.Checked && EntruempelungSet != 0)
             {
                 // Entrümpeln entfernen
-                if (umzObj.StatRuempeln == 1)
+                if (EntruempelungSet == 1)
                 {
                     Program.EventDeleteId(Program.EventListMatch(events, Entruempelung, "11"));
                     textUmzugLog.AppendText("Entrümpeln entfernt \r\n");
                 }
 
                 // Vorläufige Entrümpelung entfernen
-                if (umzObj.StatRuempeln == 2)
+                if (EntruempelungSet == 2)
                 {
                     Program.EventDeleteId(Program.EventListMatch(events, Entruempelung, "10"));
                     textUmzugLog.AppendText("Vorläufiges Entrümpeln entfernt \r\n");
@@ -1159,13 +1180,14 @@ namespace Kartonagen
 
                 InsertDaten += "StatEnt = " + 0 + ", ";
             }
-            
+
             // Letzes Komma wegnehmen
             InsertDaten = InsertDaten.Remove(InsertDaten.Length - 2);
             InsertDaten += " WHERE idUmzuege = " + textUmzNummerBlock.Text + ";";
             absender(InsertDaten);
 
-            if (pop) {
+            if (pop)
+            {
                 popUp();
             }
             erinnerungsPopup();
@@ -1216,7 +1238,8 @@ namespace Kartonagen
 
             // Absenden
             umzObj.UpdateDB(idBearbeitend.ToString());
-            
+            umzugAenderungFuellem(int.Parse(textUmzNummerBlock.Text)); // Neuladen der Ansicht
+
             erinnerungsPopup();
         }
 
@@ -1257,6 +1280,7 @@ namespace Kartonagen
             // Absenden
             umzObj.UpdateDB(idBearbeitend.ToString());
 
+            umzugAenderungFuellem(int.Parse(textUmzNummerBlock.Text)); // Neuladen der Ansicht
             //Kalender aktualisieren
             refreshAusraeumen();
             refreshEinraeumen();
@@ -1294,6 +1318,7 @@ namespace Kartonagen
             // Absenden
             umzObj.UpdateDB(idBearbeitend.ToString());
 
+            umzugAenderungFuellem(int.Parse(textUmzNummerBlock.Text)); // Neuladen der Ansicht
             //Kalender aktualisieren
             refreshUmzug();
             refreshBesichtigung();
@@ -1311,6 +1336,7 @@ namespace Kartonagen
             // Absenden
             umzObj.UpdateDB(idBearbeitend.ToString());
 
+            umzugAenderungFuellem(int.Parse(textUmzNummerBlock.Text)); // Neuladen der Ansicht
             // Kalenderaktualisierung
             refreshAll();
             erinnerungsPopup();
@@ -1365,6 +1391,7 @@ namespace Kartonagen
             //Absenden
             umzObj.UpdateDB(idBearbeitend.ToString());
 
+            umzugAenderungFuellem(int.Parse(textUmzNummerBlock.Text)); // Neuladen der Ansicht
             //Kalender aktualisieren
             refreshAll();
             erinnerungsPopup();
@@ -1421,6 +1448,8 @@ namespace Kartonagen
             //Absenden
             umzObj.UpdateDB(idBearbeitend.ToString());
 
+            umzugAenderungFuellem(int.Parse(textUmzNummerBlock.Text)); // Neuladen der Ansicht
+
             //Kalender aktualisieren
             refreshAll();
             erinnerungsPopup();
@@ -1433,6 +1462,8 @@ namespace Kartonagen
 
             //Absenden
             umzObj.UpdateDB(idBearbeitend.ToString());
+
+            umzugAenderungFuellem(int.Parse(textUmzNummerBlock.Text)); // Neuladen der Ansicht
 
         }
 
@@ -1835,8 +1866,8 @@ namespace Kartonagen
         }
 
         void refreshUmzug() {               // Hier waren vorher zig Zeilen.
-            UmzugLoeschen(umzObj.StatUmzug);
-            UmzugEinfuegen(umzObj.StatUmzug);
+            UmzugLoeschen(UmzugSet);
+            UmzugEinfuegen(UmzugSet);
 
             // Eventliste refreshen
             events = Program.kalenderKundenFinder(textKundennummer.Text);
