@@ -52,40 +52,22 @@ namespace Kartonagen
             MySqlCommand cmdRead = new MySqlCommand("SELECT * FROM Umzuege WHERE idUmzuege = '" + umzNr + "';", Program.conn);
             MySqlDataReader rdr;
 
-            try
-            {
-                rdr = cmdRead.ExecuteReader();
-                while (rdr.Read())
-                {
-                    textUmzNummerBlock.Text = rdr[0].ToString();
-                    Umzugsnummer = rdr.GetInt32(0);
-                    textKundennummer.Text = rdr[1].ToString();                       //Impliziter Cast weil Typ des SQL-Attributs bekannt
-                    dateBesicht.Value = rdr.GetDateTime(2);
-                    dateUmzug.Value = rdr.GetDateTime(3);
-                    //
-                    textAuszug.Text = rdr[30].ToString();
-                    textAuszug.Text += " " + rdr[31].ToString();
-                    textAuszug.Text += ", " + rdr[32].ToString();
-                    textAuszug.Text += " " + rdr[33].ToString();
-                    //
-                    textEinzug.Text = " " + rdr[35].ToString();
-                    textEinzug.Text += " " + rdr[36].ToString();
-                    textEinzug.Text += ", " + rdr[37].ToString();
-                    textEinzug.Text += " " + rdr[38].ToString();
-                    //
-                    Strasse = rdr.GetString(35);
-                    Hausnummer = rdr.GetString(36);
-                    PLZ = rdr.GetInt32(37);
-                    Ort = rdr.GetString(38);
-                    Land = rdr.GetString(39);
-                    // Trigger für Versicherungen
-                    
-
-                }
-                rdr.Close();
-            }
-            catch (Exception exc) { }
-
+            textUmzNummerBlock.Text = umzObj.Id.ToString();
+            Umzugsnummer = umzObj.Id;
+            textKundennummer.Text = umzObj.IdKunden.ToString();                     //Impliziter Cast weil Typ des SQL-Attributs bekannt
+            dateBesicht.Value = umzObj.DatBesichtigung;
+            dateUmzug.Value = umzObj.DatUmzug;
+            //
+            textAuszug.Text = umzObj.auszug.Straße1;
+            textAuszug.Text += " " + umzObj.auszug.Hausnummer1;
+            textAuszug.Text += ", " + umzObj.auszug.PLZ1;
+            textAuszug.Text += " " + umzObj.auszug.Ort1;
+            //
+            textEinzug.Text = umzObj.einzug.Straße1;
+            textEinzug.Text += " " + umzObj.einzug.Hausnummer1;
+            textEinzug.Text += ", " + umzObj.einzug.PLZ1;
+            textEinzug.Text += " " + umzObj.einzug.Ort1;
+            
             // Personendaten aus dem Kunden ziehen
 
             MySqlCommand cmdReadKunde = new MySqlCommand("SELECT * FROM Kunden WHERE idKunden=" + textKundennummer.Text + " ;", Program.conn);

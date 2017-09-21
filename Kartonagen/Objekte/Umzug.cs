@@ -103,6 +103,7 @@ namespace Kartonagen
         public string NotizBuero1 { get => NotizBuero; set => NotizBuero = value; }
         public string NotizFahrer1 { get => NotizFahrer; set => NotizFahrer = value; }
         public int IdKunden { get => idKunden; }
+        public int Id { get => id;}
 
         // Konstruktor
         public Umzug (int ID)
