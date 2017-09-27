@@ -14,6 +14,9 @@ namespace Kartonagen
 {
     public partial class TransaktionAdd : Form
     {
+
+        Umzug umzObj; 
+
         int maxKundennummer;
         public TransaktionAdd()
         {
@@ -55,6 +58,8 @@ namespace Kartonagen
 
             labelLieferung.Visible = false;
             labelAbholung.Visible = false;
+
+            umzObj = new Umzug(umzNummer);
 
             // Umzugsdaten aus dem Umzug ziehen
 
@@ -357,21 +362,26 @@ namespace Kartonagen
             String Body = "";
 
             //Adresse in den Body
-            MySqlCommand cmdRead = new MySqlCommand("SELECT Straße, Hausnummer, PLZ, Ort, Handynummer, Telefonnummer FROM Kunden WHERE idKunden = "+textKundennummer.Text+";", Program.conn);
-            MySqlDataReader rdr;
 
+            var bestätigung = MessageBox.Show("Auszugsadresse (Ja auswählen) oder Einzugsadresse (Nein auswählen) für den Kalendereintrag nutzen? /r/n Auszug: "+ umzObj.auszug.Straße1 + " " + umzObj.auszug.Hausnummer1 +" "+ umzObj.auszug.PLZ1 + " " + umzObj.auszug.Ort1 + " /r/n Einzug "+
+                 umzObj.einzug.Straße1 + " " + umzObj.einzug.Hausnummer1 + " " + umzObj.einzug.PLZ1 + " " + umzObj.einzug.Ort1 + " ", "Adresswahl", MessageBoxButtons.YesNo);
+            if (bestätigung == DialogResult.Yes)
+            { Body += umzObj.auszug.Straße1 + " " + umzObj.auszug.Hausnummer1 + "\r\n" + umzObj.auszug.PLZ1 + " " + umzObj.auszug.Ort1 + "\r\n"; }
+            else { Body += umzObj.einzug.Straße1 + " " + umzObj.einzug.Hausnummer1 + "\r\n" + umzObj.einzug.PLZ1 + " " + umzObj.einzug.Ort1 + "\r\n"; }
+
+            // Kontaktdaten
+            MySqlCommand cmdRead = new MySqlCommand("SELECT Handynummer, Telefonnummer FROM Kunden WHERE idKunden = "+textKundennummer.Text+";", Program.conn);
+            MySqlDataReader rdr;
             try
             {
                 rdr = cmdRead.ExecuteReader();
                 while (rdr.Read())
                 {
-                    Body += rdr[0] + " " + rdr[1] + "\r\n" + rdr[2] + " " + rdr[3] + "\r\n";
-
-                    if (rdr.GetString(4) == "0")
+                    if (rdr.GetString(0) == "0")
                     {
-                        Body += "Telefon = " + rdr.GetString(5)+"\r\n";
+                        Body += "Telefon = " + rdr.GetString(1)+"\r\n";
                     }
-                    else { Body += "Handy = " + rdr.GetString(4) + "\r\n"; }
+                    else { Body += "Handy = " + rdr.GetString(0) + "\r\n"; }
                 }
                 rdr.Close();
             }

@@ -13,6 +13,7 @@ namespace Kartonagen
 {
     public partial class UmzugFortschritt : Form
     {
+        Umzug umzObj;
         int idBearbeitend;
         int Umzugsnummer;
         List <String> arbeiter = new List<string> ();
@@ -46,40 +47,27 @@ namespace Kartonagen
         {
             reset();
 
+            umzObj = new Umzug(umzNr);
+
             MySqlCommand cmdRead = new MySqlCommand("SELECT * FROM Umzuege WHERE idUmzuege = '" + umzNr + "';", Program.conn);
             MySqlDataReader rdr;
 
-            try
-            {
-                rdr = cmdRead.ExecuteReader();
-                while (rdr.Read())
-                {
-                    textUmzNummerBlock.Text = rdr[0].ToString();
-                    Umzugsnummer = rdr.GetInt32(0);
-                    textKundennummer.Text = rdr[1].ToString();                       //Impliziter Cast weil Typ des SQL-Attributs bekannt
-                    dateBesicht.Value = rdr.GetDateTime(2);
-                    dateUmzug.Value = rdr.GetDateTime(3);
-                    //
-                    textAuszug.Text = rdr[30].ToString();
-                    textAuszug.Text += " " + rdr[31].ToString();
-                    textAuszug.Text += ", " + rdr[32].ToString();
-                    textAuszug.Text += " " + rdr[33].ToString();
-                    //
-                    textEinzug.Text = " " + rdr[35].ToString();
-                    textEinzug.Text += " " + rdr[36].ToString();
-                    textEinzug.Text += ", " + rdr[37].ToString();
-                    textEinzug.Text += " " + rdr[38].ToString();
-                    //
-                    Strasse = rdr.GetString(35);
-                    Hausnummer = rdr.GetString(36);
-                    PLZ = rdr.GetInt32(37);
-                    Ort = rdr.GetString(38);
-                    Land = rdr.GetString(39);
-                }
-                rdr.Close();
-            }
-            catch (Exception exc) { }
-
+            textUmzNummerBlock.Text = umzObj.Id.ToString();
+            Umzugsnummer = umzObj.Id;
+            textKundennummer.Text = umzObj.IdKunden.ToString();                     //Impliziter Cast weil Typ des SQL-Attributs bekannt
+            dateBesicht.Value = umzObj.DatBesichtigung;
+            dateUmzug.Value = umzObj.DatUmzug;
+            //
+            textAuszug.Text = umzObj.auszug.Straße1;
+            textAuszug.Text += " " + umzObj.auszug.Hausnummer1;
+            textAuszug.Text += ", " + umzObj.auszug.PLZ1;
+            textAuszug.Text += " " + umzObj.auszug.Ort1;
+            //
+            textEinzug.Text = umzObj.einzug.Straße1;
+            textEinzug.Text += " " + umzObj.einzug.Hausnummer1;
+            textEinzug.Text += ", " + umzObj.einzug.PLZ1;
+            textEinzug.Text += " " + umzObj.einzug.Ort1;
+            
             // Personendaten aus dem Kunden ziehen
 
             MySqlCommand cmdReadKunde = new MySqlCommand("SELECT * FROM Kunden WHERE idKunden=" + textKundennummer.Text + " ;", Program.conn);
@@ -205,11 +193,40 @@ namespace Kartonagen
                         buttonKueche.Enabled = false;
                     }
 
+                    // Schadensmeldung
+                    if (rdrF.GetInt32(34) != 8)
+                    {
+                        textSchaden.AppendText(getName(rdrF.GetInt32(34)));
+                        dateSchaden.Value = rdrF.GetDateTime(35);
+                        buttonSchaden.Enabled = false;
+                    }
+
+                    // Rechnung
+                    if (rdrF.GetInt32(36) != 8)
+                    {
+                        textRechnung.AppendText(getName(rdrF.GetInt32(36)));
+                        dateRechnung.Value = rdrF.GetDateTime(37);
+                        buttonRechnung.Enabled = false;
+                    }
+
+                    // Versicherung
+                    if (rdrF.GetInt32(38) != 8)
+                    {
+                        textVersicherung.AppendText(getName(rdrF.GetInt32(38)));
+                        dateVersicherung.Value = rdrF.GetDateTime(39);
+                        buttonVersicherung.Enabled = false;
+                    }
+
+                    if (umzObj.Versicherung == 0)
+                    {
+                        buttonVersicherung.Enabled = false;
+                    }
                     textNote.Text = rdrF[25].ToString();
                     //numericSchaden.Value = rdrF.GetDecimal(27);
                     //numericHVZKosten.Value = rdrF.GetDecimal(28);
                     //numericSonderkosten.Value = rdrF.GetDecimal(29);
                     //numericSumme.Value = rdrF.GetDecimal(30);
+                    
 
                     // Schon geschlossen?
                     if (rdrF.GetInt32(33) != 8)
@@ -226,6 +243,10 @@ namespace Kartonagen
                         buttonErinnerung.Enabled = false;
                         buttonKorrektur.Enabled = false;
                         buttonUmzugEingtragen.Enabled = false;
+                        buttonSchaden.Enabled = false;
+                        buttonRechnung.Enabled = false;
+                        buttonVersicherung.Enabled = false;
+
                         //
                         buttonAbschluss.Enabled = false;
 
@@ -235,7 +256,9 @@ namespace Kartonagen
                 }
                 rdrF.Close();
             }
-            catch (Exception exc) { }
+            catch (Exception exc) {
+                Program.FehlerLog(exc.ToString(),"Abrufen der Fortschrittsdaten aus der DB zum Füllen");
+            }
         }
 
         private String getName(int ID) {
@@ -274,6 +297,9 @@ namespace Kartonagen
             textSchriftBuch.ResetText();
             textKorrektur.ResetText();
             textErinnerung.ResetText();
+            textSchaden.ResetText();
+            textRechnung.ResetText();
+            textVersicherung.ResetText();
 
             buttonKVAMail.Enabled = true;
             buttonKVAPost.Enabled = true;
@@ -285,6 +311,9 @@ namespace Kartonagen
             buttonTelBuch.Enabled = true;
             buttonTextBuch.Enabled = true; // TextBuch <=> SchriftBuch
             buttonErinnerung.Enabled = true;
+            buttonSchaden.Enabled = true;
+            buttonRechnung.Enabled = true;
+            buttonVersicherung.Enabled = true;
 
             //Testfall
             buttonKorrektur.Enabled = true;
@@ -398,6 +427,29 @@ namespace Kartonagen
             fuellen(Umzugsnummer);
         }
 
+
+        private void buttonSchaden_Click(object sender, EventArgs e)
+        {
+            String k = "UPDATE Umzugsfortschritt SET SchadenMeldung = " + idBearbeitend + ", datSchadenMeldung = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
+            push(k);
+            fuellen(Umzugsnummer);
+        }
+
+
+        private void buttonRechnung_Click(object sender, EventArgs e)
+        {
+            String k = "UPDATE Umzugsfortschritt SET Rechnung = " + idBearbeitend + ", datRechnung = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
+            push(k);
+            fuellen(Umzugsnummer);
+        }
+
+        private void buttonVersicherung_Click(object sender, EventArgs e)
+        {
+            String k = "UPDATE Umzugsfortschritt SET Versicherung = " + idBearbeitend + ", datVersicherung = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
+            push(k);
+            fuellen(Umzugsnummer);
+        }
+
         private void buttonAbschluss_Click(object sender, EventArgs e)
         {
             // Als Abgeschlossen markieren
@@ -415,7 +467,9 @@ namespace Kartonagen
 
             fuellen(Umzugsnummer);
         }
-        
+
+
+
 
 
 

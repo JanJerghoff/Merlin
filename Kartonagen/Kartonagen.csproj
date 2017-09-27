@@ -164,6 +164,7 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Objekte\Adresse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sonderabfragen.cs" />
@@ -211,6 +212,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Umzuege.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Objekte\Umzug.cs" />
     <Compile Include="Umzugsfortschritt.cs">
       <DependentUpon>Umzuege.tt</DependentUpon>
     </Compile>
@@ -301,10 +303,10 @@
     <EmbeddedResource Include="UmzugsOperationen\UmzugFortschritt.resx">
       <DependentUpon>UmzugFortschritt.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Laufzettel\Besichtigungs Vordruck.pdf">
+    <None Include="client_secret.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="client_secret.json">
+    <None Include="Laufzettel\Besichtigungs Vordruck.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Laufzettel\Laufzettel Besichtigung.pdf">

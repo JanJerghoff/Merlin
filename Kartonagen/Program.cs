@@ -31,9 +31,10 @@ namespace Kartonagen
         static string ApplicationName = "Google Calendar API";
         static CalendarService dienst;
 
-        // PDF-Druckvorbereitung
+        // PDF-Druckvorbereitung / Datenspeicher
         public static string druckPfad = System.IO.Path.Combine(Environment.CurrentDirectory, "temp2.pdf");
         public static string fehlerPfad = System.IO.Path.Combine(Environment.CurrentDirectory, "fehler.txt");
+        public static string QueryPfad = System.IO.Path.Combine(Environment.CurrentDirectory, "query.txt");
 
         // Buero-geänderte-version
 
@@ -130,7 +131,7 @@ namespace Kartonagen
             }
             if (ID == 2)
             {
-                return "Eva"; ;
+                return "Eva";
             }
             if (ID == 4)
             {
@@ -526,6 +527,30 @@ namespace Kartonagen
             }
                 
             var box2 = MessageBox.Show(Kurzbeschreibung, "Fehler");
+            
+        }
+
+        public static void QueryLog(string Query)
+        {
+
+            if (!File.Exists(fehlerPfad))
+            {
+                // Datei erstellen
+                using (StreamWriter sw = File.CreateText(fehlerPfad))
+                {
+                    sw.WriteLine("");
+                    sw.WriteLine("Start");
+                    sw.WriteLine("");
+                }
+            }
+
+            // Eintrag machen
+            using (StreamWriter sw = File.AppendText(fehlerPfad))
+            {
+                sw.WriteLine(DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
+                sw.WriteLine(Query);
+                sw.WriteLine("");
+            }
             
         }
 

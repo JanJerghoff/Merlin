@@ -28,64 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.buttonBlockKueche = new System.Windows.Forms.Button();
-            this.label27 = new System.Windows.Forms.Label();
-            this.textKuechenPreis = new System.Windows.Forms.TextBox();
-            this.groupBox17 = new System.Windows.Forms.GroupBox();
-            this.radioKuecheExtern = new System.Windows.Forms.RadioButton();
-            this.radioKuecheIntern = new System.Windows.Forms.RadioButton();
-            this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.radioKuecheAufV = new System.Windows.Forms.RadioButton();
-            this.radioKuecheAufNein = new System.Windows.Forms.RadioButton();
-            this.radioKuecheAufJa = new System.Windows.Forms.RadioButton();
-            this.groupBox16 = new System.Windows.Forms.GroupBox();
-            this.radioKuecheAbV = new System.Windows.Forms.RadioButton();
-            this.radioKuecheAbNein = new System.Windows.Forms.RadioButton();
-            this.radioKuecheAbJa = new System.Windows.Forms.RadioButton();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.groupBox23 = new System.Windows.Forms.GroupBox();
-            this.radioAussenAufzugBNein = new System.Windows.Forms.RadioButton();
-            this.radioAussenAufzugBJa = new System.Windows.Forms.RadioButton();
-            this.listBoxB = new System.Windows.Forms.ListBox();
-            this.label35 = new System.Windows.Forms.Label();
-            this.textLaufMeterB = new System.Windows.Forms.TextBox();
-            this.buttonBlockEinzug = new System.Windows.Forms.Button();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.radioHVZBV = new System.Windows.Forms.RadioButton();
-            this.radioHVZBNein = new System.Windows.Forms.RadioButton();
-            this.radioHVZBJa = new System.Windows.Forms.RadioButton();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.numericStockwerkeB = new System.Windows.Forms.NumericUpDown();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.radioAufzugBNein = new System.Windows.Forms.RadioButton();
-            this.radioAufzugBJa = new System.Windows.Forms.RadioButton();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.textLandB = new System.Windows.Forms.TextBox();
-            this.textOrtB = new System.Windows.Forms.TextBox();
-            this.textPLZB = new System.Windows.Forms.TextBox();
-            this.textHausnummerB = new System.Windows.Forms.TextBox();
-            this.textStraßeB = new System.Windows.Forms.TextBox();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.numericPackStunden = new System.Windows.Forms.NumericUpDown();
-            this.label36 = new System.Windows.Forms.Label();
-            this.buttonBlockPacken = new System.Windows.Forms.Button();
-            this.label26 = new System.Windows.Forms.Label();
-            this.numericPackKartons = new System.Windows.Forms.NumericUpDown();
-            this.label25 = new System.Windows.Forms.Label();
-            this.numericPacker = new System.Windows.Forms.NumericUpDown();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.radioAuspackenV = new System.Windows.Forms.RadioButton();
-            this.radioAuspackenNein = new System.Windows.Forms.RadioButton();
-            this.radioAuspackenJa = new System.Windows.Forms.RadioButton();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioEinpackenV = new System.Windows.Forms.RadioButton();
-            this.radioEinpackenNein = new System.Windows.Forms.RadioButton();
-            this.radioEinpackenJa = new System.Windows.Forms.RadioButton();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label39 = new System.Windows.Forms.Label();
             this.numericLKWGroß = new System.Windows.Forms.NumericUpDown();
@@ -120,33 +62,6 @@
             this.textTelefonnummer = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textVorNachname = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox22 = new System.Windows.Forms.GroupBox();
-            this.radioAussenAufzugANein = new System.Windows.Forms.RadioButton();
-            this.radioAussenAufzugAJa = new System.Windows.Forms.RadioButton();
-            this.listBoxA = new System.Windows.Forms.ListBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.buttonBlockAuszug = new System.Windows.Forms.Button();
-            this.textLaufMeterA = new System.Windows.Forms.TextBox();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.radioHVZAV = new System.Windows.Forms.RadioButton();
-            this.radioHVZANein = new System.Windows.Forms.RadioButton();
-            this.radioHVZAJa = new System.Windows.Forms.RadioButton();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.numericStockwerkeA = new System.Windows.Forms.NumericUpDown();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioAufzugANein = new System.Windows.Forms.RadioButton();
-            this.radioAufzugAJa = new System.Windows.Forms.RadioButton();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textLandA = new System.Windows.Forms.TextBox();
-            this.textOrtA = new System.Windows.Forms.TextBox();
-            this.textPLZA = new System.Windows.Forms.TextBox();
-            this.textHausnummerA = new System.Windows.Forms.TextBox();
-            this.textStraßeA = new System.Windows.Forms.TextBox();
             this.buttonTransaktion = new System.Windows.Forms.Button();
             this.textSuchBox = new System.Windows.Forms.TextBox();
             this.textSucheName = new System.Windows.Forms.TextBox();
@@ -209,21 +124,121 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox21 = new System.Windows.Forms.GroupBox();
             this.checkGeschlossenAnzeigen = new System.Windows.Forms.CheckBox();
-            this.groupBox14.SuspendLayout();
-            this.groupBox17.SuspendLayout();
-            this.groupBox15.SuspendLayout();
-            this.groupBox16.SuspendLayout();
-            this.groupBox10.SuspendLayout();
-            this.groupBox23.SuspendLayout();
-            this.groupBox11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericStockwerkeB)).BeginInit();
-            this.groupBox12.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericPackStunden)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericPackKartons)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericPacker)).BeginInit();
-            this.groupBox13.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.groupBox27 = new System.Windows.Forms.GroupBox();
+            this.radioVersicherungNein = new System.Windows.Forms.RadioButton();
+            this.radioVersicherungJa = new System.Windows.Forms.RadioButton();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.textKuechenPreis = new System.Windows.Forms.TextBox();
+            this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.radioKuecheExtern = new System.Windows.Forms.RadioButton();
+            this.radioKuecheIntern = new System.Windows.Forms.RadioButton();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.radioKuecheAufV = new System.Windows.Forms.RadioButton();
+            this.radioKuecheAufNein = new System.Windows.Forms.RadioButton();
+            this.radioKuecheAufJa = new System.Windows.Forms.RadioButton();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.radioKuecheAbV = new System.Windows.Forms.RadioButton();
+            this.radioKuecheAbNein = new System.Windows.Forms.RadioButton();
+            this.radioKuecheAbJa = new System.Windows.Forms.RadioButton();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.buttonBlockEinzug = new System.Windows.Forms.Button();
+            this.groupBox26 = new System.Windows.Forms.GroupBox();
+            this.textSonderEtageB = new System.Windows.Forms.TextBox();
+            this.checkDBB = new System.Windows.Forms.CheckBox();
+            this.checkOG4B = new System.Windows.Forms.CheckBox();
+            this.checkOG5B = new System.Windows.Forms.CheckBox();
+            this.checkOG3B = new System.Windows.Forms.CheckBox();
+            this.checkOG2B = new System.Windows.Forms.CheckBox();
+            this.checkMAB = new System.Windows.Forms.CheckBox();
+            this.checkOG1B = new System.Windows.Forms.CheckBox();
+            this.checkSTB = new System.Windows.Forms.CheckBox();
+            this.checkHPB = new System.Windows.Forms.CheckBox();
+            this.checkEGB = new System.Windows.Forms.CheckBox();
+            this.checkKellerB = new System.Windows.Forms.CheckBox();
+            this.groupBox23 = new System.Windows.Forms.GroupBox();
+            this.radioAussenAufzugBNein = new System.Windows.Forms.RadioButton();
+            this.radioAussenAufzugBJa = new System.Windows.Forms.RadioButton();
+            this.listBoxB = new System.Windows.Forms.ListBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.textLaufMeterB = new System.Windows.Forms.TextBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.radioHVZBV = new System.Windows.Forms.RadioButton();
+            this.radioHVZBNein = new System.Windows.Forms.RadioButton();
+            this.radioHVZBJa = new System.Windows.Forms.RadioButton();
+            this.label20 = new System.Windows.Forms.Label();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.radioAufzugBNein = new System.Windows.Forms.RadioButton();
+            this.radioAufzugBJa = new System.Windows.Forms.RadioButton();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.textLandB = new System.Windows.Forms.TextBox();
+            this.textOrtB = new System.Windows.Forms.TextBox();
+            this.textPLZB = new System.Windows.Forms.TextBox();
+            this.textHausnummerB = new System.Windows.Forms.TextBox();
+            this.textStraßeB = new System.Windows.Forms.TextBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.buttonBlockPacken = new System.Windows.Forms.Button();
+            this.numericAusPackStunden = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.numericAusPacker = new System.Windows.Forms.NumericUpDown();
+            this.numericEinPackStunden = new System.Windows.Forms.NumericUpDown();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.numericEinPackKartons = new System.Windows.Forms.NumericUpDown();
+            this.label25 = new System.Windows.Forms.Label();
+            this.numericEinPacker = new System.Windows.Forms.NumericUpDown();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.radioAuspackenV = new System.Windows.Forms.RadioButton();
+            this.radioAuspackenNein = new System.Windows.Forms.RadioButton();
+            this.radioAuspackenJa = new System.Windows.Forms.RadioButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.radioEinpackenV = new System.Windows.Forms.RadioButton();
+            this.radioEinpackenNein = new System.Windows.Forms.RadioButton();
+            this.radioEinpackenJa = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ButtonBlockAuszug = new System.Windows.Forms.Button();
+            this.groupBox25 = new System.Windows.Forms.GroupBox();
+            this.textSonderEtageA = new System.Windows.Forms.TextBox();
+            this.checkDBA = new System.Windows.Forms.CheckBox();
+            this.checkOG4A = new System.Windows.Forms.CheckBox();
+            this.checkOG5A = new System.Windows.Forms.CheckBox();
+            this.checkOG3A = new System.Windows.Forms.CheckBox();
+            this.checkOG2A = new System.Windows.Forms.CheckBox();
+            this.checkMAA = new System.Windows.Forms.CheckBox();
+            this.checkOG1A = new System.Windows.Forms.CheckBox();
+            this.checkSTA = new System.Windows.Forms.CheckBox();
+            this.checkHPA = new System.Windows.Forms.CheckBox();
+            this.checkEGA = new System.Windows.Forms.CheckBox();
+            this.checkKellerA = new System.Windows.Forms.CheckBox();
+            this.groupBox22 = new System.Windows.Forms.GroupBox();
+            this.radioAussenAufzugANein = new System.Windows.Forms.RadioButton();
+            this.radioAussenAufzugAJa = new System.Windows.Forms.RadioButton();
+            this.listBoxA = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textLaufMeterA = new System.Windows.Forms.TextBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.radioHVZAV = new System.Windows.Forms.RadioButton();
+            this.radioHVZANein = new System.Windows.Forms.RadioButton();
+            this.radioHVZAJa = new System.Windows.Forms.RadioButton();
+            this.label5 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radioAufzugANein = new System.Windows.Forms.RadioButton();
+            this.radioAufzugAJa = new System.Windows.Forms.RadioButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.textLandA = new System.Windows.Forms.TextBox();
+            this.textOrtA = new System.Windows.Forms.TextBox();
+            this.textPLZA = new System.Windows.Forms.TextBox();
+            this.textHausnummerA = new System.Windows.Forms.TextBox();
+            this.textStraßeA = new System.Windows.Forms.TextBox();
+            this.buttonBlockKueche = new System.Windows.Forms.Button();
+            this.buttonBlockVersicherung = new System.Windows.Forms.Button();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericLKWGroß)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLKW)).BeginInit();
@@ -234,11 +249,6 @@
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericKleiderkisten)).BeginInit();
             this.groupBox5.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox22.SuspendLayout();
-            this.groupBox9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericStockwerkeA)).BeginInit();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericSucheKundennr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUmzugsnummer)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -252,681 +262,30 @@
             this.groupBox19.SuspendLayout();
             this.groupBox18.SuspendLayout();
             this.groupBox21.SuspendLayout();
+            this.groupBox27.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.groupBox17.SuspendLayout();
+            this.groupBox15.SuspendLayout();
+            this.groupBox16.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.groupBox26.SuspendLayout();
+            this.groupBox23.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericAusPackStunden)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericAusPacker)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEinPackStunden)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEinPackKartons)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEinPacker)).BeginInit();
+            this.groupBox13.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox25.SuspendLayout();
+            this.groupBox22.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBox14
-            // 
-            this.groupBox14.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox14.Controls.Add(this.buttonBlockKueche);
-            this.groupBox14.Controls.Add(this.label27);
-            this.groupBox14.Controls.Add(this.textKuechenPreis);
-            this.groupBox14.Controls.Add(this.groupBox17);
-            this.groupBox14.Controls.Add(this.groupBox15);
-            this.groupBox14.Controls.Add(this.groupBox16);
-            this.groupBox14.Location = new System.Drawing.Point(604, 683);
-            this.groupBox14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox14.Size = new System.Drawing.Size(580, 197);
-            this.groupBox14.TabIndex = 7;
-            this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "Küche";
-            // 
-            // buttonBlockKueche
-            // 
-            this.buttonBlockKueche.Location = new System.Drawing.Point(324, 135);
-            this.buttonBlockKueche.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonBlockKueche.Name = "buttonBlockKueche";
-            this.buttonBlockKueche.Size = new System.Drawing.Size(211, 31);
-            this.buttonBlockKueche.TabIndex = 4;
-            this.buttonBlockKueche.Text = "Block Ändern";
-            this.buttonBlockKueche.UseVisualStyleBackColor = true;
-            this.buttonBlockKueche.Click += new System.EventHandler(this.buttonBlockKueche_Click);
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(376, 103);
-            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(168, 18);
-            this.label27.TabIndex = 17;
-            this.label27.Text = "Pauschalbetrag (in €)";
-            // 
-            // textKuechenPreis
-            // 
-            this.textKuechenPreis.Location = new System.Drawing.Point(261, 103);
-            this.textKuechenPreis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textKuechenPreis.Name = "textKuechenPreis";
-            this.textKuechenPreis.Size = new System.Drawing.Size(104, 22);
-            this.textKuechenPreis.TabIndex = 3;
-            // 
-            // groupBox17
-            // 
-            this.groupBox17.Controls.Add(this.radioKuecheExtern);
-            this.groupBox17.Controls.Add(this.radioKuecheIntern);
-            this.groupBox17.Location = new System.Drawing.Point(9, 81);
-            this.groupBox17.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox17.Size = new System.Drawing.Size(240, 59);
-            this.groupBox17.TabIndex = 2;
-            this.groupBox17.TabStop = false;
-            this.groupBox17.Text = "Küchenbau";
-            // 
-            // radioKuecheExtern
-            // 
-            this.radioKuecheExtern.AutoSize = true;
-            this.radioKuecheExtern.Location = new System.Drawing.Point(131, 23);
-            this.radioKuecheExtern.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioKuecheExtern.Name = "radioKuecheExtern";
-            this.radioKuecheExtern.Size = new System.Drawing.Size(69, 21);
-            this.radioKuecheExtern.TabIndex = 12;
-            this.radioKuecheExtern.Text = "Extern";
-            this.radioKuecheExtern.UseVisualStyleBackColor = true;
-            // 
-            // radioKuecheIntern
-            // 
-            this.radioKuecheIntern.AutoSize = true;
-            this.radioKuecheIntern.Location = new System.Drawing.Point(8, 23);
-            this.radioKuecheIntern.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioKuecheIntern.Name = "radioKuecheIntern";
-            this.radioKuecheIntern.Size = new System.Drawing.Size(117, 21);
-            this.radioKuecheIntern.TabIndex = 11;
-            this.radioKuecheIntern.Text = "Intern (Merlin)";
-            this.radioKuecheIntern.UseVisualStyleBackColor = true;
-            // 
-            // groupBox15
-            // 
-            this.groupBox15.Controls.Add(this.radioKuecheAufV);
-            this.groupBox15.Controls.Add(this.radioKuecheAufNein);
-            this.groupBox15.Controls.Add(this.radioKuecheAufJa);
-            this.groupBox15.Location = new System.Drawing.Point(261, 23);
-            this.groupBox15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox15.Size = new System.Drawing.Size(240, 53);
-            this.groupBox15.TabIndex = 1;
-            this.groupBox15.TabStop = false;
-            this.groupBox15.Text = "Küche aufbauen";
-            // 
-            // radioKuecheAufV
-            // 
-            this.radioKuecheAufV.AutoSize = true;
-            this.radioKuecheAufV.Location = new System.Drawing.Point(136, 23);
-            this.radioKuecheAufV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioKuecheAufV.Name = "radioKuecheAufV";
-            this.radioKuecheAufV.Size = new System.Drawing.Size(85, 21);
-            this.radioKuecheAufV.TabIndex = 13;
-            this.radioKuecheAufV.Text = "Vielleicht";
-            this.radioKuecheAufV.UseVisualStyleBackColor = true;
-            // 
-            // radioKuecheAufNein
-            // 
-            this.radioKuecheAufNein.AutoSize = true;
-            this.radioKuecheAufNein.Location = new System.Drawing.Point(64, 23);
-            this.radioKuecheAufNein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioKuecheAufNein.Name = "radioKuecheAufNein";
-            this.radioKuecheAufNein.Size = new System.Drawing.Size(58, 21);
-            this.radioKuecheAufNein.TabIndex = 12;
-            this.radioKuecheAufNein.Text = "Nein";
-            this.radioKuecheAufNein.UseVisualStyleBackColor = true;
-            // 
-            // radioKuecheAufJa
-            // 
-            this.radioKuecheAufJa.AutoSize = true;
-            this.radioKuecheAufJa.Location = new System.Drawing.Point(8, 23);
-            this.radioKuecheAufJa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioKuecheAufJa.Name = "radioKuecheAufJa";
-            this.radioKuecheAufJa.Size = new System.Drawing.Size(44, 21);
-            this.radioKuecheAufJa.TabIndex = 11;
-            this.radioKuecheAufJa.Text = "Ja";
-            this.radioKuecheAufJa.UseVisualStyleBackColor = true;
-            // 
-            // groupBox16
-            // 
-            this.groupBox16.Controls.Add(this.radioKuecheAbV);
-            this.groupBox16.Controls.Add(this.radioKuecheAbNein);
-            this.groupBox16.Controls.Add(this.radioKuecheAbJa);
-            this.groupBox16.Location = new System.Drawing.Point(9, 23);
-            this.groupBox16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox16.Size = new System.Drawing.Size(240, 53);
-            this.groupBox16.TabIndex = 0;
-            this.groupBox16.TabStop = false;
-            this.groupBox16.Text = "Küche Abbauen";
-            // 
-            // radioKuecheAbV
-            // 
-            this.radioKuecheAbV.AutoSize = true;
-            this.radioKuecheAbV.Location = new System.Drawing.Point(136, 23);
-            this.radioKuecheAbV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioKuecheAbV.Name = "radioKuecheAbV";
-            this.radioKuecheAbV.Size = new System.Drawing.Size(85, 21);
-            this.radioKuecheAbV.TabIndex = 13;
-            this.radioKuecheAbV.Text = "Vielleicht";
-            this.radioKuecheAbV.UseVisualStyleBackColor = true;
-            // 
-            // radioKuecheAbNein
-            // 
-            this.radioKuecheAbNein.AutoSize = true;
-            this.radioKuecheAbNein.Location = new System.Drawing.Point(64, 23);
-            this.radioKuecheAbNein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioKuecheAbNein.Name = "radioKuecheAbNein";
-            this.radioKuecheAbNein.Size = new System.Drawing.Size(58, 21);
-            this.radioKuecheAbNein.TabIndex = 12;
-            this.radioKuecheAbNein.Text = "Nein";
-            this.radioKuecheAbNein.UseVisualStyleBackColor = true;
-            // 
-            // radioKuecheAbJa
-            // 
-            this.radioKuecheAbJa.AutoSize = true;
-            this.radioKuecheAbJa.Location = new System.Drawing.Point(8, 23);
-            this.radioKuecheAbJa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioKuecheAbJa.Name = "radioKuecheAbJa";
-            this.radioKuecheAbJa.Size = new System.Drawing.Size(44, 21);
-            this.radioKuecheAbJa.TabIndex = 11;
-            this.radioKuecheAbJa.Text = "Ja";
-            this.radioKuecheAbJa.UseVisualStyleBackColor = true;
-            // 
-            // groupBox10
-            // 
-            this.groupBox10.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox10.Controls.Add(this.groupBox23);
-            this.groupBox10.Controls.Add(this.listBoxB);
-            this.groupBox10.Controls.Add(this.label35);
-            this.groupBox10.Controls.Add(this.textLaufMeterB);
-            this.groupBox10.Controls.Add(this.buttonBlockEinzug);
-            this.groupBox10.Controls.Add(this.groupBox11);
-            this.groupBox10.Controls.Add(this.label19);
-            this.groupBox10.Controls.Add(this.label20);
-            this.groupBox10.Controls.Add(this.numericStockwerkeB);
-            this.groupBox10.Controls.Add(this.groupBox12);
-            this.groupBox10.Controls.Add(this.label21);
-            this.groupBox10.Controls.Add(this.label22);
-            this.groupBox10.Controls.Add(this.label23);
-            this.groupBox10.Controls.Add(this.label24);
-            this.groupBox10.Controls.Add(this.textLandB);
-            this.groupBox10.Controls.Add(this.textOrtB);
-            this.groupBox10.Controls.Add(this.textPLZB);
-            this.groupBox10.Controls.Add(this.textHausnummerB);
-            this.groupBox10.Controls.Add(this.textStraßeB);
-            this.groupBox10.Location = new System.Drawing.Point(749, 357);
-            this.groupBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox10.Size = new System.Drawing.Size(688, 319);
-            this.groupBox10.TabIndex = 6;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Adresse Einzug";
-            // 
-            // groupBox23
-            // 
-            this.groupBox23.Controls.Add(this.radioAussenAufzugBNein);
-            this.groupBox23.Controls.Add(this.radioAussenAufzugBJa);
-            this.groupBox23.Location = new System.Drawing.Point(9, 240);
-            this.groupBox23.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox23.Name = "groupBox23";
-            this.groupBox23.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox23.Size = new System.Drawing.Size(151, 53);
-            this.groupBox23.TabIndex = 93;
-            this.groupBox23.TabStop = false;
-            this.groupBox23.Text = "Aussenaufzug";
-            // 
-            // radioAussenAufzugBNein
-            // 
-            this.radioAussenAufzugBNein.AutoSize = true;
-            this.radioAussenAufzugBNein.Location = new System.Drawing.Point(64, 23);
-            this.radioAussenAufzugBNein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioAussenAufzugBNein.Name = "radioAussenAufzugBNein";
-            this.radioAussenAufzugBNein.Size = new System.Drawing.Size(58, 21);
-            this.radioAussenAufzugBNein.TabIndex = 1;
-            this.radioAussenAufzugBNein.Text = "Nein";
-            this.radioAussenAufzugBNein.UseVisualStyleBackColor = true;
-            // 
-            // radioAussenAufzugBJa
-            // 
-            this.radioAussenAufzugBJa.AutoSize = true;
-            this.radioAussenAufzugBJa.Location = new System.Drawing.Point(8, 23);
-            this.radioAussenAufzugBJa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioAussenAufzugBJa.Name = "radioAussenAufzugBJa";
-            this.radioAussenAufzugBJa.Size = new System.Drawing.Size(44, 21);
-            this.radioAussenAufzugBJa.TabIndex = 0;
-            this.radioAussenAufzugBJa.Text = "Ja";
-            this.radioAussenAufzugBJa.UseVisualStyleBackColor = true;
-            // 
-            // listBoxB
-            // 
-            this.listBoxB.FormattingEnabled = true;
-            this.listBoxB.ItemHeight = 16;
-            this.listBoxB.Items.AddRange(new object[] {
-            "EFH",
-            "DHH",
-            "RH",
-            "Sonst."});
-            this.listBoxB.Location = new System.Drawing.Point(509, 87);
-            this.listBoxB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.listBoxB.Name = "listBoxB";
-            this.listBoxB.Size = new System.Drawing.Size(141, 68);
-            this.listBoxB.TabIndex = 6;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(389, 170);
-            this.label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(162, 18);
-            this.label35.TabIndex = 89;
-            this.label35.Text = "Laufstrecke in Meter";
-            // 
-            // textLaufMeterB
-            // 
-            this.textLaufMeterB.Location = new System.Drawing.Point(261, 170);
-            this.textLaufMeterB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textLaufMeterB.Name = "textLaufMeterB";
-            this.textLaufMeterB.Size = new System.Drawing.Size(119, 22);
-            this.textLaufMeterB.TabIndex = 7;
-            // 
-            // buttonBlockEinzug
-            // 
-            this.buttonBlockEinzug.Location = new System.Drawing.Point(324, 203);
-            this.buttonBlockEinzug.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonBlockEinzug.Name = "buttonBlockEinzug";
-            this.buttonBlockEinzug.Size = new System.Drawing.Size(211, 31);
-            this.buttonBlockEinzug.TabIndex = 8;
-            this.buttonBlockEinzug.Text = "Block Ändern";
-            this.buttonBlockEinzug.UseVisualStyleBackColor = true;
-            this.buttonBlockEinzug.Click += new System.EventHandler(this.buttonBlockEinzug_Click_1);
-            // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.radioHVZBV);
-            this.groupBox11.Controls.Add(this.radioHVZBNein);
-            this.groupBox11.Controls.Add(this.radioHVZBJa);
-            this.groupBox11.Location = new System.Drawing.Point(9, 180);
-            this.groupBox11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox11.Size = new System.Drawing.Size(240, 53);
-            this.groupBox11.TabIndex = 14;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Halteverbotszone";
-            // 
-            // radioHVZBV
-            // 
-            this.radioHVZBV.AutoSize = true;
-            this.radioHVZBV.Location = new System.Drawing.Point(136, 23);
-            this.radioHVZBV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioHVZBV.Name = "radioHVZBV";
-            this.radioHVZBV.Size = new System.Drawing.Size(85, 21);
-            this.radioHVZBV.TabIndex = 2;
-            this.radioHVZBV.Text = "Vielleicht";
-            this.radioHVZBV.UseVisualStyleBackColor = true;
-            // 
-            // radioHVZBNein
-            // 
-            this.radioHVZBNein.AutoSize = true;
-            this.radioHVZBNein.Location = new System.Drawing.Point(64, 23);
-            this.radioHVZBNein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioHVZBNein.Name = "radioHVZBNein";
-            this.radioHVZBNein.Size = new System.Drawing.Size(58, 21);
-            this.radioHVZBNein.TabIndex = 1;
-            this.radioHVZBNein.Text = "Nein";
-            this.radioHVZBNein.UseVisualStyleBackColor = true;
-            // 
-            // radioHVZBJa
-            // 
-            this.radioHVZBJa.AutoSize = true;
-            this.radioHVZBJa.Location = new System.Drawing.Point(8, 23);
-            this.radioHVZBJa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioHVZBJa.Name = "radioHVZBJa";
-            this.radioHVZBJa.Size = new System.Drawing.Size(44, 21);
-            this.radioHVZBJa.TabIndex = 0;
-            this.radioHVZBJa.Text = "Ja";
-            this.radioHVZBJa.UseVisualStyleBackColor = true;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(320, 139);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(97, 18);
-            this.label19.TabIndex = 33;
-            this.label19.Text = "Stockwerke";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(372, 89);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(44, 18);
-            this.label20.TabIndex = 9;
-            this.label20.Text = "Land";
-            // 
-            // numericStockwerkeB
-            // 
-            this.numericStockwerkeB.Location = new System.Drawing.Point(168, 139);
-            this.numericStockwerkeB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.numericStockwerkeB.Minimum = new decimal(new int[] {
-            2,
-            0,
-            0,
-            -2147483648});
-            this.numericStockwerkeB.Name = "numericStockwerkeB";
-            this.numericStockwerkeB.Size = new System.Drawing.Size(144, 22);
-            this.numericStockwerkeB.TabIndex = 5;
-            // 
-            // groupBox12
-            // 
-            this.groupBox12.Controls.Add(this.radioAufzugBNein);
-            this.groupBox12.Controls.Add(this.radioAufzugBJa);
-            this.groupBox12.Location = new System.Drawing.Point(9, 119);
-            this.groupBox12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox12.Size = new System.Drawing.Size(151, 53);
-            this.groupBox12.TabIndex = 10;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Aufzug";
-            // 
-            // radioAufzugBNein
-            // 
-            this.radioAufzugBNein.AutoSize = true;
-            this.radioAufzugBNein.Location = new System.Drawing.Point(64, 23);
-            this.radioAufzugBNein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioAufzugBNein.Name = "radioAufzugBNein";
-            this.radioAufzugBNein.Size = new System.Drawing.Size(58, 21);
-            this.radioAufzugBNein.TabIndex = 1;
-            this.radioAufzugBNein.Text = "Nein";
-            this.radioAufzugBNein.UseVisualStyleBackColor = true;
-            // 
-            // radioAufzugBJa
-            // 
-            this.radioAufzugBJa.AutoSize = true;
-            this.radioAufzugBJa.Location = new System.Drawing.Point(8, 23);
-            this.radioAufzugBJa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioAufzugBJa.Name = "radioAufzugBJa";
-            this.radioAufzugBJa.Size = new System.Drawing.Size(44, 21);
-            this.radioAufzugBJa.TabIndex = 0;
-            this.radioAufzugBJa.Text = "Ja";
-            this.radioAufzugBJa.UseVisualStyleBackColor = true;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(445, 57);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(32, 18);
-            this.label21.TabIndex = 8;
-            this.label21.Text = "Ort";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(372, 57);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(38, 18);
-            this.label22.TabIndex = 7;
-            this.label22.Text = "PLZ";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(445, 23);
-            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(108, 18);
-            this.label23.TabIndex = 6;
-            this.label23.Text = "Hausnummer";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(372, 23);
-            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(58, 18);
-            this.label24.TabIndex = 5;
-            this.label24.Text = "Straße";
-            // 
-            // textLandB
-            // 
-            this.textLandB.Location = new System.Drawing.Point(8, 87);
-            this.textLandB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textLandB.Name = "textLandB";
-            this.textLandB.Size = new System.Drawing.Size(240, 22);
-            this.textLandB.TabIndex = 4;
-            // 
-            // textOrtB
-            // 
-            this.textOrtB.Location = new System.Drawing.Point(136, 55);
-            this.textOrtB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textOrtB.Name = "textOrtB";
-            this.textOrtB.Size = new System.Drawing.Size(225, 22);
-            this.textOrtB.TabIndex = 3;
-            // 
-            // textPLZB
-            // 
-            this.textPLZB.Location = new System.Drawing.Point(8, 55);
-            this.textPLZB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textPLZB.Name = "textPLZB";
-            this.textPLZB.Size = new System.Drawing.Size(119, 22);
-            this.textPLZB.TabIndex = 2;
-            this.textPLZB.Text = "0";
-            // 
-            // textHausnummerB
-            // 
-            this.textHausnummerB.Location = new System.Drawing.Point(257, 23);
-            this.textHausnummerB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textHausnummerB.Name = "textHausnummerB";
-            this.textHausnummerB.Size = new System.Drawing.Size(104, 22);
-            this.textHausnummerB.TabIndex = 1;
-            // 
-            // textStraßeB
-            // 
-            this.textStraßeB.Location = new System.Drawing.Point(8, 23);
-            this.textStraßeB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textStraßeB.Name = "textStraßeB";
-            this.textStraßeB.Size = new System.Drawing.Size(240, 22);
-            this.textStraßeB.TabIndex = 0;
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox8.Controls.Add(this.numericPackStunden);
-            this.groupBox8.Controls.Add(this.label36);
-            this.groupBox8.Controls.Add(this.buttonBlockPacken);
-            this.groupBox8.Controls.Add(this.label26);
-            this.groupBox8.Controls.Add(this.numericPackKartons);
-            this.groupBox8.Controls.Add(this.label25);
-            this.groupBox8.Controls.Add(this.numericPacker);
-            this.groupBox8.Controls.Add(this.groupBox13);
-            this.groupBox8.Controls.Add(this.groupBox3);
-            this.groupBox8.Location = new System.Drawing.Point(16, 683);
-            this.groupBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox8.Size = new System.Drawing.Size(580, 197);
-            this.groupBox8.TabIndex = 4;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Packen";
-            // 
-            // numericPackStunden
-            // 
-            this.numericPackStunden.Location = new System.Drawing.Point(312, 84);
-            this.numericPackStunden.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.numericPackStunden.Name = "numericPackStunden";
-            this.numericPackStunden.Size = new System.Drawing.Size(144, 22);
-            this.numericPackStunden.TabIndex = 4;
-            this.numericPackStunden.TabStop = false;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(464, 84);
-            this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(69, 18);
-            this.label36.TabIndex = 92;
-            this.label36.Text = "Stunden";
-            // 
-            // buttonBlockPacken
-            // 
-            this.buttonBlockPacken.Location = new System.Drawing.Point(325, 132);
-            this.buttonBlockPacken.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonBlockPacken.Name = "buttonBlockPacken";
-            this.buttonBlockPacken.Size = new System.Drawing.Size(211, 31);
-            this.buttonBlockPacken.TabIndex = 5;
-            this.buttonBlockPacken.Text = "Block Ändern";
-            this.buttonBlockPacken.UseVisualStyleBackColor = true;
-            this.buttonBlockPacken.Click += new System.EventHandler(this.buttonBlockPacken_Click);
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(160, 116);
-            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(132, 18);
-            this.label26.TabIndex = 33;
-            this.label26.Text = "Kartons benötigt";
-            // 
-            // numericPackKartons
-            // 
-            this.numericPackKartons.Location = new System.Drawing.Point(8, 116);
-            this.numericPackKartons.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.numericPackKartons.Name = "numericPackKartons";
-            this.numericPackKartons.Size = new System.Drawing.Size(144, 22);
-            this.numericPackKartons.TabIndex = 3;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(161, 84);
-            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(126, 18);
-            this.label25.TabIndex = 31;
-            this.label25.Text = "Packer benötigt";
-            // 
-            // numericPacker
-            // 
-            this.numericPacker.Location = new System.Drawing.Point(9, 84);
-            this.numericPacker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.numericPacker.Name = "numericPacker";
-            this.numericPacker.Size = new System.Drawing.Size(144, 22);
-            this.numericPacker.TabIndex = 2;
-            // 
-            // groupBox13
-            // 
-            this.groupBox13.Controls.Add(this.radioAuspackenV);
-            this.groupBox13.Controls.Add(this.radioAuspackenNein);
-            this.groupBox13.Controls.Add(this.radioAuspackenJa);
-            this.groupBox13.Location = new System.Drawing.Point(261, 23);
-            this.groupBox13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox13.Size = new System.Drawing.Size(240, 53);
-            this.groupBox13.TabIndex = 1;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Auspacken";
-            // 
-            // radioAuspackenV
-            // 
-            this.radioAuspackenV.AutoSize = true;
-            this.radioAuspackenV.Location = new System.Drawing.Point(136, 23);
-            this.radioAuspackenV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioAuspackenV.Name = "radioAuspackenV";
-            this.radioAuspackenV.Size = new System.Drawing.Size(85, 21);
-            this.radioAuspackenV.TabIndex = 13;
-            this.radioAuspackenV.Text = "Vielleicht";
-            this.radioAuspackenV.UseVisualStyleBackColor = true;
-            // 
-            // radioAuspackenNein
-            // 
-            this.radioAuspackenNein.AutoSize = true;
-            this.radioAuspackenNein.Location = new System.Drawing.Point(64, 23);
-            this.radioAuspackenNein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioAuspackenNein.Name = "radioAuspackenNein";
-            this.radioAuspackenNein.Size = new System.Drawing.Size(58, 21);
-            this.radioAuspackenNein.TabIndex = 12;
-            this.radioAuspackenNein.Text = "Nein";
-            this.radioAuspackenNein.UseVisualStyleBackColor = true;
-            // 
-            // radioAuspackenJa
-            // 
-            this.radioAuspackenJa.AutoSize = true;
-            this.radioAuspackenJa.Location = new System.Drawing.Point(8, 23);
-            this.radioAuspackenJa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioAuspackenJa.Name = "radioAuspackenJa";
-            this.radioAuspackenJa.Size = new System.Drawing.Size(44, 21);
-            this.radioAuspackenJa.TabIndex = 11;
-            this.radioAuspackenJa.Text = "Ja";
-            this.radioAuspackenJa.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.radioEinpackenV);
-            this.groupBox3.Controls.Add(this.radioEinpackenNein);
-            this.groupBox3.Controls.Add(this.radioEinpackenJa);
-            this.groupBox3.Location = new System.Drawing.Point(9, 23);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox3.Size = new System.Drawing.Size(240, 53);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Einpacken";
-            // 
-            // radioEinpackenV
-            // 
-            this.radioEinpackenV.AutoSize = true;
-            this.radioEinpackenV.Location = new System.Drawing.Point(136, 23);
-            this.radioEinpackenV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioEinpackenV.Name = "radioEinpackenV";
-            this.radioEinpackenV.Size = new System.Drawing.Size(85, 21);
-            this.radioEinpackenV.TabIndex = 13;
-            this.radioEinpackenV.Text = "Vielleicht";
-            this.radioEinpackenV.UseVisualStyleBackColor = true;
-            // 
-            // radioEinpackenNein
-            // 
-            this.radioEinpackenNein.AutoSize = true;
-            this.radioEinpackenNein.Location = new System.Drawing.Point(64, 23);
-            this.radioEinpackenNein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioEinpackenNein.Name = "radioEinpackenNein";
-            this.radioEinpackenNein.Size = new System.Drawing.Size(58, 21);
-            this.radioEinpackenNein.TabIndex = 12;
-            this.radioEinpackenNein.Text = "Nein";
-            this.radioEinpackenNein.UseVisualStyleBackColor = true;
-            // 
-            // radioEinpackenJa
-            // 
-            this.radioEinpackenJa.AutoSize = true;
-            this.radioEinpackenJa.Location = new System.Drawing.Point(8, 23);
-            this.radioEinpackenJa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioEinpackenJa.Name = "radioEinpackenJa";
-            this.radioEinpackenJa.Size = new System.Drawing.Size(44, 21);
-            this.radioEinpackenJa.TabIndex = 11;
-            this.radioEinpackenJa.Text = "Ja";
-            this.radioEinpackenJa.UseVisualStyleBackColor = true;
             // 
             // groupBox6
             // 
@@ -1306,318 +665,6 @@
             this.textVorNachname.TabIndex = 1;
             this.textVorNachname.TabStop = false;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Controls.Add(this.groupBox22);
-            this.groupBox1.Controls.Add(this.listBoxA);
-            this.groupBox1.Controls.Add(this.label34);
-            this.groupBox1.Controls.Add(this.buttonBlockAuszug);
-            this.groupBox1.Controls.Add(this.textLaufMeterA);
-            this.groupBox1.Controls.Add(this.groupBox9);
-            this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.numericStockwerkeA);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textLandA);
-            this.groupBox1.Controls.Add(this.textOrtA);
-            this.groupBox1.Controls.Add(this.textPLZA);
-            this.groupBox1.Controls.Add(this.textHausnummerA);
-            this.groupBox1.Controls.Add(this.textStraßeA);
-            this.groupBox1.Location = new System.Drawing.Point(16, 357);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(717, 319);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Adresse Auszug";
-            // 
-            // groupBox22
-            // 
-            this.groupBox22.Controls.Add(this.radioAussenAufzugANein);
-            this.groupBox22.Controls.Add(this.radioAussenAufzugAJa);
-            this.groupBox22.Location = new System.Drawing.Point(9, 240);
-            this.groupBox22.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox22.Name = "groupBox22";
-            this.groupBox22.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox22.Size = new System.Drawing.Size(151, 53);
-            this.groupBox22.TabIndex = 94;
-            this.groupBox22.TabStop = false;
-            this.groupBox22.Text = "Aussenaufzug";
-            // 
-            // radioAussenAufzugANein
-            // 
-            this.radioAussenAufzugANein.AutoSize = true;
-            this.radioAussenAufzugANein.Location = new System.Drawing.Point(64, 23);
-            this.radioAussenAufzugANein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioAussenAufzugANein.Name = "radioAussenAufzugANein";
-            this.radioAussenAufzugANein.Size = new System.Drawing.Size(58, 21);
-            this.radioAussenAufzugANein.TabIndex = 1;
-            this.radioAussenAufzugANein.Text = "Nein";
-            this.radioAussenAufzugANein.UseVisualStyleBackColor = true;
-            // 
-            // radioAussenAufzugAJa
-            // 
-            this.radioAussenAufzugAJa.AutoSize = true;
-            this.radioAussenAufzugAJa.Location = new System.Drawing.Point(8, 23);
-            this.radioAussenAufzugAJa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioAussenAufzugAJa.Name = "radioAussenAufzugAJa";
-            this.radioAussenAufzugAJa.Size = new System.Drawing.Size(44, 21);
-            this.radioAussenAufzugAJa.TabIndex = 0;
-            this.radioAussenAufzugAJa.Text = "Ja";
-            this.radioAussenAufzugAJa.UseVisualStyleBackColor = true;
-            // 
-            // listBoxA
-            // 
-            this.listBoxA.FormattingEnabled = true;
-            this.listBoxA.ItemHeight = 16;
-            this.listBoxA.Items.AddRange(new object[] {
-            "EFH",
-            "DHH",
-            "RH",
-            "Sonst."});
-            this.listBoxA.Location = new System.Drawing.Point(508, 87);
-            this.listBoxA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.listBoxA.Name = "listBoxA";
-            this.listBoxA.Size = new System.Drawing.Size(141, 68);
-            this.listBoxA.TabIndex = 7;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(385, 171);
-            this.label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(162, 18);
-            this.label34.TabIndex = 91;
-            this.label34.Text = "Laufstrecke in Meter";
-            // 
-            // buttonBlockAuszug
-            // 
-            this.buttonBlockAuszug.Location = new System.Drawing.Point(324, 202);
-            this.buttonBlockAuszug.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonBlockAuszug.Name = "buttonBlockAuszug";
-            this.buttonBlockAuszug.Size = new System.Drawing.Size(211, 31);
-            this.buttonBlockAuszug.TabIndex = 8;
-            this.buttonBlockAuszug.Text = "Block Ändern";
-            this.buttonBlockAuszug.UseVisualStyleBackColor = true;
-            this.buttonBlockAuszug.Click += new System.EventHandler(this.buttonBlockAuszug_Click);
-            // 
-            // textLaufMeterA
-            // 
-            this.textLaufMeterA.Location = new System.Drawing.Point(257, 171);
-            this.textLaufMeterA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textLaufMeterA.Name = "textLaufMeterA";
-            this.textLaufMeterA.Size = new System.Drawing.Size(119, 22);
-            this.textLaufMeterA.TabIndex = 6;
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.radioHVZAV);
-            this.groupBox9.Controls.Add(this.radioHVZANein);
-            this.groupBox9.Controls.Add(this.radioHVZAJa);
-            this.groupBox9.Location = new System.Drawing.Point(9, 180);
-            this.groupBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox9.Size = new System.Drawing.Size(240, 53);
-            this.groupBox9.TabIndex = 14;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Halteverbotszone";
-            // 
-            // radioHVZAV
-            // 
-            this.radioHVZAV.AutoSize = true;
-            this.radioHVZAV.Location = new System.Drawing.Point(136, 23);
-            this.radioHVZAV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioHVZAV.Name = "radioHVZAV";
-            this.radioHVZAV.Size = new System.Drawing.Size(85, 21);
-            this.radioHVZAV.TabIndex = 2;
-            this.radioHVZAV.Text = "Vielleicht";
-            this.radioHVZAV.UseVisualStyleBackColor = true;
-            // 
-            // radioHVZANein
-            // 
-            this.radioHVZANein.AutoSize = true;
-            this.radioHVZANein.Location = new System.Drawing.Point(64, 23);
-            this.radioHVZANein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioHVZANein.Name = "radioHVZANein";
-            this.radioHVZANein.Size = new System.Drawing.Size(58, 21);
-            this.radioHVZANein.TabIndex = 1;
-            this.radioHVZANein.Text = "Nein";
-            this.radioHVZANein.UseVisualStyleBackColor = true;
-            // 
-            // radioHVZAJa
-            // 
-            this.radioHVZAJa.AutoSize = true;
-            this.radioHVZAJa.Location = new System.Drawing.Point(8, 23);
-            this.radioHVZAJa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioHVZAJa.Name = "radioHVZAJa";
-            this.radioHVZAJa.Size = new System.Drawing.Size(44, 21);
-            this.radioHVZAJa.TabIndex = 0;
-            this.radioHVZAJa.Text = "Ja";
-            this.radioHVZAJa.UseVisualStyleBackColor = true;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(320, 139);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(97, 18);
-            this.label18.TabIndex = 33;
-            this.label18.Text = "Stockwerke";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(372, 89);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 18);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Land";
-            // 
-            // numericStockwerkeA
-            // 
-            this.numericStockwerkeA.Location = new System.Drawing.Point(168, 139);
-            this.numericStockwerkeA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.numericStockwerkeA.Minimum = new decimal(new int[] {
-            2,
-            0,
-            0,
-            -2147483648});
-            this.numericStockwerkeA.Name = "numericStockwerkeA";
-            this.numericStockwerkeA.Size = new System.Drawing.Size(144, 22);
-            this.numericStockwerkeA.TabIndex = 5;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.radioAufzugANein);
-            this.groupBox2.Controls.Add(this.radioAufzugAJa);
-            this.groupBox2.Location = new System.Drawing.Point(9, 119);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Size = new System.Drawing.Size(151, 53);
-            this.groupBox2.TabIndex = 10;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Aufzug";
-            // 
-            // radioAufzugANein
-            // 
-            this.radioAufzugANein.AutoSize = true;
-            this.radioAufzugANein.Location = new System.Drawing.Point(64, 23);
-            this.radioAufzugANein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioAufzugANein.Name = "radioAufzugANein";
-            this.radioAufzugANein.Size = new System.Drawing.Size(58, 21);
-            this.radioAufzugANein.TabIndex = 1;
-            this.radioAufzugANein.Text = "Nein";
-            this.radioAufzugANein.UseVisualStyleBackColor = true;
-            // 
-            // radioAufzugAJa
-            // 
-            this.radioAufzugAJa.AutoSize = true;
-            this.radioAufzugAJa.Location = new System.Drawing.Point(8, 23);
-            this.radioAufzugAJa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.radioAufzugAJa.Name = "radioAufzugAJa";
-            this.radioAufzugAJa.Size = new System.Drawing.Size(44, 21);
-            this.radioAufzugAJa.TabIndex = 0;
-            this.radioAufzugAJa.Text = "Ja";
-            this.radioAufzugAJa.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(445, 57);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 18);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Ort";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(372, 57);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 18);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "PLZ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(445, 23);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 18);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Hausnummer";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(372, 23);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 18);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Straße";
-            // 
-            // textLandA
-            // 
-            this.textLandA.Location = new System.Drawing.Point(8, 87);
-            this.textLandA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textLandA.Name = "textLandA";
-            this.textLandA.Size = new System.Drawing.Size(240, 22);
-            this.textLandA.TabIndex = 4;
-            // 
-            // textOrtA
-            // 
-            this.textOrtA.Location = new System.Drawing.Point(136, 55);
-            this.textOrtA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textOrtA.Name = "textOrtA";
-            this.textOrtA.Size = new System.Drawing.Size(225, 22);
-            this.textOrtA.TabIndex = 3;
-            // 
-            // textPLZA
-            // 
-            this.textPLZA.Location = new System.Drawing.Point(8, 55);
-            this.textPLZA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textPLZA.Name = "textPLZA";
-            this.textPLZA.Size = new System.Drawing.Size(119, 22);
-            this.textPLZA.TabIndex = 2;
-            // 
-            // textHausnummerA
-            // 
-            this.textHausnummerA.Location = new System.Drawing.Point(257, 23);
-            this.textHausnummerA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textHausnummerA.Name = "textHausnummerA";
-            this.textHausnummerA.Size = new System.Drawing.Size(104, 22);
-            this.textHausnummerA.TabIndex = 1;
-            // 
-            // textStraßeA
-            // 
-            this.textStraßeA.Location = new System.Drawing.Point(8, 23);
-            this.textStraßeA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textStraßeA.Name = "textStraßeA";
-            this.textStraßeA.Size = new System.Drawing.Size(240, 22);
-            this.textStraßeA.TabIndex = 0;
-            // 
             // buttonTransaktion
             // 
             this.buttonTransaktion.Location = new System.Drawing.Point(1136, 54);
@@ -1698,7 +745,7 @@
             // 
             // textUmzugLog
             // 
-            this.textUmzugLog.Location = new System.Drawing.Point(16, 887);
+            this.textUmzugLog.Location = new System.Drawing.Point(16, 969);
             this.textUmzugLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textUmzugLog.Multiline = true;
             this.textUmzugLog.Name = "textUmzugLog";
@@ -2361,12 +1408,1353 @@
             this.checkGeschlossenAnzeigen.TabIndex = 98;
             this.checkGeschlossenAnzeigen.UseVisualStyleBackColor = true;
             // 
+            // groupBox27
+            // 
+            this.groupBox27.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox27.Controls.Add(this.buttonBlockVersicherung);
+            this.groupBox27.Controls.Add(this.radioVersicherungNein);
+            this.groupBox27.Controls.Add(this.radioVersicherungJa);
+            this.groupBox27.Location = new System.Drawing.Point(764, 897);
+            this.groupBox27.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox27.Name = "groupBox27";
+            this.groupBox27.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox27.Size = new System.Drawing.Size(580, 64);
+            this.groupBox27.TabIndex = 103;
+            this.groupBox27.TabStop = false;
+            this.groupBox27.Text = "zusätzliche Umzugsgutversicherung";
+            // 
+            // radioVersicherungNein
+            // 
+            this.radioVersicherungNein.AutoSize = true;
+            this.radioVersicherungNein.Location = new System.Drawing.Point(121, 23);
+            this.radioVersicherungNein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioVersicherungNein.Name = "radioVersicherungNein";
+            this.radioVersicherungNein.Size = new System.Drawing.Size(132, 21);
+            this.radioVersicherungNein.TabIndex = 1;
+            this.radioVersicherungNein.TabStop = true;
+            this.radioVersicherungNein.Text = "Nicht gewünscht";
+            this.radioVersicherungNein.UseVisualStyleBackColor = true;
+            // 
+            // radioVersicherungJa
+            // 
+            this.radioVersicherungJa.AutoSize = true;
+            this.radioVersicherungJa.Location = new System.Drawing.Point(8, 23);
+            this.radioVersicherungJa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioVersicherungJa.Name = "radioVersicherungJa";
+            this.radioVersicherungJa.Size = new System.Drawing.Size(99, 21);
+            this.radioVersicherungJa.TabIndex = 0;
+            this.radioVersicherungJa.TabStop = true;
+            this.radioVersicherungJa.Text = "Gewünscht";
+            this.radioVersicherungJa.UseVisualStyleBackColor = true;
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox14.Controls.Add(this.buttonBlockKueche);
+            this.groupBox14.Controls.Add(this.label27);
+            this.groupBox14.Controls.Add(this.textKuechenPreis);
+            this.groupBox14.Controls.Add(this.groupBox17);
+            this.groupBox14.Controls.Add(this.groupBox15);
+            this.groupBox14.Controls.Add(this.groupBox16);
+            this.groupBox14.Location = new System.Drawing.Point(764, 725);
+            this.groupBox14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox14.Size = new System.Drawing.Size(580, 165);
+            this.groupBox14.TabIndex = 102;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Küche";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(376, 88);
+            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(168, 18);
+            this.label27.TabIndex = 17;
+            this.label27.Text = "Pauschalbetrag (in €)";
+            // 
+            // textKuechenPreis
+            // 
+            this.textKuechenPreis.Location = new System.Drawing.Point(261, 88);
+            this.textKuechenPreis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKuechenPreis.Name = "textKuechenPreis";
+            this.textKuechenPreis.Size = new System.Drawing.Size(104, 22);
+            this.textKuechenPreis.TabIndex = 0;
+            // 
+            // groupBox17
+            // 
+            this.groupBox17.Controls.Add(this.radioKuecheExtern);
+            this.groupBox17.Controls.Add(this.radioKuecheIntern);
+            this.groupBox17.Location = new System.Drawing.Point(9, 81);
+            this.groupBox17.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox17.Name = "groupBox17";
+            this.groupBox17.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox17.Size = new System.Drawing.Size(240, 59);
+            this.groupBox17.TabIndex = 15;
+            this.groupBox17.TabStop = false;
+            this.groupBox17.Text = "Küchenbau";
+            // 
+            // radioKuecheExtern
+            // 
+            this.radioKuecheExtern.AutoSize = true;
+            this.radioKuecheExtern.Location = new System.Drawing.Point(131, 23);
+            this.radioKuecheExtern.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioKuecheExtern.Name = "radioKuecheExtern";
+            this.radioKuecheExtern.Size = new System.Drawing.Size(69, 21);
+            this.radioKuecheExtern.TabIndex = 12;
+            this.radioKuecheExtern.Text = "Extern";
+            this.radioKuecheExtern.UseVisualStyleBackColor = true;
+            // 
+            // radioKuecheIntern
+            // 
+            this.radioKuecheIntern.AutoSize = true;
+            this.radioKuecheIntern.Location = new System.Drawing.Point(8, 23);
+            this.radioKuecheIntern.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioKuecheIntern.Name = "radioKuecheIntern";
+            this.radioKuecheIntern.Size = new System.Drawing.Size(117, 21);
+            this.radioKuecheIntern.TabIndex = 11;
+            this.radioKuecheIntern.Text = "Intern (Merlin)";
+            this.radioKuecheIntern.UseVisualStyleBackColor = true;
+            // 
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.radioKuecheAufV);
+            this.groupBox15.Controls.Add(this.radioKuecheAufNein);
+            this.groupBox15.Controls.Add(this.radioKuecheAufJa);
+            this.groupBox15.Location = new System.Drawing.Point(261, 23);
+            this.groupBox15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox15.Size = new System.Drawing.Size(240, 53);
+            this.groupBox15.TabIndex = 14;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "Küche aufbauen";
+            // 
+            // radioKuecheAufV
+            // 
+            this.radioKuecheAufV.AutoSize = true;
+            this.radioKuecheAufV.Location = new System.Drawing.Point(136, 23);
+            this.radioKuecheAufV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioKuecheAufV.Name = "radioKuecheAufV";
+            this.radioKuecheAufV.Size = new System.Drawing.Size(85, 21);
+            this.radioKuecheAufV.TabIndex = 13;
+            this.radioKuecheAufV.Text = "Vielleicht";
+            this.radioKuecheAufV.UseVisualStyleBackColor = true;
+            // 
+            // radioKuecheAufNein
+            // 
+            this.radioKuecheAufNein.AutoSize = true;
+            this.radioKuecheAufNein.Location = new System.Drawing.Point(64, 23);
+            this.radioKuecheAufNein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioKuecheAufNein.Name = "radioKuecheAufNein";
+            this.radioKuecheAufNein.Size = new System.Drawing.Size(58, 21);
+            this.radioKuecheAufNein.TabIndex = 12;
+            this.radioKuecheAufNein.Text = "Nein";
+            this.radioKuecheAufNein.UseVisualStyleBackColor = true;
+            // 
+            // radioKuecheAufJa
+            // 
+            this.radioKuecheAufJa.AutoSize = true;
+            this.radioKuecheAufJa.Location = new System.Drawing.Point(8, 23);
+            this.radioKuecheAufJa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioKuecheAufJa.Name = "radioKuecheAufJa";
+            this.radioKuecheAufJa.Size = new System.Drawing.Size(44, 21);
+            this.radioKuecheAufJa.TabIndex = 11;
+            this.radioKuecheAufJa.Text = "Ja";
+            this.radioKuecheAufJa.UseVisualStyleBackColor = true;
+            // 
+            // groupBox16
+            // 
+            this.groupBox16.Controls.Add(this.radioKuecheAbV);
+            this.groupBox16.Controls.Add(this.radioKuecheAbNein);
+            this.groupBox16.Controls.Add(this.radioKuecheAbJa);
+            this.groupBox16.Location = new System.Drawing.Point(9, 23);
+            this.groupBox16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox16.Size = new System.Drawing.Size(240, 53);
+            this.groupBox16.TabIndex = 13;
+            this.groupBox16.TabStop = false;
+            this.groupBox16.Text = "Küche Abbauen";
+            // 
+            // radioKuecheAbV
+            // 
+            this.radioKuecheAbV.AutoSize = true;
+            this.radioKuecheAbV.Location = new System.Drawing.Point(136, 23);
+            this.radioKuecheAbV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioKuecheAbV.Name = "radioKuecheAbV";
+            this.radioKuecheAbV.Size = new System.Drawing.Size(85, 21);
+            this.radioKuecheAbV.TabIndex = 13;
+            this.radioKuecheAbV.Text = "Vielleicht";
+            this.radioKuecheAbV.UseVisualStyleBackColor = true;
+            // 
+            // radioKuecheAbNein
+            // 
+            this.radioKuecheAbNein.AutoSize = true;
+            this.radioKuecheAbNein.Location = new System.Drawing.Point(64, 23);
+            this.radioKuecheAbNein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioKuecheAbNein.Name = "radioKuecheAbNein";
+            this.radioKuecheAbNein.Size = new System.Drawing.Size(58, 21);
+            this.radioKuecheAbNein.TabIndex = 12;
+            this.radioKuecheAbNein.Text = "Nein";
+            this.radioKuecheAbNein.UseVisualStyleBackColor = true;
+            // 
+            // radioKuecheAbJa
+            // 
+            this.radioKuecheAbJa.AutoSize = true;
+            this.radioKuecheAbJa.Location = new System.Drawing.Point(8, 23);
+            this.radioKuecheAbJa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioKuecheAbJa.Name = "radioKuecheAbJa";
+            this.radioKuecheAbJa.Size = new System.Drawing.Size(44, 21);
+            this.radioKuecheAbJa.TabIndex = 11;
+            this.radioKuecheAbJa.Text = "Ja";
+            this.radioKuecheAbJa.UseVisualStyleBackColor = true;
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox10.Controls.Add(this.buttonBlockEinzug);
+            this.groupBox10.Controls.Add(this.groupBox26);
+            this.groupBox10.Controls.Add(this.groupBox23);
+            this.groupBox10.Controls.Add(this.listBoxB);
+            this.groupBox10.Controls.Add(this.label34);
+            this.groupBox10.Controls.Add(this.textLaufMeterB);
+            this.groupBox10.Controls.Add(this.groupBox11);
+            this.groupBox10.Controls.Add(this.label20);
+            this.groupBox10.Controls.Add(this.groupBox12);
+            this.groupBox10.Controls.Add(this.label21);
+            this.groupBox10.Controls.Add(this.label22);
+            this.groupBox10.Controls.Add(this.label23);
+            this.groupBox10.Controls.Add(this.label24);
+            this.groupBox10.Controls.Add(this.textLandB);
+            this.groupBox10.Controls.Add(this.textOrtB);
+            this.groupBox10.Controls.Add(this.textPLZB);
+            this.groupBox10.Controls.Add(this.textHausnummerB);
+            this.groupBox10.Controls.Add(this.textStraßeB);
+            this.groupBox10.Location = new System.Drawing.Point(695, 357);
+            this.groupBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox10.Size = new System.Drawing.Size(649, 361);
+            this.groupBox10.TabIndex = 101;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Adresse Einzug";
+            // 
+            // buttonBlockEinzug
+            // 
+            this.buttonBlockEinzug.Location = new System.Drawing.Point(407, 321);
+            this.buttonBlockEinzug.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonBlockEinzug.Name = "buttonBlockEinzug";
+            this.buttonBlockEinzug.Size = new System.Drawing.Size(211, 31);
+            this.buttonBlockEinzug.TabIndex = 43;
+            this.buttonBlockEinzug.Text = "Block Ändern";
+            this.buttonBlockEinzug.UseVisualStyleBackColor = true;
+            this.buttonBlockEinzug.Click += new System.EventHandler(this.buttonBlockEinzug_Click);
+            // 
+            // groupBox26
+            // 
+            this.groupBox26.Controls.Add(this.textSonderEtageB);
+            this.groupBox26.Controls.Add(this.checkDBB);
+            this.groupBox26.Controls.Add(this.checkOG4B);
+            this.groupBox26.Controls.Add(this.checkOG5B);
+            this.groupBox26.Controls.Add(this.checkOG3B);
+            this.groupBox26.Controls.Add(this.checkOG2B);
+            this.groupBox26.Controls.Add(this.checkMAB);
+            this.groupBox26.Controls.Add(this.checkOG1B);
+            this.groupBox26.Controls.Add(this.checkSTB);
+            this.groupBox26.Controls.Add(this.checkHPB);
+            this.groupBox26.Controls.Add(this.checkEGB);
+            this.groupBox26.Controls.Add(this.checkKellerB);
+            this.groupBox26.Location = new System.Drawing.Point(159, 180);
+            this.groupBox26.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox26.Name = "groupBox26";
+            this.groupBox26.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox26.Size = new System.Drawing.Size(459, 134);
+            this.groupBox26.TabIndex = 42;
+            this.groupBox26.TabStop = false;
+            this.groupBox26.Text = "Etagen";
+            // 
+            // textSonderEtageB
+            // 
+            this.textSonderEtageB.Location = new System.Drawing.Point(244, 103);
+            this.textSonderEtageB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textSonderEtageB.Name = "textSonderEtageB";
+            this.textSonderEtageB.Size = new System.Drawing.Size(119, 22);
+            this.textSonderEtageB.TabIndex = 41;
+            // 
+            // checkDBB
+            // 
+            this.checkDBB.AutoSize = true;
+            this.checkDBB.Location = new System.Drawing.Point(244, 80);
+            this.checkDBB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkDBB.Name = "checkDBB";
+            this.checkDBB.Size = new System.Drawing.Size(103, 21);
+            this.checkDBB.TabIndex = 10;
+            this.checkDBB.Text = "Dachboden";
+            this.checkDBB.UseVisualStyleBackColor = true;
+            // 
+            // checkOG4B
+            // 
+            this.checkOG4B.AutoSize = true;
+            this.checkOG4B.Location = new System.Drawing.Point(244, 23);
+            this.checkOG4B.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkOG4B.Name = "checkOG4B";
+            this.checkOG4B.Size = new System.Drawing.Size(68, 21);
+            this.checkOG4B.TabIndex = 9;
+            this.checkOG4B.Text = "4. OG";
+            this.checkOG4B.UseVisualStyleBackColor = true;
+            // 
+            // checkOG5B
+            // 
+            this.checkOG5B.AutoSize = true;
+            this.checkOG5B.Location = new System.Drawing.Point(244, 52);
+            this.checkOG5B.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkOG5B.Name = "checkOG5B";
+            this.checkOG5B.Size = new System.Drawing.Size(68, 21);
+            this.checkOG5B.TabIndex = 8;
+            this.checkOG5B.Text = "5. OG";
+            this.checkOG5B.UseVisualStyleBackColor = true;
+            // 
+            // checkOG3B
+            // 
+            this.checkOG3B.AutoSize = true;
+            this.checkOG3B.Location = new System.Drawing.Point(132, 108);
+            this.checkOG3B.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkOG3B.Name = "checkOG3B";
+            this.checkOG3B.Size = new System.Drawing.Size(68, 21);
+            this.checkOG3B.TabIndex = 7;
+            this.checkOG3B.Text = "3. OG";
+            this.checkOG3B.UseVisualStyleBackColor = true;
+            // 
+            // checkOG2B
+            // 
+            this.checkOG2B.AutoSize = true;
+            this.checkOG2B.Location = new System.Drawing.Point(132, 80);
+            this.checkOG2B.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkOG2B.Name = "checkOG2B";
+            this.checkOG2B.Size = new System.Drawing.Size(68, 21);
+            this.checkOG2B.TabIndex = 6;
+            this.checkOG2B.Text = "2. OG";
+            this.checkOG2B.UseVisualStyleBackColor = true;
+            // 
+            // checkMAB
+            // 
+            this.checkMAB.AutoSize = true;
+            this.checkMAB.Location = new System.Drawing.Point(132, 23);
+            this.checkMAB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkMAB.Name = "checkMAB";
+            this.checkMAB.Size = new System.Drawing.Size(99, 21);
+            this.checkMAB.TabIndex = 5;
+            this.checkMAB.Text = "Maisonette";
+            this.checkMAB.UseVisualStyleBackColor = true;
+            // 
+            // checkOG1B
+            // 
+            this.checkOG1B.AutoSize = true;
+            this.checkOG1B.Location = new System.Drawing.Point(132, 52);
+            this.checkOG1B.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkOG1B.Name = "checkOG1B";
+            this.checkOG1B.Size = new System.Drawing.Size(68, 21);
+            this.checkOG1B.TabIndex = 4;
+            this.checkOG1B.Text = "1. OG";
+            this.checkOG1B.UseVisualStyleBackColor = true;
+            // 
+            // checkSTB
+            // 
+            this.checkSTB.AutoSize = true;
+            this.checkSTB.Location = new System.Drawing.Point(8, 108);
+            this.checkSTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkSTB.Name = "checkSTB";
+            this.checkSTB.Size = new System.Drawing.Size(96, 21);
+            this.checkSTB.TabIndex = 3;
+            this.checkSTB.Text = "Souterrain";
+            this.checkSTB.UseVisualStyleBackColor = true;
+            // 
+            // checkHPB
+            // 
+            this.checkHPB.AutoSize = true;
+            this.checkHPB.Location = new System.Drawing.Point(8, 80);
+            this.checkHPB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkHPB.Name = "checkHPB";
+            this.checkHPB.Size = new System.Drawing.Size(109, 21);
+            this.checkHPB.TabIndex = 2;
+            this.checkHPB.Text = "Hochpaterre";
+            this.checkHPB.UseVisualStyleBackColor = true;
+            // 
+            // checkEGB
+            // 
+            this.checkEGB.AutoSize = true;
+            this.checkEGB.Location = new System.Drawing.Point(8, 52);
+            this.checkEGB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkEGB.Name = "checkEGB";
+            this.checkEGB.Size = new System.Drawing.Size(112, 21);
+            this.checkEGB.TabIndex = 1;
+            this.checkEGB.Text = "Erdgeschoss";
+            this.checkEGB.UseVisualStyleBackColor = true;
+            // 
+            // checkKellerB
+            // 
+            this.checkKellerB.AutoSize = true;
+            this.checkKellerB.Location = new System.Drawing.Point(8, 23);
+            this.checkKellerB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkKellerB.Name = "checkKellerB";
+            this.checkKellerB.Size = new System.Drawing.Size(66, 21);
+            this.checkKellerB.TabIndex = 0;
+            this.checkKellerB.Text = "Keller";
+            this.checkKellerB.UseVisualStyleBackColor = true;
+            // 
+            // groupBox23
+            // 
+            this.groupBox23.Controls.Add(this.radioAussenAufzugBNein);
+            this.groupBox23.Controls.Add(this.radioAussenAufzugBJa);
+            this.groupBox23.Location = new System.Drawing.Point(419, 119);
+            this.groupBox23.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox23.Name = "groupBox23";
+            this.groupBox23.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox23.Size = new System.Drawing.Size(151, 53);
+            this.groupBox23.TabIndex = 14;
+            this.groupBox23.TabStop = false;
+            this.groupBox23.Text = "Aussenaufzug";
+            // 
+            // radioAussenAufzugBNein
+            // 
+            this.radioAussenAufzugBNein.AutoSize = true;
+            this.radioAussenAufzugBNein.Location = new System.Drawing.Point(64, 23);
+            this.radioAussenAufzugBNein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioAussenAufzugBNein.Name = "radioAussenAufzugBNein";
+            this.radioAussenAufzugBNein.Size = new System.Drawing.Size(58, 21);
+            this.radioAussenAufzugBNein.TabIndex = 12;
+            this.radioAussenAufzugBNein.Text = "Nein";
+            this.radioAussenAufzugBNein.UseVisualStyleBackColor = true;
+            // 
+            // radioAussenAufzugBJa
+            // 
+            this.radioAussenAufzugBJa.AutoSize = true;
+            this.radioAussenAufzugBJa.Location = new System.Drawing.Point(8, 23);
+            this.radioAussenAufzugBJa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioAussenAufzugBJa.Name = "radioAussenAufzugBJa";
+            this.radioAussenAufzugBJa.Size = new System.Drawing.Size(44, 21);
+            this.radioAussenAufzugBJa.TabIndex = 11;
+            this.radioAussenAufzugBJa.Text = "Ja";
+            this.radioAussenAufzugBJa.UseVisualStyleBackColor = true;
+            // 
+            // listBoxB
+            // 
+            this.listBoxB.FormattingEnabled = true;
+            this.listBoxB.ItemHeight = 16;
+            this.listBoxB.Items.AddRange(new object[] {
+            "EFH",
+            "DHH",
+            "RH",
+            "Wohnung"});
+            this.listBoxB.Location = new System.Drawing.Point(8, 180);
+            this.listBoxB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBoxB.Name = "listBoxB";
+            this.listBoxB.Size = new System.Drawing.Size(141, 68);
+            this.listBoxB.TabIndex = 38;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(136, 322);
+            this.label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(162, 18);
+            this.label34.TabIndex = 37;
+            this.label34.Text = "Laufstrecke in Meter";
+            // 
+            // textLaufMeterB
+            // 
+            this.textLaufMeterB.Location = new System.Drawing.Point(8, 322);
+            this.textLaufMeterB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textLaufMeterB.Name = "textLaufMeterB";
+            this.textLaufMeterB.Size = new System.Drawing.Size(119, 22);
+            this.textLaufMeterB.TabIndex = 6;
+            this.textLaufMeterB.Text = "0";
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.radioHVZBV);
+            this.groupBox11.Controls.Add(this.radioHVZBNein);
+            this.groupBox11.Controls.Add(this.radioHVZBJa);
+            this.groupBox11.Location = new System.Drawing.Point(168, 119);
+            this.groupBox11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox11.Size = new System.Drawing.Size(240, 53);
+            this.groupBox11.TabIndex = 14;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Halteverbotszone";
+            // 
+            // radioHVZBV
+            // 
+            this.radioHVZBV.AutoSize = true;
+            this.radioHVZBV.Location = new System.Drawing.Point(136, 23);
+            this.radioHVZBV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioHVZBV.Name = "radioHVZBV";
+            this.radioHVZBV.Size = new System.Drawing.Size(85, 21);
+            this.radioHVZBV.TabIndex = 13;
+            this.radioHVZBV.Text = "Vielleicht";
+            this.radioHVZBV.UseVisualStyleBackColor = true;
+            // 
+            // radioHVZBNein
+            // 
+            this.radioHVZBNein.AutoSize = true;
+            this.radioHVZBNein.Location = new System.Drawing.Point(64, 23);
+            this.radioHVZBNein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioHVZBNein.Name = "radioHVZBNein";
+            this.radioHVZBNein.Size = new System.Drawing.Size(58, 21);
+            this.radioHVZBNein.TabIndex = 12;
+            this.radioHVZBNein.Text = "Nein";
+            this.radioHVZBNein.UseVisualStyleBackColor = true;
+            // 
+            // radioHVZBJa
+            // 
+            this.radioHVZBJa.AutoSize = true;
+            this.radioHVZBJa.Location = new System.Drawing.Point(8, 23);
+            this.radioHVZBJa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioHVZBJa.Name = "radioHVZBJa";
+            this.radioHVZBJa.Size = new System.Drawing.Size(44, 21);
+            this.radioHVZBJa.TabIndex = 11;
+            this.radioHVZBJa.Text = "Ja";
+            this.radioHVZBJa.UseVisualStyleBackColor = true;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(372, 89);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(44, 18);
+            this.label20.TabIndex = 9;
+            this.label20.Text = "Land";
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.radioAufzugBNein);
+            this.groupBox12.Controls.Add(this.radioAufzugBJa);
+            this.groupBox12.Location = new System.Drawing.Point(9, 119);
+            this.groupBox12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox12.Size = new System.Drawing.Size(151, 53);
+            this.groupBox12.TabIndex = 10;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Aufzug";
+            // 
+            // radioAufzugBNein
+            // 
+            this.radioAufzugBNein.AutoSize = true;
+            this.radioAufzugBNein.Location = new System.Drawing.Point(64, 23);
+            this.radioAufzugBNein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioAufzugBNein.Name = "radioAufzugBNein";
+            this.radioAufzugBNein.Size = new System.Drawing.Size(58, 21);
+            this.radioAufzugBNein.TabIndex = 12;
+            this.radioAufzugBNein.Text = "Nein";
+            this.radioAufzugBNein.UseVisualStyleBackColor = true;
+            // 
+            // radioAufzugBJa
+            // 
+            this.radioAufzugBJa.AutoSize = true;
+            this.radioAufzugBJa.Location = new System.Drawing.Point(8, 23);
+            this.radioAufzugBJa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioAufzugBJa.Name = "radioAufzugBJa";
+            this.radioAufzugBJa.Size = new System.Drawing.Size(44, 21);
+            this.radioAufzugBJa.TabIndex = 11;
+            this.radioAufzugBJa.Text = "Ja";
+            this.radioAufzugBJa.UseVisualStyleBackColor = true;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(445, 57);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(32, 18);
+            this.label21.TabIndex = 8;
+            this.label21.Text = "Ort";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(372, 57);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(38, 18);
+            this.label22.TabIndex = 7;
+            this.label22.Text = "PLZ";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(445, 23);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(108, 18);
+            this.label23.TabIndex = 6;
+            this.label23.Text = "Hausnummer";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(372, 23);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(58, 18);
+            this.label24.TabIndex = 5;
+            this.label24.Text = "Straße";
+            // 
+            // textLandB
+            // 
+            this.textLandB.Location = new System.Drawing.Point(8, 87);
+            this.textLandB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textLandB.Name = "textLandB";
+            this.textLandB.Size = new System.Drawing.Size(240, 22);
+            this.textLandB.TabIndex = 4;
+            this.textLandB.Text = "Deutschland";
+            // 
+            // textOrtB
+            // 
+            this.textOrtB.Location = new System.Drawing.Point(136, 55);
+            this.textOrtB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textOrtB.Name = "textOrtB";
+            this.textOrtB.Size = new System.Drawing.Size(225, 22);
+            this.textOrtB.TabIndex = 3;
+            // 
+            // textPLZB
+            // 
+            this.textPLZB.Location = new System.Drawing.Point(8, 55);
+            this.textPLZB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textPLZB.Name = "textPLZB";
+            this.textPLZB.Size = new System.Drawing.Size(119, 22);
+            this.textPLZB.TabIndex = 2;
+            this.textPLZB.Text = "0";
+            // 
+            // textHausnummerB
+            // 
+            this.textHausnummerB.Location = new System.Drawing.Point(257, 23);
+            this.textHausnummerB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textHausnummerB.Name = "textHausnummerB";
+            this.textHausnummerB.Size = new System.Drawing.Size(104, 22);
+            this.textHausnummerB.TabIndex = 1;
+            // 
+            // textStraßeB
+            // 
+            this.textStraßeB.Location = new System.Drawing.Point(8, 23);
+            this.textStraßeB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textStraßeB.Name = "textStraßeB";
+            this.textStraßeB.Size = new System.Drawing.Size(240, 22);
+            this.textStraßeB.TabIndex = 0;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox8.Controls.Add(this.buttonBlockPacken);
+            this.groupBox8.Controls.Add(this.numericAusPackStunden);
+            this.groupBox8.Controls.Add(this.label1);
+            this.groupBox8.Controls.Add(this.label19);
+            this.groupBox8.Controls.Add(this.numericAusPacker);
+            this.groupBox8.Controls.Add(this.numericEinPackStunden);
+            this.groupBox8.Controls.Add(this.label35);
+            this.groupBox8.Controls.Add(this.label26);
+            this.groupBox8.Controls.Add(this.numericEinPackKartons);
+            this.groupBox8.Controls.Add(this.label25);
+            this.groupBox8.Controls.Add(this.numericEinPacker);
+            this.groupBox8.Controls.Add(this.groupBox13);
+            this.groupBox8.Controls.Add(this.groupBox3);
+            this.groupBox8.Location = new System.Drawing.Point(16, 725);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox8.Size = new System.Drawing.Size(740, 236);
+            this.groupBox8.TabIndex = 100;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Packen";
+            // 
+            // buttonBlockPacken
+            // 
+            this.buttonBlockPacken.Location = new System.Drawing.Point(376, 148);
+            this.buttonBlockPacken.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonBlockPacken.Name = "buttonBlockPacken";
+            this.buttonBlockPacken.Size = new System.Drawing.Size(211, 31);
+            this.buttonBlockPacken.TabIndex = 42;
+            this.buttonBlockPacken.Text = "Block Ändern";
+            this.buttonBlockPacken.UseVisualStyleBackColor = true;
+            this.buttonBlockPacken.Click += new System.EventHandler(this.buttonBlockPacken_Click_1);
+            // 
+            // numericAusPackStunden
+            // 
+            this.numericAusPackStunden.Location = new System.Drawing.Point(376, 116);
+            this.numericAusPackStunden.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericAusPackStunden.Name = "numericAusPackStunden";
+            this.numericAusPackStunden.Size = new System.Drawing.Size(144, 22);
+            this.numericAusPackStunden.TabIndex = 37;
+            this.numericAusPackStunden.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(528, 116);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 18);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "Stunden";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(528, 84);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(126, 18);
+            this.label19.TabIndex = 36;
+            this.label19.Text = "Packer benötigt";
+            // 
+            // numericAusPacker
+            // 
+            this.numericAusPacker.Location = new System.Drawing.Point(376, 84);
+            this.numericAusPacker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericAusPacker.Name = "numericAusPacker";
+            this.numericAusPacker.Size = new System.Drawing.Size(144, 22);
+            this.numericAusPacker.TabIndex = 34;
+            // 
+            // numericEinPackStunden
+            // 
+            this.numericEinPackStunden.Location = new System.Drawing.Point(9, 116);
+            this.numericEinPackStunden.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericEinPackStunden.Name = "numericEinPackStunden";
+            this.numericEinPackStunden.Size = new System.Drawing.Size(144, 22);
+            this.numericEinPackStunden.TabIndex = 32;
+            this.numericEinPackStunden.TabStop = false;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(161, 116);
+            this.label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(69, 18);
+            this.label35.TabIndex = 33;
+            this.label35.Text = "Stunden";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(161, 148);
+            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(132, 18);
+            this.label26.TabIndex = 33;
+            this.label26.Text = "Kartons benötigt";
+            // 
+            // numericEinPackKartons
+            // 
+            this.numericEinPackKartons.Location = new System.Drawing.Point(9, 148);
+            this.numericEinPackKartons.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericEinPackKartons.Name = "numericEinPackKartons";
+            this.numericEinPackKartons.Size = new System.Drawing.Size(144, 22);
+            this.numericEinPackKartons.TabIndex = 1;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(161, 84);
+            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(126, 18);
+            this.label25.TabIndex = 31;
+            this.label25.Text = "Packer benötigt";
+            // 
+            // numericEinPacker
+            // 
+            this.numericEinPacker.Location = new System.Drawing.Point(9, 84);
+            this.numericEinPacker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericEinPacker.Name = "numericEinPacker";
+            this.numericEinPacker.Size = new System.Drawing.Size(144, 22);
+            this.numericEinPacker.TabIndex = 0;
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.radioAuspackenV);
+            this.groupBox13.Controls.Add(this.radioAuspackenNein);
+            this.groupBox13.Controls.Add(this.radioAuspackenJa);
+            this.groupBox13.Location = new System.Drawing.Point(376, 23);
+            this.groupBox13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox13.Size = new System.Drawing.Size(240, 53);
+            this.groupBox13.TabIndex = 14;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Auspacken";
+            // 
+            // radioAuspackenV
+            // 
+            this.radioAuspackenV.AutoSize = true;
+            this.radioAuspackenV.Location = new System.Drawing.Point(136, 23);
+            this.radioAuspackenV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioAuspackenV.Name = "radioAuspackenV";
+            this.radioAuspackenV.Size = new System.Drawing.Size(85, 21);
+            this.radioAuspackenV.TabIndex = 13;
+            this.radioAuspackenV.Text = "Vielleicht";
+            this.radioAuspackenV.UseVisualStyleBackColor = true;
+            // 
+            // radioAuspackenNein
+            // 
+            this.radioAuspackenNein.AutoSize = true;
+            this.radioAuspackenNein.Location = new System.Drawing.Point(64, 23);
+            this.radioAuspackenNein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioAuspackenNein.Name = "radioAuspackenNein";
+            this.radioAuspackenNein.Size = new System.Drawing.Size(58, 21);
+            this.radioAuspackenNein.TabIndex = 12;
+            this.radioAuspackenNein.Text = "Nein";
+            this.radioAuspackenNein.UseVisualStyleBackColor = true;
+            // 
+            // radioAuspackenJa
+            // 
+            this.radioAuspackenJa.AutoSize = true;
+            this.radioAuspackenJa.Location = new System.Drawing.Point(8, 23);
+            this.radioAuspackenJa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioAuspackenJa.Name = "radioAuspackenJa";
+            this.radioAuspackenJa.Size = new System.Drawing.Size(44, 21);
+            this.radioAuspackenJa.TabIndex = 11;
+            this.radioAuspackenJa.Text = "Ja";
+            this.radioAuspackenJa.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.radioEinpackenV);
+            this.groupBox3.Controls.Add(this.radioEinpackenNein);
+            this.groupBox3.Controls.Add(this.radioEinpackenJa);
+            this.groupBox3.Location = new System.Drawing.Point(9, 23);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Size = new System.Drawing.Size(240, 53);
+            this.groupBox3.TabIndex = 13;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Einpacken";
+            // 
+            // radioEinpackenV
+            // 
+            this.radioEinpackenV.AutoSize = true;
+            this.radioEinpackenV.Location = new System.Drawing.Point(136, 23);
+            this.radioEinpackenV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioEinpackenV.Name = "radioEinpackenV";
+            this.radioEinpackenV.Size = new System.Drawing.Size(85, 21);
+            this.radioEinpackenV.TabIndex = 13;
+            this.radioEinpackenV.Text = "Vielleicht";
+            this.radioEinpackenV.UseVisualStyleBackColor = true;
+            // 
+            // radioEinpackenNein
+            // 
+            this.radioEinpackenNein.AutoSize = true;
+            this.radioEinpackenNein.Location = new System.Drawing.Point(64, 23);
+            this.radioEinpackenNein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioEinpackenNein.Name = "radioEinpackenNein";
+            this.radioEinpackenNein.Size = new System.Drawing.Size(58, 21);
+            this.radioEinpackenNein.TabIndex = 12;
+            this.radioEinpackenNein.Text = "Nein";
+            this.radioEinpackenNein.UseVisualStyleBackColor = true;
+            // 
+            // radioEinpackenJa
+            // 
+            this.radioEinpackenJa.AutoSize = true;
+            this.radioEinpackenJa.Location = new System.Drawing.Point(8, 23);
+            this.radioEinpackenJa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioEinpackenJa.Name = "radioEinpackenJa";
+            this.radioEinpackenJa.Size = new System.Drawing.Size(44, 21);
+            this.radioEinpackenJa.TabIndex = 11;
+            this.radioEinpackenJa.Text = "Ja";
+            this.radioEinpackenJa.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox1.Controls.Add(this.ButtonBlockAuszug);
+            this.groupBox1.Controls.Add(this.groupBox25);
+            this.groupBox1.Controls.Add(this.groupBox22);
+            this.groupBox1.Controls.Add(this.listBoxA);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.textLaufMeterA);
+            this.groupBox1.Controls.Add(this.groupBox9);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label18);
+            this.groupBox1.Controls.Add(this.label36);
+            this.groupBox1.Controls.Add(this.textLandA);
+            this.groupBox1.Controls.Add(this.textOrtA);
+            this.groupBox1.Controls.Add(this.textPLZA);
+            this.groupBox1.Controls.Add(this.textHausnummerA);
+            this.groupBox1.Controls.Add(this.textStraßeA);
+            this.groupBox1.Location = new System.Drawing.Point(16, 357);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(671, 361);
+            this.groupBox1.TabIndex = 99;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Adresse Auszug";
+            // 
+            // ButtonBlockAuszug
+            // 
+            this.ButtonBlockAuszug.Location = new System.Drawing.Point(441, 322);
+            this.ButtonBlockAuszug.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonBlockAuszug.Name = "ButtonBlockAuszug";
+            this.ButtonBlockAuszug.Size = new System.Drawing.Size(211, 31);
+            this.ButtonBlockAuszug.TabIndex = 41;
+            this.ButtonBlockAuszug.Text = "Block Ändern";
+            this.ButtonBlockAuszug.UseVisualStyleBackColor = true;
+            this.ButtonBlockAuszug.Click += new System.EventHandler(this.ButtonBlockAuszug_Click_1);
+            // 
+            // groupBox25
+            // 
+            this.groupBox25.Controls.Add(this.textSonderEtageA);
+            this.groupBox25.Controls.Add(this.checkDBA);
+            this.groupBox25.Controls.Add(this.checkOG4A);
+            this.groupBox25.Controls.Add(this.checkOG5A);
+            this.groupBox25.Controls.Add(this.checkOG3A);
+            this.groupBox25.Controls.Add(this.checkOG2A);
+            this.groupBox25.Controls.Add(this.checkMAA);
+            this.groupBox25.Controls.Add(this.checkOG1A);
+            this.groupBox25.Controls.Add(this.checkSTA);
+            this.groupBox25.Controls.Add(this.checkHPA);
+            this.groupBox25.Controls.Add(this.checkEGA);
+            this.groupBox25.Controls.Add(this.checkKellerA);
+            this.groupBox25.Location = new System.Drawing.Point(160, 181);
+            this.groupBox25.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox25.Name = "groupBox25";
+            this.groupBox25.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox25.Size = new System.Drawing.Size(492, 134);
+            this.groupBox25.TabIndex = 40;
+            this.groupBox25.TabStop = false;
+            this.groupBox25.Text = "Etagen";
+            // 
+            // textSonderEtageA
+            // 
+            this.textSonderEtageA.Location = new System.Drawing.Point(244, 103);
+            this.textSonderEtageA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textSonderEtageA.Name = "textSonderEtageA";
+            this.textSonderEtageA.Size = new System.Drawing.Size(119, 22);
+            this.textSonderEtageA.TabIndex = 41;
+            // 
+            // checkDBA
+            // 
+            this.checkDBA.AutoSize = true;
+            this.checkDBA.Location = new System.Drawing.Point(244, 80);
+            this.checkDBA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkDBA.Name = "checkDBA";
+            this.checkDBA.Size = new System.Drawing.Size(103, 21);
+            this.checkDBA.TabIndex = 10;
+            this.checkDBA.Text = "Dachboden";
+            this.checkDBA.UseVisualStyleBackColor = true;
+            // 
+            // checkOG4A
+            // 
+            this.checkOG4A.AutoSize = true;
+            this.checkOG4A.Location = new System.Drawing.Point(244, 23);
+            this.checkOG4A.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkOG4A.Name = "checkOG4A";
+            this.checkOG4A.Size = new System.Drawing.Size(68, 21);
+            this.checkOG4A.TabIndex = 9;
+            this.checkOG4A.Text = "4. OG";
+            this.checkOG4A.UseVisualStyleBackColor = true;
+            // 
+            // checkOG5A
+            // 
+            this.checkOG5A.AutoSize = true;
+            this.checkOG5A.Location = new System.Drawing.Point(244, 52);
+            this.checkOG5A.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkOG5A.Name = "checkOG5A";
+            this.checkOG5A.Size = new System.Drawing.Size(68, 21);
+            this.checkOG5A.TabIndex = 8;
+            this.checkOG5A.Text = "5. OG";
+            this.checkOG5A.UseVisualStyleBackColor = true;
+            // 
+            // checkOG3A
+            // 
+            this.checkOG3A.AutoSize = true;
+            this.checkOG3A.Location = new System.Drawing.Point(132, 108);
+            this.checkOG3A.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkOG3A.Name = "checkOG3A";
+            this.checkOG3A.Size = new System.Drawing.Size(68, 21);
+            this.checkOG3A.TabIndex = 7;
+            this.checkOG3A.Text = "3. OG";
+            this.checkOG3A.UseVisualStyleBackColor = true;
+            // 
+            // checkOG2A
+            // 
+            this.checkOG2A.AutoSize = true;
+            this.checkOG2A.Location = new System.Drawing.Point(132, 80);
+            this.checkOG2A.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkOG2A.Name = "checkOG2A";
+            this.checkOG2A.Size = new System.Drawing.Size(68, 21);
+            this.checkOG2A.TabIndex = 6;
+            this.checkOG2A.Text = "2. OG";
+            this.checkOG2A.UseVisualStyleBackColor = true;
+            // 
+            // checkMAA
+            // 
+            this.checkMAA.AutoSize = true;
+            this.checkMAA.Location = new System.Drawing.Point(132, 23);
+            this.checkMAA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkMAA.Name = "checkMAA";
+            this.checkMAA.Size = new System.Drawing.Size(99, 21);
+            this.checkMAA.TabIndex = 5;
+            this.checkMAA.Text = "Maisonette";
+            this.checkMAA.UseVisualStyleBackColor = true;
+            // 
+            // checkOG1A
+            // 
+            this.checkOG1A.AutoSize = true;
+            this.checkOG1A.Location = new System.Drawing.Point(132, 52);
+            this.checkOG1A.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkOG1A.Name = "checkOG1A";
+            this.checkOG1A.Size = new System.Drawing.Size(68, 21);
+            this.checkOG1A.TabIndex = 4;
+            this.checkOG1A.Text = "1. OG";
+            this.checkOG1A.UseVisualStyleBackColor = true;
+            // 
+            // checkSTA
+            // 
+            this.checkSTA.AutoSize = true;
+            this.checkSTA.Location = new System.Drawing.Point(8, 108);
+            this.checkSTA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkSTA.Name = "checkSTA";
+            this.checkSTA.Size = new System.Drawing.Size(96, 21);
+            this.checkSTA.TabIndex = 3;
+            this.checkSTA.Text = "Souterrain";
+            this.checkSTA.UseVisualStyleBackColor = true;
+            // 
+            // checkHPA
+            // 
+            this.checkHPA.AutoSize = true;
+            this.checkHPA.Location = new System.Drawing.Point(8, 80);
+            this.checkHPA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkHPA.Name = "checkHPA";
+            this.checkHPA.Size = new System.Drawing.Size(109, 21);
+            this.checkHPA.TabIndex = 2;
+            this.checkHPA.Text = "Hochpaterre";
+            this.checkHPA.UseVisualStyleBackColor = true;
+            // 
+            // checkEGA
+            // 
+            this.checkEGA.AutoSize = true;
+            this.checkEGA.Location = new System.Drawing.Point(8, 52);
+            this.checkEGA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkEGA.Name = "checkEGA";
+            this.checkEGA.Size = new System.Drawing.Size(112, 21);
+            this.checkEGA.TabIndex = 1;
+            this.checkEGA.Text = "Erdgeschoss";
+            this.checkEGA.UseVisualStyleBackColor = true;
+            // 
+            // checkKellerA
+            // 
+            this.checkKellerA.AutoSize = true;
+            this.checkKellerA.Location = new System.Drawing.Point(8, 23);
+            this.checkKellerA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkKellerA.Name = "checkKellerA";
+            this.checkKellerA.Size = new System.Drawing.Size(66, 21);
+            this.checkKellerA.TabIndex = 0;
+            this.checkKellerA.Text = "Keller";
+            this.checkKellerA.UseVisualStyleBackColor = true;
+            // 
+            // groupBox22
+            // 
+            this.groupBox22.Controls.Add(this.radioAussenAufzugANein);
+            this.groupBox22.Controls.Add(this.radioAussenAufzugAJa);
+            this.groupBox22.Location = new System.Drawing.Point(416, 119);
+            this.groupBox22.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox22.Name = "groupBox22";
+            this.groupBox22.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox22.Size = new System.Drawing.Size(151, 53);
+            this.groupBox22.TabIndex = 13;
+            this.groupBox22.TabStop = false;
+            this.groupBox22.Text = "Aussenaufzug";
+            // 
+            // radioAussenAufzugANein
+            // 
+            this.radioAussenAufzugANein.AutoSize = true;
+            this.radioAussenAufzugANein.Location = new System.Drawing.Point(64, 23);
+            this.radioAussenAufzugANein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioAussenAufzugANein.Name = "radioAussenAufzugANein";
+            this.radioAussenAufzugANein.Size = new System.Drawing.Size(58, 21);
+            this.radioAussenAufzugANein.TabIndex = 12;
+            this.radioAussenAufzugANein.Text = "Nein";
+            this.radioAussenAufzugANein.UseVisualStyleBackColor = true;
+            // 
+            // radioAussenAufzugAJa
+            // 
+            this.radioAussenAufzugAJa.AutoSize = true;
+            this.radioAussenAufzugAJa.Location = new System.Drawing.Point(8, 23);
+            this.radioAussenAufzugAJa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioAussenAufzugAJa.Name = "radioAussenAufzugAJa";
+            this.radioAussenAufzugAJa.Size = new System.Drawing.Size(44, 21);
+            this.radioAussenAufzugAJa.TabIndex = 11;
+            this.radioAussenAufzugAJa.Text = "Ja";
+            this.radioAussenAufzugAJa.UseVisualStyleBackColor = true;
+            // 
+            // listBoxA
+            // 
+            this.listBoxA.FormattingEnabled = true;
+            this.listBoxA.ItemHeight = 16;
+            this.listBoxA.Items.AddRange(new object[] {
+            "EFH",
+            "DHH",
+            "RH",
+            "Wohnung"});
+            this.listBoxA.Location = new System.Drawing.Point(8, 180);
+            this.listBoxA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBoxA.Name = "listBoxA";
+            this.listBoxA.Size = new System.Drawing.Size(141, 68);
+            this.listBoxA.TabIndex = 39;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(136, 321);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(162, 18);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "Laufstrecke in Meter";
+            // 
+            // textLaufMeterA
+            // 
+            this.textLaufMeterA.Location = new System.Drawing.Point(8, 321);
+            this.textLaufMeterA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textLaufMeterA.Name = "textLaufMeterA";
+            this.textLaufMeterA.Size = new System.Drawing.Size(119, 22);
+            this.textLaufMeterA.TabIndex = 6;
+            this.textLaufMeterA.Text = "0";
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.radioHVZAV);
+            this.groupBox9.Controls.Add(this.radioHVZANein);
+            this.groupBox9.Controls.Add(this.radioHVZAJa);
+            this.groupBox9.Location = new System.Drawing.Point(168, 119);
+            this.groupBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox9.Size = new System.Drawing.Size(240, 53);
+            this.groupBox9.TabIndex = 14;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Halteverbotszone";
+            // 
+            // radioHVZAV
+            // 
+            this.radioHVZAV.AutoSize = true;
+            this.radioHVZAV.Location = new System.Drawing.Point(136, 23);
+            this.radioHVZAV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioHVZAV.Name = "radioHVZAV";
+            this.radioHVZAV.Size = new System.Drawing.Size(85, 21);
+            this.radioHVZAV.TabIndex = 13;
+            this.radioHVZAV.Text = "Vielleicht";
+            this.radioHVZAV.UseVisualStyleBackColor = true;
+            // 
+            // radioHVZANein
+            // 
+            this.radioHVZANein.AutoSize = true;
+            this.radioHVZANein.Location = new System.Drawing.Point(64, 23);
+            this.radioHVZANein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioHVZANein.Name = "radioHVZANein";
+            this.radioHVZANein.Size = new System.Drawing.Size(58, 21);
+            this.radioHVZANein.TabIndex = 12;
+            this.radioHVZANein.Text = "Nein";
+            this.radioHVZANein.UseVisualStyleBackColor = true;
+            // 
+            // radioHVZAJa
+            // 
+            this.radioHVZAJa.AutoSize = true;
+            this.radioHVZAJa.Location = new System.Drawing.Point(8, 23);
+            this.radioHVZAJa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioHVZAJa.Name = "radioHVZAJa";
+            this.radioHVZAJa.Size = new System.Drawing.Size(44, 21);
+            this.radioHVZAJa.TabIndex = 11;
+            this.radioHVZAJa.Text = "Ja";
+            this.radioHVZAJa.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(372, 89);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 18);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Land";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.radioAufzugANein);
+            this.groupBox2.Controls.Add(this.radioAufzugAJa);
+            this.groupBox2.Location = new System.Drawing.Point(9, 119);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(151, 53);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Aufzug";
+            // 
+            // radioAufzugANein
+            // 
+            this.radioAufzugANein.AutoSize = true;
+            this.radioAufzugANein.Location = new System.Drawing.Point(64, 23);
+            this.radioAufzugANein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioAufzugANein.Name = "radioAufzugANein";
+            this.radioAufzugANein.Size = new System.Drawing.Size(58, 21);
+            this.radioAufzugANein.TabIndex = 12;
+            this.radioAufzugANein.Text = "Nein";
+            this.radioAufzugANein.UseVisualStyleBackColor = true;
+            // 
+            // radioAufzugAJa
+            // 
+            this.radioAufzugAJa.AutoSize = true;
+            this.radioAufzugAJa.Location = new System.Drawing.Point(8, 23);
+            this.radioAufzugAJa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioAufzugAJa.Name = "radioAufzugAJa";
+            this.radioAufzugAJa.Size = new System.Drawing.Size(44, 21);
+            this.radioAufzugAJa.TabIndex = 11;
+            this.radioAufzugAJa.Text = "Ja";
+            this.radioAufzugAJa.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(445, 57);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(32, 18);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Ort";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(372, 57);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 18);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "PLZ";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(445, 23);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(108, 18);
+            this.label18.TabIndex = 3;
+            this.label18.Text = "Hausnummer";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(372, 23);
+            this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(58, 18);
+            this.label36.TabIndex = 2;
+            this.label36.Text = "Straße";
+            // 
+            // textLandA
+            // 
+            this.textLandA.Location = new System.Drawing.Point(8, 87);
+            this.textLandA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textLandA.Name = "textLandA";
+            this.textLandA.Size = new System.Drawing.Size(240, 22);
+            this.textLandA.TabIndex = 4;
+            // 
+            // textOrtA
+            // 
+            this.textOrtA.Location = new System.Drawing.Point(136, 55);
+            this.textOrtA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textOrtA.Name = "textOrtA";
+            this.textOrtA.Size = new System.Drawing.Size(225, 22);
+            this.textOrtA.TabIndex = 3;
+            // 
+            // textPLZA
+            // 
+            this.textPLZA.Location = new System.Drawing.Point(8, 55);
+            this.textPLZA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textPLZA.Name = "textPLZA";
+            this.textPLZA.Size = new System.Drawing.Size(119, 22);
+            this.textPLZA.TabIndex = 2;
+            // 
+            // textHausnummerA
+            // 
+            this.textHausnummerA.Location = new System.Drawing.Point(257, 23);
+            this.textHausnummerA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textHausnummerA.Name = "textHausnummerA";
+            this.textHausnummerA.Size = new System.Drawing.Size(104, 22);
+            this.textHausnummerA.TabIndex = 1;
+            // 
+            // textStraßeA
+            // 
+            this.textStraßeA.Location = new System.Drawing.Point(8, 23);
+            this.textStraßeA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textStraßeA.Name = "textStraßeA";
+            this.textStraßeA.Size = new System.Drawing.Size(240, 22);
+            this.textStraßeA.TabIndex = 0;
+            // 
+            // buttonBlockKueche
+            // 
+            this.buttonBlockKueche.Location = new System.Drawing.Point(261, 118);
+            this.buttonBlockKueche.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonBlockKueche.Name = "buttonBlockKueche";
+            this.buttonBlockKueche.Size = new System.Drawing.Size(211, 31);
+            this.buttonBlockKueche.TabIndex = 44;
+            this.buttonBlockKueche.Text = "Block Ändern";
+            this.buttonBlockKueche.UseVisualStyleBackColor = true;
+            this.buttonBlockKueche.Click += new System.EventHandler(this.buttonBlockKueche_Click_1);
+            // 
+            // buttonBlockVersicherung
+            // 
+            this.buttonBlockVersicherung.Location = new System.Drawing.Point(261, 18);
+            this.buttonBlockVersicherung.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonBlockVersicherung.Name = "buttonBlockVersicherung";
+            this.buttonBlockVersicherung.Size = new System.Drawing.Size(211, 31);
+            this.buttonBlockVersicherung.TabIndex = 104;
+            this.buttonBlockVersicherung.Text = "Block Ändern";
+            this.buttonBlockVersicherung.UseVisualStyleBackColor = true;
+            this.buttonBlockVersicherung.Click += new System.EventHandler(this.buttonBlockVersicherung_Click);
+            // 
             // UmzuegeSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1906, 1037);
+            this.ClientSize = new System.Drawing.Size(1914, 1045);
+            this.Controls.Add(this.groupBox27);
+            this.Controls.Add(this.groupBox14);
+            this.Controls.Add(this.groupBox10);
+            this.Controls.Add(this.groupBox8);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.checkGeschlossenAnzeigen);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.buttonLaufzettel);
@@ -2389,42 +2777,12 @@
             this.Controls.Add(this.buttonNameSuche);
             this.Controls.Add(this.buttonNrSuche);
             this.Controls.Add(this.numericSucheKundennr);
-            this.Controls.Add(this.groupBox14);
-            this.Controls.Add(this.groupBox10);
-            this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UmzuegeSearch";
             this.Text = "UmzuegeSearch";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.groupBox14.ResumeLayout(false);
-            this.groupBox14.PerformLayout();
-            this.groupBox17.ResumeLayout(false);
-            this.groupBox17.PerformLayout();
-            this.groupBox15.ResumeLayout(false);
-            this.groupBox15.PerformLayout();
-            this.groupBox16.ResumeLayout(false);
-            this.groupBox16.PerformLayout();
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
-            this.groupBox23.ResumeLayout(false);
-            this.groupBox23.PerformLayout();
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericStockwerkeB)).EndInit();
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericPackStunden)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericPackKartons)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericPacker)).EndInit();
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox13.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericLKWGroß)).EndInit();
@@ -2438,15 +2796,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericKleiderkisten)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox22.ResumeLayout(false);
-            this.groupBox22.PerformLayout();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericStockwerkeA)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericSucheKundennr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUmzugsnummer)).EndInit();
             this.groupBox4.ResumeLayout(false);
@@ -2470,59 +2819,53 @@
             this.groupBox18.PerformLayout();
             this.groupBox21.ResumeLayout(false);
             this.groupBox21.PerformLayout();
+            this.groupBox27.ResumeLayout(false);
+            this.groupBox27.PerformLayout();
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
+            this.groupBox17.ResumeLayout(false);
+            this.groupBox17.PerformLayout();
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox15.PerformLayout();
+            this.groupBox16.ResumeLayout(false);
+            this.groupBox16.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            this.groupBox26.ResumeLayout(false);
+            this.groupBox26.PerformLayout();
+            this.groupBox23.ResumeLayout(false);
+            this.groupBox23.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericAusPackStunden)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericAusPacker)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEinPackStunden)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEinPackKartons)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEinPacker)).EndInit();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox25.ResumeLayout(false);
+            this.groupBox25.PerformLayout();
+            this.groupBox22.ResumeLayout(false);
+            this.groupBox22.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox groupBox14;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox textKuechenPreis;
-        private System.Windows.Forms.GroupBox groupBox17;
-        private System.Windows.Forms.RadioButton radioKuecheExtern;
-        private System.Windows.Forms.RadioButton radioKuecheIntern;
-        private System.Windows.Forms.GroupBox groupBox15;
-        private System.Windows.Forms.RadioButton radioKuecheAufV;
-        private System.Windows.Forms.RadioButton radioKuecheAufNein;
-        private System.Windows.Forms.RadioButton radioKuecheAufJa;
-        private System.Windows.Forms.GroupBox groupBox16;
-        private System.Windows.Forms.RadioButton radioKuecheAbV;
-        private System.Windows.Forms.RadioButton radioKuecheAbNein;
-        private System.Windows.Forms.RadioButton radioKuecheAbJa;
-        private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.RadioButton radioHVZBV;
-        private System.Windows.Forms.RadioButton radioHVZBNein;
-        private System.Windows.Forms.RadioButton radioHVZBJa;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.NumericUpDown numericStockwerkeB;
-        private System.Windows.Forms.GroupBox groupBox12;
-        private System.Windows.Forms.RadioButton radioAufzugBNein;
-        private System.Windows.Forms.RadioButton radioAufzugBJa;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox textLandB;
-        private System.Windows.Forms.TextBox textOrtB;
-        private System.Windows.Forms.TextBox textPLZB;
-        private System.Windows.Forms.TextBox textHausnummerB;
-        private System.Windows.Forms.TextBox textStraßeB;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.NumericUpDown numericPackKartons;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.NumericUpDown numericPacker;
-        private System.Windows.Forms.GroupBox groupBox13;
-        private System.Windows.Forms.RadioButton radioAuspackenV;
-        private System.Windows.Forms.RadioButton radioAuspackenNein;
-        private System.Windows.Forms.RadioButton radioAuspackenJa;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton radioEinpackenV;
-        private System.Windows.Forms.RadioButton radioEinpackenNein;
-        private System.Windows.Forms.RadioButton radioEinpackenJa;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.DateTimePicker dateSchilderVerweildauer;
         private System.Windows.Forms.Label label17;
@@ -2544,26 +2887,6 @@
         private System.Windows.Forms.TextBox textTelefonnummer;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textVorNachname;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.RadioButton radioHVZAV;
-        private System.Windows.Forms.RadioButton radioHVZANein;
-        private System.Windows.Forms.RadioButton radioHVZAJa;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown numericStockwerkeA;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioAufzugANein;
-        private System.Windows.Forms.RadioButton radioAufzugAJa;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textLandA;
-        private System.Windows.Forms.TextBox textOrtA;
-        private System.Windows.Forms.TextBox textPLZA;
-        private System.Windows.Forms.TextBox textHausnummerA;
-        private System.Windows.Forms.TextBox textStraßeA;
         private System.Windows.Forms.Button buttonTransaktion;
         private System.Windows.Forms.TextBox textSuchBox;
         private System.Windows.Forms.TextBox textSucheName;
@@ -2577,22 +2900,10 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.TextBox textUmzugsNummer;
-        private System.Windows.Forms.Button buttonBlockAuszug;
-        private System.Windows.Forms.Button buttonBlockKueche;
-        private System.Windows.Forms.Button buttonBlockEinzug;
-        private System.Windows.Forms.Button buttonBlockPacken;
         private System.Windows.Forms.Button buttonBlockDaten;
         private System.Windows.Forms.NumericUpDown numericArbeitszeit;
         private System.Windows.Forms.NumericUpDown numericMannZahl;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.TextBox textLaufMeterB;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.TextBox textLaufMeterA;
         private System.Windows.Forms.Button buttonLöschen;
-        private System.Windows.Forms.NumericUpDown numericPackStunden;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.ListBox listBoxB;
-        private System.Windows.Forms.ListBox listBoxA;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DateTimePicker timeBesichtigung;
         private System.Windows.Forms.GroupBox groupBoxAuspackDat;
@@ -2623,12 +2934,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RadioButton radioEntVllt;
         private System.Windows.Forms.Button buttonBlockTermine;
-        private System.Windows.Forms.GroupBox groupBox23;
-        private System.Windows.Forms.RadioButton radioAussenAufzugBNein;
-        private System.Windows.Forms.RadioButton radioAussenAufzugBJa;
-        private System.Windows.Forms.GroupBox groupBox22;
-        private System.Windows.Forms.RadioButton radioAussenAufzugANein;
-        private System.Windows.Forms.RadioButton radioAussenAufzugAJa;
         private System.Windows.Forms.GroupBox groupBoxUmzugsDat;
         private System.Windows.Forms.RadioButton radioUmzVorlaeufig;
         private System.Windows.Forms.RadioButton radioUmzVllt;
@@ -2657,5 +2962,120 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.GroupBox groupBox21;
         private System.Windows.Forms.CheckBox checkGeschlossenAnzeigen;
+        private System.Windows.Forms.GroupBox groupBox27;
+        private System.Windows.Forms.RadioButton radioVersicherungNein;
+        private System.Windows.Forms.RadioButton radioVersicherungJa;
+        private System.Windows.Forms.GroupBox groupBox14;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox textKuechenPreis;
+        private System.Windows.Forms.GroupBox groupBox17;
+        private System.Windows.Forms.RadioButton radioKuecheExtern;
+        private System.Windows.Forms.RadioButton radioKuecheIntern;
+        private System.Windows.Forms.GroupBox groupBox15;
+        private System.Windows.Forms.RadioButton radioKuecheAufV;
+        private System.Windows.Forms.RadioButton radioKuecheAufNein;
+        private System.Windows.Forms.RadioButton radioKuecheAufJa;
+        private System.Windows.Forms.GroupBox groupBox16;
+        private System.Windows.Forms.RadioButton radioKuecheAbV;
+        private System.Windows.Forms.RadioButton radioKuecheAbNein;
+        private System.Windows.Forms.RadioButton radioKuecheAbJa;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.GroupBox groupBox26;
+        private System.Windows.Forms.TextBox textSonderEtageB;
+        private System.Windows.Forms.CheckBox checkDBB;
+        private System.Windows.Forms.CheckBox checkOG4B;
+        private System.Windows.Forms.CheckBox checkOG5B;
+        private System.Windows.Forms.CheckBox checkOG3B;
+        private System.Windows.Forms.CheckBox checkOG2B;
+        private System.Windows.Forms.CheckBox checkMAB;
+        private System.Windows.Forms.CheckBox checkOG1B;
+        private System.Windows.Forms.CheckBox checkSTB;
+        private System.Windows.Forms.CheckBox checkHPB;
+        private System.Windows.Forms.CheckBox checkEGB;
+        private System.Windows.Forms.CheckBox checkKellerB;
+        private System.Windows.Forms.GroupBox groupBox23;
+        private System.Windows.Forms.RadioButton radioAussenAufzugBNein;
+        private System.Windows.Forms.RadioButton radioAussenAufzugBJa;
+        private System.Windows.Forms.ListBox listBoxB;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.TextBox textLaufMeterB;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.RadioButton radioHVZBV;
+        private System.Windows.Forms.RadioButton radioHVZBNein;
+        private System.Windows.Forms.RadioButton radioHVZBJa;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.RadioButton radioAufzugBNein;
+        private System.Windows.Forms.RadioButton radioAufzugBJa;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox textLandB;
+        private System.Windows.Forms.TextBox textOrtB;
+        private System.Windows.Forms.TextBox textPLZB;
+        private System.Windows.Forms.TextBox textHausnummerB;
+        private System.Windows.Forms.TextBox textStraßeB;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.NumericUpDown numericAusPackStunden;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.NumericUpDown numericAusPacker;
+        private System.Windows.Forms.NumericUpDown numericEinPackStunden;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.NumericUpDown numericEinPackKartons;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.NumericUpDown numericEinPacker;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.RadioButton radioAuspackenV;
+        private System.Windows.Forms.RadioButton radioAuspackenNein;
+        private System.Windows.Forms.RadioButton radioAuspackenJa;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RadioButton radioEinpackenV;
+        private System.Windows.Forms.RadioButton radioEinpackenNein;
+        private System.Windows.Forms.RadioButton radioEinpackenJa;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox25;
+        private System.Windows.Forms.TextBox textSonderEtageA;
+        private System.Windows.Forms.CheckBox checkDBA;
+        private System.Windows.Forms.CheckBox checkOG4A;
+        private System.Windows.Forms.CheckBox checkOG5A;
+        private System.Windows.Forms.CheckBox checkOG3A;
+        private System.Windows.Forms.CheckBox checkOG2A;
+        private System.Windows.Forms.CheckBox checkMAA;
+        private System.Windows.Forms.CheckBox checkOG1A;
+        private System.Windows.Forms.CheckBox checkSTA;
+        private System.Windows.Forms.CheckBox checkHPA;
+        private System.Windows.Forms.CheckBox checkEGA;
+        private System.Windows.Forms.CheckBox checkKellerA;
+        private System.Windows.Forms.GroupBox groupBox22;
+        private System.Windows.Forms.RadioButton radioAussenAufzugANein;
+        private System.Windows.Forms.RadioButton radioAussenAufzugAJa;
+        private System.Windows.Forms.ListBox listBoxA;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textLaufMeterA;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.RadioButton radioHVZAV;
+        private System.Windows.Forms.RadioButton radioHVZANein;
+        private System.Windows.Forms.RadioButton radioHVZAJa;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton radioAufzugANein;
+        private System.Windows.Forms.RadioButton radioAufzugAJa;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.TextBox textLandA;
+        private System.Windows.Forms.TextBox textOrtA;
+        private System.Windows.Forms.TextBox textPLZA;
+        private System.Windows.Forms.TextBox textHausnummerA;
+        private System.Windows.Forms.TextBox textStraßeA;
+        private System.Windows.Forms.Button buttonBlockEinzug;
+        private System.Windows.Forms.Button ButtonBlockAuszug;
+        private System.Windows.Forms.Button buttonBlockPacken;
+        private System.Windows.Forms.Button buttonBlockVersicherung;
+        private System.Windows.Forms.Button buttonBlockKueche;
     }
 }
