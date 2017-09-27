@@ -200,6 +200,8 @@ namespace Kartonagen
 
             umzObj = new Umzug(umzNum);
 
+            UserSpeicher = umzObj.UserChanged1;
+
             textUmzNummerBlock.Text = umzNum.ToString();
             textKundennummer.Text = umzObj.IdKunden.ToString();                       
             dateBesicht.Value = umzObj.DatBesichtigung;
@@ -1537,7 +1539,8 @@ namespace Kartonagen
 
         private void buttonDruk_Click(object sender, EventArgs e)
         {
-            PdfDocument pdf = new PdfDocument(new PdfReader(System.IO.Path.Combine(Environment.CurrentDirectory, "Besichtigungs Vordruck.pdf")), new PdfWriter(Program.druckPfad));
+            PdfDocument pdf = new PdfDocument(new PdfReader(System.IO.Path.Combine(Environment.CurrentDirectory, "Besichtigungs Vordruck.pdf")), new PdfWriter(Program.druckPfad));          
+
             PdfAcroForm form = PdfAcroForm.GetAcroForm(pdf, true);
             IDictionary<String, PdfFormField> fields = form.GetFormFields();
             PdfFormField toSet;
@@ -1564,7 +1567,7 @@ namespace Kartonagen
                 default:
                     break;
             }
-
+            
             // Vergleihstermin
             DateTime stand = new DateTime(2017, 1, 1);
 
@@ -1593,8 +1596,7 @@ namespace Kartonagen
                     fields.TryGetValue("Telefonnummer", out toSet);
                     toSet.SetValue("Keine Nummer!");
                 }
-
-
+                
                 fields.TryGetValue("Email", out toSet);
                 toSet.SetValue(textEmail.Text);
 
@@ -1664,6 +1666,7 @@ namespace Kartonagen
                     fields.TryGetValue("AufzugAJa", out toSet);
                     toSet.SetValue("Yes");
                 }
+
                 if (radioAufzugANein.Checked)
                 {
                     fields.TryGetValue("AufzugANein", out toSet);
@@ -1680,7 +1683,7 @@ namespace Kartonagen
                     fields.TryGetValue("AussenAufzugANein", out toSet);
                     toSet.SetValue("Yes");
                 }
-
+                
                 // Adresse Einzug
                 fields.TryGetValue("StrasseB", out toSet);
                 toSet.SetValue(textStraßeB.Text + " " + textHausnummerB.Text);
