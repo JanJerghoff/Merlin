@@ -1545,6 +1545,19 @@ namespace Kartonagen
             IDictionary<String, PdfFormField> fields = form.GetFormFields();
             PdfFormField toSet;
 
+
+            string temp = "";
+
+            foreach (var item in fields)
+            {
+                temp += item.Key + " ";
+            }
+
+            var bestätigung = MessageBox.Show(temp, "Erinnerung", MessageBoxButtons.YesNo);
+
+
+            
+
             String Name = ""; // 0= Rita, 1=Jonas, 2=Eva, 3=Jan, 4, Sonst.
             switch (UserSpeicher[0])
             {
@@ -1636,43 +1649,48 @@ namespace Kartonagen
 
                 fields.TryGetValue("StockwerkA", out toSet);
                 toSet.SetValue(umzObj.auszug.KalenderStringEtageHaustyp());
-
+                
                 if (textLaufMeterA.Text != "0")
                 {
                     fields.TryGetValue("TragwegA", out toSet);
                     toSet.SetValue(textLaufMeterA.Text);
                 }
-
-                fields.TryGetValue("HausStatusA", out toSet);
-                toSet.SetValue(listBoxA.SelectedItem.ToString());
-
+                
                 if (radioHVZAJa.Checked)
                 {
+                    
                     fields.TryGetValue("HVZAJa", out toSet);
+                    var bestätigunxg = MessageBox.Show(toSet.GetAppearanceStates()[0] +" "+ toSet.GetAppearanceStates()[1] + "KEEEEEKS", "Erinnerung", MessageBoxButtons.YesNo);
+
+                    
+
                     toSet.SetValue("Yes");
                 }
+
+
+
                 //if (radioHVZAV.Checked)
                 //{
                 //    fields.TryGetValue("HVZAVllt", out toSet);
                 //    toSet.SetValue("Yes");
                 //}
-                //if (radioHVZANein.Checked)
-                //{
-                //    fields.TryGetValue("HVZANein", out toSet);
-                //    toSet.SetValue("Yes");
-                //}
+                if (radioHVZANein.Checked)
+                {
+                    fields.TryGetValue("HVZANein", out toSet);
+                    toSet.SetValue("Yes");
+                }
 
-                //    if (radioAufzugAJa.Checked)
-                //    {
-                //        fields.TryGetValue("AufzugBJa", out toSet);
-                //        toSet.SetValue("Yes");
-                //    }
+                if (radioAufzugAJa.Checked)
+                {
+                    fields.TryGetValue("AufzugAJa", out toSet);
+                    toSet.SetValue("Yes");
+                }
 
-                //    if (radioAufzugANein.Checked)
-                //    {
-                //        fields.TryGetValue("AufzugANein", out toSet);
-                //        toSet.SetValue("Yes");
-                //    }
+                if (radioAufzugANein.Checked)
+                {
+                    fields.TryGetValue("AufzugANein", out toSet);
+                    toSet.SetValue("Yes");
+                }
                 //    //
                 //    if (radioAussenAufzugAJa.Checked)
                 //    {
