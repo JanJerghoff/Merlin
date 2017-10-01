@@ -1543,20 +1543,7 @@ namespace Kartonagen
 
             PdfAcroForm form = PdfAcroForm.GetAcroForm(pdf, true);
             IDictionary<String, PdfFormField> fields = form.GetFormFields();
-            PdfFormField toSet;
-
-
-            string temp = "";
-
-            foreach (var item in fields)
-            {
-                temp += item.Key + " ";
-            }
-
-            var bestätigung = MessageBox.Show(temp, "Erinnerung", MessageBoxButtons.YesNo);
-
-
-            
+            PdfFormField toSet;                       
 
             String Name = ""; // 0= Rita, 1=Jonas, 2=Eva, 3=Jan, 4, Sonst.
             switch (UserSpeicher[0])

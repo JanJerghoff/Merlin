@@ -24,7 +24,10 @@ namespace Kartonagen
         List<TextBox> Kontakt = new List<TextBox>();
         List<TextBox> Transaktion = new List<TextBox>();
         List<TextBox> Bemerkung = new List<TextBox>();
-        List<int> Kartonzahl = new List<int>();   
+        List<int> Kartonzahl = new List<int>();
+        List<RadioButton> Auszuege = new List<RadioButton>();
+        List<RadioButton> Einzuege = new List<RadioButton>();
+
 
 
         public LaufzettelKartons()
@@ -136,11 +139,45 @@ namespace Kartonagen
             Bemerkung.Add(textBemerkung14);
             Bemerkung.Add(textBemerkung15);
             Bemerkung.Add(textBemerkung16);
+
+            Auszuege.Add(radio1A);
+            Auszuege.Add(radio2A);
+            Auszuege.Add(radio3A);
+            Auszuege.Add(radio4A);
+            Auszuege.Add(radio5A);
+            Auszuege.Add(radio6A);
+            Auszuege.Add(radio7A);
+            Auszuege.Add(radio8A);
+            Auszuege.Add(radio9A);
+            Auszuege.Add(radio10A);
+            Auszuege.Add(radio11A);
+            Auszuege.Add(radio12A);
+            Auszuege.Add(radio13A);
+            Auszuege.Add(radio14A);
+            Auszuege.Add(radio15A);
+            Auszuege.Add(radio16A);
+
+            Einzuege.Add(radio1B);
+            Einzuege.Add(radio2B);
+            Einzuege.Add(radio3B);
+            Einzuege.Add(radio4B);
+            Einzuege.Add(radio5B);
+            Einzuege.Add(radio6B);
+            Einzuege.Add(radio7B);
+            Einzuege.Add(radio8B);
+            Einzuege.Add(radio9B);
+            Einzuege.Add(radio10B);
+            Einzuege.Add(radio11B);
+            Einzuege.Add(radio12B);
+            Einzuege.Add(radio13B);
+            Einzuege.Add(radio14B);
+            Einzuege.Add(radio15B);
+            Einzuege.Add(radio16B);
         }
 
         private void buttonDrucken_Click(object sender, EventArgs e)
         {
-            MySqlCommand cmdRead = new MySqlCommand("SELECT t.Kartons, t.Flaschenkartons, t.Glaeserkartons, t.Kleiderkartons, t.timeTransaktion, k.Anrede, k.Vorname, k.Nachname, k.Telefonnummer, k.Handynummer, k.Straße, k.Hausnummer, k.Ort, k.PLZ, t.Bemerkungen FROM Transaktionen t, Kunden k WHERE t.Umzuege_Kunden_idKunden = k.idKunden AND t.datTransaktion = '" + Program.DateMachine(dateTransaktion.Value) + "' ORDER BY timeTransaktion ASC;",Program.conn);
+            MySqlCommand cmdRead = new MySqlCommand("SELECT t.Kartons, t.Flaschenkartons, t.Glaeserkartons, t.Kleiderkartons, t.timeTransaktion, k.Anrede, k.Vorname, k.Nachname, k.Telefonnummer, k.Handynummer, t.Bemerkungen FROM Transaktionen t, Kunden k WHERE t.Umzuege_Kunden_idKunden = k.idKunden AND t.datTransaktion = '" + Program.DateMachine(dateTransaktion.Value) + "' ORDER BY timeTransaktion ASC;",Program.conn);
             MySqlDataReader rdr;
 
             int count = 0;
@@ -167,14 +204,11 @@ namespace Kartonagen
                             Kontakt[count].AppendText(rdr.GetString(8));
                         }
 
-                        //Anschrift
-                        Anschrift[count].AppendText(rdr.GetString(10) + " " + rdr.GetString(11) + " " + rdr.GetString(13) + " " + rdr.GetString(12));
-
                         //Uhrzeit
                         Uhrzeit[count].AppendText(rdr.GetDateTime(4).ToShortTimeString());
 
                         //Bemerkung
-                        Bemerkung[count].AppendText(rdr.GetString(14));
+                        Bemerkung[count].AppendText(rdr.GetString(10));
 
                         //Transaktion
                         if (rdr.GetInt32(0) < 0 || rdr.GetInt32(1) < 0 || rdr.GetInt32(2) < 0 || rdr.GetInt32(3) < 0)
