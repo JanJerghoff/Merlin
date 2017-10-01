@@ -1655,17 +1655,13 @@ namespace Kartonagen
                     fields.TryGetValue("TragwegA", out toSet);
                     toSet.SetValue(textLaufMeterA.Text);
                 }
-                
-                if (radioHVZAJa.Checked)
-                {
-                    
-                    fields.TryGetValue("HVZAJa", out toSet);
-                    var bestätigunxg = MessageBox.Show(toSet.GetAppearanceStates()[0] +" "+ toSet.GetAppearanceStates()[1] + "KEEEEEKS", "Erinnerung", MessageBoxButtons.YesNo);
 
-                    
+                //if (radioHVZAJa.Checked)
+                //{
 
-                    toSet.SetValue("Yes");
-                }
+                //    fields.TryGetValue("HVZAJa", out toSet);
+                //    toSet.SetValue("Yes");
+                //}
 
 
 
@@ -1674,55 +1670,53 @@ namespace Kartonagen
                 //    fields.TryGetValue("HVZAVllt", out toSet);
                 //    toSet.SetValue("Yes");
                 //}
-                if (radioHVZANein.Checked)
+                //if (radioHVZANein.Checked)
+                //{
+                //    fields.TryGetValue("HVZANein", out toSet);
+                //    toSet.SetValue("Yes");
+                //}
+
+                //if (radioAufzugAJa.Checked)
+                //{
+                //    fields.TryGetValue("AufzugAJa", out toSet);
+                //    toSet.SetValue("Yes");
+                //}
+
+                //if (radioAufzugANein.Checked)
+                //{
+                //    fields.TryGetValue("AufzugANein", out toSet);
+                //    toSet.SetValue("Yes");
+                //}
+
+                //
+                //if (radioAussenAufzugAJa.Checked)
+                //{
+                //    fields.TryGetValue("AussenAufzugAJa", out toSet);
+                //    toSet.SetValue("Yes");
+                //}
+                //if (radioAussenAufzugANein.Checked)
+                //{
+                //    fields.TryGetValue("AussenAufzugANein", out toSet);
+                //    toSet.SetValue("Yes");
+                //}
+
+                // Adresse Einzug
+                fields.TryGetValue("StrasseB", out toSet);
+                toSet.SetValue(textStraßeB.Text + " " + textHausnummerB.Text);
+
+                fields.TryGetValue("OrtB", out toSet);
+                toSet.SetValue(textPLZB.Text + " " + textOrtB.Text);
+
+                //Geschossigkeit
+
+                //fields.TryGetValue("StockwerkB", out toSet);
+                //toSet.SetValue(umzObj.einzug.KalenderStringEtageHaustyp());
+
+                if (textLaufMeterB.Text != "0")
                 {
-                    fields.TryGetValue("HVZANein", out toSet);
-                    toSet.SetValue("Yes");
+                    fields.TryGetValue("TragwegB", out toSet);
+                    toSet.SetValue(textLaufMeterB.Text);
                 }
-
-                if (radioAufzugAJa.Checked)
-                {
-                    fields.TryGetValue("AufzugAJa", out toSet);
-                    toSet.SetValue("Yes");
-                }
-
-                if (radioAufzugANein.Checked)
-                {
-                    fields.TryGetValue("AufzugANein", out toSet);
-                    toSet.SetValue("Yes");
-                }
-                //    //
-                //    if (radioAussenAufzugAJa.Checked)
-                //    {
-                //        fields.TryGetValue("AussenAufzugAJa", out toSet);
-                //        toSet.SetValue("Yes");
-                //    }
-                //    if (radioAussenAufzugANein.Checked)
-                //    {
-                //        fields.TryGetValue("AussenAufzugANein", out toSet);
-                //        toSet.SetValue("Yes");
-                //    }
-
-                //    // Adresse Einzug
-                //    fields.TryGetValue("StrasseB", out toSet);
-                //    toSet.SetValue(textStraßeB.Text + " " + textHausnummerB.Text);
-
-                //    fields.TryGetValue("OrtB", out toSet);
-                //    toSet.SetValue(textPLZB.Text + " " + textOrtB.Text);
-
-                //    //Geschossigkeit
-
-                //    //fields.TryGetValue("StockwerkB", out toSet);
-                //    //toSet.SetValue(umzObj.einzug.KalenderStringEtageHaustyp());
-
-                //    if (textLaufMeterB.Text != "0")
-                //    {
-                //        fields.TryGetValue("TragwegB", out toSet);
-                //        toSet.SetValue(textLaufMeterB.Text);
-                //    }
-
-                //    //fields.TryGetValue("HausStatusB", out toSet);
-                //    //toSet.SetValue(listBoxB.SelectedItem.ToString());
 
                 //    if (radioHVZBJa.Checked)
                 //    {
@@ -1847,34 +1841,34 @@ namespace Kartonagen
                 //        toSet.SetValue(textKuechenPreis.Text);
                 //    }
 
-                //    // Restdaten
-                //    if (numericMannZahl.Value != 0)
-                //    {
-                //        fields.TryGetValue("Mann", out toSet);
-                //        toSet.SetValue(numericMannZahl.Value.ToString());
-                //    }
+                // Restdaten
+                if (numericMannZahl.Value != 0)
+                {
+                    fields.TryGetValue("Mann", out toSet);
+                    toSet.SetValue(numericMannZahl.Value.ToString());
+                }
 
-                //    if (numericArbeitszeit.Value != 0)
-                //    {
-                //        fields.TryGetValue("Stunden", out toSet);
-                //        toSet.SetValue(numericArbeitszeit.Value.ToString());
-                //    }
+                if (numericArbeitszeit.Value != 0)
+                {
+                    fields.TryGetValue("Stunden", out toSet);
+                    toSet.SetValue(numericArbeitszeit.Value.ToString());
+                }
 
-                //    fields.TryGetValue("Autos", out toSet);
-                //    toSet.SetValue(AutoString());
+                fields.TryGetValue("Autos", out toSet);
+                toSet.SetValue(AutoString());
 
-                //    if (numericKleiderkisten.Value != 0)
-                //    {
-                //        fields.TryGetValue("Kleiderkisten", out toSet);
-                //        toSet.SetValue(numericKleiderkisten.Value.ToString());
-                //    }
+                if (numericKleiderkisten.Value != 0)
+                {
+                    fields.TryGetValue("Kleiderkisten", out toSet);
+                    toSet.SetValue(numericKleiderkisten.Value.ToString());
+                }
 
-                //    //Bemerkungen
-                //    fields.TryGetValue("NoteBuero", out toSet);
-                //    toSet.SetValue(textNoteBuero.Text);
+                //Bemerkungen
+                fields.TryGetValue("NoteBuero", out toSet);
+                toSet.SetValue(textNoteBuero.Text);
 
-                //    fields.TryGetValue("NoteFahrer", out toSet);
-                //    toSet.SetValue(textNoteFahrer.Text);
+                fields.TryGetValue("NoteFahrer", out toSet);
+                toSet.SetValue(textNoteFahrer.Text);
 
                 form.FlattenFields();
                 pdf.Close();
