@@ -27,8 +27,8 @@ namespace Kartonagen
         List<int> Kartonzahl = new List<int>();
         List<RadioButton> Auszuege = new List<RadioButton>();
         List<RadioButton> Einzuege = new List<RadioButton>();
-
-
+        List<int> Umzugsnummern = new List<int>();
+        List<Umzug> Umzuege = new List<Umzug>();
 
         public LaufzettelKartons()
         {
@@ -177,9 +177,10 @@ namespace Kartonagen
 
         private void buttonDrucken_Click(object sender, EventArgs e)
         {
-            MySqlCommand cmdRead = new MySqlCommand("SELECT t.Kartons, t.Flaschenkartons, t.Glaeserkartons, t.Kleiderkartons, t.timeTransaktion, k.Anrede, k.Vorname, k.Nachname, k.Telefonnummer, k.Handynummer, t.Bemerkungen FROM Transaktionen t, Kunden k WHERE t.Umzuege_Kunden_idKunden = k.idKunden AND t.datTransaktion = '" + Program.DateMachine(dateTransaktion.Value) + "' ORDER BY timeTransaktion ASC;",Program.conn);
+            MySqlCommand cmdRead = new MySqlCommand("SELECT t.Kartons, t.Flaschenkartons, t.Glaeserkartons, t.Kleiderkartons, t.timeTransaktion, k.Anrede, k.Vorname, k.Nachname, k.Telefonnummer, k.Handynummer, t.Bemerkungen FROM Transaktionen t, Kunden k, Umzuege u WHERE t.Umzuege_Kunden_idKunden = k.idKunden AND u.idUmzuege = t.Umzuege_idUmzuge AND t.datTransaktion = '" + Program.DateMachine(dateTransaktion.Value) + "' ORDER BY timeTransaktion ASC;",Program.conn);
             MySqlDataReader rdr;
 
+            Umzugsnummern = new List<int>();
             int count = 0;
             TimeSpan comparison = new TimeSpan(0);
 
@@ -209,6 +210,8 @@ namespace Kartonagen
 
                         //Bemerkung
                         Bemerkung[count].AppendText(rdr.GetString(10));
+
+                        //Umzugsnummer für Adressen Zwischenspeichern
 
                         //Transaktion
                         if (rdr.GetInt32(0) < 0 || rdr.GetInt32(1) < 0 || rdr.GetInt32(2) < 0 || rdr.GetInt32(3) < 0)
@@ -251,6 +254,27 @@ namespace Kartonagen
             catch (Exception sqlEx)
             {
                 Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Kartondaten \r\n Bereits dokumentiert.");
+            }
+
+            // Umzüge auffüllen
+            foreach (var item in Umzugsnummern)
+            {
+                Umzuege.Add(new Umzug(item));
+            }
+
+            // Warscheinliche Adressen bestimmen und einfüllen
+            int counter = 0;
+            foreach (var item in Umzuege)
+            {
+                if (item.DatUmzug <= DateTime.Now)
+                {    //Umzug passiert
+                    Anschrift[counter].Text = item.einzug.Straße1 + " " + item.einzug.Hausnummer1 + ", " + item.einzug.PLZ1 + " " + item.einzug.Ort1;
+                    Einzuege[counter].Checked = true;
+                }
+                else {
+                    Anschrift[counter].Text = item.auszug.Straße1 + " " + item.auszug.Hausnummer1 + ", " + item.auszug.PLZ1 + " " + item.auszug.Ort1;
+                    Auszuege[counter].Checked = true;
+                }
             }
 
             // Gegenprüfen mittels Kalender
