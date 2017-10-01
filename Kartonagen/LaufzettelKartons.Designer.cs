@@ -1203,6 +1203,7 @@
             this.radio16B.TabIndex = 240;
             this.radio16B.TabStop = true;
             this.radio16B.UseVisualStyleBackColor = true;
+            this.radio16B.Click += new System.EventHandler(this.radio16B_CheckedChanged);
             // 
             // radio16A
             // 
@@ -1213,6 +1214,7 @@
             this.radio16A.TabIndex = 241;
             this.radio16A.TabStop = true;
             this.radio16A.UseVisualStyleBackColor = true;
+            this.radio16A.Click += new System.EventHandler(this.radio16A_CheckedChanged);
             // 
             // groupBox15
             // 
@@ -1233,6 +1235,7 @@
             this.radio15B.TabIndex = 240;
             this.radio15B.TabStop = true;
             this.radio15B.UseVisualStyleBackColor = true;
+            this.radio15B.Click += new System.EventHandler(this.radio15B_CheckedChanged);
             // 
             // radio15A
             // 
@@ -1243,6 +1246,7 @@
             this.radio15A.TabIndex = 241;
             this.radio15A.TabStop = true;
             this.radio15A.UseVisualStyleBackColor = true;
+            this.radio15A.Click += new System.EventHandler(this.radio15A_CheckedChanged);
             // 
             // groupBox14
             // 
@@ -1263,6 +1267,7 @@
             this.radio14B.TabIndex = 240;
             this.radio14B.TabStop = true;
             this.radio14B.UseVisualStyleBackColor = true;
+            this.radio14B.Click += new System.EventHandler(this.radio14B_CheckedChanged);
             // 
             // radio14A
             // 
@@ -1273,6 +1278,7 @@
             this.radio14A.TabIndex = 241;
             this.radio14A.TabStop = true;
             this.radio14A.UseVisualStyleBackColor = true;
+            this.radio14A.Click += new System.EventHandler(this.radio14A_CheckedChanged);
             // 
             // groupBox163
             // 
@@ -1293,6 +1299,7 @@
             this.radio13B.TabIndex = 240;
             this.radio13B.TabStop = true;
             this.radio13B.UseVisualStyleBackColor = true;
+            this.radio13B.Click += new System.EventHandler(this.radio13B_CheckedChanged);
             // 
             // radio13A
             // 
@@ -1303,6 +1310,7 @@
             this.radio13A.TabIndex = 241;
             this.radio13A.TabStop = true;
             this.radio13A.UseVisualStyleBackColor = true;
+            this.radio13A.Click += new System.EventHandler(this.radio13A_CheckedChanged);
             // 
             // groupBox12
             // 
@@ -1323,6 +1331,7 @@
             this.radio12B.TabIndex = 240;
             this.radio12B.TabStop = true;
             this.radio12B.UseVisualStyleBackColor = true;
+            this.radio12B.Click += new System.EventHandler(this.radio12B_CheckedChanged);
             // 
             // radio12A
             // 
@@ -1333,6 +1342,7 @@
             this.radio12A.TabIndex = 241;
             this.radio12A.TabStop = true;
             this.radio12A.UseVisualStyleBackColor = true;
+            this.radio12A.Click += new System.EventHandler(this.radio12A_CheckedChanged);
             // 
             // groupBox11
             // 
@@ -1353,6 +1363,7 @@
             this.radio11B.TabIndex = 240;
             this.radio11B.TabStop = true;
             this.radio11B.UseVisualStyleBackColor = true;
+            this.radio11B.Click += new System.EventHandler(this.radio11B_CheckedChanged);
             // 
             // radio11A
             // 
@@ -1363,6 +1374,7 @@
             this.radio11A.TabIndex = 241;
             this.radio11A.TabStop = true;
             this.radio11A.UseVisualStyleBackColor = true;
+            this.radio11A.Click += new System.EventHandler(this.radio11A_CheckedChanged);
             // 
             // groupBox10
             // 
@@ -1383,6 +1395,7 @@
             this.radio10B.TabIndex = 240;
             this.radio10B.TabStop = true;
             this.radio10B.UseVisualStyleBackColor = true;
+            this.radio10B.Click += new System.EventHandler(this.radio10B_CheckedChanged);
             // 
             // radio10A
             // 
@@ -1393,6 +1406,7 @@
             this.radio10A.TabIndex = 241;
             this.radio10A.TabStop = true;
             this.radio10A.UseVisualStyleBackColor = true;
+            this.radio10A.Click += new System.EventHandler(this.radio10A_CheckedChanged);
             // 
             // groupBox9
             // 
@@ -1413,6 +1427,7 @@
             this.radio9B.TabIndex = 240;
             this.radio9B.TabStop = true;
             this.radio9B.UseVisualStyleBackColor = true;
+            this.radio9B.Click += new System.EventHandler(this.radio9B_CheckedChanged);
             // 
             // radio9A
             // 
@@ -1423,6 +1438,7 @@
             this.radio9A.TabIndex = 241;
             this.radio9A.TabStop = true;
             this.radio9A.UseVisualStyleBackColor = true;
+            this.radio9A.Click += new System.EventHandler(this.radio9A_CheckedChanged);
             // 
             // groupBox8
             // 
@@ -1443,6 +1459,7 @@
             this.radio8B.TabIndex = 240;
             this.radio8B.TabStop = true;
             this.radio8B.UseVisualStyleBackColor = true;
+            this.radio8B.Click += new System.EventHandler(this.radio8B_CheckedChanged);
             // 
             // radio8A
             // 
@@ -1453,6 +1470,7 @@
             this.radio8A.TabIndex = 241;
             this.radio8A.TabStop = true;
             this.radio8A.UseVisualStyleBackColor = true;
+            this.radio8A.Click += new System.EventHandler(this.radio8A_CheckedChanged);
             // 
             // groupBox7
             // 
@@ -1473,6 +1491,7 @@
             this.radio7B.TabIndex = 240;
             this.radio7B.TabStop = true;
             this.radio7B.UseVisualStyleBackColor = true;
+            this.radio7B.Click += new System.EventHandler(this.radio7B_CheckedChanged);
             // 
             // radio7A
             // 
@@ -1483,6 +1502,7 @@
             this.radio7A.TabIndex = 241;
             this.radio7A.TabStop = true;
             this.radio7A.UseVisualStyleBackColor = true;
+            this.radio7A.Click += new System.EventHandler(this.radio7A_CheckedChanged);
             // 
             // groupBox6
             // 
@@ -1503,6 +1523,7 @@
             this.radio6B.TabIndex = 240;
             this.radio6B.TabStop = true;
             this.radio6B.UseVisualStyleBackColor = true;
+            this.radio6B.Click += new System.EventHandler(this.radio6B_CheckedChanged);
             // 
             // radio6A
             // 
@@ -1513,6 +1534,7 @@
             this.radio6A.TabIndex = 241;
             this.radio6A.TabStop = true;
             this.radio6A.UseVisualStyleBackColor = true;
+            this.radio6A.Click += new System.EventHandler(this.radio6A_CheckedChanged);
             // 
             // groupBox5
             // 
@@ -1533,6 +1555,7 @@
             this.radio5B.TabIndex = 240;
             this.radio5B.TabStop = true;
             this.radio5B.UseVisualStyleBackColor = true;
+            this.radio5B.Click += new System.EventHandler(this.radio5B_CheckedChanged);
             // 
             // radio5A
             // 
@@ -1543,6 +1566,7 @@
             this.radio5A.TabIndex = 241;
             this.radio5A.TabStop = true;
             this.radio5A.UseVisualStyleBackColor = true;
+            this.radio5A.Click += new System.EventHandler(this.radio5A_CheckedChanged);
             // 
             // groupBox4
             // 
@@ -1563,6 +1587,7 @@
             this.radio4B.TabIndex = 240;
             this.radio4B.TabStop = true;
             this.radio4B.UseVisualStyleBackColor = true;
+            this.radio4B.Click += new System.EventHandler(this.radio4B_CheckedChanged);
             // 
             // radio4A
             // 
@@ -1573,6 +1598,7 @@
             this.radio4A.TabIndex = 241;
             this.radio4A.TabStop = true;
             this.radio4A.UseVisualStyleBackColor = true;
+            this.radio4A.Click += new System.EventHandler(this.radio4A_CheckedChanged);
             // 
             // groupBox3
             // 
@@ -1593,6 +1619,7 @@
             this.radio3B.TabIndex = 240;
             this.radio3B.TabStop = true;
             this.radio3B.UseVisualStyleBackColor = true;
+            this.radio3B.Click += new System.EventHandler(this.radio3B_CheckedChanged);
             // 
             // radio3A
             // 
@@ -1603,6 +1630,7 @@
             this.radio3A.TabIndex = 241;
             this.radio3A.TabStop = true;
             this.radio3A.UseVisualStyleBackColor = true;
+            this.radio3A.Click += new System.EventHandler(this.radio3A_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -1623,6 +1651,7 @@
             this.radio2B.TabIndex = 240;
             this.radio2B.TabStop = true;
             this.radio2B.UseVisualStyleBackColor = true;
+            this.radio2B.Click += new System.EventHandler(this.radio2B_CheckedChanged);
             // 
             // radio2A
             // 
@@ -1633,6 +1662,7 @@
             this.radio2A.TabIndex = 241;
             this.radio2A.TabStop = true;
             this.radio2A.UseVisualStyleBackColor = true;
+            this.radio2A.Click += new System.EventHandler(this.radio2A_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -1653,6 +1683,7 @@
             this.radio1B.TabIndex = 240;
             this.radio1B.TabStop = true;
             this.radio1B.UseVisualStyleBackColor = true;
+            this.radio1B.Click += new System.EventHandler(this.radio1B_CheckedChanged);
             // 
             // radio1A
             // 
@@ -1663,6 +1694,7 @@
             this.radio1A.TabIndex = 241;
             this.radio1A.TabStop = true;
             this.radio1A.UseVisualStyleBackColor = true;
+            this.radio1A.Click += new System.EventHandler(this.radio1A_CheckedChanged);
             // 
             // LaufzettelKartons
             // 

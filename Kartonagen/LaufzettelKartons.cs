@@ -177,7 +177,7 @@ namespace Kartonagen
 
         private void buttonDrucken_Click(object sender, EventArgs e)
         {
-            MySqlCommand cmdRead = new MySqlCommand("SELECT t.Kartons, t.Flaschenkartons, t.Glaeserkartons, t.Kleiderkartons, t.timeTransaktion, k.Anrede, k.Vorname, k.Nachname, k.Telefonnummer, k.Handynummer, t.Bemerkungen FROM Transaktionen t, Kunden k, Umzuege u WHERE t.Umzuege_Kunden_idKunden = k.idKunden AND u.idUmzuege = t.Umzuege_idUmzuge AND t.datTransaktion = '" + Program.DateMachine(dateTransaktion.Value) + "' ORDER BY timeTransaktion ASC;",Program.conn);
+            MySqlCommand cmdRead = new MySqlCommand("SELECT t.Kartons, t.Flaschenkartons, t.Glaeserkartons, t.Kleiderkartons, t.timeTransaktion, k.Anrede, k.Vorname, k.Nachname, k.Telefonnummer, k.Handynummer, t.Bemerkungen, u.idUmzuege FROM Transaktionen t, Kunden k, Umzuege u WHERE t.Umzuege_Kunden_idKunden = k.idKunden AND u.idUmzuege = t.Umzuege_idUmzuege AND t.datTransaktion = '" + Program.DateMachine(dateTransaktion.Value) + "' ORDER BY timeTransaktion ASC;",Program.conn);
             MySqlDataReader rdr;
 
             Umzugsnummern = new List<int>();
@@ -212,6 +212,7 @@ namespace Kartonagen
                         Bemerkung[count].AppendText(rdr.GetString(10));
 
                         //Umzugsnummer für Adressen Zwischenspeichern
+                        Umzugsnummern.Add(rdr.GetInt32(11));
 
                         //Transaktion
                         if (rdr.GetInt32(0) < 0 || rdr.GetInt32(1) < 0 || rdr.GetInt32(2) < 0 || rdr.GetInt32(3) < 0)
@@ -275,7 +276,11 @@ namespace Kartonagen
                     Anschrift[counter].Text = item.auszug.Straße1 + " " + item.auszug.Hausnummer1 + ", " + item.auszug.PLZ1 + " " + item.auszug.Ort1;
                     Auszuege[counter].Checked = true;
                 }
+
+                counter++;
             }
+            // testsektion
+            var bestätigung = MessageBox.Show("Umzuege = "+Umzuege.Count, "Löschen bestätigen", MessageBoxButtons.YesNo);
 
             // Gegenprüfen mittels Kalender
             Events eve = Program.kalenderDatumFinder(dateTransaktion.Value);            
@@ -296,6 +301,32 @@ namespace Kartonagen
                 var Meldung = MessageBox.Show("Im Kalender sind weniger Termine als Transaktionen in der Datenbank \r\n Bitte überprüfen", "Warnung");
             }            
         }
+
+        private void changeAdresse(RadioButton activated) {
+                       
+
+            if (Auszuege.Contains(activated))   // Ist ein Auszugsbutton
+            {
+                int temp = Auszuege.IndexOf(activated);
+
+                Einzuege[temp].Checked = false; //korrespondierenden Button ausschalten
+
+                Anschrift[temp].Text = Umzuege[temp].auszug.Straße1 + " " + Umzuege[temp].auszug.Hausnummer1 + ", " + Umzuege[temp].auszug.PLZ1 + " " + Umzuege[temp].auszug.Ort1;                     
+
+            }
+            else if (Einzuege.Contains(activated))
+            {
+                int temp = Einzuege.IndexOf(activated);
+
+                Auszuege[temp].Checked = false; //korrespondierenden Button ausschalten
+
+                Anschrift[temp].Text = Umzuege[temp].einzug.Straße1 + " " + Umzuege[temp].einzug.Hausnummer1 + ", " + Umzuege[temp].einzug.PLZ1 + " " + Umzuege[temp].einzug.Ort1;                
+            }
+
+            activated.Checked = true;
+
+        }
+
 
         private void buttonDrucker_Click(object sender, EventArgs e)
         {
@@ -365,6 +396,165 @@ namespace Kartonagen
 
             textLog.AppendText("PDF Erfolgreich erzeugt");
         }
-        
+
+        private void radio1A_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio1A);
+        }
+
+        private void radio1B_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio1B);
+        }
+
+        private void radio2A_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio2A);
+        }
+
+        private void radio2B_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio2B);
+        }
+
+        private void radio3A_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio3A);
+        }
+
+        private void radio3B_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio3B);
+        }
+
+        private void radio4A_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio4A);
+        }
+
+        private void radio4B_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio4B);
+        }
+
+        private void radio5A_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio5A);
+        }
+
+        private void radio5B_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio5B);
+        }
+
+        private void radio6A_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio6A);
+        }
+
+        private void radio6B_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio6B);
+        }
+
+        private void radio7A_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio7A);
+        }
+
+        private void radio7B_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio7B);
+        }
+
+        private void radio8A_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio8A);
+        }
+
+        private void radio8B_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio8B);
+        }
+
+        private void radio9A_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio9A);
+        }
+
+        private void radio9B_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio9B);
+        }
+
+        private void radio10A_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio10A);
+        }
+
+        private void radio10B_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio10B);
+        }
+
+        private void radio11A_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio11A);
+        }
+
+        private void radio11B_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio11B);
+        }
+
+        private void radio12A_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio12A);
+        }
+
+        private void radio12B_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio12B);
+        }
+
+        private void radio13A_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio13A);
+        }
+
+        private void radio13B_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio13B);
+        }
+
+        private void radio14A_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio14A);
+        }
+
+        private void radio14B_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio14B);
+        }
+
+        private void radio15A_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio15A);
+        }
+
+        private void radio15B_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio15B);
+        }
+
+        private void radio16A_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio16A);
+        }
+
+        private void radio16B_CheckedChanged(object sender, EventArgs e)
+        {
+            changeAdresse(radio16B);
+        }
     }
 }
