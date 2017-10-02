@@ -784,6 +784,7 @@ namespace Kartonagen
             String Body = textVorNachname.Text + "\r\n Aus: " + textStraßeA.Text + " " + textHausnummerA.Text + ", " + textPLZA.Text + " " + textOrtA.Text + "\r\n";
 
             // Geschoss + HausTyp
+            Body += umzObj.auszug.KalenderStringEtageHaustyp();
 
             if (radioAufzugAJa.Checked)
             {
@@ -795,6 +796,7 @@ namespace Kartonagen
             Body += "\r\n Nach: " + textStraßeB.Text + " " + textHausnummerB.Text + ", " + textPLZB.Text + " " + textOrtB.Text + "\r\n";
 
             // Geschoss + HausTyp
+            Body += umzObj.einzug.KalenderStringEtageHaustyp();
 
             if (radioAufzugBJa.Checked)
             {
@@ -1696,8 +1698,8 @@ namespace Kartonagen
 
                 //Geschossigkeit
 
-                //fields.TryGetValue("StockwerkB", out toSet);
-                //toSet.SetValue(umzObj.einzug.KalenderStringEtageHaustyp());
+                fields.TryGetValue("StockwerkB", out toSet);
+                toSet.SetValue(umzObj.einzug.KalenderStringEtageHaustyp());
 
                 if (textLaufMeterB.Text != "0")
                 {
