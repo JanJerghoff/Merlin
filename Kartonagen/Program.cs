@@ -298,9 +298,7 @@ namespace Kartonagen
         }
 
         public static DateTime MachineTime(string sql) {
-
-            var bestätigung = MessageBox.Show(sql, "Erinnerung", MessageBoxButtons.YesNo);
-
+            
             string[] spli = sql.Split(':');   
             
             int a = int.Parse(spli[0]);

@@ -691,32 +691,34 @@ namespace Kartonagen
         private void buttonDruck_Click(object sender, EventArgs e)
         {
             PdfDocument pdf = new PdfDocument(new PdfReader(System.IO.Path.Combine(Environment.CurrentDirectory, "Besichtigungs Vordruck.pdf")), new PdfWriter(Program.druckPfad));
+
             PdfAcroForm form = PdfAcroForm.GetAcroForm(pdf, true);
             IDictionary<String, PdfFormField> fields = form.GetFormFields();
             PdfFormField toSet;
 
-            String Name = ""; // 0= Rita, 1=Jonas, 2=Eva, 3=Jan, 4, Sonst.
-            switch (idBearbeitend)
-            {
-                case 0:
-                    Name = "Rita";
-                    break;
+            //String Name = ""; // 0= Rita, 1=Jonas, 2=Eva, 3=Jan, 4, Sonst.
 
-                case 1:
-                    Name = "Jonas";
-                    break;
+            //switch (UserSpeicher[0])
+            //{
+            //    case '0':
+            //        Name = "Rita";
+            //        break;
 
-                case 2:
-                    Name = "Eva";
-                    break;
+            //    case '1':
+            //        Name = "Jonas";
+            //        break;
 
-                case 3:
-                    Name = "Jan";
-                    break;
+            //    case '2':
+            //        Name = "Eva";
+            //        break;
 
-                default:
-                    break;
-            }
+            //    case '3':
+            //        Name = "Jan";
+            //        break;
+
+            //    default:
+            //        break;
+            //}
 
             // Vergleihstermin
             DateTime stand = new DateTime(2017, 1, 1);
@@ -726,8 +728,27 @@ namespace Kartonagen
                 fields.TryGetValue("NameKundennummer", out toSet);
                 toSet.SetValue(textKundennummer.Text + " " + textVorNachname.Text);
 
-                fields.TryGetValue("Telefonnummer", out toSet);
-                toSet.SetValue(textTelefonnummer.Text + " / " + textHandynummer.Text);
+                // Telefonnummern sauber auflösen
+                if (textTelefonnummer.Text != "0" && textHandynummer.Text != "0")
+                {
+                    fields.TryGetValue("Telefonnummer", out toSet);
+                    toSet.SetValue(textTelefonnummer.Text + " / " + textHandynummer.Text);
+                }
+                else if (textTelefonnummer.Text == "0" && textHandynummer.Text != "0")
+                {
+                    fields.TryGetValue("Telefonnummer", out toSet);
+                    toSet.SetValue(textHandynummer.Text);
+                }
+                else if (textTelefonnummer.Text != "0" && textHandynummer.Text == "0")
+                {
+                    fields.TryGetValue("Telefonnummer", out toSet);
+                    toSet.SetValue(textTelefonnummer.Text);
+                }
+                else
+                {
+                    fields.TryGetValue("Telefonnummer", out toSet);
+                    toSet.SetValue("Keine Nummer!");
+                }
 
                 fields.TryGetValue("Email", out toSet);
                 toSet.SetValue(textEmail.Text);
@@ -764,7 +785,9 @@ namespace Kartonagen
                 toSet.SetValue(textPLZA.Text + " " + textOrtA.Text);
 
                 //Geschossigkeit
-               
+
+                fields.TryGetValue("StockwerkA", out toSet);
+                toSet.SetValue(umzObj.auszug.KalenderStringEtageHaustyp());
 
                 if (textLaufMeterA.Text != "0")
                 {
@@ -772,14 +795,14 @@ namespace Kartonagen
                     toSet.SetValue(textLaufMeterA.Text);
                 }
 
-                fields.TryGetValue("HausStatusA", out toSet);
-                toSet.SetValue(listBoxA.SelectedItem.ToString());
-
                 if (radioHVZAJa.Checked)
                 {
                     fields.TryGetValue("HVZAJa", out toSet);
-                    toSet.SetValue("Yes");
+                    toSet.SetValue("X");
                 }
+
+
+
                 //if (radioHVZAV.Checked)
                 //{
                 //    fields.TryGetValue("HVZAVllt", out toSet);
@@ -788,29 +811,31 @@ namespace Kartonagen
                 if (radioHVZANein.Checked)
                 {
                     fields.TryGetValue("HVZANein", out toSet);
-                    toSet.SetValue("Yes");
+                    toSet.SetValue("X");
                 }
 
                 if (radioAufzugAJa.Checked)
                 {
                     fields.TryGetValue("AufzugAJa", out toSet);
-                    toSet.SetValue("Yes");
+                    toSet.SetValue("X");
                 }
+
                 if (radioAufzugANein.Checked)
                 {
                     fields.TryGetValue("AufzugANein", out toSet);
-                    toSet.SetValue("Yes");
+                    toSet.SetValue("X");
                 }
-                //
+
+
                 if (radioAussenAufzugAJa.Checked)
                 {
                     fields.TryGetValue("AussenAufzugAJa", out toSet);
-                    toSet.SetValue("Yes");
+                    toSet.SetValue("X");
                 }
                 if (radioAussenAufzugANein.Checked)
                 {
                     fields.TryGetValue("AussenAufzugANein", out toSet);
-                    toSet.SetValue("Yes");
+                    toSet.SetValue("X");
                 }
 
                 // Adresse Einzug
@@ -821,7 +846,9 @@ namespace Kartonagen
                 toSet.SetValue(textPLZB.Text + " " + textOrtB.Text);
 
                 //Geschossigkeit
-                
+
+                fields.TryGetValue("StockwerkB", out toSet);
+                toSet.SetValue(umzObj.einzug.KalenderStringEtageHaustyp());
 
                 if (textLaufMeterB.Text != "0")
                 {
@@ -829,13 +856,10 @@ namespace Kartonagen
                     toSet.SetValue(textLaufMeterB.Text);
                 }
 
-                fields.TryGetValue("HausStatusB", out toSet);
-                toSet.SetValue(listBoxB.SelectedItem.ToString());
-
                 if (radioHVZBJa.Checked)
                 {
                     fields.TryGetValue("HVZBJa", out toSet);
-                    toSet.SetValue("Yes");
+                    toSet.SetValue("X");
                 }
                 //if (radioHVZBV.Checked)
                 //{
@@ -845,49 +869,38 @@ namespace Kartonagen
                 if (radioHVZBNein.Checked)
                 {
                     fields.TryGetValue("HVZBNein", out toSet);
-                    toSet.SetValue("Yes");
+                    toSet.SetValue("X");
                 }
                 //
                 if (radioAufzugBJa.Checked)
                 {
                     fields.TryGetValue("AufzugBJa", out toSet);
-                    toSet.SetValue("Yes");
+                    toSet.SetValue("X");
                 }
                 if (radioAufzugBNein.Checked)
                 {
                     fields.TryGetValue("AufzugBNein", out toSet);
-                    toSet.SetValue("Yes");
+                    toSet.SetValue("X");
                 }
                 //
                 if (radioAussenAufzugBJa.Checked)
                 {
                     fields.TryGetValue("AussenAufzugBJa", out toSet);
-                    toSet.SetValue("Yes");
+                    toSet.SetValue("X");
                 }
                 if (radioAussenAufzugBNein.Checked)
                 {
                     fields.TryGetValue("AussenAufzugBNein", out toSet);
-                    toSet.SetValue("Yes");
+                    toSet.SetValue("X");
                 }
 
                 // Packen
-                if (numericEinPacker.Value != 0)
-                {
-                    fields.TryGetValue("MannPacken", out toSet);
-                    toSet.SetValue(numericEinPacker.Value.ToString());
-                }
-
-                if (numericEinPackStunden.Value != 0)
-                {
-                    fields.TryGetValue("StundenPacken", out toSet);
-                    toSet.SetValue(numericEinPackStunden.Value.ToString());
-                }
 
                 //
                 if (radioEinpackenJa.Checked)
                 {
                     fields.TryGetValue("EinJa", out toSet);
-                    toSet.SetValue("Yes");
+                    toSet.SetValue("X");
                 }
                 //if (radioEinpackenV.Checked)
                 //{
@@ -897,13 +910,13 @@ namespace Kartonagen
                 if (radioEinpackenNein.Checked)
                 {
                     fields.TryGetValue("EinNein", out toSet);
-                    toSet.SetValue("Yes");
+                    toSet.SetValue("X");
                 }
                 //
                 if (radioAuspackenJa.Checked)
                 {
                     fields.TryGetValue("AusJa", out toSet);
-                    toSet.SetValue("Yes");
+                    toSet.SetValue("X");
                 }
                 //if (radioAuspackenV.Checked)
                 //{
@@ -913,13 +926,14 @@ namespace Kartonagen
                 if (radioAuspackenNein.Checked)
                 {
                     fields.TryGetValue("AusNein", out toSet);
-                    toSet.SetValue("Yes");
+                    toSet.SetValue("X");
                 }
+
                 //Küche
                 if (radioKuecheAbJa.Checked)
                 {
                     fields.TryGetValue("KuecheAbJa", out toSet);
-                    toSet.SetValue("Yes");
+                    toSet.SetValue("X");
                 }
                 //if (radioKuecheAbV.Checked)
                 //{
@@ -929,13 +943,13 @@ namespace Kartonagen
                 if (radioKuecheAbNein.Checked)
                 {
                     fields.TryGetValue("KuecheAbNein", out toSet);
-                    toSet.SetValue("Yes");
+                    toSet.SetValue("X");
                 }
                 //
                 if (radioKuecheAufJa.Checked)
                 {
                     fields.TryGetValue("KuecheAufJa", out toSet);
-                    toSet.SetValue("Yes");
+                    toSet.SetValue("X");
                 }
                 //if (radioKuecheAufV.Checked)
                 //{
@@ -945,7 +959,7 @@ namespace Kartonagen
                 if (radioKuecheAufNein.Checked)
                 {
                     fields.TryGetValue("KuecheAufNein", out toSet);
-                    toSet.SetValue("Yes");
+                    toSet.SetValue("X");
                 }
                 //
                 //if (radioKuecheExtern.Checked)
@@ -956,7 +970,7 @@ namespace Kartonagen
                 if (radioKuecheIntern.Checked)
                 {
                     fields.TryGetValue("KuecheIntern", out toSet);
-                    toSet.SetValue("Yes");
+                    toSet.SetValue("X");
                 }
                 //
                 if (textKuechenPreis.Text != "0")
@@ -986,6 +1000,7 @@ namespace Kartonagen
                     fields.TryGetValue("Kleiderkisten", out toSet);
                     toSet.SetValue(numericKleiderkisten.Value.ToString());
                 }
+
                 //Bemerkungen
                 fields.TryGetValue("NoteBuero", out toSet);
                 toSet.SetValue(textNoteBuero.Text);
