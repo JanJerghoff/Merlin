@@ -46,8 +46,8 @@ namespace Kartonagen
 
         private void buttonSpeichern_Click(object sender, EventArgs e)
         {
-            if (textRechnungsnummer.Text == "") {
-                var box = MessageBox.Show("Es muss eine Rechnungsnummer gesetzt sein, um eine Transaktion abzuschließen \r\n Bitte erneut versuchen", "Abgebrochen");
+            if (textRechnungsnummer.Text == "" && (numericFlaschenKarton.Value < 0 || numericGlaeserkarton.Value < 0 || numericKleiderKarton.Value < 0 || numericKarton.Value < 0 )) {
+                var box = MessageBox.Show("Es muss eine Rechnungsnummer gesetzt sein, um einen Ausgang abzuschließen \r\n Bitte erneut versuchen", "Abgebrochen");
                 return;
             }
 
