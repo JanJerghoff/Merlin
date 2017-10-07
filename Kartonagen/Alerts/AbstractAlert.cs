@@ -8,8 +8,9 @@ namespace Kartonagen
 {
     interface AbstractAlert
     {
-
+        
          void showAlert();
+         
 
     }
 }

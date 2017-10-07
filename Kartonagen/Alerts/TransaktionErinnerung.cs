@@ -16,16 +16,20 @@ namespace Kartonagen
         string UserChanged;
         int id;
         int idBearbeitend;
+        Erinnerungen home;
+
 
         public TransaktionErinnerung()
         {
             InitializeComponent();
         }
 
-        public void set(string UserChanged, string Rechnungsnummer, string zeit, string name, string adresse, string bemerkung, int id, int kartons, int Flaschenkartons, int Glaeserkartons, int Kleiderkartons, int idBearbeitend) {
+        public void set(Erinnerungen home, string UserChanged, string Rechnungsnummer, string zeit, string name, string adresse, string bemerkung, int id, int kartons, int Flaschenkartons, int Glaeserkartons, int Kleiderkartons, int idBearbeitend) {
 
             this.UserChanged = UserChanged;
             this.id = id;
+            this.home = home;
+
 
             textZeit.AppendText(zeit);
             textKunde.AppendText(name);
@@ -46,6 +50,12 @@ namespace Kartonagen
 
         private void buttonSpeichern_Click(object sender, EventArgs e)
         {
+            abspeichern();
+            this.Close();
+        }
+
+        private void abspeichern() { 
+
             if (textRechnungsnummer.Text == "" && (numericFlaschenKarton.Value < 0 || numericGlaeserkarton.Value < 0 || numericKleiderKarton.Value < 0 || numericKarton.Value < 0 )) {
                 var box = MessageBox.Show("Es muss eine Rechnungsnummer gesetzt sein, um einen Ausgang abzuschließen \r\n Bitte erneut versuchen", "Abgebrochen");
                 return;
@@ -62,6 +72,13 @@ namespace Kartonagen
                 "final = 1 WHERE idTransaktionen = " + id + ";";
 
             Program.absender(update, "Absenden der Transaktion aus einer Erinnerung");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            abspeichern();
+            home.next();
+            this.Close();
         }
     }
 }

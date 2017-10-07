@@ -15,7 +15,7 @@ namespace Kartonagen
     {
 
         int idBearbeitend = -1;
-
+        int count = 0;
 
         List <AbstractAlert> gesamt = new List <AbstractAlert>();
 
@@ -27,15 +27,16 @@ namespace Kartonagen
 
             gesamt = Transaktionen(gesamt);
 
-            foreach (var item in gesamt)
-            {
-                item.showAlert();
-            }
+            // Aufruf erster Erinnerung
 
-            this.Hide();
-
+            gesamt[0].showAlert();
         }
 
+        public void next() {
+
+
+
+        }
 
         public void setIdBearbeitend(int id)
         {
@@ -44,9 +45,6 @@ namespace Kartonagen
 
         private List<AbstractAlert> Transaktionen (List<AbstractAlert> gesamt)
         {
-            string teststring;
-            int testint;
-
             //Abfrage
             MySqlCommand cmd = new MySqlCommand("SELECT t.idTransaktionen, t.Kartons, t.Flaschenkartons, t.Glaeserkartons, t.Kleiderkartons, t.timeTransaktion, t.datTransaktion, t.UserChanged, k.Anrede, k.Nachname, k.Straße, k.Hausnummer, k.Ort, k.PLZ, t.Bemerkungen, t.RechnungsNr FROM Transaktionen t, Kunden k WHERE t.final = 0 AND t.datTransaktion <= '" + Program.DateMachine(DateTime.Now)+"' AND t.Umzuege_Kunden_idKunden = k.idKunden", Program.conn);
             MySqlDataReader rdr;
