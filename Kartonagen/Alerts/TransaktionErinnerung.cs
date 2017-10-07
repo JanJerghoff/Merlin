@@ -29,6 +29,7 @@ namespace Kartonagen
             this.UserChanged = UserChanged;
             this.id = id;
             this.home = home;
+            this.idBearbeitend = idBearbeitend;
 
 
             textZeit.AppendText(zeit);

@@ -34,8 +34,8 @@ namespace Kartonagen
 
         public void next() {
 
-
-
+            gesamt.RemoveAt(0);
+            gesamt[0].showAlert();
         }
 
         public void setIdBearbeitend(int id)
@@ -53,7 +53,7 @@ namespace Kartonagen
                 rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    gesamt.Add(new TransaktionAlert(rdr.GetString(15), rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetInt32(2), rdr.GetInt32(3), rdr.GetInt32(4), (rdr.GetDateTime(6).ToShortDateString() + " " + rdr.GetDateTime(5).ToShortTimeString()), rdr.GetString(7), (rdr.GetString(10) + " " + rdr.GetString(11) + " " + rdr.GetString(13) + " " + rdr.GetString(12)), (rdr.GetString(8) + " " + rdr.GetString(9)), rdr.GetString(14),idBearbeitend));
+                    gesamt.Add(new TransaktionAlert(this, rdr.GetString(15), rdr.GetInt32(0), rdr.GetInt32(1), rdr.GetInt32(2), rdr.GetInt32(3), rdr.GetInt32(4), (rdr.GetDateTime(6).ToShortDateString() + " " + rdr.GetDateTime(5).ToShortTimeString()), rdr.GetString(7), (rdr.GetString(10) + " " + rdr.GetString(11) + " " + rdr.GetString(13) + " " + rdr.GetString(12)), (rdr.GetString(8) + " " + rdr.GetString(9)), rdr.GetString(14),idBearbeitend));
                 }
                 rdr.Close();
             }
