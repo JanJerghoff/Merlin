@@ -227,14 +227,7 @@ namespace Kartonagen
                 textTransaktionLog.AppendText(" Bitte Ausgang oder Eingang auswählen!\r\n");
                 return;
             }
-
-            // Rechnungsnummer gesetzt?
-
-            if (textRechnungsnr.Text == "" && checkTermin.Checked == false)
-            {
-                textTransaktionLog.AppendText("Die Rechnungsnummer muss gesetzt sein");
-                return;
-            }
+            
 
             //String bauen
             String push = "INSERT INTO Transaktionen (datTransaktion, timeTransaktion, Kartons, FlaschenKartons, GlaeserKartons, KleiderKartons, Umzuege_idUmzuege, Umzuege_Kunden_idKunden, Bemerkungen, UserChanged, Erstelldatum, unbenutzt, final, RechnungsNr) VALUES (";
