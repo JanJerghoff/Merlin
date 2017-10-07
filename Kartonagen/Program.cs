@@ -297,6 +297,22 @@ namespace Kartonagen
             return temp;
         }
 
+        public static DateTime MachineTime(string sql) {
+
+            var bestätigung = MessageBox.Show(sql, "Erinnerung", MessageBoxButtons.YesNo);
+
+            string[] spli = sql.Split(':');   
+
+            var bestätyyigung = MessageBox.Show(spli[0]+ spli[1] + spli[2], "Erinnerung", MessageBoxButtons.YesNo);
+
+            int a = int.Parse(spli[0]);
+            int b = int.Parse(spli[1]);
+            int c = int.Parse(spli[2]);
+
+            DateTime ret = new DateTime(2000, 1, 1, a, b, c);
+            return ret;
+        }
+
         // Methode um Kalendereinträge vorzunehmen
 
         public static String kalenderEintrag(String titel, String text, int Farbe, DateTime Start, DateTime Ende) {
