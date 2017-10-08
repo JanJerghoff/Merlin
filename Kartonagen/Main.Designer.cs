@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.buttonErinnerungen = new System.Windows.Forms.Button();
-            this.buttonLaufKarton = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonLaufzettel = new System.Windows.Forms.Button();
+            this.buttonLaufKarton = new System.Windows.Forms.Button();
+            this.buttonErinnerungen = new System.Windows.Forms.Button();
             this.buttonSonderabfragen = new System.Windows.Forms.Button();
             this.groupMainKartonagen = new System.Windows.Forms.GroupBox();
             this.buttonUebersichtKartons = new System.Windows.Forms.Button();
@@ -52,16 +53,16 @@
             this.radioMainBenutzerJonas = new System.Windows.Forms.RadioButton();
             this.radioMainBenutzerRita = new System.Windows.Forms.RadioButton();
             this.textMainLog = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.PDFRead = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.groupMainKartonagen.SuspendLayout();
             this.groupMainUmzuege.SuspendLayout();
             this.groupMainKunden.SuspendLayout();
             this.groupMainBenutzer.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -73,6 +74,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.PDFRead);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.buttonErinnerungen);
             this.splitContainer1.Panel1.Controls.Add(this.buttonSonderabfragen);
@@ -88,15 +90,26 @@
             this.splitContainer1.SplitterDistance = 490;
             this.splitContainer1.TabIndex = 0;
             // 
-            // buttonErinnerungen
+            // groupBox1
             // 
-            this.buttonErinnerungen.Location = new System.Drawing.Point(734, 333);
-            this.buttonErinnerungen.Name = "buttonErinnerungen";
-            this.buttonErinnerungen.Size = new System.Drawing.Size(179, 117);
-            this.buttonErinnerungen.TabIndex = 7;
-            this.buttonErinnerungen.Text = "Erinnerungen";
-            this.buttonErinnerungen.UseVisualStyleBackColor = true;
-            this.buttonErinnerungen.Click += new System.EventHandler(this.buttonErinnerungen_Click);
+            this.groupBox1.Controls.Add(this.buttonLaufzettel);
+            this.groupBox1.Controls.Add(this.buttonLaufKarton);
+            this.groupBox1.Location = new System.Drawing.Point(708, 18);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(381, 142);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Ausdrucke";
+            // 
+            // buttonLaufzettel
+            // 
+            this.buttonLaufzettel.Location = new System.Drawing.Point(6, 19);
+            this.buttonLaufzettel.Name = "buttonLaufzettel";
+            this.buttonLaufzettel.Size = new System.Drawing.Size(179, 117);
+            this.buttonLaufzettel.TabIndex = 5;
+            this.buttonLaufzettel.Text = "Laufzettel Besichtigung";
+            this.buttonLaufzettel.UseVisualStyleBackColor = true;
+            this.buttonLaufzettel.Click += new System.EventHandler(this.buttonLaufzettel_Click);
             // 
             // buttonLaufKarton
             // 
@@ -108,15 +121,15 @@
             this.buttonLaufKarton.UseVisualStyleBackColor = true;
             this.buttonLaufKarton.Click += new System.EventHandler(this.buttonLaufKarton_Click);
             // 
-            // buttonLaufzettel
+            // buttonErinnerungen
             // 
-            this.buttonLaufzettel.Location = new System.Drawing.Point(6, 19);
-            this.buttonLaufzettel.Name = "buttonLaufzettel";
-            this.buttonLaufzettel.Size = new System.Drawing.Size(179, 117);
-            this.buttonLaufzettel.TabIndex = 5;
-            this.buttonLaufzettel.Text = "Laufzettel Besichtigung";
-            this.buttonLaufzettel.UseVisualStyleBackColor = true;
-            this.buttonLaufzettel.Click += new System.EventHandler(this.buttonLaufzettel_Click);
+            this.buttonErinnerungen.Location = new System.Drawing.Point(734, 333);
+            this.buttonErinnerungen.Name = "buttonErinnerungen";
+            this.buttonErinnerungen.Size = new System.Drawing.Size(179, 117);
+            this.buttonErinnerungen.TabIndex = 7;
+            this.buttonErinnerungen.Text = "Erinnerungen";
+            this.buttonErinnerungen.UseVisualStyleBackColor = true;
+            this.buttonErinnerungen.Click += new System.EventHandler(this.buttonErinnerungen_Click);
             // 
             // buttonSonderabfragen
             // 
@@ -330,16 +343,15 @@
             this.textMainLog.Size = new System.Drawing.Size(1201, 119);
             this.textMainLog.TabIndex = 0;
             // 
-            // groupBox1
+            // PDFRead
             // 
-            this.groupBox1.Controls.Add(this.buttonLaufzettel);
-            this.groupBox1.Controls.Add(this.buttonLaufKarton);
-            this.groupBox1.Location = new System.Drawing.Point(708, 18);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(381, 142);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Ausdrucke";
+            this.PDFRead.Location = new System.Drawing.Point(1095, 37);
+            this.PDFRead.Name = "PDFRead";
+            this.PDFRead.Size = new System.Drawing.Size(179, 117);
+            this.PDFRead.TabIndex = 8;
+            this.PDFRead.Text = "PDF einlesen (TEST)";
+            this.PDFRead.UseVisualStyleBackColor = true;
+            this.PDFRead.Click += new System.EventHandler(this.PDFRead_Click);
             // 
             // mainForm
             // 
@@ -356,12 +368,12 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.groupMainKartonagen.ResumeLayout(false);
             this.groupMainUmzuege.ResumeLayout(false);
             this.groupMainKunden.ResumeLayout(false);
             this.groupMainBenutzer.ResumeLayout(false);
             this.groupMainBenutzer.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -393,6 +405,7 @@
         private System.Windows.Forms.Button buttonErinnerungen;
         private System.Windows.Forms.Button buttonUebersichtKartons;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button PDFRead;
     }
 }
 

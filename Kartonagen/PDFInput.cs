@@ -18,8 +18,11 @@ namespace Kartonagen
 
             PdfAcroForm form = PdfAcroForm.GetAcroForm(pdf, true);
             IDictionary<String, PdfFormField> fields = form.GetFormFields();
+            PdfFormField toSet;
 
-            var bestätigung = MessageBox.Show("PDF geladen, " + fields.Count, "Erinnerung", MessageBoxButtons.YesNo);
+            fields.TryGetValue("StrasseA", out toSet);            
+
+            var bestxätigung = MessageBox.Show("PDF geladen, " + toSet.GetValue(), "Erinnerung", MessageBoxButtons.YesNo);
 
             pdf.Close();
         }
