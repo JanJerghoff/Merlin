@@ -14,6 +14,28 @@ namespace Kartonagen
     {
         static Umzug lesObj;
 
+        private static int DreiFelderCheck(string ja, string nein, string vllt, string thema, IDictionary<String, PdfFormField> fields) {
+
+            int tempX = -1;
+            PdfFormField toSet;
+
+            fields.TryGetValue(ja, out toSet);
+            if (toSet.GetValueAsString().Length != 0) { tempX = 1; }
+
+            fields.TryGetValue(nein, out toSet);
+            if (toSet.GetValueAsString().Length != 0) { tempX = 0; }
+
+            fields.TryGetValue(vllt, out toSet);
+            if (toSet.GetValueAsString().Length != 0) { tempX = 2; }
+
+            if (tempX == -1)
+            {
+                Program.FehlerLog(thema+" einlesen gescheitert, alle Felder leer" + lesObj.Id, thema + " einlesen gescheitert, alle Felder leer");
+                return 0;
+            }
+            return tempX;
+        }
+
         public static void readUmzug()
         {
             PdfDocument pdf = new PdfDocument(new PdfReader(System.IO.Path.Combine(Environment.CurrentDirectory, "Temp3.pdf")));
@@ -33,131 +55,45 @@ namespace Kartonagen
             fields.TryGetValue("TragwegB", out toSet);
             lesObj.einzug.Laufmeter1 = (int.Parse(toSet.GetValueAsString()));
 
-            int tempHVZ = -1;
-
-            fields.TryGetValue("HVZBJa", out toSet);
-            if (toSet.GetValueAsString().Length == 0) { tempHVZ = 1; }
-            
-            fields.TryGetValue("HVZBNein", out toSet);
-            if (toSet.GetValueAsString().Length == 0) { tempHVZ = 0; }
-
-            fields.TryGetValue("HVZBVllt", out toSet);
-            if (toSet.GetValueAsString().Length == 0) { tempHVZ = 2; }
-
-            if (tempHVZ != -1)
-            {
-                lesObj.einzug.HVZ1 = tempHVZ;
-            }
-            else { Program.FehlerLog("HVZ einlesen gescheitert, alle Felder leer", "HVZ einlesen gescheitert, alle Felder leer"); }
+            lesObj.einzug.HVZ1 = DreiFelderCheck("HVZBJa", "HVZBNein", "HVZBVllt", "HVZ Einzugsadresse", fields);
 
             //
 
             int tempAufzug = -1;
 
             fields.TryGetValue("AufzugBJa", out toSet);
-            if (toSet.GetValueAsString().Length == 0) { tempAufzug = 1; }
+            if (toSet.GetValueAsString().Length != 0) { tempAufzug = 1; }
 
             fields.TryGetValue("AufzugBNein", out toSet);
-            if (toSet.GetValueAsString().Length == 0) { tempAufzug = 0; }
+            if (toSet.GetValueAsString().Length != 0) { tempAufzug = 0; }
 
-            if (tempHVZ != -1)
+            if (tempAufzug != -1)
             {
                 lesObj.einzug.Aufzug1 = tempAufzug;
             }
-            else { Program.FehlerLog("tempAufzug einlesen gescheitert, alle Felder leer", "Aufzug einlesen gescheitert, alle Felder leer"); }
+            else { Program.FehlerLog("tempAufzug einlesen gescheitert, alle Felder leer" + lesObj.Id, "Aufzug einlesen gescheitert, alle Felder leer"); }
 
-
-
-
-            if (radioAufzugBJa.Checked)
-            {
-                fields.TryGetValue("AufzugBJa", out toSet);
-                toSet.SetValue("X");
-            }
-            if (radioAufzugBNein.Checked)
-            {
-                fields.TryGetValue("AufzugBNein", out toSet);
-                toSet.SetValue("X");
-            }
             //
-            if (radioAussenAufzugBJa.Checked)
+            int tempAussenaufzug = -1;
+
+            fields.TryGetValue("AussenAufzugBJa", out toSet);
+            if (toSet.GetValueAsString().Length != 0) { tempAussenaufzug = 1; }
+
+            fields.TryGetValue("AussenAufzugBNein", out toSet);
+            if (toSet.GetValueAsString().Length != 0) { tempAussenaufzug = 0; }
+
+            if (tempAussenaufzug != -1)
             {
-                fields.TryGetValue("AussenAufzugBJa", out toSet);
-                toSet.SetValue("X");
+                lesObj.einzug.AussenAufzug1 = tempAussenaufzug;
             }
-            if (radioAussenAufzugBNein.Checked)
-            {
-                fields.TryGetValue("AussenAufzugBNein", out toSet);
-                toSet.SetValue("X");
-            }
+            else { Program.FehlerLog("Aussenaufzug einlesen gescheitert, alle Felder leer" + lesObj.Id, "Aussenaufzug einlesen gescheitert, alle Felder leer"); }
 
             // Packen
-
-            //
-            if (radioEinpackenJa.Checked)
-            {
-                fields.TryGetValue("EinJa", out toSet);
-                toSet.SetValue("X");
-            }
-            //if (radioEinpackenV.Checked)
-            //{
-            //    fields.TryGetValue("EinVllt", out toSet);
-            //    toSet.SetValue("Yes");
-            //}
-            if (radioEinpackenNein.Checked)
-            {
-                fields.TryGetValue("EinNein", out toSet);
-                toSet.SetValue("X");
-            }
-            //
-            if (radioAuspackenJa.Checked)
-            {
-                fields.TryGetValue("AusJa", out toSet);
-                toSet.SetValue("X");
-            }
-            //if (radioAuspackenV.Checked)
-            //{
-            //    fields.TryGetValue("AusVllt", out toSet);
-            //    toSet.SetValue("Yes");
-            //}
-            if (radioAuspackenNein.Checked)
-            {
-                fields.TryGetValue("AusNein", out toSet);
-                toSet.SetValue("X");
-            }
-
-            //Küche
-            if (radioKuecheAbJa.Checked)
-            {
-                fields.TryGetValue("KuecheAbJa", out toSet);
-                toSet.SetValue("X");
-            }
-            //if (radioKuecheAbV.Checked)
-            //{
-            //    fields.TryGetValue("KuecheAbVllt", out toSet);
-            //    toSet.SetValue("Yes");
-            //}
-            if (radioKuecheAbNein.Checked)
-            {
-                fields.TryGetValue("KuecheAbNein", out toSet);
-                toSet.SetValue("X");
-            }
-            //
-            if (radioKuecheAufJa.Checked)
-            {
-                fields.TryGetValue("KuecheAufJa", out toSet);
-                toSet.SetValue("X");
-            }
-            //if (radioKuecheAufV.Checked)
-            //{
-            //    fields.TryGetValue("KuecheAufVllt", out toSet);
-            //    toSet.SetValue("Yes");
-            //}
-            if (radioKuecheAufNein.Checked)
-            {
-                fields.TryGetValue("KuecheAufNein", out toSet);
-                toSet.SetValue("X");
-            }
+            lesObj.Einpacken1 = DreiFelderCheck("EinJa", "EinNein", "EinVllt", "Einpacken", fields);
+            lesObj.Auspacken1 = DreiFelderCheck("AusJa", "AusNein", "AusVllt", "Auspacken", fields);
+            lesObj.KuecheAuf1 = DreiFelderCheck("KuecheAufJa", "KuecheAufNein", "KuecheAufVllt", "Kueche aufbauen", fields);
+            lesObj.KuecheAuf1 = DreiFelderCheck("KuecheAbJa", "KuecheAbNein", "KuecheAbVllt", "Kueche abbauen", fields);
+            
             //
             //if (radioKuecheExtern.Checked)
             //{
