@@ -100,46 +100,46 @@ namespace Kartonagen
             //    fields.TryGetValue("KuecheExtern", out toSet);
             //    toSet.SetValue("Yes");
             //}
-            if (radioKuecheIntern.Checked)
-            {
-                fields.TryGetValue("KuecheIntern", out toSet);
-                toSet.SetValue("X");
-            }
-            //
-            if (textKuechenPreis.Text != "0")
-            {
-                fields.TryGetValue("KuechePreis", out toSet);
-                toSet.SetValue(textKuechenPreis.Text);
-            }
+            //if (radioKuecheIntern.Checked)
+            //{
+            //    fields.TryGetValue("KuecheIntern", out toSet);
+            //    toSet.SetValue("X");
+            //}
+            ////
+            //if (textKuechenPreis.Text != "0")
+            //{
+            //    fields.TryGetValue("KuechePreis", out toSet);
+            //    toSet.SetValue(textKuechenPreis.Text);
+            //}
 
-            // Restdaten
-            if (numericMannZahl.Value != 0)
-            {
-                fields.TryGetValue("Mann", out toSet);
-                toSet.SetValue(numericMannZahl.Value.ToString());
-            }
+            //// Restdaten
+            //if (numericMannZahl.Value != 0)
+            //{
+            //    fields.TryGetValue("Mann", out toSet);
+            //    toSet.SetValue(numericMannZahl.Value.ToString());
+            //}
 
-            if (numericArbeitszeit.Value != 0)
-            {
-                fields.TryGetValue("Stunden", out toSet);
-                toSet.SetValue(numericArbeitszeit.Value.ToString());
-            }
+            //if (numericArbeitszeit.Value != 0)
+            //{
+            //    fields.TryGetValue("Stunden", out toSet);
+            //    toSet.SetValue(numericArbeitszeit.Value.ToString());
+            //}
 
-            fields.TryGetValue("Autos", out toSet);
-            toSet.SetValue(AutoString());
+            //fields.TryGetValue("Autos", out toSet);
+            //toSet.SetValue(AutoString());
 
-            if (numericKleiderkisten.Value != 0)
-            {
-                fields.TryGetValue("Kleiderkisten", out toSet);
-                toSet.SetValue(numericKleiderkisten.Value.ToString());
-            }
+            //if (numericKleiderkisten.Value != 0)
+            //{
+            //    fields.TryGetValue("Kleiderkisten", out toSet);
+            //    toSet.SetValue(numericKleiderkisten.Value.ToString());
+            //}
 
-            //Bemerkungen
-            fields.TryGetValue("NoteBuero", out toSet);
-            toSet.SetValue(textNoteBuero.Text);
+            ////Bemerkungen
+            //fields.TryGetValue("NoteBuero", out toSet);
+            //toSet.SetValue(textNoteBuero.Text);
 
-            fields.TryGetValue("NoteFahrer", out toSet);
-            toSet.SetValue(textNoteFahrer.Text);
+            //fields.TryGetValue("NoteFahrer", out toSet);
+            //toSet.SetValue(textNoteFahrer.Text);
 
 
 

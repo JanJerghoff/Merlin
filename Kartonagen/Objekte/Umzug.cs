@@ -1,4 +1,7 @@
-﻿using Kartonagen.Objekte;
+﻿using iText.Forms;
+using iText.Forms.Fields;
+using iText.Kernel.Pdf;
+using Kartonagen.Objekte;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -28,6 +31,8 @@ namespace Kartonagen
         int statRuempeln;
         int umzugsdauer;        // In Tagen
 
+        Kunde umzugsKunde;
+
         // Kerndaten
         string autos;       // Beizeiten ersetzen durch kodierten String?
         int mann;
@@ -40,10 +45,10 @@ namespace Kartonagen
         int EinStunden;
         int Karton;         // Benötigt?
 
-        int Auspacken;        
-        int Auspacker;        
+        int Auspacken;
+        int Auspacker;
         int AusStunden;
-        
+
         int Kleiderkartons;
 
         //Küche
@@ -56,11 +61,11 @@ namespace Kartonagen
 
         public Adresse auszug;
         public Adresse einzug;
-        
+
         // Schilder
         int Schilder;
         DateTime SchilderZeit;
-                
+
         // Notizen
         string NotizTitel;
         string NotizBuero;
@@ -104,15 +109,15 @@ namespace Kartonagen
         public string NotizBuero1 { get => NotizBuero; set => NotizBuero = value; }
         public string NotizFahrer1 { get => NotizFahrer; set => NotizFahrer = value; }
         public int IdKunden { get => idKunden; }
-        public int Id { get => id;}
+        public int Id { get => id; }
         public string UserChanged1 { get => UserChanged; set => UserChanged = value; }
 
         // Konstruktor
-        public Umzug (int ID)
+        public Umzug(int ID)
         {
-            MySqlCommand cmdRead = new MySqlCommand("SELECT * FROM Umzuege WHERE idUmzuege = "+ID+";", Program.conn);
+            MySqlCommand cmdRead = new MySqlCommand("SELECT * FROM Umzuege WHERE idUmzuege = " + ID + ";", Program.conn);
             MySqlDataReader rdr;
-            
+
             try
             {
                 rdr = cmdRead.ExecuteReader();
@@ -127,15 +132,15 @@ namespace Kartonagen
                     datRuempeln = rdr.GetDateTime(4).Date;
                     datEinraeumen = rdr.GetDateTime(5).Date;
                     datAusraeumen = rdr.GetDateTime(6).Date;
-                    
-                    zeitUmzug = Program.MachineTime (rdr[7].ToString());
+
+                    zeitUmzug = Program.MachineTime(rdr[7].ToString());
 
                     statBesichtigung = rdr.GetInt32(8);
                     statUmzug = rdr.GetInt32(9);
                     statRuempeln = rdr.GetInt32(10);
                     statEin = rdr.GetInt32(11);
                     statAus = rdr.GetInt32(12);
-                    
+
                     umzugsdauer = rdr.GetInt32(13);
 
                     //Kerndaten
@@ -157,12 +162,12 @@ namespace Kartonagen
                     Kleiderkartons = rdr.GetInt32(25);
 
                     //Schilder
-                    Schilder = rdr.GetInt32(26);                    
+                    Schilder = rdr.GetInt32(26);
                     SchilderZeit = rdr.GetDateTime(56); // Hinterfragt, ans Ende gesetzt
 
                     // Küche
                     KuecheAb = rdr.GetInt32(27);
-                    KuecheAuf = rdr.GetInt32(28);                    
+                    KuecheAuf = rdr.GetInt32(28);
                     KuecheBau = rdr.GetInt32(29);
                     KuechePausch = rdr.GetInt32(30);
 
@@ -186,6 +191,8 @@ namespace Kartonagen
             {
                 Program.FehlerLog(sqlEx.ToString(), "Abrufen der Umzugsdaten zur Objekterstellung");
             }
+
+            umzugsKunde = new Kunde(idKunden);
         }
 
         public Umzug(int idKunden, DateTime datBesichtigung, DateTime datUmzug, DateTime datEinraeumen, DateTime datAusraeumen, DateTime datRuempeln, DateTime zeitUmzug, int statBesichtigung, int statUmzug, int statAus, int statEin, int statRuempeln, int umzugsdauer, string autos, int mann, int stunden, int versicherung, int einpacken, int einpacker, int einStunden, int karton, int auspacken, int auspacker, int ausStunden, int kleiderkartons, int kuecheAuf, int kuecheAb, int kuecheBau, int kuechePausch, Adresse auszug, Adresse einzug, int schilder, DateTime schilderZeit, string notizTitel, string notizBuero, string notizFahrer, string userChanged, DateTime erstelldatum)
@@ -207,18 +214,18 @@ namespace Kartonagen
             longInsert += "'" + Program.DateMachine(datAusraeumen) + "', ";
             longInsert += "'" + Program.ZeitMachine(zeitUmzug) + "', ";
 
-            longInsert +=  statBesichtigung+ ", ";
-            longInsert +=  statUmzug + ", ";
+            longInsert += statBesichtigung + ", ";
+            longInsert += statUmzug + ", ";
             longInsert += statAus + ", ";
             longInsert += statEin + ", ";
             longInsert += statRuempeln + ", ";
             longInsert += umzugsdauer + ", ";
 
-            longInsert += "'" + autos +"', ";
+            longInsert += "'" + autos + "', ";
             longInsert += mann + ", ";
-            longInsert += stunden + ", ";            
+            longInsert += stunden + ", ";
             longInsert += versicherung + ", ";
-            
+
 
             longInsert += einpacken + ", ";
             longInsert += einpacker + ", ";
@@ -240,7 +247,7 @@ namespace Kartonagen
             longInsert += "'" + auszug.PLZ1 + "', ";
             longInsert += "'" + auszug.Ort1 + "', ";
             longInsert += "'" + auszug.Land1 + "', ";
-            longInsert += auszug.Aufzug1 + ", ";            
+            longInsert += auszug.Aufzug1 + ", ";
             longInsert += "'" + auszug.Stockwerke1 + "', ";
             longInsert += "'" + auszug.Haustyp1 + "', ";
             longInsert += auszug.HVZ1 + ", ";
@@ -263,14 +270,15 @@ namespace Kartonagen
             longInsert += "'" + notizFahrer + "', ";
             longInsert += "'" + notizTitel + "', ";
             longInsert += "'" + Program.DateMachine(schilderZeit) + "', ";
-            longInsert += "'" + userChanged+ "', ";
+            longInsert += "'" + userChanged + "', ";
             longInsert += "'" + Program.DateMachine(DateTime.Now) + "');";
+                        
 
             // Merkt den Query
             Program.QueryLog(longInsert);
-            
+
             Program.absender(longInsert, "Einfügen des neuen Umzuges zum erstellen des Umzugsobjekts");
-            }
+        }
 
 
 
@@ -278,11 +286,11 @@ namespace Kartonagen
 
 
         //Updatemechanik
-        public void UpdateDB (string idUser)
+        public void UpdateDB(string idUser)
         {
 
             String longInsert = "UPDATE Umzuege SET ";
-            
+
             longInsert += "Kunden_idKunden = " + idKunden + ", ";
             longInsert += "StatBes = " + statBesichtigung + ", ";
             longInsert += "StatUmz = " + statUmzug + ", ";
@@ -311,25 +319,25 @@ namespace Kartonagen
             longInsert += "datRuempelung = '" + Program.DateMachine(datRuempeln.Date) + "', ";
             longInsert += "datEinpacken = '" + Program.DateMachine(datEinraeumen.Date) + "', ";
             longInsert += "datAuspacken = '" + Program.DateMachine(datAusraeumen.Date) + "', ";
-            longInsert += "umzugsZeit = '" + Program.ZeitMachine(zeitUmzug.Date) + "', ";
+            longInsert += "umzugsZeit = '" + Program.ZeitMachine(zeitUmzug) + "', ";
             longInsert += "SchilderZeit = '" + Program.DateMachine(SchilderZeit.Date) + "', ";
 
             longInsert += "Autos = '" + autos + "', ";
             longInsert += "NotizBuero = '" + NotizBuero + "', ";
             longInsert += "NotizFahrer = '" + NotizFahrer + "', ";
             longInsert += "BemerkungTitel = '" + NotizTitel + "', ";
-            longInsert += "UserChanged = '" + UserChanged + idUser + "', "; 
-            
-            longInsert += "StraßeA = '" + auszug.Straße1  + "', ";
+            longInsert += "UserChanged = '" + UserChanged + idUser + "', ";
+
+            longInsert += "StraßeA = '" + auszug.Straße1 + "', ";
             longInsert += "HausnummerA = '" + auszug.Hausnummer1 + "', ";
             longInsert += "PLZA = '" + auszug.PLZ1 + "', ";
             longInsert += "OrtA = '" + auszug.Ort1 + "', ";
             longInsert += "LandA = '" + auszug.Land1 + "', ";
-            longInsert += "AufzugA = " + auszug.Aufzug1 + ", ";    
+            longInsert += "AufzugA = " + auszug.Aufzug1 + ", ";
             longInsert += "StockwerkeA = '" + auszug.Stockwerke1 + "', ";
             longInsert += "HausTypA = '" + auszug.Haustyp1 + "', ";
-            longInsert += "HVZA = " + auszug.HVZ1 + ", ";        
-            longInsert += "LaufmeterA = " + auszug.Laufmeter1+ ", ";  
+            longInsert += "HVZA = " + auszug.HVZ1 + ", ";
+            longInsert += "LaufmeterA = " + auszug.Laufmeter1 + ", ";
             longInsert += "AussenAufzugA = " + auszug.AussenAufzug1 + ", ";
 
             longInsert += "StraßeB = '" + einzug.Straße1 + "', ";
@@ -351,5 +359,344 @@ namespace Kartonagen
             Program.absender(longInsert, "Absenden der Änderung am Umzug");
 
         }
+
+        // Druck, Parameter für Ausdruck (temp2, toggle = 1) oder mitnahme (t=2)
+        public void druck(int toggle)
+        {
+            
+            // Unschön, bessere Lösung?
+            PdfDocument pdf = new PdfDocument(new PdfReader(System.IO.Path.Combine(Environment.CurrentDirectory, "Besichtigungs Vordruck.pdf")), new PdfWriter(Program.druckPfad));
+
+            if (toggle == 1)
+            {
+                pdf = new PdfDocument(new PdfReader(System.IO.Path.Combine(Environment.CurrentDirectory, "Besichtigungs Vordruck.pdf")), new PdfWriter(Program.druckPfad));
+            }
+            else if (toggle == 2)
+            {
+                string dateiName = id + "_" + einzug.Straße1 + "_" + einzug.Hausnummer1;
+                string mitnehmPfad = System.IO.Path.Combine(Program.mitnehmPfad, dateiName);
+                pdf = new PdfDocument(new PdfReader(System.IO.Path.Combine(Environment.CurrentDirectory, "Besichtigungs Vordruck.pdf")), new PdfWriter(mitnehmPfad));
+            }
+
+            PdfAcroForm form = PdfAcroForm.GetAcroForm(pdf, true);
+            IDictionary<String, PdfFormField> fields = form.GetFormFields();
+            PdfFormField toSet;
+
+            String Name = ""; // 0= Rita, 1=Jonas, 2=Eva, 3=Jan, 4, Sonst.
+            switch (UserChanged[0])
+            {
+                case '0':
+                    Name = "Rita";
+                    break;
+
+                case '1':
+                    Name = "Jonas";
+                    break;
+
+                case '2':
+                    Name = "Eva";
+                    break;
+
+                case '3':
+                    Name = "Jan";
+                    break;
+
+                default:
+                    break;
+            }
+
+            // Vergleihstermin
+            DateTime stand = new DateTime(2017, 1, 1);
+
+            try
+            {
+                fields.TryGetValue("NameKundennummer", out toSet);
+                toSet.SetValue(idKunden + " " + umzugsKunde.Nachname);
+
+                // Telefonnummern sauber auflösen
+                if (umzugsKunde.Telefon != "0" && umzugsKunde.Handy != "0")
+                {
+                    fields.TryGetValue("Telefonnummer", out toSet);
+                    toSet.SetValue(umzugsKunde.Telefon + " / " + umzugsKunde.Handy);
+                }
+                else if (umzugsKunde.Telefon == "0" && umzugsKunde.Handy != "0")
+                {
+                    fields.TryGetValue("Telefonnummer", out toSet);
+                    toSet.SetValue(umzugsKunde.Telefon);
+                }
+                else if (umzugsKunde.Telefon != "0" && umzugsKunde.Handy == "0")
+                {
+                    fields.TryGetValue("Telefonnummer", out toSet);
+                    toSet.SetValue(umzugsKunde.Telefon);
+                }
+                else
+                {
+                    fields.TryGetValue("Telefonnummer", out toSet);
+                    toSet.SetValue("Keine Nummer!");
+                }
+
+                fields.TryGetValue("Email", out toSet);
+                toSet.SetValue(umzugsKunde.Email);
+
+                fields.TryGetValue("DatumZeichen", out toSet);
+                toSet.SetValue(DateTime.Now.Date.ToShortDateString() + " " + Name);
+
+                if (DatBesichtigung.ToShortDateString() != stand.ToShortDateString())
+                {
+                    fields.TryGetValue("TerminBes", out toSet);
+                    toSet.SetValue(DatBesichtigung.ToShortDateString());
+                }
+
+                if (datUmzug.ToShortDateString() != stand.ToShortDateString())
+                {
+                    fields.TryGetValue("TerminUmz", out toSet);
+                    toSet.SetValue(datUmzug.ToShortDateString());
+                }
+
+                if (datRuempeln.ToShortDateString() != stand.ToShortDateString())
+                {
+                    fields.TryGetValue("TerminEnt", out toSet);
+                    toSet.SetValue(datRuempeln.ToShortDateString());
+                }
+
+                fields.TryGetValue("Umzugsnummer", out toSet);
+                toSet.SetValue(id.ToString());
+
+                // Auszugsadresse
+                fields.TryGetValue("StrasseA", out toSet);
+                toSet.SetValue(auszug.Straße1 + " " + auszug.Hausnummer1);
+
+                fields.TryGetValue("OrtA", out toSet);
+                toSet.SetValue(auszug.PLZ1 + " " + auszug.Ort1);
+
+                //Geschossigkeit
+
+                fields.TryGetValue("StockwerkA", out toSet);
+                toSet.SetValue(auszug.KalenderStringEtageHaustyp());
+
+                if (auszug.Laufmeter1.ToString() != "0")
+                {
+                    fields.TryGetValue("TragwegA", out toSet);
+                    toSet.SetValue(auszug.Laufmeter1.ToString());
+                }
+
+                if (auszug.HVZ1 == 1)
+                {
+                    fields.TryGetValue("HVZAJa", out toSet);
+                    toSet.SetValue("X");
+                }
+                //if (radioHVZAV.Checked)
+                //{
+                //    fields.TryGetValue("HVZAVllt", out toSet);
+                //    toSet.SetValue("Yes");
+                //}
+                if (auszug.HVZ1 == 0)
+                {
+                    fields.TryGetValue("HVZANein", out toSet);
+                    toSet.SetValue("X");
+                }
+
+                if (auszug.Aufzug1 == 1)
+                {
+                    fields.TryGetValue("AufzugAJa", out toSet);
+                    toSet.SetValue("X");
+                }
+
+                if (auszug.Aufzug1 == 0)
+                {
+                    fields.TryGetValue("AufzugANein", out toSet);
+                    toSet.SetValue("X");
+                }
+
+
+                if (auszug.AussenAufzug1 == 1)
+                {
+                    fields.TryGetValue("AussenAufzugAJa", out toSet);
+                    toSet.SetValue("X");
+                }
+                if (auszug.AussenAufzug1 == 0)
+                {
+                    fields.TryGetValue("AussenAufzugANein", out toSet);
+                    toSet.SetValue("X");
+                }
+
+                // Adresse Einzug
+                fields.TryGetValue("StrasseB", out toSet);
+                toSet.SetValue(einzug.Straße1 + " " + einzug.Hausnummer1);
+
+                fields.TryGetValue("OrtB", out toSet);
+                toSet.SetValue(einzug.PLZ1 + " " + einzug.Ort1);
+
+                //Geschossigkeit
+
+                fields.TryGetValue("StockwerkB", out toSet);
+                toSet.SetValue(umzObj.einzug.KalenderStringEtageHaustyp());
+
+                if (textLaufMeterB.Text != "0")
+                {
+                    fields.TryGetValue("TragwegB", out toSet);
+                    toSet.SetValue(textLaufMeterB.Text);
+                }
+
+                if (radioHVZBJa.Checked)
+                {
+                    fields.TryGetValue("HVZBJa", out toSet);
+                    toSet.SetValue("X");
+                }
+                //if (radioHVZBV.Checked)
+                //{
+                //    fields.TryGetValue("HVZBVllt", out toSet);
+                //    toSet.SetValue("Yes");
+                //}
+                if (radioHVZBNein.Checked)
+                {
+                    fields.TryGetValue("HVZBNein", out toSet);
+                    toSet.SetValue("X");
+                }
+                //
+                if (radioAufzugBJa.Checked)
+                {
+                    fields.TryGetValue("AufzugBJa", out toSet);
+                    toSet.SetValue("X");
+                }
+                if (radioAufzugBNein.Checked)
+                {
+                    fields.TryGetValue("AufzugBNein", out toSet);
+                    toSet.SetValue("X");
+                }
+                //
+                if (radioAussenAufzugBJa.Checked)
+                {
+                    fields.TryGetValue("AussenAufzugBJa", out toSet);
+                    toSet.SetValue("X");
+                }
+                if (radioAussenAufzugBNein.Checked)
+                {
+                    fields.TryGetValue("AussenAufzugBNein", out toSet);
+                    toSet.SetValue("X");
+                }
+
+                // Packen
+
+                //
+                if (radioEinpackenJa.Checked)
+                {
+                    fields.TryGetValue("EinJa", out toSet);
+                    toSet.SetValue("X");
+                }
+                //if (radioEinpackenV.Checked)
+                //{
+                //    fields.TryGetValue("EinVllt", out toSet);
+                //    toSet.SetValue("Yes");
+                //}
+                if (radioEinpackenNein.Checked)
+                {
+                    fields.TryGetValue("EinNein", out toSet);
+                    toSet.SetValue("X");
+                }
+                //
+                if (radioAuspackenJa.Checked)
+                {
+                    fields.TryGetValue("AusJa", out toSet);
+                    toSet.SetValue("X");
+                }
+                //if (radioAuspackenV.Checked)
+                //{
+                //    fields.TryGetValue("AusVllt", out toSet);
+                //    toSet.SetValue("Yes");
+                //}
+                if (radioAuspackenNein.Checked)
+                {
+                    fields.TryGetValue("AusNein", out toSet);
+                    toSet.SetValue("X");
+                }
+
+                //Küche
+                if (radioKuecheAbJa.Checked)
+                {
+                    fields.TryGetValue("KuecheAbJa", out toSet);
+                    toSet.SetValue("X");
+                }
+                //if (radioKuecheAbV.Checked)
+                //{
+                //    fields.TryGetValue("KuecheAbVllt", out toSet);
+                //    toSet.SetValue("Yes");
+                //}
+                if (radioKuecheAbNein.Checked)
+                {
+                    fields.TryGetValue("KuecheAbNein", out toSet);
+                    toSet.SetValue("X");
+                }
+                //
+                if (radioKuecheAufJa.Checked)
+                {
+                    fields.TryGetValue("KuecheAufJa", out toSet);
+                    toSet.SetValue("X");
+                }
+                //if (radioKuecheAufV.Checked)
+                //{
+                //    fields.TryGetValue("KuecheAufVllt", out toSet);
+                //    toSet.SetValue("Yes");
+                //}
+                if (radioKuecheAufNein.Checked)
+                {
+                    fields.TryGetValue("KuecheAufNein", out toSet);
+                    toSet.SetValue("X");
+                }
+                //
+                //if (radioKuecheExtern.Checked)
+                //{
+                //    fields.TryGetValue("KuecheExtern", out toSet);
+                //    toSet.SetValue("Yes");
+                //}
+                if (radioKuecheIntern.Checked)
+                {
+                    fields.TryGetValue("KuecheIntern", out toSet);
+                    toSet.SetValue("X");
+                }
+                //
+                if (textKuechenPreis.Text != "0")
+                {
+                    fields.TryGetValue("KuechePreis", out toSet);
+                    toSet.SetValue(textKuechenPreis.Text);
+                }
+
+                // Restdaten
+                if (numericMannZahl.Value != 0)
+                {
+                    fields.TryGetValue("Mann", out toSet);
+                    toSet.SetValue(numericMannZahl.Value.ToString());
+                }
+
+                if (numericArbeitszeit.Value != 0)
+                {
+                    fields.TryGetValue("Stunden", out toSet);
+                    toSet.SetValue(numericArbeitszeit.Value.ToString());
+                }
+
+                fields.TryGetValue("Autos", out toSet);
+                toSet.SetValue(AutoString());
+
+                if (numericKleiderkisten.Value != 0)
+                {
+                    fields.TryGetValue("Kleiderkisten", out toSet);
+                    toSet.SetValue(numericKleiderkisten.Value.ToString());
+                }
+
+                //Bemerkungen
+                fields.TryGetValue("NoteBuero", out toSet);
+                toSet.SetValue(textNoteBuero.Text);
+
+                fields.TryGetValue("NoteFahrer", out toSet);
+                toSet.SetValue(textNoteFahrer.Text);
+
+            }
+
+            catch (Exception ex)
+            {
+                Program.FehlerLog(ex.ToString(), "Drucken des Umzugs " + id);
+            }
+        }
+
     }
 }

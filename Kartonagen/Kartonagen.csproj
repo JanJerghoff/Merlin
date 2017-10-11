@@ -119,19 +119,17 @@
     <Compile Include="Alerts\Erinnerungen.Designer.cs">
       <DependentUpon>Erinnerungen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Objekte\Kunde.cs" />
     <Compile Include="PDFInput.cs" />
     <Compile Include="Kunden.cs">
       <DependentUpon>Umzuege.tt</DependentUpon>
     </Compile>
-    
     <Compile Include="KundenOperationen\KundenAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    
     <Compile Include="KundenOperationen\KundenAdd.Designer.cs">
       <DependentUpon>KundenAdd.cs</DependentUpon>
     </Compile>
-    
     <Compile Include="KundenOperationen\KundenSearch.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -279,8 +279,6 @@ namespace Kartonagen
 
                 counter++;
             }
-            // testsektion
-            var bestätigung = MessageBox.Show("Umzuege = "+Umzuege.Count, "Löschen bestätigen", MessageBoxButtons.YesNo);
 
             // Gegenprüfen mittels Kalender
             Events eve = Program.kalenderDatumFinder(dateTransaktion.Value);            

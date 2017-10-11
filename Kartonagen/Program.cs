@@ -35,7 +35,7 @@ namespace Kartonagen
         public static string druckPfad = System.IO.Path.Combine(Environment.CurrentDirectory, "temp2.pdf");
         public static string fehlerPfad = System.IO.Path.Combine(Environment.CurrentDirectory, "fehler.txt");
         public static string QueryPfad = System.IO.Path.Combine(Environment.CurrentDirectory, "query.txt");
-
+        public static string mitnehmPfad = System.IO.Path.Combine(Environment.CurrentDirectory, "Mitnehmordner");
         // Buero-geänderte-version
 
         // Deployment
