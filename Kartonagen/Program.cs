@@ -48,6 +48,8 @@ namespace Kartonagen
 
         // -------------- Methoden ---------------
 
+
+       
         public static AutoCompleteStringCollection getAutocompleteKunden() {
 
             if (autocompleteKunden == null) {
@@ -118,6 +120,17 @@ namespace Kartonagen
                 Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Mitarbeiternamen \r\n Bereits dokumentiert.");
             }
         }
+
+        public static void ordnerLeeren() {
+
+            string [] temp = Directory.GetFiles(mitnehmPfad);
+            foreach (var item in temp)
+            {
+                File.Delete(item);
+            }
+
+        }
+
 
         public static String getBearbeitender(int ID)
         {

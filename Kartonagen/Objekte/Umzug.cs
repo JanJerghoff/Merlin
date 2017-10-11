@@ -382,10 +382,18 @@ namespace Kartonagen
 
         }
 
+
+        
+
         // Druck, Parameter für Ausdruck (temp2, toggle = 1) oder mitnahme (t=2)
         public string druck(int toggle)
         {
-            
+
+            if (toggle == 2)
+            {
+                Program.ordnerLeeren();
+            }
+
             // Unschön, bessere Lösung?
             PdfDocument pdf = new PdfDocument(new PdfReader(System.IO.Path.Combine(Environment.CurrentDirectory, "Besichtigungs Vordruck.pdf")), new PdfWriter(Program.druckPfad));
 
