@@ -283,7 +283,29 @@ namespace Kartonagen
 
 
         // Ausgabemethoden
+        private String AutoString()
+        {
 
+            String temp = "";
+            if (autos[0] != '0')
+            {
+                temp = temp + autos[0].ToString() + " Sprinter Mit, ";
+            }
+            if (autos[1] != '0')
+            {
+                temp = temp + autos[1].ToString() + " Sprinter Ohne, ";
+            }
+            if (autos[2] != '0')
+            {
+                temp = temp + autos[2].ToString() + " LKW, ";
+            }
+            if (autos[3] != '0')
+            {
+                temp = temp + autos[3].ToString() + " 12-Tonner";
+            }
+
+            return temp;
+        }
 
         //Updatemechanik
         public void UpdateDB(string idUser)
@@ -361,7 +383,7 @@ namespace Kartonagen
         }
 
         // Druck, Parameter für Ausdruck (temp2, toggle = 1) oder mitnahme (t=2)
-        public void druck(int toggle)
+        public string druck(int toggle)
         {
             
             // Unschön, bessere Lösung?
@@ -373,7 +395,7 @@ namespace Kartonagen
             }
             else if (toggle == 2)
             {
-                string dateiName = id + "_" + einzug.Straße1 + "_" + einzug.Hausnummer1;
+                string dateiName = id + "_" + einzug.Straße1 + "_" + einzug.Hausnummer1+".pdf";
                 string mitnehmPfad = System.IO.Path.Combine(Program.mitnehmPfad, dateiName);
                 pdf = new PdfDocument(new PdfReader(System.IO.Path.Combine(Environment.CurrentDirectory, "Besichtigungs Vordruck.pdf")), new PdfWriter(mitnehmPfad));
             }
@@ -530,15 +552,15 @@ namespace Kartonagen
                 //Geschossigkeit
 
                 fields.TryGetValue("StockwerkB", out toSet);
-                toSet.SetValue(umzObj.einzug.KalenderStringEtageHaustyp());
+                toSet.SetValue(einzug.KalenderStringEtageHaustyp());
 
-                if (textLaufMeterB.Text != "0")
+                if (einzug.Laufmeter1.ToString() != "0")
                 {
                     fields.TryGetValue("TragwegB", out toSet);
-                    toSet.SetValue(textLaufMeterB.Text);
+                    toSet.SetValue(einzug.Laufmeter1.ToString());
                 }
 
-                if (radioHVZBJa.Checked)
+                if (einzug.HVZ1 == 1)
                 {
                     fields.TryGetValue("HVZBJa", out toSet);
                     toSet.SetValue("X");
@@ -548,29 +570,29 @@ namespace Kartonagen
                 //    fields.TryGetValue("HVZBVllt", out toSet);
                 //    toSet.SetValue("Yes");
                 //}
-                if (radioHVZBNein.Checked)
+                if (einzug.HVZ1 == 0)
                 {
                     fields.TryGetValue("HVZBNein", out toSet);
                     toSet.SetValue("X");
                 }
                 //
-                if (radioAufzugBJa.Checked)
+                if (einzug.Aufzug1 == 1)
                 {
                     fields.TryGetValue("AufzugBJa", out toSet);
                     toSet.SetValue("X");
                 }
-                if (radioAufzugBNein.Checked)
+                if (einzug.Aufzug1 == 0)
                 {
                     fields.TryGetValue("AufzugBNein", out toSet);
                     toSet.SetValue("X");
                 }
                 //
-                if (radioAussenAufzugBJa.Checked)
+                if (einzug.AussenAufzug1 == 1)
                 {
                     fields.TryGetValue("AussenAufzugBJa", out toSet);
                     toSet.SetValue("X");
                 }
-                if (radioAussenAufzugBNein.Checked)
+                if (einzug.AussenAufzug1 == 0)
                 {
                     fields.TryGetValue("AussenAufzugBNein", out toSet);
                     toSet.SetValue("X");
@@ -579,7 +601,7 @@ namespace Kartonagen
                 // Packen
 
                 //
-                if (radioEinpackenJa.Checked)
+                if (Einpacken == 1)
                 {
                     fields.TryGetValue("EinJa", out toSet);
                     toSet.SetValue("X");
@@ -589,13 +611,13 @@ namespace Kartonagen
                 //    fields.TryGetValue("EinVllt", out toSet);
                 //    toSet.SetValue("Yes");
                 //}
-                if (radioEinpackenNein.Checked)
+                if (Einpacken == 0)
                 {
                     fields.TryGetValue("EinNein", out toSet);
                     toSet.SetValue("X");
                 }
                 //
-                if (radioAuspackenJa.Checked)
+                if (Auspacken == 1)
                 {
                     fields.TryGetValue("AusJa", out toSet);
                     toSet.SetValue("X");
@@ -605,14 +627,14 @@ namespace Kartonagen
                 //    fields.TryGetValue("AusVllt", out toSet);
                 //    toSet.SetValue("Yes");
                 //}
-                if (radioAuspackenNein.Checked)
+                if (Auspacken == 0)
                 {
                     fields.TryGetValue("AusNein", out toSet);
                     toSet.SetValue("X");
                 }
 
                 //Küche
-                if (radioKuecheAbJa.Checked)
+                if (KuecheAb == 1)
                 {
                     fields.TryGetValue("KuecheAbJa", out toSet);
                     toSet.SetValue("X");
@@ -622,13 +644,13 @@ namespace Kartonagen
                 //    fields.TryGetValue("KuecheAbVllt", out toSet);
                 //    toSet.SetValue("Yes");
                 //}
-                if (radioKuecheAbNein.Checked)
+                if (KuecheAb == 0)
                 {
                     fields.TryGetValue("KuecheAbNein", out toSet);
                     toSet.SetValue("X");
                 }
                 //
-                if (radioKuecheAufJa.Checked)
+                if (KuecheAuf == 1)
                 {
                     fields.TryGetValue("KuecheAufJa", out toSet);
                     toSet.SetValue("X");
@@ -638,7 +660,7 @@ namespace Kartonagen
                 //    fields.TryGetValue("KuecheAufVllt", out toSet);
                 //    toSet.SetValue("Yes");
                 //}
-                if (radioKuecheAufNein.Checked)
+                if (KuecheAuf == 0)
                 {
                     fields.TryGetValue("KuecheAufNein", out toSet);
                     toSet.SetValue("X");
@@ -649,52 +671,66 @@ namespace Kartonagen
                 //    fields.TryGetValue("KuecheExtern", out toSet);
                 //    toSet.SetValue("Yes");
                 //}
-                if (radioKuecheIntern.Checked)
+                if (KuecheBau == 1)
                 {
                     fields.TryGetValue("KuecheIntern", out toSet);
                     toSet.SetValue("X");
                 }
                 //
-                if (textKuechenPreis.Text != "0")
+                if (KuechePausch.ToString() != "0")
                 {
                     fields.TryGetValue("KuechePreis", out toSet);
-                    toSet.SetValue(textKuechenPreis.Text);
+                    toSet.SetValue(KuechePausch.ToString());
                 }
 
                 // Restdaten
-                if (numericMannZahl.Value != 0)
+                if (mann != 0)
                 {
                     fields.TryGetValue("Mann", out toSet);
-                    toSet.SetValue(numericMannZahl.Value.ToString());
+                    toSet.SetValue(mann.ToString());
                 }
 
-                if (numericArbeitszeit.Value != 0)
+                if (stunden != 0)
                 {
                     fields.TryGetValue("Stunden", out toSet);
-                    toSet.SetValue(numericArbeitszeit.Value.ToString());
+                    toSet.SetValue(stunden.ToString());
                 }
 
                 fields.TryGetValue("Autos", out toSet);
                 toSet.SetValue(AutoString());
 
-                if (numericKleiderkisten.Value != 0)
+                if (Kleiderkartons != 0)
                 {
                     fields.TryGetValue("Kleiderkisten", out toSet);
-                    toSet.SetValue(numericKleiderkisten.Value.ToString());
+                    toSet.SetValue(Kleiderkartons.ToString());
                 }
 
                 //Bemerkungen
                 fields.TryGetValue("NoteBuero", out toSet);
-                toSet.SetValue(textNoteBuero.Text);
+                toSet.SetValue(NotizBuero);
 
                 fields.TryGetValue("NoteFahrer", out toSet);
-                toSet.SetValue(textNoteFahrer.Text);
+                toSet.SetValue(NotizFahrer);
 
             }
 
             catch (Exception ex)
             {
                 Program.FehlerLog(ex.ToString(), "Drucken des Umzugs " + id);
+            }
+
+            // Abschließen
+
+            if (toggle == 1)
+            {
+                form.FlattenFields();
+                pdf.Close();
+                Program.SendToPrinter();
+                return "Erfolgreich gedruckt";
+            }
+            else {
+                pdf.Close();
+                return "Abgelegt";
             }
         }
 

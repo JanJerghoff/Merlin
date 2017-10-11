@@ -176,7 +176,32 @@ namespace Kartonagen
 
         private void PDFRead_Click(object sender, EventArgs e)
         {
-            PDFInput.readUmzug();
+            List<int> test = new List<int>();
+
+            MySqlCommand cmdReadKunde = new MySqlCommand("SELECT idUmzuege FROM Umzuege WHERE datBesichtigung = '2017-10-18';", Program.conn);
+            MySqlDataReader rdrKunde;
+            
+            try
+            {
+                rdrKunde = cmdReadKunde.ExecuteReader();
+                while (rdrKunde.Read())
+                {
+                    test.Add(rdrKunde.GetInt32(0));
+                }
+                rdrKunde.Close();
+            }
+            catch (Exception sqlEx)
+            {
+                Program.FehlerLog(sqlEx.ToString(), "Abrufen der Umzugsnummern zum Besichtigungsdatum (für das Ausliefern der PDFs)");
+            }
+
+            // Drucken für die einzelnen Besichtigungen
+
+            foreach (var item in test)
+            {
+                Umzug temp = new Umzug(item);
+                temp.druck(2);
+            }
         }
     }
 }
