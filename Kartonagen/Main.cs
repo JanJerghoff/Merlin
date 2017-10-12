@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using Google.Apis.Calendar.v3.Data;
+using System.IO;
 
 namespace Kartonagen
 {
@@ -178,7 +179,7 @@ namespace Kartonagen
         {
             List<int> test = new List<int>();
 
-            MySqlCommand cmdReadKunde = new MySqlCommand("SELECT idUmzuege FROM Umzuege WHERE datBesichtigung = '2017-10-18';", Program.conn);
+            MySqlCommand cmdReadKunde = new MySqlCommand("SELECT idUmzuege FROM Umzuege WHERE datBesichtigung = '2016-10-12';", Program.conn);
             MySqlDataReader rdrKunde;
             
             try
@@ -207,7 +208,15 @@ namespace Kartonagen
                 sum += item.ToString()+" ";
             }
 
-            var bestätigung = MessageBox.Show(sum, "Erinnerung", MessageBoxButtons.YesNo);
+            // Testsektion einlesen d. Umzuege
+            string[] pdfs = Directory.GetFiles(Program.mitnehmPfad);
+
+            foreach (var item in pdfs)
+            {
+                PDFInput.readUmzug(item);
+            }
+        
+            
         }
     }
 }

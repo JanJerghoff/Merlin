@@ -36,19 +36,51 @@ namespace Kartonagen
             return tempX;
         }
 
-        public static void readUmzug()
+        private static int ZweiFelderCheck(string ja, string nein, string thema, IDictionary<String, PdfFormField> fields) {
+
+
+            int tempX = -1;
+            PdfFormField toSet;
+
+            fields.TryGetValue(ja, out toSet);
+            if (toSet.GetValueAsString().Length != 0) { tempX = 1; }
+
+            fields.TryGetValue(nein, out toSet);
+            if (toSet.GetValueAsString().Length != 0) { tempX = 0; }
+            
+            if (tempX == -1)
+            {
+                Program.FehlerLog(thema + " einlesen gescheitert, alle Felder leer" + lesObj.Id, thema + " einlesen gescheitert, alle Felder leer");
+                return 0;
+            }
+            return tempX;
+
+        }
+
+        public static void readUmzug(string pfad)
         {
-            PdfDocument pdf = new PdfDocument(new PdfReader(System.IO.Path.Combine(Environment.CurrentDirectory, "Temp3.pdf")));
+            PdfDocument pdf = new PdfDocument(new PdfReader(pfad));
+
+            //TEST
+            var bestätigung = MessageBox.Show(pfad, "Erinnerung", MessageBoxButtons.YesNo);
 
             PdfAcroForm form = PdfAcroForm.GetAcroForm(pdf, true);
             IDictionary<String, PdfFormField> fields = form.GetFormFields();
             PdfFormField toSet;
 
             fields.TryGetValue("Umzugsnummer", out toSet);
-            lesObj = new Umzug(int.Parse(toSet.GetValueAsString()));
+
+            
+
+            string temp = new string(toSet.GetValueAsString().Where(c => char.IsDigit(c)).ToArray());
+
+            lesObj = new Umzug(int.Parse(temp));
+
+            //TEST
+            var bestätigusng = MessageBox.Show("gebaut!", "Erinnerung", MessageBoxButtons.YesNo);
 
             //Auslesen + in Umzug ändern
-            
+
             fields.TryGetValue("TragwegA", out toSet);
             lesObj.auszug.Laufmeter1 = (int.Parse(toSet.GetValueAsString()));
 
@@ -93,54 +125,48 @@ namespace Kartonagen
             lesObj.Auspacken1 = DreiFelderCheck("AusJa", "AusNein", "AusVllt", "Auspacken", fields);
             lesObj.KuecheAuf1 = DreiFelderCheck("KuecheAufJa", "KuecheAufNein", "KuecheAufVllt", "Kueche aufbauen", fields);
             lesObj.KuecheAuf1 = DreiFelderCheck("KuecheAbJa", "KuecheAbNein", "KuecheAbVllt", "Kueche abbauen", fields);
-            
-            //
-            //if (radioKuecheExtern.Checked)
-            //{
-            //    fields.TryGetValue("KuecheExtern", out toSet);
-            //    toSet.SetValue("Yes");
-            //}
-            //if (radioKuecheIntern.Checked)
-            //{
-            //    fields.TryGetValue("KuecheIntern", out toSet);
-            //    toSet.SetValue("X");
-            //}
-            ////
-            //if (textKuechenPreis.Text != "0")
-            //{
-            //    fields.TryGetValue("KuechePreis", out toSet);
-            //    toSet.SetValue(textKuechenPreis.Text);
-            //}
 
-            //// Restdaten
-            //if (numericMannZahl.Value != 0)
-            //{
-            //    fields.TryGetValue("Mann", out toSet);
-            //    toSet.SetValue(numericMannZahl.Value.ToString());
-            //}
+            // Küche
+            lesObj.KuecheBau1 = ZweiFelderCheck("KuecheIntern", "KuecheExtern", "Küchenbau (intern/extern)", fields);
 
-            //if (numericArbeitszeit.Value != 0)
-            //{
-            //    fields.TryGetValue("Stunden", out toSet);
-            //    toSet.SetValue(numericArbeitszeit.Value.ToString());
-            //}
+            fields.TryGetValue("KuechePreis", out toSet);
+            if (toSet.GetValueAsString().Length != 0)
+            {
+                lesObj.KuechePausch1 = int.Parse(toSet.GetValueAsString());
+            }
+
+            // Restdaten
+
+            fields.TryGetValue("Mann", out toSet);
+            if (toSet.GetValueAsString().Length != 0)
+            {
+                lesObj.Mann = int.Parse(toSet.GetValueAsString());
+            }
+
+            fields.TryGetValue("Stunden", out toSet);
+            if (toSet.GetValueAsString().Length != 0)
+            {
+                lesObj.Stunden = int.Parse(toSet.GetValueAsString());
+            }
+
+            lesObj.Versicherung = ZweiFelderCheck("VersicherungJa", "VersicherungNein", "Zusatzversicherung", fields);
+
 
             //fields.TryGetValue("Autos", out toSet);
-            //toSet.SetValue(AutoString());
+            //toSet.SetValue(AutoString());                 Autoparser!!
 
-            //if (numericKleiderkisten.Value != 0)
-            //{
-            //    fields.TryGetValue("Kleiderkisten", out toSet);
-            //    toSet.SetValue(numericKleiderkisten.Value.ToString());
-            //}
+            fields.TryGetValue("Kleiderkisten", out toSet);
+            if (toSet.GetValueAsString().Length != 0)
+            {
+                lesObj.Kleiderkartons1 = int.Parse(toSet.GetValueAsString());
+            }
+            
+            //Bemerkungen
+            fields.TryGetValue("NoteBuero", out toSet);
+            lesObj.NotizBuero1 = toSet.GetValueAsString();
 
-            ////Bemerkungen
-            //fields.TryGetValue("NoteBuero", out toSet);
-            //toSet.SetValue(textNoteBuero.Text);
-
-            //fields.TryGetValue("NoteFahrer", out toSet);
-            //toSet.SetValue(textNoteFahrer.Text);
-
+            fields.TryGetValue("NoteFahrer", out toSet);
+            lesObj.NotizFahrer1 = toSet.GetValueAsString();
 
 
             pdf.Close();
