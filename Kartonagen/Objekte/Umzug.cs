@@ -388,14 +388,8 @@ namespace Kartonagen
         // Druck, Parameter für Ausdruck (temp2, toggle = 1) oder mitnahme (t=2)
         public string druck(int toggle)
         {
-
-            if (toggle == 2)
-            {
-                Program.ordnerLeeren();
-            }
-
-            // Unschön, bessere Lösung?
-            PdfDocument pdf = new PdfDocument(new PdfReader(System.IO.Path.Combine(Environment.CurrentDirectory, "Besichtigungs Vordruck.pdf")), new PdfWriter(Program.druckPfad));
+            
+            PdfDocument pdf = new PdfDocument(new PdfReader(System.IO.Path.Combine(Environment.CurrentDirectory, "Besichtigungs Vordruck.pdf")));
 
             if (toggle == 1)
             {
@@ -474,7 +468,7 @@ namespace Kartonagen
                 if (DatBesichtigung.ToShortDateString() != stand.ToShortDateString())
                 {
                     fields.TryGetValue("TerminBes", out toSet);
-                    toSet.SetValue(DatBesichtigung.ToShortDateString());
+                    toSet.SetValue(DatBesichtigung.ToShortDateString()+ " "+ zeitUmzug.ToShortTimeString());
                 }
 
                 if (datUmzug.ToShortDateString() != stand.ToShortDateString())
@@ -711,6 +705,12 @@ namespace Kartonagen
                 {
                     fields.TryGetValue("Kleiderkisten", out toSet);
                     toSet.SetValue(Kleiderkartons.ToString());
+                }
+
+                if (versicherung == 0)
+                {
+                    fields.TryGetValue("VersicherungJa", out toSet);
+                    toSet.SetValue("X");
                 }
 
                 //Bemerkungen

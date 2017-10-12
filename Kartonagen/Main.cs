@@ -196,12 +196,18 @@ namespace Kartonagen
             }
 
             // Drucken für die einzelnen Besichtigungen
+            string sum = "";
+
+            Program.ordnerLeeren();
 
             foreach (var item in test)
             {
                 Umzug temp = new Umzug(item);
                 temp.druck(2);
+                sum += item.ToString()+" ";
             }
+
+            var bestätigung = MessageBox.Show(sum, "Erinnerung", MessageBoxButtons.YesNo);
         }
     }
 }

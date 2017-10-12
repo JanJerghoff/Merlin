@@ -49,7 +49,7 @@ namespace Kartonagen
         // -------------- Methoden ---------------
 
 
-       
+
         public static AutoCompleteStringCollection getAutocompleteKunden() {
 
             if (autocompleteKunden == null) {
