@@ -11,6 +11,7 @@ using System.IO;
 using System.Threading;
 using System.Diagnostics;
 using System.Xml;
+using System.Text.RegularExpressions;
 
 namespace Kartonagen
 {
@@ -39,12 +40,12 @@ namespace Kartonagen
         // Buero-geänderte-version
 
         // Deployment
-        //internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=Umzuege;port=3306;password=he62okv;");
-        //internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
+        internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=Umzuege;port=3306;password=he62okv;");
+        internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
 
         //Test
-        internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;");
-        internal static MySqlConnection conn2 = new MySqlConnection("server = 10.0.0.0;user=test;database=Mitarbeiter;port=3306;password=he62okv;");
+        //internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;");
+        //internal static MySqlConnection conn2 = new MySqlConnection("server = 10.0.0.0;user=test;database=Mitarbeiter;port=3306;password=he62okv;");
 
         // -------------- Methoden ---------------
 
@@ -219,6 +220,24 @@ namespace Kartonagen
 
             return true;
         }
+
+        public static int intparser (string toParse) {
+
+            string temp = null;
+
+            try
+            {
+                Regex regexObj = new Regex(@"[^\d]");
+                temp = regexObj.Replace(toParse, "");
+            }
+            catch (ArgumentException ex) {
+                FehlerLog(ex.ToString(), "Regex zum auslesen von Zahlen aus PDFs");
+            }
+
+            int ret = int.Parse(temp);
+            return ret;
+
+        } 
 
         // Stellt eine DateTime -> SQL-String Umwandlung bereit
         // C# gibt ohne führende Null, Sql will yyyy-mm-dd mit führenden nullen
@@ -592,9 +611,10 @@ namespace Kartonagen
 
             UserCredential credential;
 
-            using (var stream =
-                new FileStream("client_secret.json", FileMode.Open, FileAccess.Read))
+            using (var stream = new FileStream("client_secret.json", FileMode.Open, FileAccess.Read))
             {
+
+
                 string credPath = System.Environment.GetFolderPath(
                     System.Environment.SpecialFolder.Personal);
                 credPath = System.IO.Path.Combine(credPath, ".credentials/calendar-dotnet-quickstart.json");

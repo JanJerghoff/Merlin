@@ -199,14 +199,14 @@ namespace Kartonagen
             // Drucken für die einzelnen Besichtigungen
             string sum = "";
 
-            Program.ordnerLeeren();
+            //Program.ordnerLeeren();
 
-            foreach (var item in test)
-            {
-                Umzug temp = new Umzug(item);
-                temp.druck(2);
-                sum += item.ToString()+" ";
-            }
+            //foreach (var item in test)
+            //{
+            //    Umzug temp = new Umzug(item);
+            //    temp.druck(2);
+            //    sum += item.ToString()+" ";
+            //}
 
             // Testsektion einlesen d. Umzuege
             string[] pdfs = Directory.GetFiles(Program.mitnehmPfad);
