@@ -23,13 +23,8 @@ namespace Kartonagen
 
         private void buttonDrucken_Click(object sender, EventArgs e)
         {
-
-            //PdfDocument pdf = new PdfDocument(new PdfReader(System.IO.Path.Combine(Environment.CurrentDirectory, "Laufzettel Besichtigung.pdf")), new PdfWriter(Program.druckPfad));
-            //PdfAcroForm form = PdfAcroForm.GetAcroForm(pdf, true);
-            //IDictionary<String, PdfFormField> fields = form.GetFormFields();
-            //PdfFormField toSet;
-
-            // Alle betreffenden Umzüge greifen
+                       
+            //Alle betreffenden Umzüge greifen
             //Abfrage aller Namen
             MySqlCommand cmdRead = new MySqlCommand("SELECT k.Anrede, k.Vorname, k.Nachname, k.Telefonnummer, k.Handynummer, u.StraßeA, u.HausnummerA, u.OrtA, u.PLZA, u.umzugsZeit FROM Kunden k, Umzuege u WHERE (u.Kunden_idKunden = k.idKunden AND u.datBesichtigung = '" + Program.DateMachine(dateBesichtigung.Value) + "') ORDER BY u.umzugsZeit ASc", Program.conn);
             MySqlDataReader rdrPre;
@@ -132,6 +127,42 @@ namespace Kartonagen
 
         private void buttonDrucker_Click(object sender, EventArgs e)
         {
+            // Leeren / neubefüllen des Tablet-PDF´s Ordners
+            var bestätigung = MessageBox.Show("PDF´s zum Mitnehmen neu erzeugen?", "Erinnerung", MessageBoxButtons.YesNo);
+            if (bestätigung == DialogResult.Yes)
+            {
+
+                List<int> test = new List<int>();
+
+                MySqlCommand cmdReadKunde = new MySqlCommand("SELECT idUmzuege FROM Umzuege WHERE datBesichtigung = '2016-10-12';", Program.conn);
+                MySqlDataReader rdrKunde;
+
+                try
+                {
+                    rdrKunde = cmdReadKunde.ExecuteReader();
+                    while (rdrKunde.Read())
+                    {
+                        test.Add(rdrKunde.GetInt32(0));
+                    }
+                    rdrKunde.Close();
+                }
+                catch (Exception sqlEx)
+                {
+                    Program.FehlerLog(sqlEx.ToString(), "Abrufen der Umzugsnummern zum Besichtigungsdatum (für das Ausliefern der PDFs)");
+                }
+
+                Program.ordnerLeeren();
+
+                foreach (var item in test)
+                {
+                    Umzug temps0 = new Umzug(item);
+                    temps0.druck(2);
+                }
+
+                textLog.AppendText("Ordner geleert, neue PDF´s erzeugt");
+            }
+
+            // Drucken der Daten
             PdfDocument pdf = new PdfDocument(new PdfReader(System.IO.Path.Combine(Environment.CurrentDirectory, "Laufzettel Besichtigung.pdf")), new PdfWriter(Program.druckPfad));
             PdfAcroForm form = PdfAcroForm.GetAcroForm(pdf, true);
             IDictionary<String, PdfFormField> fields = form.GetFormFields();

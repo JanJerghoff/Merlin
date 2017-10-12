@@ -87,78 +87,48 @@ namespace Kartonagen
             //  AUfzug + AussenAufzug f. Einzugsadresse
 
             lesObj.einzug.Aufzug1 = ZweiFelderCheck("AufzugBJa", "AufzugBNein", "Aufzug Einzugsadresse", fields);
+            lesObj.einzug.AussenAufzug1 = ZweiFelderCheck("AussenAufzugBJa", "AussenAufzugBNein", "AussenAufzug Einzugsadresse", fields);
 
-            int tempAufzug = -1;
+            // Packen
+            lesObj.Einpacken1 = DreiFelderCheck("EinJa", "EinNein", "EinVllt", "Einpacken", fields);
+            lesObj.Auspacken1 = DreiFelderCheck("AusJa", "AusNein", "AusVllt", "Auspacken", fields);
+            lesObj.KuecheAuf1 = DreiFelderCheck("KuecheAufJa", "KuecheAufNein", "KuecheAufVllt", "Kueche aufbauen", fields);
+            lesObj.KuecheAuf1 = DreiFelderCheck("KuecheAbJa", "KuecheAbNein", "KuecheAbVllt", "Kueche abbauen", fields);
 
+            // Küche
+            lesObj.KuecheBau1 = ZweiFelderCheck("KuecheIntern", "KuecheExtern", "Küchenbau (intern/extern)", fields);
 
+            fields.TryGetValue("KuechePreis", out toSet);
+            if (toSet.GetValueAsString().Length != 0)
+            {
+                lesObj.KuechePausch1 = (Program.intparser(toSet.GetValueAsString()));
+            }
 
-            fields.TryGetValue("AufzugBJa", out toSet);
-            if (toSet.GetValueAsString().Length != 0) { tempAufzug = 1; }
+            // Restdaten
 
-            fields.TryGetValue("AufzugBNein", out toSet);
-            if (toSet.GetValueAsString().Length != 0) { tempAufzug = 0; }
+            fields.TryGetValue("Mann", out toSet);
+            if (toSet.GetValueAsString().Length != 0)
+            {
+                lesObj.Mann = (Program.intparser(toSet.GetValueAsString()));
+            }
 
-            //if (tempAufzug != -1)
-            //{
-            //    lesObj.einzug.Aufzug1 = tempAufzug;
-            //}
-            //else { Program.FehlerLog("tempAufzug einlesen gescheitert, alle Felder leer" + lesObj.Id, "Aufzug einlesen gescheitert, alle Felder leer"); }
+            fields.TryGetValue("Stunden", out toSet);
+            if (toSet.GetValueAsString().Length != 0)
+            {
+                lesObj.Stunden = (Program.intparser(toSet.GetValueAsString()));
+            }
 
-            ////
-            //int tempAussenaufzug = -1;
-
-            //fields.TryGetValue("AussenAufzugBJa", out toSet);
-            //if (toSet.GetValueAsString().Length != 0) { tempAussenaufzug = 1; }
-
-            //fields.TryGetValue("AussenAufzugBNein", out toSet);
-            //if (toSet.GetValueAsString().Length != 0) { tempAussenaufzug = 0; }
-
-            //if (tempAussenaufzug != -1)
-            //{
-            //    lesObj.einzug.AussenAufzug1 = tempAussenaufzug;
-            //}
-            //else { Program.FehlerLog("Aussenaufzug einlesen gescheitert, alle Felder leer" + lesObj.Id, "Aussenaufzug einlesen gescheitert, alle Felder leer"); }
-
-            //// Packen
-            //lesObj.Einpacken1 = DreiFelderCheck("EinJa", "EinNein", "EinVllt", "Einpacken", fields);
-            //lesObj.Auspacken1 = DreiFelderCheck("AusJa", "AusNein", "AusVllt", "Auspacken", fields);
-            //lesObj.KuecheAuf1 = DreiFelderCheck("KuecheAufJa", "KuecheAufNein", "KuecheAufVllt", "Kueche aufbauen", fields);
-            //lesObj.KuecheAuf1 = DreiFelderCheck("KuecheAbJa", "KuecheAbNein", "KuecheAbVllt", "Kueche abbauen", fields);
-
-            //// Küche
-            //lesObj.KuecheBau1 = ZweiFelderCheck("KuecheIntern", "KuecheExtern", "Küchenbau (intern/extern)", fields);
-
-            //fields.TryGetValue("KuechePreis", out toSet);
-            //if (toSet.GetValueAsString().Length != 0)
-            //{
-            //    lesObj.KuechePausch1 = int.Parse(toSet.GetValueAsString());
-            //}
-
-            //// Restdaten
-
-            //fields.TryGetValue("Mann", out toSet);
-            //if (toSet.GetValueAsString().Length != 0)
-            //{
-            //    lesObj.Mann = int.Parse(toSet.GetValueAsString());
-            //}
-
-            //fields.TryGetValue("Stunden", out toSet);
-            //if (toSet.GetValueAsString().Length != 0)
-            //{
-            //    lesObj.Stunden = int.Parse(toSet.GetValueAsString());
-            //}
-
-            //lesObj.Versicherung = ZweiFelderCheck("VersicherungJa", "VersicherungNein", "Zusatzversicherung", fields);
+            lesObj.Versicherung = ZweiFelderCheck("VersicherungJa", "VersicherungNein", "Zusatzversicherung", fields);
 
 
             ////fields.TryGetValue("Autos", out toSet);
             ////toSet.SetValue(AutoString());                 Autoparser!!
 
-            //fields.TryGetValue("Kleiderkisten", out toSet);
-            //if (toSet.GetValueAsString().Length != 0)
-            //{
-            //    lesObj.Kleiderkartons1 = int.Parse(toSet.GetValueAsString());
-            //}
+            fields.TryGetValue("Kleiderkisten", out toSet);
+            if (toSet.GetValueAsString().Length != 0)
+            {
+                lesObj.Kleiderkartons1 = (Program.intparser(toSet.GetValueAsString()));
+            }
 
             //Bemerkungen
             fields.TryGetValue("NoteBuero", out toSet);
