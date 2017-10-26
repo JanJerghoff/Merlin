@@ -352,7 +352,7 @@ namespace Mitarbeiter
         static DateTime endNov = new DateTime(2000, 11, 27);
 
         // Merlin -Monate auf normale Monate münzen
-        private static DateTime getMonat(DateTime x)
+        public static DateTime getMonat(DateTime x)
         {
             if (x.Day >= 27 && x.Month != 12)
             {
