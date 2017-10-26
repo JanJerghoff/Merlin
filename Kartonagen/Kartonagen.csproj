@@ -103,7 +103,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Alerts\AbstractAlert.cs" />
-    <Compile Include="AutoKVA.cs" />
+    <Compile Include="AutoKVA.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="AutoKVA.Designer.cs">
       <DependentUpon>AutoKVA.cs</DependentUpon>
     </Compile>
@@ -166,7 +168,9 @@
     <Compile Include="Objekte\Adresse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sonderabfragen.cs" />
+    <Compile Include="Sonderabfragen.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Sonderabfragen.Designer.cs">
       <DependentUpon>Sonderabfragen.cs</DependentUpon>
     </Compile>
@@ -302,9 +306,7 @@
     <EmbeddedResource Include="UmzugsOperationen\UmzugFortschritt.resx">
       <DependentUpon>UmzugFortschritt.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Besichtigungs Vordruck.pdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Besichtigungs Vordruck.pdf" />
     <None Include="client_secret.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
