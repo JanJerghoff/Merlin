@@ -86,26 +86,30 @@ namespace Mitarbeiter
             getTour("");
             getMitarbeiter("");
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Start());
-
             // Bei Programmstart Stundenkonto aktualisieren
 
             Sollminute();
             StundenkontoUpdate();
+
+            MonatsCheck();      //Fehlen für Mitarbeiter die passenden Stundenkontos (weil wir im neuen Merlin-Monat sind?)
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Start());
+
+           
             
         }
 
         // Buero-geänderte-version
 
         // Deployment
-        internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=Umzuege;port=3306;password=he62okv;");
-        internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
+        //internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=Umzuege;port=3306;password=he62okv;");
+        //internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
 
-        //////Test
-        //internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;");
-        //internal static MySqlConnection conn2 = new MySqlConnection("server = 10.0.0.0;user=test;database=Mitarbeiter;port=3306;password=he62okv;");
+        //Test
+        internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;");
+        internal static MySqlConnection conn2 = new MySqlConnection("server = 10.0.0.0;user=test;database=Mitarbeiter;port=3306;password=he62okv;");
 
         // Aufbewahrung für Sollminuten pro Mitarbeiter
         internal static Dictionary <int, int> Sollminuten = new Dictionary<int, int>();
@@ -295,11 +299,11 @@ namespace Mitarbeiter
 
             }
 
-            if (aktiveKontos.Count != MitarbeiterAktiv.Count) {
+            if (aktiveKontos.Count != MitarbeiterAktiv.Count) { // Diskrepanz zwischen aktiven Mitarbeitern und Stundenkonten für den aktuellen Monat
 
                 List<int> TempList = new List<int>();
 
-                foreach (var item in MitarbeiterAktiv.Keys)
+                foreach (var item in MitarbeiterAktiv.Keys)                 // Temp-Liste von fehlenden Stundenkonten
                 {
                     if (!aktiveKontos.Contains(item))
                     {
@@ -307,7 +311,7 @@ namespace Mitarbeiter
                     }
                 }
 
-                foreach (var item in TempList)
+                foreach (var item in TempList)          //  Temp list abarbeiten, Stundenkonten aktualisieren
                 {
                     Mitarbeiter temp = new Mitarbeiter(item);
                     temp.StundenkontoAktualisieren();
@@ -447,7 +451,7 @@ namespace Mitarbeiter
                 Fahrzeuge = new Dictionary<String, int>();
 
                 //Abfrage aller Fahrzeuge
-                MySqlCommand cmdFahrzeug = new MySqlCommand("SELECT idFahrzeug, Name FROM Fahrzeug", Program.conn2);
+                MySqlCommand cmdFahrzeug = new MySqlCommand("SELECT idFahrzeug, Name FROM Fahrzeug;", Program.conn2);
                 MySqlDataReader rdrFahrzeug;
                 try
                 {
@@ -460,7 +464,7 @@ namespace Mitarbeiter
                 }
                 catch (Exception sqlEx)
                 {
-                    throw sqlEx;
+                    //throw sqlEx;
                 }
             }
 
@@ -845,7 +849,7 @@ namespace Mitarbeiter
         // Schubst daten in die DB, mit begründung falls fehler
         public static void absender(String befehl, string Aufgabe)
         {
-            MySqlCommand cmdAdd = new MySqlCommand(befehl, Program.conn);
+            MySqlCommand cmdAdd = new MySqlCommand(befehl, Program.conn2);
             try
             {
                 cmdAdd.ExecuteNonQuery();
@@ -853,6 +857,7 @@ namespace Mitarbeiter
             catch (Exception sqlEx)
             {
                 //Program.FehlerLog(sqlEx.ToString(), "Fehler beim Speichern in die DB \r\n " + Aufgabe + " \r\n Bereits dokumentiert.");
+                var bestätigung = MessageBox.Show(sqlEx.ToString(), "Erinnerung", MessageBoxButtons.YesNo); //TEST
             }
         }
 

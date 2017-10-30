@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Mitarbeiter
 {
@@ -12,15 +13,44 @@ namespace Mitarbeiter
         // Attribute WiP
 
         int id;
-        Dictionary<DateTime, int> SollMinuten;
+        Dictionary<DateTime, int> SollMinuten = new Dictionary<DateTime, int>();
         bool angestellt;
         int MonatsMinuten;
         
 
         //Konstruktor TODO
-        public Mitarbeiter(int item)
+        public Mitarbeiter(int id)
         {
+            this.id = id;
+
+            MySqlCommand cmdReadMitarbeiter = new MySqlCommand("SELECT * FROM Mitarbeiter WHERE idMitarbeiter = " + id + ";", Program.conn2);
+            MySqlDataReader rdrMitarbeiter;
+
+            DateTime temp;
+
+            try
+            {
+                rdrMitarbeiter = cmdReadMitarbeiter.ExecuteReader();
+                while (rdrMitarbeiter.Read())
+                {
+                    temp = rdrMitarbeiter.GetDateTime(29);
+                    MonatsMinuten = rdrMitarbeiter.GetInt32(21);
+                    if (temp == new DateTime(2017, 1, 1) || temp > DateTime.Now) {
+                        angestellt = true;
+                    }
+                    else {
+                        angestellt = false;
+                        }
+                }
+                rdrMitarbeiter.Close();
+            }
+            catch (Exception sqlEx)
+            {
+                //Program.FehlerLog(sqlEx.ToString(), "Abrufen des Kunden zur Objekterzeugung");
+            }
+
             
+
         }
         
 
@@ -43,25 +73,30 @@ namespace Mitarbeiter
             {
                 //Program.FehlerLog(sqlEx.ToString(), "Abrufen des Kunden zur Objekterzeugung");
             }
+            
 
         }
 
         private void StundenkontoAdd(DateTime monat, int min) {
-
+            
             int minuten;
             Program.Sollminuten.TryGetValue(id, out minuten);
 
-            string befehl = "INSERT INTO Stundenkonto (SollMinuten, Monat, Mitarbeiter_IdMitarbeiter) VALUES ("+minuten+", "+ Program.getMonat(DateTime.Now) +")"
+            string befehl = "INSERT INTO Stundenkonto (SollMinuten, Monat, Mitarbeiter_IdMitarbeiter) VALUES (" + minuten*4 + ", '" + Program.DateMachine(Program.getMonat(monat)) + "', " + id + ");";
 
+            Program.absender(befehl,"Eintragen eines neuen Stundenkontos");
+            
         }
         
         //Abfragen
         public void StundenkontoAktualisieren() {
 
-            DateTime Programmstart = new DateTime(2017, 11, 1);
+            SollMinutenAbruf();
+            DateTime Programmstart = new DateTime(2017, 11, 1);            
 
-            if ((!SollMinuten.ContainsKey(Program.getMonat(DateTime.Now))) && angestellt) {    //Monat ist nicht aktuell, Kollege noch angestellt?
-                 
+            if ((SollMinuten.ContainsKey(Program.getMonat(DateTime.Now)) == false) && angestellt == true) {    //Monat ist nicht aktuell, Kollege noch angestellt?
+                              
+
                 DateTime letzter = new DateTime (2000,1,1);     //Silly Default
 
                 foreach (var item in SollMinuten.Keys)              //letzten Verbuchten Monat finden
@@ -69,12 +104,12 @@ namespace Mitarbeiter
                     if (letzter.Year == 2000 || letzter < item)
                     {
                         letzter = item;
-                    }                   
+                    }                         
                 }
+                
+                if (letzter >= new DateTime(2017, 10, 1))
+                {      // Aussortieren von Daten vor dem Programmstart              
 
-                if (letzter > new DateTime(2017, 10, 1))
-                {      // Aussortieren von Daten vor dem Programmstart
-                    
                     while (letzter != Program.getMonat(DateTime.Now))   // Für jeden fehlenden Monat Stundenkonto hinzufügen
                     {
                         letzter = Program.getMonat(letzter.AddMonths(1));

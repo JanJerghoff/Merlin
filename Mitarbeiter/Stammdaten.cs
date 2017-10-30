@@ -257,7 +257,7 @@ namespace Mitarbeiter
                     min = Program.toMinute(numericStundenanteil.Value) * Program.getWochentage(dateEinstellung.Value.Date, new DateTime(dateEinstellung.Value.Year, dateEinstellung.Value.Month+1, 26));
                 }
                 
-                DateTime StartMonat = new DateTime(2017, 7, 1);
+                //DateTime StartMonat = new DateTime(2017, 7, 1);
 
                 String stdKonto = "INSERT INTO Stundenkonto (Mitarbeiter_idMitarbeiter, Monat, SollMinuten) VALUES(" + ID + ", '" + Program.DateMachine(dateEinstellung.Value) + "', " + min + ");";
 
