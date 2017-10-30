@@ -117,6 +117,7 @@
             this.buttonNeu.TabIndex = 99;
             this.buttonNeu.Text = "Mitarbeiter Stundenkonto Anlegen";
             this.buttonNeu.UseVisualStyleBackColor = true;
+            this.buttonNeu.Click += new System.EventHandler(this.buttonNeu_Click);
             // 
             // textLog
             // 
