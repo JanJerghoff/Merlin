@@ -15,8 +15,14 @@ namespace Mitarbeiter
         Dictionary<DateTime, int> SollMinuten;
         bool angestellt;
         int MonatsMinuten;
+        
 
         //Konstruktor TODO
+        public Mitarbeiter(int item)
+        {
+            
+        }
+        
 
         //Hilfsmethoden
         private void SollMinutenAbruf() {
@@ -42,14 +48,19 @@ namespace Mitarbeiter
 
         private void StundenkontoAdd(DateTime monat, int min) {
 
+            int minuten;
+            Program.Sollminuten.TryGetValue(id, out minuten);
 
+            string befehl = "INSERT INTO Stundenkonto (SollMinuten, Monat, Mitarbeiter_IdMitarbeiter) VALUES ("+minuten+", "+ Program.getMonat(DateTime.Now) +")"
 
         }
         
         //Abfragen
         public void StundenkontoAktualisieren() {
 
-            if ((!SollMinuten.ContainsKey(Program.getMonat(DateTime.Now))) && angestellt ) {    //Monat ist nicht aktuell, Kollege noch angestellt?
+            DateTime Programmstart = new DateTime(2017, 11, 1);
+
+            if ((!SollMinuten.ContainsKey(Program.getMonat(DateTime.Now))) && angestellt) {    //Monat ist nicht aktuell, Kollege noch angestellt?
                  
                 DateTime letzter = new DateTime (2000,1,1);     //Silly Default
 
@@ -59,47 +70,20 @@ namespace Mitarbeiter
                     {
                         letzter = item;
                     }                   
-
                 }
 
-                while (letzter != Program.getMonat(DateTime.Now))   // Für jeden fehlenden Monat Stundenkonto hinzufügen
-                {
-                    letzter = Program.getMonat(letzter.AddMonths(1));
-                    StundenkontoAdd(letzter, MonatsMinuten);
-                }
-            }
-
-        }
-
-        public static void Stundenkontochecker() {
-
-            // temps für die Berechnung anlegen
-
-            //Temps sequentiell abrufen
-
-            //Temps verarbeiten
-            if ((!SollMinuten.ContainsKey(Program.getMonat(DateTime.Now))) && angestellt)
-            {    //Monat ist nicht aktuell, Kollege noch angestellt?
-
-                DateTime letzter = new DateTime(2000, 1, 1);     //Silly Default
-
-                foreach (var item in SollMinuten.Keys)              //letzten Verbuchten Monat finden
-                {
-                    if (letzter.Year == 2000 || letzter < item)
+                if (letzter > new DateTime(2017, 10, 1))
+                {      // Aussortieren von Daten vor dem Programmstart
+                    
+                    while (letzter != Program.getMonat(DateTime.Now))   // Für jeden fehlenden Monat Stundenkonto hinzufügen
                     {
-                        letzter = item;
+                        letzter = Program.getMonat(letzter.AddMonths(1));
+                        StundenkontoAdd(letzter, MonatsMinuten);
                     }
-
-                }
-
-                while (letzter != Program.getMonat(DateTime.Now))   // Für jeden fehlenden Monat Stundenkonto hinzufügen
-                {
-                    letzter = Program.getMonat(letzter.AddMonths(1));
-                    StundenkontoAdd(letzter, MonatsMinuten);
                 }
             }
-        }
-        
+
+        }             
 
     }
 }

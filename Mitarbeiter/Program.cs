@@ -250,7 +250,7 @@ namespace Mitarbeiter
         }
 
         // Hol die MitarbeiterID - Sollminuten in den Speicher
-        public static void Sollminute() {
+        public static Dictionary<int,int> Sollminute() {
 
             Sollminuten = new Dictionary<int, int>();
 
@@ -269,8 +269,54 @@ namespace Mitarbeiter
             {
 
             }
+
+            return Sollminuten;
         }
-        
+
+        public static void MonatsCheck() {
+
+            Dictionary<int, int> MitarbeiterAktiv = Sollminute();
+
+            List<int> aktiveKontos = new List<int>(); // Liste aller Kontos für diesen Monat, wenn identisch zu aktiven Mitarbeitern, alles gut
+
+            MySqlCommand cmdMitarbeiter = new MySqlCommand("SELECT Mitarbeiter_idMitarbeiter FROM Stundenkonto WHERE Monat = "+ DateMachine(getMonat(DateTime.Now)) +";", Program.conn2);
+            MySqlDataReader rdrMitarbeiter;
+            try
+            {
+                rdrMitarbeiter = cmdMitarbeiter.ExecuteReader();
+                while (rdrMitarbeiter.Read())
+                {
+                    aktiveKontos.Add(rdrMitarbeiter.GetInt32(0));
+                }
+                rdrMitarbeiter.Close();
+            }
+            catch (Exception sqlEx)
+            {
+
+            }
+
+            if (aktiveKontos.Count != MitarbeiterAktiv.Count) {
+
+                List<int> TempList = new List<int>();
+
+                foreach (var item in MitarbeiterAktiv.Keys)
+                {
+                    if (!aktiveKontos.Contains(item))
+                    {
+                        TempList.Add(item);
+                    }
+                }
+
+                foreach (var item in TempList)
+                {
+                    Mitarbeiter temp = new Mitarbeiter(item);
+                    temp.StundenkontoAktualisieren();
+                }
+
+            }
+
+        }
+
         // Stellt eine DateTime -> SQL-String Umwandlung bereit
         // C# gibt ohne führende Null, Sql will yyyy-mm-dd mit führenden nullen
         public static String DateMachine(DateTime input)
@@ -796,7 +842,19 @@ namespace Mitarbeiter
 
         }
 
-        
+        // Schubst daten in die DB, mit begründung falls fehler
+        public static void absender(String befehl, string Aufgabe)
+        {
+            MySqlCommand cmdAdd = new MySqlCommand(befehl, Program.conn);
+            try
+            {
+                cmdAdd.ExecuteNonQuery();
+            }
+            catch (Exception sqlEx)
+            {
+                //Program.FehlerLog(sqlEx.ToString(), "Fehler beim Speichern in die DB \r\n " + Aufgabe + " \r\n Bereits dokumentiert.");
+            }
+        }
 
         // Finde alle Einträge zu einem Tag
         public static Events kalenderKundenFinder(DateTime Date)

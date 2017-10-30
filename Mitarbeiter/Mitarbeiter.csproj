@@ -124,6 +124,7 @@
     <Compile Include="LEA_UrlaubFeiertag.Designer.cs">
       <DependentUpon>LEA_UrlaubFeiertag.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mitarbeiter.cs" />
     <Compile Include="Repetoire.cs" />
     <Compile Include="Repetoire.Designer.cs">
       <DependentUpon>Repetoire.cs</DependentUpon>
