@@ -36,6 +36,7 @@
             this.radioMainBenutzerRita = new System.Windows.Forms.RadioButton();
             this.buttonStammdaten = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonEintragTabelle = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.buttonMehrfachUmzug = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -46,7 +47,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.buttonStundenübersicht = new System.Windows.Forms.Button();
-            this.buttonEintragTabelle = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupMainBenutzer.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -120,6 +121,7 @@
             // 
             // buttonStammdaten
             // 
+            this.buttonStammdaten.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonStammdaten.Location = new System.Drawing.Point(124, 17);
             this.buttonStammdaten.Name = "buttonStammdaten";
             this.buttonStammdaten.Size = new System.Drawing.Size(177, 92);
@@ -142,8 +144,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "LEA-Einträge";
             // 
+            // buttonEintragTabelle
+            // 
+            this.buttonEintragTabelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.buttonEintragTabelle.Location = new System.Drawing.Point(6, 19);
+            this.buttonEintragTabelle.Name = "buttonEintragTabelle";
+            this.buttonEintragTabelle.Size = new System.Drawing.Size(177, 92);
+            this.buttonEintragTabelle.TabIndex = 7;
+            this.buttonEintragTabelle.Text = "Eintrag Tabelle";
+            this.buttonEintragTabelle.UseVisualStyleBackColor = true;
+            this.buttonEintragTabelle.Click += new System.EventHandler(this.buttonEintragTabelle_Click);
+            // 
             // button4
             // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button4.Location = new System.Drawing.Point(738, 19);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(177, 92);
@@ -153,6 +167,7 @@
             // 
             // buttonMehrfachUmzug
             // 
+            this.buttonMehrfachUmzug.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.buttonMehrfachUmzug.Location = new System.Drawing.Point(555, 19);
             this.buttonMehrfachUmzug.Name = "buttonMehrfachUmzug";
             this.buttonMehrfachUmzug.Size = new System.Drawing.Size(177, 92);
@@ -163,6 +178,7 @@
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button2.Location = new System.Drawing.Point(372, 19);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(177, 92);
@@ -173,6 +189,7 @@
             // 
             // buttonEintragUmzug
             // 
+            this.buttonEintragUmzug.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.buttonEintragUmzug.Location = new System.Drawing.Point(189, 19);
             this.buttonEintragUmzug.Name = "buttonEintragUmzug";
             this.buttonEintragUmzug.Size = new System.Drawing.Size(177, 92);
@@ -183,6 +200,7 @@
             // 
             // buttonTourenFahrzeuge
             // 
+            this.buttonTourenFahrzeuge.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.buttonTourenFahrzeuge.Location = new System.Drawing.Point(307, 17);
             this.buttonTourenFahrzeuge.Name = "buttonTourenFahrzeuge";
             this.buttonTourenFahrzeuge.Size = new System.Drawing.Size(177, 92);
@@ -216,6 +234,7 @@
             // 
             // button3
             // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button3.Location = new System.Drawing.Point(372, 19);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(177, 92);
@@ -226,6 +245,7 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button1.Location = new System.Drawing.Point(189, 19);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(177, 92);
@@ -236,6 +256,7 @@
             // 
             // buttonStundenübersicht
             // 
+            this.buttonStundenübersicht.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.buttonStundenübersicht.Location = new System.Drawing.Point(6, 19);
             this.buttonStundenübersicht.Name = "buttonStundenübersicht";
             this.buttonStundenübersicht.Size = new System.Drawing.Size(177, 92);
@@ -244,21 +265,23 @@
             this.buttonStundenübersicht.UseVisualStyleBackColor = true;
             this.buttonStundenübersicht.Click += new System.EventHandler(this.buttonStundenübersicht_Click);
             // 
-            // buttonEintragTabelle
+            // button5
             // 
-            this.buttonEintragTabelle.Location = new System.Drawing.Point(6, 19);
-            this.buttonEintragTabelle.Name = "buttonEintragTabelle";
-            this.buttonEintragTabelle.Size = new System.Drawing.Size(177, 92);
-            this.buttonEintragTabelle.TabIndex = 7;
-            this.buttonEintragTabelle.Text = "Eintrag Tabelle";
-            this.buttonEintragTabelle.UseVisualStyleBackColor = true;
-            this.buttonEintragTabelle.Click += new System.EventHandler(this.buttonEintragTabelle_Click);
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button5.Location = new System.Drawing.Point(490, 17);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(177, 92);
+            this.button5.TabIndex = 145;
+            this.button5.Text = "Startstunden Mitarbeiter TEMPORÄR";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1171, 666);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.textStartLog);
             this.Controls.Add(this.buttonTourenFahrzeuge);
@@ -297,6 +320,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button buttonEintragTabelle;
+        private System.Windows.Forms.Button button5;
     }
 }
 

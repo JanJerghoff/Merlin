@@ -169,6 +169,12 @@
     <Compile Include="Stundenübersicht.Designer.cs">
       <DependentUpon>Stundenübersicht.cs</DependentUpon>
     </Compile>
+    <Compile Include="TempStartZeitstand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TempStartZeitstand.Designer.cs">
+      <DependentUpon>TempStartZeitstand.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tour_Fahrzeug.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +222,9 @@
     </Compile>
     <EmbeddedResource Include="Stundenübersicht.resx">
       <DependentUpon>Stundenübersicht.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TempStartZeitstand.resx">
+      <DependentUpon>TempStartZeitstand.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tour_Fahrzeug.resx">
       <DependentUpon>Tour_Fahrzeug.cs</DependentUpon>
