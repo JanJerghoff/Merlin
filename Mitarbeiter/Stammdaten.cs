@@ -171,7 +171,7 @@ namespace Mitarbeiter
                 insert += "'" + Program.DateMachine(dateGeburtstag.Value) + "', ";
                 insert += "'" + textGeburtsort.Text + "', ";
                 insert += "'" + textHauptarbeitgeber.Text + "', ";
-                insert += Program.toMinute(numericStundenanteil.Value) + ", ";
+                insert += + decimal.ToInt32(decimal.Round(numericStundenanteil.Value*60)) + ", ";
                 insert += "'" + textStaatsangehoerigkeit.Text + "', ";
                 insert += "'" + textIBAN.Text + "', ";
                 insert += "'" + textBIC.Text + "', ";

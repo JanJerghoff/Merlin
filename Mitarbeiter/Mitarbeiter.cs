@@ -77,7 +77,7 @@ namespace Mitarbeiter
 
         }
 
-        private void StundenkontoAdd(DateTime monat, int min, int tage) {
+        private void StundenkontoAdd(DateTime monat, int tage) {
             
             int minuten;
             Program.Sollminuten.TryGetValue(id, out minuten);
@@ -114,7 +114,7 @@ namespace Mitarbeiter
                     while (letzter != Program.getMonat(DateTime.Now))   // Für jeden fehlenden Monat Stundenkonto hinzufügen
                     {
                         letzter = Program.getMonat(letzter.AddMonths(1));
-                        StundenkontoAdd(letzter, MonatsMinuten, MonatsTage);
+                        StundenkontoAdd(letzter, MonatsTage);
                     }
                 }
             }
