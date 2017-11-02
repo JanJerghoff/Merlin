@@ -222,38 +222,59 @@ namespace Kartonagen
             Auspacken = umzObj.DatAusraeumen;
             Entruempelung = umzObj.DatRuempeln;
             //
-            if (umzObj.auszug.Aufzug1 == 1)
+            switch (umzObj.auszug.Aufzug1)
             {
-                radioAufzugAJa.Checked = true;
+                case 1:
+                    radioAufzugAJa.Checked = true;
+                    break;
+                case 0:
+                    radioAufzugANein.Checked = true;
+                    break;
+                default:
+                    break;
             }
-            else { radioAufzugANein.Checked = true; }
             //
-            if (umzObj.einzug.Aufzug1 == 1)
+            switch (umzObj.einzug.Aufzug1)
             {
-                radioAufzugBJa.Checked = true;
+                case 1:
+                    radioAufzugBJa.Checked = true;
+                    break;
+                case 0:
+                    radioAufzugBNein.Checked = true;
+                    break;
+                default:
+                    break;
             }
-            else { radioAufzugBNein.Checked = true; }
             //
-            if (umzObj.auszug.HVZ1 == 1)
+            switch (umzObj.auszug.HVZ1)
             {
-                radioHVZAJa.Checked = true;
+                case 2:
+                    radioHVZAV.Checked = true;
+                    break;
+                case 1:
+                    radioHVZAJa.Checked = true;
+                    break;
+                case 0:
+                    radioHVZANein.Checked = true;
+                    break;
+                default:
+                    break;
             }
-            else if (umzObj.auszug.HVZ1 == 0)
-            {
-                radioHVZANein.Checked = true;
-            }
-            else { radioHVZAV.Checked = true; }
             //
-            if (umzObj.einzug.HVZ1 == 1)
+            switch (umzObj.einzug.HVZ1)
             {
-                radioHVZBJa.Checked = true;
-            }
-            else if (umzObj.einzug.HVZ1 == 0)
-            {
-                radioHVZBNein.Checked = true;
-            }
-            else { radioHVZBV.Checked = true; }
-            //
+                case 2:
+                    radioHVZBV.Checked = true;
+                    break;
+                case 1:
+                    radioHVZBJa.Checked = true;
+                    break;
+                case 0:
+                    radioHVZBNein.Checked = true;
+                    break;
+                default:
+                    break;
+            }            
             //
             textLaufMeterA.Text = umzObj.auszug.Laufmeter1.ToString();
             textLaufMeterB.Text = umzObj.einzug.Laufmeter1.ToString();

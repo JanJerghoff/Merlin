@@ -256,18 +256,29 @@ namespace Kartonagen
             
             int einpacktemp = 0;
             int auspacktemp = 0;
-            if (radioEinpackenJa.Checked) { einpacktemp = 1; } else if ( radioEinpackenV.Checked) { einpacktemp = 2; } else { einpacktemp = 0; }
-            if (radioAuspackenJa.Checked) { auspacktemp = 1; } else if (radioAuspackenV.Checked) { auspacktemp = 2; } else { auspacktemp = 0; }
+            if (radioEinpackenJa.Checked) { einpacktemp = 1; }
+            else if ( radioEinpackenV.Checked) { einpacktemp = 2; }
+            else if (radioEinpackenNein.Checked) { einpacktemp = 0; }
+            else { einpacktemp = 8; }
+
+            if (radioAuspackenJa.Checked) { auspacktemp = 1; }
+            else if (radioAuspackenV.Checked) { auspacktemp = 2; }
+            else if (radioAuspackenNein.Checked) { auspacktemp = 0; }
+            else { auspacktemp = 8; }
 
             List<int> kueche = new List<int>();
             if (radioKuecheAufJa.Checked) { kueche.Add(1); } else if (radioKuecheAufV.Checked) { kueche.Add(2); } else { kueche.Add(0); }
             if (radioKuecheAbJa.Checked) { kueche.Add(1); } else if (radioKuecheAbV.Checked) { kueche.Add(2); } else { kueche.Add(0); }
             if (radioKuecheIntern.Checked) { kueche.Add(1); } else { kueche.Add(0); }
 
-            int versicherungtemp = 0;
-            int Schildertemp = 0;
+            int versicherungtemp = 8;
+            int Schildertemp = 8;
+
             if (radioVersicherungJa.Checked) { versicherungtemp = 1; }
+            else if (radioVersicherungNein.Checked) { versicherungtemp = 0; }
+
             if (radioSchilderJa.Checked) { Schildertemp = 1; }
+            else if (radioSchilderNein.Checked) { Schildertemp = 0; }
 
             umzObj = new Umzug(int.Parse(textKundennummer.Text), dateBesicht.Value, dateUmzug.Value, dateEinpack.Value, dateAuspack.Value, dateEntruempel.Value, timeBesichtigung.Value, stat[1], stat[0], stat[2], stat[3], stat[4],
                 decimal.ToInt32(numericUmzugsDauer.Value), tempAuto, decimal.ToInt32(numericMannZahl.Value), decimal.ToInt32(numericArbeitszeit.Value), versicherungtemp, einpacktemp, decimal.ToInt32(numericEinPacker.Value), decimal.ToInt32(numericEinPackStunden.Value), decimal.ToInt32(numericEinPackKartons.Value),
