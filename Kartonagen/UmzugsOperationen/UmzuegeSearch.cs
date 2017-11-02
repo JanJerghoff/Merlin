@@ -423,17 +423,19 @@ namespace Kartonagen
                     break;
             }
             // Entrümpeln
-            if (umzObj.StatRuempeln == 0)
+            switch (umzObj.StatRuempeln)
             {
-                radioEntNein.Checked = true;
-            }
-            else if (umzObj.StatRuempeln == 1)
-            {
-                radioEntJa.Checked = true;
-            }
-            else
-            {
-                radioEntVllt.Checked = true;
+                case 2:
+                    radioEntVllt.Checked = true;
+                    break;
+                case 1:
+                    radioEntJa.Checked = true;
+                    break;
+                case 0:
+                    radioEntNein.Checked = true;
+                    break;
+                default:
+                    break;
             }
             // umzugsZeit (Besichtigungszeit!)
             //String temp = rdr[51].ToString();
