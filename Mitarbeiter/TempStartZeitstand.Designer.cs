@@ -42,29 +42,37 @@
             // 
             // numericID
             // 
-            this.numericID.Location = new System.Drawing.Point(12, 12);
+            this.numericID.Location = new System.Drawing.Point(16, 15);
+            this.numericID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericID.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.numericID.Name = "numericID";
-            this.numericID.Size = new System.Drawing.Size(74, 20);
+            this.numericID.Size = new System.Drawing.Size(99, 22);
             this.numericID.TabIndex = 25;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(92, 17);
+            this.label17.Location = new System.Drawing.Point(123, 21);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(91, 15);
+            this.label17.Size = new System.Drawing.Size(104, 18);
             this.label17.TabIndex = 94;
             this.label17.Text = "MitarbeiterID";
             // 
             // numericSollstunden
             // 
-            this.numericSollstunden.Location = new System.Drawing.Point(12, 38);
+            this.numericSollstunden.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.numericSollstunden.Location = new System.Drawing.Point(16, 47);
+            this.numericSollstunden.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericSollstunden.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -76,25 +84,27 @@
             0,
             -2147483648});
             this.numericSollstunden.Name = "numericSollstunden";
-            this.numericSollstunden.Size = new System.Drawing.Size(74, 20);
+            this.numericSollstunden.Size = new System.Drawing.Size(99, 22);
             this.numericSollstunden.TabIndex = 95;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(92, 43);
+            this.label1.Location = new System.Drawing.Point(123, 53);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(221, 15);
+            this.label1.Size = new System.Drawing.Size(261, 18);
             this.label1.TabIndex = 96;
             this.label1.Text = "Sollstunden (Soll = +, Haben = - )";
             // 
             // dateZeitpunkt
             // 
             this.dateZeitpunkt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateZeitpunkt.Location = new System.Drawing.Point(12, 64);
+            this.dateZeitpunkt.Location = new System.Drawing.Point(16, 79);
+            this.dateZeitpunkt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateZeitpunkt.Name = "dateZeitpunkt";
-            this.dateZeitpunkt.Size = new System.Drawing.Size(200, 20);
+            this.dateZeitpunkt.Size = new System.Drawing.Size(265, 22);
             this.dateZeitpunkt.TabIndex = 97;
             this.dateZeitpunkt.Value = new System.DateTime(2017, 10, 27, 15, 58, 0, 0);
             // 
@@ -102,18 +112,20 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(218, 69);
+            this.label2.Location = new System.Drawing.Point(291, 85);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 15);
+            this.label2.Size = new System.Drawing.Size(77, 18);
             this.label2.TabIndex = 98;
             this.label2.Text = "Zeitpunkt";
             // 
             // buttonNeu
             // 
             this.buttonNeu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.buttonNeu.Location = new System.Drawing.Point(12, 90);
+            this.buttonNeu.Location = new System.Drawing.Point(16, 111);
+            this.buttonNeu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonNeu.Name = "buttonNeu";
-            this.buttonNeu.Size = new System.Drawing.Size(199, 95);
+            this.buttonNeu.Size = new System.Drawing.Size(265, 117);
             this.buttonNeu.TabIndex = 99;
             this.buttonNeu.Text = "Mitarbeiter Stundenkonto Anlegen";
             this.buttonNeu.UseVisualStyleBackColor = true;
@@ -123,17 +135,18 @@
             // 
             this.textLog.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textLog.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textLog.Location = new System.Drawing.Point(12, 191);
+            this.textLog.Location = new System.Drawing.Point(16, 235);
+            this.textLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textLog.Name = "textLog";
             this.textLog.ReadOnly = true;
-            this.textLog.Size = new System.Drawing.Size(276, 20);
+            this.textLog.Size = new System.Drawing.Size(367, 22);
             this.textLog.TabIndex = 100;
             // 
             // TempStartZeitstand
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 252);
+            this.ClientSize = new System.Drawing.Size(677, 310);
             this.Controls.Add(this.textLog);
             this.Controls.Add(this.buttonNeu);
             this.Controls.Add(this.label2);
@@ -142,6 +155,7 @@
             this.Controls.Add(this.numericSollstunden);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.numericID);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "TempStartZeitstand";
             this.Text = "TempStartZeitstand";
             ((System.ComponentModel.ISupportInitialize)(this.numericID)).EndInit();

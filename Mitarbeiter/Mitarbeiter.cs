@@ -77,19 +77,20 @@ namespace Mitarbeiter
 
         }
 
-        private void StundenkontoAdd(DateTime monat, int min) {
+        private void StundenkontoAdd(DateTime monat, int min, int tage) {
             
             int minuten;
             Program.Sollminuten.TryGetValue(id, out minuten);
 
-            string befehl = "INSERT INTO Stundenkonto (SollMinuten, Monat, Mitarbeiter_IdMitarbeiter) VALUES (" + minuten*4 + ", '" + Program.DateMachine(Program.getMonat(monat)) + "', " + id + ");";
+            string befehl = "INSERT INTO Stundenkonto (SollMinuten, Monat, Mitarbeiter_IdMitarbeiter) VALUES (" + minuten*tage + ", '" + Program.DateMachine(Program.getMonat(monat)) + "', " + id + ");";
 
             Program.absender(befehl,"Eintragen eines neuen Stundenkontos");
             
         }
         
         //Abfragen
-        public void StundenkontoAktualisieren() {
+        public void StundenkontoAktualisieren(int MonatsTage) {
+
 
             SollMinutenAbruf();
             DateTime Programmstart = new DateTime(2017, 11, 1);            
@@ -113,7 +114,7 @@ namespace Mitarbeiter
                     while (letzter != Program.getMonat(DateTime.Now))   // Für jeden fehlenden Monat Stundenkonto hinzufügen
                     {
                         letzter = Program.getMonat(letzter.AddMonths(1));
-                        StundenkontoAdd(letzter, MonatsMinuten);
+                        StundenkontoAdd(letzter, MonatsMinuten, MonatsTage);
                     }
                 }
             }

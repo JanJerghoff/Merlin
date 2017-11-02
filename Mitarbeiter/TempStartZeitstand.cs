@@ -25,7 +25,7 @@ namespace Mitarbeiter
                 reset();
             }
             else
-            {
+            {                
                 string com = "INSERT INTO Stundenkonto (SollMinuten, Monat, Mitarbeiter_IdMitarbeiter) VALUES (" + decimal.ToInt32(numericSollstunden.Value*60) + ", '" + Program.DateMachine(Program.getMonat(dateZeitpunkt.Value)) + "', " + decimal.ToInt32(numericID.Value) + ");";
                 Program.absender(com, "Bla");
                 textLog.Text = "Mitarbeiter ID "+numericID.Value.ToString()+" hinzugefügt";

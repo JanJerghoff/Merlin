@@ -104,12 +104,12 @@ namespace Mitarbeiter
         // Buero-geänderte-version
 
         // Deployment
-        //internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=Umzuege;port=3306;password=he62okv;");
-        //internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
+        internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=Umzuege;port=3306;password=he62okv;");
+        internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
 
         //Test
-        internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;");
-        internal static MySqlConnection conn2 = new MySqlConnection("server = 10.0.0.0;user=test;database=Mitarbeiter;port=3306;password=he62okv;");
+        //internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;");
+        //internal static MySqlConnection conn2 = new MySqlConnection("server = 10.0.0.0;user=test;database=Mitarbeiter;port=3306;password=he62okv;");
 
         // Aufbewahrung für Sollminuten pro Mitarbeiter
         internal static Dictionary <int, int> Sollminuten = new Dictionary<int, int>();
@@ -253,6 +253,20 @@ namespace Mitarbeiter
             }
         }
 
+        //Arbeitstage in Zeitspanne, inklusive Starttag und Endtag
+        public static int ArbeitsTage(DateTime start, DateTime end) {
+
+            int calc = 0;
+
+            for (DateTime date = start; date <= end; date = date.AddDays(1))
+            {
+                if (date.DayOfWeek != DayOfWeek.Sunday)
+                    calc++;
+            }
+
+            return calc;
+        }
+
         // Hol die MitarbeiterID - Sollminuten in den Speicher
         public static Dictionary<int,int> Sollminute() {
 
@@ -278,6 +292,12 @@ namespace Mitarbeiter
         }
 
         public static void MonatsCheck() {
+
+            DateTime comp = DateTime.Now;
+            DateTime start = new DateTime(comp.Year, comp.Month - 1, 27);
+            DateTime end = new DateTime(comp.Year, comp.Month, 26);
+
+            int Tage = Program.ArbeitsTage(start, end);
 
             Dictionary<int, int> MitarbeiterAktiv = Sollminute();
 
@@ -314,7 +334,7 @@ namespace Mitarbeiter
                 foreach (var item in TempList)          //  Temp list abarbeiten, Stundenkonten aktualisieren
                 {
                     Mitarbeiter temp = new Mitarbeiter(item);
-                    temp.StundenkontoAktualisieren();
+                    temp.StundenkontoAktualisieren(Tage);
                 }
 
             }

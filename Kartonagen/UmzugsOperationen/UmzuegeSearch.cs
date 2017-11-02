@@ -482,56 +482,76 @@ namespace Kartonagen
                 default:
                     listBoxB.SelectedIndex = 3;
                     break;
-            }            
-            // Aussenaufzüge
-            if (umzObj.auszug.AussenAufzug1 == 1)
-            {
-                radioAussenAufzugAJa.Checked = true;
             }
-            else
+            // Aussenaufzüge
+            switch (umzObj.auszug.AussenAufzug1)
             {
-                radioAussenAufzugANein.Checked = true;
+                case 1:
+                    radioAussenAufzugAJa.Checked = true;
+                    break;
+                case 0:
+                    radioAussenAufzugANein.Checked = true;
+                    break;
+                default:
+                    break;
             }
             //
-            if (umzObj.einzug.AussenAufzug1 == 1)
+            switch (umzObj.einzug.AussenAufzug1)
             {
-                radioAussenAufzugBJa.Checked = true;
+                case 1:
+                    radioAussenAufzugBJa.Checked = true;
+                    break;
+                case 0:
+                    radioAussenAufzugBNein.Checked = true;
+                    break;
+                default:
+                    break;
             }
-            else
-            {
-                radioAussenAufzugBNein.Checked = true;
-            }
-
             // Geändertes UI
 
             parseEtagen();
 
-            if (umzObj.Versicherung == 1)
+            switch (umzObj.Versicherung)
             {
-                radioVersicherungJa.Checked = true;
+                case 1:
+                    radioVersicherungJa.Checked = true;
+                    break;
+                case 0:
+                    radioVersicherungNein.Checked = true;
+                    break;
+                default:
+                    break;
             }
-            else { radioVersicherungJa.Checked = false; }
-
             //
-            if (umzObj.Einpacken1 == 1)
+            switch (umzObj.Einpacken1)
             {
-                radioEinpackenJa.Checked = true;
+                case 2:
+                    radioEinpackenV.Checked = true;
+                    break;
+                case 1:
+                    radioEinpackenJa.Checked = true;
+                    break;
+                case 0:
+                    radioEinpackenNein.Checked = true;
+                    break;
+                default:
+                    break;
             }
-            else if (umzObj.Einpacken1 == 0)
-            {
-                radioEinpackenNein.Checked = true;
-            }
-            else { radioEinpackenV.Checked = true; }
             //
-            if (umzObj.Auspacken1 == 1)
+            switch (umzObj.Auspacken1)
             {
-                radioAuspackenJa.Checked = true;
+                case 2:
+                    radioAuspackenV.Checked = true;
+                    break;
+                case 1:
+                    radioAuspackenJa.Checked = true;
+                    break;
+                case 0:
+                    radioAuspackenNein.Checked = true;
+                    break;
+                default:
+                    break;
             }
-            else if (umzObj.Auspacken1 == 0)
-            {
-                radioAuspackenNein.Checked = true;
-            }
-            else { radioAuspackenV.Checked = true; }
 
             numericEinPacker.Value = umzObj.Einpacker1;
             numericAusPacker.Value = umzObj.Auspacker1;
@@ -1479,34 +1499,18 @@ namespace Kartonagen
             int hvz = 0;
             int aussenAuf = 0;
 
-            if (radioAussenAufzugAJa.Checked)
-            {
-                aussenAuf = 1;
-            }
-            else
-            {
-                aussenAuf = 0;
-            }
+            if (radioAussenAufzugAJa.Checked){aussenAuf = 1;}
+            else if (radioAussenAufzugANein.Checked){aussenAuf = 0;}
+            else { aussenAuf = 8; }
             //
-
-            if (radioAufzugAJa.Checked)
-            {
-                aufzug = 1;
-            }
-            else
-            {
-                aufzug = 0;
-            }
+            if (radioAufzugAJa.Checked){aufzug = 1;}
+            else if (radioAufzugANein.Checked){aufzug = 0;}
+            else { aufzug = 8; }
             //
-            if (radioHVZAJa.Checked)
-            {
-                hvz = 1;
-            }
-            else if (radioHVZANein.Checked)
-            {
-                hvz = 0;
-            }
-            else { hvz = 2; }
+            if (radioHVZAJa.Checked){hvz = 1;}
+            else if (radioHVZANein.Checked){hvz = 0;}
+            else if (radioHVZAV.Checked){hvz = 2;}
+            else { aufzug = 8; }
 
             // Daten ins Objekt
             umzObj.auszug.Straße1 = textStraßeA.Text;
@@ -1535,6 +1539,8 @@ namespace Kartonagen
         {
             int VersTemp = 0;
             if (radioVersicherungJa.Checked) { VersTemp = 1; }
+            else if (radioVersicherungNein.Checked) { VersTemp = 0; }
+            else { VersTemp = 8; }
 
             //Absenden
             umzObj.UpdateDB(idBearbeitend.ToString());
