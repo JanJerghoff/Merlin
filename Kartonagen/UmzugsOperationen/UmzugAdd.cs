@@ -533,7 +533,16 @@ namespace Kartonagen
 
             String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericMannZahl.Value + " Mann, " + numericArbeitszeit.Value + " Stunden, " + AutoString() + " " + textNoteKalender.Text;
             String SchilderHeader = textKundennummer.Text + " " + textVorNachname.Text + ", Schilder stellen";
-            String RaeumHeader = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericEinPacker.Value + " Mann, " + numericEinPackStunden.Value + " Stunden";
+            String EinRaeumHeader = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericEinPacker.Value + " Mann, " + numericEinPackStunden.Value + " Stunden";
+            String AusRaeumHeader = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericAusPacker.Value + " Mann, " + numericAusPackStunden.Value + " Stunden";
+
+            if (radioEinVllt.Checked) { 
+                EinRaeumHeader = EinRaeumHeader + " Optional";
+            }
+            if (radioAusVllt.Checked)
+            {
+                AusRaeumHeader = AusRaeumHeader + " Optional";
+            }
 
             // Einzeln die Termine Abfragen und absenden
 
@@ -600,34 +609,34 @@ namespace Kartonagen
 
             if (radioEinJa.Checked)
             {                
-               Program.kalenderEintragGanz(RaeumHeader, KalenderString(),"", 5, dateEinpack.Value.Date, dateEinpack.Value.Date);               
+               Program.kalenderEintragGanz(EinRaeumHeader, KalenderString(),"", 5, dateEinpack.Value.Date, dateEinpack.Value.Date);               
             }
 
             if (radioAusJa.Checked)
             {
-                Program.kalenderEintragGanz(RaeumHeader, KalenderString(),"", 5, dateAuspack.Value.Date, dateAuspack.Value.Date);                
+                Program.kalenderEintragGanz(AusRaeumHeader, KalenderString(),"", 5, dateAuspack.Value.Date, dateAuspack.Value.Date);                
             }
 
             // Eventuelle Räum-Tage in Orange = 6
 
             if(radioEinVllt.Checked)
             {
-                Program.kalenderEintragGanz(RaeumHeader, KalenderString(),"", 6, dateEinpack.Value.Date, dateEinpack.Value.Date);
+                Program.kalenderEintragGanz(EinRaeumHeader, KalenderString(),"", 6, dateEinpack.Value.Date, dateEinpack.Value.Date);
             }
 
             if (radioAusVllt.Checked)
             {
-                Program.kalenderEintragGanz(RaeumHeader, KalenderString(),"", 6, dateAuspack.Value.Date, dateAuspack.Value.Date);
+                Program.kalenderEintragGanz(AusRaeumHeader, KalenderString(),"", 6, dateAuspack.Value.Date, dateAuspack.Value.Date);
             }
 
-            // Entrümpelungen
+            // Entrümpelungen KEIN EIGENER HEADER
             if (radioEntJa.Checked)
             {
-                Program.kalenderEintragGanz(RaeumHeader + " ENTRÜMPELN", KalenderString(),"", 11, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
+                Program.kalenderEintragGanz(EinRaeumHeader + " ENTRÜMPELN", KalenderString(),"", 11, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
             }
             if (radioEntVllt.Checked)
             {
-                Program.kalenderEintragGanz(RaeumHeader + " ENTRÜMPELN", KalenderString(), "", 10, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
+                Program.kalenderEintragGanz(EinRaeumHeader + " ENTRÜMPELN", KalenderString(), "", 10, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
             }
 
 
