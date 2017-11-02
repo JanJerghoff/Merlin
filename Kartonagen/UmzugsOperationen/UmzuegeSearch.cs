@@ -877,10 +877,30 @@ namespace Kartonagen
             return textKundennummer.Text + " " + textVorNachname.Text + ", Schilder stellen";
         }
 
-        private String RaeumHeader()
+        private String EinRaeumHeader()
         {
-            return textKundennummer.Text + " " + textVorNachname.Text + ", ";//+ numericPacker.Value + " Mann, " + numericPackStunden.Value + " Stunden";
+            String EinRaeumHeader = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericEinPacker.Value + " Mann, " + numericEinPackStunden.Value + " Stunden";
+            
+            if (radioEinVllt.Checked)
+            {
+                EinRaeumHeader = EinRaeumHeader + " Optional";
+            }
+
+            return EinRaeumHeader;
         }
+
+        private String AusRaeumHeader()
+        {
+            String AusRaeumHeader = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericAusPacker.Value + " Mann, " + numericAusPackStunden.Value + " Stunden";
+
+            if (radioAusVllt.Checked)
+            {
+                AusRaeumHeader = AusRaeumHeader + " Optional";
+            }
+
+            return AusRaeumHeader;
+        }
+
 
         private void UmzugEinfuegen(int code) {
             if (code == 1) {
@@ -953,22 +973,22 @@ namespace Kartonagen
             switch (code) // 1 Einräumen, 2 Vllt Einräumen, 3 Ausräumen, 4 Vllt Ausräumen
             {
                 case 1:
-                    Program.kalenderEintragGanz(RaeumHeader(), KalenderString(), "", 5, dateEinpack.Value.Date, dateEinpack.Value.Date);
+                    Program.kalenderEintragGanz(EinRaeumHeader(), KalenderString(), "", 5, dateEinpack.Value.Date, dateEinpack.Value.Date);
                     textUmzugLog.AppendText("Einpacken hinzugefügt \r\n");
                     break;
 
                 case 2:
-                    Program.kalenderEintragGanz(RaeumHeader(), KalenderString(), "", 6, dateEinpack.Value.Date, dateEinpack.Value.Date);
+                    Program.kalenderEintragGanz(EinRaeumHeader(), KalenderString(), "", 6, dateEinpack.Value.Date, dateEinpack.Value.Date);
                     textUmzugLog.AppendText("Vorläufiges Einpacken hinzugefügt \r\n");
                     break;
                 
                 case 3:
-                    Program.kalenderEintragGanz(RaeumHeader(), KalenderString(), "", 5, dateAuspack.Value.Date, dateAuspack.Value.Date);
+                    Program.kalenderEintragGanz(AusRaeumHeader(), KalenderString(), "", 5, dateAuspack.Value.Date, dateAuspack.Value.Date);
                     textUmzugLog.AppendText("Auspacken hinzugefügt \r\n");
                     break;
 
                 case 4:
-                    Program.kalenderEintragGanz(RaeumHeader(), KalenderString(), "", 6, dateAuspack.Value.Date, dateAuspack.Value.Date);
+                    Program.kalenderEintragGanz(AusRaeumHeader(), KalenderString(), "", 6, dateAuspack.Value.Date, dateAuspack.Value.Date);
                     textUmzugLog.AppendText("Vorläufiges Auspacken hinzugefügt \r\n");
                     break;
                 
@@ -1133,7 +1153,7 @@ namespace Kartonagen
             }
             else { refreshAusraeumen(); }
             //
-            // ENTRÜMPELN
+            // ENTRÜMPELN            
             //
 
             if (radioEntJa.Checked && EntruempelungSet != 1)
@@ -1195,7 +1215,6 @@ namespace Kartonagen
             {
                 popUp();
             }
-            erinnerungsPopup();
         }
 
         private void buttonBlockKueche_Click_1(object sender, EventArgs e)
