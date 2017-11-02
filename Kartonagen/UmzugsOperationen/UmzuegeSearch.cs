@@ -879,9 +879,9 @@ namespace Kartonagen
 
         private String EinRaeumHeader()
         {
-            String EinRaeumHeader = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericEinPacker.Value + " Mann, " + numericEinPackStunden.Value + " Stunden";
+            String EinRaeumHeader = textKundennummer.Text + " " + textVorNachname.Text + " Einpacken, " + numericEinPacker.Value + " Mann, " + numericEinPackStunden.Value + " Stunden";
             
-            if (radioEinVllt.Checked)
+            if (radioEinpackenV.Checked)
             {
                 EinRaeumHeader = EinRaeumHeader + " Optional";
             }
@@ -891,9 +891,9 @@ namespace Kartonagen
 
         private String AusRaeumHeader()
         {
-            String AusRaeumHeader = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericAusPacker.Value + " Mann, " + numericAusPackStunden.Value + " Stunden";
+            String AusRaeumHeader = textKundennummer.Text + " " + textVorNachname.Text + "Auspacken, " + numericAusPacker.Value + " Mann, " + numericAusPackStunden.Value + " Stunden";
 
-            if (radioAusVllt.Checked)
+            if (radioAuspackenV.Checked)
             {
                 AusRaeumHeader = AusRaeumHeader + " Optional";
             }
@@ -1518,7 +1518,7 @@ namespace Kartonagen
                 {
                     textUmzugLog.AppendText(sqlEx.ToString());
                 }
-                //
+                // TODO hier fehlt das Löschen der Transaktions-Termine
                 String deleteT = "DELETE FROM Transaktionen WHERE Umzuege_idUmzuege = " + textUmzNummerBlock.Text + " ;";
                 MySqlCommand cmdSendT = new MySqlCommand(deleteT, Program.conn);
                 try
@@ -1543,6 +1543,12 @@ namespace Kartonagen
                     textUmzugLog.AppendText(sqlEx.ToString());
                 }
 
+                //Termine löschen
+
+                //find&kill Besichtigung           
+                Program.EventDeleteId(Program.EventListMatch(events, Besichtigung, "9"));
+                textUmzugLog.AppendText("Besichtigung gelöscht \r\n");
+                //
                 UmzugLoeschen(umzObj.StatUmzug);
                 PackenLoeschen(umzObj.StatEin);
                 if (umzObj.StatAus == 1)

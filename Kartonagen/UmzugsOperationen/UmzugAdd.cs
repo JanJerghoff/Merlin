@@ -186,52 +186,35 @@ namespace Kartonagen
             int aussenaufzugtemp;
 
             // Belegung der Temps für die Adresserstellung.
-            if (radioAufzugAJa.Checked)
-            {
-                aufzugtemp = 1;
-            }
-            else { aufzugtemp = 0; }
+            if (radioAufzugAJa.Checked){aufzugtemp = 1;}
+            else if (radioAufzugANein.Checked) { aufzugtemp = 0; }
+            else { aufzugtemp = 8; }
 
-            if (radioAussenAufzugAJa.Checked)
-            {
-                aussenaufzugtemp = 1;
-            }
-            else { aussenaufzugtemp = 0; }
+            if (radioAussenAufzugAJa.Checked) { aussenaufzugtemp = 1; }
+            else if (radioAussenAufzugANein.Checked) { aussenaufzugtemp = 0; }
+            else { aussenaufzugtemp = 8; }
 
-            if (radioHVZAJa.Checked)
-            {
-                hvztemp = 1;
-            }
-            else if (radioHVZAV.Checked) {
-                hvztemp = 2;
-            }
-            else { hvztemp = 0; }                        
+            if (radioHVZAJa.Checked) { hvztemp = 1; }
+            else if (radioHVZAV.Checked) { hvztemp = 2; }
+            else if (radioHVZANein.Checked) { hvztemp = 0; }
+            else { hvztemp = 8; }              
 
             Adresse aus = new Adresse(textStraßeA.Text, textHausnummerA.Text, textOrtA.Text, textPLZA.Text, textLandA.Text, aufzugtemp, StockwerkString(0), listBoxA.SelectedItem.ToString(), hvztemp, int.Parse(textLaufMeterA.Text), aussenaufzugtemp);
 
             // Belegung der Temps für die Adresserstellung.
-            if (radioAufzugBJa.Checked)
-            {
-                aufzugtemp = 1;
-            }
-            else { aufzugtemp = 0; }
+            if (radioAufzugBJa.Checked) { aufzugtemp = 1; }
+            else if (radioAufzugBNein.Checked) { aufzugtemp = 0; }
+            else { aufzugtemp = 8; }
 
-            if (radioAussenAufzugBJa.Checked)
-            {
-                aussenaufzugtemp = 1;
-            }
-            else { aussenaufzugtemp = 0; }
+            if (radioAussenAufzugBJa.Checked) { aussenaufzugtemp = 1; }
+            else if (radioAussenAufzugBNein.Checked) { aussenaufzugtemp = 0; }
+            else { aussenaufzugtemp = 8; }
 
-            if (radioHVZBJa.Checked)
-            {
-                hvztemp = 1;
-            }
-            else if (radioHVZBV.Checked)
-            {
-                hvztemp = 2;
-            }
-            else { hvztemp = 0; }
-            
+            if (radioHVZBJa.Checked) { hvztemp = 1; }
+            else if (radioHVZBV.Checked) { hvztemp = 2; }
+            else if (radioHVZBNein.Checked) { hvztemp = 0; }
+            else { hvztemp = 8; }
+
             Adresse ein = new Adresse(textStraßeB.Text, textHausnummerB.Text, textOrtB.Text, textPLZB.Text, textLandB.Text, aufzugtemp, StockwerkString(1), listBoxB.SelectedItem.ToString(), hvztemp, int.Parse(textLaufMeterB.Text), aussenaufzugtemp);
 
             // Temps für die Umzugserstellung
@@ -239,58 +222,30 @@ namespace Kartonagen
             // Reihenfolge ist Umz, Bes, Aus, Ein, Ent
             List<int> stat = new List<int>();
 
-            if (radioUmzJa.Checked)
-            {
-                stat.Add(1);
-            }
-            else if (radioUmzVllt.Checked)
-            {
-                stat.Add(2);
-            }
-            else if (radioUmzVorlaeufig.Checked)
-            {
-                stat.Add(3);
-            }
-            else { stat.Add(0); }
+            if (radioUmzJa.Checked) { stat.Add(1); }
+            else if (radioUmzVllt.Checked) { stat.Add(2); }
+            else if (radioUmzVorlaeufig.Checked) { stat.Add(3); }
+            else if (radioUmzNein.Checked) { stat.Add(0); }
+            else {stat.Add(8);}
             //
-            if (radioBesJa.Checked)
-            {
-                stat.Add(1);
-            }
-            else { stat.Add(0); }
+            if (radioBesJa.Checked) { stat.Add(1); }
+            else if (radioBesNein.Checked) { stat.Add(0); }
+            else { stat.Add(8); }
             //
-            if (radioAusJa.Checked)
-            {
-                stat.Add(1);
-            }
-            else if (radioAusVllt.Checked)
-            {
-                stat.Add(2);
-            }
-            else { stat.Add(0); }
+            if (radioAusJa.Checked) { stat.Add(1); }
+            else if (radioAusVllt.Checked) { stat.Add(2); }
+            else if (radioAusNein.Checked) { stat.Add(0); }
+            else { stat.Add(8); }
             //
-            if (radioEinJa.Checked)
-            {
-                stat.Add(1);
-            }
-            else if (radioEinVllt.Checked)
-            {
-                stat.Add(2);
-            }
-            else { stat.Add(0); }
+            if (radioEinJa.Checked) { stat.Add(1); }
+            else if (radioEinVllt.Checked) { stat.Add(2); }
+            else if (radioEinNein.Checked) { stat.Add(0); }
+            else { stat.Add(8); }
             //
-            if (radioEntJa.Checked)
-            {
-                stat.Add(1);
-            }
-            else if (radioEntVllt.Checked)
-            {
-                stat.Add(2);
-            }
-            else
-            {
-                stat.Add(0);
-            }
+            if (radioEntJa.Checked) { stat.Add(1); }
+            else if (radioEntVllt.Checked) { stat.Add(2); }
+            else if (radioEntNein.Checked) { stat.Add(0); }
+            else { stat.Add(8); }
 
             // String Autos
             String tempAuto = "";
