@@ -398,7 +398,7 @@ namespace Kartonagen
             else if (toggle == 2)
             {
                 string dateiName = id + "_" + einzug.Straße1 + "_" + einzug.Hausnummer1+".pdf";
-                string mitnehmPfad = System.IO.Path.Combine(Program.mitnehmPfad, dateiName);
+                string mitnehmPfad = System.IO.Path.Combine(Program.getMitnehmPfad(), dateiName);
                 pdf = new PdfDocument(new PdfReader(System.IO.Path.Combine(Environment.CurrentDirectory, "Besichtigungs Vordruck.pdf")), new PdfWriter(mitnehmPfad));
             }
 

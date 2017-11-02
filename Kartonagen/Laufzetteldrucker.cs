@@ -134,7 +134,7 @@ namespace Kartonagen
 
                 List<int> test = new List<int>();
 
-                MySqlCommand cmdReadKunde = new MySqlCommand("SELECT idUmzuege FROM Umzuege WHERE datBesichtigung = '2016-10-12';", Program.conn);
+                MySqlCommand cmdReadKunde = new MySqlCommand("SELECT idUmzuege FROM Umzuege WHERE datBesichtigung = '"+Program.DateMachine(dateBesichtigung.Value.Date)+"';", Program.conn);
                 MySqlDataReader rdrKunde;
 
                 try

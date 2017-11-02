@@ -177,31 +177,31 @@ namespace Kartonagen
 
         private void PDFRead_Click(object sender, EventArgs e)
         {
-            List<int> test = new List<int>();
+            //List<int> test = new List<int>();
 
-            MySqlCommand cmdReadKunde = new MySqlCommand("SELECT idUmzuege FROM Umzuege WHERE datBesichtigung = '2016-10-12';", Program.conn);
-            MySqlDataReader rdrKunde;
+            //MySqlCommand cmdReadKunde = new MySqlCommand("SELECT idUmzuege FROM Umzuege WHERE datBesichtigung = '2016-10-12';", Program.conn);
+            //MySqlDataReader rdrKunde;
             
-            try
-            {
-                rdrKunde = cmdReadKunde.ExecuteReader();
-                while (rdrKunde.Read())
-                {
-                    test.Add(rdrKunde.GetInt32(0));
-                }
-                rdrKunde.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                Program.FehlerLog(sqlEx.ToString(), "Abrufen der Umzugsnummern zum Besichtigungsdatum (für das Ausliefern der PDFs)");
-            }
+            //try
+            //{
+            //    rdrKunde = cmdReadKunde.ExecuteReader();
+            //    while (rdrKunde.Read())
+            //    {
+            //        test.Add(rdrKunde.GetInt32(0));
+            //    }
+            //    rdrKunde.Close();
+            //}
+            //catch (Exception sqlEx)
+            //{
+            //    Program.FehlerLog(sqlEx.ToString(), "Abrufen der Umzugsnummern zum Besichtigungsdatum (für das Ausliefern der PDFs)");
+            //}
 
-            // Drucken für die einzelnen Besichtigungen
-            string sum = "";
+            //// Drucken für die einzelnen Besichtigungen
+            //string sum = "";
                       
 
             // Testsektion einlesen d. Umzuege
-            string[] pdfs = Directory.GetFiles(Program.mitnehmPfad);
+            string[] pdfs = Directory.GetFiles(Program.getMitnehmPfad());
 
             foreach (var item in pdfs)
             {

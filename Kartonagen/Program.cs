@@ -49,6 +49,16 @@ namespace Kartonagen
 
         // -------------- Methoden ---------------
 
+        //Bestimmen der Pfadwurzel und finden des Ablageverzeichnisses
+        public static string getMitnehmPfad() {
+
+            string Temp = mitnehmPfad;
+
+            Temp = System.IO.Path.GetPathRoot(mitnehmPfad);
+            Temp = System.IO.Path.Combine(Temp, "TabletPDF");
+
+            return Temp;
+        }
 
 
         public static AutoCompleteStringCollection getAutocompleteKunden() {
@@ -124,7 +134,7 @@ namespace Kartonagen
 
         public static void ordnerLeeren() {
 
-            string [] temp = Directory.GetFiles(mitnehmPfad);
+            string [] temp = Directory.GetFiles(getMitnehmPfad());
             foreach (var item in temp)
             {
                 File.Delete(item);
