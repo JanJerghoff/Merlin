@@ -284,39 +284,61 @@ namespace Kartonagen
             numericMannZahl.Value = umzObj.Mann;
             numericArbeitszeit.Value = umzObj.Stunden;
             //
-            if (umzObj.Schilder1 == 1)
+            switch (umzObj.Schilder1)
             {
-                radioSchilderJa.Checked = true;
-            }
-            else { radioSchilderNein.Checked = true; }
+                case 1:
+                    radioSchilderJa.Checked = true;
+                    break;
+                case 0:
+                    radioSchilderNein.Checked = true;
+                    break;
+                default:
+                    break;
+            }            
             //
             dateSchilderVerweildauer.Value = umzObj.SchilderZeit1;
             //
-            if (umzObj.KuecheAb1 == 1)
+            switch (umzObj.KuecheAb1)
             {
-                radioKuecheAbJa.Checked = true;
+                case 2:
+                    radioKuecheAbV.Checked = true;
+                    break;
+                case 1:
+                    radioKuecheAbJa.Checked = true;
+                    break;
+                case 0:
+                    radioKuecheAbNein.Checked = true;
+                    break;
+                default:
+                    break;
             }
-            else if (umzObj.KuecheAb1 == 0)
-            {
-                radioKuecheAbNein.Checked = true;
-            }
-            else { radioKuecheAbV.Checked = true; }
             //
-            if (umzObj.KuecheAuf1 == 1)
+            switch (umzObj.KuecheAuf1)
             {
-                radioKuecheAufJa.Checked = true;
+                case 2:
+                    radioKuecheAufV.Checked = true;
+                    break;
+                case 1:
+                    radioKuecheAufJa.Checked = true;
+                    break;
+                case 0:
+                    radioKuecheAufNein.Checked = true;
+                    break;
+                default:
+                    break;
             }
-            else if (umzObj.KuecheAuf1 == 0)
-            {
-                radioKuecheAufNein.Checked = true;
-            }
-            else { radioKuecheAufV.Checked = true; }
             //
-            if (umzObj.KuecheBau1 == 1)
+            switch (umzObj.KuecheBau1)
             {
-                radioKuecheIntern.Checked = true;
-            }
-            else { radioKuecheExtern.Checked = true; }
+                case 1:
+                    radioKuecheIntern.Checked = true;
+                    break;
+                case 0:
+                    radioKuecheExtern.Checked = true;
+                    break;
+                default:
+                    break;
+            }            
             //
             textKuechenPreis.Text = umzObj.KuechePausch1.ToString();
             numericUmzugsDauer.Value = umzObj.Umzugsdauer;
@@ -337,60 +359,68 @@ namespace Kartonagen
             textNoteBuero.Text = umzObj.NotizBuero1;
             textNoteFahrer.Text = umzObj.NotizFahrer1;
             textNoteKalender.Text = umzObj.NotizTitel1;
-            
+
             //
-            //Setzen der Terminzustände, elend umständlich.
+            //Setzen der Terminzustände
             // Umzug
-            if (umzObj.StatUmzug == 0)
+            switch (umzObj.StatUmzug)
             {
-                radioUmzNein.Checked = true;
-            }
-            else if (umzObj.StatUmzug == 1)
-            {
-                radioUmzJa.Checked = true;
-            }
-            else if (umzObj.StatUmzug == 3)
-            {
-                radioUmzVorlaeufig.Checked = true;
-            }
-            else
-            {
-                radioUmzVllt.Checked = true;
+                case 3:
+                    radioUmzVorlaeufig.Checked = true;
+                    break;
+                case 2:
+                    radioUmzVllt.Checked = true;
+                    break;
+                case 1:
+                    radioUmzJa.Checked = true;
+                    break;
+                case 0:
+                    radioUmzNein.Checked = true;
+                    break;
+                default:
+                    break;
             }
             // Besichtigung
-            if (umzObj.StatBesichtigung == 0)
+            switch (umzObj.StatBesichtigung)
             {
-                radioBesNein.Checked = true;
-            }
-            else
-            {
-                radioBesJa.Checked = true;
+                case 1:
+                    radioBesJa.Checked = true;
+                    break;
+                case 0:
+                    radioBesNein.Checked = true;
+                    break;
+                default:
+                    break;
             }
             // Auspacken
-            if (umzObj.StatAus == 0)
+            switch (umzObj.StatAus)
             {
-                radioAusNein.Checked = true;
-            }
-            else if (umzObj.StatAus == 1)
-            {
-                radioAusJa.Checked = true;
-            }
-            else
-            {
-                radioAusVllt.Checked = true;
+                case 2:
+                    radioAusVllt.Checked = true;
+                    break;
+                case 1:
+                    radioAusJa.Checked = true;
+                    break;
+                case 0:
+                    radioAusNein.Checked = true;
+                    break;
+                default:
+                    break;
             }
             // Einpacken
-            if (umzObj.StatEin == 0)
+            switch (umzObj.StatEin)
             {
-                radioEinNein.Checked = true;
-            }
-            else if (umzObj.StatEin == 1)
-            {
-                radioEinJa.Checked = true;
-            }
-            else
-            {
-                radioEinVllt.Checked = true;
+                case 2:
+                    radioEinVllt.Checked = true;
+                    break;
+                case 1:
+                    radioEinJa.Checked = true;
+                    break;
+                case 0:
+                    radioEinNein.Checked = true;
+                    break;
+                default:
+                    break;
             }
             // Entrümpeln
             if (umzObj.StatRuempeln == 0)
@@ -411,9 +441,8 @@ namespace Kartonagen
 
             TimeSpan t = umzObj.ZeitUmzug.TimeOfDay;
             timeBesichtigung.Value = transplant.Add(t);
-
-            //
-            // Setzen der Listboxen         CHANGE SWITHCASE?
+            
+            // Setzen der Listboxen 
 
             switch (umzObj.auszug.Haustyp1)
             {
