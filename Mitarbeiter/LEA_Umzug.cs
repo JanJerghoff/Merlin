@@ -107,7 +107,7 @@ namespace Mitarbeiter
         private void fuellenKundenname(String Kundenname) {
 
             
-            MySqlCommand cmdKundenSuche = new MySqlCommand("SELECT u.idUmzuege FROM Kunden k, Umzuege u WHERE u.Kunden_idKunden = k.idKunden AND k.Nachname ='" + Kundenname.Split(',')[0] + "' AND k.Vorname ='" + Kundenname.Split(',')[1].Split(' ')[1] + "';", Program.conn);
+            MySqlCommand cmdKundenSuche = new MySqlCommand("SELECT u.idUmzuege FROM Kunden k, Umzuege u WHERE u.Kunden_idKunden = k.idKunden AND k.Nachname ='"+ Kundenname +"';", Program.conn);
             MySqlDataReader rdrKundenSuche;
             int count = 0;
             try
@@ -125,13 +125,23 @@ namespace Mitarbeiter
                 textLog.Text += sqlEx.ToString();
                 return;
             }
-            if (count == 0) {
-                textLog.AppendText(Kundenname.Split(' ')[0].Split(',')[0] + Kundenname.Split(' ')[1]);
-            }
 
-            if (count > 1) {
-                textLog.AppendText("Entweder mehr als ein Kunde mit dem Namen \r\n oder mehr als ein Umzug zum Kunden gefunden. \r\n Bitte Umzugsnummer angeben \r\n ");
+            try
+            {
+                if (count == 0)
+                {
+                    textLog.AppendText(Kundenname.Split(' ')[0].Split(',')[0] + Kundenname.Split(' ')[1]);
+                }
+
+                if (count > 1)
+                {
+                    textLog.AppendText("Entweder mehr als ein Kunde mit dem Namen \r\n oder mehr als ein Umzug zum Kunden gefunden. \r\n Bitte Umzugsnummer angeben \r\n ");
+                }
             }
+            catch (Exception)
+            {
+                var bestätigung = MessageBox.Show("Mehrere Kunden desselben Namens (oder anderes Problem) gefunden, bitte Umzugsnummer verwenden", "Erinnerung");
+            }            
 
             textKundenname.Enabled = false;
             numericUmzugsnummer.Enabled = false;

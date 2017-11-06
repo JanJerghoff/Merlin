@@ -268,6 +268,7 @@
             // 
             // button5
             // 
+            this.button5.Enabled = false;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button5.Location = new System.Drawing.Point(490, 17);
             this.button5.Name = "button5";
@@ -279,6 +280,7 @@
             // 
             // button6
             // 
+            this.button6.Enabled = false;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button6.Location = new System.Drawing.Point(673, 18);
             this.button6.Name = "button6";
