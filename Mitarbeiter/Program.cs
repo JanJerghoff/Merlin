@@ -222,7 +222,7 @@ namespace Mitarbeiter
         public static AutoCompleteStringCollection getAutocompleteTour()
         {
 
-            if (autocompleteMitarbeiter == null)
+            if (autocompleteTour == null)
             {
                 refreshAutocompleteTour();
             }
