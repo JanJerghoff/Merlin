@@ -15,7 +15,7 @@ namespace Kartonagen
     public partial class KundenAdd : Form
     {
 
-        private int idBearbeitend = 0; // 0= Rita, 1=Jonas, 2=Eva, 3=Jan, 4, Sonst.
+        private int idBearbeitend = -1; // 0= Rita, 1=Jonas, 2=Eva, 3=Jan, 4=Nora, Sonst.
 
         public void setBearbeiter(int wer) {
             idBearbeitend = wer;

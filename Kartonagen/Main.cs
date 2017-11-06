@@ -38,7 +38,15 @@ namespace Kartonagen
             {
                 return  3;
             }
-            
+            if (radioMainBenutzerJan.Checked)
+            {
+                return 3;
+            }
+            if (radioMainBenutzerNora.Checked)
+            {
+                return 4;
+            }
+
             return  4;
             
         }

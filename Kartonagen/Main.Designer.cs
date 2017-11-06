@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.PDFRead = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonLaufzettel = new System.Windows.Forms.Button();
             this.buttonLaufKarton = new System.Windows.Forms.Button();
@@ -53,7 +54,7 @@
             this.radioMainBenutzerJonas = new System.Windows.Forms.RadioButton();
             this.radioMainBenutzerRita = new System.Windows.Forms.RadioButton();
             this.textMainLog = new System.Windows.Forms.TextBox();
-            this.PDFRead = new System.Windows.Forms.Button();
+            this.radioMainBenutzerNora = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -89,6 +90,16 @@
             this.splitContainer1.Size = new System.Drawing.Size(1334, 629);
             this.splitContainer1.SplitterDistance = 490;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // PDFRead
+            // 
+            this.PDFRead.Location = new System.Drawing.Point(1095, 37);
+            this.PDFRead.Name = "PDFRead";
+            this.PDFRead.Size = new System.Drawing.Size(179, 117);
+            this.PDFRead.TabIndex = 8;
+            this.PDFRead.Text = "PDF einlesen (TEST)";
+            this.PDFRead.UseVisualStyleBackColor = true;
+            this.PDFRead.Click += new System.EventHandler(this.PDFRead_Click);
             // 
             // groupBox1
             // 
@@ -269,6 +280,7 @@
             // 
             // groupMainBenutzer
             // 
+            this.groupMainBenutzer.Controls.Add(this.radioMainBenutzerNora);
             this.groupMainBenutzer.Controls.Add(this.radioMainBenutzerSonst);
             this.groupMainBenutzer.Controls.Add(this.radioMainBenutzerJan);
             this.groupMainBenutzer.Controls.Add(this.radioMainBenutzerEva);
@@ -276,7 +288,7 @@
             this.groupMainBenutzer.Controls.Add(this.radioMainBenutzerRita);
             this.groupMainBenutzer.Location = new System.Drawing.Point(12, 12);
             this.groupMainBenutzer.Name = "groupMainBenutzer";
-            this.groupMainBenutzer.Size = new System.Drawing.Size(105, 148);
+            this.groupMainBenutzer.Size = new System.Drawing.Size(105, 166);
             this.groupMainBenutzer.TabIndex = 0;
             this.groupMainBenutzer.TabStop = false;
             this.groupMainBenutzer.Text = "Benutzer";
@@ -285,11 +297,10 @@
             // 
             this.radioMainBenutzerSonst.AutoSize = true;
             this.radioMainBenutzerSonst.Checked = true;
-            this.radioMainBenutzerSonst.Location = new System.Drawing.Point(6, 112);
+            this.radioMainBenutzerSonst.Location = new System.Drawing.Point(6, 131);
             this.radioMainBenutzerSonst.Name = "radioMainBenutzerSonst";
             this.radioMainBenutzerSonst.Size = new System.Drawing.Size(66, 17);
             this.radioMainBenutzerSonst.TabIndex = 4;
-            this.radioMainBenutzerSonst.TabStop = true;
             this.radioMainBenutzerSonst.Text = "Sonstige";
             this.radioMainBenutzerSonst.UseVisualStyleBackColor = true;
             // 
@@ -343,15 +354,15 @@
             this.textMainLog.Size = new System.Drawing.Size(1201, 119);
             this.textMainLog.TabIndex = 0;
             // 
-            // PDFRead
+            // radioMainBenutzerNora
             // 
-            this.PDFRead.Location = new System.Drawing.Point(1095, 37);
-            this.PDFRead.Name = "PDFRead";
-            this.PDFRead.Size = new System.Drawing.Size(179, 117);
-            this.PDFRead.TabIndex = 8;
-            this.PDFRead.Text = "PDF einlesen (TEST)";
-            this.PDFRead.UseVisualStyleBackColor = true;
-            this.PDFRead.Click += new System.EventHandler(this.PDFRead_Click);
+            this.radioMainBenutzerNora.AutoSize = true;
+            this.radioMainBenutzerNora.Location = new System.Drawing.Point(6, 108);
+            this.radioMainBenutzerNora.Name = "radioMainBenutzerNora";
+            this.radioMainBenutzerNora.Size = new System.Drawing.Size(48, 17);
+            this.radioMainBenutzerNora.TabIndex = 5;
+            this.radioMainBenutzerNora.Text = "Nora";
+            this.radioMainBenutzerNora.UseVisualStyleBackColor = true;
             // 
             // mainForm
             // 
@@ -406,6 +417,7 @@
         private System.Windows.Forms.Button buttonUebersichtKartons;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button PDFRead;
+        private System.Windows.Forms.RadioButton radioMainBenutzerNora;
     }
 }
 

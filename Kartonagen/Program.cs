@@ -157,9 +157,13 @@ namespace Kartonagen
             {
                 return "Eva";
             }
-            if (ID == 4)
+            if (ID == 3)
             {
                 return "Jan";
+            }
+            if (ID == 4)
+            {
+                return "Nora";
             }
             return "fehler";
         }
