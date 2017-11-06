@@ -171,7 +171,7 @@ namespace Mitarbeiter
                 insert += "'" + Program.DateMachine(dateGeburtstag.Value) + "', ";
                 insert += "'" + textGeburtsort.Text + "', ";
                 insert += "'" + textHauptarbeitgeber.Text + "', ";
-                insert += + decimal.ToInt32(decimal.Round(numericStundenanteil.Value*60)) + ", ";
+                insert += + decimal.ToInt32(decimal.Round(numericStundenanteil.Value*60)) + ", ";               //Stundenanteil immer pro Tag
                 insert += "'" + textStaatsangehoerigkeit.Text + "', ";
                 insert += "'" + textIBAN.Text + "', ";
                 insert += "'" + textBIC.Text + "', ";
@@ -307,7 +307,7 @@ namespace Mitarbeiter
                 String insert = "UPDATE Mitarbeiter SET ";
                 insert += "Vorname = '" + textVorname.Text + "', ";
                 insert += "Nachname = '" + textNachname.Text + "', ";
-                insert += "StundenGehalt = " + numericStundenlohn.Value.ToString() + ", ";
+                insert += "StundenGehalt = " + numericStundenlohn.Value.ToString().Replace(',', '.') + ", ";
                 insert += "Personalnummer = '" + textMitarbeiterNr.Text + "', ";
                 insert += "Straße = '" + textStraße.Text + "', ";
                 insert += "PLZOrt = '" + textOrt.Text + "', ";
@@ -315,7 +315,7 @@ namespace Mitarbeiter
                 insert += "Festnetznummer = '" + textTelefon.Text + "', ";
                 insert += "Religion = '" + textReligion.Text + "', ";
                 insert += "Krankenkasse = '" + textKrankenkasse.Text + "', ";
-                insert += "Steuerklasse = " + numericSteuerklasse.Value.ToString() + ", ";
+                insert += "Steuerklasse = " + numericSteuerklasse.Value.ToString().Replace(',', '.') + ", ";
                 insert += "Familienstand = '" + textFamilienstand.Text + "', ";
                 insert += "Kinderzahl = " + numericKinder.Value.ToString() + ", ";
                 insert += "Sozialversicherungsnummer = '" + textSozialversicherung.Text + "', ";

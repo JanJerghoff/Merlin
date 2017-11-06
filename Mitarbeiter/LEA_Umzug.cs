@@ -233,7 +233,7 @@ namespace Mitarbeiter
                 insert += "'" + textBemerkung.Text + "', ";
                 insert += idBearbeitend + ", ";
                 insert += numericUmzugsnummer.Value + ", ";
-                insert += "1, ";
+                insert += "8, ";
                 insert += fahrzeugID + ");";
             }
             else {
