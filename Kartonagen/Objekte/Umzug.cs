@@ -407,28 +407,9 @@ namespace Kartonagen
             PdfFormField toSet;
 
             String Name = ""; // 0= Rita, 1=Jonas, 2=Eva, 3=Jan, 4, Sonst.
-            switch (UserChanged[0])
-            {
-                case '0':
-                    Name = "Rita";
-                    break;
 
-                case '1':
-                    Name = "Jonas";
-                    break;
-
-                case '2':
-                    Name = "Eva";
-                    break;
-
-                case '3':
-                    Name = "Jan";
-                    break;
-
-                default:
-                    break;
-            }
-
+            Name = Program.getBearbeitender(UserChanged[0]);
+            
             // Vergleihstermin
             DateTime stand = new DateTime(2017, 1, 1);
 
@@ -633,6 +614,29 @@ namespace Kartonagen
                 {
                     fields.TryGetValue("AusNein", out toSet);
                     toSet.SetValue("X");
+                }
+
+                if (Einpacker1 != 0) {
+                    fields.TryGetValue("MannEinPacken", out toSet);
+                    toSet.SetValue(Einpacker1.ToString());
+                }
+
+                if (EinStunden1 != 0)
+                {
+                    fields.TryGetValue("StundenEinPacken", out toSet);
+                    toSet.SetValue(EinStunden1.ToString());
+                }
+
+                if (Auspacker1 != 0)
+                {
+                    fields.TryGetValue("MannAusPacken", out toSet);
+                    toSet.SetValue(Auspacker1.ToString());
+                }
+
+                if (AusStunden1!= 0)
+                {
+                    fields.TryGetValue("StundenAusPacken", out toSet);
+                    toSet.SetValue(AusStunden1.ToString());
                 }
 
                 //Küche
