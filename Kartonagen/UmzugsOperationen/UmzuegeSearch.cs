@@ -1293,37 +1293,22 @@ namespace Kartonagen
         {
             //Deklaration und setzen der Werte
 
-            int kuecheab = 0; ;
-            int kuecheauf = 0;
-            int kuechebau = 0;
+            int kuecheab = 8;
+            int kuecheauf = 8;
+            int kuechebau = 8;
             String kuechepausch = "0";
 
-            if (radioKuecheAbJa.Checked)
-            {
-                kuecheab = 1;
-            }
-            else if (radioKuecheAbNein.Checked)
-            {
-                kuecheab = 0;
-            }
-            else { kuecheab = 2; }
-
-            if (radioKuecheAufJa.Checked)
-            {
-                kuecheauf = 1;
-            }
-            else if (radioKuecheAufNein.Checked)
-            {
-                kuecheauf = 0;
-            }
-            else { kuecheauf = 2; }
-
-            if (radioKuecheIntern.Checked)          // Küchenbau Intern = 1, Extern = 0;
-            {
-                kuechebau = 1;
-            }
-            else { kuechebau = 0; }
-
+            if (radioKuecheAbJa.Checked) { kuecheab = 1; }
+            else if (radioKuecheAbNein.Checked) { kuecheab = 0; }
+            else if (radioKuecheAbV.Checked) { kuecheab = 2; }
+            //
+            if (radioKuecheAufJa.Checked) { kuecheauf = 1; }
+            else if (radioKuecheAufNein.Checked) { kuecheauf = 0; }
+            else if (radioKuecheAufV.Checked) { kuecheauf = 2; }
+            //
+            if (radioKuecheIntern.Checked) { kuechebau = 1; } // Küchenbau Intern = 1, Extern = 0;
+            else if (radioKuecheExtern.Checked) { kuechebau = 0; }
+            
             kuechepausch = textKuechenPreis.Text;
             
             // Setzen
@@ -1341,28 +1326,16 @@ namespace Kartonagen
 
         private void buttonBlockPacken_Click_1(object sender, EventArgs e)
         {
-            int einPacken = 0;
-            int ausPacken = 0;
+            int einPacken = 8;
+            int ausPacken = 8;
 
-            if (radioEinpackenJa.Checked)
-            {
-                einPacken = 1;
-            }
-            else if (radioEinpackenNein.Checked)
-            {
-                einPacken = 0;
-            }
-            else { einPacken = 2; }
+            if (radioEinpackenJa.Checked) { einPacken = 1; }
+            else if (radioEinpackenNein.Checked) { einPacken = 0; }
+            else if (radioEinpackenV.Checked) { einPacken = 2; }
             //
-            if (radioAuspackenJa.Checked)
-            {
-                ausPacken = 1;
-            }
-            else if (radioAuspackenNein.Checked)
-            {
-                ausPacken = 0;
-            }
-            else { ausPacken = 2; }
+            if (radioAuspackenJa.Checked) { ausPacken = 1; }
+            else if (radioAuspackenNein.Checked) { ausPacken = 0; }
+            else if (radioAuspackenV.Checked) { ausPacken = 2; }
             
             // Setzen
             umzObj.Einpacken1 = einPacken;
@@ -1392,10 +1365,11 @@ namespace Kartonagen
             {
                 schilder = 1;
             }
-            else
+            else if (radioSchilderNein.Checked)
             {
                 schilder = 0;
             }
+            else { schilder = 8; }
 
             String temp = "";
             temp = temp + decimal.ToInt32(numericSprinterMit.Value).ToString();
@@ -1440,37 +1414,19 @@ namespace Kartonagen
 
         private void buttonBlockEinzug_Click(object sender, EventArgs e)
         {
-            int aufzug = 0;
-            int hvz = 0;
-            int aussenAuf = 0;
+            int aufzug = 8;
+            int hvz = 8;
+            int aussenAuf = 8;
 
-            if (radioAussenAufzugBJa.Checked)
-            {
-                aussenAuf = 1;
-            }
-            else
-            {
-                aussenAuf = 0;
-            }
+            if (radioAussenAufzugBJa.Checked) { aussenAuf = 1; }
+            else if (radioAussenAufzugBNein.Checked) { aussenAuf = 0; }
             //
-            if (radioAufzugBJa.Checked)
-            {
-                aufzug = 1;
-            }
-            else
-            {
-                aufzug = 0;
-            }
+            if (radioAufzugBJa.Checked) { aufzug = 1; }
+            else if (radioAufzugBNein.Checked) { aufzug = 0; }
             //
-            if (radioHVZBJa.Checked)
-            {
-                hvz = 1;
-            }
-            else if (radioHVZBNein.Checked)
-            {
-                hvz = 0;
-            }
-            else { hvz = 2; }
+            if (radioHVZBJa.Checked) { hvz = 1; }
+            else if (radioHVZBNein.Checked) { hvz = 0; }
+            else if (radioHVZBV.Checked) { hvz = 2; }
 
             umzObj.einzug.Straße1 = textStraßeB.Text;
             umzObj.einzug.Hausnummer1 = textHausnummerB.Text;
@@ -1495,22 +1451,19 @@ namespace Kartonagen
 
         private void ButtonBlockAuszug_Click_1(object sender, EventArgs e)
         {
-            int aufzug = 0;
-            int hvz = 0;
-            int aussenAuf = 0;
+            int aufzug = 8;
+            int hvz = 8;
+            int aussenAuf = 8;
 
             if (radioAussenAufzugAJa.Checked){aussenAuf = 1;}
             else if (radioAussenAufzugANein.Checked){aussenAuf = 0;}
-            else { aussenAuf = 8; }
             //
             if (radioAufzugAJa.Checked){aufzug = 1;}
             else if (radioAufzugANein.Checked){aufzug = 0;}
-            else { aufzug = 8; }
             //
             if (radioHVZAJa.Checked){hvz = 1;}
             else if (radioHVZANein.Checked){hvz = 0;}
             else if (radioHVZAV.Checked){hvz = 2;}
-            else { aufzug = 8; }
 
             // Daten ins Objekt
             umzObj.auszug.Straße1 = textStraßeA.Text;
