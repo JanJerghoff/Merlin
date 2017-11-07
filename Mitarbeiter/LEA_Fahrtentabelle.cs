@@ -20,6 +20,7 @@ namespace Mitarbeiter
         
         private List<TextBox> Touren = new List<TextBox>();
         private List<TextBox> Fahrzeuge = new List<TextBox>();
+        private List<CheckBox> Beifahrer = new List<CheckBox>();
 
         private List<NumericUpDown> KundenStueck = new List<NumericUpDown>();
         private List<NumericUpDown> Handbeilagen = new List<NumericUpDown>();
@@ -180,6 +181,17 @@ namespace Mitarbeiter
             Bemerkungen.Add(textBemerkung9);
             Bemerkungen.Add(textBemerkung10);
 
+            Beifahrer.Add(checkBox1);
+            Beifahrer.Add(checkBox2);
+            Beifahrer.Add(checkBox3);
+            Beifahrer.Add(checkBox4);
+            Beifahrer.Add(checkBox5);
+            Beifahrer.Add(checkBox6);
+            Beifahrer.Add(checkBox7);
+            Beifahrer.Add(checkBox8);
+            Beifahrer.Add(checkBox9);
+            Beifahrer.Add(checkBox10);
+
         }
 
 
@@ -280,6 +292,27 @@ namespace Mitarbeiter
 
             Bemerkungen[Zeile].Clear();
         }
+
+        private void BeifahrerClick(int Zeile) {
+
+            if (Fahrzeuge[Zeile].Enabled == false)
+            {
+                Fahrzeuge[Zeile].Enabled = true;
+                KMStart[Zeile].Enabled = true;
+                KMEnde[Zeile].Enabled = true;
+            }
+            else {
+
+                Fahrzeuge[Zeile].Clear();
+
+                Fahrzeuge[Zeile].Enabled = false;
+                KMStart[Zeile].Enabled = false;
+                KMEnde[Zeile].Enabled = false;
+            }
+
+
+        }
+
 
         // ON_CLICKS
 
@@ -393,6 +426,56 @@ namespace Mitarbeiter
             leereZeile(9);
         }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            BeifahrerClick(0);
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            BeifahrerClick(1);
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            BeifahrerClick(2);
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            BeifahrerClick(3);
+        }
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+            BeifahrerClick(4);
+        }
+
+        private void checkBox6_CheckedChanged(object sender, EventArgs e)
+        {
+            BeifahrerClick(5);
+        }
+
+        private void checkBox7_CheckedChanged(object sender, EventArgs e)
+        {
+            BeifahrerClick(6);
+        }
+
+        private void checkBox8_CheckedChanged(object sender, EventArgs e)
+        {
+            BeifahrerClick(7);
+        }
+
+        private void checkBox9_CheckedChanged(object sender, EventArgs e)
+        {
+            BeifahrerClick(8);
+        }
+
+        private void checkBox10_CheckedChanged(object sender, EventArgs e)
+        {
+            BeifahrerClick(9);
+        }
+
         private void buttonAbsenden_Click(object sender, EventArgs e)
         {
             int count = 0;
@@ -433,6 +516,7 @@ namespace Mitarbeiter
                 count++;
             }
         }
+
     }
 
 }
