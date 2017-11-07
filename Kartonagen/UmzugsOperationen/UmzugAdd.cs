@@ -225,27 +225,24 @@ namespace Kartonagen
             if (radioUmzJa.Checked) { stat.Add(1); }
             else if (radioUmzVllt.Checked) { stat.Add(2); }
             else if (radioUmzVorlaeufig.Checked) { stat.Add(3); }
-            else if (radioUmzNein.Checked) { stat.Add(0); }
-            else {stat.Add(8);}
+            else { stat.Add(0); }
+            
             //
             if (radioBesJa.Checked) { stat.Add(1); }
-            else if (radioBesNein.Checked) { stat.Add(0); }
-            else { stat.Add(8); }
+            else  { stat.Add(0); }
+            
             //
             if (radioAusJa.Checked) { stat.Add(1); }
             else if (radioAusVllt.Checked) { stat.Add(2); }
-            else if (radioAusNein.Checked) { stat.Add(0); }
-            else { stat.Add(8); }
+            else { stat.Add(0); }
             //
             if (radioEinJa.Checked) { stat.Add(1); }
             else if (radioEinVllt.Checked) { stat.Add(2); }
-            else if (radioEinNein.Checked) { stat.Add(0); }
-            else { stat.Add(8); }
+            else { stat.Add(0); }
             //
             if (radioEntJa.Checked) { stat.Add(1); }
             else if (radioEntVllt.Checked) { stat.Add(2); }
-            else if (radioEntNein.Checked) { stat.Add(0); }
-            else { stat.Add(8); }
+            else { stat.Add(0); }
 
             // String Autos
             String tempAuto = "";
