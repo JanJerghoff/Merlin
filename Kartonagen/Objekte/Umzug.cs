@@ -719,7 +719,7 @@ namespace Kartonagen
 
                 //Bemerkungen
                 fields.TryGetValue("NoteBuero", out toSet);
-                toSet.SetValue(NotizBuero);
+                toSet.SetValue(NotizTitel1+" "+NotizBuero);
 
                 fields.TryGetValue("NoteFahrer", out toSet);
                 toSet.SetValue(NotizFahrer);

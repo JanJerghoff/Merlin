@@ -47,7 +47,7 @@ namespace Kartonagen
                 return 4;
             }
 
-            return  4;
+            return  8;
             
         }
 
