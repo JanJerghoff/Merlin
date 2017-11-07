@@ -407,8 +407,9 @@ namespace Kartonagen
             PdfFormField toSet;
 
             String Name = ""; // 0= Rita, 1=Jonas, 2=Eva, 3=Jan, 4, Sonst.
-
-            Name = Program.getBearbeitender(UserChanged[0]);
+            string temp = char.ToString(UserChanged[0]);
+            int tempO = int.Parse(temp);
+            Name = Program.getBearbeitender(tempO);
             
             // Vergleihstermin
             DateTime stand = new DateTime(2017, 1, 1);
