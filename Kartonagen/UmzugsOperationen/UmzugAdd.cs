@@ -253,6 +253,7 @@ namespace Kartonagen
             
             int einpacktemp = 0;
             int auspacktemp = 0;
+
             if (radioEinpackenJa.Checked) { einpacktemp = 1; }
             else if ( radioEinpackenV.Checked) { einpacktemp = 2; }
             else if (radioEinpackenNein.Checked) { einpacktemp = 0; }
@@ -264,9 +265,9 @@ namespace Kartonagen
             else { auspacktemp = 8; }
 
             List<int> kueche = new List<int>();
-            if (radioKuecheAufJa.Checked) { kueche.Add(1); } else if (radioKuecheAufV.Checked) { kueche.Add(2); } else { kueche.Add(0); }
-            if (radioKuecheAbJa.Checked) { kueche.Add(1); } else if (radioKuecheAbV.Checked) { kueche.Add(2); } else { kueche.Add(0); }
-            if (radioKuecheIntern.Checked) { kueche.Add(1); } else { kueche.Add(0); }
+            if (radioKuecheAufJa.Checked) { kueche.Add(1); } else if (radioKuecheAufV.Checked) { kueche.Add(2); } else if (radioKuecheAufNein.Checked) { kueche.Add(0); } else { kueche.Add(8); }
+            if (radioKuecheAbJa.Checked) { kueche.Add(1); } else if (radioKuecheAbV.Checked) { kueche.Add(2); } else if (radioKuecheAbNein.Checked) { kueche.Add(0); } else { kueche.Add(8); }
+            if (radioKuecheIntern.Checked) { kueche.Add(1); } else if (radioKuecheExtern.Checked) { kueche.Add(0); } else { kueche.Add(8); }
 
             int versicherungtemp = 8;
             int Schildertemp = 8;
