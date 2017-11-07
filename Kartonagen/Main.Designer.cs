@@ -48,13 +48,13 @@
             this.buttonMainKundenChange = new System.Windows.Forms.Button();
             this.buttonMainKundenAdd = new System.Windows.Forms.Button();
             this.groupMainBenutzer = new System.Windows.Forms.GroupBox();
+            this.radioMainBenutzerNora = new System.Windows.Forms.RadioButton();
             this.radioMainBenutzerSonst = new System.Windows.Forms.RadioButton();
             this.radioMainBenutzerJan = new System.Windows.Forms.RadioButton();
             this.radioMainBenutzerEva = new System.Windows.Forms.RadioButton();
             this.radioMainBenutzerJonas = new System.Windows.Forms.RadioButton();
             this.radioMainBenutzerRita = new System.Windows.Forms.RadioButton();
             this.textMainLog = new System.Windows.Forms.TextBox();
-            this.radioMainBenutzerNora = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -288,19 +288,30 @@
             this.groupMainBenutzer.Controls.Add(this.radioMainBenutzerRita);
             this.groupMainBenutzer.Location = new System.Drawing.Point(12, 12);
             this.groupMainBenutzer.Name = "groupMainBenutzer";
-            this.groupMainBenutzer.Size = new System.Drawing.Size(105, 166);
+            this.groupMainBenutzer.Size = new System.Drawing.Size(105, 187);
             this.groupMainBenutzer.TabIndex = 0;
             this.groupMainBenutzer.TabStop = false;
             this.groupMainBenutzer.Text = "Benutzer";
+            // 
+            // radioMainBenutzerNora
+            // 
+            this.radioMainBenutzerNora.AutoSize = true;
+            this.radioMainBenutzerNora.Location = new System.Drawing.Point(6, 112);
+            this.radioMainBenutzerNora.Name = "radioMainBenutzerNora";
+            this.radioMainBenutzerNora.Size = new System.Drawing.Size(48, 17);
+            this.radioMainBenutzerNora.TabIndex = 5;
+            this.radioMainBenutzerNora.Text = "Nora";
+            this.radioMainBenutzerNora.UseVisualStyleBackColor = true;
             // 
             // radioMainBenutzerSonst
             // 
             this.radioMainBenutzerSonst.AutoSize = true;
             this.radioMainBenutzerSonst.Checked = true;
-            this.radioMainBenutzerSonst.Location = new System.Drawing.Point(6, 131);
+            this.radioMainBenutzerSonst.Location = new System.Drawing.Point(6, 135);
             this.radioMainBenutzerSonst.Name = "radioMainBenutzerSonst";
             this.radioMainBenutzerSonst.Size = new System.Drawing.Size(66, 17);
             this.radioMainBenutzerSonst.TabIndex = 4;
+            this.radioMainBenutzerSonst.TabStop = true;
             this.radioMainBenutzerSonst.Text = "Sonstige";
             this.radioMainBenutzerSonst.UseVisualStyleBackColor = true;
             // 
@@ -353,16 +364,6 @@
             this.textMainLog.ReadOnly = true;
             this.textMainLog.Size = new System.Drawing.Size(1201, 119);
             this.textMainLog.TabIndex = 0;
-            // 
-            // radioMainBenutzerNora
-            // 
-            this.radioMainBenutzerNora.AutoSize = true;
-            this.radioMainBenutzerNora.Location = new System.Drawing.Point(6, 108);
-            this.radioMainBenutzerNora.Name = "radioMainBenutzerNora";
-            this.radioMainBenutzerNora.Size = new System.Drawing.Size(48, 17);
-            this.radioMainBenutzerNora.TabIndex = 5;
-            this.radioMainBenutzerNora.Text = "Nora";
-            this.radioMainBenutzerNora.UseVisualStyleBackColor = true;
             // 
             // mainForm
             // 
