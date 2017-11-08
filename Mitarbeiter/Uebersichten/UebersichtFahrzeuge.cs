@@ -25,11 +25,9 @@ namespace Mitarbeiter
             String basis = "SELECT idFahrzeug, Name FROM Fahrzeug ORDER BY idFahrzeug ASC";
 
             // Greift alle Fahrzeuge
-            MySqlCommand cmdHisto = new MySqlCommand(basis, Program.conn);
+            MySqlCommand cmdHisto = new MySqlCommand(basis, Program.conn2);
             MySqlDataReader rdrHisto;
-
-
-
+            
             try
             {
                 rdrHisto = cmdHisto.ExecuteReader();
@@ -52,7 +50,7 @@ namespace Mitarbeiter
             {
                 string suche = "SELECT EndKM FROM Fahrt WHERE Fahrzeug_idFahrzeug = " + item + " ORDER BY EndKM DESC;";
 
-                MySqlCommand cmdKM = new MySqlCommand(basis, Program.conn);
+                MySqlCommand cmdKM = new MySqlCommand(suche, Program.conn2);
                 MySqlDataReader rdrKM;
                 try
                 {
