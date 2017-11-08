@@ -205,8 +205,10 @@ namespace Mitarbeiter
 
             // if ((timeEnd.Value-timeStart.Value).CompareTo(new TimeSpan(decimal.ToInt32(numericPause.Value))) < 0)
 
+            
+
             int min = Program.ArbeitsZeitBlock(timeStart.Value, timeEnd.Value, decimal.ToInt32(numericPause.Value));
-            if (min < 0) {
+            if (min < 0 && numericPause.Value >= 1) {
                 textLog.AppendText("Die Pause kann nicht länger sein als die angegebene Arbeitszeit \r\n");
                 return;
             }
@@ -227,7 +229,11 @@ namespace Mitarbeiter
             // Get Fahrzeug ID, Mitarbeiter ID zu Fahrzeugnamen, Fehlermeldung wenn nicht eindeutig
 
             String insert = "";
-
+            DateTime endtag = monthFahrtDatum.SelectionStart;
+            if (timeStart.Value.TimeOfDay > timeEnd.Value.TimeOfDay)
+            {
+                endtag = endtag.AddDays(1);
+            }
             
             if (checkBeifahrer.Checked == false)
             {
@@ -236,7 +242,7 @@ namespace Mitarbeiter
 
                 insert += MitarbeiterID + ", ";
                 insert += "'" + Program.DateTimeMachine(timeStart.Value, monthFahrtDatum.SelectionStart) + "', ";
-                insert += "'" + Program.DateTimeMachine(timeEnd.Value, monthFahrtDatum.SelectionEnd) + "', ";
+                insert += "'" + Program.DateTimeMachine(timeEnd.Value, endtag) + "', ";
                 insert += decimal.ToInt32(numericPause.Value) + ", ";
                 insert += decimal.ToInt32(numericKMAnfang.Value) + ", ";
                 insert += decimal.ToInt32(numericKMEnde.Value) + ", ";
@@ -252,7 +258,7 @@ namespace Mitarbeiter
 
                 insert += MitarbeiterID + ", ";
                 insert += "'" + Program.DateTimeMachine(timeStart.Value, monthFahrtDatum.SelectionStart) + "', ";
-                insert += "'" + Program.DateTimeMachine(timeEnd.Value, monthFahrtDatum.SelectionEnd) + "', ";
+                insert += "'" + Program.DateTimeMachine(timeEnd.Value, endtag) + "', ";
                 insert += decimal.ToInt32(numericPause.Value) + ", ";
                 insert += "'" + textBemerkung.Text + "', ";
                 insert += idBearbeitend + ", ";
