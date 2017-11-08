@@ -193,6 +193,12 @@
     <Compile Include="Uebersichten\UebersichtFahrzeuge.Designer.cs">
       <DependentUpon>UebersichtFahrzeuge.cs</DependentUpon>
     </Compile>
+    <Compile Include="Uebersichten\UebersichtMitarbeiter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Uebersichten\UebersichtMitarbeiter.Designer.cs">
+      <DependentUpon>UebersichtMitarbeiter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Uebersichten\UebersichtTouren.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Uebersichten\UebersichtFahrzeuge.resx">
       <DependentUpon>UebersichtFahrzeuge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uebersichten\UebersichtMitarbeiter.resx">
+      <DependentUpon>UebersichtMitarbeiter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Uebersichten\UebersichtTouren.resx">
       <DependentUpon>UebersichtTouren.cs</DependentUpon>
