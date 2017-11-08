@@ -175,12 +175,31 @@ namespace Kartonagen
 
         private void buttonFaellig_Click(object sender, EventArgs e)
         {
-            page = 0;
-
-            textSeite.Text = (page + 1).ToString();
-
             clear();
-            abfrage(true);
+
+            String such = "Select x.*  From (Select Umzuege_Kunden_idKunden, min(datTransaktion) AS Datum From Transaktionen GROUP BY Umzuege_Kunden_idKunden) x  WHERE Datum < '" + Program.DateMachine(DateTime.Now.AddMonths(-11)) + "';";
+
+            MySqlCommand cmdRead = new MySqlCommand(such, Program.conn);
+            MySqlDataReader rdr;
+
+            try
+            {
+                rdr = cmdRead.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    textKundenNr.AppendText(rdr.GetInt32(0) + " \r\n");
+
+                }
+
+                rdr.Close();
+            }
+            catch (Exception sqlEx)
+            {
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auffüllen der Kundendaten \r\n Bereits dokumentiert.");
+                return;
+            }
+            
         }
 
         private void clear()
