@@ -53,7 +53,7 @@
             this.textID.Multiline = true;
             this.textID.Name = "textID";
             this.textID.ReadOnly = true;
-            this.textID.Size = new System.Drawing.Size(68, 699);
+            this.textID.Size = new System.Drawing.Size(68, 913);
             this.textID.TabIndex = 138;
             this.textID.TabStop = false;
             // 
@@ -84,7 +84,7 @@
             this.textTyp.Multiline = true;
             this.textTyp.Name = "textTyp";
             this.textTyp.ReadOnly = true;
-            this.textTyp.Size = new System.Drawing.Size(184, 699);
+            this.textTyp.Size = new System.Drawing.Size(184, 913);
             this.textTyp.TabIndex = 135;
             this.textTyp.TabStop = false;
             // 
@@ -95,7 +95,7 @@
             this.textName.Multiline = true;
             this.textName.Name = "textName";
             this.textName.ReadOnly = true;
-            this.textName.Size = new System.Drawing.Size(229, 699);
+            this.textName.Size = new System.Drawing.Size(229, 913);
             this.textName.TabIndex = 134;
             this.textName.TabStop = false;
             // 
@@ -104,7 +104,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1268, 714);
+            this.ClientSize = new System.Drawing.Size(1268, 979);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textID);
             this.Controls.Add(this.label1);
