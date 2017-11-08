@@ -193,5 +193,11 @@ namespace Mitarbeiter
             Uebersichten.UebersichtFahrten ue = new Uebersichten.UebersichtFahrten();
             ue.Show();
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Uebersichten.UebersichtMitarbeiter ue = new Uebersichten.UebersichtMitarbeiter();
+            ue.Show();
+        }
     }
 }

@@ -53,6 +53,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.groupMainBenutzer.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -296,6 +297,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button10);
             this.groupBox3.Controls.Add(this.button8);
             this.groupBox3.Controls.Add(this.button7);
             this.groupBox3.Controls.Add(this.button9);
@@ -338,6 +340,17 @@
             this.button8.Text = "Fahrten";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button10
+            // 
+            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button10.Location = new System.Drawing.Point(555, 19);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(177, 92);
+            this.button10.TabIndex = 7;
+            this.button10.Text = "Mitarbeiter";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // Start
             // 
@@ -392,6 +405,7 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button10;
     }
 }
 

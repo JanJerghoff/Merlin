@@ -34,7 +34,7 @@
             this.textID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textTyp = new System.Windows.Forms.TextBox();
+            this.textStundenanteil = new System.Windows.Forms.TextBox();
             this.textName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -100,16 +100,16 @@
             this.label8.TabIndex = 150;
             this.label8.Text = "Mitarbeitername";
             // 
-            // textTyp
+            // textStundenanteil
             // 
-            this.textTyp.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textTyp.Location = new System.Drawing.Point(324, 59);
-            this.textTyp.Multiline = true;
-            this.textTyp.Name = "textTyp";
-            this.textTyp.ReadOnly = true;
-            this.textTyp.Size = new System.Drawing.Size(131, 913);
-            this.textTyp.TabIndex = 149;
-            this.textTyp.TabStop = false;
+            this.textStundenanteil.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textStundenanteil.Location = new System.Drawing.Point(324, 59);
+            this.textStundenanteil.Multiline = true;
+            this.textStundenanteil.Name = "textStundenanteil";
+            this.textStundenanteil.ReadOnly = true;
+            this.textStundenanteil.Size = new System.Drawing.Size(131, 913);
+            this.textStundenanteil.TabIndex = 149;
+            this.textStundenanteil.TabStop = false;
             // 
             // textName
             // 
@@ -133,7 +133,7 @@
             this.Controls.Add(this.textID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textTyp);
+            this.Controls.Add(this.textStundenanteil);
             this.Controls.Add(this.textName);
             this.Name = "UebersichtMitarbeiter";
             this.Text = "UebersichtMitarbeiter";
@@ -150,7 +150,7 @@
         private System.Windows.Forms.TextBox textID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textTyp;
+        private System.Windows.Forms.TextBox textStundenanteil;
         private System.Windows.Forms.TextBox textName;
     }
 }
