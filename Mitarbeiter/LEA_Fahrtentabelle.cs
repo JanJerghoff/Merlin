@@ -484,8 +484,26 @@ namespace Mitarbeiter
             {
                 if (Program.validTour(item.Text))
                 {
+
+
                     // Gültige Tour, abschicken und Fehlermeldung zurückgeben
                     String temp = "Fehler";
+
+                    // Wenn Beifahrer nicht angewählt, Fahrzeug und KM verwenden
+                    String fahr = "";
+                    int start = 0;
+                    int end = 0;
+                    if (Beifahrer[count].Checked == false) {
+                        fahr = Fahrzeuge[count].Text;
+                        start = decimal.ToInt32(KMStart[count].Value);
+                        end = decimal.ToInt32(KMEnde[count].Value);
+
+                        if (fahr == "" || start == 0 || end == 0) {
+                            var bestätigung = MessageBox.Show("In der Zeile "+count+1+" fehlt Fahrzeug, Endkilometer oder Startkilometer: \r\n Bitte überprüfen.", "Fehler", MessageBoxButtons.YesNo);
+                            return;
+                        }
+                    }
+
 
                     if (Program.getTourCode(item.Text) == 1)
                     {
