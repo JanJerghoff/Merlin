@@ -103,6 +103,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1268, 714);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textID);
@@ -112,6 +113,7 @@
             this.Controls.Add(this.textName);
             this.Name = "UebersichtTouren";
             this.Text = "UebersichtTouren";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 

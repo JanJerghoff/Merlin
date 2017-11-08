@@ -16,11 +16,12 @@ namespace Mitarbeiter.Uebersichten
         public UebersichtTouren()
         {
             InitializeComponent();
+            fuellen();
         }
 
         public void fuellen()
         {            
-            String basis = "SELECT idTour, Name FROM Tour ORDER BY idTour ASC";
+            String basis = "SELECT idTour, Name, Type FROM Tour ORDER BY idTour ASC";
 
             // Greift alle Fahrzeuge
             MySqlCommand cmdHisto = new MySqlCommand(basis, Program.conn2);
@@ -30,10 +31,28 @@ namespace Mitarbeiter.Uebersichten
             {
                 rdrHisto = cmdHisto.ExecuteReader();
                 while (rdrHisto.Read())
-                {
-                    nummern.Add(rdrHisto.GetInt32(0));
+                {                    
                     textID.AppendText(rdrHisto.GetInt32(0) + "\r\n");
                     textName.AppendText(rdrHisto.GetString(1) + "\r\n");
+
+                    switch (rdrHisto.GetInt32(2))
+                    {
+                        case 0:
+                            textTyp.AppendText( " Umzug \r\n");
+                            break;
+                        case 1:
+                            textTyp.AppendText(" Kundenzahl \r\n");
+                            break;
+                        case 2:
+                            textTyp.AppendText(" Stückzahl \r\n");
+                            break;
+                        case 3:
+                            textTyp.AppendText(" Buero / Basisfahrt \r\n");
+                            break;
+
+                        default:
+                            break;
+                    }
                 }
                 rdrHisto.Close();
 

@@ -51,6 +51,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button9 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.groupMainBenutzer.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -294,6 +295,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button7);
             this.groupBox3.Controls.Add(this.button9);
             this.groupBox3.Location = new System.Drawing.Point(124, 396);
             this.groupBox3.Name = "groupBox3";
@@ -312,6 +314,17 @@
             this.button9.Text = "Fahrzeuge";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button7
+            // 
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button7.Location = new System.Drawing.Point(189, 19);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(177, 92);
+            this.button7.TabIndex = 5;
+            this.button7.Text = "Touren";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // Start
             // 
@@ -364,6 +377,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button7;
     }
 }
 
