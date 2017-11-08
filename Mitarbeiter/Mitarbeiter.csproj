@@ -100,40 +100,40 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LEA_Fahrtentabelle.cs">
+    <Compile Include="LEA-Einträge\LEA_Fahrtentabelle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LEA_Fahrtentabelle.Designer.cs">
+    <Compile Include="LEA-Einträge\LEA_Fahrtentabelle.Designer.cs">
       <DependentUpon>LEA_Fahrtentabelle.cs</DependentUpon>
     </Compile>
-    <Compile Include="LEA_Kundenzahl.cs">
+    <Compile Include="LEA-Einträge\LEA_Kundenzahl.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LEA_Kundenzahl.Designer.cs">
+    <Compile Include="LEA-Einträge\LEA_Kundenzahl.Designer.cs">
       <DependentUpon>LEA_Kundenzahl.cs</DependentUpon>
     </Compile>
-    <Compile Include="LEA_Mehrfach_Umzug.cs">
+    <Compile Include="LEA-Einträge\LEA_Mehrfach_Umzug.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LEA_Mehrfach_Umzug.Designer.cs">
+    <Compile Include="LEA-Einträge\LEA_Mehrfach_Umzug.Designer.cs">
       <DependentUpon>LEA_Mehrfach_Umzug.cs</DependentUpon>
     </Compile>
-    <Compile Include="LEA_Mitarbeiter_Details.cs">
+    <Compile Include="LEA-Einträge\LEA_Mitarbeiter_Details.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LEA_Mitarbeiter_Details.Designer.cs">
+    <Compile Include="LEA-Einträge\LEA_Mitarbeiter_Details.Designer.cs">
       <DependentUpon>LEA_Mitarbeiter_Details.cs</DependentUpon>
     </Compile>
-    <Compile Include="LEA_Umzug.cs">
+    <Compile Include="LEA-Einträge\LEA_Umzug.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LEA_Umzug.Designer.cs">
+    <Compile Include="LEA-Einträge\LEA_Umzug.Designer.cs">
       <DependentUpon>LEA_Umzug.cs</DependentUpon>
     </Compile>
-    <Compile Include="LEA_UrlaubFeiertag.cs">
+    <Compile Include="LEA-Einträge\LEA_UrlaubFeiertag.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LEA_UrlaubFeiertag.Designer.cs">
+    <Compile Include="LEA-Einträge\LEA_UrlaubFeiertag.Designer.cs">
       <DependentUpon>LEA_UrlaubFeiertag.cs</DependentUpon>
     </Compile>
     <Compile Include="Mitarbeiter.cs" />
@@ -205,22 +205,22 @@
     <Compile Include="Uebersichten\UebersichtTouren.Designer.cs">
       <DependentUpon>UebersichtTouren.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="LEA_Fahrtentabelle.resx">
+    <EmbeddedResource Include="LEA-Einträge\LEA_Fahrtentabelle.resx">
       <DependentUpon>LEA_Fahrtentabelle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LEA_Kundenzahl.resx">
+    <EmbeddedResource Include="LEA-Einträge\LEA_Kundenzahl.resx">
       <DependentUpon>LEA_Kundenzahl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LEA_Mehrfach_Umzug.resx">
+    <EmbeddedResource Include="LEA-Einträge\LEA_Mehrfach_Umzug.resx">
       <DependentUpon>LEA_Mehrfach_Umzug.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LEA_Mitarbeiter_Details.resx">
+    <EmbeddedResource Include="LEA-Einträge\LEA_Mitarbeiter_Details.resx">
       <DependentUpon>LEA_Mitarbeiter_Details.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LEA_Umzug.resx">
+    <EmbeddedResource Include="LEA-Einträge\LEA_Umzug.resx">
       <DependentUpon>LEA_Umzug.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LEA_UrlaubFeiertag.resx">
+    <EmbeddedResource Include="LEA-Einträge\LEA_UrlaubFeiertag.resx">
       <DependentUpon>LEA_UrlaubFeiertag.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Repetoire.resx">
