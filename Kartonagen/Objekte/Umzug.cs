@@ -428,7 +428,7 @@ namespace Kartonagen
                 else if (umzugsKunde.Telefon == "0" && umzugsKunde.Handy != "0")
                 {
                     fields.TryGetValue("Telefonnummer", out toSet);
-                    toSet.SetValue(umzugsKunde.Telefon);
+                    toSet.SetValue(umzugsKunde.Handy);
                 }
                 else if (umzugsKunde.Telefon != "0" && umzugsKunde.Handy == "0")
                 {

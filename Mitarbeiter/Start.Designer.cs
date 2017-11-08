@@ -49,9 +49,12 @@
             this.buttonStundenübersicht = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button9 = new System.Windows.Forms.Button();
             this.groupMainBenutzer.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupMainBenutzer
@@ -212,7 +215,7 @@
             // 
             // textStartLog
             // 
-            this.textStartLog.Location = new System.Drawing.Point(12, 437);
+            this.textStartLog.Location = new System.Drawing.Point(12, 546);
             this.textStartLog.Multiline = true;
             this.textStartLog.Name = "textStartLog";
             this.textStartLog.ReadOnly = true;
@@ -231,7 +234,7 @@
             this.groupBox2.Size = new System.Drawing.Size(861, 134);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Abfragen";
+            this.groupBox2.Text = "LEA Abfragen";
             // 
             // button3
             // 
@@ -289,11 +292,33 @@
             this.button6.Text = "Test";
             this.button6.UseVisualStyleBackColor = true;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.button9);
+            this.groupBox3.Location = new System.Drawing.Point(124, 396);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(861, 134);
+            this.groupBox3.TabIndex = 9;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Übersichten Stammdaten";
+            // 
+            // button9
+            // 
+            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button9.Location = new System.Drawing.Point(6, 19);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(177, 92);
+            this.button9.TabIndex = 4;
+            this.button9.Text = "Fahrzeuge";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1171, 666);
+            this.ClientSize = new System.Drawing.Size(1309, 846);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.groupBox2);
@@ -308,6 +333,7 @@
             this.groupMainBenutzer.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,6 +362,8 @@
         private System.Windows.Forms.Button buttonEintragTabelle;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button button9;
     }
 }
 

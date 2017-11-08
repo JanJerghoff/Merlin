@@ -1490,10 +1490,10 @@ namespace Kartonagen
 
         private void buttonBlockVersicherung_Click(object sender, EventArgs e)
         {
-            int VersTemp = 0;
+            int VersTemp = 8;
             if (radioVersicherungJa.Checked) { VersTemp = 1; }
             else if (radioVersicherungNein.Checked) { VersTemp = 0; }
-            else { VersTemp = 8; }
+            umzObj.Versicherung = VersTemp;
 
             //Absenden
             umzObj.UpdateDB(idBearbeitend.ToString());

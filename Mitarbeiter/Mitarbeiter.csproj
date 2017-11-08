@@ -181,6 +181,12 @@
     <Compile Include="Tour_Fahrzeug.Designer.cs">
       <DependentUpon>Tour_Fahrzeug.cs</DependentUpon>
     </Compile>
+    <Compile Include="UebersichtFahrzeuge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UebersichtFahrzeuge.Designer.cs">
+      <DependentUpon>UebersichtFahrzeuge.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="LEA_Fahrtentabelle.resx">
       <DependentUpon>LEA_Fahrtentabelle.cs</DependentUpon>
     </EmbeddedResource>
@@ -228,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tour_Fahrzeug.resx">
       <DependentUpon>Tour_Fahrzeug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UebersichtFahrzeuge.resx">
+      <DependentUpon>UebersichtFahrzeuge.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="client_secret.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
