@@ -50,10 +50,10 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
             this.groupMainBenutzer.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -171,6 +171,7 @@
             this.button4.TabIndex = 7;
             this.button4.Text = "Eintrag Urlaub / Feiertag";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // buttonMehrfachUmzug
             // 
@@ -308,6 +309,28 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Übersichten Stammdaten";
             // 
+            // button10
+            // 
+            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button10.Location = new System.Drawing.Point(555, 19);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(177, 92);
+            this.button10.TabIndex = 7;
+            this.button10.Text = "Mitarbeiter";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // button8
+            // 
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button8.Location = new System.Drawing.Point(372, 19);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(177, 92);
+            this.button8.TabIndex = 6;
+            this.button8.Text = "Fahrten";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // button7
             // 
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -329,28 +352,6 @@
             this.button9.Text = "Fahrzeuge";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // button8
-            // 
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button8.Location = new System.Drawing.Point(372, 19);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(177, 92);
-            this.button8.TabIndex = 6;
-            this.button8.Text = "Fahrten";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button10
-            // 
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button10.Location = new System.Drawing.Point(555, 19);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(177, 92);
-            this.button10.TabIndex = 7;
-            this.button10.Text = "Mitarbeiter";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // Start
             // 

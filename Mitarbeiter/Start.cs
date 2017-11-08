@@ -199,5 +199,11 @@ namespace Mitarbeiter
             Uebersichten.UebersichtMitarbeiter ue = new Uebersichten.UebersichtMitarbeiter();
             ue.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            LEA_UrlaubFeiertag Fei = new LEA_UrlaubFeiertag();
+            Fei.Show();
+        }
     }
 }

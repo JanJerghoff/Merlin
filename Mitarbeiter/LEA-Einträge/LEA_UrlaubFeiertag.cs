@@ -21,6 +21,13 @@ namespace Mitarbeiter
             textSucheName.AutoCompleteMode = AutoCompleteMode.Suggest;
         }
 
+        int idBearbeitend;
+
+        public void setBearbeitend(int code)
+        {
+            idBearbeitend = code;
+        }
+
         private void KomponentenSteuerung() {       //Aktiviert / Deaktiviert Elemente je nach Radiobuttons
 
             if (radioUrlaub.Checked || radioKrankheit.Checked)
@@ -32,7 +39,68 @@ namespace Mitarbeiter
                 textSucheName.Text = "";
                 textSucheName.Enabled = false;
             }
+        }
 
+        private void buttonAbsenden_Click(object sender, EventArgs e)
+        {
+
+            Dictionary<int, int> Sollminuten = Program.Sollminute();
+            DateTime morgen = new DateTime(2017, 1, 1, 1, 0, 0);
+
+            if (radioFeiertag.Checked)
+            {
+                foreach (var item in Sollminuten.Keys)
+                {
+                    string insert = "";
+
+                    insert += "INSERT INTO Fahrt (Mitarbeiter_idMitarbeiter, Start, Ende, Pause, AnfangsKM, EndKM, Bemerkung, UserChanged, Tour_idTour) VALUES (";
+                    
+                    int minuten = 0;
+                    Sollminuten.TryGetValue(item, out minuten);
+
+                    insert += item + ", ";
+                    insert += "'" + Program.DateTimeMachine(morgen, monthFahrtDatum.SelectionStart) + "', ";
+                    insert += "'" + Program.DateTimeMachine(morgen.AddMinutes(minuten), monthFahrtDatum.SelectionStart) + "', ";
+                    insert += 0 + ", ";
+                    insert += 0 + ", ";
+                    insert += 0 + ", ";
+                    insert += "'Feiertag', ";
+                    insert += idBearbeitend + ", ";
+                    insert += "64); ";
+
+                    Program.absender(insert, "Einfügen Feiertags-Fahrt für Mitarbeiter " + item);
+                }
+            }
+
+            else if (radioKrankheit.Checked || radioUrlaub.Checked) {
+
+                string insert = "";
+                int mitarbeiter = Program.getMitarbeiter(textSucheName.Text);
+                int sollminuten;
+                Sollminuten.TryGetValue(mitarbeiter, out sollminuten);
+                int tournummer;
+                if (radioKrankheit.Checked)
+                {
+                    tournummer = 53;
+                }
+                else { tournummer = 54; }
+
+                insert += "INSERT INTO Fahrt (Mitarbeiter_idMitarbeiter, Start, Ende, Pause, AnfangsKM, EndKM, Bemerkung, UserChanged, Tour_idTour) VALUES (";
+                
+                insert += mitarbeiter + ", ";
+                insert += "'" + Program.DateTimeMachine(morgen, monthFahrtDatum.SelectionStart) + "', ";
+                insert += "'" + Program.DateTimeMachine(morgen.AddMinutes(sollminuten), monthFahrtDatum.SelectionStart) + "', ";
+                insert += 0 + ", ";
+                insert += 0 + ", ";
+                insert += 0 + ", ";
+                insert += "'Feiertag', ";
+                insert += idBearbeitend + ", ";
+                insert += tournummer+"); ";
+
+                Program.absender(insert, "Einfügen Urlaub / Krankheit für Mitarbeiter " + mitarbeiter);
+            }
+            
+            
 
         }
     }

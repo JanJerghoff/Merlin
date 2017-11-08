@@ -161,6 +161,7 @@
             this.buttonAbsenden.TabIndex = 0;
             this.buttonAbsenden.Text = "Absenden";
             this.buttonAbsenden.UseVisualStyleBackColor = true;
+            this.buttonAbsenden.Click += new System.EventHandler(this.buttonAbsenden_Click);
             // 
             // LEA_UrlaubFeiertag
             // 
