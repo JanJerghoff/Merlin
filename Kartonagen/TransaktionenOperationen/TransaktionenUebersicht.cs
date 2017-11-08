@@ -19,6 +19,8 @@ namespace Kartonagen
             abfrage(false);
             textSeite.Text = "1";
         }
+
+
         int page = 0;
 
         private void abfrage(Boolean alt) { 
