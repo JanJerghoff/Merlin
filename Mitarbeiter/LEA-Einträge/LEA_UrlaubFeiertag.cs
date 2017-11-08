@@ -69,6 +69,8 @@ namespace Mitarbeiter
                     insert += "64); ";
 
                     Program.absender(insert, "Einfügen Feiertags-Fahrt für Mitarbeiter " + item);
+
+                    textStartLog.AppendText("Feiertag erfolgreich eingetragen! \r\n ");
                 }
             }
 
@@ -78,12 +80,20 @@ namespace Mitarbeiter
                 int mitarbeiter = Program.getMitarbeiter(textSucheName.Text);
                 int sollminuten;
                 Sollminuten.TryGetValue(mitarbeiter, out sollminuten);
+
+                //Bestimmung Krankheit/Urlaub
                 int tournummer;
+                string bemerk = "";
                 if (radioKrankheit.Checked)
                 {
                     tournummer = 53;
+                    bemerk = "Krankheit";
                 }
-                else { tournummer = 54; }
+                else
+                {
+                    tournummer = 54;
+                    bemerk = "Urlaub";
+                }
 
                 insert += "INSERT INTO Fahrt (Mitarbeiter_idMitarbeiter, Start, Ende, Pause, AnfangsKM, EndKM, Bemerkung, UserChanged, Tour_idTour) VALUES (";
                 
@@ -93,15 +103,32 @@ namespace Mitarbeiter
                 insert += 0 + ", ";
                 insert += 0 + ", ";
                 insert += 0 + ", ";
-                insert += "'Feiertag', ";
+                insert += "'', ";
                 insert += idBearbeitend + ", ";
                 insert += tournummer+"); ";
 
                 Program.absender(insert, "Einfügen Urlaub / Krankheit für Mitarbeiter " + mitarbeiter);
+
+                textStartLog.AppendText("Eintrag für Mitarbeiter "+mitarbeiter+" erfolgreich! \r\n ");
             }
             
             
 
+        }
+
+        private void radioUrlaub_CheckedChanged(object sender, EventArgs e)
+        {
+            KomponentenSteuerung();
+        }
+
+        private void radioKrankheit_CheckedChanged(object sender, EventArgs e)
+        {
+            KomponentenSteuerung();
+        }
+
+        private void radioFeiertag_CheckedChanged(object sender, EventArgs e)
+        {
+            KomponentenSteuerung();
         }
     }
 }

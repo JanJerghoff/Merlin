@@ -858,6 +858,9 @@ namespace Mitarbeiter
                 case 3:
                     return "Jan";
 
+                case 4:
+                    return "Nora";
+
                 default:
                     break;
             }

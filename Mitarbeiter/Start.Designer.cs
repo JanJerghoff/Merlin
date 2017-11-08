@@ -54,6 +54,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupMainBenutzer.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -62,6 +63,7 @@
             // 
             // groupMainBenutzer
             // 
+            this.groupMainBenutzer.Controls.Add(this.radioButton1);
             this.groupMainBenutzer.Controls.Add(this.radioMainBenutzerSonst);
             this.groupMainBenutzer.Controls.Add(this.radioMainBenutzerJan);
             this.groupMainBenutzer.Controls.Add(this.radioMainBenutzerEva);
@@ -69,7 +71,7 @@
             this.groupMainBenutzer.Controls.Add(this.radioMainBenutzerRita);
             this.groupMainBenutzer.Location = new System.Drawing.Point(12, 12);
             this.groupMainBenutzer.Name = "groupMainBenutzer";
-            this.groupMainBenutzer.Size = new System.Drawing.Size(105, 148);
+            this.groupMainBenutzer.Size = new System.Drawing.Size(105, 169);
             this.groupMainBenutzer.TabIndex = 1;
             this.groupMainBenutzer.TabStop = false;
             this.groupMainBenutzer.Text = "Benutzer";
@@ -78,7 +80,7 @@
             // 
             this.radioMainBenutzerSonst.AutoSize = true;
             this.radioMainBenutzerSonst.Checked = true;
-            this.radioMainBenutzerSonst.Location = new System.Drawing.Point(6, 112);
+            this.radioMainBenutzerSonst.Location = new System.Drawing.Point(6, 135);
             this.radioMainBenutzerSonst.Name = "radioMainBenutzerSonst";
             this.radioMainBenutzerSonst.Size = new System.Drawing.Size(66, 17);
             this.radioMainBenutzerSonst.TabIndex = 4;
@@ -353,6 +355,16 @@
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(6, 112);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(48, 17);
+            this.radioButton1.TabIndex = 5;
+            this.radioButton1.Text = "Nora";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -407,6 +419,7 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }
 

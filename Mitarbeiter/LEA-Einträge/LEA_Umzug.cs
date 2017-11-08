@@ -107,7 +107,7 @@ namespace Mitarbeiter
         private void fuellenKundenname(String Kundenname) {
 
             
-            MySqlCommand cmdKundenSuche = new MySqlCommand("SELECT u.idUmzuege FROM Kunden k, Umzuege u WHERE u.Kunden_idKunden = k.idKunden AND k.Nachname ='"+ Kundenname +"';", Program.conn);
+            MySqlCommand cmdKundenSuche = new MySqlCommand("SELECT u.idUmzuege FROM Kunden k, Umzuege u WHERE u.Kunden_idKunden = k.idKunden AND u.datUmzug = '"+Program.DateMachine(monthFahrtDatum.SelectionStart)+"' AND k.Nachname ='"+ Kundenname +"';", Program.conn);
             MySqlDataReader rdrKundenSuche;
             int count = 0;
             try

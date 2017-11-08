@@ -39,6 +39,7 @@
             this.radioKrankheit = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonAbsenden = new System.Windows.Forms.Button();
+            this.textStartLog = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -118,6 +119,7 @@
             this.radioUrlaub.TabStop = true;
             this.radioUrlaub.Text = "Urlaub";
             this.radioUrlaub.UseVisualStyleBackColor = true;
+            this.radioUrlaub.CheckedChanged += new System.EventHandler(this.radioUrlaub_CheckedChanged);
             // 
             // radioFeiertag
             // 
@@ -129,6 +131,7 @@
             this.radioFeiertag.TabStop = true;
             this.radioFeiertag.Text = "Feiertag";
             this.radioFeiertag.UseVisualStyleBackColor = true;
+            this.radioFeiertag.CheckedChanged += new System.EventHandler(this.radioFeiertag_CheckedChanged);
             // 
             // radioKrankheit
             // 
@@ -140,6 +143,7 @@
             this.radioKrankheit.TabStop = true;
             this.radioKrankheit.Text = "Krankheit";
             this.radioKrankheit.UseVisualStyleBackColor = true;
+            this.radioKrankheit.CheckedChanged += new System.EventHandler(this.radioKrankheit_CheckedChanged);
             // 
             // groupBox3
             // 
@@ -163,12 +167,24 @@
             this.buttonAbsenden.UseVisualStyleBackColor = true;
             this.buttonAbsenden.Click += new System.EventHandler(this.buttonAbsenden_Click);
             // 
+            // textStartLog
+            // 
+            this.textStartLog.Location = new System.Drawing.Point(10, 399);
+            this.textStartLog.Multiline = true;
+            this.textStartLog.Name = "textStartLog";
+            this.textStartLog.ReadOnly = true;
+            this.textStartLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textStartLog.Size = new System.Drawing.Size(484, 114);
+            this.textStartLog.TabIndex = 145;
+            this.textStartLog.TabStop = false;
+            // 
             // LEA_UrlaubFeiertag
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1060, 586);
+            this.Controls.Add(this.textStartLog);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -181,6 +197,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -197,5 +214,6 @@
         private System.Windows.Forms.RadioButton radioUrlaub;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button buttonAbsenden;
+        private System.Windows.Forms.TextBox textStartLog;
     }
 }

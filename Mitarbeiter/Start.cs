@@ -202,7 +202,13 @@ namespace Mitarbeiter
 
         private void button4_Click(object sender, EventArgs e)
         {
+            if (radioMainBenutzerSonst.Checked)
+            {
+                textStartLog.AppendText("Bitte Angeben, wer bearbeiten möchte \r\n");
+                return;
+            }
             LEA_UrlaubFeiertag Fei = new LEA_UrlaubFeiertag();
+            Fei.setBearbeitend(getBearbeitender());
             Fei.Show();
         }
     }
