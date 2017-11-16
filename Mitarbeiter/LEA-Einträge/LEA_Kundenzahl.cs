@@ -240,6 +240,15 @@ namespace Mitarbeiter
                 return;
             }
 
+            // Stück / Kunden dürfen nicht leer sein
+
+            if (numericKundenStueck.Value == 0 && numericHandbeilagen.Value == 0)
+            {
+                var bestätigung = MessageBox.Show("Stückzahl / Kundenzahl ist leer. Trotzdem Speichern?", "KilometerPrüfung", MessageBoxButtons.YesNo);
+                if (bestätigung == DialogResult.Yes) {}
+                else { return; }
+            }
+
             // Kilometerwarnung muss bestätigt werden, dass kein Fehler vorliegt.
             if (Program.KMCheck(TourID, decimal.ToInt32(numericKMEnde.Value - numericKMAnfang.Value)) && checkKMPruefung.Checked == false) {
                 var bestätigung = MessageBox.Show("Die eingegebene Fahrt weicht von den Kilometern der Tour ab. \r\n Ein Vermerk wird automatisch vor die Bemerkung gesetzt. \r\n Soll gespeichert werden?","KilometerPrüfung", MessageBoxButtons.YesNo);
