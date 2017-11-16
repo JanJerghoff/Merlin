@@ -54,7 +54,7 @@ namespace Mitarbeiter.Objekte
         //Aus DB
         public Fahrt (int Nummer) {
 
-            MySqlCommand cmdRead = new MySqlCommand("SELECT * FROM Umzuege WHERE idUmzuege = " + ID + ";", Program.conn);
+            MySqlCommand cmdRead = new MySqlCommand("SELECT * FROM Fahrt WHERE idFahrt = " + Nummer + ";", Program.conn2);
             MySqlDataReader rdr;
 
             try
@@ -62,7 +62,21 @@ namespace Mitarbeiter.Objekte
                 rdr = cmdRead.ExecuteReader();
                 while (rdr.Read())
                 {
-                    
+                    id = rdr.GetInt32(0);
+                    Start = rdr.GetDateTime(1);
+                    Ende = rdr.GetDateTime(2);
+                    Pause1 = rdr.GetInt32(3);
+                    StartKM1 = rdr.GetInt32(4);
+                    EndKM1 = rdr.GetInt32(5);
+                    Kunden1 = rdr.GetInt32(6);
+                    Stückzahl1 = rdr.GetInt32(7);
+                    Beilagen1 = rdr.GetInt32(8);
+                    Bemerkung1 = rdr.GetString(9);
+                    UserChanged1 = rdr.GetString(10);
+                    Umzug1 = rdr.GetInt32(11);          //Neutral = 
+                    Tour1 = rdr.GetInt32(12);           
+                    Fahrzeug1 = rdr.GetInt32(13);       //Neutral = 14
+                    Mitarbeiter1 = rdr.GetInt32(14);
                 }
                 rdr.Close();
             }
