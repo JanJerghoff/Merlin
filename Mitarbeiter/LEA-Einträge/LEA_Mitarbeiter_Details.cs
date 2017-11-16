@@ -48,6 +48,24 @@ namespace Mitarbeiter
                 var bestätigung = MessageBox.Show(sqlEx.ToString(), "Fehlermeldung");
                 return;
             }
+
+            MySqlCommand cmdTour = new MySqlCommand("SELECT idTour, Name FROM Tour;", Program.conn2); // Liste aller Touren 
+            MySqlDataReader rdrTour;
+            try
+            {
+                rdrTour = cmdTour.ExecuteReader();
+                while (rdrTour.Read())
+                {
+                    Tourensammlung.Add(rdrTour.GetInt32(0), rdrTour.GetString(1));
+                }
+                rdrTour.Close();
+            }
+            catch (Exception sqlEx)
+            {
+                var bestätigung = MessageBox.Show(sqlEx.ToString(), "Fehlermeldung");
+                return;
+            }
+
         }
 
         private void leeren() {

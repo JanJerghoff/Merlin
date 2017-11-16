@@ -484,7 +484,14 @@ namespace Mitarbeiter
             {
                 if (Program.validTour(item.Text))
                 {
+                    //Check auf Mitarbeitergültigkeit
 
+                    if (!Program.getAutocompleteMitarbeiter().Contains(textMitarbeiter.Text))
+                    {
+                        var bestätigung = MessageBox.Show("Der Mitarbeiter ist nicht gültig, bitte erneut auswählen", "Fehler", MessageBoxButtons.YesNo);
+                        textMitarbeiter.Text = "";
+                        return;
+                    }
 
                     // Gültige Tour, abschicken und Fehlermeldung zurückgeben
                     String temp = "Fehler";
