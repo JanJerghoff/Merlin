@@ -41,7 +41,7 @@ namespace Mitarbeiter
             numericHandbeilagen.Text = "";
             numericPause.Text = "";
 
-            leeren();
+            ganzleeren();
         }
 
         private void leeren()
@@ -50,23 +50,40 @@ namespace Mitarbeiter
             monthFahrtDatum.SelectionStart = DateTime.Now;
             timeEnd.Value = new DateTime(2017, 1, 1, 12, 0, 0);
             timeStart.Value = new DateTime(2017, 1, 1, 12, 0, 0);
-
-            checkBeifahrer.Checked = false;
-            numericKMAnfang.Enabled = true;
-            numericKMEnde.Enabled = true;
-            textFahrzeug.Enabled = true;
-
+            
             numericPause.Value = 0;
             numericKMEnde.Value = 0;
             numericKMAnfang.Value = 0;
-            textSucheName.Text = "";
-            textFahrzeug.Text = "";
 
             numericKMAnfang.Text = "";
             numericKMEnde.Text = "";
             numericKundenStueck.Text = "";
             numericHandbeilagen.Text = "";
             numericPause.Text = "";
+
+            textBemerkung.Text = "";
+        }
+
+        private void ganzleeren() {
+
+            leeren();
+
+            TourUnlock();
+
+            checkBeifahrer.Checked = false;
+            numericKMAnfang.Enabled = true;
+            numericKMEnde.Enabled = true;
+            textFahrzeug.Enabled = true;
+            
+            textSucheName.Text = "";
+            textFahrzeug.Text = "";
+
+            Type = -1;
+
+            textSucheName.Text = "";
+            textTour.Text = "";
+            textFahrzeug.Text = "";
+            checkBeifahrer.Checked = false;
         }
 
         int idBearbeitend;
@@ -261,101 +278,203 @@ namespace Mitarbeiter
                 }
             }
 
-            // Weitgehend identisch, Unterschied in der ersten Zeile (Kunden / Stück / leer) und in Fall 3 entsprechend eine Zeile unten weniger
-            if (Type == 1) {
-                insert += "INSERT INTO Fahrt (Mitarbeiter_idMitarbeiter, Start, Ende, Pause, AnfangsKM, EndKM, Bemerkung, UserChanged, Kunden, Tour_idTour, Fahrzeug_idFahrzeug) VALUES (";
+            //TODO Aufräumen
 
-                insert += MitarbeiterID + ", ";
-                insert += "'" + Program.DateTimeMachine(timeStart.Value, monthFahrtDatum.SelectionStart) + "', ";
-                insert += "'" + Program.DateTimeMachine(timeEnd.Value, monthFahrtDatum.SelectionEnd) + "', ";
-                insert += decimal.ToInt32(numericPause.Value) + ", ";
-                insert += decimal.ToInt32(numericKMAnfang.Value) + ", ";
-                insert += decimal.ToInt32(numericKMEnde.Value) + ", ";
-
-                // Prüfung nicht bestanden -> Vermerk direkt vor der Bemerkung
-                if (flagKM == 1)
-                {
-                    insert += "'Kilometerpruefung " + textBemerkung.Text + "', ";
-                }
-                else { insert += "'" + textBemerkung.Text + "', "; }
-                
-                insert += idBearbeitend + ", ";
-                insert += numericKundenStueck.Value + ", ";
-                insert += TourID+", ";
-                insert += fahrzeugID + ");";
-            }
-
-            if (Type == 2) {
-                insert += "INSERT INTO Fahrt (Mitarbeiter_idMitarbeiter, Start, Ende, Pause, AnfangsKM, EndKM, Bemerkung, UserChanged, Stückzahl, Tour_idTour, Fahrzeug_idFahrzeug) VALUES (";
-
-                insert += MitarbeiterID + ", ";
-                insert += "'" + Program.DateTimeMachine(timeStart.Value, monthFahrtDatum.SelectionStart) + "', ";
-                insert += "'" + Program.DateTimeMachine(timeEnd.Value, monthFahrtDatum.SelectionEnd) + "', ";
-                insert += decimal.ToInt32(numericPause.Value) + ", ";
-                insert += decimal.ToInt32(numericKMAnfang.Value) + ", ";
-                insert += decimal.ToInt32(numericKMEnde.Value) + ", ";
-
-                // Prüfung nicht bestanden -> Vermerk direkt vor der Bemerkung
-                if (flagKM == 1)
-                {
-                    insert += "'Kilometerpruefung " + textBemerkung.Text + "', ";
-                }
-                else { insert += "'" + textBemerkung.Text + "', "; }
-
-
-                insert += idBearbeitend + ", ";
-                insert += numericKundenStueck.Value + ", ";
-                insert += TourID + ", ";
-                insert += fahrzeugID + ");";
-            }
-
-            if (Type == 3)
+            if (checkBeifahrer.Checked == false)
             {
-                insert += "INSERT INTO Fahrt (Mitarbeiter_idMitarbeiter, Start, Ende, Pause, AnfangsKM, EndKM, Bemerkung, UserChanged, Tour_idTour, Fahrzeug_idFahrzeug) VALUES (";
 
-                insert += MitarbeiterID + ", ";
-                insert += "'" + Program.DateTimeMachine(timeStart.Value, monthFahrtDatum.SelectionStart) + "', ";
-                insert += "'" + Program.DateTimeMachine(timeEnd.Value, monthFahrtDatum.SelectionEnd) + "', ";
-                insert += decimal.ToInt32(numericPause.Value) + ", ";
-                insert += decimal.ToInt32(numericKMAnfang.Value) + ", ";
-                insert += decimal.ToInt32(numericKMEnde.Value) + ", ";
 
-                // Prüfung nicht bestanden -> Vermerk direkt vor der Bemerkung
-                if (flagKM == 1)
+
+                // Weitgehend identisch, Unterschied in der ersten Zeile (Kunden / Stück / leer) und in Fall 3 entsprechend eine Zeile unten weniger
+                if (Type == 1)
                 {
-                    insert += "'Kilometerpruefung " + textBemerkung.Text + "', ";
+                    insert += "INSERT INTO Fahrt (Mitarbeiter_idMitarbeiter, Start, Ende, Pause, AnfangsKM, EndKM, Bemerkung, UserChanged, Kunden, Tour_idTour, Fahrzeug_idFahrzeug) VALUES (";
+
+                    insert += MitarbeiterID + ", ";
+                    insert += "'" + Program.DateTimeMachine(timeStart.Value, monthFahrtDatum.SelectionStart) + "', ";
+                    insert += "'" + Program.DateTimeMachine(timeEnd.Value, monthFahrtDatum.SelectionEnd) + "', ";
+                    insert += decimal.ToInt32(numericPause.Value) + ", ";
+                    insert += decimal.ToInt32(numericKMAnfang.Value) + ", ";
+                    insert += decimal.ToInt32(numericKMEnde.Value) + ", ";
+
+                    // Prüfung nicht bestanden -> Vermerk direkt vor der Bemerkung
+                    if (flagKM == 1)
+                    {
+                        insert += "'Kilometerpruefung " + textBemerkung.Text + "', ";
+                    }
+                    else { insert += "'" + textBemerkung.Text + "', "; }
+
+                    insert += idBearbeitend + ", ";
+                    insert += numericKundenStueck.Value + ", ";
+                    insert += TourID + ", ";
+                    insert += fahrzeugID + ");";
                 }
-                else { insert += "'" + textBemerkung.Text + "', "; }
 
-
-                insert += idBearbeitend + ", ";
-                insert += TourID + ", ";
-                insert += fahrzeugID + ");";
-            }
-
-            if (insert != "")
-            {
-                // String fertig, absenden
-                MySqlCommand cmdAdd = new MySqlCommand(insert, Program.conn2);
-                try
+                if (Type == 2)
                 {
-                    cmdAdd.ExecuteNonQuery();
-                    textLog.AppendText("Fahrt erfolgreich gebucht \r\n ");
+                    insert += "INSERT INTO Fahrt (Mitarbeiter_idMitarbeiter, Start, Ende, Pause, AnfangsKM, EndKM, Bemerkung, UserChanged, Stückzahl, Tour_idTour, Fahrzeug_idFahrzeug) VALUES (";
 
+                    insert += MitarbeiterID + ", ";
+                    insert += "'" + Program.DateTimeMachine(timeStart.Value, monthFahrtDatum.SelectionStart) + "', ";
+                    insert += "'" + Program.DateTimeMachine(timeEnd.Value, monthFahrtDatum.SelectionEnd) + "', ";
+                    insert += decimal.ToInt32(numericPause.Value) + ", ";
+                    insert += decimal.ToInt32(numericKMAnfang.Value) + ", ";
+                    insert += decimal.ToInt32(numericKMEnde.Value) + ", ";
+
+                    // Prüfung nicht bestanden -> Vermerk direkt vor der Bemerkung
+                    if (flagKM == 1)
+                    {
+                        insert += "'Kilometerpruefung " + textBemerkung.Text + "', ";
+                    }
+                    else { insert += "'" + textBemerkung.Text + "', "; }
+
+
+                    insert += idBearbeitend + ", ";
+                    insert += numericKundenStueck.Value + ", ";
+                    insert += TourID + ", ";
+                    insert += fahrzeugID + ");";
                 }
-                catch (Exception sqlEx)
+
+                if (Type == 3)
                 {
-                    textLog.Text += sqlEx.ToString();
-                    return;
-                }                
+                    insert += "INSERT INTO Fahrt (Mitarbeiter_idMitarbeiter, Start, Ende, Pause, AnfangsKM, EndKM, Bemerkung, UserChanged, Tour_idTour, Fahrzeug_idFahrzeug) VALUES (";
+
+                    insert += MitarbeiterID + ", ";
+                    insert += "'" + Program.DateTimeMachine(timeStart.Value, monthFahrtDatum.SelectionStart) + "', ";
+                    insert += "'" + Program.DateTimeMachine(timeEnd.Value, monthFahrtDatum.SelectionEnd) + "', ";
+                    insert += decimal.ToInt32(numericPause.Value) + ", ";
+                    insert += decimal.ToInt32(numericKMAnfang.Value) + ", ";
+                    insert += decimal.ToInt32(numericKMEnde.Value) + ", ";
+
+                    // Prüfung nicht bestanden -> Vermerk direkt vor der Bemerkung
+                    if (flagKM == 1)
+                    {
+                        insert += "'Kilometerpruefung " + textBemerkung.Text + "', ";
+                    }
+                    else { insert += "'" + textBemerkung.Text + "', "; }
+
+
+                    insert += idBearbeitend + ", ";
+                    insert += TourID + ", ";
+                    insert += fahrzeugID + ");";
+                }
+
+                if (insert != "")
+                {
+                    // String fertig, absenden
+                    MySqlCommand cmdAdd = new MySqlCommand(insert, Program.conn2);
+                    try
+                    {
+                        cmdAdd.ExecuteNonQuery();
+                        textLog.AppendText("Fahrt erfolgreich gebucht \r\n ");
+
+                    }
+                    catch (Exception sqlEx)
+                    {
+                        textLog.Text += sqlEx.ToString();
+                        return;
+                    }
+                }
+                else
+                {
+                    textLog.AppendText("Fehler aufgetreten, Tour-Typ ist unbekannt. \r\n ");
+                }
+
+                // Update Kilometer                
+                textLog.AppendText(Program.FahrzeugUpdate(fahrzeugID, decimal.ToInt32(numericKMEnde.Value)));
             }
             else {
-                textLog.AppendText("Fehler aufgetreten, Tour-Typ ist unbekannt. \r\n ");
-            }
+                // Weitgehend identisch, Unterschied in der ersten Zeile (Kunden / Stück / leer) und in Fall 3 entsprechend eine Zeile unten weniger
+                if (Type == 1)
+                {
+                    insert += "INSERT INTO Fahrt (Mitarbeiter_idMitarbeiter, Start, Ende, Pause, AnfangsKM, EndKM, Bemerkung, UserChanged, Kunden, Tour_idTour) VALUES (";
 
-            // Update Kilometer wenn nicht Beifahrer
-            if (checkBeifahrer.Checked == false) {
-                textLog.AppendText(Program.FahrzeugUpdate(fahrzeugID, decimal.ToInt32(numericKMEnde.Value)));
+                    insert += MitarbeiterID + ", ";
+                    insert += "'" + Program.DateTimeMachine(timeStart.Value, monthFahrtDatum.SelectionStart) + "', ";
+                    insert += "'" + Program.DateTimeMachine(timeEnd.Value, monthFahrtDatum.SelectionEnd) + "', ";
+                    insert += decimal.ToInt32(numericPause.Value) + ", ";
+                    insert += decimal.ToInt32(numericKMAnfang.Value) + ", ";
+                    insert += decimal.ToInt32(numericKMEnde.Value) + ", ";
+
+                    // Prüfung nicht bestanden -> Vermerk direkt vor der Bemerkung
+                    if (flagKM == 1)
+                    {
+                        insert += "'Kilometerpruefung " + textBemerkung.Text + "', ";
+                    }
+                    else { insert += "'" + textBemerkung.Text + "', "; }
+
+                    insert += idBearbeitend + ", ";
+                    insert += numericKundenStueck.Value + ", ";
+                    insert += TourID + "); ";
+                }
+
+                if (Type == 2)
+                {
+                    insert += "INSERT INTO Fahrt (Mitarbeiter_idMitarbeiter, Start, Ende, Pause, AnfangsKM, EndKM, Bemerkung, UserChanged, Stückzahl, Tour_idTour) VALUES (";
+
+                    insert += MitarbeiterID + ", ";
+                    insert += "'" + Program.DateTimeMachine(timeStart.Value, monthFahrtDatum.SelectionStart) + "', ";
+                    insert += "'" + Program.DateTimeMachine(timeEnd.Value, monthFahrtDatum.SelectionEnd) + "', ";
+                    insert += decimal.ToInt32(numericPause.Value) + ", ";
+                    insert += decimal.ToInt32(numericKMAnfang.Value) + ", ";
+                    insert += decimal.ToInt32(numericKMEnde.Value) + ", ";
+
+                    // Prüfung nicht bestanden -> Vermerk direkt vor der Bemerkung
+                    if (flagKM == 1)
+                    {
+                        insert += "'Kilometerpruefung " + textBemerkung.Text + "', ";
+                    }
+                    else { insert += "'" + textBemerkung.Text + "', "; }
+
+
+                    insert += idBearbeitend + ", ";
+                    insert += numericKundenStueck.Value + ", ";
+                    insert += TourID + "); ";
+                }
+
+                if (Type == 3)
+                {
+                    insert += "INSERT INTO Fahrt (Mitarbeiter_idMitarbeiter, Start, Ende, Pause, AnfangsKM, EndKM, Bemerkung, UserChanged, Tour_idTour) VALUES (";
+
+                    insert += MitarbeiterID + ", ";
+                    insert += "'" + Program.DateTimeMachine(timeStart.Value, monthFahrtDatum.SelectionStart) + "', ";
+                    insert += "'" + Program.DateTimeMachine(timeEnd.Value, monthFahrtDatum.SelectionEnd) + "', ";
+                    insert += decimal.ToInt32(numericPause.Value) + ", ";
+                    insert += decimal.ToInt32(numericKMAnfang.Value) + ", ";
+                    insert += decimal.ToInt32(numericKMEnde.Value) + ", ";
+
+                    // Prüfung nicht bestanden -> Vermerk direkt vor der Bemerkung
+                    if (flagKM == 1)
+                    {
+                        insert += "'Kilometerpruefung " + textBemerkung.Text + "', ";
+                    }
+                    else { insert += "'" + textBemerkung.Text + "', "; }
+
+
+                    insert += idBearbeitend + ", ";
+                    insert += TourID + "); ";
+                }
+
+                if (insert != "")
+                {
+                    // String fertig, absenden
+                    MySqlCommand cmdAdd = new MySqlCommand(insert, Program.conn2);
+                    try
+                    {
+                        cmdAdd.ExecuteNonQuery();
+                        textLog.AppendText("Fahrt erfolgreich gebucht \r\n ");
+
+                    }
+                    catch (Exception sqlEx)
+                    {
+                        textLog.Text += sqlEx.ToString();
+                        return;
+                    }
+                }
+                else
+                {
+                    textLog.AppendText("Fehler aufgetreten, Tour-Typ ist unbekannt. \r\n ");
+                }
             }
 
         }
@@ -363,6 +482,13 @@ namespace Mitarbeiter
         private void buttonSenden_Click(object sender, EventArgs e)
         {
             senden();
+            ganzleeren();
+        }
+
+        private void buttonSendenWeiter_Click(object sender, EventArgs e)
+        {
+            senden();
+            leeren();
         }
 
         private void checkBeifahrer_CheckedChanged(object sender, EventArgs e)
@@ -404,5 +530,6 @@ namespace Mitarbeiter
         {
             KmAnzeigeUpdate();
         }
+
     }
 }

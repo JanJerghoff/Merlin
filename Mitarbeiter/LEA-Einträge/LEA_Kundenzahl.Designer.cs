@@ -33,6 +33,7 @@
             this.buttonSendenWeiter = new System.Windows.Forms.Button();
             this.buttonSenden = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Differenzlable = new System.Windows.Forms.Label();
             this.labelHand = new System.Windows.Forms.Label();
             this.numericHandbeilagen = new System.Windows.Forms.NumericUpDown();
             this.checkKMPruefung = new System.Windows.Forms.CheckBox();
@@ -65,7 +66,6 @@
             this.label27 = new System.Windows.Forms.Label();
             this.textSucheName = new System.Windows.Forms.TextBox();
             this.monthFahrtDatum = new System.Windows.Forms.MonthCalendar();
-            this.Differenzlable = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericHandbeilagen)).BeginInit();
@@ -79,7 +79,7 @@
             // textLog
             // 
             this.textLog.Location = new System.Drawing.Point(16, 537);
-            this.textLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textLog.Margin = new System.Windows.Forms.Padding(4);
             this.textLog.Multiline = true;
             this.textLog.Name = "textLog";
             this.textLog.ReadOnly = true;
@@ -94,9 +94,9 @@
             this.groupBox4.Controls.Add(this.buttonSendenWeiter);
             this.groupBox4.Controls.Add(this.buttonSenden);
             this.groupBox4.Location = new System.Drawing.Point(1188, 261);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(343, 268);
             this.groupBox4.TabIndex = 142;
             this.groupBox4.TabStop = false;
@@ -105,17 +105,18 @@
             // buttonSendenWeiter
             // 
             this.buttonSendenWeiter.Location = new System.Drawing.Point(8, 133);
-            this.buttonSendenWeiter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSendenWeiter.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSendenWeiter.Name = "buttonSendenWeiter";
             this.buttonSendenWeiter.Size = new System.Drawing.Size(305, 117);
             this.buttonSendenWeiter.TabIndex = 138;
             this.buttonSendenWeiter.Text = "Absenden und mehr Eintragen";
             this.buttonSendenWeiter.UseVisualStyleBackColor = true;
+            this.buttonSendenWeiter.Click += new System.EventHandler(this.buttonSendenWeiter_Click);
             // 
             // buttonSenden
             // 
             this.buttonSenden.Location = new System.Drawing.Point(8, 23);
-            this.buttonSenden.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSenden.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSenden.Name = "buttonSenden";
             this.buttonSenden.Size = new System.Drawing.Size(305, 102);
             this.buttonSenden.TabIndex = 137;
@@ -146,13 +147,25 @@
             this.groupBox2.Controls.Add(this.timeEnd);
             this.groupBox2.Controls.Add(this.timeStart);
             this.groupBox2.Location = new System.Drawing.Point(405, 15);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(1205, 239);
             this.groupBox2.TabIndex = 140;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "2)";
+            // 
+            // Differenzlable
+            // 
+            this.Differenzlable.AutoSize = true;
+            this.Differenzlable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Differenzlable.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Differenzlable.Location = new System.Drawing.Point(440, 95);
+            this.Differenzlable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Differenzlable.Name = "Differenzlable";
+            this.Differenzlable.Size = new System.Drawing.Size(105, 18);
+            this.Differenzlable.TabIndex = 141;
+            this.Differenzlable.Text = "Differenz = 0";
             // 
             // labelHand
             // 
@@ -168,7 +181,7 @@
             // numericHandbeilagen
             // 
             this.numericHandbeilagen.Location = new System.Drawing.Point(965, 58);
-            this.numericHandbeilagen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericHandbeilagen.Margin = new System.Windows.Forms.Padding(4);
             this.numericHandbeilagen.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -182,7 +195,7 @@
             // 
             this.checkKMPruefung.AutoSize = true;
             this.checkKMPruefung.Location = new System.Drawing.Point(1150, 195);
-            this.checkKMPruefung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkKMPruefung.Margin = new System.Windows.Forms.Padding(4);
             this.checkKMPruefung.Name = "checkKMPruefung";
             this.checkKMPruefung.Size = new System.Drawing.Size(18, 17);
             this.checkKMPruefung.TabIndex = 138;
@@ -225,7 +238,7 @@
             // numericKundenStueck
             // 
             this.numericKundenStueck.Location = new System.Drawing.Point(823, 58);
-            this.numericKundenStueck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericKundenStueck.Margin = new System.Windows.Forms.Padding(4);
             this.numericKundenStueck.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -239,7 +252,7 @@
             // 
             this.textBemerkung.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.textBemerkung.Location = new System.Drawing.Point(8, 128);
-            this.textBemerkung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBemerkung.Margin = new System.Windows.Forms.Padding(4);
             this.textBemerkung.Multiline = true;
             this.textBemerkung.Name = "textBemerkung";
             this.textBemerkung.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -271,7 +284,7 @@
             // numericKMAnfang
             // 
             this.numericKMAnfang.Location = new System.Drawing.Point(633, 58);
-            this.numericKMAnfang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericKMAnfang.Margin = new System.Windows.Forms.Padding(4);
             this.numericKMAnfang.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -285,7 +298,7 @@
             // numericKMEnde
             // 
             this.numericKMEnde.Location = new System.Drawing.Point(444, 58);
-            this.numericKMEnde.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericKMEnde.Margin = new System.Windows.Forms.Padding(4);
             this.numericKMEnde.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -310,7 +323,7 @@
             // numericPause
             // 
             this.numericPause.Location = new System.Drawing.Point(301, 58);
-            this.numericPause.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericPause.Margin = new System.Windows.Forms.Padding(4);
             this.numericPause.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -347,7 +360,7 @@
             // 
             this.timeEnd.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.timeEnd.Location = new System.Drawing.Point(176, 58);
-            this.timeEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.timeEnd.Margin = new System.Windows.Forms.Padding(4);
             this.timeEnd.Name = "timeEnd";
             this.timeEnd.Size = new System.Drawing.Size(116, 22);
             this.timeEnd.TabIndex = 1;
@@ -356,7 +369,7 @@
             // 
             this.timeStart.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.timeStart.Location = new System.Drawing.Point(8, 58);
-            this.timeStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.timeStart.Margin = new System.Windows.Forms.Padding(4);
             this.timeStart.Name = "timeStart";
             this.timeStart.Size = new System.Drawing.Size(159, 22);
             this.timeStart.TabIndex = 0;
@@ -378,9 +391,9 @@
             this.groupBox1.Controls.Add(this.textSucheName);
             this.groupBox1.Controls.Add(this.monthFahrtDatum);
             this.groupBox1.Location = new System.Drawing.Point(16, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(381, 514);
             this.groupBox1.TabIndex = 139;
             this.groupBox1.TabStop = false;
@@ -389,7 +402,7 @@
             // buttonTourLeeren
             // 
             this.buttonTourLeeren.Location = new System.Drawing.Point(213, 434);
-            this.buttonTourLeeren.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonTourLeeren.Margin = new System.Windows.Forms.Padding(4);
             this.buttonTourLeeren.Name = "buttonTourLeeren";
             this.buttonTourLeeren.Size = new System.Drawing.Size(127, 44);
             this.buttonTourLeeren.TabIndex = 141;
@@ -400,7 +413,7 @@
             // buttonTourUnlock
             // 
             this.buttonTourUnlock.Location = new System.Drawing.Point(213, 383);
-            this.buttonTourUnlock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonTourUnlock.Margin = new System.Windows.Forms.Padding(4);
             this.buttonTourUnlock.Name = "buttonTourUnlock";
             this.buttonTourUnlock.Size = new System.Drawing.Size(127, 44);
             this.buttonTourUnlock.TabIndex = 140;
@@ -411,7 +424,7 @@
             // buttonTourLock
             // 
             this.buttonTourLock.Location = new System.Drawing.Point(213, 316);
-            this.buttonTourLock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonTourLock.Margin = new System.Windows.Forms.Padding(4);
             this.buttonTourLock.Name = "buttonTourLock";
             this.buttonTourLock.Size = new System.Drawing.Size(127, 55);
             this.buttonTourLock.TabIndex = 139;
@@ -435,7 +448,7 @@
             this.textTour.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textTour.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textTour.Location = new System.Drawing.Point(8, 417);
-            this.textTour.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textTour.Margin = new System.Windows.Forms.Padding(4);
             this.textTour.Name = "textTour";
             this.textTour.Size = new System.Drawing.Size(196, 22);
             this.textTour.TabIndex = 125;
@@ -455,7 +468,7 @@
             // 
             this.checkBeifahrer.AutoSize = true;
             this.checkBeifahrer.Location = new System.Drawing.Point(116, 478);
-            this.checkBeifahrer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBeifahrer.Margin = new System.Windows.Forms.Padding(4);
             this.checkBeifahrer.Name = "checkBeifahrer";
             this.checkBeifahrer.Size = new System.Drawing.Size(18, 17);
             this.checkBeifahrer.TabIndex = 123;
@@ -489,7 +502,7 @@
             this.textFahrzeug.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textFahrzeug.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textFahrzeug.Location = new System.Drawing.Point(8, 347);
-            this.textFahrzeug.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textFahrzeug.Margin = new System.Windows.Forms.Padding(4);
             this.textFahrzeug.Name = "textFahrzeug";
             this.textFahrzeug.Size = new System.Drawing.Size(196, 22);
             this.textFahrzeug.TabIndex = 120;
@@ -510,7 +523,7 @@
             this.textSucheName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textSucheName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textSucheName.Location = new System.Drawing.Point(8, 47);
-            this.textSucheName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textSucheName.Margin = new System.Windows.Forms.Padding(4);
             this.textSucheName.Name = "textSucheName";
             this.textSucheName.Size = new System.Drawing.Size(196, 22);
             this.textSucheName.TabIndex = 59;
@@ -523,18 +536,6 @@
             this.monthFahrtDatum.ShowWeekNumbers = true;
             this.monthFahrtDatum.TabIndex = 0;
             // 
-            // Differenzlable
-            // 
-            this.Differenzlable.AutoSize = true;
-            this.Differenzlable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Differenzlable.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Differenzlable.Location = new System.Drawing.Point(440, 95);
-            this.Differenzlable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Differenzlable.Name = "Differenzlable";
-            this.Differenzlable.Size = new System.Drawing.Size(105, 18);
-            this.Differenzlable.TabIndex = 141;
-            this.Differenzlable.Text = "Differenz = 0";
-            // 
             // LEA_Kundenzahl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -544,7 +545,7 @@
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LEA_Kundenzahl";
             this.Text = "LEA_Kundenzahl";
             this.groupBox4.ResumeLayout(false);
