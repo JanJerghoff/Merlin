@@ -417,7 +417,7 @@ namespace Kartonagen
             try
             {
                 fields.TryGetValue("NameKundennummer", out toSet);
-                toSet.SetValue(idKunden + " " + umzugsKunde.Nachname);
+                toSet.SetValue(idKunden + " " + umzugsKunde.Anrede + " " + umzugsKunde.Nachname);
 
                 // Telefonnummern sauber auflösen
                 if (umzugsKunde.Telefon != "0" && umzugsKunde.Handy != "0")
