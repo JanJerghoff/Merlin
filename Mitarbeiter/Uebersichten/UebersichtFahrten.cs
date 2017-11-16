@@ -56,7 +56,7 @@ namespace Mitarbeiter.Uebersichten
                         textDatum.AppendText(rdrHisto.GetDateTime(1).ToShortDateString() + "\r\n");
                         textTour.AppendText(rdrHisto.GetString(2) + "\r\n");
                         textMitarbeiter.AppendText(rdrHisto.GetString(3) + " " + rdrHisto.GetString(4) + "\r\n");
-                        textDauer.AppendText(Program.ArbeitsZeitBlock(rdrHisto.GetDateTime(1), rdrHisto.GetDateTime(5), rdrHisto.GetInt32(6)) + "\r\n");
+                        textDauer.AppendText(Math.Round((Program.ArbeitsZeitBlock(rdrHisto.GetDateTime(1), rdrHisto.GetDateTime(5), rdrHisto.GetInt32(6))/60.0),2) + "\r\n");
 
                         count++;
                     }
