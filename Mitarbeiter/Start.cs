@@ -211,5 +211,12 @@ namespace Mitarbeiter
             Fei.setBearbeitend(getBearbeitender());
             Fei.Show();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Objekte.Fahrt x = new Objekte.Fahrt(5);
+            textStartLog.AppendText(x.Ende.ToLongDateString());
+            textStartLog.AppendText(x.Umzug1.ToString());
+        }
     }
 }

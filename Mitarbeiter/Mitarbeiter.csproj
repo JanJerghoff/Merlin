@@ -100,6 +100,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LEA-Einträge\LeaAenderung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LEA-Einträge\LeaAenderung.Designer.cs">
+      <DependentUpon>LeaAenderung.cs</DependentUpon>
+    </Compile>
     <Compile Include="LEA-Einträge\LEA_Fahrtentabelle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,7 @@
       <DependentUpon>LEA_UrlaubFeiertag.cs</DependentUpon>
     </Compile>
     <Compile Include="Mitarbeiter.cs" />
+    <Compile Include="Objekte\Fahrt.cs" />
     <Compile Include="Repetoire.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +212,9 @@
     <Compile Include="Uebersichten\UebersichtTouren.Designer.cs">
       <DependentUpon>UebersichtTouren.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="LEA-Einträge\LeaAenderung.resx">
+      <DependentUpon>LeaAenderung.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LEA-Einträge\LEA_Fahrtentabelle.resx">
       <DependentUpon>LEA_Fahrtentabelle.cs</DependentUpon>
     </EmbeddedResource>

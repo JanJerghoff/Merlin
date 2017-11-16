@@ -23,8 +23,7 @@ namespace Mitarbeiter.Objekte
         int Dauer;
         int StartKM;
         int EndKM;
-
-        int Kunden;
+                
         int Stückzahl;
         int Beilagen;
 
@@ -43,7 +42,6 @@ namespace Mitarbeiter.Objekte
         public int Dauer1 { get => Dauer; set => Dauer = value; }
         public int StartKM1 { get => StartKM; set => StartKM = value; }
         public int EndKM1 { get => EndKM; set => EndKM = value; }
-        public int Kunden1 { get => Kunden; set => Kunden = value; }
         public int Stückzahl1 { get => Stückzahl; set => Stückzahl = value; }
         public int Beilagen1 { get => Beilagen; set => Beilagen = value; }
         public string Bemerkung1 { get => Bemerkung; set => Bemerkung = value; }
@@ -73,19 +71,40 @@ namespace Mitarbeiter.Objekte
                     Beilagen1 = rdr.GetInt32(8);
                     Bemerkung1 = rdr.GetString(9);
                     UserChanged1 = rdr.GetString(10);
-                    Umzug1 = rdr.GetInt32(11);          //Neutral = 
+                    Umzug1 = rdr.GetInt32(11);          
                     Tour1 = rdr.GetInt32(12);           
-                    Fahrzeug1 = rdr.GetInt32(13);       //Neutral = 14
+                    Fahrzeug1 = rdr.GetInt32(13);       
                     Mitarbeiter1 = rdr.GetInt32(14);
                 }
                 rdr.Close();
             }
             catch (Exception sqlEx)
             {
-                Program.FehlerLog(sqlEx.ToString(), "Abrufen der Umzugsdaten zur Objekterstellung");
+                // TODO Program.FehlerLog(sqlEx.ToString(), "Abrufen der Umzugsdaten zur Objekterstellung");
             }
-
         }
+
+        public Fahrt (int mitarbeiter, int tour, int fahrzeug, int umzug, DateTime start, DateTime ende, int pause, int dauer, int startKM, int endKM, int stückzahl, int beilagen, string bemerkung, string userChanged)
+        {
+            Mitarbeiter = mitarbeiter;
+            Tour = tour;
+            Fahrzeug = fahrzeug;
+            Umzug = umzug;
+            this.start = start;
+            this.ende = ende;
+            Pause = pause;
+            Dauer = dauer;
+            StartKM = startKM;
+            EndKM = endKM;
+            Stückzahl = stückzahl;
+            Beilagen = beilagen;
+            Bemerkung = bemerkung;
+            UserChanged = userChanged;
+        }
+
+        // Update
+
+        // Delete
 
         // Methoden
 

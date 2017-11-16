@@ -545,6 +545,28 @@ namespace Mitarbeiter
             return ret;
         }
 
+        public static int getTourCode(int ID)
+        {
+
+            MySqlCommand cmdTour = new MySqlCommand("SELECT Type FROM Tour WHERE idTour = " + ID + ";", Program.conn2);
+            MySqlDataReader rdrTour;
+            int nummer = -1; // -1 als Fehlercode
+            try
+            {
+                rdrTour = cmdTour.ExecuteReader();
+                while (rdrTour.Read())
+                {
+                    nummer = rdrTour.GetInt32(0);
+                }
+                rdrTour.Close();
+            }
+            catch (Exception sqlEx)
+            {
+
+            }
+            return nummer;
+        }
+
         public static int getTourCode(String Name)
         {
 
