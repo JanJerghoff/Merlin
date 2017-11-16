@@ -61,6 +61,12 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.buttonSenden = new System.Windows.Forms.Button();
             this.textLog = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.radioVorbereitung = new System.Windows.Forms.RadioButton();
+            this.radioBesichtigung = new System.Windows.Forms.RadioButton();
+            this.radioUmzug = new System.Windows.Forms.RadioButton();
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMAnfang)).BeginInit();
@@ -82,6 +88,12 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox1.Controls.Add(this.radioUmzug);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.radioBesichtigung);
+            this.groupBox1.Controls.Add(this.radioVorbereitung);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.checkBeifahrer);
             this.groupBox1.Controls.Add(this.label2);
@@ -91,9 +103,9 @@
             this.groupBox1.Controls.Add(this.textSucheName);
             this.groupBox1.Controls.Add(this.monthFahrtDatum);
             this.groupBox1.Location = new System.Drawing.Point(16, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(381, 434);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
@@ -113,10 +125,8 @@
             // checkBeifahrer
             // 
             this.checkBeifahrer.AutoSize = true;
-            this.checkBeifahrer.Checked = true;
-            this.checkBeifahrer.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBeifahrer.Location = new System.Drawing.Point(116, 386);
-            this.checkBeifahrer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBeifahrer.Margin = new System.Windows.Forms.Padding(4);
             this.checkBeifahrer.Name = "checkBeifahrer";
             this.checkBeifahrer.Size = new System.Drawing.Size(18, 17);
             this.checkBeifahrer.TabIndex = 123;
@@ -150,7 +160,7 @@
             this.textFahrzeug.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textFahrzeug.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textFahrzeug.Location = new System.Drawing.Point(8, 347);
-            this.textFahrzeug.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textFahrzeug.Margin = new System.Windows.Forms.Padding(4);
             this.textFahrzeug.Name = "textFahrzeug";
             this.textFahrzeug.Size = new System.Drawing.Size(196, 22);
             this.textFahrzeug.TabIndex = 120;
@@ -171,7 +181,7 @@
             this.textSucheName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textSucheName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textSucheName.Location = new System.Drawing.Point(8, 47);
-            this.textSucheName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textSucheName.Margin = new System.Windows.Forms.Padding(4);
             this.textSucheName.Name = "textSucheName";
             this.textSucheName.Size = new System.Drawing.Size(196, 22);
             this.textSucheName.TabIndex = 59;
@@ -192,9 +202,9 @@
             this.groupBox2.Controls.Add(this.timeEnd);
             this.groupBox2.Controls.Add(this.timeStart);
             this.groupBox2.Location = new System.Drawing.Point(405, 15);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(1125, 239);
             this.groupBox2.TabIndex = 124;
             this.groupBox2.TabStop = false;
@@ -215,7 +225,7 @@
             // 
             this.textBemerkung.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.textBemerkung.Location = new System.Drawing.Point(8, 128);
-            this.textBemerkung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBemerkung.Margin = new System.Windows.Forms.Padding(4);
             this.textBemerkung.Multiline = true;
             this.textBemerkung.Name = "textBemerkung";
             this.textBemerkung.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -247,7 +257,7 @@
             // numericKMAnfang
             // 
             this.numericKMAnfang.Location = new System.Drawing.Point(633, 58);
-            this.numericKMAnfang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericKMAnfang.Margin = new System.Windows.Forms.Padding(4);
             this.numericKMAnfang.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -260,7 +270,7 @@
             // numericKMEnde
             // 
             this.numericKMEnde.Location = new System.Drawing.Point(444, 58);
-            this.numericKMEnde.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericKMEnde.Margin = new System.Windows.Forms.Padding(4);
             this.numericKMEnde.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -284,7 +294,7 @@
             // numericPause
             // 
             this.numericPause.Location = new System.Drawing.Point(301, 58);
-            this.numericPause.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericPause.Margin = new System.Windows.Forms.Padding(4);
             this.numericPause.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -320,7 +330,7 @@
             // 
             this.timeEnd.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.timeEnd.Location = new System.Drawing.Point(176, 58);
-            this.timeEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.timeEnd.Margin = new System.Windows.Forms.Padding(4);
             this.timeEnd.Name = "timeEnd";
             this.timeEnd.Size = new System.Drawing.Size(116, 22);
             this.timeEnd.TabIndex = 1;
@@ -329,7 +339,7 @@
             // 
             this.timeStart.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.timeStart.Location = new System.Drawing.Point(8, 58);
-            this.timeStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.timeStart.Margin = new System.Windows.Forms.Padding(4);
             this.timeStart.Name = "timeStart";
             this.timeStart.Size = new System.Drawing.Size(159, 22);
             this.timeStart.TabIndex = 0;
@@ -345,9 +355,9 @@
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.textKundenname);
             this.groupBox3.Location = new System.Drawing.Point(405, 261);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(436, 188);
             this.groupBox3.TabIndex = 132;
             this.groupBox3.TabStop = false;
@@ -356,7 +366,7 @@
             // buttonKundenLeeren
             // 
             this.buttonKundenLeeren.Location = new System.Drawing.Point(229, 137);
-            this.buttonKundenLeeren.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonKundenLeeren.Margin = new System.Windows.Forms.Padding(4);
             this.buttonKundenLeeren.Name = "buttonKundenLeeren";
             this.buttonKundenLeeren.Size = new System.Drawing.Size(187, 33);
             this.buttonKundenLeeren.TabIndex = 138;
@@ -378,7 +388,7 @@
             // buttonSuchen
             // 
             this.buttonSuchen.Location = new System.Drawing.Point(229, 26);
-            this.buttonSuchen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSuchen.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSuchen.Name = "buttonSuchen";
             this.buttonSuchen.Size = new System.Drawing.Size(187, 103);
             this.buttonSuchen.TabIndex = 136;
@@ -389,7 +399,7 @@
             // numericUmzugsnummer
             // 
             this.numericUmzugsnummer.Location = new System.Drawing.Point(8, 134);
-            this.numericUmzugsnummer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUmzugsnummer.Margin = new System.Windows.Forms.Padding(4);
             this.numericUmzugsnummer.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -426,7 +436,7 @@
             this.textKundenname.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textKundenname.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textKundenname.Location = new System.Drawing.Point(9, 43);
-            this.textKundenname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKundenname.Margin = new System.Windows.Forms.Padding(4);
             this.textKundenname.Name = "textKundenname";
             this.textKundenname.Size = new System.Drawing.Size(196, 22);
             this.textKundenname.TabIndex = 124;
@@ -436,9 +446,9 @@
             this.groupBox4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox4.Controls.Add(this.buttonSenden);
             this.groupBox4.Location = new System.Drawing.Point(849, 261);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(343, 188);
             this.groupBox4.TabIndex = 137;
             this.groupBox4.TabStop = false;
@@ -447,7 +457,7 @@
             // buttonSenden
             // 
             this.buttonSenden.Location = new System.Drawing.Point(8, 26);
-            this.buttonSenden.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSenden.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSenden.Name = "buttonSenden";
             this.buttonSenden.Size = new System.Drawing.Size(305, 117);
             this.buttonSenden.TabIndex = 137;
@@ -458,7 +468,7 @@
             // textLog
             // 
             this.textLog.Location = new System.Drawing.Point(16, 457);
-            this.textLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textLog.Margin = new System.Windows.Forms.Padding(4);
             this.textLog.Multiline = true;
             this.textLog.Name = "textLog";
             this.textLog.ReadOnly = true;
@@ -466,6 +476,68 @@
             this.textLog.Size = new System.Drawing.Size(1513, 139);
             this.textLog.TabIndex = 138;
             this.textLog.TabStop = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(234, 368);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(103, 18);
+            this.label13.TabIndex = 127;
+            this.label13.Text = "Vorbereitung";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(234, 398);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(104, 18);
+            this.label14.TabIndex = 128;
+            this.label14.Text = "Besichtigung";
+            // 
+            // radioVorbereitung
+            // 
+            this.radioVorbereitung.AutoSize = true;
+            this.radioVorbereitung.Location = new System.Drawing.Point(345, 371);
+            this.radioVorbereitung.Name = "radioVorbereitung";
+            this.radioVorbereitung.Size = new System.Drawing.Size(17, 16);
+            this.radioVorbereitung.TabIndex = 129;
+            this.radioVorbereitung.UseVisualStyleBackColor = true;
+            // 
+            // radioBesichtigung
+            // 
+            this.radioBesichtigung.AutoSize = true;
+            this.radioBesichtigung.Location = new System.Drawing.Point(345, 401);
+            this.radioBesichtigung.Name = "radioBesichtigung";
+            this.radioBesichtigung.Size = new System.Drawing.Size(17, 16);
+            this.radioBesichtigung.TabIndex = 130;
+            this.radioBesichtigung.UseVisualStyleBackColor = true;
+            // 
+            // radioUmzug
+            // 
+            this.radioUmzug.AutoSize = true;
+            this.radioUmzug.Checked = true;
+            this.radioUmzug.Location = new System.Drawing.Point(345, 337);
+            this.radioUmzug.Name = "radioUmzug";
+            this.radioUmzug.Size = new System.Drawing.Size(17, 16);
+            this.radioUmzug.TabIndex = 132;
+            this.radioUmzug.TabStop = true;
+            this.radioUmzug.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(234, 334);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(61, 18);
+            this.label15.TabIndex = 131;
+            this.label15.Text = "Umzug";
             // 
             // LEA_Umzug
             // 
@@ -477,7 +549,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LEA_Umzug";
             this.Text = "LEA_Umzug";
             this.groupBox1.ResumeLayout(false);
@@ -531,5 +603,11 @@
         private System.Windows.Forms.Button buttonKundenLeeren;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.RadioButton radioUmzug;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.RadioButton radioBesichtigung;
+        private System.Windows.Forms.RadioButton radioVorbereitung;
     }
 }

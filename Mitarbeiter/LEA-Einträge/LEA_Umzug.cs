@@ -185,6 +185,12 @@ namespace Mitarbeiter
 
         private void buttonSenden_Click(object sender, EventArgs e)
         {
+            int TourNummer = -1;
+
+            if (radioVorbereitung.Checked) { TourNummer = 58; }
+            else if (radioBesichtigung.Checked) { TourNummer = 59; }
+            else { TourNummer = 8; }
+
             // Checks auf korrekte Ausführung
             if (numericKMEnde.Value < numericKMAnfang.Value && checkBeifahrer.Checked == false) {
                 textLog.AppendText("Endkilometer können nicht kleiner sein als Startkilometer, wenn Beifahrer nicht gesetzt. \r\n");
@@ -244,6 +250,8 @@ namespace Mitarbeiter
                 endtag = endtag.AddDays(1);
             }
             
+
+
             if (checkBeifahrer.Checked == false)
             {
 
@@ -258,7 +266,7 @@ namespace Mitarbeiter
                 insert += "'" + textBemerkung.Text + "', ";
                 insert += idBearbeitend + ", ";
                 insert += numericUmzugsnummer.Value + ", ";
-                insert += "8, ";
+                insert += TourNummer+", ";
                 insert += fahrzeugID + ");";
             }
             else {
@@ -272,7 +280,7 @@ namespace Mitarbeiter
                 insert += "'" + textBemerkung.Text + "', ";
                 insert += idBearbeitend + ", ";
                 insert += numericUmzugsnummer.Value + ", ";
-                insert += "8);";
+                insert += TourNummer+");";
 
             }
 
