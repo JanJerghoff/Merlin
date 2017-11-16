@@ -30,6 +30,12 @@
         {
             this.monthFahrtDatum = new System.Windows.Forms.MonthCalendar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioUmzug = new System.Windows.Forms.RadioButton();
+            this.label15 = new System.Windows.Forms.Label();
+            this.radioBesichtigung = new System.Windows.Forms.RadioButton();
+            this.radioVorbereitung = new System.Windows.Forms.RadioButton();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.checkBeifahrer = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,12 +67,7 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.buttonSenden = new System.Windows.Forms.Button();
             this.textLog = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.radioVorbereitung = new System.Windows.Forms.RadioButton();
-            this.radioBesichtigung = new System.Windows.Forms.RadioButton();
-            this.radioUmzug = new System.Windows.Forms.RadioButton();
-            this.label15 = new System.Windows.Forms.Label();
+            this.Differenzlable = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMAnfang)).BeginInit();
@@ -110,6 +111,68 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "1)";
+            // 
+            // radioUmzug
+            // 
+            this.radioUmzug.AutoSize = true;
+            this.radioUmzug.Checked = true;
+            this.radioUmzug.Location = new System.Drawing.Point(345, 337);
+            this.radioUmzug.Name = "radioUmzug";
+            this.radioUmzug.Size = new System.Drawing.Size(17, 16);
+            this.radioUmzug.TabIndex = 132;
+            this.radioUmzug.TabStop = true;
+            this.radioUmzug.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(234, 334);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(61, 18);
+            this.label15.TabIndex = 131;
+            this.label15.Text = "Umzug";
+            // 
+            // radioBesichtigung
+            // 
+            this.radioBesichtigung.AutoSize = true;
+            this.radioBesichtigung.Location = new System.Drawing.Point(345, 401);
+            this.radioBesichtigung.Name = "radioBesichtigung";
+            this.radioBesichtigung.Size = new System.Drawing.Size(17, 16);
+            this.radioBesichtigung.TabIndex = 130;
+            this.radioBesichtigung.UseVisualStyleBackColor = true;
+            // 
+            // radioVorbereitung
+            // 
+            this.radioVorbereitung.AutoSize = true;
+            this.radioVorbereitung.Location = new System.Drawing.Point(345, 371);
+            this.radioVorbereitung.Name = "radioVorbereitung";
+            this.radioVorbereitung.Size = new System.Drawing.Size(17, 16);
+            this.radioVorbereitung.TabIndex = 129;
+            this.radioVorbereitung.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(234, 398);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(104, 18);
+            this.label14.TabIndex = 128;
+            this.label14.Text = "Besichtigung";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(234, 368);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(103, 18);
+            this.label13.TabIndex = 127;
+            this.label13.Text = "Vorbereitung";
             // 
             // label12
             // 
@@ -189,6 +252,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox2.Controls.Add(this.Differenzlable);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.textBemerkung);
             this.groupBox2.Controls.Add(this.label7);
@@ -477,67 +541,17 @@
             this.textLog.TabIndex = 138;
             this.textLog.TabStop = false;
             // 
-            // label13
+            // Differenzlable
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(234, 368);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(103, 18);
-            this.label13.TabIndex = 127;
-            this.label13.Text = "Vorbereitung";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(234, 398);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(104, 18);
-            this.label14.TabIndex = 128;
-            this.label14.Text = "Besichtigung";
-            // 
-            // radioVorbereitung
-            // 
-            this.radioVorbereitung.AutoSize = true;
-            this.radioVorbereitung.Location = new System.Drawing.Point(345, 371);
-            this.radioVorbereitung.Name = "radioVorbereitung";
-            this.radioVorbereitung.Size = new System.Drawing.Size(17, 16);
-            this.radioVorbereitung.TabIndex = 129;
-            this.radioVorbereitung.UseVisualStyleBackColor = true;
-            // 
-            // radioBesichtigung
-            // 
-            this.radioBesichtigung.AutoSize = true;
-            this.radioBesichtigung.Location = new System.Drawing.Point(345, 401);
-            this.radioBesichtigung.Name = "radioBesichtigung";
-            this.radioBesichtigung.Size = new System.Drawing.Size(17, 16);
-            this.radioBesichtigung.TabIndex = 130;
-            this.radioBesichtigung.UseVisualStyleBackColor = true;
-            // 
-            // radioUmzug
-            // 
-            this.radioUmzug.AutoSize = true;
-            this.radioUmzug.Checked = true;
-            this.radioUmzug.Location = new System.Drawing.Point(345, 337);
-            this.radioUmzug.Name = "radioUmzug";
-            this.radioUmzug.Size = new System.Drawing.Size(17, 16);
-            this.radioUmzug.TabIndex = 132;
-            this.radioUmzug.TabStop = true;
-            this.radioUmzug.UseVisualStyleBackColor = true;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(234, 334);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(61, 18);
-            this.label15.TabIndex = 131;
-            this.label15.Text = "Umzug";
+            this.Differenzlable.AutoSize = true;
+            this.Differenzlable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Differenzlable.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Differenzlable.Location = new System.Drawing.Point(442, 96);
+            this.Differenzlable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Differenzlable.Name = "Differenzlable";
+            this.Differenzlable.Size = new System.Drawing.Size(105, 18);
+            this.Differenzlable.TabIndex = 142;
+            this.Differenzlable.Text = "Differenz = 0";
             // 
             // LEA_Umzug
             // 
@@ -609,5 +623,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.RadioButton radioBesichtigung;
         private System.Windows.Forms.RadioButton radioVorbereitung;
+        private System.Windows.Forms.Label Differenzlable;
     }
 }

@@ -65,6 +65,7 @@
             this.label27 = new System.Windows.Forms.Label();
             this.textSucheName = new System.Windows.Forms.TextBox();
             this.monthFahrtDatum = new System.Windows.Forms.MonthCalendar();
+            this.Differenzlable = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericHandbeilagen)).BeginInit();
@@ -77,12 +78,13 @@
             // 
             // textLog
             // 
-            this.textLog.Location = new System.Drawing.Point(12, 436);
+            this.textLog.Location = new System.Drawing.Point(16, 537);
+            this.textLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textLog.Multiline = true;
             this.textLog.Name = "textLog";
             this.textLog.ReadOnly = true;
             this.textLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textLog.Size = new System.Drawing.Size(1196, 114);
+            this.textLog.Size = new System.Drawing.Size(1593, 139);
             this.textLog.TabIndex = 143;
             this.textLog.TabStop = false;
             // 
@@ -91,27 +93,31 @@
             this.groupBox4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox4.Controls.Add(this.buttonSendenWeiter);
             this.groupBox4.Controls.Add(this.buttonSenden);
-            this.groupBox4.Location = new System.Drawing.Point(891, 212);
+            this.groupBox4.Location = new System.Drawing.Point(1188, 261);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(257, 218);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Size = new System.Drawing.Size(343, 268);
             this.groupBox4.TabIndex = 142;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "3)";
             // 
             // buttonSendenWeiter
             // 
-            this.buttonSendenWeiter.Location = new System.Drawing.Point(6, 108);
+            this.buttonSendenWeiter.Location = new System.Drawing.Point(8, 133);
+            this.buttonSendenWeiter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonSendenWeiter.Name = "buttonSendenWeiter";
-            this.buttonSendenWeiter.Size = new System.Drawing.Size(229, 95);
+            this.buttonSendenWeiter.Size = new System.Drawing.Size(305, 117);
             this.buttonSendenWeiter.TabIndex = 138;
             this.buttonSendenWeiter.Text = "Absenden und mehr Eintragen";
             this.buttonSendenWeiter.UseVisualStyleBackColor = true;
             // 
             // buttonSenden
             // 
-            this.buttonSenden.Location = new System.Drawing.Point(6, 19);
+            this.buttonSenden.Location = new System.Drawing.Point(8, 23);
+            this.buttonSenden.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonSenden.Name = "buttonSenden";
-            this.buttonSenden.Size = new System.Drawing.Size(229, 83);
+            this.buttonSenden.Size = new System.Drawing.Size(305, 102);
             this.buttonSenden.TabIndex = 137;
             this.buttonSenden.Text = "Absenden";
             this.buttonSenden.UseVisualStyleBackColor = true;
@@ -120,6 +126,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox2.Controls.Add(this.Differenzlable);
             this.groupBox2.Controls.Add(this.labelHand);
             this.groupBox2.Controls.Add(this.numericHandbeilagen);
             this.groupBox2.Controls.Add(this.checkKMPruefung);
@@ -138,9 +145,11 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.timeEnd);
             this.groupBox2.Controls.Add(this.timeStart);
-            this.groupBox2.Location = new System.Drawing.Point(304, 12);
+            this.groupBox2.Location = new System.Drawing.Point(405, 15);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(904, 194);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(1205, 239);
             this.groupBox2.TabIndex = 140;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "2)";
@@ -149,30 +158,33 @@
             // 
             this.labelHand.AutoSize = true;
             this.labelHand.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHand.Location = new System.Drawing.Point(721, 29);
+            this.labelHand.Location = new System.Drawing.Point(961, 36);
+            this.labelHand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelHand.Name = "labelHand";
-            this.labelHand.Size = new System.Drawing.Size(97, 15);
+            this.labelHand.Size = new System.Drawing.Size(109, 18);
             this.labelHand.TabIndex = 140;
             this.labelHand.Text = "Handbeilagen";
             // 
             // numericHandbeilagen
             // 
-            this.numericHandbeilagen.Location = new System.Drawing.Point(724, 47);
+            this.numericHandbeilagen.Location = new System.Drawing.Point(965, 58);
+            this.numericHandbeilagen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericHandbeilagen.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.numericHandbeilagen.Name = "numericHandbeilagen";
-            this.numericHandbeilagen.Size = new System.Drawing.Size(101, 20);
+            this.numericHandbeilagen.Size = new System.Drawing.Size(135, 22);
             this.numericHandbeilagen.TabIndex = 139;
             // 
             // checkKMPruefung
             // 
             this.checkKMPruefung.AutoSize = true;
-            this.checkKMPruefung.Location = new System.Drawing.Point(730, 87);
+            this.checkKMPruefung.Location = new System.Drawing.Point(1150, 195);
+            this.checkKMPruefung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkKMPruefung.Name = "checkKMPruefung";
-            this.checkKMPruefung.Size = new System.Drawing.Size(15, 14);
+            this.checkKMPruefung.Size = new System.Drawing.Size(18, 17);
             this.checkKMPruefung.TabIndex = 138;
             this.checkKMPruefung.UseVisualStyleBackColor = true;
             // 
@@ -181,9 +193,10 @@
             this.labelPruefung.AutoSize = true;
             this.labelPruefung.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPruefung.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelPruefung.Location = new System.Drawing.Point(537, 86);
+            this.labelPruefung.Location = new System.Drawing.Point(893, 194);
+            this.labelPruefung.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPruefung.Name = "labelPruefung";
-            this.labelPruefung.Size = new System.Drawing.Size(187, 15);
+            this.labelPruefung.Size = new System.Drawing.Size(217, 18);
             this.labelPruefung.TabIndex = 137;
             this.labelPruefung.Text = "Kilometerprüfung auslassen";
             // 
@@ -191,9 +204,10 @@
             // 
             this.labelChange.AutoSize = true;
             this.labelChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelChange.Location = new System.Drawing.Point(614, 29);
+            this.labelChange.Location = new System.Drawing.Point(819, 36);
+            this.labelChange.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelChange.Name = "labelChange";
-            this.labelChange.Size = new System.Drawing.Size(56, 15);
+            this.labelChange.Size = new System.Drawing.Size(64, 18);
             this.labelChange.TabIndex = 136;
             this.labelChange.Text = "Kunden";
             // 
@@ -201,41 +215,45 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 86);
+            this.label8.Location = new System.Drawing.Point(8, 106);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(80, 15);
+            this.label8.Size = new System.Drawing.Size(93, 18);
             this.label8.TabIndex = 134;
             this.label8.Text = "Bemerkung";
             // 
             // numericKundenStueck
             // 
-            this.numericKundenStueck.Location = new System.Drawing.Point(617, 47);
+            this.numericKundenStueck.Location = new System.Drawing.Point(823, 58);
+            this.numericKundenStueck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericKundenStueck.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.numericKundenStueck.Name = "numericKundenStueck";
-            this.numericKundenStueck.Size = new System.Drawing.Size(101, 20);
+            this.numericKundenStueck.Size = new System.Drawing.Size(135, 22);
             this.numericKundenStueck.TabIndex = 135;
             // 
             // textBemerkung
             // 
             this.textBemerkung.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBemerkung.Location = new System.Drawing.Point(6, 104);
+            this.textBemerkung.Location = new System.Drawing.Point(8, 128);
+            this.textBemerkung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBemerkung.Multiline = true;
             this.textBemerkung.Name = "textBemerkung";
             this.textBemerkung.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBemerkung.Size = new System.Drawing.Size(516, 84);
+            this.textBemerkung.Size = new System.Drawing.Size(687, 102);
             this.textBemerkung.TabIndex = 133;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(472, 29);
+            this.label7.Location = new System.Drawing.Point(629, 36);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(118, 15);
+            this.label7.Size = new System.Drawing.Size(138, 18);
             this.label7.TabIndex = 131;
             this.label7.Text = "Anfangskilometer";
             // 
@@ -243,65 +261,74 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(330, 29);
+            this.label6.Location = new System.Drawing.Point(440, 36);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(92, 15);
+            this.label6.Size = new System.Drawing.Size(107, 18);
             this.label6.TabIndex = 130;
             this.label6.Text = "Endkilometer";
             // 
             // numericKMAnfang
             // 
-            this.numericKMAnfang.Location = new System.Drawing.Point(475, 47);
+            this.numericKMAnfang.Location = new System.Drawing.Point(633, 58);
+            this.numericKMAnfang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericKMAnfang.Maximum = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
             this.numericKMAnfang.Name = "numericKMAnfang";
-            this.numericKMAnfang.Size = new System.Drawing.Size(136, 20);
+            this.numericKMAnfang.Size = new System.Drawing.Size(181, 22);
             this.numericKMAnfang.TabIndex = 129;
+            this.numericKMAnfang.ValueChanged += new System.EventHandler(this.numericKMAnfang_ValueChanged);
             // 
             // numericKMEnde
             // 
-            this.numericKMEnde.Location = new System.Drawing.Point(333, 47);
+            this.numericKMEnde.Location = new System.Drawing.Point(444, 58);
+            this.numericKMEnde.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericKMEnde.Maximum = new decimal(new int[] {
             10000000,
             0,
             0,
             0});
             this.numericKMEnde.Name = "numericKMEnde";
-            this.numericKMEnde.Size = new System.Drawing.Size(136, 20);
+            this.numericKMEnde.Size = new System.Drawing.Size(181, 22);
             this.numericKMEnde.TabIndex = 128;
+            this.numericKMEnde.ValueChanged += new System.EventHandler(this.numericKMEnde_ValueChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(223, 29);
+            this.label5.Location = new System.Drawing.Point(297, 36);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 15);
+            this.label5.Size = new System.Drawing.Size(104, 18);
             this.label5.TabIndex = 127;
             this.label5.Text = "Pause (Min.)";
             // 
             // numericPause
             // 
-            this.numericPause.Location = new System.Drawing.Point(226, 47);
+            this.numericPause.Location = new System.Drawing.Point(301, 58);
+            this.numericPause.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericPause.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.numericPause.Name = "numericPause";
-            this.numericPause.Size = new System.Drawing.Size(101, 20);
+            this.numericPause.Size = new System.Drawing.Size(135, 22);
             this.numericPause.TabIndex = 126;
+            this.numericPause.ValueChanged += new System.EventHandler(this.numericPause_ValueChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(129, 29);
+            this.label4.Location = new System.Drawing.Point(172, 36);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 15);
+            this.label4.Size = new System.Drawing.Size(64, 18);
             this.label4.TabIndex = 125;
             this.label4.Text = "Endzeit";
             // 
@@ -309,26 +336,29 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 29);
+            this.label3.Location = new System.Drawing.Point(8, 36);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 15);
+            this.label3.Size = new System.Drawing.Size(95, 18);
             this.label3.TabIndex = 124;
             this.label3.Text = "Anfangszeit";
             // 
             // timeEnd
             // 
             this.timeEnd.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.timeEnd.Location = new System.Drawing.Point(132, 47);
+            this.timeEnd.Location = new System.Drawing.Point(176, 58);
+            this.timeEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.timeEnd.Name = "timeEnd";
-            this.timeEnd.Size = new System.Drawing.Size(88, 20);
+            this.timeEnd.Size = new System.Drawing.Size(116, 22);
             this.timeEnd.TabIndex = 1;
             // 
             // timeStart
             // 
             this.timeStart.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.timeStart.Location = new System.Drawing.Point(6, 47);
+            this.timeStart.Location = new System.Drawing.Point(8, 58);
+            this.timeStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.timeStart.Name = "timeStart";
-            this.timeStart.Size = new System.Drawing.Size(120, 20);
+            this.timeStart.Size = new System.Drawing.Size(159, 22);
             this.timeStart.TabIndex = 0;
             // 
             // groupBox1
@@ -347,18 +377,21 @@
             this.groupBox1.Controls.Add(this.label27);
             this.groupBox1.Controls.Add(this.textSucheName);
             this.groupBox1.Controls.Add(this.monthFahrtDatum);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(16, 15);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(286, 418);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(381, 514);
             this.groupBox1.TabIndex = 139;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "1)";
             // 
             // buttonTourLeeren
             // 
-            this.buttonTourLeeren.Location = new System.Drawing.Point(160, 353);
+            this.buttonTourLeeren.Location = new System.Drawing.Point(213, 434);
+            this.buttonTourLeeren.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonTourLeeren.Name = "buttonTourLeeren";
-            this.buttonTourLeeren.Size = new System.Drawing.Size(95, 36);
+            this.buttonTourLeeren.Size = new System.Drawing.Size(127, 44);
             this.buttonTourLeeren.TabIndex = 141;
             this.buttonTourLeeren.Text = "Tour leeren";
             this.buttonTourLeeren.UseVisualStyleBackColor = true;
@@ -366,9 +399,10 @@
             // 
             // buttonTourUnlock
             // 
-            this.buttonTourUnlock.Location = new System.Drawing.Point(160, 311);
+            this.buttonTourUnlock.Location = new System.Drawing.Point(213, 383);
+            this.buttonTourUnlock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonTourUnlock.Name = "buttonTourUnlock";
-            this.buttonTourUnlock.Size = new System.Drawing.Size(95, 36);
+            this.buttonTourUnlock.Size = new System.Drawing.Size(127, 44);
             this.buttonTourUnlock.TabIndex = 140;
             this.buttonTourUnlock.Text = "Tour entsperren";
             this.buttonTourUnlock.UseVisualStyleBackColor = true;
@@ -376,9 +410,10 @@
             // 
             // buttonTourLock
             // 
-            this.buttonTourLock.Location = new System.Drawing.Point(160, 257);
+            this.buttonTourLock.Location = new System.Drawing.Point(213, 316);
+            this.buttonTourLock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonTourLock.Name = "buttonTourLock";
-            this.buttonTourLock.Size = new System.Drawing.Size(95, 45);
+            this.buttonTourLock.Size = new System.Drawing.Size(127, 55);
             this.buttonTourLock.TabIndex = 139;
             this.buttonTourLock.Text = "Tour bestätigen";
             this.buttonTourLock.UseVisualStyleBackColor = true;
@@ -388,9 +423,10 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(6, 321);
+            this.label9.Location = new System.Drawing.Point(8, 395);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(36, 15);
+            this.label9.Size = new System.Drawing.Size(43, 18);
             this.label9.TabIndex = 126;
             this.label9.Text = "Tour";
             // 
@@ -398,27 +434,30 @@
             // 
             this.textTour.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textTour.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textTour.Location = new System.Drawing.Point(6, 339);
+            this.textTour.Location = new System.Drawing.Point(8, 417);
+            this.textTour.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textTour.Name = "textTour";
-            this.textTour.Size = new System.Drawing.Size(148, 20);
+            this.textTour.Size = new System.Drawing.Size(196, 22);
             this.textTour.TabIndex = 125;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(6, 69);
+            this.label12.Location = new System.Drawing.Point(8, 85);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(254, 15);
+            this.label12.Size = new System.Drawing.Size(296, 18);
             this.label12.TabIndex = 124;
             this.label12.Text = "Datum (2 Tage wenn über Mitternacht)";
             // 
             // checkBeifahrer
             // 
             this.checkBeifahrer.AutoSize = true;
-            this.checkBeifahrer.Location = new System.Drawing.Point(87, 388);
+            this.checkBeifahrer.Location = new System.Drawing.Point(116, 478);
+            this.checkBeifahrer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBeifahrer.Name = "checkBeifahrer";
-            this.checkBeifahrer.Size = new System.Drawing.Size(15, 14);
+            this.checkBeifahrer.Size = new System.Drawing.Size(18, 17);
             this.checkBeifahrer.TabIndex = 123;
             this.checkBeifahrer.UseVisualStyleBackColor = true;
             this.checkBeifahrer.CheckedChanged += new System.EventHandler(this.checkBeifahrer_CheckedChanged);
@@ -427,9 +466,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 388);
+            this.label2.Location = new System.Drawing.Point(8, 478);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 15);
+            this.label2.Size = new System.Drawing.Size(85, 18);
             this.label2.TabIndex = 122;
             this.label2.Text = "Beifahrer?";
             // 
@@ -437,9 +477,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 264);
+            this.label1.Location = new System.Drawing.Point(8, 325);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 15);
+            this.label1.Size = new System.Drawing.Size(78, 18);
             this.label1.TabIndex = 121;
             this.label1.Text = "Fahrzeug";
             // 
@@ -447,18 +488,20 @@
             // 
             this.textFahrzeug.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textFahrzeug.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textFahrzeug.Location = new System.Drawing.Point(6, 282);
+            this.textFahrzeug.Location = new System.Drawing.Point(8, 347);
+            this.textFahrzeug.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textFahrzeug.Name = "textFahrzeug";
-            this.textFahrzeug.Size = new System.Drawing.Size(148, 20);
+            this.textFahrzeug.Size = new System.Drawing.Size(196, 22);
             this.textFahrzeug.TabIndex = 120;
             // 
             // label27
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(6, 20);
+            this.label27.Location = new System.Drawing.Point(8, 25);
+            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(119, 15);
+            this.label27.Size = new System.Drawing.Size(137, 18);
             this.label27.TabIndex = 119;
             this.label27.Text = "Mitarbeiter Name";
             // 
@@ -466,27 +509,42 @@
             // 
             this.textSucheName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textSucheName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textSucheName.Location = new System.Drawing.Point(6, 38);
+            this.textSucheName.Location = new System.Drawing.Point(8, 47);
+            this.textSucheName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textSucheName.Name = "textSucheName";
-            this.textSucheName.Size = new System.Drawing.Size(148, 20);
+            this.textSucheName.Size = new System.Drawing.Size(196, 22);
             this.textSucheName.TabIndex = 59;
             // 
             // monthFahrtDatum
             // 
-            this.monthFahrtDatum.Location = new System.Drawing.Point(6, 93);
+            this.monthFahrtDatum.Location = new System.Drawing.Point(8, 114);
+            this.monthFahrtDatum.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
             this.monthFahrtDatum.Name = "monthFahrtDatum";
             this.monthFahrtDatum.ShowWeekNumbers = true;
             this.monthFahrtDatum.TabIndex = 0;
             // 
+            // Differenzlable
+            // 
+            this.Differenzlable.AutoSize = true;
+            this.Differenzlable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Differenzlable.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Differenzlable.Location = new System.Drawing.Point(440, 95);
+            this.Differenzlable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Differenzlable.Name = "Differenzlable";
+            this.Differenzlable.Size = new System.Drawing.Size(105, 18);
+            this.Differenzlable.TabIndex = 141;
+            this.Differenzlable.Text = "Differenz = 0";
+            // 
             // LEA_Kundenzahl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1268, 665);
+            this.ClientSize = new System.Drawing.Size(1691, 818);
             this.Controls.Add(this.textLog);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "LEA_Kundenzahl";
             this.Text = "LEA_Kundenzahl";
             this.groupBox4.ResumeLayout(false);
@@ -543,5 +601,6 @@
         private System.Windows.Forms.Button buttonTourLeeren;
         private System.Windows.Forms.Label labelHand;
         private System.Windows.Forms.NumericUpDown numericHandbeilagen;
+        private System.Windows.Forms.Label Differenzlable;
     }
 }

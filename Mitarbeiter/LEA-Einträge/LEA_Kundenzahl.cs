@@ -382,5 +382,27 @@ namespace Mitarbeiter
                 numericKMEnde.Enabled = true;
             }
         }
+
+        private void KmAnzeigeUpdate() {
+
+            int diff = Decimal.ToInt32(numericKMEnde.Value - numericKMAnfang.Value);
+
+            Differenzlable.Text = diff + " Fahrtstrecke";
+        }
+
+        private void numericPause_ValueChanged(object sender, EventArgs e)
+        {
+            KmAnzeigeUpdate();
+        }
+
+        private void numericKMEnde_ValueChanged(object sender, EventArgs e)
+        {
+            KmAnzeigeUpdate();
+        }
+
+        private void numericKMAnfang_ValueChanged(object sender, EventArgs e)
+        {
+            KmAnzeigeUpdate();
+        }
     }
 }
