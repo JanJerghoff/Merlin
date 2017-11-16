@@ -34,6 +34,13 @@ namespace Mitarbeiter
             textFahrzeug.AutoCompleteCustomSource = Program.getAutocompleteFahrzeug();
             textFahrzeug.AutoCompleteMode = AutoCompleteMode.Suggest;
 
+            //Nullen aus den Kilometern entfernen
+            numericKMAnfang.Text = "";
+            numericKMEnde.Text = "";
+            numericKundenStueck.Text = "";
+            numericHandbeilagen.Text = "";
+            numericPause.Text = "";
+
             leeren();
         }
 
@@ -54,6 +61,12 @@ namespace Mitarbeiter
             numericKMAnfang.Value = 0;
             textSucheName.Text = "";
             textFahrzeug.Text = "";
+
+            numericKMAnfang.Text = "";
+            numericKMEnde.Text = "";
+            numericKundenStueck.Text = "";
+            numericHandbeilagen.Text = "";
+            numericPause.Text = "";
         }
 
         int idBearbeitend;

@@ -84,8 +84,7 @@ namespace Mitarbeiter
 
             string befehl = "INSERT INTO Stundenkonto (SollMinuten, Monat, Mitarbeiter_IdMitarbeiter) VALUES (" + minuten*tage + ", '" + Program.DateMachine(Program.getMonat(monat)) + "', " + id + ");";
 
-            Program.absender(befehl,"Eintragen eines neuen Stundenkontos");
-            
+            Program.absender(befehl,"Eintragen eines neuen Stundenkontos");            
         }
         
         //Abfragen

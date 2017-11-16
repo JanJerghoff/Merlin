@@ -26,6 +26,11 @@ namespace Mitarbeiter
             textFahrzeug.AutoCompleteCustomSource = Program.getAutocompleteFahrzeug();
             textFahrzeug.AutoCompleteMode = AutoCompleteMode.Suggest;
 
+            // Numerics vorbereiten
+            numericKMAnfang.Text = "";
+            numericKMEnde.Text = "";
+            numericPause.Text = "";
+
             //Standarddaten setzen
             leeren();
         }
@@ -171,7 +176,11 @@ namespace Mitarbeiter
             numericUmzugsnummer.Enabled = true;
             numericUmzugsnummer.Value = 0 ;
             buttonSuchen.Enabled = true;
-           
+
+            // Numerics vorbereiten
+            numericKMAnfang.Text = "";
+            numericKMEnde.Text = "";
+            numericPause.Text = "";
         }
 
         private void buttonSenden_Click(object sender, EventArgs e)
@@ -263,7 +272,7 @@ namespace Mitarbeiter
                 insert += "'" + textBemerkung.Text + "', ";
                 insert += idBearbeitend + ", ";
                 insert += numericUmzugsnummer.Value + ", ";
-                insert += "1);";
+                insert += "8);";
 
             }
 
