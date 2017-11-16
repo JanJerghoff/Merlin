@@ -23,7 +23,8 @@ namespace Mitarbeiter.Objekte
         int Dauer;
         int StartKM;
         int EndKM;
-                
+
+        int Kunden;
         int Stückzahl;
         int Beilagen;
 
@@ -42,6 +43,7 @@ namespace Mitarbeiter.Objekte
         public int Dauer1 { get => Dauer; set => Dauer = value; }
         public int StartKM1 { get => StartKM; set => StartKM = value; }
         public int EndKM1 { get => EndKM; set => EndKM = value; }
+        public int Kunden1 { get => Kunden; set => Kunden = value; }
         public int Stückzahl1 { get => Stückzahl; set => Stückzahl = value; }
         public int Beilagen1 { get => Beilagen; set => Beilagen = value; }
         public string Bemerkung1 { get => Bemerkung; set => Bemerkung = value; }
@@ -84,7 +86,7 @@ namespace Mitarbeiter.Objekte
             }
         }
 
-        public Fahrt (int mitarbeiter, int tour, int fahrzeug, int umzug, DateTime start, DateTime ende, int pause, int dauer, int startKM, int endKM, int stückzahl, int beilagen, string bemerkung, string userChanged)
+        public Fahrt (int mitarbeiter, int tour, int fahrzeug, int umzug, DateTime start, DateTime ende, int pause, int dauer, int startKM, int endKM, int kunden, int stückzahl, int beilagen, string bemerkung, string userChanged)
         {
             Mitarbeiter = mitarbeiter;
             Tour = tour;
@@ -96,6 +98,7 @@ namespace Mitarbeiter.Objekte
             Dauer = dauer;
             StartKM = startKM;
             EndKM = endKM;
+            Kunden = kunden;
             Stückzahl = stückzahl;
             Beilagen = beilagen;
             Bemerkung = bemerkung;
@@ -104,10 +107,15 @@ namespace Mitarbeiter.Objekte
 
         // Update
 
-        // Delete
+
 
         // Methoden
 
+        public static void loeschen(int nr) {
 
+            string loe = "DELETE from Fahrt WHERE idFahrt = " + nr + ";";
+            Program.absender(loe,"Löschen der Fahrt mit der Nummer " + nr);
+
+        }
     }
 }

@@ -58,6 +58,15 @@ namespace Mitarbeiter.LEA_Einträge
                 numericKundenStueck.Value = obj.Stückzahl1;
                 
             }
+            if (obj.Kunden1 != 0)
+            {
+                numericKundenStueck.Value = obj.Kunden1;
+
+            }
+            if (obj.Beilagen1 != 0)
+            {
+                numericHandbeilagen.Value = obj.Beilagen1;
+            }
 
             switch (Program.getTourCode(obj.Tour1))
             {
@@ -80,8 +89,12 @@ namespace Mitarbeiter.LEA_Einträge
                 default:
                     break;
             }
+
+            textBemerkung.Text = obj.Bemerkung1;
+
         }
 
+        // TODO
         private void SchaltenUmzug()
         {
 

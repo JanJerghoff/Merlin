@@ -214,9 +214,9 @@ namespace Mitarbeiter
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Objekte.Fahrt x = new Objekte.Fahrt(5);
-            textStartLog.AppendText(x.Ende.ToLongDateString());
-            textStartLog.AppendText(x.Umzug1.ToString());
+            LEA_Einträge.LeaAenderung ae = new LEA_Einträge.LeaAenderung();
+            ae.fuellen(5);
+            ae.Show();
         }
     }
 }

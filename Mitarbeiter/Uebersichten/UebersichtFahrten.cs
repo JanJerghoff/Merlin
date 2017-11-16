@@ -71,5 +71,10 @@ namespace Mitarbeiter.Uebersichten
             }
 
         }
+
+        private void buttonLoeschen_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
