@@ -483,7 +483,7 @@ namespace Kartonagen
                 if (auszug.Laufmeter1.ToString() != "0")
                 {
                     fields.TryGetValue("TragwegA", out toSet);
-                    toSet.SetValue(auszug.Laufmeter1.ToString());
+                    toSet.SetValue(auszug.Laufmeter1.ToString()+ "Meter");
                 }
 
                 if (auszug.HVZ1 == 1)
@@ -491,11 +491,11 @@ namespace Kartonagen
                     fields.TryGetValue("HVZAJa", out toSet);
                     toSet.SetValue("X");
                 }
-                //if (radioHVZAV.Checked)
-                //{
-                //    fields.TryGetValue("HVZAVllt", out toSet);
-                //    toSet.SetValue("Yes");
-                //}
+                if (auszug.HVZ1 == 2)
+                {
+                    fields.TryGetValue("HVZAVllt", out toSet);
+                    toSet.SetValue("Yes");
+                }
                 if (auszug.HVZ1 == 0)
                 {
                     fields.TryGetValue("HVZANein", out toSet);
@@ -541,7 +541,7 @@ namespace Kartonagen
                 if (einzug.Laufmeter1.ToString() != "0")
                 {
                     fields.TryGetValue("TragwegB", out toSet);
-                    toSet.SetValue(einzug.Laufmeter1.ToString());
+                    toSet.SetValue(einzug.Laufmeter1.ToString()+ "Meter");
                 }
 
                 if (einzug.HVZ1 == 1)
@@ -549,11 +549,11 @@ namespace Kartonagen
                     fields.TryGetValue("HVZBJa", out toSet);
                     toSet.SetValue("X");
                 }
-                //if (radioHVZBV.Checked)
-                //{
-                //    fields.TryGetValue("HVZBVllt", out toSet);
-                //    toSet.SetValue("Yes");
-                //}
+                if (einzug.HVZ1 == 2)
+                {
+                    fields.TryGetValue("HVZBVllt", out toSet);
+                    toSet.SetValue("Yes");
+                }
                 if (einzug.HVZ1 == 0)
                 {
                     fields.TryGetValue("HVZBNein", out toSet);
@@ -590,11 +590,11 @@ namespace Kartonagen
                     fields.TryGetValue("EinJa", out toSet);
                     toSet.SetValue("X");
                 }
-                //if (radioEinpackenV.Checked)
-                //{
-                //    fields.TryGetValue("EinVllt", out toSet);
-                //    toSet.SetValue("Yes");
-                //}
+                if (Einpacken == 2)
+                {
+                    fields.TryGetValue("EinVllt", out toSet);
+                    toSet.SetValue("Yes");
+                }
                 if (Einpacken == 0)
                 {
                     fields.TryGetValue("EinNein", out toSet);
@@ -606,11 +606,11 @@ namespace Kartonagen
                     fields.TryGetValue("AusJa", out toSet);
                     toSet.SetValue("X");
                 }
-                //if (radioAuspackenV.Checked)
-                //{
-                //    fields.TryGetValue("AusVllt", out toSet);
-                //    toSet.SetValue("Yes");
-                //}
+                if (Auspacken == 2)
+                {
+                    fields.TryGetValue("AusVllt", out toSet);
+                    toSet.SetValue("Yes");
+                }
                 if (Auspacken == 0)
                 {
                     fields.TryGetValue("AusNein", out toSet);
@@ -672,12 +672,12 @@ namespace Kartonagen
                     fields.TryGetValue("KuecheAufNein", out toSet);
                     toSet.SetValue("X");
                 }
-                //
-                //if (radioKuecheExtern.Checked)
-                //{
-                //    fields.TryGetValue("KuecheExtern", out toSet);
-                //    toSet.SetValue("Yes");
-                //}
+
+                if (KuecheBau == 0)
+                {
+                    fields.TryGetValue("KuecheExtern", out toSet);
+                    toSet.SetValue("Yes");
+                }
                 if (KuecheBau == 1)
                 {
                     fields.TryGetValue("KuecheIntern", out toSet);
