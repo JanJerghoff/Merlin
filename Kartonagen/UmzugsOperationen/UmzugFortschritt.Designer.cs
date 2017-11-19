@@ -138,6 +138,15 @@
             this.buttonMailBuch = new System.Windows.Forms.Button();
             this.textMailBuch = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
+            this.buttonPackerin = new System.Windows.Forms.Button();
+            this.datePackerin = new System.Windows.Forms.DateTimePicker();
+            this.textPackerin = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.buttonVersicherungAb = new System.Windows.Forms.Button();
+            this.dateVersicherungAb = new System.Windows.Forms.DateTimePicker();
+            this.textVersicherungAb = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.buttonScapegoat = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -210,8 +219,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.buttonVersicherungAb);
+            this.groupBox2.Controls.Add(this.dateVersicherungAb);
             this.groupBox2.Controls.Add(this.buttonUmzugEingtragen);
+            this.groupBox2.Controls.Add(this.textVersicherungAb);
             this.groupBox2.Controls.Add(this.buttonHVZ);
+            this.groupBox2.Controls.Add(this.label32);
             this.groupBox2.Controls.Add(this.buttonBestaetigung);
             this.groupBox2.Controls.Add(this.dateHVZ);
             this.groupBox2.Controls.Add(this.dateBestaetigung);
@@ -224,7 +237,7 @@
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(757, 409);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(741, 120);
+            this.groupBox2.Size = new System.Drawing.Size(741, 179);
             this.groupBox2.TabIndex = 105;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Umzug";
@@ -540,6 +553,10 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.buttonPackerin);
+            this.groupBox4.Controls.Add(this.datePackerin);
+            this.groupBox4.Controls.Add(this.textPackerin);
+            this.groupBox4.Controls.Add(this.label31);
             this.groupBox4.Controls.Add(this.dateMailBuch);
             this.groupBox4.Controls.Add(this.buttonMailBuch);
             this.groupBox4.Controls.Add(this.textMailBuch);
@@ -614,9 +631,9 @@
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.Location = new System.Drawing.Point(11, 236);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(161, 30);
+            this.label26.Size = new System.Drawing.Size(163, 15);
             this.label26.TabIndex = 140;
-            this.label26.Text = "Umzugsgutversicherung\r\nabgeschlossen";
+            this.label26.Text = "Versicherung Wunderlist";
             // 
             // buttonKueche
             // 
@@ -1326,12 +1343,100 @@
             this.label30.TabIndex = 144;
             this.label30.Text = "Buchung per Mail";
             // 
+            // buttonPackerin
+            // 
+            this.buttonPackerin.Enabled = false;
+            this.buttonPackerin.Location = new System.Drawing.Point(184, 262);
+            this.buttonPackerin.Name = "buttonPackerin";
+            this.buttonPackerin.Size = new System.Drawing.Size(140, 23);
+            this.buttonPackerin.TabIndex = 151;
+            this.buttonPackerin.Text = "Bestätigen";
+            this.buttonPackerin.UseVisualStyleBackColor = true;
+            // 
+            // datePackerin
+            // 
+            this.datePackerin.Enabled = false;
+            this.datePackerin.Location = new System.Drawing.Point(496, 267);
+            this.datePackerin.Name = "datePackerin";
+            this.datePackerin.Size = new System.Drawing.Size(200, 20);
+            this.datePackerin.TabIndex = 150;
+            this.datePackerin.Value = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
+            // 
+            // textPackerin
+            // 
+            this.textPackerin.Location = new System.Drawing.Point(330, 267);
+            this.textPackerin.Name = "textPackerin";
+            this.textPackerin.ReadOnly = true;
+            this.textPackerin.Size = new System.Drawing.Size(160, 20);
+            this.textPackerin.TabIndex = 149;
+            this.textPackerin.TabStop = false;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(11, 265);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(129, 15);
+            this.label31.TabIndex = 148;
+            this.label31.Text = "Packerin informiert";
+            // 
+            // buttonVersicherungAb
+            // 
+            this.buttonVersicherungAb.Enabled = false;
+            this.buttonVersicherungAb.Location = new System.Drawing.Point(184, 110);
+            this.buttonVersicherungAb.Name = "buttonVersicherungAb";
+            this.buttonVersicherungAb.Size = new System.Drawing.Size(140, 23);
+            this.buttonVersicherungAb.TabIndex = 155;
+            this.buttonVersicherungAb.Text = "Bestätigen";
+            this.buttonVersicherungAb.UseVisualStyleBackColor = true;
+            // 
+            // dateVersicherungAb
+            // 
+            this.dateVersicherungAb.Enabled = false;
+            this.dateVersicherungAb.Location = new System.Drawing.Point(496, 115);
+            this.dateVersicherungAb.Name = "dateVersicherungAb";
+            this.dateVersicherungAb.Size = new System.Drawing.Size(200, 20);
+            this.dateVersicherungAb.TabIndex = 154;
+            this.dateVersicherungAb.Value = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
+            // 
+            // textVersicherungAb
+            // 
+            this.textVersicherungAb.Location = new System.Drawing.Point(330, 115);
+            this.textVersicherungAb.Name = "textVersicherungAb";
+            this.textVersicherungAb.ReadOnly = true;
+            this.textVersicherungAb.Size = new System.Drawing.Size(160, 20);
+            this.textVersicherungAb.TabIndex = 153;
+            this.textVersicherungAb.TabStop = false;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(11, 113);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(161, 30);
+            this.label32.TabIndex = 152;
+            this.label32.Text = "Umzugsgutversicherung\r\nabgeschlossen";
+            // 
+            // buttonScapegoat
+            // 
+            this.buttonScapegoat.Enabled = false;
+            this.buttonScapegoat.Location = new System.Drawing.Point(757, 594);
+            this.buttonScapegoat.Name = "buttonScapegoat";
+            this.buttonScapegoat.Size = new System.Drawing.Size(68, 26);
+            this.buttonScapegoat.TabIndex = 135;
+            this.buttonScapegoat.Text = "Umzug abschließen";
+            this.buttonScapegoat.UseVisualStyleBackColor = true;
+            this.buttonScapegoat.Visible = false;
+            // 
             // UmzugFortschritt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1883, 1061);
+            this.Controls.Add(this.buttonScapegoat);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.textSchließer);
@@ -1484,5 +1589,14 @@
         private System.Windows.Forms.Button buttonMailBuch;
         private System.Windows.Forms.TextBox textMailBuch;
         private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Button buttonVersicherungAb;
+        private System.Windows.Forms.DateTimePicker dateVersicherungAb;
+        private System.Windows.Forms.TextBox textVersicherungAb;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Button buttonPackerin;
+        private System.Windows.Forms.DateTimePicker datePackerin;
+        private System.Windows.Forms.TextBox textPackerin;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Button buttonScapegoat;
     }
 }

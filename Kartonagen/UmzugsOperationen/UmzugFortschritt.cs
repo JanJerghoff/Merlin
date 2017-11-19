@@ -21,6 +21,10 @@ namespace Kartonagen
         String[] arbeiter1;
         Decimal[] loehne1;
 
+        List<int> nummern = new List<int>();    //Liste der Mitarbeiter in Reihenfolge der DB
+        List<DateTime> daten = new List<DateTime>(); //Liste der Daten in der selben Reihenfolge
+        DateTime dummy = new DateTime(2016, 1, 1);
+
         // Einzugsadresse für Umzugs-Abschluss und Ersetzung
 
         int IDKunde;
@@ -48,13 +52,10 @@ namespace Kartonagen
             reset();
 
             umzObj = new Umzug(umzNr);
-
-            MySqlCommand cmdRead = new MySqlCommand("SELECT * FROM Umzuege WHERE idUmzuege = '" + umzNr + "';", Program.conn);
-            MySqlDataReader rdr;
-
+            
             textUmzNummerBlock.Text = umzObj.Id.ToString();
             Umzugsnummer = umzObj.Id;
-            textKundennummer.Text = umzObj.IdKunden.ToString();                     //Impliziter Cast weil Typ des SQL-Attributs bekannt
+            textKundennummer.Text = umzObj.IdKunden.ToString();                     
             dateBesicht.Value = umzObj.DatBesichtigung;
             dateUmzug.Value = umzObj.DatUmzug;
             //
@@ -98,138 +99,31 @@ namespace Kartonagen
                 rdrF = cmdFort.ExecuteReader();
                 while (rdrF.Read())
                 {
-                    //Besichtigung, passiv!
-                    if (rdrF.GetInt32(1) != 8) {
-                        textBesichtigung.AppendText(getName(rdrF.GetInt32(1)));
-                        dateBesichtigung.Value = rdrF.GetDateTime(2);
-                    }
-                    //KVA Mail-> Post
-                    if (rdrF.GetInt32(3) != 8)
+                    for (int i = 0; i < 19; i++)        //Schleife über alle Int-Datetime-Paare
                     {
-                        textKVAMail.AppendText(getName(rdrF.GetInt32(3)));
-                        dateKVAMail.Value = rdrF.GetDateTime(4);
-                        buttonKVAMail.Enabled = false;
-                    }
+                        int temp = rdrF.GetInt32(i*2 + 2);        //Versetzt um 2 weil DB mit ID´s auf 0 und 1 anfängt
+                        nummern.Add(temp);
 
-                    if (rdrF.GetInt32(5) != 8)
-                    {
-                        textKVAPost.AppendText(getName(rdrF.GetInt32(5)));
-                        dateKVAPost.Value = rdrF.GetDateTime(6);
-                        buttonKVAPost.Enabled = false;
-                    }
-
-                    if (rdrF.GetInt32(23) != 8)
-                    {
-                        textKorrektur.AppendText(getName(rdrF.GetInt32(23)));
-                        dateKorrektur.Value = rdrF.GetDateTime(24);
-                        buttonKorrektur.Enabled = false;
-                    }
-                    // Buchungen
-
-                    if (rdrF.GetInt32(7) != 8)
-                    {
-                        textTelBuch.AppendText(getName(rdrF.GetInt32(7)));
-                        dateTelBuch.Value = rdrF.GetDateTime(8);
-                        buttonTelBuch.Enabled = false;
-                    }
-
-                    if (rdrF.GetInt32(31) != 8)
-                    {
-                        textErinnerung.AppendText(getName(rdrF.GetInt32(31)));
-                        dateErinnerung.Value = rdrF.GetDateTime(32);
-                        buttonErinnerung.Enabled = false;                      
-
-                    }
-
-                    if (rdrF.GetInt32(9) != 8)
-                    {
-                        textSchriftBuch.AppendText(getName(rdrF.GetInt32(9)));
-                        dateSchriftBuch.Value = rdrF.GetDateTime(10);
-                        buttonTextBuch.Enabled = false;
-                    }
-
-                    // Buchung
-
-                    if (rdrF.GetInt32(11) != 8) //passiv! Später!
-                    {
-                        textUmzugEintrag.AppendText(getName(rdrF.GetInt32(11)));
-                        dateUmzugEintrag.Value = rdrF.GetDateTime(12);
-
-                        buttonUmzugEingtragen.Enabled = false;
-                    }
-                    // Buchungsbestätigung
-                    if (rdrF.GetInt32(13) != 8)
-                    {
-                        textBestaetigung.AppendText(getName(rdrF.GetInt32(13)));
-                        dateBestaetigung.Value = rdrF.GetDateTime(14);
-                        buttonBestaetigung.Enabled = false;
-                    }
-                    // LKW
-                    if (rdrF.GetInt32(15) != 8)
-                    {
-                        textLKW.AppendText(getName(rdrF.GetInt32(15)));
-                        dateLKW.Value = rdrF.GetDateTime(16);
-                        buttonLKW.Enabled = false;
-                    }
-                    // HVZ Wunder -> Antrag
-                    if (rdrF.GetInt32(17) != 8)
-                    {
-                        textHVZWunder.AppendText(getName(rdrF.GetInt32(17)));
-                        dateHVZWunder.Value = rdrF.GetDateTime(18);
-                        buttonHVZWunder.Enabled = false;
-                    }
-
-                    if (rdrF.GetInt32(19) != 8)
-                    {
-                        textHVZ.AppendText(getName(rdrF.GetInt32(19)));
-                        dateHVZ.Value = rdrF.GetDateTime(20);
-                        buttonHVZ.Enabled = false;
-                    }
-                    // Kueche
-                    if (rdrF.GetInt32(21) != 8)
-                    {
-                        textKueche.AppendText(getName(rdrF.GetInt32(21)));
-                        dateKueche.Value = rdrF.GetDateTime(22);
-                        buttonKueche.Enabled = false;
-                    }
-
-                    // Schadensmeldung
-                    if (rdrF.GetInt32(34) != 8)
-                    {
-                        textSchaden.AppendText(getName(rdrF.GetInt32(34)));
-                        dateSchaden.Value = rdrF.GetDateTime(35);
-                        buttonSchaden.Enabled = false;
-                    }
-
-                    // Rechnung
-                    if (rdrF.GetInt32(36) != 8)
-                    {
-                        textRechnung.AppendText(getName(rdrF.GetInt32(36)));
-                        dateRechnung.Value = rdrF.GetDateTime(37);
-                        buttonRechnung.Enabled = false;
-                    }
-
-                    // Versicherung
-                    if (rdrF.GetInt32(38) != 8)
-                    {
-                        textVersicherung.AppendText(getName(rdrF.GetInt32(38)));
-                        dateVersicherung.Value = rdrF.GetDateTime(39);
-                        buttonVersicherung.Enabled = false;
-                    }
+                        if (temp != 8)                  // Immer genau ein Datum add, entweder Dummy oder Korrekt
+                        {
+                            daten.Add(rdrF.GetDateTime(i*2 + 3));
+                        }
+                        else
+                        {
+                            daten.Add(dummy);
+                        }
+                    }                   
 
                     if (umzObj.Versicherung == 0)
                     {
                         buttonVersicherung.Enabled = false;
                     }
-                    textNote.Text = rdrF[25].ToString();
-                    //numericSchaden.Value = rdrF.GetDecimal(27);
-                    //numericHVZKosten.Value = rdrF.GetDecimal(28);
-                    //numericSonderkosten.Value = rdrF.GetDecimal(29);
-                    //numericSumme.Value = rdrF.GetDecimal(30);
-                    
 
+                    //Bemerkung
+                    textNote.Text = rdrF[40].ToString();
+                    
                     // Schon geschlossen?
-                    if (rdrF.GetInt32(33) != 8)
+                    if (rdrF.GetInt32(41) != 8)
                     {
                         buttonKVAMail.Enabled = false;
                         buttonKVAPost.Enabled = false;
@@ -253,6 +147,29 @@ namespace Kartonagen
                         textSchließer.Text = getName(rdrF.GetInt32(33));
                     }
                     else { textSchließer.Text = ""; }
+
+                    //Check aller Stati, sonderfall
+
+                    checkStatus(0,textBesichtigung,dateBesichtigung,buttonScapegoat);
+                    checkStatus(1, textKVAMail, dateKVAMail, buttonKVAMail);
+                    checkStatus(2, textKVAPost, dateKVAPost, buttonKVAPost);
+                    checkStatus(3, textTelBuch, dateTelBuch, buttonTelBuch);
+                    checkStatus(4, textMailBuch, dateMailBuch, buttonMailBuch);
+                    checkStatus(5, textSchriftBuch, dateSchriftBuch, buttonTextBuch);
+                    checkStatus(6, textVersicherung, dateVersicherung, buttonVersicherung);
+                    checkStatus(7, textPackerin, datePackerin, buttonPackerin);
+                    checkStatus(8, textUmzugEintrag, dateUmzugEintrag, buttonUmzugEingtragen);
+                    checkStatus(9, textBesichtigung, dateBesichtigung, buttonScapegoat);
+                    checkStatus(10, textBesichtigung, dateBesichtigung, buttonScapegoat);
+                    checkStatus(11, textBesichtigung, dateBesichtigung, buttonScapegoat);
+                    checkStatus(12, textBesichtigung, dateBesichtigung, buttonScapegoat);
+                    checkStatus(13, textBesichtigung, dateBesichtigung, buttonScapegoat);
+                    checkStatus(14, textBesichtigung, dateBesichtigung, buttonScapegoat);
+                    checkStatus(15, textBesichtigung, dateBesichtigung, buttonScapegoat);
+                    checkStatus(16, textBesichtigung, dateBesichtigung, buttonScapegoat);
+                    checkStatus(17, textBesichtigung, dateBesichtigung, buttonScapegoat);
+                    checkStatus(18, textBesichtigung, dateBesichtigung, buttonScapegoat);
+
                 }
                 rdrF.Close();
             }
@@ -260,6 +177,17 @@ namespace Kartonagen
                 Program.FehlerLog(exc.ToString(),"Abrufen der Fortschrittsdaten aus der DB zum Füllen");
             }
         }
+
+        private void checkStatus(int Stelle, TextBox name, DateTimePicker datum, Button butt) {
+
+            if (nummern[Stelle] != 8)
+            {
+                name.AppendText(getName(nummern[Stelle]));
+                datum.Value = daten[Stelle].Date;
+                butt.Enabled = false;
+            }
+        }
+
 
         private String getName(int ID) {
 
