@@ -244,7 +244,6 @@
             // 
             // buttonUmzugEingtragen
             // 
-            this.buttonUmzugEingtragen.Enabled = false;
             this.buttonUmzugEingtragen.Location = new System.Drawing.Point(184, 20);
             this.buttonUmzugEingtragen.Name = "buttonUmzugEingtragen";
             this.buttonUmzugEingtragen.Size = new System.Drawing.Size(140, 23);
@@ -255,7 +254,6 @@
             // 
             // buttonHVZ
             // 
-            this.buttonHVZ.Enabled = false;
             this.buttonHVZ.Location = new System.Drawing.Point(184, 81);
             this.buttonHVZ.Name = "buttonHVZ";
             this.buttonHVZ.Size = new System.Drawing.Size(140, 23);
@@ -266,7 +264,6 @@
             // 
             // buttonBestaetigung
             // 
-            this.buttonBestaetigung.Enabled = false;
             this.buttonBestaetigung.Location = new System.Drawing.Point(184, 52);
             this.buttonBestaetigung.Name = "buttonBestaetigung";
             this.buttonBestaetigung.Size = new System.Drawing.Size(140, 23);
@@ -598,7 +595,6 @@
             // 
             // buttonVersicherung
             // 
-            this.buttonVersicherung.Enabled = false;
             this.buttonVersicherung.Location = new System.Drawing.Point(184, 233);
             this.buttonVersicherung.Name = "buttonVersicherung";
             this.buttonVersicherung.Size = new System.Drawing.Size(140, 23);
@@ -637,7 +633,6 @@
             // 
             // buttonKueche
             // 
-            this.buttonKueche.Enabled = false;
             this.buttonKueche.Location = new System.Drawing.Point(184, 174);
             this.buttonKueche.Name = "buttonKueche";
             this.buttonKueche.Size = new System.Drawing.Size(140, 23);
@@ -676,7 +671,6 @@
             // 
             // buttonHVZWunder
             // 
-            this.buttonHVZWunder.Enabled = false;
             this.buttonHVZWunder.Location = new System.Drawing.Point(184, 145);
             this.buttonHVZWunder.Name = "buttonHVZWunder";
             this.buttonHVZWunder.Size = new System.Drawing.Size(140, 23);
@@ -715,7 +709,6 @@
             // 
             // buttonLKW
             // 
-            this.buttonLKW.Enabled = false;
             this.buttonLKW.Location = new System.Drawing.Point(184, 116);
             this.buttonLKW.Name = "buttonLKW";
             this.buttonLKW.Size = new System.Drawing.Size(140, 23);
@@ -754,7 +747,6 @@
             // 
             // buttonErinnerung
             // 
-            this.buttonErinnerung.Enabled = false;
             this.buttonErinnerung.Location = new System.Drawing.Point(226, 87);
             this.buttonErinnerung.Name = "buttonErinnerung";
             this.buttonErinnerung.Size = new System.Drawing.Size(98, 23);
@@ -793,7 +785,6 @@
             // 
             // buttonTextBuch
             // 
-            this.buttonTextBuch.Enabled = false;
             this.buttonTextBuch.Location = new System.Drawing.Point(184, 204);
             this.buttonTextBuch.Name = "buttonTextBuch";
             this.buttonTextBuch.Size = new System.Drawing.Size(140, 23);
@@ -822,7 +813,6 @@
             // 
             // buttonTelBuch
             // 
-            this.buttonTelBuch.Enabled = false;
             this.buttonTelBuch.Location = new System.Drawing.Point(184, 29);
             this.buttonTelBuch.Name = "buttonTelBuch";
             this.buttonTelBuch.Size = new System.Drawing.Size(140, 23);
@@ -1229,7 +1219,6 @@
             // 
             // buttonSchaden
             // 
-            this.buttonSchaden.Enabled = false;
             this.buttonSchaden.Location = new System.Drawing.Point(184, 29);
             this.buttonSchaden.Name = "buttonSchaden";
             this.buttonSchaden.Size = new System.Drawing.Size(140, 23);
@@ -1268,7 +1257,6 @@
             // 
             // buttonRechnung
             // 
-            this.buttonRechnung.Enabled = false;
             this.buttonRechnung.Location = new System.Drawing.Point(184, 58);
             this.buttonRechnung.Name = "buttonRechnung";
             this.buttonRechnung.Size = new System.Drawing.Size(140, 23);
@@ -1316,13 +1304,13 @@
             // 
             // buttonMailBuch
             // 
-            this.buttonMailBuch.Enabled = false;
             this.buttonMailBuch.Location = new System.Drawing.Point(184, 58);
             this.buttonMailBuch.Name = "buttonMailBuch";
             this.buttonMailBuch.Size = new System.Drawing.Size(140, 23);
             this.buttonMailBuch.TabIndex = 147;
             this.buttonMailBuch.Text = "Bestätigen";
             this.buttonMailBuch.UseVisualStyleBackColor = true;
+            this.buttonMailBuch.Click += new System.EventHandler(this.buttonMailBuch_Click);
             // 
             // textMailBuch
             // 
@@ -1345,13 +1333,13 @@
             // 
             // buttonPackerin
             // 
-            this.buttonPackerin.Enabled = false;
             this.buttonPackerin.Location = new System.Drawing.Point(184, 262);
             this.buttonPackerin.Name = "buttonPackerin";
             this.buttonPackerin.Size = new System.Drawing.Size(140, 23);
             this.buttonPackerin.TabIndex = 151;
             this.buttonPackerin.Text = "Bestätigen";
             this.buttonPackerin.UseVisualStyleBackColor = true;
+            this.buttonPackerin.Click += new System.EventHandler(this.buttonPackerin_Click);
             // 
             // datePackerin
             // 
@@ -1383,13 +1371,13 @@
             // 
             // buttonVersicherungAb
             // 
-            this.buttonVersicherungAb.Enabled = false;
             this.buttonVersicherungAb.Location = new System.Drawing.Point(184, 110);
             this.buttonVersicherungAb.Name = "buttonVersicherungAb";
             this.buttonVersicherungAb.Size = new System.Drawing.Size(140, 23);
             this.buttonVersicherungAb.TabIndex = 155;
             this.buttonVersicherungAb.Text = "Bestätigen";
             this.buttonVersicherungAb.UseVisualStyleBackColor = true;
+            this.buttonVersicherungAb.Click += new System.EventHandler(this.buttonVersicherungAb_Click);
             // 
             // dateVersicherungAb
             // 

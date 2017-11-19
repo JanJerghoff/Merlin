@@ -51,13 +51,16 @@ namespace Kartonagen
         {
             reset();
 
+            nummern = new List<int>();
+            daten = new List<DateTime>();
+
             umzObj = new Umzug(umzNr);
             
             textUmzNummerBlock.Text = umzObj.Id.ToString();
             Umzugsnummer = umzObj.Id;
             textKundennummer.Text = umzObj.IdKunden.ToString();                     
             dateBesicht.Value = umzObj.DatBesichtigung;
-            dateUmzug.Value = umzObj.DatUmzug;
+            dateUmzug.Value = umzObj.DatUmzug.Date;
             //
             textAuszug.Text = umzObj.auszug.Straße1;
             textAuszug.Text += " " + umzObj.auszug.Hausnummer1;
@@ -123,52 +126,30 @@ namespace Kartonagen
                     textNote.Text = rdrF[40].ToString();
                     
                     // Schon geschlossen?
-                    if (rdrF.GetInt32(41) != 8)
+                    if (rdrF[41].ToString() != "8")
                     {
-                        buttonKVAMail.Enabled = false;
-                        buttonKVAPost.Enabled = false;
-                        buttonKueche.Enabled = false;
-                        buttonBestaetigung.Enabled = false;
-                        buttonHVZWunder.Enabled = false;
-                        buttonHVZ.Enabled = false;
-                        buttonLKW.Enabled = false;
-                        buttonTelBuch.Enabled = false;
-                        buttonTextBuch.Enabled = false; // TextBuch <=> SchriftBuch
-                        buttonErinnerung.Enabled = false;
-                        buttonKorrektur.Enabled = false;
-                        buttonUmzugEingtragen.Enabled = false;
-                        buttonSchaden.Enabled = false;
-                        buttonRechnung.Enabled = false;
-                        buttonVersicherung.Enabled = false;
+                        //buttonKVAMail.Enabled = false;
+                        //buttonKVAPost.Enabled = false;
+                        //buttonKueche.Enabled = false;
+                        //buttonBestaetigung.Enabled = false;
+                        //buttonHVZWunder.Enabled = false;
+                        //buttonHVZ.Enabled = false;
+                        //buttonLKW.Enabled = false;
+                        //buttonTelBuch.Enabled = false;
+                        //buttonTextBuch.Enabled = false; // TextBuch <=> SchriftBuch
+                        //buttonErinnerung.Enabled = false;
+                        //buttonKorrektur.Enabled = false;
+                        //buttonUmzugEingtragen.Enabled = false;
+                        //buttonSchaden.Enabled = false;
+                        //buttonRechnung.Enabled = false;
+                        //buttonVersicherung.Enabled = false;
 
-                        //
-                        buttonAbschluss.Enabled = false;
+                        ////
+                        //buttonAbschluss.Enabled = false;
 
-                        textSchließer.Text = getName(rdrF.GetInt32(33));
+                        //textSchließer.Text = getName(rdrF.GetInt32(41));
                     }
                     else { textSchließer.Text = ""; }
-
-                    //Check aller Stati, sonderfall
-
-                    checkStatus(0,textBesichtigung,dateBesichtigung,buttonScapegoat);
-                    checkStatus(1, textKVAMail, dateKVAMail, buttonKVAMail);
-                    checkStatus(2, textKVAPost, dateKVAPost, buttonKVAPost);
-                    checkStatus(3, textTelBuch, dateTelBuch, buttonTelBuch);
-                    checkStatus(4, textMailBuch, dateMailBuch, buttonMailBuch);
-                    checkStatus(5, textSchriftBuch, dateSchriftBuch, buttonTextBuch);
-                    checkStatus(6, textVersicherung, dateVersicherung, buttonVersicherung);
-                    checkStatus(7, textPackerin, datePackerin, buttonPackerin);
-                    checkStatus(8, textUmzugEintrag, dateUmzugEintrag, buttonUmzugEingtragen);
-                    checkStatus(9, textBesichtigung, dateBesichtigung, buttonScapegoat);
-                    checkStatus(10, textBesichtigung, dateBesichtigung, buttonScapegoat);
-                    checkStatus(11, textBesichtigung, dateBesichtigung, buttonScapegoat);
-                    checkStatus(12, textBesichtigung, dateBesichtigung, buttonScapegoat);
-                    checkStatus(13, textBesichtigung, dateBesichtigung, buttonScapegoat);
-                    checkStatus(14, textBesichtigung, dateBesichtigung, buttonScapegoat);
-                    checkStatus(15, textBesichtigung, dateBesichtigung, buttonScapegoat);
-                    checkStatus(16, textBesichtigung, dateBesichtigung, buttonScapegoat);
-                    checkStatus(17, textBesichtigung, dateBesichtigung, buttonScapegoat);
-                    checkStatus(18, textBesichtigung, dateBesichtigung, buttonScapegoat);
 
                 }
                 rdrF.Close();
@@ -176,6 +157,29 @@ namespace Kartonagen
             catch (Exception exc) {
                 Program.FehlerLog(exc.ToString(),"Abrufen der Fortschrittsdaten aus der DB zum Füllen");
             }
+
+
+            //Check aller Stati
+
+            checkStatus(0, textBesichtigung, dateBesichtigung, buttonScapegoat);
+            checkStatus(1, textKVAMail, dateKVAMail, buttonKVAMail);
+            checkStatus(2, textKVAPost, dateKVAPost, buttonKVAPost);
+            checkStatus(3, textTelBuch, dateTelBuch, buttonTelBuch);
+            checkStatus(4, textMailBuch, dateMailBuch, buttonMailBuch);
+            checkStatus(5, textSchriftBuch, dateSchriftBuch, buttonTextBuch);
+            checkStatus(6, textVersicherung, dateVersicherung, buttonVersicherung);
+            checkStatus(7, textPackerin, datePackerin, buttonPackerin);
+            checkStatus(8, textUmzugEintrag, dateUmzugEintrag, buttonUmzugEingtragen);
+            checkStatus(9, textBestaetigung, dateBestaetigung, buttonBestaetigung);
+            checkStatus(10, textLKW, dateLKW, buttonLKW);
+            checkStatus(11, textHVZWunder, dateHVZWunder, buttonHVZWunder);
+            checkStatus(12, textHVZ, dateHVZ, buttonHVZ);
+            checkStatus(13, textKueche, dateKueche, buttonKueche);
+            checkStatus(14, textKorrektur, dateKorrektur, buttonKorrektur);
+            checkStatus(15, textErinnerung, dateErinnerung, buttonErinnerung);
+            checkStatus(16, textSchaden, dateSchaden, buttonSchaden);
+            checkStatus(17, textRechnung, dateRechnung, buttonRechnung);
+            checkStatus(18, textVersicherungAb, dateVersicherungAb, buttonVersicherungAb);
         }
 
         private void checkStatus(int Stelle, TextBox name, DateTimePicker datum, Button butt) {
@@ -205,6 +209,9 @@ namespace Kartonagen
                 case 3:
                     return "Jan";
 
+                case 4:
+                    return "Nora";
+
                 default:
                     return "Fehler!";
             }
@@ -228,24 +235,9 @@ namespace Kartonagen
             textSchaden.ResetText();
             textRechnung.ResetText();
             textVersicherung.ResetText();
-
-            buttonKVAMail.Enabled = true;
-            buttonKVAPost.Enabled = true;
-            buttonKueche.Enabled = true;
-            buttonBestaetigung.Enabled = true;
-            buttonHVZWunder.Enabled = true;
-            buttonHVZ.Enabled = true;
-            buttonLKW.Enabled = true;
-            buttonTelBuch.Enabled = true;
-            buttonTextBuch.Enabled = true; // TextBuch <=> SchriftBuch
-            buttonErinnerung.Enabled = true;
-            buttonSchaden.Enabled = true;
-            buttonRechnung.Enabled = true;
-            buttonVersicherung.Enabled = true;
-
-            //Testfall
-            buttonKorrektur.Enabled = true;
-            buttonUmzugEingtragen.Enabled = true;
+            textVersicherungAb.ResetText();
+            textPackerin.ResetText();
+            textMailBuch.ResetText();
 
         }
 
@@ -373,6 +365,27 @@ namespace Kartonagen
 
         private void buttonVersicherung_Click(object sender, EventArgs e)
         {
+            String k = "UPDATE Umzugsfortschritt SET VersicherungWunder = " + idBearbeitend + ", datVersicherungWunder = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
+            push(k);
+            fuellen(Umzugsnummer);
+        }
+
+        private void buttonMailBuch_Click(object sender, EventArgs e)
+        {
+            String k = "UPDATE Umzugsfortschritt SET BuchungMail = " + idBearbeitend + ", datBuchungMail = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
+            push(k);
+            fuellen(Umzugsnummer);
+        }
+
+        private void buttonPackerin_Click(object sender, EventArgs e)
+        {
+            String k = "UPDATE Umzugsfortschritt SET Packerin = " + idBearbeitend + ", datPackerin = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
+            push(k);
+            fuellen(Umzugsnummer);
+        }
+
+        private void buttonVersicherungAb_Click(object sender, EventArgs e)
+        {
             String k = "UPDATE Umzugsfortschritt SET Versicherung = " + idBearbeitend + ", datVersicherung = '" + Program.DateMachine(DateTime.Now.Date) + "' WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
             push(k);
             fuellen(Umzugsnummer);
@@ -395,6 +408,8 @@ namespace Kartonagen
 
             fuellen(Umzugsnummer);
         }
+
+
 
 
 
