@@ -607,60 +607,6 @@ namespace Kartonagen
             return "Speichern nach Google erfolgreich!";
         }
 
-        // Datum von Standard auf aktuell setzen, wenn "Festgelegt" geklickt wird.
-
-        private void radioBesJa_CheckedChanged(object sender, EventArgs e)
-        {
-            dateBesicht.Value = DateTime.Now;
-        }
-
-        private void radioUmzJa_CheckedChanged(object sender, EventArgs e)
-        {
-            dateUmzug.Value = DateTime.Now;
-        }
-
-        private void radioEntJa_CheckedChanged(object sender, EventArgs e)
-        {
-            dateEntruempel.Value = DateTime.Now;
-        }
-
-        private void radioEinJa_CheckedChanged(object sender, EventArgs e)
-        {
-            dateEinpack.Value = DateTime.Now;
-        }
-
-        private void radioAusJa_CheckedChanged(object sender, EventArgs e)
-        {
-            dateAuspack.Value = DateTime.Now;
-        }
-
-        // Daten wieder auf Standard Zurücksetzen, wenn abgewählt
-
-        private void radioBesNein_CheckedChanged(object sender, EventArgs e)
-        {
-            dateBesicht.Value = new DateTime(2017, 1, 1);
-        }
-
-        private void radioUmzNein_CheckedChanged(object sender, EventArgs e)
-        {
-            dateUmzug.Value = new DateTime(2017, 1, 1);
-        }
-
-        private void radioEntNein_CheckedChanged(object sender, EventArgs e)
-        {
-            dateEntruempel.Value = new DateTime(2017, 1, 1);
-        }
-
-        private void radioEinNein_CheckedChanged(object sender, EventArgs e)
-        {
-            dateEinpack.Value = new DateTime(2017, 1, 1);
-        }
-
-        private void radioAusNein_CheckedChanged(object sender, EventArgs e)
-        {
-            dateAuspack.Value = new DateTime(2017, 1, 1);
-        }
-
         private void buttonDruck_Click(object sender, EventArgs e)
         {
             PdfDocument pdf = new PdfDocument(new PdfReader(System.IO.Path.Combine(Environment.CurrentDirectory, "Besichtigungs Vordruck.pdf")), new PdfWriter(Program.druckPfad));

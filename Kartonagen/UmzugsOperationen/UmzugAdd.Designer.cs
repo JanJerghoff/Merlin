@@ -1641,7 +1641,6 @@
             this.radioAusNein.TabIndex = 12;
             this.radioAusNein.Text = "Nicht Festgelegt";
             this.radioAusNein.UseVisualStyleBackColor = true;
-            this.radioAusNein.CheckedChanged += new System.EventHandler(this.radioAusNein_CheckedChanged);
             // 
             // radioAusJa
             // 
@@ -1652,7 +1651,6 @@
             this.radioAusJa.TabIndex = 11;
             this.radioAusJa.Text = "Festgelegt";
             this.radioAusJa.UseVisualStyleBackColor = true;
-            this.radioAusJa.CheckedChanged += new System.EventHandler(this.radioAusJa_CheckedChanged);
             // 
             // groupBoxEinpackDat
             // 
@@ -1685,7 +1683,6 @@
             this.radioEinNein.TabIndex = 12;
             this.radioEinNein.Text = "Nicht Festgelegt";
             this.radioEinNein.UseVisualStyleBackColor = true;
-            this.radioEinNein.CheckedChanged += new System.EventHandler(this.radioEinNein_CheckedChanged);
             // 
             // radioEinJa
             // 
@@ -1696,7 +1693,6 @@
             this.radioEinJa.TabIndex = 11;
             this.radioEinJa.Text = "Festgelegt";
             this.radioEinJa.UseVisualStyleBackColor = true;
-            this.radioEinJa.CheckedChanged += new System.EventHandler(this.radioEinJa_CheckedChanged);
             // 
             // groupBoxEntruempelungsDat
             // 
@@ -1729,7 +1725,6 @@
             this.radioEntNein.TabIndex = 12;
             this.radioEntNein.Text = "Nicht Festgelegt";
             this.radioEntNein.UseVisualStyleBackColor = true;
-            this.radioEntNein.CheckedChanged += new System.EventHandler(this.radioEntNein_CheckedChanged);
             // 
             // radioEntJa
             // 
@@ -1740,7 +1735,6 @@
             this.radioEntJa.TabIndex = 11;
             this.radioEntJa.Text = "Festgelegt";
             this.radioEntJa.UseVisualStyleBackColor = true;
-            this.radioEntJa.CheckedChanged += new System.EventHandler(this.radioEntJa_CheckedChanged);
             // 
             // groupBoxUmzugsDat
             // 
@@ -1784,7 +1778,6 @@
             this.radioUmzNein.TabIndex = 12;
             this.radioUmzNein.Text = "Nicht Festgelegt";
             this.radioUmzNein.UseVisualStyleBackColor = true;
-            this.radioUmzNein.CheckedChanged += new System.EventHandler(this.radioUmzNein_CheckedChanged);
             // 
             // radioUmzJa
             // 
@@ -1795,7 +1788,6 @@
             this.radioUmzJa.TabIndex = 11;
             this.radioUmzJa.Text = "Festgelegt";
             this.radioUmzJa.UseVisualStyleBackColor = true;
-            this.radioUmzJa.CheckedChanged += new System.EventHandler(this.radioUmzJa_CheckedChanged);
             // 
             // groupBoxBesichtigungsDat
             // 
@@ -1817,7 +1809,6 @@
             this.radioBesNein.TabIndex = 12;
             this.radioBesNein.Text = "Nicht Festgelegt";
             this.radioBesNein.UseVisualStyleBackColor = true;
-            this.radioBesNein.CheckedChanged += new System.EventHandler(this.radioBesNein_CheckedChanged);
             // 
             // radioBesJa
             // 
@@ -1828,7 +1819,6 @@
             this.radioBesJa.TabIndex = 11;
             this.radioBesJa.Text = "Festgelegt";
             this.radioBesJa.UseVisualStyleBackColor = true;
-            this.radioBesJa.CheckedChanged += new System.EventHandler(this.radioBesJa_CheckedChanged);
             // 
             // label31
             // 
