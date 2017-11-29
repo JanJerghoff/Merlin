@@ -214,9 +214,19 @@ namespace Mitarbeiter
 
         private void button6_Click(object sender, EventArgs e)
         {
-            LEA_Einträge.LeaAenderung ae = new LEA_Einträge.LeaAenderung();
-            ae.fuellen(5);
-            ae.Show();
+            Objekte.Fahrt obj = new Objekte.Fahrt(698);
+            
+            String blam = "";
+            List<int> konf = obj.checkKollision();
+
+            textStartLog.AppendText(obj.Start.ToShortDateString() + " " + obj.Start.ToShortTimeString() + " "+obj.Ende.ToShortDateString() + " " + obj.Ende.ToShortTimeString() + " " + obj.Mitarbeiter1);
+
+            foreach (var item in konf)
+            {
+                blam += item.ToString() + " E ";
+            }
+
+            textStartLog.AppendText(blam + " " +obj.checkKollision().Count.ToString());
         }
     }
 }

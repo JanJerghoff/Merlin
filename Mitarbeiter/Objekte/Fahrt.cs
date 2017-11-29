@@ -155,6 +155,7 @@ namespace Mitarbeiter.Objekte
             String bedingung = "SELECT idFahrt FROM Fahrt WHERE Fahrzeug_idFahrzeug = " + Fahrzeug1+ " And ("; // Selbes Fahrzeug, Klammer auf für 4 OR-Verknüpfte Optionen für Kilometerkollision
             bedingung += "(AnfangsKM < "+StartKM1+" AND EndKM > "+StartKM+") OR ";                              // Überschneidung um den Startpunkt
             bedingung += "(AnfangsKM < " + EndKM1 + " AND EndKM > " + EndKM1 + ") OR ";                      // Überschneidung um den Endpunkt
+            bedingung += "(AnfangsKM < " + StartKM1 + " AND EndKM > " + EndKM1 + ") OR ";
             bedingung += "(AnfangsKM > " + StartKM1 + " AND EndKM < " + EndKM1 + ")); ";                      // Objekt innerhalb dieser Fahrt
 
             MySqlCommand cmdRead = new MySqlCommand(bedingung, Program.conn2);
@@ -189,9 +190,9 @@ namespace Mitarbeiter.Objekte
             }
 
             String bedingung = "SELECT idFahrt FROM Fahrt WHERE Fahrzeug_idFahrzeug = " + Fahrzeug1 + " And ("; // Selbes Fahrzeug, Klammer auf für 4 OR-Verknüpfte Optionen für Kilometerkollision
-            bedingung += "(Start < " + Start + " AND Ende > " + Ende + ") OR ";                              // Überschneidung um den Startpunkt
-            bedingung += "(Start < " + Ende + " AND Ende > " + Ende + ") OR ";                      // Überschneidung um den Endpunkt
-            bedingung += "(Start > " + Start + " AND Ende < " + Ende + "));";                      // Objekt innerhalb dieser Fahrt
+            bedingung += "(Start < '" + Start + "' AND Ende > '" + Ende + "') OR ";                              // Überschneidung um den Startpunkt
+            bedingung += "(Start < '" + Ende + "' AND Ende > '" + Ende + "') OR ";                      // Überschneidung um den Endpunkt
+            bedingung += "(Start > '" + Start + "' AND Ende < '" + Ende + "'));";                      // Objekt innerhalb dieser Fahrt
 
             MySqlCommand cmdRead = new MySqlCommand(bedingung, Program.conn2);
             MySqlDataReader rdr;
@@ -217,35 +218,31 @@ namespace Mitarbeiter.Objekte
         {
 
             List<int> result = new List<int>();
+            
+            String bedingungX = "SELECT * FROM Fahrt WHERE Mitarbeiter_idMitarbeiter = " + Mitarbeiter1 + " And ("; // Selber Mitarbeiter, Klammer auf für 4 OR-Verknüpfte Optionen für Kilometerkollision
+            bedingungX += "(Start < '" + Start + "' AND Ende > '" + Start + "') OR ";                              // Überschneidung um den Startpunkt
+            bedingungX += "(Start < '" + Ende + "' AND Ende > '" + Ende + "') OR ";                      // Überschneidung um den Endpunkt
+            bedingungX += "(Start > '" + Start + "' AND Ende < '" + Ende + "') OR ";                      // Objekt innerhalb dieser Fahrt
+            bedingungX += "(Start < '" + Start + "' AND Ende > '" + Ende + "'));";                      // Fahrt eingeschlossen in Objekt
 
-            // Check ob Fahrzeugkollision möglich
-            if (Fahrzeug1 <= 0)
-            {
-                return result;
-            }
-
-            String bedingung = "SELECT idFahrt FROM Fahrt WHERE Mitarbeiter_Mitarbeiter = " + Mitarbeiter1 + " And ("; // Selber Mitarbeiter, Klammer auf für 4 OR-Verknüpfte Optionen für Kilometerkollision
-            bedingung += "(Start < " + Start + " AND Ende > " + Ende + ") OR ";                              // Überschneidung um den Startpunkt
-            bedingung += "(Start < " + Ende + " AND Ende > " + Ende + ") OR ";                      // Überschneidung um den Endpunkt
-            bedingung += "(Start > " + Start + " AND Ende < " + Ende + "));";                      // Objekt innerhalb dieser Fahrt
-
-            MySqlCommand cmdRead = new MySqlCommand(bedingung, Program.conn2);
-            MySqlDataReader rdr;
+            MySqlCommand cmdRead = new MySqlCommand(bedingungX, Program.conn2);
+            MySqlDataReader rdrX;
 
             try
             {
-                rdr = cmdRead.ExecuteReader();
-                while (rdr.Read())
+                rdrX = cmdRead.ExecuteReader();
+                while (rdrX.Read())
                 {
-                    result.Add(SQLReaderExtension.getIntOrMinusEins(rdr, 0));
+                    result.Add(rdrX.GetInt32(0));
+                    result.Add(SQLReaderExtension.getIntOrMinusEins(rdrX, 0));
                 }
-                rdr.Close();
+                rdrX.Close();
             }
             catch (Exception sqlEx)
             {
                 Program.FehlerLog(sqlEx.ToString(), "Abrufen der Daten für Mitarbeiterkollision bei Zeit");
             }
-
+            
             return result;
         }
 
