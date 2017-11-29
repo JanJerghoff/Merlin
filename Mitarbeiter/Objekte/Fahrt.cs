@@ -62,6 +62,7 @@ namespace Mitarbeiter.Objekte
                 rdr = cmdRead.ExecuteReader();
                 while (rdr.Read())
                 {
+                    
                     id = rdr.GetInt32(0);
                     Start = rdr.GetDateTime(1);
                     Ende = rdr.GetDateTime(2);
@@ -73,16 +74,16 @@ namespace Mitarbeiter.Objekte
                     Beilagen1 = rdr.GetInt32(8);
                     Bemerkung1 = rdr.GetString(9);
                     UserChanged1 = rdr.GetString(10);
-                    Umzug1 = rdr.GetInt32(11);          
+                    Umzug1 = SQLReaderExtension.getIntOrMinusEins(rdr, 11);
                     Tour1 = rdr.GetInt32(12);           
-                    Fahrzeug1 = rdr.GetInt32(13);       
+                    Fahrzeug1 = SQLReaderExtension.getIntOrMinusEins(rdr, 13);
                     Mitarbeiter1 = rdr.GetInt32(14);
                 }
                 rdr.Close();
             }
             catch (Exception sqlEx)
             {
-                // TODO Program.FehlerLog(sqlEx.ToString(), "Abrufen der Umzugsdaten zur Objekterstellung");
+                Program.FehlerLog(sqlEx.ToString(), "Abrufen der Umzugsdaten zur Objekterstellung");
             }
         }
 

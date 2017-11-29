@@ -28,6 +28,8 @@ namespace Mitarbeiter
         private static Dictionary<String, int> Mitarbeiter;
         private static Dictionary<String, int> Fahrzeuge;
 
+        public static string fehlerPfad = System.IO.Path.Combine(Environment.CurrentDirectory, "fehler.txt");
+
         // Google vorbereitungen
 
         static string[] Scopes = { CalendarService.Scope.Calendar };
@@ -904,6 +906,34 @@ namespace Mitarbeiter
                 Program.FehlerLog(sqlEx.ToString(), "Fehler beim Speichern in die DB \r\n " + Aufgabe + " \r\n Bereits dokumentiert.");
                 var bestätigung = MessageBox.Show(sqlEx.ToString(), "Erinnerung", MessageBoxButtons.YesNo); //TEST
             }
+        }
+
+        public static void FehlerLog(string Fehlermeldung, string Kurzbeschreibung)
+        {
+
+            if (!File.Exists(fehlerPfad))
+            {
+                // Datei erstellen
+                using (StreamWriter sw = File.CreateText(fehlerPfad))
+                {
+                    sw.WriteLine("");
+                    sw.WriteLine("Start");
+                    sw.WriteLine("");
+                }
+            }
+
+
+            // Eintrag machen
+            using (StreamWriter sw = File.AppendText(fehlerPfad))
+            {
+                sw.WriteLine(Kurzbeschreibung + " " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
+                sw.WriteLine("");
+                sw.WriteLine(Fehlermeldung);
+                sw.WriteLine("");
+            }
+
+            var box2 = MessageBox.Show(Kurzbeschreibung, "Fehler");
+
         }
 
         // Finde alle Einträge zu einem Tag
