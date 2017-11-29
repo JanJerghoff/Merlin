@@ -69,6 +69,7 @@ namespace Mitarbeiter
         }
 
         private void leeren() {
+            textID.Clear();
             textMitarbeitername.Clear();
             textDatum.Clear();
             textStartzeit.Clear();
@@ -167,6 +168,7 @@ namespace Mitarbeiter
                 rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
+                    textID.AppendText(rdr.GetInt32(0) + "\r\n");
                     textDatum.AppendText(rdr.GetDateTime(1).Date.ToShortDateString() + "\r\n");
                     textStartzeit.AppendText(rdr.GetDateTime(1).ToShortTimeString() + "\r\n");
                     textEndzeit.AppendText(rdr.GetDateTime(2).ToShortTimeString() + "\r\n");                    
