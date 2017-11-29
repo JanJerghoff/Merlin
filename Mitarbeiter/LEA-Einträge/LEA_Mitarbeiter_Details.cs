@@ -21,8 +21,9 @@ namespace Mitarbeiter
         public LEA_Mitarbeiter_Details()
         {
             InitializeComponent();
-            
-            
+
+            numericIDLoeschen.Text = "";
+
             textSucheName.AutoCompleteCustomSource = Program.getAutocompleteMitarbeiter();
             textSucheName.AutoCompleteMode = AutoCompleteMode.Suggest;
             
@@ -238,6 +239,39 @@ namespace Mitarbeiter
                 }
             }
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (!textID.Text.Contains(decimal.ToInt32(numericIDLoeschen.Value).ToString()))
+            {
+
+                var problem = MessageBox.Show("Die ID ist nicht in der Liste", "Fehler");
+            }
+            else {
+                
+                var problem = MessageBox.Show("Fahrt wirklich löschen?", "Bestätigung",MessageBoxButtons.YesNo);
+
+                if (problem == DialogResult.Yes) {
+                    Objekte.Fahrt.loeschen(decimal.ToInt32(numericIDLoeschen.Value));
+                    leeren();
+                }            
+            }
+        }
+
+        private void buttonAendern_Click(object sender, EventArgs e)
+        {
+            if (!textID.Text.Contains(decimal.ToInt32(numericIDLoeschen.Value).ToString()))
+            {
+
+                var problem = MessageBox.Show("Die ID ist nicht in der Liste", "Fehler");
+            }
+            else
+            {
+                LEA_Einträge.LeaAenderung ae = new LEA_Einträge.LeaAenderung();
+                ae.fuellen(decimal.ToInt32(numericIDLoeschen.Value));
+                ae.Show();
+            }
         }
     }
 }

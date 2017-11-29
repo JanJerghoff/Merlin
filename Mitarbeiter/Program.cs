@@ -901,7 +901,7 @@ namespace Mitarbeiter
             }
             catch (Exception sqlEx)
             {
-                //Program.FehlerLog(sqlEx.ToString(), "Fehler beim Speichern in die DB \r\n " + Aufgabe + " \r\n Bereits dokumentiert.");
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Speichern in die DB \r\n " + Aufgabe + " \r\n Bereits dokumentiert.");
                 var bestätigung = MessageBox.Show(sqlEx.ToString(), "Erinnerung", MessageBoxButtons.YesNo); //TEST
             }
         }

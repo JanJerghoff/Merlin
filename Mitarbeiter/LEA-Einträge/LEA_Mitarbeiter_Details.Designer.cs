@@ -62,7 +62,14 @@
             this.textBemerkung = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textID = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.numericIDLoeschen = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.buttonAendern = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericIDLoeschen)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -85,13 +92,14 @@
             this.groupBox1.Controls.Add(this.textSucheName);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1203, 126);
+            this.groupBox1.Size = new System.Drawing.Size(927, 126);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "1)";
             // 
             // button3
             // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(578, 62);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(104, 41);
@@ -101,6 +109,7 @@
             // 
             // button4
             // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Location = new System.Drawing.Point(578, 15);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(104, 41);
@@ -110,6 +119,7 @@
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(468, 62);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(104, 41);
@@ -119,6 +129,7 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(468, 15);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(104, 41);
@@ -146,9 +157,10 @@
             // 
             // buttonSuche
             // 
-            this.buttonSuche.Location = new System.Drawing.Point(907, 15);
+            this.buttonSuche.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSuche.Location = new System.Drawing.Point(729, 15);
             this.buttonSuche.Name = "buttonSuche";
-            this.buttonSuche.Size = new System.Drawing.Size(177, 92);
+            this.buttonSuche.Size = new System.Drawing.Size(177, 88);
             this.buttonSuche.TabIndex = 193;
             this.buttonSuche.Text = "Suchen";
             this.buttonSuche.UseVisualStyleBackColor = true;
@@ -415,11 +427,72 @@
             this.textID.TabIndex = 193;
             this.textID.TabStop = false;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox2.Controls.Add(this.buttonAendern);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.numericIDLoeschen);
+            this.groupBox2.Controls.Add(this.button6);
+            this.groupBox2.Location = new System.Drawing.Point(945, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(480, 126);
+            this.groupBox2.TabIndex = 200;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Fahrt Löschen";
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button6.Location = new System.Drawing.Point(327, 15);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(147, 101);
+            this.button6.TabIndex = 198;
+            this.button6.Text = "Löschen";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // numericIDLoeschen
+            // 
+            this.numericIDLoeschen.Location = new System.Drawing.Point(16, 62);
+            this.numericIDLoeschen.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numericIDLoeschen.Name = "numericIDLoeschen";
+            this.numericIDLoeschen.Size = new System.Drawing.Size(120, 20);
+            this.numericIDLoeschen.TabIndex = 199;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(15, 39);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(143, 15);
+            this.label13.TabIndex = 200;
+            this.label13.Text = "Fahrt ID zum löschen";
+            // 
+            // buttonAendern
+            // 
+            this.buttonAendern.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAendern.Location = new System.Drawing.Point(202, 15);
+            this.buttonAendern.Name = "buttonAendern";
+            this.buttonAendern.Size = new System.Drawing.Size(119, 101);
+            this.buttonAendern.TabIndex = 201;
+            this.buttonAendern.Text = "Ändern";
+            this.buttonAendern.UseVisualStyleBackColor = true;
+            this.buttonAendern.Click += new System.EventHandler(this.buttonAendern_Click);
+            // 
             // LEA_Mitarbeiter_Details
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1499, 1061);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textID);
             this.Controls.Add(this.label10);
@@ -444,6 +517,9 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericIDLoeschen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -485,5 +561,10 @@
         private System.Windows.Forms.Button buttonSuche;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textID;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NumericUpDown numericIDLoeschen;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button buttonAendern;
     }
 }

@@ -22,7 +22,8 @@ namespace Mitarbeiter.LEA_Einträge
             //Nullen aus den Kilometern entfernen
             numericKMAnfang.Text = "";
             numericKMEnde.Text = "";
-            numericKundenStueck.Text = "";
+            numericKunden.Text = "";
+            numericStueck.Text = "";
             numericHandbeilagen.Text = "";
             numericPause.Text = "";
         }
@@ -55,12 +56,12 @@ namespace Mitarbeiter.LEA_Einträge
             //Stückzahl / Handbeilagen
             if (obj.Stückzahl1 != 0)
             {
-                numericKundenStueck.Value = obj.Stückzahl1;
+                numericKunden.Value = obj.Stückzahl1;
                 
             }
             if (obj.Kunden1 != 0)
             {
-                numericKundenStueck.Value = obj.Kunden1;
+                numericKunden.Value = obj.Kunden1;
 
             }
             if (obj.Beilagen1 != 0)
