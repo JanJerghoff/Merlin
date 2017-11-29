@@ -470,6 +470,7 @@
             this.buttonKundenLeeren.TabIndex = 138;
             this.buttonKundenLeeren.Text = "Leeren";
             this.buttonKundenLeeren.UseVisualStyleBackColor = true;
+            this.buttonKundenLeeren.Click += new System.EventHandler(this.buttonKundenLeeren_Click);
             // 
             // label11
             // 

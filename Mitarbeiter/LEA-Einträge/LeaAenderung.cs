@@ -15,6 +15,7 @@ namespace Mitarbeiter.LEA_Einträge
     {
         // Speicher des Fahrtobjekts
         Objekte.Fahrt obj;
+        int fahrtNummer;
 
         public LeaAenderung()
         {
@@ -45,6 +46,7 @@ namespace Mitarbeiter.LEA_Einträge
 
             // Objekt erzeugt
             obj = new Objekte.Fahrt(Nummer);
+            fahrtNummer = Nummer;
 
             //Pflichtfelder Füllen
             textSucheName.AppendText(Program.getMitarbeiterName(obj.Mitarbeiter1));
@@ -218,7 +220,7 @@ namespace Mitarbeiter.LEA_Einträge
         {
 
 
-            MySqlCommand cmdKundenSuche = new MySqlCommand("SELECT u.idUmzuege FROM Kunden k, Umzuege u WHERE u.Kunden_idKunden = k.idKunden AND u.datUmzug = '" + Program.DateMachine(monthFahrtDatum.SelectionStart) + "' AND k.Nachname ='" + Kundenname + "';", Program.conn);
+            MySqlCommand cmdKundenSuche = new MySqlCommand("SELECT u.idUmzuege FROM Kunden k, Umzuege u WHERE u.Kunden_idKunden = k.idKunden  AND k.Nachname ='" + Kundenname + "';", Program.conn);
             MySqlDataReader rdrKundenSuche;
             int count = 0;
             try
@@ -256,6 +258,51 @@ namespace Mitarbeiter.LEA_Einträge
 
             textKundenname.Enabled = false;
             numericUmzugsnummer.Enabled = false;
+
+        }
+
+        private void buttonKundenLeeren_Click(object sender, EventArgs e)
+        {
+            numericUmzugsnummer.Enabled = true;
+            numericUmzugsnummer.Value = 0;
+            textKundenname.Text = "";
+            textKundenname.Enabled = true;
+            buttonSuchen.Enabled = true;
+        }
+
+        private void leeren()
+        {
+            //neues Fahrtobjekt
+            obj = new Objekte.Fahrt(fahrtNummer);
+
+            // Alles sichtbar machen
+            groupUmzug.Visible = true;
+            numericStueck.Visible = true;
+            numericHandbeilagen.Visible = true;
+            numericKunden.Visible = true;
+
+            //Alle Daten leeren
+            textSucheName.Clear();
+            textFahrzeug.Clear();
+            textTourAlt.Clear();
+            textTourNeu.Clear();
+            textKundeAlt.Clear();
+            textKundenname.Clear();
+            textBemerkung.Clear();
+
+            numericKMAnfang.Value = 0;
+            numericKMEnde.Value = 0;
+            numericKunden.Value = 0;
+            numericStueck.Value = 0;
+            numericHandbeilagen.Value = 0;
+            numericPause.Value = 0;
+
+            // Kunden leeren
+            numericUmzugsnummer.Enabled = true;
+            numericUmzugsnummer.Value = 0;
+            textKundenname.Text = "";
+            textKundenname.Enabled = true;
+            buttonSuchen.Enabled = true;
 
         }
     }
