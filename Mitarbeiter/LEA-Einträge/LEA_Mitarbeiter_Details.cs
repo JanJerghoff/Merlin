@@ -30,9 +30,9 @@ namespace Mitarbeiter
             textSucheTour.AutoCompleteCustomSource = Program.getAutocompleteTour();
             textSucheTour.AutoCompleteMode = AutoCompleteMode.Suggest;
 
+
             //Fahrzeug-Dictionary anlegen
-
-
+            
             MySqlCommand cmdFahrzeug = new MySqlCommand("SELECT idFahrzeug, Name FROM Fahrzeug;" , Program.conn2); // Liste aller Fahrzeuge
             MySqlDataReader rdrFahrzeug;
             try

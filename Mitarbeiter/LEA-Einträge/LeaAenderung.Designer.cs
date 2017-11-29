@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.labelStück = new System.Windows.Forms.Label();
             this.numericStueck = new System.Windows.Forms.NumericUpDown();
             this.labelHand = new System.Windows.Forms.Label();
@@ -58,7 +59,7 @@
             this.timeStart = new System.Windows.Forms.DateTimePicker();
             this.groupUmzug = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textKundeAlt = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.buttonKundenLeeren = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -73,7 +74,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.textTourNeu = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.textLog = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericStueck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericHandbeilagen)).BeginInit();
@@ -124,6 +125,17 @@
             this.groupBox2.TabIndex = 125;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Generell";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button3.Location = new System.Drawing.Point(818, 318);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(133, 44);
+            this.button3.TabIndex = 151;
+            this.button3.Text = "Ersetzen";
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // labelStück
             // 
@@ -403,7 +415,7 @@
             // 
             this.groupUmzug.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupUmzug.Controls.Add(this.button1);
-            this.groupUmzug.Controls.Add(this.textBox1);
+            this.groupUmzug.Controls.Add(this.textKundeAlt);
             this.groupUmzug.Controls.Add(this.label13);
             this.groupUmzug.Controls.Add(this.buttonKundenLeeren);
             this.groupUmzug.Controls.Add(this.label11);
@@ -430,15 +442,15 @@
             this.button1.Text = "Ersetzen";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // textKundeAlt
             // 
-            this.textBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.textBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textBox1.Location = new System.Drawing.Point(155, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(130, 20);
-            this.textBox1.TabIndex = 140;
+            this.textKundeAlt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.textKundeAlt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textKundeAlt.Location = new System.Drawing.Point(155, 31);
+            this.textKundeAlt.Name = "textKundeAlt";
+            this.textKundeAlt.ReadOnly = true;
+            this.textKundeAlt.Size = new System.Drawing.Size(130, 20);
+            this.textKundeAlt.TabIndex = 140;
             // 
             // label13
             // 
@@ -477,6 +489,7 @@
             this.buttonSuchen.TabIndex = 136;
             this.buttonSuchen.Text = "Suchen";
             this.buttonSuchen.UseVisualStyleBackColor = true;
+            this.buttonSuchen.Click += new System.EventHandler(this.buttonSuchen_Click);
             // 
             // numericUmzugsnummer
             // 
@@ -584,16 +597,16 @@
             this.textTourNeu.Size = new System.Drawing.Size(276, 20);
             this.textTourNeu.TabIndex = 124;
             // 
-            // button3
+            // textLog
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.Location = new System.Drawing.Point(818, 318);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(133, 44);
-            this.button3.TabIndex = 151;
-            this.button3.Text = "Ersetzen";
-            this.button3.UseVisualStyleBackColor = false;
+            this.textLog.Location = new System.Drawing.Point(10, 618);
+            this.textLog.Multiline = true;
+            this.textLog.Name = "textLog";
+            this.textLog.ReadOnly = true;
+            this.textLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textLog.Size = new System.Drawing.Size(1136, 156);
+            this.textLog.TabIndex = 143;
+            this.textLog.TabStop = false;
             // 
             // LeaAenderung
             // 
@@ -602,6 +615,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1276, 848);
+            this.Controls.Add(this.textLog);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupUmzug);
             this.Controls.Add(this.groupBox2);
@@ -665,7 +679,7 @@
         private System.Windows.Forms.NumericUpDown numericKunden;
         private System.Windows.Forms.Label labelStück;
         private System.Windows.Forms.NumericUpDown numericStueck;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textKundeAlt;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -675,5 +689,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox textTourNeu;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textLog;
     }
 }
