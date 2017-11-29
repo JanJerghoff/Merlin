@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labelStück = new System.Windows.Forms.Label();
+            this.numericStueck = new System.Windows.Forms.NumericUpDown();
             this.labelHand = new System.Windows.Forms.Label();
             this.numericHandbeilagen = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
@@ -54,7 +56,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.timeEnd = new System.Windows.Forms.DateTimePicker();
             this.timeStart = new System.Windows.Forms.DateTimePicker();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupUmzug = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.buttonKundenLeeren = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.buttonSuchen = new System.Windows.Forms.Button();
@@ -62,26 +67,30 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.textKundenname = new System.Windows.Forms.TextBox();
-            this.labelStück = new System.Windows.Forms.Label();
-            this.numericStueck = new System.Windows.Forms.NumericUpDown();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textTourAlt = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textTourNeu = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericStueck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericHandbeilagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKunden)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMAnfang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMEnde)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPause)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            this.groupUmzug.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUmzugsnummer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericStueck)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
             this.groupBox2.AutoSize = true;
             this.groupBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.labelStück);
             this.groupBox2.Controls.Add(this.numericStueck);
             this.groupBox2.Controls.Add(this.labelHand);
@@ -111,10 +120,32 @@
             this.groupBox2.Controls.Add(this.timeStart);
             this.groupBox2.Location = new System.Drawing.Point(10, 11);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(983, 355);
+            this.groupBox2.Size = new System.Drawing.Size(983, 381);
             this.groupBox2.TabIndex = 125;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Generell";
+            // 
+            // labelStück
+            // 
+            this.labelStück.AutoSize = true;
+            this.labelStück.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStück.Location = new System.Drawing.Point(682, 90);
+            this.labelStück.Name = "labelStück";
+            this.labelStück.Size = new System.Drawing.Size(42, 15);
+            this.labelStück.TabIndex = 150;
+            this.labelStück.Text = "Stück";
+            // 
+            // numericStueck
+            // 
+            this.numericStueck.Location = new System.Drawing.Point(686, 108);
+            this.numericStueck.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericStueck.Name = "numericStueck";
+            this.numericStueck.Size = new System.Drawing.Size(101, 20);
+            this.numericStueck.TabIndex = 149;
             // 
             // labelHand
             // 
@@ -142,7 +173,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(3, 144);
+            this.label12.Location = new System.Drawing.Point(5, 144);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(136, 15);
             this.label12.TabIndex = 124;
@@ -156,6 +187,7 @@
             this.checkBeifahrer.Size = new System.Drawing.Size(15, 14);
             this.checkBeifahrer.TabIndex = 123;
             this.checkBeifahrer.UseVisualStyleBackColor = true;
+            this.checkBeifahrer.CheckedChanged += new System.EventHandler(this.checkBeifahrer_CheckedChanged);
             // 
             // labelChange
             // 
@@ -260,7 +292,7 @@
             // 
             // monthFahrtDatum
             // 
-            this.monthFahrtDatum.Location = new System.Drawing.Point(6, 168);
+            this.monthFahrtDatum.Location = new System.Drawing.Point(8, 168);
             this.monthFahrtDatum.Name = "monthFahrtDatum";
             this.monthFahrtDatum.ShowWeekNumbers = true;
             this.monthFahrtDatum.TabIndex = 0;
@@ -313,7 +345,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(222, 88);
+            this.label5.Location = new System.Drawing.Point(222, 90);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 15);
             this.label5.TabIndex = 127;
@@ -321,7 +353,7 @@
             // 
             // numericPause
             // 
-            this.numericPause.Location = new System.Drawing.Point(225, 106);
+            this.numericPause.Location = new System.Drawing.Point(225, 108);
             this.numericPause.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -335,7 +367,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(129, 88);
+            this.label4.Location = new System.Drawing.Point(129, 90);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 15);
             this.label4.TabIndex = 125;
@@ -345,7 +377,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 88);
+            this.label3.Location = new System.Drawing.Point(6, 90);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 15);
             this.label3.TabIndex = 124;
@@ -354,7 +386,7 @@
             // timeEnd
             // 
             this.timeEnd.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.timeEnd.Location = new System.Drawing.Point(132, 106);
+            this.timeEnd.Location = new System.Drawing.Point(132, 108);
             this.timeEnd.Name = "timeEnd";
             this.timeEnd.Size = new System.Drawing.Size(88, 20);
             this.timeEnd.TabIndex = 1;
@@ -362,30 +394,61 @@
             // timeStart
             // 
             this.timeStart.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.timeStart.Location = new System.Drawing.Point(6, 106);
+            this.timeStart.Location = new System.Drawing.Point(6, 108);
             this.timeStart.Name = "timeStart";
             this.timeStart.Size = new System.Drawing.Size(120, 20);
             this.timeStart.TabIndex = 0;
             // 
-            // groupBox3
+            // groupUmzug
             // 
-            this.groupBox3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.buttonKundenLeeren);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.buttonSuchen);
-            this.groupBox3.Controls.Add(this.numericUmzugsnummer);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.textKundenname);
-            this.groupBox3.Location = new System.Drawing.Point(12, 372);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(327, 214);
-            this.groupBox3.TabIndex = 133;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "3)";
+            this.groupUmzug.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupUmzug.Controls.Add(this.button1);
+            this.groupUmzug.Controls.Add(this.textBox1);
+            this.groupUmzug.Controls.Add(this.label13);
+            this.groupUmzug.Controls.Add(this.buttonKundenLeeren);
+            this.groupUmzug.Controls.Add(this.label11);
+            this.groupUmzug.Controls.Add(this.buttonSuchen);
+            this.groupUmzug.Controls.Add(this.numericUmzugsnummer);
+            this.groupUmzug.Controls.Add(this.label10);
+            this.groupUmzug.Controls.Add(this.label9);
+            this.groupUmzug.Controls.Add(this.textKundenname);
+            this.groupUmzug.Location = new System.Drawing.Point(447, 398);
+            this.groupUmzug.Name = "groupUmzug";
+            this.groupUmzug.Size = new System.Drawing.Size(325, 214);
+            this.groupUmzug.TabIndex = 133;
+            this.groupUmzug.TabStop = false;
+            this.groupUmzug.Text = "Kunde wenn Umzug";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(167, 153);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(142, 27);
+            this.button1.TabIndex = 141;
+            this.button1.Text = "Ersetzen";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.textBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textBox1.Location = new System.Drawing.Point(155, 31);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(130, 20);
+            this.textBox1.TabIndex = 140;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(6, 32);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(143, 15);
+            this.label13.TabIndex = 139;
+            this.label13.Text = "Eingetragener Kunde";
             // 
             // buttonKundenLeeren
             // 
@@ -456,58 +519,81 @@
             this.textKundenname.Size = new System.Drawing.Size(148, 20);
             this.textKundenname.TabIndex = 124;
             // 
-            // labelStück
+            // groupBox1
             // 
-            this.labelStück.AutoSize = true;
-            this.labelStück.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStück.Location = new System.Drawing.Point(682, 90);
-            this.labelStück.Name = "labelStück";
-            this.labelStück.Size = new System.Drawing.Size(42, 15);
-            this.labelStück.TabIndex = 150;
-            this.labelStück.Text = "Stück";
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.textTourAlt);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.textTourNeu);
+            this.groupBox1.Location = new System.Drawing.Point(10, 398);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(437, 214);
+            this.groupBox1.TabIndex = 142;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Tour";
             // 
-            // numericStueck
+            // button2
             // 
-            this.numericStueck.Location = new System.Drawing.Point(686, 108);
-            this.numericStueck.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericStueck.Name = "numericStueck";
-            this.numericStueck.Size = new System.Drawing.Size(101, 20);
-            this.numericStueck.TabIndex = 149;
+            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button2.Location = new System.Drawing.Point(6, 101);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(133, 44);
+            this.button2.TabIndex = 141;
+            this.button2.Text = "Ersetzen";
+            this.button2.UseVisualStyleBackColor = false;
             // 
-            // label13
+            // textTourAlt
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(6, 32);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(143, 15);
-            this.label13.TabIndex = 139;
-            this.label13.Text = "Eingetragener Kunde";
+            this.textTourAlt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.textTourAlt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textTourAlt.Location = new System.Drawing.Point(155, 31);
+            this.textTourAlt.Name = "textTourAlt";
+            this.textTourAlt.ReadOnly = true;
+            this.textTourAlt.Size = new System.Drawing.Size(276, 20);
+            this.textTourAlt.TabIndex = 140;
             // 
-            // textBox1
+            // label14
             // 
-            this.textBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.textBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textBox1.Location = new System.Drawing.Point(155, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(130, 20);
-            this.textBox1.TabIndex = 140;
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(6, 32);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(126, 15);
+            this.label14.TabIndex = 139;
+            this.label14.Text = "Eingetragene Tour";
             // 
-            // button1
+            // label17
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(167, 153);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(142, 27);
-            this.button1.TabIndex = 141;
-            this.button1.Text = "Ersetzen";
-            this.button1.UseVisualStyleBackColor = false;
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(8, 66);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(74, 15);
+            this.label17.TabIndex = 125;
+            this.label17.Text = "Neue Tour";
+            // 
+            // textTourNeu
+            // 
+            this.textTourNeu.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.textTourNeu.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textTourNeu.Location = new System.Drawing.Point(155, 66);
+            this.textTourNeu.Name = "textTourNeu";
+            this.textTourNeu.Size = new System.Drawing.Size(276, 20);
+            this.textTourNeu.TabIndex = 124;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button3.Location = new System.Drawing.Point(818, 318);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(133, 44);
+            this.button3.TabIndex = 151;
+            this.button3.Text = "Ersetzen";
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // LeaAenderung
             // 
@@ -516,23 +602,26 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1276, 848);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupUmzug);
             this.Controls.Add(this.groupBox2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LeaAenderung";
             this.Text = "LeaAenderung";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericStueck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericHandbeilagen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKunden)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMAnfang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKMEnde)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPause)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupUmzug.ResumeLayout(false);
+            this.groupUmzug.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUmzugsnummer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericStueck)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -562,7 +651,7 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox textSucheName;
         private System.Windows.Forms.MonthCalendar monthFahrtDatum;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupUmzug;
         private System.Windows.Forms.Button buttonKundenLeeren;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button buttonSuchen;
@@ -579,5 +668,12 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textTourAlt;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox textTourNeu;
+        private System.Windows.Forms.Button button3;
     }
 }

@@ -150,6 +150,7 @@
     <Compile Include="Repetoire.Designer.cs">
       <DependentUpon>Repetoire.cs</DependentUpon>
     </Compile>
+    <Compile Include="SQLReaderExtension.cs" />
     <Compile Include="Stammdaten.cs">
       <SubType>Form</SubType>
     </Compile>
