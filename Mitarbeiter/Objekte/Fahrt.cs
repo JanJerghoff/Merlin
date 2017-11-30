@@ -143,11 +143,11 @@ namespace Mitarbeiter.Objekte
 
             List<int> result = new List<int>();
 
-            //Fahrzeugkollision Kilometer
-            result.AddRange(checkFahrzeugKollisionKM());
+            ////Fahrzeugkollision Kilometer
+            //result.AddRange(checkFahrzeugKollisionKM());
 
-            //Fahrzeugkollision Zeit
-            result.AddRange(checkFahrzeugKollisionZeit());
+            ////Fahrzeugkollision Zeit
+            //result.AddRange(checkFahrzeugKollisionZeit());
 
             //Personalkollision
             result.AddRange(checkMitarbeiterKollisionZeit());
@@ -233,10 +233,10 @@ namespace Mitarbeiter.Objekte
             List<int> result = new List<int>();
             
             String bedingungX = "SELECT * FROM Fahrt WHERE Mitarbeiter_idMitarbeiter = " + Mitarbeiter1 + " And ("; // Selber Mitarbeiter, Klammer auf für 4 OR-Verknüpfte Optionen für Kilometerkollision
-            bedingungX += "(Start < '" + Start + "' AND Ende > '" + Start + "') OR ";                              // Überschneidung um den Startpunkt
-            bedingungX += "(Start < '" + Ende + "' AND Ende > '" + Ende + "') OR ";                      // Überschneidung um den Endpunkt
-            bedingungX += "(Start > '" + Start + "' AND Ende < '" + Ende + "') OR ";                      // Objekt innerhalb dieser Fahrt
-            bedingungX += "(Start < '" + Start + "' AND Ende > '" + Ende + "'));";                      // Fahrt eingeschlossen in Objekt
+            bedingungX += "(Start < '" + Program.DateTimeMachine(Start,Start) + "' AND Ende > '" + Program.DateTimeMachine(Start, Start) + "') OR ";                              // Überschneidung um den Startpunkt
+            bedingungX += "(Start < '" + Program.DateTimeMachine(Ende, Ende) + "' AND Ende > '" + Program.DateTimeMachine(Ende, Ende) + "') OR ";                      // Überschneidung um den Endpunkt
+            bedingungX += "(Start > '" + Program.DateTimeMachine(Start, Start) + "' AND Ende < '" + Program.DateTimeMachine(Ende, Ende) + "') OR ";                      // Objekt innerhalb dieser Fahrt
+            bedingungX += "(Start < '" + Program.DateTimeMachine(Start, Start) + "' AND Ende > '" + Program.DateTimeMachine(Ende, Ende) + "'));";                      // Fahrt eingeschlossen in Objekt
 
             MySqlCommand cmdRead = new MySqlCommand(bedingungX, Program.conn2);
             MySqlDataReader rdrX;
@@ -246,7 +246,6 @@ namespace Mitarbeiter.Objekte
                 rdrX = cmdRead.ExecuteReader();
                 while (rdrX.Read())
                 {
-                    result.Add(rdrX.GetInt32(0));
                     result.Add(SQLReaderExtension.getIntOrMinusEins(rdrX, 0));
                 }
                 rdrX.Close();

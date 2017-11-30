@@ -214,19 +214,17 @@ namespace Mitarbeiter
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Objekte.Fahrt obj = new Objekte.Fahrt(698);
+            Objekte.Fahrt obj = new Objekte.Fahrt(697);
             
             String blam = "";
             List<int> konf = obj.checkKollision();
-
-            textStartLog.AppendText(obj.Start.ToShortDateString() + " " + obj.Start.ToShortTimeString() + " "+obj.Ende.ToShortDateString() + " " + obj.Ende.ToShortTimeString() + " " + obj.Mitarbeiter1);
-
+            
             foreach (var item in konf)
             {
-                blam += item.ToString() + " E ";
+                blam += item.ToString() + "EEEEE ";
             }
 
-            textStartLog.AppendText(blam + " " +obj.checkKollision().Count.ToString());
+            textStartLog.AppendText(blam + "XX"+obj.checkKollision().Count.ToString());
         }
 
         private void button11_Click(object sender, EventArgs e)
