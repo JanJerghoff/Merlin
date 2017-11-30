@@ -242,11 +242,12 @@ namespace Mitarbeiter
                 Objekte.Fahrt test = new Objekte.Fahrt(item);
                 List<int> kollisionen = new List<int>();
                 if (kollisionen.Count != 0) {
+                    textStartLog.AppendText(kollisionen[0].ToString());
                     foreach (var item2 in kollisionen)
                     {
                         textStartLog.AppendText(item + " kollidiert mit " + item2 + "\r\n");
                     }                    
-                }
+                }                
             }
 
             textStartLog.AppendText(" DONE \r\n");

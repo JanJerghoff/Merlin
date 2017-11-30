@@ -143,11 +143,11 @@ namespace Mitarbeiter.Objekte
 
             List<int> result = new List<int>();
 
-            ////Fahrzeugkollision Kilometer
-            //result.AddRange(checkFahrzeugKollisionKM());
+            //Fahrzeugkollision Kilometer
+            result.AddRange(checkFahrzeugKollisionKM());
 
-            ////Fahrzeugkollision Zeit
-            //result.AddRange(checkFahrzeugKollisionZeit());
+            //Fahrzeugkollision Zeit
+            result.AddRange(checkFahrzeugKollisionZeit());
 
             //Personalkollision
             result.AddRange(checkMitarbeiterKollisionZeit());
@@ -247,6 +247,7 @@ namespace Mitarbeiter.Objekte
                 rdrX = cmdRead.ExecuteReader();
                 while (rdrX.Read())
                 {
+                    result.Add(rdrX.GetInt32(0));
                     result.Add(SQLReaderExtension.getIntOrMinusEins(rdrX, 0));
                 }
                 rdrX.Close();
