@@ -236,13 +236,13 @@ namespace Mitarbeiter
             }
 
             //Kollisionsfindung
+            textStartLog.AppendText(zuChecken.Count+" \r\n");
 
             foreach (var item in zuChecken)
             {
                 Objekte.Fahrt test = new Objekte.Fahrt(item);
                 List<int> kollisionen = new List<int>();
-                if (kollisionen.Count != 0) {
-                    textStartLog.AppendText(kollisionen[0].ToString());
+                if (kollisionen.Count != 0 || true) {
                     foreach (var item2 in kollisionen)
                     {
                         textStartLog.AppendText(item + " kollidiert mit " + item2 + "\r\n");
