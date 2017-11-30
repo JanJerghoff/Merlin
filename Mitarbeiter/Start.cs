@@ -214,27 +214,47 @@ namespace Mitarbeiter
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Objekte.Fahrt obj = new Objekte.Fahrt(697);
-            
-            String blam = "";
-            List<int> konf = obj.checkKollision();
-            
-            foreach (var item in konf)
+            List<int> zuChecken = new List<int>();
+
+            MySqlCommand cmdHisto = new MySqlCommand("Select idFahrt FROM Fahrt;", Program.conn2);
+            MySqlDataReader rdrHisto;
+
+            try
             {
-                blam += item.ToString() + "EEEEE ";
+                rdrHisto = cmdHisto.ExecuteReader();
+                while (rdrHisto.Read())
+                {
+                    zuChecken.Add(rdrHisto.GetInt32(0));
+                }
+                rdrHisto.Close();
+
+            }
+            catch (Exception sqlEx)
+            {
+                // TODO Bugreporting
+                return;
             }
 
-            textStartLog.AppendText(blam + "XX"+obj.checkKollision().Count.ToString());
+            //Kollisionsfindung
+
+            foreach (var item in zuChecken)
+            {
+                Objekte.Fahrt test = new Objekte.Fahrt(item);
+                List<int> kollisionen = new List<int>();
+                if (kollisionen.Count != 0) {
+                    foreach (var item2 in kollisionen)
+                    {
+                        textStartLog.AppendText(item + " kollidiert mit " + item2 + "\r\n");
+                    }                    
+                }
+            }
+
+            textStartLog.AppendText(" DONE \r\n");
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
-            //Testkram
-
             
-            textStartLog.AppendText(Program.ArbeitsZeitBlock(DateTime.Now, DateTime.Now.AddMinutes(50), 5).ToString());
-            return;
-
             Dictionary<int, DateTime> Problemfahrten = new Dictionary<int, DateTime>();
 
             MySqlCommand cmdHisto = new MySqlCommand("Select idFahrt, Start FROM Fahrt Where Ende < Start;", Program.conn2);

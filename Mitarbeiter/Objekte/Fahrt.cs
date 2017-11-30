@@ -202,10 +202,11 @@ namespace Mitarbeiter.Objekte
                 return result;
             }
 
-            String bedingung = "SELECT idFahrt FROM Fahrt WHERE Fahrzeug_idFahrzeug = " + Fahrzeug1 + " And ("; // Selbes Fahrzeug, Klammer auf für 4 OR-Verknüpfte Optionen für Kilometerkollision
-            bedingung += "(Start < '" + Start + "' AND Ende > '" + Ende + "') OR ";                              // Überschneidung um den Startpunkt
-            bedingung += "(Start < '" + Ende + "' AND Ende > '" + Ende + "') OR ";                      // Überschneidung um den Endpunkt
-            bedingung += "(Start > '" + Start + "' AND Ende < '" + Ende + "'));";                      // Objekt innerhalb dieser Fahrt
+            String bedingung = "SELECT * FROM Fahrt WHERE Fahrzeug_idFahrzeug = " + Fahrzeug1 + " And ("; // Selbes Fahrzeug, Klammer auf für 4 OR-Verknüpfte Optionen für Zeitkollision
+            bedingung += "(Start < '" + Program.DateTimeMachine(Start, Start) + "' AND Ende > '" + Program.DateTimeMachine(Start, Start) + "') OR ";                              // Überschneidung um den Startpunkt
+            bedingung += "(Start < '" + Program.DateTimeMachine(Ende, Ende) + "' AND Ende > '" + Program.DateTimeMachine(Ende, Ende) + "') OR ";                      // Überschneidung um den Endpunkt
+            bedingung += "(Start > '" + Program.DateTimeMachine(Start, Start) + "' AND Ende < '" + Program.DateTimeMachine(Ende, Ende) + "') OR ";                      // Objekt innerhalb dieser Fahrt
+            bedingung += "(Start < '" + Program.DateTimeMachine(Start, Start) + "' AND Ende > '" + Program.DateTimeMachine(Ende, Ende) + "'));";
 
             MySqlCommand cmdRead = new MySqlCommand(bedingung, Program.conn2);
             MySqlDataReader rdr;
