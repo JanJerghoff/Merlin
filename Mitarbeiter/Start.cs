@@ -228,5 +228,39 @@ namespace Mitarbeiter
 
             textStartLog.AppendText(blam + " " +obj.checkKollision().Count.ToString());
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            Dictionary<int, DateTime> Problemfahrten = new Dictionary<int, DateTime>();
+
+            MySqlCommand cmdHisto = new MySqlCommand("Select idFahrt, Start FROM Fahrt Where Ende < Start;", Program.conn2);
+            MySqlDataReader rdrHisto;
+
+            try
+            {
+                rdrHisto = cmdHisto.ExecuteReader();
+                while (rdrHisto.Read())
+                {
+                    Problemfahrten.Add(rdrHisto.GetInt32(0),rdrHisto.GetDateTime(1));
+                }
+                rdrHisto.Close();
+
+            }
+            catch (Exception sqlEx)
+            {
+                // TODO Bugreporting
+                return;
+            }
+
+            if (Problemfahrten.Count != 144) {
+                return;
+            }
+
+            foreach (var item in Problemfahrten)
+            {
+                String up = "UPDATE Fahrt Set Start = '"+Program.DateTimeMachine(item.Value,item.Value.AddDays(-1))+"' WHERE idFahrt = "+item.Key+";";
+            }
+
+        }
     }
 }

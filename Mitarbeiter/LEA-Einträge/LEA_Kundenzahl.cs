@@ -259,7 +259,7 @@ namespace Mitarbeiter
 
             // Stück / Kunden dürfen nicht leer sein
 
-            if (numericKundenStueck.Value == 0 && numericHandbeilagen.Value == 0)
+            if (numericKundenStueck.Value == 0 && numericHandbeilagen.Value == 0 && (Type == 1 || Type == 2))
             {
                 var bestätigung = MessageBox.Show("Stückzahl / Kundenzahl ist leer. Trotzdem Speichern?", "KilometerPrüfung", MessageBoxButtons.YesNo);
                 if (bestätigung == DialogResult.Yes) {}
