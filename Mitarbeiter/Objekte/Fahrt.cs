@@ -108,11 +108,24 @@ namespace Mitarbeiter.Objekte
 
         // Update
 
-        public void update() {
+        public String update() {
 
-            
+            String result = "";
 
+            // Nicht updaten wenn Kollisionen auftreten
+            if (checkKollision().Count != 0) {
 
+                result = "Kollision mit den folgenden Fahrten gefunden, bitte überprüfen: ";
+                foreach (var item in checkKollision())
+                {
+                    result += item + " ";
+                }
+                return result;
+            }
+
+            //Updaten
+
+            return result;
         }
 
 

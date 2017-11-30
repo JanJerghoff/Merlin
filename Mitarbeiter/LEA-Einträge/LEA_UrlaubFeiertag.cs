@@ -74,7 +74,7 @@ namespace Mitarbeiter
                 }
             }
 
-            else if (radioKrankheit.Checked || radioUrlaub.Checked) {
+            else if (radioKrankheit.Checked || radioUrlaub.Checked || radioFeiertagEinzel.Checked) {
 
                 string insert = "";
                 int mitarbeiter = Program.getMitarbeiter(textSucheName.Text);
@@ -89,10 +89,15 @@ namespace Mitarbeiter
                     tournummer = 53;
                     bemerk = "Krankheit";
                 }
-                else
+                else if (radioUrlaub.Checked)
                 {
                     tournummer = 54;
                     bemerk = "Urlaub";
+                }
+                else if (radioFeiertagEinzel.Checked)
+                {
+                    tournummer = 64;
+                    bemerk = "Feiertag";
                 }
 
                 insert += "INSERT INTO Fahrt (Mitarbeiter_idMitarbeiter, Start, Ende, Pause, AnfangsKM, EndKM, Bemerkung, UserChanged, Tour_idTour) VALUES (";
