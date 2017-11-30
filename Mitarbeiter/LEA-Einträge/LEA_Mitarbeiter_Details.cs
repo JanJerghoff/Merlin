@@ -18,6 +18,9 @@ namespace Mitarbeiter
         Dictionary<int, String> Tourensammlung = new Dictionary<int, String>(); // Zwischenspeicher Touren
         Dictionary<int, String> Mitarbeitersammlung = new Dictionary<int, String>(); // Zwischenspeicher Mitarbeiter
 
+        //Seitenzähler
+        int counter = 1;
+
         public LEA_Mitarbeiter_Details()
         {
             InitializeComponent();
@@ -70,6 +73,7 @@ namespace Mitarbeiter
         }
 
         private void leeren() {
+            textSeitenzahl.Clear();
             textID.Clear();
             textMitarbeitername.Clear();
             textDatum.Clear();
@@ -83,8 +87,17 @@ namespace Mitarbeiter
 
         private void buttonSuche_Click(object sender, EventArgs e)
         {
+            counter = 1;
+            anzeigen();
+        }
+
+        private void anzeigen () {
+
+            leeren();
+
             int IDMitarbeiter = 0;
             int IDTour = 0;
+
 
             if (textSucheName.Text != "")
             {
@@ -100,7 +113,7 @@ namespace Mitarbeiter
             List<int> Mitarbeiter = new List<int>();
             List<int> Tour = new List<int>();
 
-            leeren();
+            textSeitenzahl.Text = counter.ToString();
 
             //Checks
             if (textSucheName.Text != "" && IDMitarbeiter == 0) {
@@ -158,35 +171,42 @@ namespace Mitarbeiter
                 fin = start;
             }
 
-            fin += " ORDER BY Start DESC LIMIT 40;";
+            fin += " ORDER BY Start DESC;";
 
             // Abfrage Daten
 
             MySqlCommand cmd = new MySqlCommand(fin, Program.conn2);
             MySqlDataReader rdr;
+
+            int count = 0;
+
             try
             {
                 rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    textID.AppendText(rdr.GetInt32(0) + "\r\n");
-                    textDatum.AppendText(rdr.GetDateTime(1).Date.ToShortDateString() + "\r\n");
-                    textStartzeit.AppendText(rdr.GetDateTime(1).ToShortTimeString() + "\r\n");
-                    textEndzeit.AppendText(rdr.GetDateTime(2).ToShortTimeString() + "\r\n");                    
-                    textKMSumme.AppendText((rdr.GetInt32(5) - rdr.GetInt32(4)) + "\r\n");
-                    // Listen zum später auflösen der ID´s
-                    if ((rdr.GetInt32(5) - rdr.GetInt32(4)) != 0)
-                    {
-                        Fahrzeuge.Add(rdr.GetInt32(13));
+                    if (count >= (counter-1)*40 && count < counter*40) {
+                        textID.AppendText(rdr.GetInt32(0) + "\r\n");
+                        textDatum.AppendText(rdr.GetDateTime(1).Date.ToShortDateString() + "\r\n");
+                        textStartzeit.AppendText(rdr.GetDateTime(1).ToShortTimeString() + "\r\n");
+                        textEndzeit.AppendText(rdr.GetDateTime(2).ToShortTimeString() + "\r\n");
+                        textKMSumme.AppendText((rdr.GetInt32(5) - rdr.GetInt32(4)) + "\r\n");
+                        // Listen zum später auflösen der ID´s
+                        if ((rdr.GetInt32(5) - rdr.GetInt32(4)) != 0)
+                        {
+                            Fahrzeuge.Add(rdr.GetInt32(13));
+                        }
+                        else
+                        {
+                            Fahrzeuge.Add(0);
+                        }
+                        //
+
+                        Mitarbeiter.Add(rdr.GetInt32(14));
+                        Tour.Add(rdr.GetInt32(12));
+                        textBemerkung.AppendText(rdr.GetString(9) + "\r\n");
                     }
-                    else
-                    {
-                        Fahrzeuge.Add(0);
-                    }
-                    //
-                    Mitarbeiter.Add(rdr.GetInt32(14));
-                    Tour.Add(rdr.GetInt32(12));
-                    textBemerkung.AppendText(rdr.GetString(9) + "\r\n");
+                    count++;
                 }
                 rdr.Close();
             }
@@ -273,5 +293,24 @@ namespace Mitarbeiter
                 ae.Show();
             }
         }
+
+        private void buttonSeiteZurück_Click(object sender, EventArgs e)
+        {
+            if (counter == 1)
+            {
+                var problem = MessageBox.Show("Ist schon die erste Seite", "Fehler");
+            }
+            else {
+                counter -= 1;
+                anzeigen();
+            }
+        }
+
+        private void buttonSeiteVor_Click(object sender, EventArgs e)
+        {
+            counter++;
+            anzeigen();
+        }
+        
     }
 }

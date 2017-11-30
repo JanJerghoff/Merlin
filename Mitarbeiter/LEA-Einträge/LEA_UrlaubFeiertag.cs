@@ -82,7 +82,7 @@ namespace Mitarbeiter
                 Sollminuten.TryGetValue(mitarbeiter, out sollminuten);
 
                 //Bestimmung Krankheit/Urlaub
-                int tournummer;
+                int tournummer = -1;
                 string bemerk = "";
                 if (radioKrankheit.Checked)
                 {
