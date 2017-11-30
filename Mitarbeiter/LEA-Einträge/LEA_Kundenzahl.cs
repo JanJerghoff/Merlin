@@ -245,6 +245,20 @@ namespace Mitarbeiter
             int flagKM = 0; // 1 wenn Warnung ausgelöst
             String insert = ""; // Basis für die Tourabhängigen SQL-Statements
 
+            //Bereitstellung der Zeitwerte
+
+            DateTime EndeKorrekt = new DateTime(monthFahrtDatum.SelectionEnd.Year, monthFahrtDatum.SelectionEnd.Month, monthFahrtDatum.SelectionEnd.Day, timeEnd.Value.Hour, timeEnd.Value.Minute, 0);
+
+            if (timeEnd.Value.TimeOfDay < timeStart.Value.TimeOfDay)
+            {
+                DateTime StartKorrekt = new DateTime(monthFahrtDatum.SelectionEnd.Year, monthFahrtDatum.SelectionEnd.Month, (monthFahrtDatum.SelectionEnd.Day), timeStart.Value.Hour, timeStart.Value.Minute, 0);
+                StartKorrekt = StartKorrekt.AddDays(-1);
+            }
+            else
+            {
+                DateTime StartKorrekt = new DateTime(monthFahrtDatum.SelectionEnd.Year, monthFahrtDatum.SelectionEnd.Month, (monthFahrtDatum.SelectionEnd.Day), timeStart.Value.Hour, timeStart.Value.Minute, 0);
+            }
+
             // Tour muss eingeloggt sein
             if (textTour.Enabled) {
                 textLog.AppendText("Tour, Mitarbeiter und Fahrzeug müssen eingeloggt sein \r\n");

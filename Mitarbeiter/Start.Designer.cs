@@ -407,6 +407,7 @@
             this.button11.TabIndex = 147;
             this.button11.Text = "KorrekturNachtfahrten";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Visible = false;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // Start

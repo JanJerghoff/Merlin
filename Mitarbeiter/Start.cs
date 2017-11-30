@@ -253,13 +253,17 @@ namespace Mitarbeiter
             }
 
             if (Problemfahrten.Count != 144) {
+                textStartLog.AppendText("FAAAAIL");
                 return;
             }
 
             foreach (var item in Problemfahrten)
             {
                 String up = "UPDATE Fahrt Set Start = '"+Program.DateTimeMachine(item.Value,item.Value.AddDays(-1))+"' WHERE idFahrt = "+item.Key+";";
+                Program.absender(up, "bla");
             }
+
+            textStartLog.AppendText("Done");
 
         }
     }
