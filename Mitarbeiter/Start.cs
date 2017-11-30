@@ -231,6 +231,12 @@ namespace Mitarbeiter
 
         private void button11_Click(object sender, EventArgs e)
         {
+            //Testkram
+
+            
+            textStartLog.AppendText(Program.ArbeitsZeitBlock(DateTime.Now, DateTime.Now.AddMinutes(50), 5).ToString());
+            return;
+
             Dictionary<int, DateTime> Problemfahrten = new Dictionary<int, DateTime>();
 
             MySqlCommand cmdHisto = new MySqlCommand("Select idFahrt, Start FROM Fahrt Where Ende < Start;", Program.conn2);

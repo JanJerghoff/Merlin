@@ -224,8 +224,10 @@ namespace Mitarbeiter
 
                 // Soll - Haben gerechnet, hier sind jetzt noch fehlende Minuten positiv.
 
-                Stunden = (Math.Round((Convert.ToDouble(Min) / 60.0), 2)).ToString();
-                Stundenfeld[counter2].AppendText(Stunden);
+                Stundenfeld[counter2].AppendText(Min.ToString());
+
+                //Stunden = (Math.Round((Convert.ToDouble(Min) / 60.0), 2)).ToString();
+                //Stundenfeld[counter2].AppendText(Stunden);
 
                 // Weiterzählen
                 counter2++;

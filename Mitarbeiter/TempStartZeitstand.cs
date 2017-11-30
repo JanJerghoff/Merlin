@@ -19,6 +19,8 @@ namespace Mitarbeiter
 
         private void buttonNeu_Click(object sender, EventArgs e)
         {
+            
+
             if (numericID.Value == 0)
             {
                 textLog.Text = "Gültigen Mitarbeiter wählen";
@@ -26,8 +28,8 @@ namespace Mitarbeiter
             }
             else
             {                
-                string com = "INSERT INTO Stundenkonto (SollMinuten, Monat, Mitarbeiter_IdMitarbeiter) VALUES (" + decimal.ToInt32(numericSollstunden.Value*60) + ", '" + Program.DateMachine(Program.getMonat(dateZeitpunkt.Value)) + "', " + decimal.ToInt32(numericID.Value) + ");";
-                Program.absender(com, "Bla");
+                string com = "INSERT INTO Stundenkonto (SollMinuten, Monat, Mitarbeiter_IdMitarbeiter) VALUES (" + decimal.ToInt32(Math.Round(numericSollstunden.Value*60)) + ", '" + Program.DateMachine(Program.getMonat(dateZeitpunkt.Value)) + "', " + decimal.ToInt32(numericID.Value) + ");";
+                Program.absender(com, "Speichern des händischen Zeitkontos");
                 textLog.Text = "Mitarbeiter ID "+numericID.Value.ToString()+" hinzugefügt";
                 reset();
             }

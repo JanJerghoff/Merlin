@@ -311,7 +311,6 @@
             // 
             // button5
             // 
-            this.button5.Enabled = false;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button5.Location = new System.Drawing.Point(653, 21);
             this.button5.Margin = new System.Windows.Forms.Padding(4);
@@ -407,7 +406,6 @@
             this.button11.TabIndex = 147;
             this.button11.Text = "KorrekturNachtfahrten";
             this.button11.UseVisualStyleBackColor = true;
-            this.button11.Visible = false;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // Start
