@@ -18,6 +18,7 @@ namespace Kartonagen
 {
     public partial class LaufzettelKartons : Form
     {
+        List<TextBox> TransNr = new List<TextBox>();
         List<TextBox> Uhrzeit = new List<TextBox>();
         List<TextBox> KundenName = new List<TextBox>();
         List<TextBox> Anschrift = new List<TextBox>();
@@ -37,6 +38,23 @@ namespace Kartonagen
         }
 
         private void zuweisen() {
+
+            TransNr.Add(textTransNr1);
+            TransNr.Add(textTransNr2);
+            TransNr.Add(textTransNr3);
+            TransNr.Add(textTransNr4);
+            TransNr.Add(textTransNr5);
+            TransNr.Add(textTransNr6);
+            TransNr.Add(textTransNr7);
+            TransNr.Add(textTransNr8);
+            TransNr.Add(textTransNr9);
+            TransNr.Add(textTransNr10);
+            TransNr.Add(textTransNr11);
+            TransNr.Add(textTransNr12);
+            TransNr.Add(textTransNr13);
+            TransNr.Add(textTransNr14);
+            TransNr.Add(textTransNr15);
+            TransNr.Add(textTransNr16);
 
             Uhrzeit.Add(textUhrzeit1);
             Uhrzeit.Add(textUhrzeit2);
@@ -177,7 +195,7 @@ namespace Kartonagen
 
         private void buttonDrucken_Click(object sender, EventArgs e)
         {
-            MySqlCommand cmdRead = new MySqlCommand("SELECT t.Kartons, t.Flaschenkartons, t.Glaeserkartons, t.Kleiderkartons, t.timeTransaktion, k.Anrede, k.Vorname, k.Nachname, k.Telefonnummer, k.Handynummer, t.Bemerkungen, u.idUmzuege FROM Transaktionen t, Kunden k, Umzuege u WHERE t.Umzuege_Kunden_idKunden = k.idKunden AND u.idUmzuege = t.Umzuege_idUmzuege AND t.datTransaktion = '" + Program.DateMachine(dateTransaktion.Value) + "' ORDER BY timeTransaktion ASC;",Program.conn);
+            MySqlCommand cmdRead = new MySqlCommand("SELECT t.Kartons, t.Flaschenkartons, t.Glaeserkartons, t.Kleiderkartons, t.timeTransaktion, k.Anrede, k.Vorname, k.Nachname, k.Telefonnummer, k.Handynummer, t.Bemerkungen, u.idUmzuege, k.idKunden, t.idTransaktionen FROM Transaktionen t, Kunden k, Umzuege u WHERE t.Umzuege_Kunden_idKunden = k.idKunden AND u.idUmzuege = t.Umzuege_idUmzuege AND t.datTransaktion = '" + Program.DateMachine(dateTransaktion.Value) + "' ORDER BY timeTransaktion ASC;",Program.conn);
             MySqlDataReader rdr;
 
             Umzugsnummern = new List<int>();
@@ -192,8 +210,12 @@ namespace Kartonagen
                 {
                     // Sortiert Zeiten um genau Mitternacht aus
                     if (rdr.GetDateTime(4).TimeOfDay.CompareTo(comparison) != 0 || true) { //Test, remove!
+
+                        //Transaktionsnummer
+                        TransNr[count].AppendText(rdr.GetInt32(12)+"");
+
                         // Name
-                        KundenName[count].AppendText(rdr.GetString(5) + " " + rdr.GetString(7)); // Auslassung des Vornamens auf rdr[6]
+                        KundenName[count].AppendText(rdr.GetInt32(13) + " " + rdr.GetString(5) + " " + rdr.GetString(7)); // Auslassung des Vornamens auf rdr[6]
                         
                         //Kontakt (Handy vor Festnetz)
                         if (rdr.GetString(9) != "0")
