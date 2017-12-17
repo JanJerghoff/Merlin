@@ -41,6 +41,8 @@
             this.buttonUmzugsNrSuche = new System.Windows.Forms.Button();
             this.numericTransaktionsnummer = new System.Windows.Forms.NumericUpDown();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.textRechnungsnummer = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioBenutzt = new System.Windows.Forms.RadioButton();
             this.radioUnbenutzt = new System.Windows.Forms.RadioButton();
@@ -58,6 +60,8 @@
             this.radioEingang = new System.Windows.Forms.RadioButton();
             this.radioAusgang = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textRechnungsnummerAendern = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.radioBenutztAendern = new System.Windows.Forms.RadioButton();
             this.radioUnbenutztAendern = new System.Windows.Forms.RadioButton();
@@ -83,10 +87,10 @@
             this.label14 = new System.Windows.Forms.Label();
             this.buttonLoeschen = new System.Windows.Forms.Button();
             this.textTransaktion = new System.Windows.Forms.TextBox();
-            this.textRechnungsnummer = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textRechnungsnummerAendern = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.timeAendern = new System.Windows.Forms.DateTimePicker();
+            this.label18 = new System.Windows.Forms.Label();
+            this.timeTransaktion = new System.Windows.Forms.DateTimePicker();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericTransaktionsnummer)).BeginInit();
             this.groupBox8.SuspendLayout();
@@ -246,6 +250,8 @@
             // groupBox8
             // 
             this.groupBox8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox8.Controls.Add(this.label18);
+            this.groupBox8.Controls.Add(this.timeTransaktion);
             this.groupBox8.Controls.Add(this.textRechnungsnummer);
             this.groupBox8.Controls.Add(this.label15);
             this.groupBox8.Controls.Add(this.groupBox2);
@@ -263,10 +269,29 @@
             this.groupBox8.Enabled = false;
             this.groupBox8.Location = new System.Drawing.Point(12, 251);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(407, 253);
+            this.groupBox8.Size = new System.Drawing.Size(407, 289);
             this.groupBox8.TabIndex = 77;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Bestehende Transaktion";
+            // 
+            // textRechnungsnummer
+            // 
+            this.textRechnungsnummer.Location = new System.Drawing.Point(6, 226);
+            this.textRechnungsnummer.Name = "textRechnungsnummer";
+            this.textRechnungsnummer.ReadOnly = true;
+            this.textRechnungsnummer.Size = new System.Drawing.Size(181, 20);
+            this.textRechnungsnummer.TabIndex = 84;
+            this.textRechnungsnummer.TabStop = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(193, 226);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(132, 15);
+            this.label15.TabIndex = 83;
+            this.label15.Text = "Rechnungsnummer";
             // 
             // groupBox2
             // 
@@ -323,7 +348,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(120, 148);
+            this.label1.Location = new System.Drawing.Point(120, 174);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 15);
             this.label1.TabIndex = 37;
@@ -331,7 +356,7 @@
             // 
             // numericKleiderKarton
             // 
-            this.numericKleiderKarton.Location = new System.Drawing.Point(6, 174);
+            this.numericKleiderKarton.Location = new System.Drawing.Point(6, 200);
             this.numericKleiderKarton.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -346,7 +371,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(120, 174);
+            this.label2.Location = new System.Drawing.Point(120, 200);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 15);
             this.label2.TabIndex = 35;
@@ -354,7 +379,7 @@
             // 
             // numericGlaeserkarton
             // 
-            this.numericGlaeserkarton.Location = new System.Drawing.Point(7, 148);
+            this.numericGlaeserkarton.Location = new System.Drawing.Point(7, 174);
             this.numericGlaeserkarton.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -369,7 +394,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(120, 122);
+            this.label26.Location = new System.Drawing.Point(120, 148);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(112, 15);
             this.label26.TabIndex = 33;
@@ -377,7 +402,7 @@
             // 
             // numericFlaschenKarton
             // 
-            this.numericFlaschenKarton.Location = new System.Drawing.Point(6, 122);
+            this.numericFlaschenKarton.Location = new System.Drawing.Point(6, 148);
             this.numericFlaschenKarton.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -392,7 +417,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(120, 94);
+            this.label25.Location = new System.Drawing.Point(120, 120);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(115, 15);
             this.label25.TabIndex = 31;
@@ -400,7 +425,7 @@
             // 
             // numericKarton
             // 
-            this.numericKarton.Location = new System.Drawing.Point(6, 94);
+            this.numericKarton.Location = new System.Drawing.Point(6, 120);
             this.numericKarton.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -445,6 +470,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.timeAendern);
             this.groupBox1.Controls.Add(this.textRechnungsnummerAendern);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.groupBox4);
@@ -461,10 +488,27 @@
             this.groupBox1.Controls.Add(this.groupBox6);
             this.groupBox1.Location = new System.Drawing.Point(470, 251);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(407, 253);
+            this.groupBox1.Size = new System.Drawing.Size(407, 289);
             this.groupBox1.TabIndex = 78;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Veränderung";
+            // 
+            // textRechnungsnummerAendern
+            // 
+            this.textRechnungsnummerAendern.Location = new System.Drawing.Point(6, 226);
+            this.textRechnungsnummerAendern.Name = "textRechnungsnummerAendern";
+            this.textRechnungsnummerAendern.Size = new System.Drawing.Size(181, 20);
+            this.textRechnungsnummerAendern.TabIndex = 86;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(193, 226);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(132, 15);
+            this.label16.TabIndex = 85;
+            this.label16.Text = "Rechnungsnummer";
             // 
             // groupBox4
             // 
@@ -521,7 +565,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(120, 148);
+            this.label5.Location = new System.Drawing.Point(120, 174);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 15);
             this.label5.TabIndex = 37;
@@ -529,7 +573,7 @@
             // 
             // numericKleiderKartonAendern
             // 
-            this.numericKleiderKartonAendern.Location = new System.Drawing.Point(6, 174);
+            this.numericKleiderKartonAendern.Location = new System.Drawing.Point(6, 200);
             this.numericKleiderKartonAendern.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -543,7 +587,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(120, 174);
+            this.label6.Location = new System.Drawing.Point(120, 200);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(100, 15);
             this.label6.TabIndex = 35;
@@ -551,7 +595,7 @@
             // 
             // numericGlaeserKartonAendern
             // 
-            this.numericGlaeserKartonAendern.Location = new System.Drawing.Point(7, 148);
+            this.numericGlaeserKartonAendern.Location = new System.Drawing.Point(7, 174);
             this.numericGlaeserKartonAendern.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -565,7 +609,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(120, 122);
+            this.label7.Location = new System.Drawing.Point(120, 148);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(112, 15);
             this.label7.TabIndex = 33;
@@ -573,7 +617,7 @@
             // 
             // numericFlaschenKartonAendern
             // 
-            this.numericFlaschenKartonAendern.Location = new System.Drawing.Point(6, 122);
+            this.numericFlaschenKartonAendern.Location = new System.Drawing.Point(6, 148);
             this.numericFlaschenKartonAendern.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -587,7 +631,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(120, 94);
+            this.label11.Location = new System.Drawing.Point(120, 120);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(115, 15);
             this.label11.TabIndex = 31;
@@ -595,7 +639,7 @@
             // 
             // numericKartonAendern
             // 
-            this.numericKartonAendern.Location = new System.Drawing.Point(6, 94);
+            this.numericKartonAendern.Location = new System.Drawing.Point(6, 120);
             this.numericKartonAendern.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -730,41 +774,41 @@
             this.textTransaktion.TabIndex = 83;
             this.textTransaktion.TabStop = false;
             // 
-            // textRechnungsnummer
+            // label17
             // 
-            this.textRechnungsnummer.Location = new System.Drawing.Point(6, 200);
-            this.textRechnungsnummer.Name = "textRechnungsnummer";
-            this.textRechnungsnummer.ReadOnly = true;
-            this.textRechnungsnummer.Size = new System.Drawing.Size(181, 20);
-            this.textRechnungsnummer.TabIndex = 84;
-            this.textRechnungsnummer.TabStop = false;
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(193, 94);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(84, 15);
+            this.label17.TabIndex = 87;
+            this.label17.Text = "Lieferdatum";
             // 
-            // label15
+            // timeAendern
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(193, 200);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(132, 15);
-            this.label15.TabIndex = 83;
-            this.label15.Text = "Rechnungsnummer";
+            this.timeAendern.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.timeAendern.Location = new System.Drawing.Point(6, 94);
+            this.timeAendern.Name = "timeAendern";
+            this.timeAendern.Size = new System.Drawing.Size(181, 20);
+            this.timeAendern.TabIndex = 88;
             // 
-            // textRechnungsnummerAendern
+            // label18
             // 
-            this.textRechnungsnummerAendern.Location = new System.Drawing.Point(6, 200);
-            this.textRechnungsnummerAendern.Name = "textRechnungsnummerAendern";
-            this.textRechnungsnummerAendern.Size = new System.Drawing.Size(181, 20);
-            this.textRechnungsnummerAendern.TabIndex = 86;
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(193, 94);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(84, 15);
+            this.label18.TabIndex = 85;
+            this.label18.Text = "Lieferdatum";
             // 
-            // label16
+            // timeTransaktion
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(193, 200);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(132, 15);
-            this.label16.TabIndex = 85;
-            this.label16.Text = "Rechnungsnummer";
+            this.timeTransaktion.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.timeTransaktion.Location = new System.Drawing.Point(6, 94);
+            this.timeTransaktion.Name = "timeTransaktion";
+            this.timeTransaktion.Size = new System.Drawing.Size(181, 20);
+            this.timeTransaktion.TabIndex = 86;
             // 
             // TransaktionenSearch
             // 
@@ -876,5 +920,9 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textRechnungsnummerAendern;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.DateTimePicker timeTransaktion;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.DateTimePicker timeAendern;
     }
 }

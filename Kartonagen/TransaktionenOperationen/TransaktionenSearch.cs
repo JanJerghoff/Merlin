@@ -106,9 +106,14 @@ namespace Kartonagen
                     numericKleiderKarton.Value = Math.Abs(rdrTrans.GetInt32(5));
                     numericKleiderKartonAendern.Value = Math.Abs(rdrTrans.GetInt32(5));
 
-                    // Einfüllen Datum
+                    // Einfüllen Datum + Zeit
                     dateTimeTransaktion.Value = rdrTrans.GetDateTime(1);
                     dateTimeTransaktionAendern.Value = rdrTrans.GetDateTime(1);
+
+                    DateTime dummy = DateTime.Today + rdrTrans.GetDateTime(13).TimeOfDay;
+
+                    timeTransaktion.Value = dummy;
+                    timeAendern.Value = dummy;
 
                     // Bemerkungen einfüllen
                     textBemerkung.Text = rdrTrans[8].ToString();
