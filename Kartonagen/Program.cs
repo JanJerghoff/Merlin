@@ -142,6 +142,49 @@ namespace Kartonagen
 
         }
 
+        public static String DateTimeMachine(DateTime input, DateTime datum)
+        {
+            // Datumsteil
+            String x = String.Empty;
+
+            x += datum.Year.ToString();
+
+            String mm = datum.Month.ToString();
+            if (mm.Length == 1)
+            {
+                mm = "0" + mm;
+            }
+            x += "-" + mm;
+
+            String dd = datum.Day.ToString();
+            if (dd.Length == 1)
+            {
+                dd = "0" + dd;
+            }
+            x += "-" + dd;
+
+            // Zeitteil
+
+            x += " ";
+
+            String hh = input.Hour.ToString();
+            if (hh.Length == 1)
+            {
+                hh = "0" + hh;
+            }
+            x += hh + ":";
+
+            String min = input.Minute.ToString();
+            if (min.Length == 1)
+            {
+                min = "0" + min;
+            }
+            x += min + ":00";
+            // Sekunden immer auf 0 gesetzt
+
+            return x;
+        }
+
 
         public static String getBearbeitender(int ID)
         {

@@ -193,6 +193,7 @@ namespace Kartonagen
             String shove = " WHERE idTransaktionen = " + textTransaktion.Text + ";"; 
 
             push += "datTransaktion = '" + Program.DateMachine(dateTimeTransaktionAendern.Value) + "', ";
+            push += "timeTransaktion = '" + Program.DateTimeMachine(timeAendern.Value,dateTimeTransaktionAendern.Value) + "', ";
 
             if (radioAusgangAendern.Checked)
             {
@@ -208,6 +209,8 @@ namespace Kartonagen
                 push += "GlaeserKartons = -" + numericGlaeserKartonAendern.Value + ", ";
                 push += "KleiderKartons = -" + numericKleiderKartonAendern.Value + ", ";
             }
+
+            
 
 
             //push += "Umzuege_idUmzuege = "+ textUmzugsnummer.Text + ", ";
