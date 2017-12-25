@@ -121,6 +121,7 @@
     <Compile Include="Alerts\Erinnerungen.Designer.cs">
       <DependentUpon>Erinnerungen.cs</DependentUpon>
     </Compile>
+    <Compile Include="CalendarAPIUtil\Util.cs" />
     <Compile Include="Objekte\Kunde.cs" />
     <Compile Include="PDFInput.cs" />
     <Compile Include="Kunden.cs">
