@@ -122,7 +122,7 @@ namespace Kartonagen.CalendarAPIUtil
         }
 
         // Methode um Kalendereinträge vorzunehmen
-        public static String kalenderEintrag(String titel, String text, int Farbe, DateTime Start, DateTime Ende)
+        public String kalenderEintrag(String titel, String text, int Farbe, DateTime Start, DateTime Ende)
         {
 
             Event test = new Event()
@@ -137,15 +137,17 @@ namespace Kartonagen.CalendarAPIUtil
                 {
                     DateTime = Ende
                 },
-                ColorId = Farbe.ToString()
-
+                ColorId = Farbe.ToString(),
+                Id = nextID
             };
 
             String calendarId = "primary";
             EventsResource.InsertRequest request = dienst.Events.Insert(test, calendarId);
             Event createdEvent = request.Execute();
+            string ret = nextID;
+            cycleID();
 
-            return "Erfolg";
+            return ret;
         }
 
         // Methode um *GANZTÄGIGE* Kalendereinträge vorzunehmen
@@ -172,9 +174,20 @@ namespace Kartonagen.CalendarAPIUtil
             String calendarId = "primary";
             EventsResource.InsertRequest request = dienst.Events.Insert(test, calendarId);
             Event createdEvent = request.Execute();
+            string ret = nextID;
             cycleID();
 
-            return "Erfolg";
+            return ret;
+        }
+
+        // Finde spezifischen Eintrag
+        public static Event kalenderKundenFinder(String ID)
+        {
+            //Define parameters of request.
+            EventsResource.GetRequest request = dienst.Events.Get("primary",ID);
+            // List events.
+            Event ret = request.Execute();
+            return ret;
         }
     }
 }

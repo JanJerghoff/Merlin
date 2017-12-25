@@ -413,7 +413,7 @@ namespace Kartonagen
             };
             
             String calendarId = "primary";
-            EventsResource.InsertRequest request = dienst.Events.Insert(test, calendarId);
+            EventsResource.InsertRequest request = -dienst.Events.Insert(test, calendarId);
             Event createdEvent = request.Execute();
 
             return "Erfolg";
