@@ -112,7 +112,9 @@ namespace Kartonagen
         public int Id { get => id; }
         public string UserChanged1 { get => UserChanged; set => UserChanged = value; }
 
-        // Konstruktor
+        // Konstruktoren
+
+        //Bestehenden Umzug über UmzNr abrufen
         public Umzug(int ID)
         {
             MySqlCommand cmdRead = new MySqlCommand("SELECT * FROM Umzuege WHERE idUmzuege = " + ID + ";", Program.conn);
@@ -195,6 +197,7 @@ namespace Kartonagen
             umzugsKunde = new Kunde(idKunden);
         }
 
+        // Neuen Umzug in die DB anlegen
         public Umzug(int idKunden, DateTime datBesichtigung, DateTime datUmzug, DateTime datEinraeumen, DateTime datAusraeumen, DateTime datRuempeln, DateTime zeitUmzug, int statBesichtigung, int statUmzug, int statAus, int statEin, int statRuempeln, int umzugsdauer, string autos, int mann, int stunden, int versicherung, int einpacken, int einpacker, int einStunden, int karton, int auspacken, int auspacker, int ausStunden, int kleiderkartons, int kuecheAuf, int kuecheAb, int kuecheBau, int kuechePausch, Adresse auszug, Adresse einzug, int schilder, DateTime schilderZeit, string notizTitel, string notizBuero, string notizFahrer, string userChanged, DateTime erstelldatum)
         {
 
@@ -746,6 +749,47 @@ namespace Kartonagen
                 return "Abgelegt";
             }
         }
+
+
+        //Google Calendar funktionen
+
+        //Löschen einzelner Termine
+        public Boolean kill( int code) {
+
+            string ending = "";
+
+            switch (code)
+            {
+                case 1:
+                    ending = "bes";
+                    break;
+                case 2:
+                    ending = "umz";
+                    break;
+                case 3:
+                    ending = "ein";
+                    break;
+                case 4:
+                    ending = "aus";
+                    break;
+                case 5:
+                    ending = "ent";
+                    break;
+
+                default:
+                    break;
+            }
+
+            try
+            {
+                return Program.getUtil().kalenderEventRemove("merlinumz" + id + ending);
+            }
+            catch (Exception)
+            {
+                return false;                
+            }            
+        }
+        
 
     }
 }

@@ -12,11 +12,14 @@ using System.Threading;
 using System.Diagnostics;
 using System.Xml;
 using System.Text.RegularExpressions;
+using Kartonagen.CalendarAPIUtil;
 
 namespace Kartonagen
 {
     static class Program
     {
+        //Singleton Calendar-Handler
+        private static CalendarAPIUtil.Util ut;
 
         // Singleton-Autocomplete-Listen
         private static AutoCompleteStringCollection autocompleteKunden;
@@ -55,6 +58,13 @@ namespace Kartonagen
             return Temp;
         }
 
+        public static Util getUtil () {
+            if (ut == null)
+            {
+                ut = new CalendarAPIUtil.Util();                
+            }
+            return ut;
+        } 
 
         public static AutoCompleteStringCollection getAutocompleteKunden() {
 

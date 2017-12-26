@@ -270,7 +270,7 @@ namespace Kartonagen.CalendarAPIUtil
         }
 
         // Kill spezifischen Eintrag, return Erfolg oder Misserfolg
-        public static Boolean kalenderEventRemove(String ID)
+        public Boolean kalenderEventRemove(String ID)
         {
             try
             {                
