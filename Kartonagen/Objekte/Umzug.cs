@@ -750,8 +750,9 @@ namespace Kartonagen
             }
         }
 
-
+        //
         //Google Calendar funktionen
+        //
 
         //Code-Auflösung für "welchen Termin?"
         private String resolveCode(int code) {
@@ -817,6 +818,35 @@ namespace Kartonagen
 
 
 
+        }
+
+        // Einfügen aller Termine
+        public Boolean addAll() {
+            if (addEvent(1)&& addEvent(2) && addEvent(3) && addEvent(4) && addEvent(5))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        //Kopletter Refresh
+        public Boolean RefreshAll() {
+            if (killAll())
+            {
+                if (addAll())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        //Partielle Refreshs
+
+        //Textgeneration für Kalendereinträge
+        private String UmzHeader()
+        {
+            return IdKunden + " " + kun + ", " + Mann + " Mann, " + Stunden + " Stunden, " + AutoString() + " " + NotizTitel1;
         }
     }
 }
