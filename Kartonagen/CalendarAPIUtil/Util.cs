@@ -11,6 +11,14 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
+// Namenskonvention für Termin-ID´s: 
+// 1) merlin
+// 2) "umz" (zu einem Umzug gehörend) / "tran" (zu einer Transaktion gehörend)
+// 3) Nummer der Transaktion / des Umzugs
+// 4) Endung falls Umzug "umz/bes/ein/aus/ent" je nach Art des Termins
+//
+// Damit ist ein Termin ein-eindeutig definiert, wenn Kollision auftritt ist eine Löschung versäumt worden
+
 namespace Kartonagen.CalendarAPIUtil
 {
     class Util
@@ -38,9 +46,9 @@ namespace Kartonagen.CalendarAPIUtil
 
                 string credPath = System.Environment.GetFolderPath(
                     System.Environment.SpecialFolder.Personal);
-                credPath = System.IO.Path.Combine(credPath, ".credentials/calendar-dotnet-quickstart.json");
+                    credPath = System.IO.Path.Combine(credPath, ".credentials/calendar-dotnet-quickstart.json");
 
-                credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
+                    credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
                     GoogleClientSecrets.Load(stream).Secrets,
                     Scopes,
                     "user",
@@ -121,7 +129,7 @@ namespace Kartonagen.CalendarAPIUtil
             return events;
         }
 
-        // Methode um Kalendereinträge vorzunehmen
+        // Methode um Kalendereinträge vorzunehmen (Autogenerierter ID-String)
         public String kalenderEintrag(String titel, String text, int Farbe, DateTime Start, DateTime Ende)
         {
 
@@ -150,7 +158,34 @@ namespace Kartonagen.CalendarAPIUtil
             return ret;
         }
 
-        // Methode um *GANZTÄGIGE* Kalendereinträge vorzunehmen
+        // Methode um Kalendereinträge vorzunehmen (Von AktionsObjekt vorgegebener ID-String)
+        public String kalenderEintrag(String titel, String text, int Farbe, DateTime Start, DateTime Ende, String ID)
+        {
+
+            Event test = new Event()
+            {
+                Summary = titel,
+                Description = text,
+                Start = new EventDateTime()
+                {
+                    DateTime = Start
+                },
+                End = new EventDateTime()
+                {
+                    DateTime = Ende
+                },
+                ColorId = Farbe.ToString(),
+                Id = ID
+            };
+
+            String calendarId = "primary";
+            EventsResource.InsertRequest request = dienst.Events.Insert(test, calendarId);
+            Event createdEvent = request.Execute();
+
+            return ID;
+        }
+
+        // Methode um *GANZTÄGIGE* Kalendereinträge vorzunehmen (Autogenerierter ID-String)
         public String kalenderEintragGanz(String titel, String text, String location, int Farbe, DateTime Start, DateTime Ende)
         {
 
@@ -180,6 +215,34 @@ namespace Kartonagen.CalendarAPIUtil
             return ret;
         }
 
+        // Methode um *GANZTÄGIGE* Kalendereinträge vorzunehmen (Von AktionsObjekt vorgegebener ID-String)
+        public String kalenderEintragGanz(String titel, String text, String location, int Farbe, DateTime Start, DateTime Ende, String ID)
+        {
+
+            Event toAdd = new Event()
+            {
+                Summary = titel,
+                Description = text,
+                Start = new EventDateTime()
+                {
+                    Date = Start.Year + "-" + Start.Month + "-" + Start.Day,
+                },
+                End = new EventDateTime()
+                {
+                    Date = Ende.Year + "-" + Ende.Month + "-" + Ende.Day,
+                },
+                ColorId = Farbe.ToString(),
+                Location = location,
+                Id = ID
+            };
+
+            String calendarId = "primary";
+            EventsResource.InsertRequest request = dienst.Events.Insert(toAdd, calendarId);
+            Event createdEvent = request.Execute();
+
+            return ID;
+        }
+
         // Finde spezifischen Eintrag
         public static Event kalenderKundenFinder(String ID)
         {
@@ -188,6 +251,36 @@ namespace Kartonagen.CalendarAPIUtil
             // List events.
             Event ret = request.Execute();
             return ret;
+        }
+
+        // Verifikation freie KalenderID
+        public Boolean verifyIDAvailability(String ID) {
+
+            Events current = getEvents();
+
+            foreach (var item in current.Items)
+            {
+                if (item.Id == ID)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Kill spezifischen Eintrag, return Erfolg oder Misserfolg
+        public static Boolean kalenderEventRemove(String ID)
+        {
+            try
+            {                
+                EventsResource.DeleteRequest request = dienst.Events.Delete("primary", ID);                
+                request.Execute();
+            }
+            catch (Exception)
+            {
+                return false;                
+            }
+            return true;
         }
     }
 }
