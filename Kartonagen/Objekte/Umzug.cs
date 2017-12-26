@@ -753,8 +753,8 @@ namespace Kartonagen
 
         //Google Calendar funktionen
 
-        //Löschen einzelner Termine
-        public Boolean kill( int code) {
+        //Code-Auflösung für "welchen Termin?"
+        private String resolveCode(int code) {
 
             string ending = "";
 
@@ -780,16 +780,43 @@ namespace Kartonagen
                     break;
             }
 
+            return ending;
+        }
+
+        //Löschen einzelner Termine
+        public Boolean kill( int code) {
+            
             try
             {
-                return Program.getUtil().kalenderEventRemove("merlinumz" + id + ending);
+                return Program.getUtil().kalenderEventRemove("merlinumz" + id + resolveCode(code));
             }
             catch (Exception)
             {
                 return false;                
             }            
         }
-        
 
+        //Löschen aller Termine
+        public Boolean killAll() {
+
+            if (kill(1) && kill(2) && kill(3) && kill(4) && kill(5)) { return true; }
+            return false;
+
+        }
+
+        //Einfügen Eizentermine
+        public Booelan addEvent(int code) {
+
+            // Sicherstellen dass zu belegender Kalendertermin frei ist ... wenn false existiert der Termin schon
+            if (!Program.getUtil().verifyIDAvailability("merlinumz" + id + resolveCode(code))) {
+                return false;
+            }
+
+            String titel = "";
+            String text = "";
+
+
+
+        }
     }
 }
