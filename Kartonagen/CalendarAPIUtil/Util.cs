@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml;
 
 // Namenskonvention für Termin-ID´s: 
 // 1) merlin
@@ -130,7 +131,7 @@ namespace Kartonagen.CalendarAPIUtil
         }
 
         // Methode um Kalendereinträge vorzunehmen (Autogenerierter ID-String)
-        public String kalenderEintrag(String titel, String text, int Farbe, DateTime Start, DateTime Ende)
+        public String kalenderEventEintrag(String titel, String text, int Farbe, DateTime Start, DateTime Ende)
         {
 
             Event test = new Event()
@@ -159,7 +160,7 @@ namespace Kartonagen.CalendarAPIUtil
         }
 
         // Methode um Kalendereinträge vorzunehmen (Von AktionsObjekt vorgegebener ID-String)
-        public String kalenderEintrag(String titel, String text, int Farbe, DateTime Start, DateTime Ende, String ID)
+        public String kalenderEventEintrag(String titel, String text, int Farbe, DateTime Start, DateTime Ende, String ID)
         {
 
             Event test = new Event()
@@ -186,7 +187,7 @@ namespace Kartonagen.CalendarAPIUtil
         }
 
         // Methode um *GANZTÄGIGE* Kalendereinträge vorzunehmen (Autogenerierter ID-String)
-        public String kalenderEintragGanz(String titel, String text, String location, int Farbe, DateTime Start, DateTime Ende)
+        public String kalenderEventEintragGanz(String titel, String text, String location, int Farbe, DateTime Start, DateTime Ende)
         {
 
             Event test = new Event()
@@ -216,7 +217,7 @@ namespace Kartonagen.CalendarAPIUtil
         }
 
         // Methode um *GANZTÄGIGE* Kalendereinträge vorzunehmen (Von AktionsObjekt vorgegebener ID-String)
-        public String kalenderEintragGanz(String titel, String text, String location, int Farbe, DateTime Start, DateTime Ende, String ID)
+        public String kalenderEventEintragGanz(String titel, String text, String location, int Farbe, DateTime Start, DateTime Ende, String ID)
         {
 
             Event toAdd = new Event()
@@ -244,7 +245,7 @@ namespace Kartonagen.CalendarAPIUtil
         }
 
         // Finde spezifischen Eintrag
-        public static Event kalenderKundenFinder(String ID)
+        public static Event kalenderEventFinder(String ID)
         {
             //Define parameters of request.
             EventsResource.GetRequest request = dienst.Events.Get("primary",ID);
@@ -282,5 +283,76 @@ namespace Kartonagen.CalendarAPIUtil
             }
             return true;
         }
+
+        //
+        // Deprecated
+        // Altmethoden für Auslaufmodell (Terminsuche ohne ID, über Farbe / Datum / Nummern als String)
+        //
+
+        // Finde alle Einträge zu einem Kunden (DEPRECATED)
+        public static Events kalenderKundenFinder(String Kundennummer)
+        {
+
+            // Define parameters of request.
+            EventsResource.ListRequest request = dienst.Events.List("primary");
+            request.Q = Kundennummer;
+            request.ShowDeleted = false;
+            request.SingleEvents = true;
+            request.MaxResults = 2500;
+            // List events.
+            Events events = request.Execute();
+
+            return events;
+        }
+
+        // Finde alle Einträge zu einem Datum (DEPRECATED)
+        public static Events kalenderDatumFinder(DateTime datum)
+        {
+
+            // Define parameters of request.
+            EventsResource.ListRequest request = dienst.Events.List("primary");
+
+            DateTime keks = DateTime.Now;
+
+            String x = XmlConvert.ToString(keks, XmlDateTimeSerializationMode.Utc);
+
+            request.TimeMin = DateTime.Now.Date;
+            request.TimeMax = DateTime.Now.Date.AddDays(1);
+            request.ShowDeleted = false;
+            request.SingleEvents = true;
+            request.MaxResults = 2500;
+            // List events.
+            Events events = request.Execute();
+
+            return events;
+        }
+
+        // Methode um Kalendereinträge vorzunehmen (DEPRECATED)
+        public static String kalenderEintrag(String titel, String text, int Farbe, DateTime Start, DateTime Ende)
+        {
+
+            Event test = new Event()
+            {
+                Summary = titel,
+                Description = text,
+                Start = new EventDateTime()
+                {
+                    DateTime = Start
+                },
+                End = new EventDateTime()
+                {
+                    DateTime = Ende
+                },
+                ColorId = Farbe.ToString()
+
+            };
+
+            String calendarId = "primary";
+            EventsResource.InsertRequest request = dienst.Events.Insert(test, calendarId);
+            Event createdEvent = request.Execute();
+
+            return "Erfolg";
+        }
+
     }
 }

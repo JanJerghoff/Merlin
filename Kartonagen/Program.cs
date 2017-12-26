@@ -393,68 +393,7 @@ namespace Kartonagen
             return ret;
         }
 
-        // Methode um Kalendereinträge vorzunehmen
 
-        public static String kalenderEintrag(String titel, String text, int Farbe, DateTime Start, DateTime Ende) {
-
-            Event test = new Event()
-            {
-                Summary = titel,
-                Description = text,
-                Start = new EventDateTime() {
-                    DateTime = Start
-                },
-                End = new EventDateTime()
-                {
-                    DateTime = Ende
-                },
-                ColorId = Farbe.ToString()
-            
-            };
-            
-            String calendarId = "primary";
-            EventsResource.InsertRequest request = -dienst.Events.Insert(test, calendarId);
-            Event createdEvent = request.Execute();
-
-            return "Erfolg";
-        }
-
-        // Finde alle Einträge zu einem Kunden
-        public static Events kalenderKundenFinder(String Kundennummer) {
-
-            // Define parameters of request.
-            EventsResource.ListRequest request = dienst.Events.List("primary");
-            request.Q = Kundennummer;
-            request.ShowDeleted = false;
-            request.SingleEvents = true;
-            request.MaxResults = 2500;
-            // List events.
-            Events events = request.Execute();
-                      
-            return events;
-        }
-
-        // Finde alle Einträge zu einem Datum
-        public static Events kalenderDatumFinder(DateTime datum)
-        {
-
-            // Define parameters of request.
-            EventsResource.ListRequest request = dienst.Events.List("primary");
-
-            DateTime keks = DateTime.Now;
-
-            String x = XmlConvert.ToString(keks, XmlDateTimeSerializationMode.Utc);
-
-            request.TimeMin = DateTime.Now.Date;
-            request.TimeMax = DateTime.Now.Date.AddDays(1);
-            request.ShowDeleted = false;
-            request.SingleEvents = true;
-            request.MaxResults = 2500;
-            // List events.
-            Events events = request.Execute();
-
-            return events;
-        }
 
         // Return Match und ID für das löschen von Events
         public static String EventListMatch(Events e, DateTime date, String color) {                     
@@ -505,25 +444,6 @@ namespace Kartonagen
                 }
             }            
             return ID;
-        }
-
-        // Lösche Eintrag aus Kalender mittels ID
-        public static void EventDeleteId(String ID) {
-            try
-            {
-                dienst.Events.Delete("primary", ID).Execute();
-            }
-            catch (Exception ex)
-            {
-                // Popup wenn zu löschendes Datum nicht gefunden wird
-                String what = "Ein zu löschender Kalendereintrag konnte nicht gefunden werden. \r\n Bitte den Kalender überprüfen und manuell Löschungen vornehmen, \r\n sodass das System und der Kalender nach dieser änderung wieder übereinstimmen.";
-                what += " \r\n Speziell darauf achten das der Termin, den die Änderung betrifft, korrekt (und nicht doppelt) ist. \r\n";
-                what += ex.ToString();
-                what += "/r/n"+ID;
-
-                var warnung = MessageBox.Show(what, "Fehlermeldung");
-            }
-
         }
         
 
