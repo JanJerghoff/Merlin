@@ -283,8 +283,6 @@ namespace Kartonagen
             Program.absender(longInsert, "Einfügen des neuen Umzuges zum erstellen des Umzugsobjekts");
         }
 
-
-
         // Ausgabemethoden
         private String AutoString()
         {
@@ -385,9 +383,7 @@ namespace Kartonagen
 
         }
 
-
         
-
         // Druck, Parameter für Ausdruck (temp2, toggle = 1) oder mitnahme (t=2)
         public string druck(int toggle)
         {
@@ -806,7 +802,7 @@ namespace Kartonagen
         }
 
         //Einfügen Eizentermine
-        public Booelan addEvent(int code) {
+        public Boolean addEvent(int code) {
 
             // Sicherstellen dass zu belegender Kalendertermin frei ist ... wenn false existiert der Termin schon
             if (!Program.getUtil().verifyIDAvailability("merlinumz" + id + resolveCode(code))) {
