@@ -16,6 +16,7 @@ namespace Kartonagen
     {
         // Felder
         int id;
+        int idZusatz; //Identifiziert bei mehreren Umzügen pro Kunde welcher gemeint ist
         int idKunden;
         // Zeitblock
         DateTime datBesichtigung;   // Nur Datumskomponenten
@@ -761,7 +762,7 @@ namespace Kartonagen
                     ending = "bes";
                     break;
                 case 2:
-                    ending = "umz";
+                    ending = "um";
                     break;
                 case 3:
                     ending = "ein";
@@ -805,12 +806,14 @@ namespace Kartonagen
         public Boolean addEvent(int code) {
 
             // Sicherstellen dass zu belegender Kalendertermin frei ist ... wenn false existiert der Termin schon
-            if (!Program.getUtil().verifyIDAvailability("merlinumz" + id + resolveCode(code))) {
+            if (!Program.getUtil().verifyIDAvailability("merlinum" + id + "i" + idZusatz +"c"+ resolveCode(code))) {
                 return false;
             }
 
             String titel = "";
             String text = "";
+
+            switch
 
 
 
@@ -842,7 +845,7 @@ namespace Kartonagen
         //Textgeneration für Kalendereinträge
         private String UmzHeader()
         {
-            return IdKunden + " " + kun + ", " + Mann + " Mann, " + Stunden + " Stunden, " + AutoString() + " " + NotizTitel1;
+            return IdKunden + " " + umzugsKunde.Vorname+" "+umzugsKunde.Nachname + ", " + Mann + " Mann, " + Stunden + " Stunden, " + AutoString() + " " + NotizTitel1;
         }
     }
 }
