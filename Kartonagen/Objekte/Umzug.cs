@@ -758,6 +758,9 @@ namespace Kartonagen
 
             switch (code)
             {
+                case 0:
+                    ending = "schild";
+                    break;
                 case 1:
                     ending = "bes";
                     break;
@@ -779,6 +782,23 @@ namespace Kartonagen
             }
 
             return ending;
+        }
+
+        private int resolveUmzugsfarbe() {
+
+            switch (StatUmzug)
+            {
+                case 1:
+                    return 11;
+                case 2:
+                    return 10;
+                case 3:
+                    return 2;
+                default:
+                    return 0;
+                    break;
+            }
+
         }
 
         //Löschen einzelner Termine
@@ -805,15 +825,41 @@ namespace Kartonagen
         //Einfügen Eizentermine
         public Boolean addEvent(int code) {
 
+            string calId = "merlinum" + id + "i" + idZusatz + "c" + resolveCode(code);
+
             // Sicherstellen dass zu belegender Kalendertermin frei ist ... wenn false existiert der Termin schon
-            if (!Program.getUtil().verifyIDAvailability("merlinum" + id + "i" + idZusatz +"c"+ resolveCode(code))) {
+            if (!Program.getUtil().verifyIDAvailability(calId)) {
                 return false;
             }
 
             String titel = "";
             String text = "";
 
-            switch
+            switch (code)
+            {
+                case 1:
+
+                    break;
+
+                case 2:
+                    Program.getUtil().kalenderEventEintragGanz(UmzHeader(), KalenderString(), hvzString(), resolveUmzugsfarbe(), DatUmzug, DatUmzug.AddDays(umzugsdauer),calId);
+                    break;
+
+                case 3:
+
+                    break;
+
+                case 4:
+
+                    break;
+
+                case 5:
+
+                    break;
+
+                default:
+                    break;
+            }
 
 
 
@@ -846,6 +892,117 @@ namespace Kartonagen
         private String UmzHeader()
         {
             return IdKunden + " " + umzugsKunde.Vorname+" "+umzugsKunde.Nachname + ", " + Mann + " Mann, " + Stunden + " Stunden, " + AutoString() + " " + NotizTitel1;
+        }
+
+        private String SchilderHeader()
+        {
+            return idKunden + " " +umzugsKunde.Vorname+ " "+umzugsKunde.Nachname+ ", Schilder stellen";
+        }
+
+        private String EinRaeumHeader()
+        {
+            String EinRaeumHeader = idKunden + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + " Einpacken, " + Einpacker + " Mann, " + EinStunden + " Stunden";
+
+            if (StatEin == 2)
+            {
+                EinRaeumHeader = EinRaeumHeader + " Optional";
+            }
+
+            return EinRaeumHeader;
+        }
+
+        private String AusRaeumHeader()
+        {
+            String AusRaeumHeader = idKunden + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + "Auspacken, " + Auspacker + " Mann, " + AusStunden + " Stunden";
+
+            if (statAus == 2)
+            {
+                AusRaeumHeader = AusRaeumHeader + " Optional";
+            }
+
+            return AusRaeumHeader;
+        }
+
+        private String KalenderString()
+        {
+            //Konstruktion String Kalerndereintragsinhalt
+            // Name + Auszugsadresse
+            String Body = umzugsKunde.Vorname + " " + umzugsKunde.Nachname + "\r\n Aus: " + auszug.Straße1 + " " + auszug.Hausnummer1 + ", " + auszug.PLZ1 + " " + auszug.Ort1 + "\r\n";
+
+            // Geschoss + HausTyp
+            Body += auszug.KalenderStringEtageHaustyp();
+
+            if (auszug.Aufzug1 == 1)
+            {
+                Body += "mit Aufzug \r\n";
+            }
+            else { Body += "ohne Aufzug \r\n"; }
+
+            //Einzugsadresse
+            Body += "\r\n Nach: " + einzug.Straße1 + " " + einzug.Hausnummer1 + ", " + einzug.PLZ1 + " " + einzug.Ort1 + "\r\n";
+
+            // Geschoss + HausTyp
+            Body += einzug.KalenderStringEtageHaustyp();
+
+            if (einzug.Aufzug1 == 1)
+            {
+                Body += "mit Aufzug \r\n";
+            }
+            else { Body += "ohne Aufzug \r\n"; }
+
+            // Kontaktdaten
+            if (umzugsKunde.Telefon != "0")
+            {
+                Body += "\r\n " + umzugsKunde.Telefon;
+            }
+            if (umzugsKunde.Handy != "0")
+            {
+                Body += "\r\n " + umzugsKunde.Handy;
+            }
+            if (umzugsKunde.Email != "x@y.z")
+            {
+                Body += "\r\n " + umzugsKunde.Email;
+            }
+            Body += "\r\n Am: " + datUmzug.ToShortDateString() + "\r\n";
+
+            // Büronotiz
+
+            Body += NotizBuero;
+
+            // Rückgabe fertiger Body
+            return Body;
+        }
+
+        private String hvzString()
+        {
+            if (auszug.HVZ1 == 1 && einzug.HVZ1==1)
+            {
+                return "2 X HVZ";
+            }
+            else if (auszug.HVZ1 == 1 || einzug.HVZ1 == 1)
+            {
+                return "1 X HVZ";
+            }
+            else
+            {
+                return "keine HVZ";
+            }
+        }
+
+        private void Schilderstellen()
+        {
+            //Schilder
+            if (auszug.HVZ1==1)
+            {
+                String Body = auszug.Straße1 + " " + auszug.Hausnummer1 + ", " + auszug.PLZ1 + " " + auszug.Ort1;
+                Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Auszug", 3, datUmzug.Date.AddDays(-6), datUmzug.Date.AddDays(-6));
+            }
+
+            if (einzug.HVZ1 == 1)
+            {
+                String Body = einzug.Straße1 + " " + einzug.Hausnummer1 + ", " + einzug.PLZ1 + " " + einzug.Ort1;
+                Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Einzug", 3, datUmzug.Date.AddDays(-6), datUmzug.Date.AddDays(-6));                
+            }
         }
     }
 }

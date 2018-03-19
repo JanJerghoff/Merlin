@@ -354,5 +354,14 @@ namespace Kartonagen.CalendarAPIUtil
             return "Erfolg";
         }
 
+        //UTILITY METHODEN
+
+        //Merge von Date und Time into DateTime
+        public DateTime mergeDatetime(DateTime Tag, DateTime Uhrzeit) {
+
+            DateTime ret = new DateTime(Tag.Year, Tag.Month, Tag.Day, Uhrzeit.Hour, Uhrzeit.Minute, Uhrzeit.Second);
+            return ret;
+
+        }
     }
 }
