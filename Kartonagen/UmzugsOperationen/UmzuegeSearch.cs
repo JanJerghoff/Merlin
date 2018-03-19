@@ -1015,7 +1015,7 @@ namespace Kartonagen
 
             foreach (var EventItem in events.Items) {
                 if (EventItem.ColorId == "3") {
-                    Program.EventDeleteId(EventItem.Id);
+                    Program.getUtil().kalenderEventRemove(EventItem.Id);
                 }
             }            
         }

@@ -758,8 +758,11 @@ namespace Kartonagen
 
             switch (code)
             {
-                case 0:
-                    ending = "schild";
+                case 7:
+                    ending = "schildaus";
+                    break;
+                case 6:
+                    ending = "schildein";
                     break;
                 case 1:
                     ending = "bes";
@@ -806,7 +809,7 @@ namespace Kartonagen
             
             try
             {
-                return Program.getUtil().kalenderEventRemove("merlinumz" + id + resolveCode(code));
+                return Program.getUtil().kalenderEventRemove("merlinum" + id + "i" + idZusatz + "c" + resolveCode(code));
             }
             catch (Exception)
             {
@@ -817,7 +820,7 @@ namespace Kartonagen
         //Löschen aller Termine
         public Boolean killAll() {
 
-            if (kill(1) && kill(2) && kill(3) && kill(4) && kill(5)) { return true; }
+            if (kill(1) && kill(2) && kill(3) && kill(4) && kill(5) && kill(6) && kill(7)) { return true; }
             return false;
 
         }
@@ -838,31 +841,56 @@ namespace Kartonagen
             switch (code)
             {
                 case 1:
-
-                    break;
+                    DateTime date = Program.getUtil().mergeDatetime(datBesichtigung, zeitUmzug);
+                    DateTime schluss = date.AddMinutes(60);
+                    Program.getUtil().kalenderEventEintrag(IdKunden + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname, KalenderString(), 9, date, schluss,calId);
+                    return true;
 
                 case 2:
                     Program.getUtil().kalenderEventEintragGanz(UmzHeader(), KalenderString(), hvzString(), resolveUmzugsfarbe(), DatUmzug, DatUmzug.AddDays(umzugsdauer),calId);
-                    break;
+                    return true;
 
                 case 3:
-
-                    break;
+                    if (StatEin == 1)
+                    {
+                        Program.getUtil().kalenderEventEintragGanz(EinRaeumHeader(), KalenderString(), "", 5, datEinraeumen.Date, datEinraeumen.Date, calId);
+                        return true;
+                    }
+                    else if (StatEin == 2) {
+                        Program.getUtil().kalenderEventEintragGanz(EinRaeumHeader(), KalenderString(), "", 6, datEinraeumen.Date, datEinraeumen.Date, calId);
+                        return true;
+                    }
+                    return false;
 
                 case 4:
-
-                    break;
+                    if (StatAus == 1)
+                    {
+                        Program.getUtil().kalenderEventEintragGanz(EinRaeumHeader(), KalenderString(), "", 5, DatAusraeumen.Date, DatAusraeumen.Date, calId);
+                        return true;
+                    }
+                    else if (StatAus == 2)
+                    {
+                        Program.getUtil().kalenderEventEintragGanz(EinRaeumHeader(), KalenderString(), "", 6, DatAusraeumen.Date, DatAusraeumen.Date, calId);
+                        return true;
+                    }
+                    return false;
 
                 case 5:
-
-                    break;
+                    String Header = IdKunden + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + ", " + Einpacker1 + " Mann, " + EinStunden1 + " Stunden ENTRÜMPELN, "; // TODO Entrümpeldaten erfassen!
+                    if (StatRuempeln == 1)
+                    {
+                        Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), "", 11, datRuempeln.Date, datRuempeln.Date,calId);
+                        return true;
+                    }
+                    else if (StatRuempeln == 2 ) {
+                        Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), "", 10, datRuempeln.Date, datRuempeln.Date, calId);
+                        return true;
+                    }
+                    return false;
 
                 default:
-                    break;
+                    return false;
             }
-
-
-
         }
 
         // Einfügen aller Termine

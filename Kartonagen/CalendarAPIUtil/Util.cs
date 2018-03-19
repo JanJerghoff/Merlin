@@ -245,7 +245,7 @@ namespace Kartonagen.CalendarAPIUtil
         }
 
         // Finde spezifischen Eintrag
-        public static Event kalenderEventFinder(String ID)
+        public Event kalenderEventFinder(String ID)
         {
             //Define parameters of request.
             EventsResource.GetRequest request = dienst.Events.Get("primary",ID);
@@ -290,7 +290,7 @@ namespace Kartonagen.CalendarAPIUtil
         //
 
         // Finde alle Einträge zu einem Kunden (DEPRECATED)
-        public static Events kalenderKundenFinder(String Kundennummer)
+        public Events kalenderKundenFinder(String Kundennummer)
         {
 
             // Define parameters of request.
@@ -306,7 +306,7 @@ namespace Kartonagen.CalendarAPIUtil
         }
 
         // Finde alle Einträge zu einem Datum (DEPRECATED)
-        public static Events kalenderDatumFinder(DateTime datum)
+        public Events kalenderDatumFinder(DateTime datum)
         {
 
             // Define parameters of request.
@@ -328,7 +328,7 @@ namespace Kartonagen.CalendarAPIUtil
         }
 
         // Methode um Kalendereinträge vorzunehmen (DEPRECATED)
-        public static String kalenderEintrag(String titel, String text, int Farbe, DateTime Start, DateTime Ende)
+        public String kalenderEintrag(String titel, String text, int Farbe, DateTime Start, DateTime Ende)
         {
 
             Event test = new Event()
