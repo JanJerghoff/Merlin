@@ -590,7 +590,7 @@ namespace Kartonagen
 
             // Google-Get
 
-            events = Program.kalenderKundenFinder(textKundennummer.Text);
+            events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
             // Personendaten aus dem Kunden ziehen
 
             MySqlCommand cmdReadKunde = new MySqlCommand("SELECT * FROM Kunden WHERE idKunden=" + textKundennummer.Text + " ;", Program.conn);
@@ -975,6 +975,12 @@ namespace Kartonagen
 
 
         private void UmzugEinfuegen(int code) {
+
+            if (umzObj.isNewType()) {
+
+            }
+
+
             if (code == 1) {
                 //Umzug
                 Program.kalenderEintragGanz(Header(), KalenderString(), hvzString(), 11, dateUmzug.Value.Date, dateUmzug.Value.Date.AddDays(decimal.ToInt32(numericUmzugsDauer.Value)));

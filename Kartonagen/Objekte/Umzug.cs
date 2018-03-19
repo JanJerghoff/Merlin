@@ -848,6 +848,7 @@ namespace Kartonagen
 
                 case 2:
                     Program.getUtil().kalenderEventEintragGanz(UmzHeader(), KalenderString(), hvzString(), resolveUmzugsfarbe(), DatUmzug, DatUmzug.AddDays(umzugsdauer),calId);
+                    Schilderstellen();
                     return true;
 
                 case 3:
@@ -1031,6 +1032,13 @@ namespace Kartonagen
                 String Body = einzug.Straße1 + " " + einzug.Hausnummer1 + ", " + einzug.PLZ1 + " " + einzug.Ort1;
                 Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Einzug", 3, datUmzug.Date.AddDays(-6), datUmzug.Date.AddDays(-6));                
             }
+        }
+
+        public Boolean isNewType() {
+            if (idZusatz != 0) {
+                return true;
+            }
+            return false;
         }
     }
 }
