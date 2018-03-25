@@ -428,7 +428,7 @@ namespace Kartonagen
 
             DateTime start = new DateTime(dateTimeTransaktion.Value.Year, dateTimeTransaktion.Value.Month, dateTimeTransaktion.Value.Day, timeLieferzeit.Value.Hour, timeLieferzeit.Value.Minute, 0);
 
-            Program.kalenderEintrag(Titel, Body, 8, start, start.AddHours(1));
+            Program.getUtil().kalenderEventEintrag(Titel, Body, 8, start, start.AddHours(1));
 
             textTransaktionLog.AppendText(" Kalendereintrag erfolgreich!\r\n");
 

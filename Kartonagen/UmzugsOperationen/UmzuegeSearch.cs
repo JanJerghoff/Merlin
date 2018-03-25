@@ -978,26 +978,21 @@ namespace Kartonagen
 
 
         private void UmzugEinfuegen(int code) {
-
-            if (umzObj.isNewType()) {
-
-            }
-
-
+            
             if (code == 1) {
                 //Umzug
-                Program.kalenderEintragGanz(Header(), KalenderString(), hvzString(), 11, dateUmzug.Value.Date, dateUmzug.Value.Date.AddDays(decimal.ToInt32(numericUmzugsDauer.Value)));
+                Program.getUtil().kalenderEventEintragGanz(Header(), KalenderString(), hvzString(), 11, dateUmzug.Value.Date, dateUmzug.Value.Date.AddDays(decimal.ToInt32(numericUmzugsDauer.Value)));
                 textUmzugLog.AppendText("Umzug hinzugefügt \r\n");
                 Schilderstellen();              
             }
             else if (code == 2) {
                 // Umzug
-                Program.kalenderEintragGanz(Header(), KalenderString(), hvzString(), 10, dateUmzug.Value.Date, dateUmzug.Value.Date.AddDays(decimal.ToInt32(numericUmzugsDauer.Value)));
+                Program.getUtil().kalenderEventEintragGanz(Header(), KalenderString(), hvzString(), 10, dateUmzug.Value.Date, dateUmzug.Value.Date.AddDays(decimal.ToInt32(numericUmzugsDauer.Value)));
                 textUmzugLog.AppendText("Vorläufiger Umzug hinzugefügt \r\n");
             }
             else if (code == 3) {
                 // Umzug
-                Program.kalenderEintragGanz(Header(), KalenderString(), hvzString(), 2, dateUmzug.Value.Date, dateUmzug.Value.Date.AddDays(decimal.ToInt32(numericUmzugsDauer.Value)));
+                Program.getUtil().kalenderEventEintragGanz(Header(), KalenderString(), hvzString(), 2, dateUmzug.Value.Date, dateUmzug.Value.Date.AddDays(decimal.ToInt32(numericUmzugsDauer.Value)));
                 textUmzugLog.AppendText("Vorläufig gebuchter Umzug hinzugefügt \r\n");
                 Schilderstellen();
             }
@@ -1008,14 +1003,14 @@ namespace Kartonagen
             if (radioHVZAJa.Checked)
             {
                 String Body = textStraßeA.Text + " " + textHausnummerA.Text + ", " + textPLZA.Text + " " + textOrtA.Text;
-                Program.kalenderEintragGanz(SchilderHeader(), Body, "Auszug", 3, dateUmzug.Value.Date.AddDays(-6), dateUmzug.Value.Date.AddDays(-6));
+                Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Auszug", 3, dateUmzug.Value.Date.AddDays(-6), dateUmzug.Value.Date.AddDays(-6));
                 textUmzugLog.AppendText("Schilderstellen Auszug hinzugefügt \r\n");
             }
 
             if (radioHVZBJa.Checked)
             {
                 String Body = textStraßeB.Text + " " + textHausnummerB.Text + ", " + textPLZB.Text + " " + textOrtB.Text;
-                Program.kalenderEintragGanz(SchilderHeader(), Body, "Einzug", 3, dateUmzug.Value.Date.AddDays(-6), dateUmzug.Value.Date.AddDays(-6));
+                Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Einzug", 3, dateUmzug.Value.Date.AddDays(-6), dateUmzug.Value.Date.AddDays(-6));
                 textUmzugLog.AppendText("Schilderstellen Einzug hinzugefügt \r\n");
             }
         }
@@ -1054,22 +1049,22 @@ namespace Kartonagen
             switch (code) // 1 Einräumen, 2 Vllt Einräumen, 3 Ausräumen, 4 Vllt Ausräumen
             {
                 case 1:
-                    Program.kalenderEintragGanz(EinRaeumHeader(), KalenderString(), "", 5, dateEinpack.Value.Date, dateEinpack.Value.Date);
+                    Program.getUtil().kalenderEventEintragGanz(EinRaeumHeader(), KalenderString(), "", 5, dateEinpack.Value.Date, dateEinpack.Value.Date);
                     textUmzugLog.AppendText("Einpacken hinzugefügt \r\n");
                     break;
 
                 case 2:
-                    Program.kalenderEintragGanz(EinRaeumHeader(), KalenderString(), "", 6, dateEinpack.Value.Date, dateEinpack.Value.Date);
+                    Program.getUtil().kalenderEventEintragGanz(EinRaeumHeader(), KalenderString(), "", 6, dateEinpack.Value.Date, dateEinpack.Value.Date);
                     textUmzugLog.AppendText("Vorläufiges Einpacken hinzugefügt \r\n");
                     break;
                 
                 case 3:
-                    Program.kalenderEintragGanz(AusRaeumHeader(), KalenderString(), "", 5, dateAuspack.Value.Date, dateAuspack.Value.Date);
+                    Program.getUtil().kalenderEventEintragGanz(AusRaeumHeader(), KalenderString(), "", 5, dateAuspack.Value.Date, dateAuspack.Value.Date);
                     textUmzugLog.AppendText("Auspacken hinzugefügt \r\n");
                     break;
 
                 case 4:
-                    Program.kalenderEintragGanz(AusRaeumHeader(), KalenderString(), "", 6, dateAuspack.Value.Date, dateAuspack.Value.Date);
+                    Program.getUtil().kalenderEventEintragGanz(AusRaeumHeader(), KalenderString(), "", 6, dateAuspack.Value.Date, dateAuspack.Value.Date);
                     textUmzugLog.AppendText("Vorläufiges Auspacken hinzugefügt \r\n");
                     break;
                 
@@ -1129,7 +1124,7 @@ namespace Kartonagen
                 // Anlegen Besichtigung
                 DateTime date = dateBesicht.Value.Date.Add(timeBesichtigung.Value.TimeOfDay);
                 DateTime schluss = date.AddMinutes(60);
-                Program.kalenderEintrag(textKundennummer.Text + " " + textVorNachname.Text, KalenderString(), 9, date, schluss);
+                Program.getUtil().kalenderEventEintrag(textKundennummer.Text + " " + textVorNachname.Text, KalenderString(), 9, date, schluss);
                 textUmzugLog.AppendText("Besichtigung hinzugefügt \r\n");
                 // Merken
                 InsertDaten += "StatBes = " + 1 + ", ";
@@ -1247,7 +1242,7 @@ namespace Kartonagen
                 }
                 // Entrümpelung hinzufügen
                 String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericEinPacker.Value + " Mann, " + numericEinPackStunden.Value + " Stunden ENTRÜMPELN, ";
-                Program.kalenderEintragGanz(Header, KalenderString(), "", 11, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
+                Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), "", 11, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
                 textUmzugLog.AppendText("Entrümpeln hinzugefügt \r\n");
 
                 InsertDaten += "StatEnt = " + 1 + ", ";
@@ -1263,7 +1258,7 @@ namespace Kartonagen
                 }
                 // Vorläufiges Entrümpeln hinzufügen
                 String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericEinPacker.Value + " Mann, " + numericEinPackStunden.Value + " Stunden ENTRÜMPELN, ";
-                Program.kalenderEintragGanz(Header, KalenderString(), "", 10, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
+                Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), "", 10, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
                 textUmzugLog.AppendText("Vorläufiges Entrümpeln hinzugefügt \r\n");
 
                 InsertDaten += "StatEnt = " + 2 + ", ";
@@ -1608,7 +1603,7 @@ namespace Kartonagen
                 // Anlegen Besichtigung
                 DateTime date = dateBesicht.Value.Date.Add(timeBesichtigung.Value.TimeOfDay);
                 DateTime schluss = date.AddMinutes(60);
-                Program.kalenderEintrag(textKundennummer.Text + " " + textVorNachname.Text + " " + textNoteKalender.Text, KalenderString(), 9, date, schluss);
+                Program.getUtil().kalenderEventEintrag(textKundennummer.Text + " " + textVorNachname.Text + " " + textNoteKalender.Text, KalenderString(), 9, date, schluss);
                 textUmzugLog.AppendText("Besichtigung hinzugefügt \r\n");
             }
 
@@ -1659,7 +1654,7 @@ namespace Kartonagen
 
                 // Vorläufiges Entrümpeln hinzufügen
                 String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericEinPacker.Value + " Mann, " + numericEinPackStunden.Value + " Stunden ENTRÜMPELN, ";
-                Program.kalenderEintragGanz(Header, KalenderString(), "", 10, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
+                Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), "", 10, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
                 textUmzugLog.AppendText("Vorläufiges Entrümpeln hinzugefügt \r\n");
             }
             else if (umzObj.StatRuempeln == 1) {
@@ -1669,7 +1664,7 @@ namespace Kartonagen
 
                 // Entrümpelung hinzufügen
                 String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericEinPacker.Value + " Mann, " + numericEinPackStunden.Value + " Stunden ENTRÜMPELN, ";
-                Program.kalenderEintragGanz(Header, KalenderString(), "", 11, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
+                Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), "", 11, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
                 textUmzugLog.AppendText("Entrümpeln hinzugefügt \r\n");
             }
         }

@@ -16,7 +16,6 @@ namespace Kartonagen
     {
         // Felder
         int id;
-        int idZusatz; //Identifiziert bei mehreren Umzügen pro Kunde welcher gemeint ist
         int idKunden;
         // Zeitblock
         DateTime datBesichtigung;   // Nur Datumskomponenten
@@ -808,7 +807,7 @@ namespace Kartonagen
             
             try
             {
-                return Program.getUtil().kalenderEventRemove("merlinum" + id + "i" + idZusatz + "c" + resolveCode(code));
+                return Program.getUtil().kalenderEventRemove("merlinum" + id + "c" + resolveCode(code));
             }
             catch (Exception)
             {
@@ -827,7 +826,7 @@ namespace Kartonagen
         //Einfügen Eizentermine
         public Boolean addEvent(int code) {
 
-            string calId = "merlinum" + id + "i" + idZusatz + "c" + resolveCode(code);
+            string calId = "merlinum" + id + "c" + resolveCode(code);
 
             // Sicherstellen dass zu belegender Kalendertermin frei ist ... wenn false existiert der Termin schon
             if (!Program.getUtil().verifyIDAvailability(calId)) {
@@ -1026,7 +1025,7 @@ namespace Kartonagen
         private void Schilderstellen()
         {
             //Schilder
-            if (auszug.HVZ1==1)
+            if (auszug.HVZ1 == 1)
             {
                 String Body = auszug.Straße1 + " " + auszug.Hausnummer1 + ", " + auszug.PLZ1 + " " + auszug.Ort1;
                 Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Auszug", 3, datUmzug.Date.AddDays(-6), datUmzug.Date.AddDays(-6));
@@ -1035,15 +1034,9 @@ namespace Kartonagen
             if (einzug.HVZ1 == 1)
             {
                 String Body = einzug.Straße1 + " " + einzug.Hausnummer1 + ", " + einzug.PLZ1 + " " + einzug.Ort1;
-                Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Einzug", 3, datUmzug.Date.AddDays(-6), datUmzug.Date.AddDays(-6));                
+                Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Einzug", 3, datUmzug.Date.AddDays(-6), datUmzug.Date.AddDays(-6));
             }
         }
-
-        public Boolean isNewType() {
-            if (idZusatz != 0) {
-                return true;
-            }
-            return false;
-        }
+        
     }
 }
