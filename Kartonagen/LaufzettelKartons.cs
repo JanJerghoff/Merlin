@@ -214,7 +214,7 @@ namespace Kartonagen
                         //Transaktionsnummer
                         TransNr[count].AppendText(rdr.GetInt32(12)+"");
 
-                        // Name
+                        // Name + Kundennummer + Transnr 
                         KundenName[count].AppendText(rdr.GetInt32(13) + " " + rdr.GetString(5) + " " + rdr.GetString(7)); // Auslassung des Vornamens auf rdr[6]
                         
                         //Kontakt (Handy vor Festnetz)
@@ -303,7 +303,7 @@ namespace Kartonagen
             }
 
             // Gegenprüfen mittels Kalender
-            Events eve = Program.kalenderDatumFinder(dateTransaktion.Value);            
+            Events eve = Program.getUtil().kalenderDatumFinder(dateTransaktion.Value);            
             foreach (var item in eve.Items)
             {
                 if (item.ColorId == "8")

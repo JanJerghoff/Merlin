@@ -31,6 +31,14 @@ namespace Kartonagen
             // Vorlegen der ListBoxen
             listBoxA.SelectedIndex = 3;
             listBoxB.SelectedIndex = 3;
+
+            dateAuspack.Value = DateTime.Now;
+            dateBesicht.Value = DateTime.Now;
+            dateEinpack.Value = DateTime.Now;
+            dateEntruempel.Value = DateTime.Now;
+            dateUmzug.Value = DateTime.Now;
+
+
         }
 
         private int idBearbeitend = 0; // 0= Rita, 1=Jonas, 2=Eva, 3=Jan, 4, Sonst.

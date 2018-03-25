@@ -1925,7 +1925,7 @@
             this.dateBesicht.Name = "dateBesicht";
             this.dateBesicht.Size = new System.Drawing.Size(200, 20);
             this.dateBesicht.TabIndex = 11;
-            this.dateBesicht.Value = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
+            this.dateBesicht.Value = new System.DateTime(2018, 3, 25, 0, 0, 0, 0);
             // 
             // label6
             // 

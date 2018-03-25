@@ -35,6 +35,8 @@ namespace Kartonagen
         int EntruempelungSet = 0;
         int EinpackenSet = 0;
         int AuspackenSet = 0;
+
+
         
 
         public UmzuegeSearch()
@@ -67,10 +69,11 @@ namespace Kartonagen
             // Daten auf heute setzen
 
             dateAuspack.Value = DateTime.Now;
-            dateEinpack.Value = DateTime.Now;
-            dateUmzug.Value = DateTime.Now;
             dateBesicht.Value = DateTime.Now;
+            dateEinpack.Value = DateTime.Now;
             dateEntruempel.Value = DateTime.Now;
+            dateUmzug.Value = DateTime.Now;
+
 
         }
 
@@ -1029,17 +1032,17 @@ namespace Kartonagen
         private void UmzugLoeschen (int code) {
             if (code == 1)
             {
-                Program.EventDeleteId(Program.EventListMatch(events, Umzug, "11"));
+                Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Umzug, "11"));
                 textUmzugLog.AppendText("Umzug entfernt \r\n");
                 Schilderloeschen();
             }
             else if (code == 2)
             {
-                Program.EventDeleteId(Program.EventListMatch(events, Umzug, "10"));
+                Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Umzug, "10"));
                 textUmzugLog.AppendText("Vorläufigen Umzug entfernt \r\n");
             }
             else if (code == 3) {
-                Program.EventDeleteId(Program.EventListMatch(events, Umzug, "2"));
+                Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Umzug, "2"));
                 textUmzugLog.AppendText("Vorläufig Gebuchten Umzug entfernt \r\n");
                 Schilderloeschen();
             }
@@ -1079,22 +1082,22 @@ namespace Kartonagen
             switch (code) // 1 Einräumen, 2 Vllt Einräumen, 3 Ausräumen, 4 Vllt Ausräumen
             {
                 case 1:
-                    Program.EventDeleteId(Program.EventListMatch(events, Einpacken, "5"));
+                    Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Einpacken, "5"));
                     textUmzugLog.AppendText("Einpacken entfernt \r\n");
                     break;
 
                 case 2:
-                    Program.EventDeleteId(Program.EventListMatch(events, Einpacken, "6"));
+                    Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Einpacken, "6"));
                     textUmzugLog.AppendText("Vorläufiges Einpacken entfernt \r\n");
                     break;
 
                 case 3:
-                    Program.EventDeleteId(Program.EventListMatch(events, Auspacken, "5"));
+                    Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Auspacken, "5"));
                     textUmzugLog.AppendText("Auspacken entfernt \r\n");
                     break;
 
                 case 4:
-                    Program.EventDeleteId(Program.EventListMatch(events, Auspacken, "6"));
+                    Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Auspacken, "6"));
                     textUmzugLog.AppendText("Vorläufiges Auspacken entfernt \r\n");
                     break;
 
@@ -1134,7 +1137,7 @@ namespace Kartonagen
             else if (radioBesNein.Checked && BesichtigungSet != 0)
             {
                 //find&kill Besichtigung           
-                Program.EventDeleteId(Program.EventListMatch(events, Besichtigung, "9"));
+                Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Besichtigung, "9"));
                 textUmzugLog.AppendText("Besichtigung gelöscht \r\n");
                 //Merken
                 InsertDaten += "StatBes = " + 0 + ", ";
@@ -1239,7 +1242,7 @@ namespace Kartonagen
                 // Vorläufige Entrümpelung entfernen
                 if (EntruempelungSet == 2)
                 {
-                    Program.EventDeleteId(Program.EventListMatch(events, Entruempelung, "10"));
+                    Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Entruempelung, "10"));
                     textUmzugLog.AppendText("Vorläufiges Entrümpeln entfernt \r\n");
                 }
                 // Entrümpelung hinzufügen
@@ -1255,7 +1258,7 @@ namespace Kartonagen
                 // Entrümpeln entfernen
                 if (EntruempelungSet == 1)
                 {
-                    Program.EventDeleteId(Program.EventListMatch(events, Entruempelung, "11"));
+                    Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Entruempelung, "11"));
                     textUmzugLog.AppendText("Entrümpeln entfernt \r\n");
                 }
                 // Vorläufiges Entrümpeln hinzufügen
@@ -1270,14 +1273,14 @@ namespace Kartonagen
                 // Entrümpeln entfernen
                 if (EntruempelungSet == 1)
                 {
-                    Program.EventDeleteId(Program.EventListMatch(events, Entruempelung, "11"));
+                    Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Entruempelung, "11"));
                     textUmzugLog.AppendText("Entrümpeln entfernt \r\n");
                 }
 
                 // Vorläufige Entrümpelung entfernen
                 if (EntruempelungSet == 2)
                 {
-                    Program.EventDeleteId(Program.EventListMatch(events, Entruempelung, "10"));
+                    Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Entruempelung, "10"));
                     textUmzugLog.AppendText("Vorläufiges Entrümpeln entfernt \r\n");
                 }
 
@@ -1563,7 +1566,7 @@ namespace Kartonagen
                 //Termine löschen
 
                 //find&kill Besichtigung           
-                Program.EventDeleteId(Program.EventListMatch(events, Besichtigung, "9"));
+                Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Besichtigung, "9"));
                 textUmzugLog.AppendText("Besichtigung gelöscht \r\n");
                 //
                 UmzugLoeschen(umzObj.StatUmzug);
@@ -1593,14 +1596,14 @@ namespace Kartonagen
             UmzugEinfuegen(UmzugSet);
 
             // Eventliste refreshen
-            events = Program.kalenderKundenFinder(textKundennummer.Text);
+            events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
         }
 
         void refreshBesichtigung() {
             if (umzObj.StatBesichtigung == 1)
             {
                 //find&kill Besichtigung           
-                Program.EventDeleteId(Program.EventListMatch(events, Besichtigung, "9"));
+                Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Besichtigung, "9"));
                 textUmzugLog.AppendText("Besichtigung gelöscht \r\n");
                 // Anlegen Besichtigung
                 DateTime date = dateBesicht.Value.Date.Add(timeBesichtigung.Value.TimeOfDay);
@@ -1610,7 +1613,7 @@ namespace Kartonagen
             }
 
             // Eventliste refreshen
-            events = Program.kalenderKundenFinder(textKundennummer.Text);
+            events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
         }
 
         void refreshAusraeumen () {
@@ -1627,7 +1630,7 @@ namespace Kartonagen
             }
 
             // Eventliste refreshen
-            events = Program.kalenderKundenFinder(textKundennummer.Text);
+            events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
         }
 
         void refreshEinraeumen ()
@@ -1644,14 +1647,14 @@ namespace Kartonagen
             }
 
             // Eventliste refreshen
-            events = Program.kalenderKundenFinder(textKundennummer.Text);
+            events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
         }
 
         void refreshEntruempeln() {
             if (umzObj.StatRuempeln == 2)
             {
                 // Entruempeln entfernen
-                Program.EventDeleteId(Program.EventListMatch(events, Entruempelung, "10"));
+                Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Entruempelung, "10"));
                 textUmzugLog.AppendText("Vorläufiges Entrümpeln entfernt \r\n");
 
                 // Vorläufiges Entrümpeln hinzufügen
@@ -1661,7 +1664,7 @@ namespace Kartonagen
             }
             else if (umzObj.StatRuempeln == 1) {
                 // Entrümpeln entfernen
-                Program.EventDeleteId(Program.EventListMatch(events, Entruempelung, "11"));
+                Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Entruempelung, "11"));
                 textUmzugLog.AppendText("Entrümpeln entfernt \r\n");
 
                 // Entrümpelung hinzufügen
@@ -1678,12 +1681,12 @@ namespace Kartonagen
             refreshEinraeumen();
             refreshEntruempeln();
             // Eventliste refreshen
-            events = Program.kalenderKundenFinder(textKundennummer.Text);
+            events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
             return;
         }
 
         void resetEvents() {
-            events = Program.kalenderKundenFinder(textKundennummer.Text);
+            events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
         }
 
         private void buttonLaufzettel_Click(object sender, EventArgs e)

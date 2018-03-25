@@ -191,7 +191,7 @@ namespace Kartonagen
 
             // Kalender auf bisherige Lieferung auslesen
 
-            Events check = Program.kalenderKundenFinder(textKundennummer.Text);
+            Events check = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
 
             try
             {

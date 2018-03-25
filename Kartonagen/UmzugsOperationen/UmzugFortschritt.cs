@@ -396,6 +396,7 @@ namespace Kartonagen
             // Als Abgeschlossen markieren
             String abs = "UPDATE Umzugsfortschritt SET abgeschlossen = " + idBearbeitend + " WHERE Umzuege_idUmzuege = " + Umzugsnummer + ";";
             push(abs);
+            fuellen(Umzugsnummer);
 
             //Kundenadresse updaten wenn gewünscht
 

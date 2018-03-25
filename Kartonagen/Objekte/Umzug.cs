@@ -706,11 +706,10 @@ namespace Kartonagen
                 fields.TryGetValue("Autos", out toSet);
                 toSet.SetValue(AutoString());
 
-                if (Kleiderkartons != 0)
-                {
-                    fields.TryGetValue("Kleiderkisten", out toSet);
-                    toSet.SetValue(Kleiderkartons.ToString());
-                }
+                
+                 fields.TryGetValue("Kleiderkisten", out toSet);
+                 toSet.SetValue(Kleiderkartons.ToString());
+                
 
                 if (versicherung == 0)
                 {
@@ -920,7 +919,13 @@ namespace Kartonagen
         //Textgeneration für Kalendereinträge
         private String UmzHeader()
         {
-            return IdKunden + " " + umzugsKunde.Vorname+" "+umzugsKunde.Nachname + ", " + Mann + " Mann, " + Stunden + " Stunden, " + AutoString() + " " + NotizTitel1;
+            String sMann = "";
+            String sStunden = "";
+
+            if (Mann != 0) { sMann = Mann + " Mann, "; }
+            if (Stunden != 0) { sStunden = Stunden + " Stunden, "; }
+
+            return IdKunden + " " + umzugsKunde.Vorname+" "+umzugsKunde.Nachname + ", " + sMann + sStunden + AutoString() + " " + NotizTitel1;
         }
 
         private String SchilderHeader()
