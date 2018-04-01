@@ -818,7 +818,7 @@ namespace Kartonagen
         //Löschen aller Termine
         public Boolean killAll() {
 
-            if (kill(1) && kill(2) && kill(3) && kill(4) && kill(5) && kill(6) && kill(7)) { return true; }
+            if (kill(1) || kill(2) || kill(3) || kill(4) || kill(5) || kill(6) || kill(7)) { return true; }
             return false;
 
         }
@@ -864,12 +864,12 @@ namespace Kartonagen
                 case 4:
                     if (StatAus == 1)
                     {
-                        Program.getUtil().kalenderEventEintragGanz(EinRaeumHeader(), KalenderString(), "", 5, DatAusraeumen.Date, DatAusraeumen.Date, calId);
+                        Program.getUtil().kalenderEventEintragGanz(AusRaeumHeader(), KalenderString(), "", 5, DatAusraeumen.Date, DatAusraeumen.Date, calId);
                         return true;
                     }
                     else if (StatAus == 2)
                     {
-                        Program.getUtil().kalenderEventEintragGanz(EinRaeumHeader(), KalenderString(), "", 6, DatAusraeumen.Date, DatAusraeumen.Date, calId);
+                        Program.getUtil().kalenderEventEintragGanz(AusRaeumHeader(), KalenderString(), "", 6, DatAusraeumen.Date, DatAusraeumen.Date, calId);
                         return true;
                     }
                     return false;

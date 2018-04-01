@@ -943,78 +943,6 @@ namespace Kartonagen
             return temp;
         }
 
-        private String Header() {
-            return textKundennummer.Text + " " + textVorNachname.Text + ", " + numericMannZahl.Value + " Mann, " + numericArbeitszeit.Value + " Stunden, " + AutoString() + " " + textNoteKalender.Text;
-        }
-
-        private String SchilderHeader()
-        {
-            return textKundennummer.Text + " " + textVorNachname.Text + ", Schilder stellen";
-        }
-
-        private String EinRaeumHeader()
-        {
-            String EinRaeumHeader = textKundennummer.Text + " " + textVorNachname.Text + " Einpacken, " + numericEinPacker.Value + " Mann, " + numericEinPackStunden.Value + " Stunden";
-            
-            if (radioEinpackenV.Checked)
-            {
-                EinRaeumHeader = EinRaeumHeader + " Optional";
-            }
-
-            return EinRaeumHeader;
-        }
-
-        private String AusRaeumHeader()
-        {
-            String AusRaeumHeader = textKundennummer.Text + " " + textVorNachname.Text + "Auspacken, " + numericAusPacker.Value + " Mann, " + numericAusPackStunden.Value + " Stunden";
-
-            if (radioAuspackenV.Checked)
-            {
-                AusRaeumHeader = AusRaeumHeader + " Optional";
-            }
-
-            return AusRaeumHeader;
-        }
-
-
-        private void UmzugEinfuegen(int code) {
-            
-            if (code == 1) {
-                //Umzug
-                Program.getUtil().kalenderEventEintragGanz(Header(), KalenderString(), hvzString(), 11, dateUmzug.Value.Date, dateUmzug.Value.Date.AddDays(decimal.ToInt32(numericUmzugsDauer.Value)));
-                textUmzugLog.AppendText("Umzug hinzugefügt \r\n");
-                Schilderstellen();              
-            }
-            else if (code == 2) {
-                // Umzug
-                Program.getUtil().kalenderEventEintragGanz(Header(), KalenderString(), hvzString(), 10, dateUmzug.Value.Date, dateUmzug.Value.Date.AddDays(decimal.ToInt32(numericUmzugsDauer.Value)));
-                textUmzugLog.AppendText("Vorläufiger Umzug hinzugefügt \r\n");
-            }
-            else if (code == 3) {
-                // Umzug
-                Program.getUtil().kalenderEventEintragGanz(Header(), KalenderString(), hvzString(), 2, dateUmzug.Value.Date, dateUmzug.Value.Date.AddDays(decimal.ToInt32(numericUmzugsDauer.Value)));
-                textUmzugLog.AppendText("Vorläufig gebuchter Umzug hinzugefügt \r\n");
-                Schilderstellen();
-            }
-        }
-
-        private void Schilderstellen() {
-            //Schilder
-            if (radioHVZAJa.Checked)
-            {
-                String Body = textStraßeA.Text + " " + textHausnummerA.Text + ", " + textPLZA.Text + " " + textOrtA.Text;
-                Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Auszug", 3, dateUmzug.Value.Date.AddDays(-6), dateUmzug.Value.Date.AddDays(-6));
-                textUmzugLog.AppendText("Schilderstellen Auszug hinzugefügt \r\n");
-            }
-
-            if (radioHVZBJa.Checked)
-            {
-                String Body = textStraßeB.Text + " " + textHausnummerB.Text + ", " + textPLZB.Text + " " + textOrtB.Text;
-                Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Einzug", 3, dateUmzug.Value.Date.AddDays(-6), dateUmzug.Value.Date.AddDays(-6));
-                textUmzugLog.AppendText("Schilderstellen Einzug hinzugefügt \r\n");
-            }
-        }
-
         private void Schilderloeschen() {
 
             foreach (var EventItem in events.Items) {
@@ -1044,56 +972,23 @@ namespace Kartonagen
 
         }
 
-        private void PackenHinzufuegen(int code) {
-
-            switch (code) // 1 Einräumen, 2 Vllt Einräumen, 3 Ausräumen, 4 Vllt Ausräumen
-            {
-                case 1:
-                    Program.getUtil().kalenderEventEintragGanz(EinRaeumHeader(), KalenderString(), "", 5, dateEinpack.Value.Date, dateEinpack.Value.Date);
-                    textUmzugLog.AppendText("Einpacken hinzugefügt \r\n");
-                    break;
-
-                case 2:
-                    Program.getUtil().kalenderEventEintragGanz(EinRaeumHeader(), KalenderString(), "", 6, dateEinpack.Value.Date, dateEinpack.Value.Date);
-                    textUmzugLog.AppendText("Vorläufiges Einpacken hinzugefügt \r\n");
-                    break;
-                
-                case 3:
-                    Program.getUtil().kalenderEventEintragGanz(AusRaeumHeader(), KalenderString(), "", 5, dateAuspack.Value.Date, dateAuspack.Value.Date);
-                    textUmzugLog.AppendText("Auspacken hinzugefügt \r\n");
-                    break;
-
-                case 4:
-                    Program.getUtil().kalenderEventEintragGanz(AusRaeumHeader(), KalenderString(), "", 6, dateAuspack.Value.Date, dateAuspack.Value.Date);
-                    textUmzugLog.AppendText("Vorläufiges Auspacken hinzugefügt \r\n");
-                    break;
-                
-                default:
-                    break;
-            }
-        }
-
         private void PackenLoeschen(int code) {
             switch (code) // 1 Einräumen, 2 Vllt Einräumen, 3 Ausräumen, 4 Vllt Ausräumen
             {
                 case 1:
                     Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Einpacken, "5"));
-                    textUmzugLog.AppendText("Einpacken entfernt \r\n");
                     break;
 
                 case 2:
                     Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Einpacken, "6"));
-                    textUmzugLog.AppendText("Vorläufiges Einpacken entfernt \r\n");
                     break;
 
                 case 3:
                     Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Auspacken, "5"));
-                    textUmzugLog.AppendText("Auspacken entfernt \r\n");
                     break;
 
                 case 4:
                     Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Auspacken, "6"));
-                    textUmzugLog.AppendText("Vorläufiges Auspacken entfernt \r\n");
                     break;
 
                 default:
@@ -1107,185 +1002,77 @@ namespace Kartonagen
         private void buttonBlockTermine_Click(object sender, EventArgs e)
         {
 
+            //TEMP UMZUGSKILLEN
+            refreshAll();
+
             Boolean pop = false;
 
-            String InsertDaten = "UPDATE Umzuege SET datBesichtigung = " + "'" + Program.DateMachine(dateBesicht.Value) + "', " +
-                "UserChanged = '" + UserSpeicher.ToString() + idBearbeitend.ToString() + "', " +
-                "datUmzug = " + "'" + Program.DateMachine(dateUmzug.Value) + "', " +
-                "datRuempelung = " + "'" + Program.DateMachine(dateEntruempel.Value) + "', " +
-                "datEinpacken = " + "'" + Program.DateMachine(dateEinpack.Value) + "', " +
-                "datAuspacken = " + "'" + Program.DateMachine(dateAuspack.Value) + "', " +
-                "UmzugsDauer = " + numericUmzugsDauer.Value + ", " +
-                "umzugsZeit = " + "'" + Program.ZeitMachine(timeBesichtigung.Value) + "', ";
-
-            // Check und abgleich der Termine und TerminStats ... Google änderungscode!
-            if (radioBesJa.Checked && BesichtigungSet != 1)
-            {
-                // Anlegen Besichtigung
-                DateTime date = dateBesicht.Value.Date.Add(timeBesichtigung.Value.TimeOfDay);
-                DateTime schluss = date.AddMinutes(60);
-                Program.getUtil().kalenderEventEintrag(textKundennummer.Text + " " + textVorNachname.Text, KalenderString(), 9, date, schluss);
+            // STATI SETZEN
+            // Besichtigung
+            if (radioBesJa.Checked) {
+                umzObj.StatBesichtigung = 1;
                 textUmzugLog.AppendText("Besichtigung hinzugefügt \r\n");
-                // Merken
-                InsertDaten += "StatBes = " + 1 + ", ";
             }
-            else if (radioBesNein.Checked && BesichtigungSet != 0)
+            else { umzObj.StatBesichtigung = 0; }
+
+            //Umzug
+            if (radioUmzJa.Checked)
             {
-                //find&kill Besichtigung           
-                Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Besichtigung, "9"));
-                textUmzugLog.AppendText("Besichtigung gelöscht \r\n");
-                //Merken
-                InsertDaten += "StatBes = " + 0 + ", ";
+                umzObj.StatUmzug = 1;
             }
-
-            else { refreshBesichtigung(); }
-            //
-            // UMZÜGE
-            //
-
-
-            if (radioUmzNein.Checked && UmzugSet != 0)
+            else if (radioUmzVllt.Checked) {
+                umzObj.StatUmzug = 2;
+            }
+            else if (radioUmzVorlaeufig.Checked)
             {
-                UmzugLoeschen(UmzugSet);
-                InsertDaten += "StatUmz = " + 0 + ", ";
-                pop = true;
+                umzObj.StatUmzug = 3;
             }
+            else { umzObj.StatUmzug = 0; }
 
-            else if (radioUmzJa.Checked && UmzugSet != 1)
+            //Einräumen
+            if (radioEinJa.Checked)
             {
-                UmzugLoeschen(UmzugSet);
-                UmzugEinfuegen(1);
-                InsertDaten += "StatUmz = " + 1 + ", ";
+                umzObj.StatEin = 1;
             }
-
-            else if (radioUmzVllt.Checked && UmzugSet != 2)
+            else if (radioEinVllt.Checked)
             {
-                UmzugLoeschen(UmzugSet);
-                UmzugEinfuegen(2);
-                InsertDaten += "StatUmz = " + 2 + ", ";
+                umzObj.StatEin = 2;
             }
+            else { umzObj.StatEin = 0; }
 
-
-            else if (radioUmzVorlaeufig.Checked && UmzugSet != 3)
+            //Ausräumen
+            if (radioAusJa.Checked)
             {
-                UmzugLoeschen(UmzugSet);
-                UmzugEinfuegen(3);
-                InsertDaten += "StatUmz = " + 3 + ", ";
-                pop = true;
+                umzObj.StatAus = 1;
             }
-            else { refreshUmzug(); }
-
-            //
-            // EINPACKEN
-            //
-
-            if (radioEinJa.Checked && EinpackenSet != 1)
+            else if (radioAusVllt.Checked)
             {
-                PackenLoeschen(EinpackenSet);
-                PackenHinzufuegen(1);
-                InsertDaten += "StatEin = " + 1 + ", ";
+                umzObj.StatAus = 2;
             }
+            else { umzObj.StatAus = 0; }
 
-            else if (radioEinVllt.Checked && EinpackenSet != 2)
+            //Entrümpeln
+            if (radioEntJa.Checked)
             {
-                PackenLoeschen(EinpackenSet);
-                PackenHinzufuegen(2);
-                InsertDaten += "StatEin = " + 2 + ", ";
+                umzObj.StatRuempeln = 1;
             }
-
-            else if (radioEinNein.Checked && EinpackenSet != 0)
+            else if (radioEntVllt.Checked)
             {
-                PackenLoeschen(EinpackenSet);
-                InsertDaten += "StatEin = " + 0 + ", ";
+                umzObj.StatRuempeln = 2;
             }
-            else { refreshEinraeumen(); }
+            else { umzObj.StatAus = 0; }
 
-            // Auspacken
+            //ÜBERSCHREIBEN DER DATEN
 
-            if (radioAusJa.Checked && AuspackenSet != 1)
-            {
-                if (AuspackenSet != 0)
-                {
-                    PackenLoeschen(4);
-                }
-                PackenHinzufuegen(3);
-                InsertDaten += "StatAus = " + 1 + ", ";
-            }
+            umzObj.DatBesichtigung = dateBesicht.Value;
+            umzObj.DatUmzug = dateUmzug.Value;
+            umzObj.DatEinraeumen = dateEinpack.Value;
+            umzObj.DatAusraeumen = dateAuspack.Value;
+            umzObj.DatRuempeln = dateEntruempel.Value;
+            umzObj.ZeitUmzug = timeBesichtigung.Value;
+            umzObj.Umzugsdauer = decimal.ToInt32(numericUmzugsDauer.Value);
 
-            else if (radioAusVllt.Checked && AuspackenSet != 2)
-            {
-                if (AuspackenSet != 0)
-                {
-                    PackenLoeschen(3);
-                }
-                PackenHinzufuegen(4);
-                InsertDaten += "StatAus = " + 2 + ", ";
-            }
-
-            else if (radioAusNein.Checked && AuspackenSet != 0)
-            {
-                PackenLoeschen(AuspackenSet);
-                InsertDaten += "StatAus = " + 0 + ", ";
-            }
-            else { refreshAusraeumen(); }
-            //
-            // ENTRÜMPELN            
-            //
-
-            if (radioEntJa.Checked && EntruempelungSet != 1)
-            {
-                // Vorläufige Entrümpelung entfernen
-                if (EntruempelungSet == 2)
-                {
-                    Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Entruempelung, "10"));
-                    textUmzugLog.AppendText("Vorläufiges Entrümpeln entfernt \r\n");
-                }
-                // Entrümpelung hinzufügen
-                String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericEinPacker.Value + " Mann, " + numericEinPackStunden.Value + " Stunden ENTRÜMPELN, ";
-                Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), "", 11, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
-                textUmzugLog.AppendText("Entrümpeln hinzugefügt \r\n");
-
-                InsertDaten += "StatEnt = " + 1 + ", ";
-            }
-
-            else if (radioEntVllt.Checked && EntruempelungSet != 2)
-            {
-                // Entrümpeln entfernen
-                if (EntruempelungSet == 1)
-                {
-                    Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Entruempelung, "11"));
-                    textUmzugLog.AppendText("Entrümpeln entfernt \r\n");
-                }
-                // Vorläufiges Entrümpeln hinzufügen
-                String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericEinPacker.Value + " Mann, " + numericEinPackStunden.Value + " Stunden ENTRÜMPELN, ";
-                Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), "", 10, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
-                textUmzugLog.AppendText("Vorläufiges Entrümpeln hinzugefügt \r\n");
-
-                InsertDaten += "StatEnt = " + 2 + ", ";
-            }
-            else if (radioEntNein.Checked && EntruempelungSet != 0)
-            {
-                // Entrümpeln entfernen
-                if (EntruempelungSet == 1)
-                {
-                    Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Entruempelung, "11"));
-                    textUmzugLog.AppendText("Entrümpeln entfernt \r\n");
-                }
-
-                // Vorläufige Entrümpelung entfernen
-                if (EntruempelungSet == 2)
-                {
-                    Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Entruempelung, "10"));
-                    textUmzugLog.AppendText("Vorläufiges Entrümpeln entfernt \r\n");
-                }
-
-                InsertDaten += "StatEnt = " + 0 + ", ";
-            }
-
-            // Letzes Komma wegnehmen
-            InsertDaten = InsertDaten.Remove(InsertDaten.Length - 2);
-            InsertDaten += " WHERE idUmzuege = " + textUmzNummerBlock.Text + ";";
-            absender(InsertDaten);
+            umzObj.RefreshAll();
 
             if (pop)
             {
@@ -1560,19 +1347,10 @@ namespace Kartonagen
 
                 //Termine löschen
 
-                //find&kill Besichtigung           
-                Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Besichtigung, "9"));
-                textUmzugLog.AppendText("Besichtigung gelöscht \r\n");
-                //
-                UmzugLoeschen(umzObj.StatUmzug);
-                PackenLoeschen(umzObj.StatEin);
-                if (umzObj.StatAus == 1)
-                {
-                    PackenLoeschen(3);
+                if (umzObj.killAll()) {
+                    textUmzugLog.AppendText("Kalendereinträge erfolgreich gelöscht");
                 }
-                else if (umzObj.StatAus == 2) {
-                    PackenLoeschen(4);
-                }
+                
             }
             else
             {
@@ -1588,7 +1366,6 @@ namespace Kartonagen
 
         void refreshUmzug() {               // Hier waren vorher zig Zeilen.
             UmzugLoeschen(UmzugSet);
-            UmzugEinfuegen(UmzugSet);
 
             // Eventliste refreshen
             events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
@@ -1601,10 +1378,6 @@ namespace Kartonagen
                 Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Besichtigung, "9"));
                 textUmzugLog.AppendText("Besichtigung gelöscht \r\n");
                 // Anlegen Besichtigung
-                DateTime date = dateBesicht.Value.Date.Add(timeBesichtigung.Value.TimeOfDay);
-                DateTime schluss = date.AddMinutes(60);
-                Program.getUtil().kalenderEventEintrag(textKundennummer.Text + " " + textVorNachname.Text + " " + textNoteKalender.Text, KalenderString(), 9, date, schluss);
-                textUmzugLog.AppendText("Besichtigung hinzugefügt \r\n");
             }
 
             // Eventliste refreshen
@@ -1616,12 +1389,10 @@ namespace Kartonagen
             if (umzObj.StatAus == 1)
             {
                 PackenLoeschen(3);
-                PackenHinzufuegen(3);
             }
             else if (umzObj.StatAus == 2)
             {
                 PackenLoeschen(4);
-                PackenHinzufuegen(4);
             }
 
             // Eventliste refreshen
@@ -1630,15 +1401,14 @@ namespace Kartonagen
 
         void refreshEinraeumen ()
         {
+            
             if (umzObj.StatEin == 1)
             {
                 PackenLoeschen(1);
-                PackenHinzufuegen(1);
             }
             else if (umzObj.StatEin == 2)
             {
                 PackenLoeschen(2);
-                PackenHinzufuegen(2);
             }
 
             // Eventliste refreshen
@@ -1651,21 +1421,12 @@ namespace Kartonagen
                 // Entruempeln entfernen
                 Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Entruempelung, "10"));
                 textUmzugLog.AppendText("Vorläufiges Entrümpeln entfernt \r\n");
-
-                // Vorläufiges Entrümpeln hinzufügen
-                String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericEinPacker.Value + " Mann, " + numericEinPackStunden.Value + " Stunden ENTRÜMPELN, ";
-                Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), "", 10, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
-                textUmzugLog.AppendText("Vorläufiges Entrümpeln hinzugefügt \r\n");
+                
             }
             else if (umzObj.StatRuempeln == 1) {
                 // Entrümpeln entfernen
                 Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Entruempelung, "11"));
                 textUmzugLog.AppendText("Entrümpeln entfernt \r\n");
-
-                // Entrümpelung hinzufügen
-                String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericEinPacker.Value + " Mann, " + numericEinPackStunden.Value + " Stunden ENTRÜMPELN, ";
-                Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), "", 11, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
-                textUmzugLog.AppendText("Entrümpeln hinzugefügt \r\n");
             }
         }
 
@@ -1675,7 +1436,7 @@ namespace Kartonagen
             refreshAusraeumen();
             refreshEinraeumen();
             refreshEntruempeln();
-            // Eventliste refreshen
+            // Eventliste refreshenm
             events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
             return;
         }

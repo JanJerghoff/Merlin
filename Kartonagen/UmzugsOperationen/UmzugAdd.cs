@@ -386,7 +386,9 @@ namespace Kartonagen
             // explizit, weil sonst nicht geht
 
             umzObj = new Umzug(int.Parse(textUmzugsNummer.Text));
-            textUmzugLog.AppendText(datumInKalender());
+            umzObj.addAll();
+
+                //textUmzugLog.AppendText(datumInKalender());
 
             // Laufzettel anlegen
 
