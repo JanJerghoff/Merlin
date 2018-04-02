@@ -1,4 +1,5 @@
-﻿using iText.Forms;
+﻿using Google.Apis.Calendar.v3.Data;
+using iText.Forms;
 using iText.Forms.Fields;
 using iText.Kernel.Pdf;
 using Kartonagen.Objekte;
@@ -803,98 +804,112 @@ namespace Kartonagen
         }
 
         //Löschen einzelner Termine
-        public Boolean kill( int code) {
-            
-            try
+        public void kill( int code) {
+
+            Events ev = Program.getUtil().kalenderUmzugFinder("merlinum" + id + "c" + resolveCode(code));
+
+            foreach (var item in ev.Items)
             {
-                return Program.getUtil().kalenderEventRemove("merlinum" + id + "c" + resolveCode(code));
+                Program.getUtil().kalenderEventRemove(item.Id);
             }
-            catch (Exception)
-            {
-                return false;                
-            }            
+              
         }
 
         //Löschen aller Termine
-        public Boolean killAll() {
+        public void killAll() {
 
-            if (kill(1) || kill(2) || kill(3) || kill(4) || kill(5) || kill(6) || kill(7)) { return true; }
-            return false;
+            kill(1);
+            kill(2);
+            kill(3);
+            kill(4);
+            kill(5);
+            kill(6);
+            kill(7);
 
         }
 
         //Einfügen Eizentermine
         public Boolean addEvent(int code) {
 
-            string calId = "merlinum" + id + "c" + resolveCode(code);
+            string calId = "merlinum" + id + "c" + resolveCode(code)+"i"+UserChanged1.Length;
 
             // Sicherstellen dass zu belegender Kalendertermin frei ist ... wenn false existiert der Termin schon
-            if (!Program.getUtil().verifyIDAvailability(calId)) {
+            if (!Program.getUtil().verifyIDAvailability(calId)) { //DEBUG
                 return false;
             }
 
             String titel = "";
             String text = "";
-
-            switch (code)
+            try
             {
-                case 1:
-                    DateTime date = Program.getUtil().mergeDatetime(datBesichtigung, zeitUmzug);
-                    DateTime schluss = date.AddMinutes(60);
-                    Program.getUtil().kalenderEventEintrag(IdKunden + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname, KalenderString(), 9, date, schluss,calId);
-                    return true;
 
-                case 2:
-                    Program.getUtil().kalenderEventEintragGanz(UmzHeader(), KalenderString(), hvzString(), resolveUmzugsfarbe(), DatUmzug, DatUmzug.AddDays(umzugsdauer),calId);
-                    Schilderstellen();
-                    return true;
+                switch (code)
+                {
+                    case 1:
+                        DateTime date = Program.getUtil().mergeDatetime(datBesichtigung, zeitUmzug);
+                        DateTime schluss = date.AddMinutes(60);
+                        Program.getUtil().kalenderEventEintrag(IdKunden + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname, KalenderString(), 9, date, schluss, calId);
+                        return true;
 
-                case 3:
-                    if (StatEin == 1)
-                    {
-                        Program.getUtil().kalenderEventEintragGanz(EinRaeumHeader(), KalenderString(), "", 5, datEinraeumen.Date, datEinraeumen.Date, calId);
+                    case 2:
+                        Program.getUtil().kalenderEventEintragGanz(UmzHeader(), KalenderString(), hvzString(), resolveUmzugsfarbe(), DatUmzug, DatUmzug.AddDays(umzugsdauer), calId);
+                        Schilderstellen();
                         return true;
-                    }
-                    else if (StatEin == 2) {
-                        Program.getUtil().kalenderEventEintragGanz(EinRaeumHeader(), KalenderString(), "", 6, datEinraeumen.Date, datEinraeumen.Date, calId);
-                        return true;
-                    }
-                    return false;
 
-                case 4:
-                    if (StatAus == 1)
-                    {
-                        Program.getUtil().kalenderEventEintragGanz(AusRaeumHeader(), KalenderString(), "", 5, DatAusraeumen.Date, DatAusraeumen.Date, calId);
-                        return true;
-                    }
-                    else if (StatAus == 2)
-                    {
-                        Program.getUtil().kalenderEventEintragGanz(AusRaeumHeader(), KalenderString(), "", 6, DatAusraeumen.Date, DatAusraeumen.Date, calId);
-                        return true;
-                    }
-                    return false;
+                    case 3:
+                        if (StatEin == 1)
+                        {
+                            Program.getUtil().kalenderEventEintragGanz(EinRaeumHeader(), KalenderString(), "", 5, datEinraeumen.Date, datEinraeumen.Date, calId);
+                            return true;
+                        }
+                        else if (StatEin == 2)
+                        {
+                            Program.getUtil().kalenderEventEintragGanz(EinRaeumHeader(), KalenderString(), "", 6, datEinraeumen.Date, datEinraeumen.Date, calId);
+                            return true;
+                        }
+                        return false;
 
-                case 5:
-                    String Header = IdKunden + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + ", " + Einpacker1 + " Mann, " + EinStunden1 + " Stunden ENTRÜMPELN, "; // TODO Entrümpeldaten erfassen!
-                    if (StatRuempeln == 1)
-                    {
-                        Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), "", 11, datRuempeln.Date, datRuempeln.Date,calId);
-                        return true;
-                    }
-                    else if (StatRuempeln == 2 ) {
-                        Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), "", 10, datRuempeln.Date, datRuempeln.Date, calId);
-                        return true;
-                    }
-                    return false;
+                    case 4:
+                        if (StatAus == 1)
+                        {
+                            Program.getUtil().kalenderEventEintragGanz(AusRaeumHeader(), KalenderString(), "", 5, DatAusraeumen.Date, DatAusraeumen.Date, calId);
+                            return true;
+                        }
+                        else if (StatAus == 2)
+                        {
+                            Program.getUtil().kalenderEventEintragGanz(AusRaeumHeader(), KalenderString(), "", 6, DatAusraeumen.Date, DatAusraeumen.Date, calId);
+                            return true;
+                        }
+                        return false;
 
-                default:
-                    return false;
+                    case 5:
+                        String Header = IdKunden + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + ", " + Einpacker1 + " Mann, " + EinStunden1 + " Stunden ENTRÜMPELN, "; // TODO Entrümpeldaten erfassen!
+                        if (StatRuempeln == 1)
+                        {
+                            Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), "", 11, datRuempeln.Date, datRuempeln.Date, calId);
+                            return true;
+                        }
+                        else if (StatRuempeln == 2)
+                        {
+                            Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), "", 10, datRuempeln.Date, datRuempeln.Date, calId);
+                            return true;
+                        }
+                        return false;
+
+                    default:
+                        return false;
+                }
             }
+            catch (Exception kalenderEx)
+            {
+                Program.FehlerLog(kalenderEx.ToString(), "Einfügen des Termins in den Kalender");
+            }
+            return false;
         }
 
         // Einfügen aller Termine
         public Boolean addAll() {
-            if (addEvent(1)&& addEvent(2) && addEvent(3) && addEvent(4) && addEvent(5))
+            if (addEvent(1) && addEvent(2) && addEvent(3) && addEvent(4) && addEvent(5))
             {
                 return true;
             }
@@ -902,15 +917,9 @@ namespace Kartonagen
         }
 
         //Kopletter Refresh
-        public Boolean RefreshAll() {
-            if (killAll())
-            {
-                if (addAll())
-                {
-                    return true;
-                }
-            }
-            return false;
+        public void RefreshAll() {
+            killAll();
+            addAll();
         }
 
         //Partielle Refreshs

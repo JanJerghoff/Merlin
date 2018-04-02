@@ -74,6 +74,8 @@ namespace Kartonagen
             dateEntruempel.Value = DateTime.Now;
             dateUmzug.Value = DateTime.Now;
 
+            numericUmzugsnummer.Text = "";
+            numericSucheKundennr.Text = "";
 
         }
 
@@ -1071,6 +1073,8 @@ namespace Kartonagen
             umzObj.DatRuempeln = dateEntruempel.Value;
             umzObj.ZeitUmzug = timeBesichtigung.Value;
             umzObj.Umzugsdauer = decimal.ToInt32(numericUmzugsDauer.Value);
+            umzObj.UpdateDB(idBearbeitend.ToString());
+
 
             umzObj.RefreshAll();
 
@@ -1347,9 +1351,7 @@ namespace Kartonagen
 
                 //Termine löschen
 
-                if (umzObj.killAll()) {
-                    textUmzugLog.AppendText("Kalendereinträge erfolgreich gelöscht");
-                }
+                umzObj.killAll();                
                 
             }
             else

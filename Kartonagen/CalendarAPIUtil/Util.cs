@@ -203,17 +203,15 @@ namespace Kartonagen.CalendarAPIUtil
                     Date = Ende.Year + "-" + Ende.Month + "-" + Ende.Day,
                 },
                 ColorId = Farbe.ToString(),
-                Location = location,
-                Id = nextID
+                Location = location
             };
 
             String calendarId = "primary";
             EventsResource.InsertRequest request = dienst.Events.Insert(test, calendarId);
             Event createdEvent = request.Execute();
-            string ret = nextID;
             cycleID();
 
-            return ret;
+            return "";
         }
 
         // Methode um *GANZTÄGIGE* Kalendereinträge vorzunehmen (Von AktionsObjekt vorgegebener ID-String)
@@ -296,6 +294,22 @@ namespace Kartonagen.CalendarAPIUtil
             // Define parameters of request.
             EventsResource.ListRequest request = dienst.Events.List("primary");
             request.Q = Kundennummer;
+            request.ShowDeleted = false;
+            request.SingleEvents = true;
+            request.MaxResults = 2500;
+            // List events.
+            Events events = request.Execute();
+
+            return events;
+        }
+
+        // Finde alle Einträge zu einem Umzug
+        public Events kalenderUmzugFinder(String partialID)
+        {
+
+            // Define parameters of request.
+            EventsResource.ListRequest request = dienst.Events.List("primary");
+            request.Q = partialID;
             request.ShowDeleted = false;
             request.SingleEvents = true;
             request.MaxResults = 2500;
