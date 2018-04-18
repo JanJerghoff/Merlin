@@ -108,9 +108,9 @@ namespace Kartonagen
                 Handynummer = textKundenAddHandy.Text;
             }
 
-            if (textKundenAddAnrede.Text != "Herr" && textKundenAddAnrede.Text != "Frau" && textKundenAddAnrede.Text != "Familie" && textKundenAddAnrede.Text != "Firma")
+            if (textKundenAddAnrede.Text != "Herr" && textKundenAddAnrede.Text != "Frau" && textKundenAddAnrede.Text != "Familie" && textKundenAddAnrede.Text != "Firma" && textKundenAddAnrede.Text != "Praxis")
             {
-                textKundenAddLog.AppendText("Kunde hinzufügen gescheitert, Anrede muss Herr, Frau, Familie oder Firma sein \r\n");
+                textKundenAddLog.AppendText("Kunde hinzufügen gescheitert, Anrede muss Herr, Frau, Familie, Praxis oder Firma sein \r\n");
                 return;
             }
 
