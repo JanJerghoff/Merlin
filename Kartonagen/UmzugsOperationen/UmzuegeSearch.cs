@@ -1476,5 +1476,40 @@ namespace Kartonagen
             }
         }
 
+        private void radioEntruempelAus_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioEntruempelnAndere_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toggleEntruempelAdresse() {
+
+            //Alle clearen
+            textStrasseEnt.Clear();
+            textHausnummerEnt.Clear();
+            textPLZEnt.Clear();
+            textOrtEnt.Clear();
+
+            //Kopieren der Auszugsadresse aus dem Umzugsobjekt
+            if (radioEntruempelAus.Checked)
+            {
+                textStrasseEnt.AppendText(umzObj.auszug.Straße1);
+                textHausnummerEnt.AppendText(umzObj.auszug.Hausnummer1);
+                textPLZEnt.AppendText(umzObj.auszug.PLZ1);
+                textOrtEnt.AppendText(umzObj.auszug.Ort1);
+            }
+            else if (radioEntruempelnAndere.Checked) {
+
+                textStrasseEnt.AppendText(umzObj.auszug.Straße1);
+                textHausnummerEnt.AppendText(umzObj.auszug.Hausnummer1);
+                textPLZEnt.AppendText(umzObj.auszug.PLZ1);
+                textOrtEnt.AppendText(umzObj.auszug.Ort1);
+
+            }
+        }
     }
 }
