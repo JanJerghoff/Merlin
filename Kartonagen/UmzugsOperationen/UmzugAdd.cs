@@ -22,7 +22,6 @@ namespace Kartonagen
         public UmzugAdd()
         {
             
-
             InitializeComponent();
             
             textSucheName.AutoCompleteCustomSource = Program.getAutocompleteKunden();
@@ -362,6 +361,9 @@ namespace Kartonagen
             // String-Monstter in DB pushen
 
             umzugBauer();
+
+            // Adresse für Entrümpeln speichern TODO
+            
 
             // Ergebnis - Umzugsnummer anzeigen
 

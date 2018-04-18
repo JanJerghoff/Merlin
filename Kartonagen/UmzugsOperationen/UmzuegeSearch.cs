@@ -1504,10 +1504,10 @@ namespace Kartonagen
             }
             else if (radioEntruempelnAndere.Checked) {
 
-                textStrasseEnt.AppendText(umzObj.auszug.Straße1);
-                textHausnummerEnt.AppendText(umzObj.auszug.Hausnummer1);
-                textPLZEnt.AppendText(umzObj.auszug.PLZ1);
-                textOrtEnt.AppendText(umzObj.auszug.Ort1);
+                textStrasseEnt.AppendText(umzObj.entruempeln.Straße1);
+                textHausnummerEnt.AppendText(umzObj.entruempeln.Hausnummer1);
+                textPLZEnt.AppendText(umzObj.entruempeln.PLZ1);
+                textOrtEnt.AppendText(umzObj.entruempeln.Ort1);
 
             }
         }
