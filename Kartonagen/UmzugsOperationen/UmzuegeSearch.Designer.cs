@@ -235,8 +235,8 @@
             this.textPLZA = new System.Windows.Forms.TextBox();
             this.textHausnummerA = new System.Windows.Forms.TextBox();
             this.textStraßeA = new System.Windows.Forms.TextBox();
-
             this.boxEntrümpeln = new System.Windows.Forms.GroupBox();
+            this.buttonBlockEntruempeln = new System.Windows.Forms.Button();
             this.numericStundenEnt = new System.Windows.Forms.NumericUpDown();
             this.label45 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
@@ -252,7 +252,6 @@
             this.groupBox20 = new System.Windows.Forms.GroupBox();
             this.radioEntruempelnAndere = new System.Windows.Forms.RadioButton();
             this.radioEntruempelAus = new System.Windows.Forms.RadioButton();
-            this.buttonBlockEntruempeln = new System.Windows.Forms.Button();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericLKWGroß)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLKW)).BeginInit();
@@ -684,8 +683,7 @@
             // 
             // buttonTransaktion
             // 
-            this.buttonTransaktion.Location = new System.Drawing.Point(1136, 54);
-
+            this.buttonTransaktion.Location = new System.Drawing.Point(1555, 56);
             this.buttonTransaktion.Margin = new System.Windows.Forms.Padding(4);
             this.buttonTransaktion.Name = "buttonTransaktion";
             this.buttonTransaktion.Size = new System.Drawing.Size(211, 31);
@@ -697,7 +695,6 @@
             // textSuchBox
             // 
             this.textSuchBox.Location = new System.Drawing.Point(695, 15);
-
             this.textSuchBox.Margin = new System.Windows.Forms.Padding(4);
             this.textSuchBox.Multiline = true;
             this.textSuchBox.Name = "textSuchBox";
@@ -821,8 +818,7 @@
             // 
             // textUmzugsNummer
             // 
-            this.textUmzugsNummer.Location = new System.Drawing.Point(983, 60);
-
+            this.textUmzugsNummer.Location = new System.Drawing.Point(1401, 63);
             this.textUmzugsNummer.Margin = new System.Windows.Forms.Padding(4);
             this.textUmzugsNummer.Name = "textUmzugsNummer";
             this.textUmzugsNummer.ReadOnly = true;
@@ -1256,9 +1252,7 @@
             // 
             // buttonDruk
             // 
-
             this.buttonDruk.Location = new System.Drawing.Point(1555, 16);
-
             this.buttonDruk.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDruk.Name = "buttonDruk";
             this.buttonDruk.Size = new System.Drawing.Size(211, 31);
@@ -1294,13 +1288,11 @@
             // 
             this.groupBox19.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox19.Controls.Add(this.textNoteFahrer);
-
             this.groupBox19.Location = new System.Drawing.Point(1561, 679);
             this.groupBox19.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox19.Name = "groupBox19";
             this.groupBox19.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox19.Size = new System.Drawing.Size(527, 186);
-
             this.groupBox19.TabIndex = 94;
             this.groupBox19.TabStop = false;
             this.groupBox19.Text = "Bemerkungen für Fahrer";
@@ -1319,22 +1311,18 @@
             // 
             this.groupBox18.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox18.Controls.Add(this.textNoteBuero);
-
             this.groupBox18.Location = new System.Drawing.Point(1561, 500);
             this.groupBox18.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox18.Name = "groupBox18";
             this.groupBox18.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox18.Size = new System.Drawing.Size(527, 172);
-
             this.groupBox18.TabIndex = 93;
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "Bemerkungen für Büro";
             // 
             // textNoteBuero
             // 
-
             this.textNoteBuero.Location = new System.Drawing.Point(14, 27);
-
             this.textNoteBuero.Margin = new System.Windows.Forms.Padding(4);
             this.textNoteBuero.Multiline = true;
             this.textNoteBuero.Name = "textNoteBuero";
@@ -1374,7 +1362,7 @@
             this.label14.Size = new System.Drawing.Size(116, 54);
             this.label14.TabIndex = 97;
             this.label14.Text = "Geschlossene\r\nUmzüge\r\nAnzeigen";
-            //
+            // 
             // checkGeschlossenAnzeigen
             // 
             this.checkGeschlossenAnzeigen.AutoSize = true;
@@ -2747,6 +2735,16 @@
             this.boxEntrümpeln.TabStop = false;
             this.boxEntrümpeln.Text = "Entrümpeln";
             // 
+            // buttonBlockEntruempeln
+            // 
+            this.buttonBlockEntruempeln.Location = new System.Drawing.Point(8, 415);
+            this.buttonBlockEntruempeln.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonBlockEntruempeln.Name = "buttonBlockEntruempeln";
+            this.buttonBlockEntruempeln.Size = new System.Drawing.Size(163, 31);
+            this.buttonBlockEntruempeln.TabIndex = 105;
+            this.buttonBlockEntruempeln.Text = "Block Ändern";
+            this.buttonBlockEntruempeln.UseVisualStyleBackColor = true;
+            // 
             // numericStundenEnt
             // 
             this.numericStundenEnt.Location = new System.Drawing.Point(11, 378);
@@ -2899,16 +2897,6 @@
             this.radioEntruempelAus.Text = "Auszug";
             this.radioEntruempelAus.UseVisualStyleBackColor = true;
             this.radioEntruempelAus.CheckedChanged += new System.EventHandler(this.radioEntruempelAus_CheckedChanged);
-            // 
-            // buttonBlockEntruempeln
-            // 
-            this.buttonBlockEntruempeln.Location = new System.Drawing.Point(8, 415);
-            this.buttonBlockEntruempeln.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonBlockEntruempeln.Name = "buttonBlockEntruempeln";
-            this.buttonBlockEntruempeln.Size = new System.Drawing.Size(163, 31);
-            this.buttonBlockEntruempeln.TabIndex = 105;
-            this.buttonBlockEntruempeln.Text = "Block Ändern";
-            this.buttonBlockEntruempeln.UseVisualStyleBackColor = true;
             // 
             // UmzuegeSearch
             // 
