@@ -853,7 +853,10 @@ namespace Kartonagen
 
                     case 2:
                         Program.getUtil().kalenderEventEintragGanz(UmzHeader(), KalenderString(), hvzString(), resolveUmzugsfarbe(), DatUmzug, DatUmzug.AddDays(umzugsdauer), calId);
-                        Schilderstellen();
+                        if (statUmzug == 1)
+                        {
+                            Schilderstellen();
+                        }
                         return true;
 
                     case 3:
