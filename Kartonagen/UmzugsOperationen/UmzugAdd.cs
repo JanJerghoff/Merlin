@@ -191,7 +191,9 @@ namespace Kartonagen
             int aufzugtemp;
             int hvztemp;
             int aussenaufzugtemp;
-            Adresse ruempel = null;
+            Adresse ruempelAdresse = null;
+            int ruempelMann = 0;
+            int ruempelStunde = 0;
 
             // Belegung der Temps für die Adresserstellung.
             if (radioAufzugAJa.Checked) { aufzugtemp = 1; }
@@ -287,13 +289,15 @@ namespace Kartonagen
             else if (radioSchilderNein.Checked) { Schildertemp = 0; }
 
             if (stat[4] != 0) {
-                ruempel = new Adresse(textStrasseEnt.Text, textHausnummerEnt.Text, textOrtEnt.Text, textPLZEnt.Text, "Deutschland", 0, "", "", 0, 0, 0);                
+                ruempelAdresse = new Adresse(textStrasseEnt.Text, textHausnummerEnt.Text, textOrtEnt.Text, textPLZEnt.Text, "Deutschland", 0, "", "", 0, 0, 0);
+                ruempelMann = decimal.ToInt32(numericPackerEnt.Value);
+                ruempelStunde = decimal.ToInt32(numericStundenEnt.Value);
             }
 
             umzObj = new Umzug(int.Parse(textKundennummer.Text), dateBesicht.Value, dateUmzug.Value, dateEinpack.Value, dateAuspack.Value, dateEntruempel.Value, timeBesichtigung.Value, stat[1], stat[0], stat[2], stat[3], stat[4],
                 decimal.ToInt32(numericUmzugsDauer.Value), tempAuto, decimal.ToInt32(numericMannZahl.Value), decimal.ToInt32(numericArbeitszeit.Value), versicherungtemp, einpacktemp, decimal.ToInt32(numericEinPacker.Value), decimal.ToInt32(numericEinPackStunden.Value), decimal.ToInt32(numericEinPackKartons.Value),
                 auspacktemp, decimal.ToInt32(numericAusPacker.Value), decimal.ToInt32(numericAusPackStunden.Value), decimal.ToInt32(numericKleiderkisten.Value), kueche[1], kueche[0], kueche[2], int.Parse(textKuechenPreis.Text), aus, ein, Schildertemp, dateSchilderVerweildauer.Value,
-                textNoteKalender.Text, textNoteBuero.Text, textNoteFahrer.Text, idBearbeitend.ToString(), DateTime.Now, ruempel);
+                textNoteKalender.Text, textNoteBuero.Text, textNoteFahrer.Text, idBearbeitend.ToString(), DateTime.Now, ruempelAdresse, ruempelMann, ruempelStunde);
         }
 
         private string StockwerkString(int x) {

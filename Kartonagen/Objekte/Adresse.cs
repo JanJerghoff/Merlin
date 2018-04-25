@@ -38,6 +38,39 @@ namespace Kartonagen.Objekte
             AussenAufzug = aussenAufzug;
         }
 
+        public Adresse(int id) {
+
+            String select = "SELECT * FROM Adresse WHERE id = "+id+";";
+
+            MySqlCommand cmdRead = new MySqlCommand(select, Program.conn);
+            MySqlDataReader rdr;
+
+            try
+            {
+
+                rdr = cmdRead.ExecuteReader();
+                while (rdr.Read())
+                {
+                    Straße = rdr.GetString(1);
+                    Hausnummer = rdr.GetString(2);
+                    Ort = rdr.GetString(3);
+                    PLZ = rdr.GetString(4);
+                    Land = rdr.GetString(5);
+                    Aufzug = rdr.GetInt32(6);
+                    Stockwerke = rdr.GetString(7);
+                    Haustyp = rdr.GetString(8);
+                    Laufmeter = rdr.GetInt32(10);
+                    AussenAufzug = rdr.GetInt32(11);
+                }
+                rdr.Close();
+            }
+            catch (Exception sqlEx)
+            {
+                Program.FehlerLog(sqlEx.ToString(), "Abrufen der Adresse Nummer " + id);
+            }
+
+        }
+
         public string Straße1 { get => Straße; set => Straße = value; }
         public string Hausnummer1 { get => Hausnummer; set => Hausnummer = value; }
         public string Ort1 { get => Ort; set => Ort = value; }
@@ -51,7 +84,7 @@ namespace Kartonagen.Objekte
         public int AussenAufzug1 { get => AussenAufzug; set => AussenAufzug = value; }
 
         public void saveNew() {
-            String dbInsert = "INSERT INTO Adresse (strasse, hausnummer, ort, PLZ, land, aufzug, stockwerke, haustyp, laufmeter) Values (";
+            String dbInsert = "INSERT INTO Adresse (strasse, hausnummer, ort, PLZ, land, aufzug, stockwerke, haustyp, aussenaufzug, laufmeter) Values (";
 
             dbInsert += "'"+ Straße1 + "', ";
             dbInsert += "'" + Hausnummer1 + "', ";
@@ -61,6 +94,7 @@ namespace Kartonagen.Objekte
             dbInsert += Aufzug1 + ", ";
             dbInsert += "'" + Stockwerke1 + "', ";
             dbInsert += "'" + Haustyp1 + "', ";
+            dbInsert += AussenAufzug1 + ", ";
             dbInsert += Laufmeter1 + ");";
 
             Program.QueryLog(dbInsert);
@@ -87,7 +121,7 @@ namespace Kartonagen.Objekte
             }
             catch (Exception sqlEx)
             {
-                
+                Program.FehlerLog(sqlEx.ToString(), "Finden der Adresse : "+Straße1+ " "+Hausnummer1+"");
             }
 
             return idDb;

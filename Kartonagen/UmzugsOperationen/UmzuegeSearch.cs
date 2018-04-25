@@ -602,6 +602,17 @@ namespace Kartonagen
                     numericLKWGroß.Value = int.Parse(tempAutos[3].ToString());
                 }
             }
+
+            //Entrümpelblock füllen
+            if (umzObj.StatRuempeln != 0 && umzObj.entruempeln != null) {
+                textStrasseEnt.AppendText(umzObj.entruempeln.Straße1);
+                textHausnummerEnt.AppendText(umzObj.entruempeln.Hausnummer1);
+                textOrtEnt.AppendText(umzObj.entruempeln.Ort1);
+                textPLZEnt.AppendText(umzObj.entruempeln.PLZ1);
+            }
+
+
+
             // Zweite Umzugsnummer füllen
 
             textUmzugsNummer.Text = textUmzNummerBlock.Text;
