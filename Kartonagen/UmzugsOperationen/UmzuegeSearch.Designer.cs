@@ -235,6 +235,24 @@
             this.textPLZA = new System.Windows.Forms.TextBox();
             this.textHausnummerA = new System.Windows.Forms.TextBox();
             this.textStraßeA = new System.Windows.Forms.TextBox();
+
+            this.boxEntrümpeln = new System.Windows.Forms.GroupBox();
+            this.numericStundenEnt = new System.Windows.Forms.NumericUpDown();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.numericPackerEnt = new System.Windows.Forms.NumericUpDown();
+            this.label44 = new System.Windows.Forms.Label();
+            this.textOrtEnt = new System.Windows.Forms.TextBox();
+            this.textPLZEnt = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.textHausnummerEnt = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.textStrasseEnt = new System.Windows.Forms.TextBox();
+            this.groupBox20 = new System.Windows.Forms.GroupBox();
+            this.radioEntruempelnAndere = new System.Windows.Forms.RadioButton();
+            this.radioEntruempelAus = new System.Windows.Forms.RadioButton();
+            this.buttonBlockEntruempeln = new System.Windows.Forms.Button();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericLKWGroß)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLKW)).BeginInit();
@@ -280,6 +298,10 @@
             this.groupBox22.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.boxEntrümpeln.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericStundenEnt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericPackerEnt)).BeginInit();
+            this.groupBox20.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox6
@@ -662,7 +684,8 @@
             // 
             // buttonTransaktion
             // 
-            this.buttonTransaktion.Location = new System.Drawing.Point(1555, 54);
+            this.buttonTransaktion.Location = new System.Drawing.Point(1136, 54);
+
             this.buttonTransaktion.Margin = new System.Windows.Forms.Padding(4);
             this.buttonTransaktion.Name = "buttonTransaktion";
             this.buttonTransaktion.Size = new System.Drawing.Size(211, 31);
@@ -673,7 +696,8 @@
             // 
             // textSuchBox
             // 
-            this.textSuchBox.Location = new System.Drawing.Point(695, 2);
+            this.textSuchBox.Location = new System.Drawing.Point(695, 15);
+
             this.textSuchBox.Margin = new System.Windows.Forms.Padding(4);
             this.textSuchBox.Multiline = true;
             this.textSuchBox.Name = "textSuchBox";
@@ -797,7 +821,8 @@
             // 
             // textUmzugsNummer
             // 
-            this.textUmzugsNummer.Location = new System.Drawing.Point(1402, 60);
+            this.textUmzugsNummer.Location = new System.Drawing.Point(983, 60);
+
             this.textUmzugsNummer.Margin = new System.Windows.Forms.Padding(4);
             this.textUmzugsNummer.Name = "textUmzugsNummer";
             this.textUmzugsNummer.ReadOnly = true;
@@ -1231,7 +1256,9 @@
             // 
             // buttonDruk
             // 
+
             this.buttonDruk.Location = new System.Drawing.Point(1555, 16);
+
             this.buttonDruk.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDruk.Name = "buttonDruk";
             this.buttonDruk.Size = new System.Drawing.Size(211, 31);
@@ -1267,11 +1294,13 @@
             // 
             this.groupBox19.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox19.Controls.Add(this.textNoteFahrer);
-            this.groupBox19.Location = new System.Drawing.Point(1444, 679);
+
+            this.groupBox19.Location = new System.Drawing.Point(1561, 679);
             this.groupBox19.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox19.Name = "groupBox19";
             this.groupBox19.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox19.Size = new System.Drawing.Size(644, 186);
+            this.groupBox19.Size = new System.Drawing.Size(527, 186);
+
             this.groupBox19.TabIndex = 94;
             this.groupBox19.TabStop = false;
             this.groupBox19.Text = "Bemerkungen für Fahrer";
@@ -1283,30 +1312,34 @@
             this.textNoteFahrer.Multiline = true;
             this.textNoteFahrer.Name = "textNoteFahrer";
             this.textNoteFahrer.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textNoteFahrer.Size = new System.Drawing.Size(627, 154);
+            this.textNoteFahrer.Size = new System.Drawing.Size(505, 154);
             this.textNoteFahrer.TabIndex = 0;
             // 
             // groupBox18
             // 
             this.groupBox18.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox18.Controls.Add(this.textNoteBuero);
-            this.groupBox18.Location = new System.Drawing.Point(1444, 500);
+
+            this.groupBox18.Location = new System.Drawing.Point(1561, 500);
             this.groupBox18.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox18.Name = "groupBox18";
             this.groupBox18.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox18.Size = new System.Drawing.Size(644, 172);
+            this.groupBox18.Size = new System.Drawing.Size(527, 172);
+
             this.groupBox18.TabIndex = 93;
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "Bemerkungen für Büro";
             // 
             // textNoteBuero
             // 
-            this.textNoteBuero.Location = new System.Drawing.Point(8, 23);
+
+            this.textNoteBuero.Location = new System.Drawing.Point(14, 27);
+
             this.textNoteBuero.Margin = new System.Windows.Forms.Padding(4);
             this.textNoteBuero.Multiline = true;
             this.textNoteBuero.Name = "textNoteBuero";
             this.textNoteBuero.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textNoteBuero.Size = new System.Drawing.Size(627, 137);
+            this.textNoteBuero.Size = new System.Drawing.Size(505, 137);
             this.textNoteBuero.TabIndex = 0;
             // 
             // buttonBlockBemerkungen
@@ -1341,7 +1374,7 @@
             this.label14.Size = new System.Drawing.Size(116, 54);
             this.label14.TabIndex = 97;
             this.label14.Text = "Geschlossene\r\nUmzüge\r\nAnzeigen";
-            // 
+            //
             // checkGeschlossenAnzeigen
             // 
             this.checkGeschlossenAnzeigen.AutoSize = true;
@@ -2688,12 +2721,202 @@
             this.textStraßeA.Size = new System.Drawing.Size(240, 22);
             this.textStraßeA.TabIndex = 0;
             // 
+            // boxEntrümpeln
+            // 
+            this.boxEntrümpeln.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.boxEntrümpeln.Controls.Add(this.buttonBlockEntruempeln);
+            this.boxEntrümpeln.Controls.Add(this.numericStundenEnt);
+            this.boxEntrümpeln.Controls.Add(this.label45);
+            this.boxEntrümpeln.Controls.Add(this.label46);
+            this.boxEntrümpeln.Controls.Add(this.numericPackerEnt);
+            this.boxEntrümpeln.Controls.Add(this.label44);
+            this.boxEntrümpeln.Controls.Add(this.textOrtEnt);
+            this.boxEntrümpeln.Controls.Add(this.textPLZEnt);
+            this.boxEntrümpeln.Controls.Add(this.label43);
+            this.boxEntrümpeln.Controls.Add(this.label42);
+            this.boxEntrümpeln.Controls.Add(this.textHausnummerEnt);
+            this.boxEntrümpeln.Controls.Add(this.label41);
+            this.boxEntrümpeln.Controls.Add(this.textStrasseEnt);
+            this.boxEntrümpeln.Controls.Add(this.groupBox20);
+            this.boxEntrümpeln.Location = new System.Drawing.Point(1352, 500);
+            this.boxEntrümpeln.Margin = new System.Windows.Forms.Padding(4);
+            this.boxEntrümpeln.Name = "boxEntrümpeln";
+            this.boxEntrümpeln.Padding = new System.Windows.Forms.Padding(4);
+            this.boxEntrümpeln.Size = new System.Drawing.Size(202, 461);
+            this.boxEntrümpeln.TabIndex = 104;
+            this.boxEntrümpeln.TabStop = false;
+            this.boxEntrümpeln.Text = "Entrümpeln";
+            // 
+            // numericStundenEnt
+            // 
+            this.numericStundenEnt.Location = new System.Drawing.Point(11, 378);
+            this.numericStundenEnt.Margin = new System.Windows.Forms.Padding(4);
+            this.numericStundenEnt.Name = "numericStundenEnt";
+            this.numericStundenEnt.Size = new System.Drawing.Size(144, 22);
+            this.numericStundenEnt.TabIndex = 53;
+            this.numericStundenEnt.TabStop = false;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(8, 356);
+            this.label45.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(69, 18);
+            this.label45.TabIndex = 54;
+            this.label45.Text = "Stunden";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(8, 306);
+            this.label46.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(126, 18);
+            this.label46.TabIndex = 52;
+            this.label46.Text = "Packer benötigt";
+            // 
+            // numericPackerEnt
+            // 
+            this.numericPackerEnt.Location = new System.Drawing.Point(8, 328);
+            this.numericPackerEnt.Margin = new System.Windows.Forms.Padding(4);
+            this.numericPackerEnt.Name = "numericPackerEnt";
+            this.numericPackerEnt.Size = new System.Drawing.Size(144, 22);
+            this.numericPackerEnt.TabIndex = 51;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(8, 253);
+            this.label44.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(32, 18);
+            this.label44.TabIndex = 50;
+            this.label44.Text = "Ort";
+            // 
+            // textOrtEnt
+            // 
+            this.textOrtEnt.Location = new System.Drawing.Point(8, 275);
+            this.textOrtEnt.Margin = new System.Windows.Forms.Padding(4);
+            this.textOrtEnt.Name = "textOrtEnt";
+            this.textOrtEnt.Size = new System.Drawing.Size(170, 22);
+            this.textOrtEnt.TabIndex = 49;
+            // 
+            // textPLZEnt
+            // 
+            this.textPLZEnt.Location = new System.Drawing.Point(8, 227);
+            this.textPLZEnt.Margin = new System.Windows.Forms.Padding(4);
+            this.textPLZEnt.Name = "textPLZEnt";
+            this.textPLZEnt.Size = new System.Drawing.Size(119, 22);
+            this.textPLZEnt.TabIndex = 48;
+            this.textPLZEnt.Text = "0";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(13, 205);
+            this.label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(38, 18);
+            this.label43.TabIndex = 47;
+            this.label43.Text = "PLZ";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(8, 157);
+            this.label42.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(108, 18);
+            this.label42.TabIndex = 46;
+            this.label42.Text = "Hausnummer";
+            // 
+            // textHausnummerEnt
+            // 
+            this.textHausnummerEnt.Location = new System.Drawing.Point(8, 179);
+            this.textHausnummerEnt.Margin = new System.Windows.Forms.Padding(4);
+            this.textHausnummerEnt.Name = "textHausnummerEnt";
+            this.textHausnummerEnt.Size = new System.Drawing.Size(104, 22);
+            this.textHausnummerEnt.TabIndex = 45;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(8, 109);
+            this.label41.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(58, 18);
+            this.label41.TabIndex = 44;
+            this.label41.Text = "Straße";
+            // 
+            // textStrasseEnt
+            // 
+            this.textStrasseEnt.Location = new System.Drawing.Point(8, 131);
+            this.textStrasseEnt.Margin = new System.Windows.Forms.Padding(4);
+            this.textStrasseEnt.Name = "textStrasseEnt";
+            this.textStrasseEnt.Size = new System.Drawing.Size(168, 22);
+            this.textStrasseEnt.TabIndex = 12;
+            // 
+            // groupBox20
+            // 
+            this.groupBox20.Controls.Add(this.radioEntruempelnAndere);
+            this.groupBox20.Controls.Add(this.radioEntruempelAus);
+            this.groupBox20.Location = new System.Drawing.Point(8, 23);
+            this.groupBox20.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox20.Name = "groupBox20";
+            this.groupBox20.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox20.Size = new System.Drawing.Size(151, 82);
+            this.groupBox20.TabIndex = 11;
+            this.groupBox20.TabStop = false;
+            this.groupBox20.Text = "Adresse";
+            // 
+            // radioEntruempelnAndere
+            // 
+            this.radioEntruempelnAndere.AutoSize = true;
+            this.radioEntruempelnAndere.Location = new System.Drawing.Point(8, 52);
+            this.radioEntruempelnAndere.Margin = new System.Windows.Forms.Padding(4);
+            this.radioEntruempelnAndere.Name = "radioEntruempelnAndere";
+            this.radioEntruempelnAndere.Size = new System.Drawing.Size(131, 21);
+            this.radioEntruempelnAndere.TabIndex = 12;
+            this.radioEntruempelnAndere.Text = "Andere Adresse";
+            this.radioEntruempelnAndere.UseVisualStyleBackColor = true;
+            this.radioEntruempelnAndere.CheckedChanged += new System.EventHandler(this.radioEntruempelnAndere_CheckedChanged);
+            // 
+            // radioEntruempelAus
+            // 
+            this.radioEntruempelAus.AutoSize = true;
+            this.radioEntruempelAus.Location = new System.Drawing.Point(8, 23);
+            this.radioEntruempelAus.Margin = new System.Windows.Forms.Padding(4);
+            this.radioEntruempelAus.Name = "radioEntruempelAus";
+            this.radioEntruempelAus.Size = new System.Drawing.Size(76, 21);
+            this.radioEntruempelAus.TabIndex = 11;
+            this.radioEntruempelAus.Text = "Auszug";
+            this.radioEntruempelAus.UseVisualStyleBackColor = true;
+            this.radioEntruempelAus.CheckedChanged += new System.EventHandler(this.radioEntruempelAus_CheckedChanged);
+            // 
+            // buttonBlockEntruempeln
+            // 
+            this.buttonBlockEntruempeln.Location = new System.Drawing.Point(8, 415);
+            this.buttonBlockEntruempeln.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonBlockEntruempeln.Name = "buttonBlockEntruempeln";
+            this.buttonBlockEntruempeln.Size = new System.Drawing.Size(163, 31);
+            this.buttonBlockEntruempeln.TabIndex = 105;
+            this.buttonBlockEntruempeln.Text = "Block Ändern";
+            this.buttonBlockEntruempeln.UseVisualStyleBackColor = true;
+            // 
             // UmzuegeSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1914, 1045);
+            this.Controls.Add(this.boxEntrümpeln);
             this.Controls.Add(this.groupBox27);
             this.Controls.Add(this.groupBox14);
             this.Controls.Add(this.groupBox10);
@@ -2801,6 +3024,12 @@
             this.groupBox9.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.boxEntrümpeln.ResumeLayout(false);
+            this.boxEntrümpeln.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericStundenEnt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericPackerEnt)).EndInit();
+            this.groupBox20.ResumeLayout(false);
+            this.groupBox20.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3014,5 +3243,22 @@
         private System.Windows.Forms.Button buttonBlockPacken;
         private System.Windows.Forms.Button buttonBlockVersicherung;
         private System.Windows.Forms.Button buttonBlockKueche;
+        private System.Windows.Forms.GroupBox boxEntrümpeln;
+        private System.Windows.Forms.NumericUpDown numericStundenEnt;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.NumericUpDown numericPackerEnt;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.TextBox textOrtEnt;
+        private System.Windows.Forms.TextBox textPLZEnt;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.TextBox textHausnummerEnt;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.TextBox textStrasseEnt;
+        private System.Windows.Forms.GroupBox groupBox20;
+        private System.Windows.Forms.RadioButton radioEntruempelnAndere;
+        private System.Windows.Forms.RadioButton radioEntruempelAus;
+        private System.Windows.Forms.Button buttonBlockEntruempeln;
     }
 }
