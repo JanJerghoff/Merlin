@@ -1478,12 +1478,23 @@ namespace Kartonagen
 
         private void radioEntruempelAus_CheckedChanged(object sender, EventArgs e)
         {
+            textStrasseEnt.Clear();
+            textHausnummerEnt.Clear();
+            textOrtEnt.Clear();
+            textPLZEnt.Clear();
 
+            textStrasseEnt.AppendText(textStraßeA.Text);
+            textHausnummerEnt.AppendText(textHausnummerA.Text);
+            textOrtEnt.AppendText(textOrtA.Text);
+            textPLZEnt.AppendText(textPLZA.Text);
         }
 
         private void radioEntruempelnAndere_CheckedChanged(object sender, EventArgs e)
         {
-
+            textStrasseEnt.Clear();
+            textHausnummerEnt.Clear();
+            textOrtEnt.Clear();
+            textPLZEnt.Clear();
         }
 
         private void toggleEntruempelAdresse() {
