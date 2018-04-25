@@ -227,6 +227,23 @@
             this.buttonNrSuche = new System.Windows.Forms.Button();
             this.numericSucheKundennr = new System.Windows.Forms.NumericUpDown();
             this.textUmzugLog = new System.Windows.Forms.TextBox();
+            this.boxEntrümpeln = new System.Windows.Forms.GroupBox();
+            this.buttonBlockEntruempeln = new System.Windows.Forms.Button();
+            this.numericStundenEnt = new System.Windows.Forms.NumericUpDown();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.numericPackerEnt = new System.Windows.Forms.NumericUpDown();
+            this.label44 = new System.Windows.Forms.Label();
+            this.textOrtEnt = new System.Windows.Forms.TextBox();
+            this.textPLZEnt = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.textHausnummerEnt = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.textStrasseEnt = new System.Windows.Forms.TextBox();
+            this.groupBox20 = new System.Windows.Forms.GroupBox();
+            this.radioEntruempelnAndere = new System.Windows.Forms.RadioButton();
+            this.radioEntruempelAus = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -276,6 +293,10 @@
             this.groupBox9.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericSucheKundennr)).BeginInit();
+            this.boxEntrümpeln.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericStundenEnt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericPackerEnt)).BeginInit();
+            this.groupBox20.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -287,6 +308,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.boxEntrümpeln);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox27);
             this.splitContainer1.Panel1.Controls.Add(this.buttonLaufzettel);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox24);
@@ -367,9 +389,9 @@
             // 
             this.groupBox24.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox24.Controls.Add(this.textNoteKalender);
-            this.groupBox24.Location = new System.Drawing.Point(1014, 289);
+            this.groupBox24.Location = new System.Drawing.Point(1201, 289);
             this.groupBox24.Name = "groupBox24";
-            this.groupBox24.Size = new System.Drawing.Size(637, 110);
+            this.groupBox24.Size = new System.Drawing.Size(450, 110);
             this.groupBox24.TabIndex = 9;
             this.groupBox24.TabStop = false;
             this.groupBox24.Text = "Bemerkungen für Kalendertitel";
@@ -380,7 +402,7 @@
             this.textNoteKalender.Multiline = true;
             this.textNoteKalender.Name = "textNoteKalender";
             this.textNoteKalender.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textNoteKalender.Size = new System.Drawing.Size(625, 82);
+            this.textNoteKalender.Size = new System.Drawing.Size(438, 82);
             this.textNoteKalender.TabIndex = 0;
             // 
             // buttonDruck
@@ -500,9 +522,9 @@
             // 
             this.groupBox19.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox19.Controls.Add(this.textNoteFahrer);
-            this.groupBox19.Location = new System.Drawing.Point(1014, 551);
+            this.groupBox19.Location = new System.Drawing.Point(1201, 551);
             this.groupBox19.Name = "groupBox19";
-            this.groupBox19.Size = new System.Drawing.Size(637, 151);
+            this.groupBox19.Size = new System.Drawing.Size(450, 151);
             this.groupBox19.TabIndex = 9;
             this.groupBox19.TabStop = false;
             this.groupBox19.Text = "Bemerkungen für Fahrer";
@@ -513,16 +535,16 @@
             this.textNoteFahrer.Multiline = true;
             this.textNoteFahrer.Name = "textNoteFahrer";
             this.textNoteFahrer.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textNoteFahrer.Size = new System.Drawing.Size(625, 126);
+            this.textNoteFahrer.Size = new System.Drawing.Size(438, 126);
             this.textNoteFahrer.TabIndex = 0;
             // 
             // groupBox18
             // 
             this.groupBox18.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox18.Controls.Add(this.textNoteBuero);
-            this.groupBox18.Location = new System.Drawing.Point(1014, 405);
+            this.groupBox18.Location = new System.Drawing.Point(1201, 405);
             this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(637, 140);
+            this.groupBox18.Size = new System.Drawing.Size(450, 140);
             this.groupBox18.TabIndex = 8;
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "Bemerkungen für Büro";
@@ -533,7 +555,7 @@
             this.textNoteBuero.Multiline = true;
             this.textNoteBuero.Name = "textNoteBuero";
             this.textNoteBuero.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textNoteBuero.Size = new System.Drawing.Size(625, 112);
+            this.textNoteBuero.Size = new System.Drawing.Size(438, 112);
             this.textNoteBuero.TabIndex = 0;
             // 
             // groupBox14
@@ -2384,6 +2406,174 @@
             this.textUmzugLog.Size = new System.Drawing.Size(1639, 114);
             this.textUmzugLog.TabIndex = 63;
             // 
+            // boxEntrümpeln
+            // 
+            this.boxEntrümpeln.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.boxEntrümpeln.Controls.Add(this.buttonBlockEntruempeln);
+            this.boxEntrümpeln.Controls.Add(this.numericStundenEnt);
+            this.boxEntrümpeln.Controls.Add(this.label45);
+            this.boxEntrümpeln.Controls.Add(this.label46);
+            this.boxEntrümpeln.Controls.Add(this.numericPackerEnt);
+            this.boxEntrümpeln.Controls.Add(this.label44);
+            this.boxEntrümpeln.Controls.Add(this.textOrtEnt);
+            this.boxEntrümpeln.Controls.Add(this.textPLZEnt);
+            this.boxEntrümpeln.Controls.Add(this.label43);
+            this.boxEntrümpeln.Controls.Add(this.label42);
+            this.boxEntrümpeln.Controls.Add(this.textHausnummerEnt);
+            this.boxEntrümpeln.Controls.Add(this.label41);
+            this.boxEntrümpeln.Controls.Add(this.textStrasseEnt);
+            this.boxEntrümpeln.Controls.Add(this.groupBox20);
+            this.boxEntrümpeln.Location = new System.Drawing.Point(1014, 289);
+            this.boxEntrümpeln.Name = "boxEntrümpeln";
+            this.boxEntrümpeln.Size = new System.Drawing.Size(181, 375);
+            this.boxEntrümpeln.TabIndex = 105;
+            this.boxEntrümpeln.TabStop = false;
+            this.boxEntrümpeln.Text = "Entrümpeln";
+            // 
+            // buttonBlockEntruempeln
+            // 
+            this.buttonBlockEntruempeln.Location = new System.Drawing.Point(6, 337);
+            this.buttonBlockEntruempeln.Name = "buttonBlockEntruempeln";
+            this.buttonBlockEntruempeln.Size = new System.Drawing.Size(122, 25);
+            this.buttonBlockEntruempeln.TabIndex = 105;
+            this.buttonBlockEntruempeln.Text = "Block Ändern";
+            this.buttonBlockEntruempeln.UseVisualStyleBackColor = true;
+            // 
+            // numericStundenEnt
+            // 
+            this.numericStundenEnt.Location = new System.Drawing.Point(8, 307);
+            this.numericStundenEnt.Name = "numericStundenEnt";
+            this.numericStundenEnt.Size = new System.Drawing.Size(108, 20);
+            this.numericStundenEnt.TabIndex = 53;
+            this.numericStundenEnt.TabStop = false;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(6, 289);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(60, 15);
+            this.label45.TabIndex = 54;
+            this.label45.Text = "Stunden";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(6, 249);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(107, 15);
+            this.label46.TabIndex = 52;
+            this.label46.Text = "Packer benötigt";
+            // 
+            // numericPackerEnt
+            // 
+            this.numericPackerEnt.Location = new System.Drawing.Point(6, 266);
+            this.numericPackerEnt.Name = "numericPackerEnt";
+            this.numericPackerEnt.Size = new System.Drawing.Size(108, 20);
+            this.numericPackerEnt.TabIndex = 51;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(6, 206);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(26, 15);
+            this.label44.TabIndex = 50;
+            this.label44.Text = "Ort";
+            // 
+            // textOrtEnt
+            // 
+            this.textOrtEnt.Location = new System.Drawing.Point(6, 223);
+            this.textOrtEnt.Name = "textOrtEnt";
+            this.textOrtEnt.Size = new System.Drawing.Size(128, 20);
+            this.textOrtEnt.TabIndex = 49;
+            // 
+            // textPLZEnt
+            // 
+            this.textPLZEnt.Location = new System.Drawing.Point(6, 184);
+            this.textPLZEnt.Name = "textPLZEnt";
+            this.textPLZEnt.Size = new System.Drawing.Size(90, 20);
+            this.textPLZEnt.TabIndex = 48;
+            this.textPLZEnt.Text = "0";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(10, 167);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(32, 15);
+            this.label43.TabIndex = 47;
+            this.label43.Text = "PLZ";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(6, 128);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(93, 15);
+            this.label42.TabIndex = 46;
+            this.label42.Text = "Hausnummer";
+            // 
+            // textHausnummerEnt
+            // 
+            this.textHausnummerEnt.Location = new System.Drawing.Point(6, 145);
+            this.textHausnummerEnt.Name = "textHausnummerEnt";
+            this.textHausnummerEnt.Size = new System.Drawing.Size(79, 20);
+            this.textHausnummerEnt.TabIndex = 45;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(6, 89);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(49, 15);
+            this.label41.TabIndex = 44;
+            this.label41.Text = "Straße";
+            // 
+            // textStrasseEnt
+            // 
+            this.textStrasseEnt.Location = new System.Drawing.Point(6, 106);
+            this.textStrasseEnt.Name = "textStrasseEnt";
+            this.textStrasseEnt.Size = new System.Drawing.Size(127, 20);
+            this.textStrasseEnt.TabIndex = 12;
+            // 
+            // groupBox20
+            // 
+            this.groupBox20.Controls.Add(this.radioEntruempelnAndere);
+            this.groupBox20.Controls.Add(this.radioEntruempelAus);
+            this.groupBox20.Location = new System.Drawing.Point(6, 19);
+            this.groupBox20.Name = "groupBox20";
+            this.groupBox20.Size = new System.Drawing.Size(113, 67);
+            this.groupBox20.TabIndex = 11;
+            this.groupBox20.TabStop = false;
+            this.groupBox20.Text = "Adresse";
+            // 
+            // radioEntruempelnAndere
+            // 
+            this.radioEntruempelnAndere.AutoSize = true;
+            this.radioEntruempelnAndere.Location = new System.Drawing.Point(6, 42);
+            this.radioEntruempelnAndere.Name = "radioEntruempelnAndere";
+            this.radioEntruempelnAndere.Size = new System.Drawing.Size(100, 17);
+            this.radioEntruempelnAndere.TabIndex = 12;
+            this.radioEntruempelnAndere.Text = "Andere Adresse";
+            this.radioEntruempelnAndere.UseVisualStyleBackColor = true;
+            // 
+            // radioEntruempelAus
+            // 
+            this.radioEntruempelAus.AutoSize = true;
+            this.radioEntruempelAus.Location = new System.Drawing.Point(6, 19);
+            this.radioEntruempelAus.Name = "radioEntruempelAus";
+            this.radioEntruempelAus.Size = new System.Drawing.Size(60, 17);
+            this.radioEntruempelAus.TabIndex = 11;
+            this.radioEntruempelAus.Text = "Auszug";
+            this.radioEntruempelAus.UseVisualStyleBackColor = true;
+            // 
             // UmzugAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2476,6 +2666,12 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericSucheKundennr)).EndInit();
+            this.boxEntrümpeln.ResumeLayout(false);
+            this.boxEntrümpeln.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericStundenEnt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericPackerEnt)).EndInit();
+            this.groupBox20.ResumeLayout(false);
+            this.groupBox20.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2681,5 +2877,22 @@
         private System.Windows.Forms.GroupBox groupBox27;
         private System.Windows.Forms.RadioButton radioVersicherungNein;
         private System.Windows.Forms.RadioButton radioVersicherungJa;
+        private System.Windows.Forms.GroupBox boxEntrümpeln;
+        private System.Windows.Forms.Button buttonBlockEntruempeln;
+        private System.Windows.Forms.NumericUpDown numericStundenEnt;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.NumericUpDown numericPackerEnt;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.TextBox textOrtEnt;
+        private System.Windows.Forms.TextBox textPLZEnt;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.TextBox textHausnummerEnt;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.TextBox textStrasseEnt;
+        private System.Windows.Forms.GroupBox groupBox20;
+        private System.Windows.Forms.RadioButton radioEntruempelnAndere;
+        private System.Windows.Forms.RadioButton radioEntruempelAus;
     }
 }
