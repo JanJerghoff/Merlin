@@ -856,7 +856,10 @@ namespace Kartonagen
 
                     case 2:
                         Program.getUtil().kalenderEventEintragGanz(UmzHeader(), KalenderString(), hvzString(), resolveUmzugsfarbe(), DatUmzug, DatUmzug.AddDays(umzugsdauer), calId);
-                        Schilderstellen();
+                        if (statUmzug == 1)
+                        {
+                            Schilderstellen();
+                        }
                         return true;
 
                     case 3:
@@ -1039,14 +1042,16 @@ namespace Kartonagen
             //Schilder
             if (auszug.HVZ1 == 1)
             {
+                string calId = "merlinum" + id + "c" + resolveCode(7) + "i" + UserChanged1.Length;
                 String Body = auszug.Straße1 + " " + auszug.Hausnummer1 + ", " + auszug.PLZ1 + " " + auszug.Ort1;
-                Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Auszug", 3, datUmzug.Date.AddDays(-6), datUmzug.Date.AddDays(-6));
+                Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Auszug", 3, datUmzug.Date.AddDays(-6), datUmzug.Date.AddDays(-6),calId);
             }
 
             if (einzug.HVZ1 == 1)
             {
+                string calId = "merlinum" + id + "c" + resolveCode(6) + "i" + UserChanged1.Length;
                 String Body = einzug.Straße1 + " " + einzug.Hausnummer1 + ", " + einzug.PLZ1 + " " + einzug.Ort1;
-                Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Einzug", 3, datUmzug.Date.AddDays(-6), datUmzug.Date.AddDays(-6));
+                Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Einzug", 3, datUmzug.Date.AddDays(-6), datUmzug.Date.AddDays(-6),calId);
             }
         }
         

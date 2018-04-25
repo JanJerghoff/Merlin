@@ -25,6 +25,8 @@ namespace Kartonagen
             textSucheName.AutoCompleteCustomSource = Program.getAutocompleteKunden();
             textSucheName.AutoCompleteMode = AutoCompleteMode.Suggest;
 
+            dateTimeTransaktion.Value = DateTime.Now;
+
             //Maximale Kundennummer um OutOfBounds vorzubeugen
 
             MySqlCommand cmdReadKunde = new MySqlCommand("SELECT * FROM Kunden ORDER BY idKunden DESC LIMIT 1;", Program.conn);

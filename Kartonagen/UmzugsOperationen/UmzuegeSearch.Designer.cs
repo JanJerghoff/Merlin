@@ -119,10 +119,6 @@
             this.buttonBlockBemerkungen = new System.Windows.Forms.Button();
             this.buttonLaufzettel = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.groupBox21 = new System.Windows.Forms.GroupBox();
             this.checkGeschlossenAnzeigen = new System.Windows.Forms.CheckBox();
             this.groupBox27 = new System.Windows.Forms.GroupBox();
             this.buttonBlockVersicherung = new System.Windows.Forms.Button();
@@ -239,6 +235,7 @@
             this.textPLZA = new System.Windows.Forms.TextBox();
             this.textHausnummerA = new System.Windows.Forms.TextBox();
             this.textStraßeA = new System.Windows.Forms.TextBox();
+
             this.boxEntrümpeln = new System.Windows.Forms.GroupBox();
             this.numericStundenEnt = new System.Windows.Forms.NumericUpDown();
             this.label45 = new System.Windows.Forms.Label();
@@ -278,7 +275,6 @@
             this.groupBox24.SuspendLayout();
             this.groupBox19.SuspendLayout();
             this.groupBox18.SuspendLayout();
-            this.groupBox21.SuspendLayout();
             this.groupBox27.SuspendLayout();
             this.groupBox14.SuspendLayout();
             this.groupBox17.SuspendLayout();
@@ -689,6 +685,7 @@
             // buttonTransaktion
             // 
             this.buttonTransaktion.Location = new System.Drawing.Point(1136, 54);
+
             this.buttonTransaktion.Margin = new System.Windows.Forms.Padding(4);
             this.buttonTransaktion.Name = "buttonTransaktion";
             this.buttonTransaktion.Size = new System.Drawing.Size(211, 31);
@@ -700,12 +697,13 @@
             // textSuchBox
             // 
             this.textSuchBox.Location = new System.Drawing.Point(695, 15);
+
             this.textSuchBox.Margin = new System.Windows.Forms.Padding(4);
             this.textSuchBox.Multiline = true;
             this.textSuchBox.Name = "textSuchBox";
             this.textSuchBox.ReadOnly = true;
             this.textSuchBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textSuchBox.Size = new System.Drawing.Size(275, 79);
+            this.textSuchBox.Size = new System.Drawing.Size(679, 93);
             this.textSuchBox.TabIndex = 79;
             // 
             // textSucheName
@@ -814,7 +812,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(979, 38);
+            this.label32.Location = new System.Drawing.Point(1398, 38);
             this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(131, 18);
@@ -824,6 +822,7 @@
             // textUmzugsNummer
             // 
             this.textUmzugsNummer.Location = new System.Drawing.Point(983, 60);
+
             this.textUmzugsNummer.Margin = new System.Windows.Forms.Padding(4);
             this.textUmzugsNummer.Name = "textUmzugsNummer";
             this.textUmzugsNummer.ReadOnly = true;
@@ -1257,7 +1256,9 @@
             // 
             // buttonDruk
             // 
-            this.buttonDruk.Location = new System.Drawing.Point(1136, 16);
+
+            this.buttonDruk.Location = new System.Drawing.Point(1555, 16);
+
             this.buttonDruk.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDruk.Name = "buttonDruk";
             this.buttonDruk.Size = new System.Drawing.Size(211, 31);
@@ -1293,11 +1294,13 @@
             // 
             this.groupBox19.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox19.Controls.Add(this.textNoteFahrer);
+
             this.groupBox19.Location = new System.Drawing.Point(1561, 679);
             this.groupBox19.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox19.Name = "groupBox19";
             this.groupBox19.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox19.Size = new System.Drawing.Size(527, 186);
+
             this.groupBox19.TabIndex = 94;
             this.groupBox19.TabStop = false;
             this.groupBox19.Text = "Bemerkungen für Fahrer";
@@ -1316,18 +1319,22 @@
             // 
             this.groupBox18.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox18.Controls.Add(this.textNoteBuero);
+
             this.groupBox18.Location = new System.Drawing.Point(1561, 500);
             this.groupBox18.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox18.Name = "groupBox18";
             this.groupBox18.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox18.Size = new System.Drawing.Size(527, 172);
+
             this.groupBox18.TabIndex = 93;
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "Bemerkungen für Büro";
             // 
             // textNoteBuero
             // 
+
             this.textNoteBuero.Location = new System.Drawing.Point(14, 27);
+
             this.textNoteBuero.Margin = new System.Windows.Forms.Padding(4);
             this.textNoteBuero.Multiline = true;
             this.textNoteBuero.Name = "textNoteBuero";
@@ -1367,58 +1374,7 @@
             this.label14.Size = new System.Drawing.Size(116, 54);
             this.label14.TabIndex = 97;
             this.label14.Text = "Geschlossene\r\nUmzüge\r\nAnzeigen";
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(8, 23);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(110, 21);
-            this.radioButton3.TabIndex = 11;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Besichtigung";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(221, 23);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(125, 21);
-            this.radioButton2.TabIndex = 12;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Abgeschlossen";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(125, 23);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(83, 21);
-            this.radioButton1.TabIndex = 13;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Gebucht";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // groupBox21
-            // 
-            this.groupBox21.Controls.Add(this.radioButton1);
-            this.groupBox21.Controls.Add(this.radioButton2);
-            this.groupBox21.Controls.Add(this.radioButton3);
-            this.groupBox21.Location = new System.Drawing.Point(1436, 26);
-            this.groupBox21.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox21.Name = "groupBox21";
-            this.groupBox21.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox21.Size = new System.Drawing.Size(395, 53);
-            this.groupBox21.TabIndex = 80;
-            this.groupBox21.TabStop = false;
-            this.groupBox21.Text = "Umzugsstatus";
-            this.groupBox21.Visible = false;
-            // 
+            //
             // checkGeschlossenAnzeigen
             // 
             this.checkGeschlossenAnzeigen.AutoSize = true;
@@ -2980,7 +2936,6 @@
             this.Controls.Add(this.numericUmzugsnummer);
             this.Controls.Add(this.textUmzugLog);
             this.Controls.Add(this.buttonTransaktion);
-            this.Controls.Add(this.groupBox21);
             this.Controls.Add(this.textUmzugsNummer);
             this.Controls.Add(this.label32);
             this.Controls.Add(this.textSuchBox);
@@ -3028,8 +2983,6 @@
             this.groupBox19.PerformLayout();
             this.groupBox18.ResumeLayout(false);
             this.groupBox18.PerformLayout();
-            this.groupBox21.ResumeLayout(false);
-            this.groupBox21.PerformLayout();
             this.groupBox27.ResumeLayout(false);
             this.groupBox27.PerformLayout();
             this.groupBox14.ResumeLayout(false);
@@ -3174,10 +3127,6 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.NumericUpDown numericSprinterMit;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.GroupBox groupBox21;
         private System.Windows.Forms.CheckBox checkGeschlossenAnzeigen;
         private System.Windows.Forms.GroupBox groupBox27;
         private System.Windows.Forms.RadioButton radioVersicherungNein;

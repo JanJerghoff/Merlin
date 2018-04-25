@@ -55,18 +55,18 @@ namespace Kartonagen.Objekte
 
             string temp = "";
 
-            if (Haustyp == "Wohnung") {
+            if (Haustyp.Contains("Wohnung")) {
                 temp += "Wohnung im ";
                 temp += GeschosseListe();
                 temp += "\r\n";
             }
-            else if (Haustyp == "EFH")
+            else if (Haustyp.Contains("EFH"))
             {
                 temp += "Einfamilienhaus mit ";
                 temp += GeschosseListe();
                 temp += "\r\n";
             }
-            else if (Haustyp == "RH")
+            else if (Haustyp.Contains("RH"))
             {
                 temp += "Reihenhaus mit ";
                 temp += GeschosseListe();
