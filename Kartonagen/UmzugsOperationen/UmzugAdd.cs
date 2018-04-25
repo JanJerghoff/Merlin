@@ -186,14 +186,15 @@ namespace Kartonagen
             
         }
 
-        private void umzugBauer ()
+        private void umzugBauer()
         {
             int aufzugtemp;
             int hvztemp;
             int aussenaufzugtemp;
+            Adresse ruempel = null;
 
             // Belegung der Temps für die Adresserstellung.
-            if (radioAufzugAJa.Checked){aufzugtemp = 1;}
+            if (radioAufzugAJa.Checked) { aufzugtemp = 1; }
             else if (radioAufzugANein.Checked) { aufzugtemp = 0; }
             else { aufzugtemp = 8; }
 
@@ -204,7 +205,7 @@ namespace Kartonagen
             if (radioHVZAJa.Checked) { hvztemp = 1; }
             else if (radioHVZAV.Checked) { hvztemp = 2; }
             else if (radioHVZANein.Checked) { hvztemp = 0; }
-            else { hvztemp = 8; }              
+            else { hvztemp = 8; }
 
             Adresse aus = new Adresse(textStraßeA.Text, textHausnummerA.Text, textOrtA.Text, textPLZA.Text, textLandA.Text, aufzugtemp, StockwerkString(0), listBoxA.SelectedItem.ToString(), hvztemp, int.Parse(textLaufMeterA.Text), aussenaufzugtemp);
 
@@ -233,11 +234,11 @@ namespace Kartonagen
             else if (radioUmzVllt.Checked) { stat.Add(2); }
             else if (radioUmzVorlaeufig.Checked) { stat.Add(3); }
             else { stat.Add(0); }
-            
+
             //
             if (radioBesJa.Checked) { stat.Add(1); }
-            else  { stat.Add(0); }
-            
+            else { stat.Add(0); }
+
             //
             if (radioAusJa.Checked) { stat.Add(1); }
             else if (radioAusVllt.Checked) { stat.Add(2); }
@@ -257,12 +258,12 @@ namespace Kartonagen
             tempAuto = tempAuto + decimal.ToInt32(numericSprinterOhne.Value).ToString();
             tempAuto = tempAuto + decimal.ToInt32(numericLKW.Value).ToString();
             tempAuto = tempAuto + decimal.ToInt32(numericLKWGroß.Value).ToString();
-            
+
             int einpacktemp = 0;
             int auspacktemp = 0;
 
             if (radioEinpackenJa.Checked) { einpacktemp = 1; }
-            else if ( radioEinpackenV.Checked) { einpacktemp = 2; }
+            else if (radioEinpackenV.Checked) { einpacktemp = 2; }
             else if (radioEinpackenNein.Checked) { einpacktemp = 0; }
             else { einpacktemp = 8; }
 
@@ -285,10 +286,14 @@ namespace Kartonagen
             if (radioSchilderJa.Checked) { Schildertemp = 1; }
             else if (radioSchilderNein.Checked) { Schildertemp = 0; }
 
+            if (stat[4] != 0) {
+                ruempel = new Adresse(textStrasseEnt.Text, textHausnummerEnt.Text, textOrtEnt.Text, textPLZEnt.Text, "Deutschland", 0, "", "", 0, 0, 0);                
+            }
+
             umzObj = new Umzug(int.Parse(textKundennummer.Text), dateBesicht.Value, dateUmzug.Value, dateEinpack.Value, dateAuspack.Value, dateEntruempel.Value, timeBesichtigung.Value, stat[1], stat[0], stat[2], stat[3], stat[4],
                 decimal.ToInt32(numericUmzugsDauer.Value), tempAuto, decimal.ToInt32(numericMannZahl.Value), decimal.ToInt32(numericArbeitszeit.Value), versicherungtemp, einpacktemp, decimal.ToInt32(numericEinPacker.Value), decimal.ToInt32(numericEinPackStunden.Value), decimal.ToInt32(numericEinPackKartons.Value),
                 auspacktemp, decimal.ToInt32(numericAusPacker.Value), decimal.ToInt32(numericAusPackStunden.Value), decimal.ToInt32(numericKleiderkisten.Value), kueche[1], kueche[0], kueche[2], int.Parse(textKuechenPreis.Text), aus, ein, Schildertemp, dateSchilderVerweildauer.Value,
-                textNoteKalender.Text, textNoteBuero.Text, textNoteFahrer.Text, idBearbeitend.ToString(), DateTime.Now);
+                textNoteKalender.Text, textNoteBuero.Text, textNoteFahrer.Text, idBearbeitend.ToString(), DateTime.Now, ruempel);
         }
 
         private string StockwerkString(int x) {
