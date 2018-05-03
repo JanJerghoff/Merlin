@@ -322,7 +322,7 @@ namespace Kartonagen
             return temp;
         }
 
-        void increaseLfdNr()
+        public void increaseLfdNr()
         {
             lfd_nr++;
             // In DB updaten

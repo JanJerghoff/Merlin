@@ -1002,7 +1002,8 @@ namespace Kartonagen
         //
         //
         private void buttonBlockTermine_Click(object sender, EventArgs e)
-        {           
+        {
+            killALl();
 
             Boolean pop = false;
 
@@ -1083,6 +1084,7 @@ namespace Kartonagen
 
         private void buttonBlockKueche_Click_1(object sender, EventArgs e)
         {
+            killALl();
             //Deklaration und setzen der Werte
 
             int kuecheab = 8;
@@ -1121,6 +1123,8 @@ namespace Kartonagen
 
         private void buttonBlockPacken_Click_1(object sender, EventArgs e)
         {
+            killALl();
+
             int einPacken = 8;
             int ausPacken = 8;
 
@@ -1152,6 +1156,8 @@ namespace Kartonagen
 
         private void buttonBlockDaten_Click(object sender, EventArgs e)
         {
+            killALl();
+
             int schilder = 0;
 
             //
@@ -1189,7 +1195,8 @@ namespace Kartonagen
         }
 
         private void buttonBlockBemerkungen_Click(object sender, EventArgs e)
-        {            
+        {
+            killALl();
             // Setzen
             umzObj.NotizFahrer1 = textNoteFahrer.Text;
             umzObj.NotizBuero1 = textNoteBuero.Text;
@@ -1206,6 +1213,7 @@ namespace Kartonagen
 
         private void buttonBlockEinzug_Click(object sender, EventArgs e)
         {
+            killALl();
             int aufzug = 8;
             int hvz = 8;
             int aussenAuf = 8;
@@ -1243,6 +1251,7 @@ namespace Kartonagen
 
         private void ButtonBlockAuszug_Click_1(object sender, EventArgs e)
         {
+            killALl();
             int aufzug = 8;
             int hvz = 8;
             int aussenAuf = 8;
@@ -1282,6 +1291,7 @@ namespace Kartonagen
 
         private void buttonBlockVersicherung_Click(object sender, EventArgs e)
         {
+            killALl();
             int VersTemp = 8;
             if (radioVersicherungJa.Checked) { VersTemp = 1; }
             else if (radioVersicherungNein.Checked) { VersTemp = 0; }
@@ -1350,12 +1360,7 @@ namespace Kartonagen
                 }
 
                 //Termine löschen
-
-                PackenLoeschen(umzObj.StatAus);
-                PackenLoeschen(umzObj.StatEin);
-                UmzugLoeschen(umzObj.StatUmzug);
-                refreshBesichtigung(); //ist ein reines löschen
-                umzObj.killAll();
+                killALl();
                 
 
                 
@@ -1373,7 +1378,8 @@ namespace Kartonagen
         }
 
         void refreshUmzug() {               // Hier waren vorher zig Zeilen.
-            UmzugLoeschen(UmzugSet);
+
+            UmzugLoeschen(umzObj.StatUmzug);
 
             // Eventliste refreshen
             events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
@@ -1437,19 +1443,27 @@ namespace Kartonagen
             }
         }
 
-        void refreshAll() {            
-
+        void killALl()
+        {
             refreshUmzug();
             refreshBesichtigung();
             refreshAusraeumen();
             refreshEinraeumen();
             refreshEntruempeln();
 
-            umzObj.addAll();
+            umzObj.increaseLfdNr();
 
             // Eventliste refreshenm
             events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
 
+        }
+
+        void refreshAll() {     
+
+            umzObj.addAll();
+
+            // Eventliste refreshenm
+            events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
             return;
         }
 
