@@ -76,6 +76,7 @@ namespace Kartonagen
         //Metadata
         string UserChanged;
         DateTime erstelldatum;
+        int lfd_nr;
 
         public DateTime DatBesichtigung { get => datBesichtigung; set => datBesichtigung = value; }
         public DateTime DatUmzug { get => datUmzug; set => datUmzug = value; }
@@ -190,6 +191,15 @@ namespace Kartonagen
 
                     UserChanged = rdr.GetString(57);
                     erstelldatum = rdr.GetDateTime(58);
+
+                    if (rdr.GetInt32(62) < UserChanged.Length)
+                    {    //Wenn Laufnummer geringer ist als sie sollte, hochsetzen
+                        lfd_nr = UserChanged.Length;
+                    }
+                    else
+                    {
+                        lfd_nr = rdr.GetInt32(62);
+                    }
                 }
                 rdr.Close();
             }
@@ -312,6 +322,16 @@ namespace Kartonagen
             return temp;
         }
 
+        void increaseLfdNr()
+        {
+            lfd_nr++;
+            // In DB updaten
+            String Insert = "UPDATE Umzuege SET lfd_nr = " + lfd_nr + " WHERE idUmzuege = "+id+";";
+            Program.QueryLog(Insert);
+
+            Program.absender(Insert, "Update der Laufenden Nummer");
+        }
+
         //Updatemechanik
         public void UpdateDB(string idUser)
         {
@@ -384,6 +404,8 @@ namespace Kartonagen
             Program.QueryLog(longInsert);
 
             Program.absender(longInsert, "Absenden der Änderung am Umzug");
+
+            UserChanged = UserChanged + idUser;
 
         }
 
@@ -810,6 +832,7 @@ namespace Kartonagen
         public void kill( int code) {
 
             Events ev = Program.getUtil().kalenderUmzugFinder("merlinum" + id + "c" + resolveCode(code));
+            Console.WriteLine(ev.Items.Count + "gefunden");
 
             foreach (var item in ev.Items)
             {
@@ -828,13 +851,12 @@ namespace Kartonagen
             kill(5);
             kill(6);
             kill(7);
-
         }
 
         //Einfügen Eizentermine
         public Boolean addEvent(int code) {
 
-            string calId = "merlinum" + id + "c" + resolveCode(code)+"i"+UserChanged1.Length;
+            string calId = "merlinum" + id + "c" + resolveCode(code)+"i"+lfd_nr;
 
             // Sicherstellen dass zu belegender Kalendertermin frei ist ... wenn false existiert der Termin schon
             if (!Program.getUtil().verifyIDAvailability(calId)) { //DEBUG
@@ -915,16 +937,19 @@ namespace Kartonagen
 
         // Einfügen aller Termine
         public Boolean addAll() {
-            if (addEvent(1) && addEvent(2) && addEvent(3) && addEvent(4) && addEvent(5))
-            {
-                return true;
-            }
+            
+            if (statUmzug != 0) { addEvent(2); }
+            if (StatBesichtigung != 0) { addEvent(1); }
+            addEvent(3);
+            addEvent(4);
+            addEvent(5);
             return false;
         }
 
         //Kopletter Refresh
         public void RefreshAll() {
             killAll();
+            increaseLfdNr();
             addAll();
         }
 
