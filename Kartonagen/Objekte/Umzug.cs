@@ -117,6 +117,8 @@ namespace Kartonagen
         public int IdKunden { get => idKunden; }
         public int Id { get => id; }
         public string UserChanged1 { get => UserChanged; set => UserChanged = value; }
+        public int RuempelMann1 { get => RuempelMann; set => RuempelMann = value; }
+        public int RuempelStunden1 { get => RuempelStunden; set => RuempelStunden = value; }
 
         // Konstruktoren
 
@@ -204,8 +206,8 @@ namespace Kartonagen
                     }
 
                     AdresseRuempel = rdr.GetInt32(59);
-                    RuempelMann = rdr.GetInt32(60);
-                    RuempelStunden = rdr.GetInt32(61);
+                    RuempelMann1 = rdr.GetInt32(60);
+                    RuempelStunden1 = rdr.GetInt32(61);
 
                 }
                 rdr.Close();
@@ -215,6 +217,7 @@ namespace Kartonagen
             catch (Exception sqlEx)
             {
                 Program.FehlerLog(sqlEx.ToString(), "Abrufen der Umzugsdaten zur Objekterstellung");
+                throw sqlEx;
             }
 
             umzugsKunde = new Kunde(idKunden);
@@ -426,6 +429,9 @@ namespace Kartonagen
             Program.QueryLog(longInsert);
 
             Program.absender(longInsert, "Absenden der Änderung am Umzug");
+
+            //Ändern der seperaten Adressen
+            entruempeln.updateDB();
 
             UserChanged = UserChanged + idUser;
 

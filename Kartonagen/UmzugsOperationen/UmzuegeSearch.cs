@@ -832,32 +832,45 @@ namespace Kartonagen
 
         private void buttonUmzugsnummer_Click(object sender, EventArgs e)
         {
-            MySqlCommand cmdRead = new MySqlCommand("SELECT * FROM Umzuege WHERE idUmzuege=" + numericUmzugsnummer.Value + ";", Program.conn);
-            MySqlDataReader rdr;
-
-            int worked = 0;
-
             try
             {
-                rdr = cmdRead.ExecuteReader();
-                while (rdr.Read())
-                {
-                    worked = 1;
-                }
-                rdr.Close();
+                umzObj = new Umzug(decimal.ToInt32(numericUmzugsnummer.Value));
             }
-            catch (Exception sqlEx)
+            catch (MySqlException ex)
             {
-                textUmzugLog.Text += sqlEx.ToString();
+                textUmzugLog.AppendText("Umzug nicht gefunden");
                 return;
             }
 
-            if (worked == 0)
-            {
-                textUmzugLog.AppendText("Umzug nicht gefunden");
-            }
-
             umzugAenderungFuellem(decimal.ToInt32(numericUmzugsnummer.Value));
+
+
+            //MySqlCommand cmdRead = new MySqlCommand("SELECT * FROM Umzuege WHERE idUmzuege=" + numericUmzugsnummer.Value + ";", Program.conn);
+            //MySqlDataReader rdr;
+
+            //int worked = 0;
+
+            //try
+            //{
+            //    rdr = cmdRead.ExecuteReader();
+            //    while (rdr.Read())
+            //    {
+            //        worked = 1;
+            //    }
+            //    rdr.Close();
+            //}
+            //catch (Exception sqlEx)
+            //{
+            //    textUmzugLog.Text += sqlEx.ToString();
+            //    return;
+            //}
+
+            //if (worked == 0)
+            //{
+            //    textUmzugLog.AppendText("Umzug nicht gefunden");
+            //}
+
+            //umzugAenderungFuellem(decimal.ToInt32(numericUmzugsnummer.Value));
         }
 
         public void absender(String befehl)
@@ -1182,6 +1195,26 @@ namespace Kartonagen
                                                                        //Kalender aktualisieren
             refreshAll();
             erinnerungsPopup();
+        }
+
+
+        private void buttonBlockEntruempeln_Click(object sender, EventArgs e)
+        {
+            //Alte Termine killen
+            killALl();
+
+            umzObj.entruempeln.Straße1 = textStrasseEnt.Text;
+            umzObj.entruempeln.Hausnummer1 = textHausnummerEnt.Text;
+            umzObj.entruempeln.Ort1 = textOrtEnt.Text;
+            umzObj.entruempeln.PLZ1 = textPLZEnt.Text;
+            umzObj.RuempelMann1 = decimal.ToInt32(numericPackerEnt.Value);
+            umzObj.RuempelStunden1 = decimal.ToInt32(numericStundenEnt.Value);
+
+            // Absenden
+            umzObj.UpdateDB(idBearbeitend.ToString());
+
+            //Termine neu hinzufügen
+            refreshAll();
         }
 
         private void buttonBlockDaten_Click(object sender, EventArgs e)
@@ -1577,5 +1610,6 @@ namespace Kartonagen
 
             }
         }
+
     }
 }

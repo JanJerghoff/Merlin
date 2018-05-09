@@ -10,7 +10,7 @@ namespace Kartonagen.Objekte
     public class Adresse
     {
         // Felder
-
+        int IDAdresse;
         string Straße;
         string Hausnummer;
         string Ort;
@@ -22,6 +22,7 @@ namespace Kartonagen.Objekte
         int HVZ;
         int Laufmeter;
         int AussenAufzug;
+        string Bemerkung;
 
         public Adresse(string straße, string hausnummer, string ort, string pLZ, string land, int aufzug, string stockwerke, string haustyp, int hVZ, int laufmeter, int aussenAufzug)
         {
@@ -82,6 +83,7 @@ namespace Kartonagen.Objekte
         public int HVZ1 { get => HVZ; set => HVZ = value; }
         public int Laufmeter1 { get => Laufmeter; set => Laufmeter = value; }
         public int AussenAufzug1 { get => AussenAufzug; set => AussenAufzug = value; }
+        public string Bemerkung1 { get => Bemerkung; set => Bemerkung = value; }
 
         public void saveNew() {
             String dbInsert = "INSERT INTO Adresse (strasse, hausnummer, ort, PLZ, land, aufzug, stockwerke, haustyp, aussenaufzug, laufmeter) Values (";
@@ -99,6 +101,29 @@ namespace Kartonagen.Objekte
 
             Program.QueryLog(dbInsert);
             Program.absender(dbInsert, "Einfügen der Adresse "+Straße1);
+        }
+
+        public void updateDB() {
+
+
+            String dbInsert = "UPDATE Adresse SET ";
+            dbInsert += "strasse = '" + Straße1 + "',";
+            dbInsert += "hausnummer = '" + Hausnummer1 + "',";
+            dbInsert += "ort = '" + Ort1 + "',";
+            dbInsert += "PLZ = '" + PLZ1 + "',";
+            dbInsert += "land = '" + Land1 + "',";
+            dbInsert += "aufzug = " + Aufzug1 + ",";
+            dbInsert += "stockwerke = '" + Stockwerke1 + "',";
+            dbInsert += "haustyp = '" + Haustyp1 + "',";
+            dbInsert += "HVZ = " + HVZ1 + ",";
+            dbInsert += "laufmeter = " + Laufmeter1 + ",";
+            dbInsert += "aussenaufzug = " + AussenAufzug1 + ",";
+            dbInsert += "bemerkung = '" + Bemerkung1 + "'";
+
+            dbInsert += " WHERE id =" + IDAdresse +";";
+
+            Program.QueryLog(dbInsert);
+            Program.absender(dbInsert, "Updaten der Adresse " + Straße1);
         }
 
         public int findAdresse() {
