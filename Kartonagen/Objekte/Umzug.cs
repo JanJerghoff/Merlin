@@ -79,6 +79,7 @@ namespace Kartonagen
         //Metadata
         string UserChanged;
         DateTime erstelldatum;
+        int lfd_nr;
 
         public DateTime DatBesichtigung { get => datBesichtigung; set => datBesichtigung = value; }
         public DateTime DatUmzug { get => datUmzug; set => datUmzug = value; }
@@ -192,9 +193,20 @@ namespace Kartonagen
                     UserChanged = rdr.GetString(57);
                     erstelldatum = rdr.GetDateTime(58);
 
+
+                    if (rdr.GetInt32(62) < UserChanged.Length)
+                    {    //Wenn Laufnummer geringer ist als sie sollte, hochsetzen
+                        lfd_nr = UserChanged.Length;
+                    }
+                    else
+                    {
+                        lfd_nr = rdr.GetInt32(62);
+                    }
+
                     AdresseRuempel = rdr.GetInt32(59);
                     RuempelMann = rdr.GetInt32(60);
                     RuempelStunden = rdr.GetInt32(61);
+
                 }
                 rdr.Close();
 
@@ -332,6 +344,16 @@ namespace Kartonagen
             return temp;
         }
 
+        public void increaseLfdNr()
+        {
+            lfd_nr++;
+            // In DB updaten
+            String Insert = "UPDATE Umzuege SET lfd_nr = " + lfd_nr + " WHERE idUmzuege = "+id+";";
+            Program.QueryLog(Insert);
+
+            Program.absender(Insert, "Update der Laufenden Nummer");
+        }
+
         //Updatemechanik
         public void UpdateDB(string idUser)
         {
@@ -404,6 +426,8 @@ namespace Kartonagen
             Program.QueryLog(longInsert);
 
             Program.absender(longInsert, "Absenden der Änderung am Umzug");
+
+            UserChanged = UserChanged + idUser;
 
         }
 
@@ -830,6 +854,7 @@ namespace Kartonagen
         public void kill( int code) {
 
             Events ev = Program.getUtil().kalenderUmzugFinder("merlinum" + id + "c" + resolveCode(code));
+            Console.WriteLine(ev.Items.Count + "gefunden");
 
             foreach (var item in ev.Items)
             {
@@ -848,13 +873,12 @@ namespace Kartonagen
             kill(5);
             kill(6);
             kill(7);
-
         }
 
         //Einfügen Eizentermine
         public Boolean addEvent(int code) {
 
-            string calId = "merlinum" + id + "c" + resolveCode(code)+"i"+UserChanged1.Length;
+            string calId = "merlinum" + id + "c" + resolveCode(code)+"i"+lfd_nr;
 
             // Sicherstellen dass zu belegender Kalendertermin frei ist ... wenn false existiert der Termin schon
             if (!Program.getUtil().verifyIDAvailability(calId)) { //DEBUG
@@ -935,16 +959,19 @@ namespace Kartonagen
 
         // Einfügen aller Termine
         public Boolean addAll() {
-            if (addEvent(1) && addEvent(2) && addEvent(3) && addEvent(4) && addEvent(5))
-            {
-                return true;
-            }
+            
+            if (statUmzug != 0) { addEvent(2); }
+            if (StatBesichtigung != 0) { addEvent(1); }
+            addEvent(3);
+            addEvent(4);
+            addEvent(5);
             return false;
         }
 
         //Kopletter Refresh
         public void RefreshAll() {
             killAll();
+            increaseLfdNr();
             addAll();
         }
 
@@ -959,17 +986,17 @@ namespace Kartonagen
             if (Mann != 0) { sMann = Mann + " Mann, "; }
             if (Stunden != 0) { sStunden = Stunden + " Stunden, "; }
 
-            return IdKunden + " " + umzugsKunde.Vorname+" "+umzugsKunde.Nachname + ", " + sMann + sStunden + AutoString() + " " + NotizTitel1;
+            return IdKunden + " " + umzugsKunde.Anrede + " " + umzugsKunde.Vorname+" "+umzugsKunde.Nachname + ", " + sMann + sStunden + AutoString() + " " + NotizTitel1;
         }
 
         private String SchilderHeader()
         {
-            return idKunden + " " +umzugsKunde.Vorname+ " "+umzugsKunde.Nachname+ ", Schilder stellen";
+            return idKunden + " " + umzugsKunde.Anrede + " " +umzugsKunde.Vorname+ " "+umzugsKunde.Nachname+ ", Schilder stellen";
         }
 
         private String EinRaeumHeader()
         {
-            String EinRaeumHeader = idKunden + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + " Einpacken, " + Einpacker + " Mann, " + EinStunden + " Stunden";
+            String EinRaeumHeader = idKunden + " " + umzugsKunde.Anrede + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + " Einpacken, " + Einpacker + " Mann, " + EinStunden + " Stunden";
 
             if (StatEin == 2)
             {
@@ -981,7 +1008,7 @@ namespace Kartonagen
 
         private String AusRaeumHeader()
         {
-            String AusRaeumHeader = idKunden + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + "Auspacken, " + Auspacker + " Mann, " + AusStunden + " Stunden";
+            String AusRaeumHeader = idKunden + " " + umzugsKunde.Anrede + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + "Auspacken, " + Auspacker + " Mann, " + AusStunden + " Stunden";
 
             if (statAus == 2)
             {
@@ -995,7 +1022,7 @@ namespace Kartonagen
         {
             //Konstruktion String Kalerndereintragsinhalt
             // Name + Auszugsadresse
-            String Body = umzugsKunde.Vorname + " " + umzugsKunde.Nachname + "\r\n Aus: " + auszug.Straße1 + " " + auszug.Hausnummer1 + ", " + auszug.PLZ1 + " " + auszug.Ort1 + "\r\n";
+            String Body = umzugsKunde.Anrede + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + "\r\n Aus: " + auszug.Straße1 + " " + auszug.Hausnummer1 + ", " + auszug.PLZ1 + " " + auszug.Ort1 + "\r\n";
 
             // Geschoss + HausTyp
             Body += auszug.KalenderStringEtageHaustyp();

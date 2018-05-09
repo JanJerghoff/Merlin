@@ -974,6 +974,7 @@ namespace Kartonagen
             foreach (var EventItem in events.Items) {
                 if (EventItem.ColorId == "3") {
                     Program.getUtil().kalenderEventRemove(EventItem.Id);
+                    textUmzugLog.AppendText("Schilderstellen entfernt \r\n");
                 }
             }            
         }
@@ -1003,23 +1004,28 @@ namespace Kartonagen
             {
                 case 1:
                     Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Einpacken, "5"));
+                    textUmzugLog.AppendText("Einpacken entfernt \r\n");
                     break;
 
                 case 2:
                     Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Einpacken, "6"));
+                    textUmzugLog.AppendText("Einpacken entfernt \r\n");
                     break;
 
                 case 3:
                     Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Auspacken, "5"));
+                    textUmzugLog.AppendText("Auspacken entfernt \r\n");
                     break;
 
                 case 4:
                     Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Auspacken, "6"));
+                    textUmzugLog.AppendText("Auspacken entfernt \r\n");
                     break;
 
                 default:
                     break;
             }
+            
         }        
         
         //
@@ -1027,9 +1033,7 @@ namespace Kartonagen
         //
         private void buttonBlockTermine_Click(object sender, EventArgs e)
         {
-
-            //TEMP UMZUGSKILLEN
-            refreshAll();
+            killALl();
 
             Boolean pop = false;
 
@@ -1086,7 +1090,7 @@ namespace Kartonagen
             {
                 umzObj.StatRuempeln = 2;
             }
-            else { umzObj.StatAus = 0; }
+            else { umzObj.StatRuempeln = 0; }
 
             //ÜBERSCHREIBEN DER DATEN
 
@@ -1099,8 +1103,8 @@ namespace Kartonagen
             umzObj.Umzugsdauer = decimal.ToInt32(numericUmzugsDauer.Value);
             umzObj.UpdateDB(idBearbeitend.ToString());
 
-
-            umzObj.RefreshAll();
+            //Kalender aktualisieren
+            refreshAll();
 
             if (pop)
             {
@@ -1110,6 +1114,7 @@ namespace Kartonagen
 
         private void buttonBlockKueche_Click_1(object sender, EventArgs e)
         {
+            killALl();
             //Deklaration und setzen der Werte
 
             int kuecheab = 8;
@@ -1141,10 +1146,15 @@ namespace Kartonagen
             umzugAenderungFuellem(int.Parse(textUmzNummerBlock.Text)); // Neuladen der Ansicht
 
             erinnerungsPopup();
+
+            //Kalender aktualisieren
+            refreshAll();
         }
 
         private void buttonBlockPacken_Click_1(object sender, EventArgs e)
         {
+            killALl();
+
             int einPacken = 8;
             int ausPacken = 8;
 
@@ -1169,14 +1179,15 @@ namespace Kartonagen
             umzObj.UpdateDB(idBearbeitend.ToString());
 
             umzugAenderungFuellem(int.Parse(textUmzNummerBlock.Text)); // Neuladen der Ansicht
-            //Kalender aktualisieren
-            refreshAusraeumen();
-            refreshEinraeumen();
+                                                                       //Kalender aktualisieren
+            refreshAll();
             erinnerungsPopup();
         }
 
         private void buttonBlockDaten_Click(object sender, EventArgs e)
         {
+            killALl();
+
             int schilder = 0;
 
             //
@@ -1209,14 +1220,13 @@ namespace Kartonagen
 
             umzugAenderungFuellem(int.Parse(textUmzNummerBlock.Text)); // Neuladen der Ansicht
             //Kalender aktualisieren
-            refreshUmzug();
-            refreshBesichtigung();
-            refreshEntruempeln();
+            refreshAll();
             erinnerungsPopup();
         }
 
         private void buttonBlockBemerkungen_Click(object sender, EventArgs e)
-        {            
+        {
+            killALl();
             // Setzen
             umzObj.NotizFahrer1 = textNoteFahrer.Text;
             umzObj.NotizBuero1 = textNoteBuero.Text;
@@ -1233,6 +1243,8 @@ namespace Kartonagen
 
         private void buttonBlockEinzug_Click(object sender, EventArgs e)
         {
+            killALl();
+
             int aufzug = 8;
             int hvz = 8;
             int aussenAuf = 8;
@@ -1270,6 +1282,7 @@ namespace Kartonagen
 
         private void ButtonBlockAuszug_Click_1(object sender, EventArgs e)
         {
+            killALl();
             int aufzug = 8;
             int hvz = 8;
             int aussenAuf = 8;
@@ -1309,6 +1322,9 @@ namespace Kartonagen
 
         private void buttonBlockVersicherung_Click(object sender, EventArgs e)
         {
+            //Kalender leeren
+            killALl();
+
             int VersTemp = 8;
             if (radioVersicherungJa.Checked) { VersTemp = 1; }
             else if (radioVersicherungNein.Checked) { VersTemp = 0; }
@@ -1316,6 +1332,9 @@ namespace Kartonagen
 
             //Absenden
             umzObj.UpdateDB(idBearbeitend.ToString());
+
+            //Kalender aktualisieren
+            refreshAll();
 
             umzugAenderungFuellem(int.Parse(textUmzNummerBlock.Text)); // Neuladen der Ansicht
 
@@ -1374,8 +1393,9 @@ namespace Kartonagen
                 }
 
                 //Termine löschen
+                killALl();
+                
 
-                umzObj.killAll();                
                 
             }
             else
@@ -1390,8 +1410,9 @@ namespace Kartonagen
             return;
         }
 
-        void refreshUmzug() {               // Hier waren vorher zig Zeilen.
-            UmzugLoeschen(UmzugSet);
+        void refreshUmzug() { 
+
+            UmzugLoeschen(umzObj.StatUmzug);
 
             // Eventliste refreshen
             events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
@@ -1403,11 +1424,7 @@ namespace Kartonagen
                 //find&kill Besichtigung           
                 Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Besichtigung, "9"));
                 textUmzugLog.AppendText("Besichtigung gelöscht \r\n");
-                // Anlegen Besichtigung
             }
-
-            // Eventliste refreshen
-            events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
         }
 
         void refreshAusraeumen () {
@@ -1456,12 +1473,26 @@ namespace Kartonagen
             }
         }
 
-        void refreshAll() {
+        void killALl()
+        {
             refreshUmzug();
             refreshBesichtigung();
             refreshAusraeumen();
             refreshEinraeumen();
             refreshEntruempeln();
+
+            umzObj.increaseLfdNr();
+
+            // Eventliste refreshenm
+            events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
+
+        }
+
+        void refreshAll() {     
+
+            umzObj.addAll();
+            textUmzugLog.AppendText("Alle Termine erneuert \r\n");
+
             // Eventliste refreshenm
             events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
             return;
