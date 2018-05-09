@@ -201,7 +201,16 @@ namespace Kartonagen
             }
             else if (tempCounter == 1)      // Ein treffer
             {
-                umzugAenderungFuellem(nummern[0]);
+                try
+                {
+                    umzObj = new Umzug(decimal.ToInt32(numericUmzugsnummer.Value));
+                }
+                catch (MySqlException ex)
+                {
+                    textUmzugLog.AppendText("Umzug nicht gefunden");
+                    return;
+                }
+                umzugAenderungFuellem();
             }
             else
             {                          // Mehrere Treffer
@@ -218,7 +227,7 @@ namespace Kartonagen
 
             UserSpeicher = umzObj.UserChanged1;
 
-            textUmzNummerBlock.Text = umzObj.Id;
+            textUmzNummerBlock.Text = umzObj.Id.ToString();
             textKundennummer.Text = umzObj.IdKunden.ToString();                       
             dateBesicht.Value = umzObj.DatBesichtigung;
             dateUmzug.Value = umzObj.DatUmzug;
@@ -372,11 +381,15 @@ namespace Kartonagen
             textOrtB.Text = umzObj.einzug.Ort1;
             textLandB.Text = umzObj.einzug.Land1;
             //
-            textStrasseEnt.AppendText(umzObj.entruempeln.Straße1);
-            textHausnummerEnt.AppendText(umzObj.entruempeln.Hausnummer1);
-            textOrtEnt.AppendText(umzObj.entruempeln.Ort1);
-            textPLZEnt.AppendText(umzObj.entruempeln.PLZ1);
+            textStrasseEnt.Clear();
+            textHausnummerEnt.Clear();
+            textPLZEnt.Clear();
+            textOrtEnt.Clear();
 
+            textStrasseEnt.Text=(umzObj.entruempeln.Straße1);
+            textHausnummerEnt.Text = (umzObj.entruempeln.Hausnummer1);
+            textOrtEnt.Text = (umzObj.entruempeln.Ort1);
+            textPLZEnt.Text = (umzObj.entruempeln.PLZ1);
             numericPackerEnt.Value = umzObj.RuempelMann1;
             numericStundenEnt.Value = umzObj.RuempelStunden1;
             //
@@ -848,35 +861,8 @@ namespace Kartonagen
                 return;
             }
 
-            umzugAenderungFuellem(decimal.ToInt32(numericUmzugsnummer.Value));
-
-
-            //MySqlCommand cmdRead = new MySqlCommand("SELECT * FROM Umzuege WHERE idUmzuege=" + numericUmzugsnummer.Value + ";", Program.conn);
-            //MySqlDataReader rdr;
-
-            //int worked = 0;
-
-            //try
-            //{
-            //    rdr = cmdRead.ExecuteReader();
-            //    while (rdr.Read())
-            //    {
-            //        worked = 1;
-            //    }
-            //    rdr.Close();
-            //}
-            //catch (Exception sqlEx)
-            //{
-            //    textUmzugLog.Text += sqlEx.ToString();
-            //    return;
-            //}
-
-            //if (worked == 0)
-            //{
-            //    textUmzugLog.AppendText("Umzug nicht gefunden");
-            //}
-
-            //umzugAenderungFuellem(decimal.ToInt32(numericUmzugsnummer.Value));
+            umzugAenderungFuellem();
+            
         }
 
         public void absender(String befehl)
@@ -886,7 +872,7 @@ namespace Kartonagen
             {
                 cmdAdd.ExecuteNonQuery();
                 textUmzugLog.AppendText("Änderung ausgeführt \r\n");
-                umzugAenderungFuellem(int.Parse(textUmzNummerBlock.Text)); // Neuladen der Ansicht
+                umzugAenderungFuellem(); // Neuladen der Ansicht
             }
             catch (Exception sqlEx)
             {
@@ -1162,7 +1148,7 @@ namespace Kartonagen
 
             // Absenden
             umzObj.UpdateDB(idBearbeitend.ToString());
-            umzugAenderungFuellem(int.Parse(textUmzNummerBlock.Text)); // Neuladen der Ansicht
+            umzugAenderungFuellem(); // Neuladen der Ansicht
 
             erinnerungsPopup();
 
@@ -1197,7 +1183,7 @@ namespace Kartonagen
             // Absenden
             umzObj.UpdateDB(idBearbeitend.ToString());
 
-            umzugAenderungFuellem(int.Parse(textUmzNummerBlock.Text)); // Neuladen der Ansicht
+            umzugAenderungFuellem(); // Neuladen der Ansicht
                                                                        //Kalender aktualisieren
             refreshAll();
             erinnerungsPopup();
@@ -1257,7 +1243,7 @@ namespace Kartonagen
             // Absenden
             umzObj.UpdateDB(idBearbeitend.ToString());
 
-            umzugAenderungFuellem(int.Parse(textUmzNummerBlock.Text)); // Neuladen der Ansicht
+            umzugAenderungFuellem(); // Neuladen der Ansicht
             //Kalender aktualisieren
             refreshAll();
             erinnerungsPopup();
@@ -1274,7 +1260,7 @@ namespace Kartonagen
             // Absenden
             umzObj.UpdateDB(idBearbeitend.ToString());
 
-            umzugAenderungFuellem(int.Parse(textUmzNummerBlock.Text)); // Neuladen der Ansicht
+            umzugAenderungFuellem(); // Neuladen der Ansicht
             // Kalenderaktualisierung
             refreshAll();
             erinnerungsPopup();
@@ -1313,7 +1299,7 @@ namespace Kartonagen
             //Absenden
             umzObj.UpdateDB(idBearbeitend.ToString());
 
-            umzugAenderungFuellem(int.Parse(textUmzNummerBlock.Text)); // Neuladen der Ansicht
+            umzugAenderungFuellem(); // Neuladen der Ansicht
             //Kalender aktualisieren
             refreshAll();
             erinnerungsPopup();
@@ -1352,7 +1338,7 @@ namespace Kartonagen
             //Absenden
             umzObj.UpdateDB(idBearbeitend.ToString());
 
-            umzugAenderungFuellem(int.Parse(textUmzNummerBlock.Text)); // Neuladen der Ansicht
+            umzugAenderungFuellem(); // Neuladen der Ansicht
 
             //Kalender aktualisieren
             refreshAll();
@@ -1375,7 +1361,7 @@ namespace Kartonagen
             //Kalender aktualisieren
             refreshAll();
 
-            umzugAenderungFuellem(int.Parse(textUmzNummerBlock.Text)); // Neuladen der Ansicht
+            umzugAenderungFuellem(); // Neuladen der Ansicht
 
         }
 
@@ -1616,6 +1602,7 @@ namespace Kartonagen
 
             }
         }
+        
 
     }
 }

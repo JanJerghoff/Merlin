@@ -411,9 +411,8 @@ namespace Kartonagen
         {
             UmzuegeSearch umzAendern = new UmzuegeSearch();
             umzAendern.setBearbeiter(idBearbeitend);
-            umzAendern.umzugAenderungFuellem(int.Parse(textUmzugsNummer.Text));
-            //umzAendern.umzObj = umzObj;
-            // Funktion bestehendes umzObj refreshen / füllen
+            umzAendern.SetUmzugObjekt( umzObj);
+            umzAendern.umzugAenderungFuellem();
             umzAendern.Show();
         }
 
