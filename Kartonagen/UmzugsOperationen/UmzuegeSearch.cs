@@ -213,14 +213,12 @@ namespace Kartonagen
 
         }
 
-        public void umzugAenderungFuellem(int umzNum)
+        public void umzugAenderungFuellem()
         {         // FulleM. Sic!           
-
-            umzObj = new Umzug(umzNum);
 
             UserSpeicher = umzObj.UserChanged1;
 
-            textUmzNummerBlock.Text = umzNum.ToString();
+            textUmzNummerBlock.Text = umzObj.Id;
             textKundennummer.Text = umzObj.IdKunden.ToString();                       
             dateBesicht.Value = umzObj.DatBesichtigung;
             dateUmzug.Value = umzObj.DatUmzug;
@@ -373,6 +371,14 @@ namespace Kartonagen
             textPLZB.Text = umzObj.einzug.PLZ1;
             textOrtB.Text = umzObj.einzug.Ort1;
             textLandB.Text = umzObj.einzug.Land1;
+            //
+            textStrasseEnt.AppendText(umzObj.entruempeln.Straße1);
+            textHausnummerEnt.AppendText(umzObj.entruempeln.Hausnummer1);
+            textOrtEnt.AppendText(umzObj.entruempeln.Ort1);
+            textPLZEnt.AppendText(umzObj.entruempeln.PLZ1);
+
+            numericPackerEnt.Value = umzObj.RuempelMann1;
+            numericStundenEnt.Value = umzObj.RuempelStunden1;
             //
             textNoteBuero.Text = umzObj.NotizBuero1;
             textNoteFahrer.Text = umzObj.NotizFahrer1;
