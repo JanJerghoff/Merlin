@@ -58,8 +58,11 @@ namespace Kartonagen
         int KuecheBau;
         int KuechePausch;
 
-        // Adressobjekte
+        //Rümpeldaten
+        int RuempelMann;
+        int RuempelStunden;
 
+        // Adressobjekte
         public Adresse auszug;
         public Adresse einzug;
         public Adresse entruempeln;
@@ -122,6 +125,7 @@ namespace Kartonagen
         {
             MySqlCommand cmdRead = new MySqlCommand("SELECT * FROM Umzuege WHERE idUmzuege = " + ID + ";", Program.conn);
             MySqlDataReader rdr;
+            int AdresseRuempel = 0;
 
             try
             {
@@ -181,16 +185,14 @@ namespace Kartonagen
                     auszug = new Adresse(rdr.GetString(31), rdr.GetString(32), rdr.GetString(34), rdr.GetString(33), rdr.GetString(35), rdr.GetInt32(36), rdr.GetString(37), rdr.GetString(38), rdr.GetInt32(39), rdr.GetInt32(40), rdr.GetInt32(41));
 
                     einzug = new Adresse(rdr.GetString(42), rdr.GetString(43), rdr.GetString(45), rdr.GetString(44), rdr.GetString(46), rdr.GetInt32(47), rdr.GetString(48), rdr.GetString(49), rdr.GetInt32(50), rdr.GetInt32(51), rdr.GetInt32(52));
-
-                    entruempeln = new Adresse("", "", "","", "", 0, "", "", 0, 0, 0);
-
-
+                    
                     NotizBuero = rdr.GetString(53);
                     NotizFahrer = rdr.GetString(54);
                     NotizTitel = rdr.GetString(55);
 
                     UserChanged = rdr.GetString(57);
                     erstelldatum = rdr.GetDateTime(58);
+
 
                     if (rdr.GetInt32(62) < UserChanged.Length)
                     {    //Wenn Laufnummer geringer ist als sie sollte, hochsetzen
@@ -200,8 +202,15 @@ namespace Kartonagen
                     {
                         lfd_nr = rdr.GetInt32(62);
                     }
+
+                    AdresseRuempel = rdr.GetInt32(59);
+                    RuempelMann = rdr.GetInt32(60);
+                    RuempelStunden = rdr.GetInt32(61);
+
                 }
                 rdr.Close();
+
+                entruempeln = new Adresse(AdresseRuempel);
             }
             catch (Exception sqlEx)
             {
@@ -212,8 +221,19 @@ namespace Kartonagen
         }
 
         // Neuen Umzug in die DB anlegen
-        public Umzug(int idKunden, DateTime datBesichtigung, DateTime datUmzug, DateTime datEinraeumen, DateTime datAusraeumen, DateTime datRuempeln, DateTime zeitUmzug, int statBesichtigung, int statUmzug, int statAus, int statEin, int statRuempeln, int umzugsdauer, string autos, int mann, int stunden, int versicherung, int einpacken, int einpacker, int einStunden, int karton, int auspacken, int auspacker, int ausStunden, int kleiderkartons, int kuecheAuf, int kuecheAb, int kuecheBau, int kuechePausch, Adresse auszug, Adresse einzug, int schilder, DateTime schilderZeit, string notizTitel, string notizBuero, string notizFahrer, string userChanged, DateTime erstelldatum)
+        public Umzug(int idKunden, DateTime datBesichtigung, DateTime datUmzug, DateTime datEinraeumen, DateTime datAusraeumen, DateTime datRuempeln, DateTime zeitUmzug, int statBesichtigung, int statUmzug, int statAus, int statEin, int statRuempeln,
+            int umzugsdauer, string autos, int mann, int stunden, int versicherung, int einpacken, int einpacker, int einStunden, int karton, int auspacken, int auspacker, int ausStunden, int kleiderkartons, int kuecheAuf, int kuecheAb, int kuecheBau, 
+            int kuechePausch, Adresse auszug, Adresse einzug, int schilder, DateTime schilderZeit, string notizTitel, string notizBuero, string notizFahrer, string userChanged, DateTime erstelldatum, Adresse ruempeladresse, int RuempelMann, int RuempelStunden)
+
         {
+
+            int ruempelNr = 0;
+
+            if (ruempeladresse != null) {
+                ruempeladresse.saveNew();
+                ruempelNr = ruempeladresse.findAdresse();
+            }
+            
 
             String longInsert = "INSERT INTO Umzuege (Kunden_idKunden, datBesichtigung, datUmzug, datRuempelung, datEinpacken, datAuspacken, umzugsZeit, " +
                 "StatBes, StatUmz, StatAus, StatEin, StatEnt, Umzugsdauer, Autos, Mann, Stunden, Versicherung, " +
@@ -221,7 +241,7 @@ namespace Kartonagen
                 "KuecheAb, KuecheAuf, KuecheBau, KuechePausch, " +
                 "StraßeA, HausnummerA, PLZA, OrtA, LandA, AufzugA, StockwerkeA, HausTypA, HVZA, LaufmeterA, AussenAufzugA, " +
                 "StraßeB, HausnummerB, PLZB, OrtB, LandB, AufzugB, StockwerkeB, HausTypB, HVZB, LaufmeterB, AussenAufzugB, " +
-                "NotizBuero, NotizFahrer, BemerkungTitel, SchilderZeit, UserChanged, Erstelldatum) VALUES (";
+                "NotizBuero, NotizFahrer, BemerkungTitel, SchilderZeit, UserChanged, Erstelldatum, Adresse_id, entruempelMann, entruempelStunden) VALUES (";
 
             longInsert += idKunden + ", ";
             longInsert += "'" + Program.DateMachine(datBesichtigung) + "', ";
@@ -288,8 +308,10 @@ namespace Kartonagen
             longInsert += "'" + notizTitel + "', ";
             longInsert += "'" + Program.DateMachine(schilderZeit) + "', ";
             longInsert += "'" + userChanged + "', ";
-            longInsert += "'" + Program.DateMachine(DateTime.Now) + "');";
-                        
+            longInsert += "'" + Program.DateMachine(DateTime.Now) + "', ";
+            longInsert += ruempelNr + ", ";
+            longInsert += RuempelMann + ", ";
+            longInsert += RuempelStunden + ");";
 
             // Merkt den Query
             Program.QueryLog(longInsert);

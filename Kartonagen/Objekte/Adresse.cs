@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,6 +38,39 @@ namespace Kartonagen.Objekte
             AussenAufzug = aussenAufzug;
         }
 
+        public Adresse(int id) {
+
+            String select = "SELECT * FROM Adresse WHERE id = "+id+";";
+
+            MySqlCommand cmdRead = new MySqlCommand(select, Program.conn);
+            MySqlDataReader rdr;
+
+            try
+            {
+
+                rdr = cmdRead.ExecuteReader();
+                while (rdr.Read())
+                {
+                    Straße = rdr.GetString(1);
+                    Hausnummer = rdr.GetString(2);
+                    Ort = rdr.GetString(3);
+                    PLZ = rdr.GetString(4);
+                    Land = rdr.GetString(5);
+                    Aufzug = rdr.GetInt32(6);
+                    Stockwerke = rdr.GetString(7);
+                    Haustyp = rdr.GetString(8);
+                    Laufmeter = rdr.GetInt32(10);
+                    AussenAufzug = rdr.GetInt32(11);
+                }
+                rdr.Close();
+            }
+            catch (Exception sqlEx)
+            {
+                Program.FehlerLog(sqlEx.ToString(), "Abrufen der Adresse Nummer " + id);
+            }
+
+        }
+
         public string Straße1 { get => Straße; set => Straße = value; }
         public string Hausnummer1 { get => Hausnummer; set => Hausnummer = value; }
         public string Ort1 { get => Ort; set => Ort = value; }
@@ -49,6 +83,49 @@ namespace Kartonagen.Objekte
         public int Laufmeter1 { get => Laufmeter; set => Laufmeter = value; }
         public int AussenAufzug1 { get => AussenAufzug; set => AussenAufzug = value; }
 
+        public void saveNew() {
+            String dbInsert = "INSERT INTO Adresse (strasse, hausnummer, ort, PLZ, land, aufzug, stockwerke, haustyp, aussenaufzug, laufmeter) Values (";
+
+            dbInsert += "'"+ Straße1 + "', ";
+            dbInsert += "'" + Hausnummer1 + "', ";
+            dbInsert += "'" + Ort1 + "', ";
+            dbInsert += "'" + PLZ1 + "', ";
+            dbInsert += "'" + Land1 + "', ";
+            dbInsert += Aufzug1 + ", ";
+            dbInsert += "'" + Stockwerke1 + "', ";
+            dbInsert += "'" + Haustyp1 + "', ";
+            dbInsert += AussenAufzug1 + ", ";
+            dbInsert += Laufmeter1 + ");";
+
+            Program.QueryLog(dbInsert);
+            Program.absender(dbInsert, "Einfügen der Adresse "+Straße1);
+        }
+
+        public int findAdresse() {
+            int idDb = 0;
+
+            String select = "SELECT id FROM Adresse WHERE strasse = '" + Straße1 + "' AND hausnummer = '" + Hausnummer1 + "' AND ort = '" + Ort1 + "' AND PLZ = '" + PLZ1 + "';";
+
+            MySqlCommand cmdRead = new MySqlCommand(select, Program.conn);
+            MySqlDataReader rdr;
+
+            try
+            {
+
+                rdr = cmdRead.ExecuteReader();
+                while (rdr.Read())
+                {
+                    idDb = rdr.GetInt32(0);
+                }
+                rdr.Close();
+            }
+            catch (Exception sqlEx)
+            {
+                Program.FehlerLog(sqlEx.ToString(), "Finden der Adresse : "+Straße1+ " "+Hausnummer1+"");
+            }
+
+            return idDb;
+        }
 
         public string KalenderStringEtageHaustyp()
         {

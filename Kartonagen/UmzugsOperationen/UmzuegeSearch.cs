@@ -93,23 +93,36 @@ namespace Kartonagen
         {               
 
             textSuchBox.Text = "";
-            MySqlCommand cmdRead = new MySqlCommand("SELECT idKunden,Vorname,Erstelldatum FROM Kunden WHERE Nachname = '" + textSucheName.Text + "';", Program.conn);
+            MySqlCommand cmdRead = new MySqlCommand("SELECT k.idKunden, k.Vorname, k.Erstelldatum FROM Kunden k, Umzuege u WHERE k.Nachname = '" + textSucheName.Text + "' AND u.Kunden_idKunden = k.idKunden;", Program.conn);
             MySqlDataReader rdr;
             int tempCounter = 0;
             // Bricht, wenn mehr als 30 gleichnamige Kunden
-            int[] nummern = new int[30];
-            String[] daten = new String[30];
-            String[] vornamen = new String[30];
+            int[] nummern = new int[20];
+            String[] daten = new String[20];
+            String[] vornamen = new String[20];
 
             try
             {
                 rdr = cmdRead.ExecuteReader();
                 while (rdr.Read())
                 {
-                    nummern[tempCounter] = rdr.GetInt32(0);
-                    vornamen[tempCounter] = rdr[1].ToString();
-                    daten[tempCounter] = rdr.GetDateTime(2).ToShortDateString();                                        //   Fix steht aus
-                    tempCounter += 1;
+                    Boolean alreadyExist = false;
+
+                    //Nummer bereits vorhanden?
+                    for (int i = 0; i < nummern.Length; i++) {
+                        if (nummern[i] == rdr.GetInt32(0)) {
+                            alreadyExist = true;
+                            break;
+                        }
+                    }
+
+                    if (!alreadyExist)
+                    {
+                        nummern[tempCounter] = rdr.GetInt32(0);
+                        vornamen[tempCounter] = rdr[1].ToString();
+                        daten[tempCounter] = rdr.GetDateTime(2).ToShortDateString();                                        //   Fix steht aus
+                        tempCounter += 1;
+                    }
                 }
                 rdr.Close();
             }
@@ -589,6 +602,17 @@ namespace Kartonagen
                     numericLKWGroß.Value = int.Parse(tempAutos[3].ToString());
                 }
             }
+
+            //Entrümpelblock füllen
+            if (umzObj.StatRuempeln != 0 && umzObj.entruempeln != null) {
+                textStrasseEnt.AppendText(umzObj.entruempeln.Straße1);
+                textHausnummerEnt.AppendText(umzObj.entruempeln.Hausnummer1);
+                textOrtEnt.AppendText(umzObj.entruempeln.Ort1);
+                textPLZEnt.AppendText(umzObj.entruempeln.PLZ1);
+            }
+
+
+
             // Zweite Umzugsnummer füllen
 
             textUmzugsNummer.Text = textUmzNummerBlock.Text;
