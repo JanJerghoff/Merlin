@@ -219,6 +219,12 @@ namespace Kartonagen
         // Schubst daten in die DB, mit begründung falls fehler
         public static void absender(String befehl, string Aufgabe)
         {
+            if (Program.conn.State != System.Data.ConnectionState.Open)
+            {
+                Program.reconnect();
+            }
+
+
             MySqlCommand cmdAdd = new MySqlCommand(befehl, Program.conn);
             try
             {
@@ -229,32 +235,15 @@ namespace Kartonagen
                 Program.FehlerLog(sqlEx.ToString(), "Fehler beim Speichern in die DB \r\n "+Aufgabe+" \r\n Bereits dokumentiert.");
             }
         }
-        
-        // Baustelle
-        //public static int getKundenNr(String Kundenname) {
 
-        //    List<int> nummern = new List<int>();
+        private static void reconnect()
+        {
+            conn.Close();
+            conn.Open();
 
-        //    //Abfrage aller Namen
-        //    MySqlCommand cmdRead = new MySqlCommand("SELECT idKunden, Vorname FROM Kunden", Program.conn);
-        //    MySqlDataReader rdr;
-
-        //    try
-        //    {
-        //        rdr = cmdRead.ExecuteReader();
-        //        while (rdr.Read())
-        //        {
-        //            autocompleteKunden.Add(rdr[0].ToString());
-        //            // dictionaryKunden.Add(rdr.GetInt32(1),rdr.GetString(0));
-        //        }
-        //        rdr.Close();
-        //    }
-        //    catch (Exception sqlEx)
-        //    {
-        //        var box = MessageBox.Show(sqlEx.ToString(), "");
-        //    }
-
-        //}
+            conn2.Close();
+            conn2.Open();
+        }
 
         public static int getMitarbeiterNr(String Mitarbeitername)
         {
