@@ -906,7 +906,7 @@ namespace Kartonagen
 
                     case 2:
                         Program.getUtil().kalenderEventEintragGanz(UmzHeader(), KalenderString(), hvzString(), resolveUmzugsfarbe(), DatUmzug, DatUmzug.AddDays(umzugsdauer), calId);
-                        if (statUmzug == 1)
+                        if (statUmzug == 1 || StatUmzug == 3)
                         {
                             Schilderstellen();
                         }
@@ -939,7 +939,7 @@ namespace Kartonagen
                         return false;
 
                     case 5:
-                        String Header = IdKunden + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + ", " + Einpacker1 + " Mann, " + EinStunden1 + " Stunden ENTRÜMPELN, "; // TODO Entrümpeldaten erfassen!
+                        String Header = IdKunden + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + ", " + Einpacker1 + " Mann, " + EinStunden1 + " Stunden ENTRÜMPELN, ";
                         if (StatRuempeln == 1)
                         {
                             Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), "", 11, datRuempeln.Date, datRuempeln.Date, calId);
@@ -965,13 +965,15 @@ namespace Kartonagen
 
         // Einfügen aller Termine
         public Boolean addAll() {
-            
-            if (statUmzug != 0) { addEvent(2); }
-            if (StatBesichtigung != 0) { addEvent(1); }
-            addEvent(3);
-            addEvent(4);
-            addEvent(5);
-            return false;
+
+            increaseLfdNr();
+
+            if (statUmzug != 0) { if (!addEvent(2)) { return false; }}
+            if (StatBesichtigung != 0) { if (!addEvent(1)) { return false; }}
+            if (!addEvent(3)) { return false; }
+            if (!addEvent(4)) { return false; }
+            if (!addEvent(5)) { return false; }
+            return true;
         }
 
         //Kopletter Refresh
@@ -1024,11 +1026,20 @@ namespace Kartonagen
             return AusRaeumHeader;
         }
 
+        private String RuempelString() {
+
+            String body = "Umzugsnummer:" + id + "\r\n" + umzugsKunde.Anrede + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + "\r\n";
+            body += "Adresse:  " + entruempeln.Straße1 + " " + entruempeln.Hausnummer1 + ", " + entruempeln.PLZ1 + " " + entruempeln.Ort1 + "\r\n";
+            body += "";
+
+            return body;
+        }
+
         private String KalenderString()
         {
             //Konstruktion String Kalerndereintragsinhalt
-            // Name + Auszugsadresse
-            String Body = umzugsKunde.Anrede + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + "\r\n Aus: " + auszug.Straße1 + " " + auszug.Hausnummer1 + ", " + auszug.PLZ1 + " " + auszug.Ort1 + "\r\n";
+            // Umzugsnummer + Name + Auszugsadresse
+            String Body = "Umzugsnummer:"+id+ "\r\n"  + umzugsKunde.Anrede + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + "\r\n Aus: " + auszug.Straße1 + " " + auszug.Hausnummer1 + ", " + auszug.PLZ1 + " " + auszug.Ort1 + "\r\n";
 
             // Geschoss + HausTyp
             Body += auszug.KalenderStringEtageHaustyp();

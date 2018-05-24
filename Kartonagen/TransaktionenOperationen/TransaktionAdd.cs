@@ -18,6 +18,7 @@ namespace Kartonagen
         Umzug umzObj; 
 
         int maxKundennummer;
+
         public TransaktionAdd()
         {
             InitializeComponent();
