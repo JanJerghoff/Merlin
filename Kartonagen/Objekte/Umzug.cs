@@ -895,12 +895,12 @@ namespace Kartonagen
                     case 1:
                         DateTime date = Program.getUtil().mergeDatetime(datBesichtigung, zeitUmzug);
                         DateTime schluss = date.AddMinutes(60);
-                        Program.getUtil().kalenderEventEintrag(IdKunden + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname, KalenderString(), 9, date, schluss, calId);
+                        Program.getUtil().kalenderEventEintrag(IdKunden + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname, KalenderString(), 9, date, schluss);
                         return true;
 
                     case 2:
-                        Program.getUtil().kalenderEventEintragGanz(UmzHeader(), KalenderString(), hvzString(), resolveUmzugsfarbe(), DatUmzug, DatUmzug.AddDays(umzugsdauer), calId);
-                        if (statUmzug == 1)
+                        Program.getUtil().kalenderEventEintragGanz(UmzHeader(), KalenderString(), hvzString(), resolveUmzugsfarbe(), DatUmzug, DatUmzug.AddDays(umzugsdauer));
+                        if (statUmzug == 1 || statUmzug == 3)
                         {
                             Schilderstellen();
                         }
@@ -909,12 +909,12 @@ namespace Kartonagen
                     case 3:
                         if (StatEin == 1)
                         {
-                            Program.getUtil().kalenderEventEintragGanz(EinRaeumHeader(), KalenderString(), "", 5, datEinraeumen.Date, datEinraeumen.Date, calId);
+                            Program.getUtil().kalenderEventEintragGanz(EinRaeumHeader(), KalenderString(), "", 5, datEinraeumen.Date, datEinraeumen.Date);
                             return true;
                         }
                         else if (StatEin == 2)
                         {
-                            Program.getUtil().kalenderEventEintragGanz(EinRaeumHeader(), KalenderString(), "", 6, datEinraeumen.Date, datEinraeumen.Date, calId);
+                            Program.getUtil().kalenderEventEintragGanz(EinRaeumHeader(), KalenderString(), "", 6, datEinraeumen.Date, datEinraeumen.Date);
                             return true;
                         }
                         return false;
@@ -922,26 +922,26 @@ namespace Kartonagen
                     case 4:
                         if (StatAus == 1)
                         {
-                            Program.getUtil().kalenderEventEintragGanz(AusRaeumHeader(), KalenderString(), "", 5, DatAusraeumen.Date, DatAusraeumen.Date, calId);
+                            Program.getUtil().kalenderEventEintragGanz(AusRaeumHeader(), KalenderString(), "", 5, DatAusraeumen.Date, DatAusraeumen.Date);
                             return true;
                         }
                         else if (StatAus == 2)
                         {
-                            Program.getUtil().kalenderEventEintragGanz(AusRaeumHeader(), KalenderString(), "", 6, DatAusraeumen.Date, DatAusraeumen.Date, calId);
+                            Program.getUtil().kalenderEventEintragGanz(AusRaeumHeader(), KalenderString(), "", 6, DatAusraeumen.Date, DatAusraeumen.Date);
                             return true;
                         }
                         return false;
 
                     case 5:
-                        String Header = IdKunden + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + ", " + Einpacker1 + " Mann, " + EinStunden1 + " Stunden ENTRÜMPELN, "; // TODO Entrümpeldaten erfassen!
+                        String Header = IdKunden + " "+umzugsKunde.Anrede+" " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + ", " + Einpacker1 + " Mann, " + EinStunden1 + " Stunden ENTRÜMPELN, "; // TODO Entrümpeldaten erfassen!
                         if (StatRuempeln == 1)
                         {
-                            Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), "", 11, datRuempeln.Date, datRuempeln.Date, calId);
+                            Program.getUtil().kalenderEventEintragGanz(Header, EntruempelString(), "", 11, datRuempeln.Date, datRuempeln.Date);
                             return true;
                         }
                         else if (StatRuempeln == 2)
                         {
-                            Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), "", 10, datRuempeln.Date, datRuempeln.Date, calId);
+                            Program.getUtil().kalenderEventEintragGanz(Header, EntruempelString(), "", 10, datRuempeln.Date, datRuempeln.Date);
                             return true;
                         }
                         return false;
@@ -1018,11 +1018,18 @@ namespace Kartonagen
             return AusRaeumHeader;
         }
 
+        private String EntruempelString() {
+
+            String body = "Umzugsid:" + Id + "\r\n" + entruempeln.Straße1 + " " + entruempeln.Hausnummer1 + ", " + entruempeln.PLZ1 + " " + entruempeln.Ort1 + "\r\n";
+
+            return body;
+        }
+
         private String KalenderString()
         {
             //Konstruktion String Kalerndereintragsinhalt
             // Name + Auszugsadresse
-            String Body = umzugsKunde.Anrede + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + "\r\n Aus: " + auszug.Straße1 + " " + auszug.Hausnummer1 + ", " + auszug.PLZ1 + " " + auszug.Ort1 + "\r\n";
+            String Body = "Umzugsid:" + Id + "\r\n" + umzugsKunde.Anrede + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + "\r\n Aus: " + auszug.Straße1 + " " + auszug.Hausnummer1 + ", " + auszug.PLZ1 + " " + auszug.Ort1 + "\r\n";
 
             // Geschoss + HausTyp
             Body += auszug.KalenderStringEtageHaustyp();
@@ -1091,14 +1098,14 @@ namespace Kartonagen
             {
                 string calId = "merlinum" + id + "c" + resolveCode(7) + "i" + UserChanged1.Length;
                 String Body = auszug.Straße1 + " " + auszug.Hausnummer1 + ", " + auszug.PLZ1 + " " + auszug.Ort1;
-                Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Auszug", 3, datUmzug.Date.AddDays(-6), datUmzug.Date.AddDays(-6),calId);
+                Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Auszug", 3, datUmzug.Date.AddDays(-6), datUmzug.Date.AddDays(-6));
             }
 
             if (einzug.HVZ1 == 1)
             {
                 string calId = "merlinum" + id + "c" + resolveCode(6) + "i" + UserChanged1.Length;
                 String Body = einzug.Straße1 + " " + einzug.Hausnummer1 + ", " + einzug.PLZ1 + " " + einzug.Ort1;
-                Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Einzug", 3, datUmzug.Date.AddDays(-6), datUmzug.Date.AddDays(-6),calId);
+                Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Einzug", 3, datUmzug.Date.AddDays(-6), datUmzug.Date.AddDays(-6));
             }
         }
         
