@@ -319,9 +319,7 @@ namespace Kartonagen
                     break;
                 default:
                     break;
-            }            
-            //
-            dateSchilderVerweildauer.Value = umzObj.SchilderZeit1;
+            }
             //
             switch (umzObj.KuecheAb1)
             {

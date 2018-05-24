@@ -46,19 +46,27 @@ namespace Kartonagen
 
                 foreach (var Termin in events.Items)
                 {
-                    Console.WriteLine("Kill Termin "+ Termin.Id+" von Kunde"+ umz.IdKunden.ToString());
-                    //Program.getUtil().kalenderEventRemove(Termin.Id);
-                }
-                //Console.WriteLine(item.ToString());
+                    if (Termin.ColorId != "8")
+                    {
+                        Program.getUtil().kalenderEventRemove(Termin.Id);
+                        Console.WriteLine("Kill Termin " + Termin.Id + " von Kunde" + umz.IdKunden.ToString());
+                    }
+                    else
+                    {
 
-                continue;
-
-                if (!umz.addAll()) {
-                    Console.WriteLine("Abbruch beim Hinzufügen von " + item.ToString());
-                    return "Bad";
+                    }
                 }
-                Console.WriteLine("Termine drin für " + item.ToString());
+
+                //if (!umz.addAll())
+                //{
+                //    Console.WriteLine("Abbruch beim Hinzufügen von " + umz.Id.ToString());
+                //    return "";
+                //}
+                umz.addAll();
+                Console.WriteLine("Termine drin für " + umz.Id.ToString());
             }
+
+            return "";
 
             //Alle Kartonagentransaktionen reinhauen
 

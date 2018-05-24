@@ -562,8 +562,8 @@ namespace Kartonagen
                 Program.FehlerLog(ex.ToString(), "Konnte keine Datenbankverbindung aufbauen \r\n Bereits dokumentiert.");
             }
 
-            Class1.refreshEntireCalendar();
-            return;
+            //Class1.refreshEntireCalendar();
+            //return;
 
 
             // Öffnen des Fensters
