@@ -890,13 +890,13 @@ namespace Kartonagen
         //Einfügen Eizentermine
         public Boolean addEvent(int code) {
 
-            string calId = "merlinum" + id + "c" + resolveCode(code)+"i"+lfd_nr;
+           // string calId = "merlinum" + id + "c" + resolveCode(code)+"i"+lfd_nr;
 
             // Sicherstellen dass zu belegender Kalendertermin frei ist ... wenn false existiert der Termin schon
-            if (!Program.getUtil().verifyIDAvailability(calId)) { //DEBUG
-                Program.FehlerLog("ID nicht verfügbar", "Verify ID availability");
-                return false;
-            }
+            //if (!Program.getUtil().verifyIDAvailability(calId)) { //DEBUG
+            //    Program.FehlerLog("ID nicht verfügbar", "Verify ID availability");
+            //    return false;
+            //}
 
             String titel = "";
             String text = "";

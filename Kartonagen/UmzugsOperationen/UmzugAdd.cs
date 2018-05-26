@@ -186,7 +186,7 @@ namespace Kartonagen
             
         }
 
-        private void umzugBauer()
+        private Umzug umzugBauer()
         {
             int aufzugtemp;
             int hvztemp;
@@ -294,7 +294,7 @@ namespace Kartonagen
                 ruempelStunde = decimal.ToInt32(numericStundenEnt.Value);
             }
 
-            umzObj = new Umzug(int.Parse(textKundennummer.Text), dateBesicht.Value, dateUmzug.Value, dateEinpack.Value, dateAuspack.Value, dateEntruempel.Value, timeBesichtigung.Value, stat[1], stat[0], stat[2], stat[3], stat[4],
+            return umzObj = new Umzug(int.Parse(textKundennummer.Text), dateBesicht.Value, dateUmzug.Value, dateEinpack.Value, dateAuspack.Value, dateEntruempel.Value, timeBesichtigung.Value, stat[1], stat[0], stat[2], stat[3], stat[4],
                 decimal.ToInt32(numericUmzugsDauer.Value), tempAuto, decimal.ToInt32(numericMannZahl.Value), decimal.ToInt32(numericArbeitszeit.Value), versicherungtemp, einpacktemp, decimal.ToInt32(numericEinPacker.Value), decimal.ToInt32(numericEinPackStunden.Value), decimal.ToInt32(numericEinPackKartons.Value),
                 auspacktemp, decimal.ToInt32(numericAusPacker.Value), decimal.ToInt32(numericAusPackStunden.Value), decimal.ToInt32(numericKleiderkisten.Value), kueche[1], kueche[0], kueche[2], int.Parse(textKuechenPreis.Text), aus, ein, Schildertemp, dateSchilderVerweildauer.Value,
                 textNoteKalender.Text, textNoteBuero.Text, textNoteFahrer.Text, idBearbeitend.ToString(), DateTime.Now, ruempelAdresse, ruempelMann, ruempelStunde);
@@ -367,9 +367,9 @@ namespace Kartonagen
                 return;
             }
 
-            // String-Monstter in DB pushen
+            // String-Monstter in DB pushen und Termine anlegen
 
-            umzugBauer();
+            umzugBauer().addAll();
 
             // Adresse für Entrümpeln speichern TODO
             
@@ -393,18 +393,12 @@ namespace Kartonagen
             {
                 Program.FehlerLog(sqlEx.ToString(),"Ergebnis-Umzugsnummer Anzeigen");
             }
-            // Daten in Kalender Speichern
-            // explizit, weil sonst nicht geht
-
-            umzObj = new Umzug(int.Parse(textUmzugsNummer.Text));
-            umzObj.addAll();
-
-                //textUmzugLog.AppendText(datumInKalender());
-
+            
             // Laufzettel anlegen
 
             laufzettelBau();
 
+            textUmzugLog.AppendText("Umzug vollständig angelegt \r\n");
         }
 
         private void buttonAendern_Click(object sender, EventArgs e)
@@ -510,123 +504,7 @@ namespace Kartonagen
 
             return temp;
         } 
-        // Eingetragene und relevante Zeiten zu Google pushen
-        // Daten für Google präparieren
-
-        private String datumInKalender() {
-
-            //String Header = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericMannZahl.Value + " Mann, " + numericArbeitszeit.Value + " Stunden, " + AutoString() + " " + textNoteKalender.Text;
-            //String SchilderHeader = textKundennummer.Text + " " + textVorNachname.Text + ", Schilder stellen";
-            //String EinRaeumHeader = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericEinPacker.Value + " Mann, " + numericEinPackStunden.Value + " Stunden";
-            //String AusRaeumHeader = textKundennummer.Text + " " + textVorNachname.Text + ", " + numericAusPacker.Value + " Mann, " + numericAusPackStunden.Value + " Stunden";
-
-            //if (radioEinVllt.Checked) { 
-            //    EinRaeumHeader = EinRaeumHeader + " Optional";
-            //}
-            //if (radioAusVllt.Checked)
-            //{
-            //    AusRaeumHeader = AusRaeumHeader + " Optional";
-            //}
-
-            //// Einzeln die Termine Abfragen und absenden
-
-            //// Besichtigungen sind immer fix
-            //if (radioBesJa.Checked)
-            //{
-            //    DateTime date = dateBesicht.Value.Date.Add(timeBesichtigung.Value.TimeOfDay);
-            //    DateTime schluss = date.AddMinutes(60);
-            //    Program.getUtil().kalenderEventEintrag(textKundennummer.Text +" "+ textVorNachname.Text+" "+textNoteKalender.Text, KalenderString(), 9, date, schluss);
-            //}
-
-            //// Bestätigte Umzüge in Rot, inklusive Schilder stellen weit genug im vorraus (in Lila / 3)
-            //// Bestätigte Umzüge bekommen konditional ein Schilder Stellen dazu
-            //if (radioUmzJa.Checked)
-            //{
-            //    if (numericUmzugsDauer.Value == 1)
-            //    {
-            //        Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), hvzString(), 11, dateUmzug.Value.Date, dateUmzug.Value.Date);
-            //    }
-            //    else {
-            //        Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), hvzString(), 11, dateUmzug.Value.Date, dateUmzug.Value.Date.AddDays(decimal.ToInt32(numericUmzugsDauer.Value)));
-                   
-            //    }
-            //    // Schilder stellen
-            //    if (radioHVZAJa.Checked) {
-            //        String Body = textStraßeA.Text + " " + textHausnummerA.Text + ", " + textPLZA.Text + " " + textOrtA.Text;
-            //        Program.getUtil().kalenderEventEintragGanz(SchilderHeader, Body,"", 3, dateUmzug.Value.Date.AddDays(-6), dateUmzug.Value.Date.AddDays(-6));
-            //    }
-
-            //    if (radioHVZBJa.Checked) {
-            //        String Body = textStraßeB.Text + " " + textHausnummerB.Text + ", " + textPLZB.Text + " " + textOrtB.Text;
-            //        Program.getUtil().kalenderEventEintragGanz(SchilderHeader, Body,"", 3, dateUmzug.Value.Date.AddDays(-6), dateUmzug.Value.Date.AddDays(-6));
-            //    }
-
-            //}
-
-            //// Wie Umzug, aber Grasgrün / 10
-            //if (radioUmzVllt.Checked)   
-            //{
-            //    if (numericUmzugsDauer.Value == 1)
-            //    {
-            //        Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), hvzString(), 10, dateUmzug.Value.Date, dateUmzug.Value.Date);
-            //    }
-            //    else {
-            //        Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), hvzString(), 10, dateUmzug.Value.Date, dateUmzug.Value.Date.AddDays(decimal.ToInt32(numericUmzugsDauer.Value)));
-            //    }
-            //}
-
-            //// Wie Umzug, aber Türkis
-            //if (radioUmzVorlaeufig.Checked)
-            //{
-            //    if (numericUmzugsDauer.Value == 1)
-            //    {
-            //        Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), hvzString(), 2, dateUmzug.Value.Date, dateUmzug.Value.Date);
-            //    }
-            //    else
-            //    {
-            //        Program.getUtil().kalenderEventEintragGanz(Header, KalenderString(), hvzString(), 2, dateUmzug.Value.Date, dateUmzug.Value.Date.AddDays(decimal.ToInt32(numericUmzugsDauer.Value)));
-            //    }
-            //}
-
-
-            //// Räum-Tage in Gelb / 5 
-
-            //if (radioEinJa.Checked)
-            //{                
-            //   Program.getUtil().kalenderEventEintragGanz(EinRaeumHeader, KalenderString(),"", 5, dateEinpack.Value.Date, dateEinpack.Value.Date);               
-            //}
-
-            //if (radioAusJa.Checked)
-            //{
-            //    Program.getUtil().kalenderEventEintragGanz(AusRaeumHeader, KalenderString(),"", 5, dateAuspack.Value.Date, dateAuspack.Value.Date);                
-            //}
-
-            //// Eventuelle Räum-Tage in Orange = 6
-
-            //if(radioEinVllt.Checked)
-            //{
-            //    Program.getUtil().kalenderEventEintragGanz(EinRaeumHeader, KalenderString(),"", 6, dateEinpack.Value.Date, dateEinpack.Value.Date);
-            //}
-
-            //if (radioAusVllt.Checked)
-            //{
-            //    Program.getUtil().kalenderEventEintragGanz(AusRaeumHeader, KalenderString(),"", 6, dateAuspack.Value.Date, dateAuspack.Value.Date);
-            //}
-
-            //// Entrümpelungen KEIN EIGENER HEADER
-            //if (radioEntJa.Checked)
-            //{
-            //    Program.getUtil().kalenderEventEintragGanz(EinRaeumHeader + " ENTRÜMPELN", KalenderString(),"", 11, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
-            //}
-            //if (radioEntVllt.Checked)
-            //{
-            //    Program.getUtil().kalenderEventEintragGanz(EinRaeumHeader + " ENTRÜMPELN", KalenderString(), "", 10, dateEntruempel.Value.Date, dateEntruempel.Value.Date);
-            //}
-
-
-            return "Speichern nach Google erfolgreich!";
-        }
-
+      
         private void buttonDruck_Click(object sender, EventArgs e)
         {
             PdfDocument pdf = new PdfDocument(new PdfReader(System.IO.Path.Combine(Environment.CurrentDirectory, "Besichtigungs Vordruck.pdf")), new PdfWriter(Program.druckPfad));
@@ -635,29 +513,7 @@ namespace Kartonagen
             IDictionary<String, PdfFormField> fields = form.GetFormFields();
             PdfFormField toSet;
 
-            //String Name = ""; // 0= Rita, 1=Jonas, 2=Eva, 3=Jan, 4, Sonst.
-
-            //switch (UserSpeicher[0])
-            //{
-            //    case '0':
-            //        Name = "Rita";
-            //        break;
-
-            //    case '1':
-            //        Name = "Jonas";
-            //        break;
-
-            //    case '2':
-            //        Name = "Eva";
-            //        break;
-
-            //    case '3':
-            //        Name = "Jan";
-            //        break;
-
-            //    default:
-            //        break;
-            //}
+            
 
             // Vergleihstermin
             DateTime stand = new DateTime(2017, 1, 1);
