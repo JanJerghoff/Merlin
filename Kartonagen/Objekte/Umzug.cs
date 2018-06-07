@@ -320,6 +320,8 @@ namespace Kartonagen
             Program.QueryLog(longInsert);
 
             Program.absender(longInsert, "Einfügen des neuen Umzuges zum erstellen des Umzugsobjekts");
+
+            RefreshAll();
         }
 
         // Ausgabemethoden
@@ -974,11 +976,11 @@ namespace Kartonagen
 
             increaseLfdNr();
 
-            if (statUmzug != 0) { if (!addEvent(2)) { return false; }}
-            if (StatBesichtigung != 0) { if (!addEvent(1)) { return false; }}
-            if (!addEvent(3)) { return false; }
-            if (!addEvent(4)) { return false; }
-            if (!addEvent(5)) { return false; }
+            addEvent(2);
+            addEvent(1);
+            addEvent(3);
+            addEvent(4);
+            addEvent(5);
             return true;
         }
 

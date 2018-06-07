@@ -132,6 +132,29 @@ namespace Kartonagen.Objekte
             }
 
             refreshKalender();
+        }
+
+        public void updateDB (String idBearbeitend) {
+
+            String longInsert = "UPDATE Transaktionen SET ";
+
+            longInsert += "datTransaktionen = '" + Program.DateMachine(datKalender) + "', ";
+            longInsert += "Kartons = " + Kartons + ", ";
+            longInsert += "FlaschenKartons = " + Flaschenkartons + ", ";
+            longInsert += "GlaeserKartons = " + Glaeserkartons + ", ";
+            longInsert += "KleiderKartons = " + Kleiderkartons + ", ";
+            longInsert += "Umzuege_idUmzuege = " + idUmzuege + ", ";
+            longInsert += "Umzuege_Kunden_idKunden = " + idKunden + ", ";
+            longInsert += "Bemerkungen = '" + Bemerkung + "', ";
+            longInsert += "UserChanged = '" + UserChanged+idBearbeitend + "', ";
+            longInsert += "unbenutzt = " + unbenutzt + ", ";
+            longInsert += "Rechnungsnummer = '" + Rechnungsnummer + "', ";
+            longInsert += "timeTransaktion = '" + Program.ZeitMachine(datKalender) + "', ";
+            longInsert += "final = " + 0 + ", ";
+
+            Program.QueryLog(longInsert);
+
+            Program.absender(longInsert, "Absenden der Änderung an der Transaktion");
 
         }
 

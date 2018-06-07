@@ -1,4 +1,5 @@
 ﻿using Google.Apis.Calendar.v3.Data;
+using Kartonagen.Objekte;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,8 @@ namespace Kartonagen
     public partial class TransaktionAdd : Form
     {
 
-        Umzug umzObj; 
+        Umzug umzObj;
+        Transaktion transObj;
 
         int maxKundennummer;
 
@@ -230,7 +232,18 @@ namespace Kartonagen
                 textTransaktionLog.AppendText(" Bitte Ausgang oder Eingang auswählen!\r\n");
                 return;
             }
-            
+
+            // Neue Sektion, Hinzufügen über das Transaktionsobjekt. Multiplikator -1 für Auslieferungen
+
+            //int multi = 1;
+            //if (radioAusgang.Checked) {
+            //    multi = -1;
+            //}
+
+            //transObj = new Transaktion(numericKarton.Value*multi, numericGlaeserkarton.Value * multi, numericFlaschenKarton.Value * multi, numericKleiderKarton.Value * multi, );
+
+
+
 
             //String bauen
             String push = "INSERT INTO Transaktionen (datTransaktion, timeTransaktion, Kartons, FlaschenKartons, GlaeserKartons, KleiderKartons, Umzuege_idUmzuege, Umzuege_Kunden_idKunden, Bemerkungen, UserChanged, Erstelldatum, unbenutzt, final, RechnungsNr) VALUES (";
