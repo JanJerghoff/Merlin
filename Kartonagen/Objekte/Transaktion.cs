@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Google.Apis.Calendar.v3.Data;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,16 +22,23 @@ namespace Kartonagen.Objekte
         int Glaeserkartons;
         int Kleiderkartons;
         String Bemerkung;
-        int unbenutztKaufkarton;
+        int unbenutzt;
+        int Kaufkarton;
         String Rechnungsnummer;
         DateTime datKalender = new DateTime(2017, 1, 1); //Kalenderdatum incl Zeit, default 1.1.17
+        int IDAdresse;
+        int idUmzuege;
+        int idKunden;
 
+        //Objekte
+        Kunde kunde;
 
-        public Transaktion(int nr) {
+        public Transaktion(int nr)
+        {
 
-            MySqlCommand cmdReadTrans = new MySqlCommand("Select * from Transaktionen WHERE idTransaktionen ="+nr, Program.conn);
+            MySqlCommand cmdReadTrans = new MySqlCommand("Select * from Transaktionen WHERE idTransaktionen =" + nr, Program.conn);
             MySqlDataReader rdrTrans;
-            
+
             try
             {
                 rdrTrans = cmdReadTrans.ExecuteReader();
@@ -45,7 +53,8 @@ namespace Kartonagen.Objekte
                     Kleiderkartons = rdrTrans.GetInt32(5);
                     Bemerkung = rdrTrans.GetString(8);
                     UserChanged = rdrTrans.GetString(9);
-                    unbenutztKaufkarton = rdrTrans.GetInt32(11);
+                    unbenutzt = rdrTrans.GetInt32(11);
+                    Kaufkarton = rdrTrans.GetInt32(11);
                     Rechnungsnummer = rdrTrans.GetString(12);
                     datKalender = rdrTrans.GetDateTime(13);
                     lfd_nr = rdrTrans.GetInt32(15);
@@ -60,5 +69,103 @@ namespace Kartonagen.Objekte
 
         }
 
+        public Transaktion(int Kartons, int Glaeserkartons, int Flaschenkartons, int Kleiderkartons, int Kaufkartons, int unbenutzt, String Bemerkung, String Rechnungsnummer, DateTime datTransaktion, int idAdresse, int idUmzuege, int idKunden, String User)
+        {
+
+            this.Kartons = Kartons;
+            this.Glaeserkartons = Glaeserkartons;
+            this.Flaschenkartons = Flaschenkartons;
+            this.Kleiderkartons = Kleiderkartons;
+            this.unbenutzt = unbenutzt;
+            this.Bemerkung = Bemerkung;
+            this.Kaufkarton = Kaufkartons;
+            this.Rechnungsnummer = Rechnungsnummer;
+            this.datKalender = datTransaktion;
+            this.IDAdresse = idAdresse;     //Adresse 0 = Büro
+            this.idUmzuege = idUmzuege;
+            this.idKunden = idKunden;
+            this.UserChanged = User;
+
+            //Userobjekt
+            Kunde kunde = new Kunde(idKunden);
+
+            String insert = "INSERT INTO Transaktionen (datTransaktion,Kartons,FlaschenKartons,GlaeserKartons,KleiderKartons,Umzuege_idUmzuege,Umzuege_Kunden_idKunden,Bemerkungen, UserChanged, Erstelldatum, unbenutzt, Rechnungsnummer, timeTransaktion, final) values (";
+            insert += "'" + Program.DateMachine(datKalender) + "',";
+            insert += this.Kartons + ",";
+            insert += this.Flaschenkartons + ",";
+            insert += this.Glaeserkartons + ",";
+            insert += this.Kleiderkartons + ",";
+            insert += this.idUmzuege + ",";
+            insert += this.idKunden + ",";
+            insert += "'" + this.Bemerkung + "',";
+            insert += "'" + this.UserChanged + ",";
+            insert += "'" + Program.DateMachine(DateTime.Now) + "',";
+            insert += unbenutzt + ",";
+            insert += "'" + Rechnungsnummer + "',";
+            insert += "'" + Program.ZeitMachine(datKalender) + "',";
+            insert += "0);";
+
+            Program.QueryLog(insert);
+
+            Program.absender(insert, "Einfügen der neuen Transaktion in die Datenank");
+
+
+            // Abholen der fertigen Transaktionsnummer
+            String select = "SELECT idTransaktionen FROM Transaktionen ORDER BY idTransaktionen DESC LIMIT 1;";
+            MySqlCommand cmdRead = new MySqlCommand(select, Program.conn);
+            MySqlDataReader rdr;
+
+            try
+            {
+                rdr = cmdRead.ExecuteReader();
+                while (rdr.Read())
+                {
+                    id = rdr.GetInt32(0);
+                }
+                rdr.Close();
+
+            }
+            catch (Exception sqlEx)
+            {
+                Program.FehlerLog(sqlEx.ToString(), "Abrufen der neuen Transaktions-ID");
+                throw sqlEx;
+            }
+
+            refreshKalender();
+
+        }
+
+        public void refreshKalender()
+        {
+            Events ev = Program.getUtil().kalenderUmzugFinder("Transaktion_"+id);
+            Console.WriteLine(ev.Items.Count + "gefunden");
+
+            foreach (var item in ev.Items)
+            {
+                Program.getUtil().kalenderEventRemove(item.Id);
+            }
+
+            //Nur in Kalender wenn ausser Haus und in der Zukunft
+            if (IDAdresse != 0 && datKalender > DateTime.Now) {
+                Program.getUtil().kalenderEventEintrag(idKunden + " "+ getKunde().Anrede + " " + getKunde().Vorname + " " + getKunde().Nachname, KalenderString(), 8, datKalender, datKalender.AddHours(1));
+            }
+
+        }
+
+        private String KalenderString() {
+
+            String ret="TESTSTRING";
+
+            ret += "/r/n Transaktion_" + id; 
+            return ret;
+        }
+
+        private Kunde getKunde() {
+
+            if (kunde == null) {
+                kunde = new Kunde(idKunden);
+            }
+            return kunde;
+        }
     }
 }

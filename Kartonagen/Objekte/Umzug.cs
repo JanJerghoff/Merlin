@@ -890,16 +890,7 @@ namespace Kartonagen
         //Einfügen Eizentermine
         public Boolean addEvent(int code) {
 
-           // string calId = "merlinum" + id + "c" + resolveCode(code)+"i"+lfd_nr;
-
-            // Sicherstellen dass zu belegender Kalendertermin frei ist ... wenn false existiert der Termin schon
-            //if (!Program.getUtil().verifyIDAvailability(calId)) { //DEBUG
-            //    Program.FehlerLog("ID nicht verfügbar", "Verify ID availability");
-            //    return false;
-            //}
-
-            String titel = "";
-            String text = "";
+           
             try
             {
 
@@ -920,7 +911,7 @@ namespace Kartonagen
                             Schilderstellen();
                         }
                         return true;
-
+                         
                     case 3:
                         if (StatEin == 1)
                         {
@@ -952,7 +943,7 @@ namespace Kartonagen
                         String Header = IdKunden + " "+umzugsKunde.Anrede+" " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + ", " + Einpacker1 + " Mann, " + EinStunden1 + " Stunden ENTRÜMPELN, "; // TODO Entrümpeldaten erfassen!
                         if (StatRuempeln == 1)
                         {
-                            Program.getUtil().kalenderEventEintragGanz(Header, EntruempelString(), "", 11, datRuempeln.Date, datRuempeln.Date);
+                            Program.getUtil().kalenderEventEintragGanz(Header, RuempelString(), "", 11, datRuempeln.Date, datRuempeln.Date);
 
                             return true;
                         }
@@ -966,8 +957,9 @@ namespace Kartonagen
                         return false;
 
                     default:
-                        return false;
+                        
                         Program.FehlerLog("Nix hinzuzufügen".ToString(), "Einfügen des Termins in den Kalender");
+                        return false;
                 }
             }
             catch (Exception kalenderEx)
