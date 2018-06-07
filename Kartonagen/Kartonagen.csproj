@@ -122,7 +122,9 @@
       <DependentUpon>Erinnerungen.cs</DependentUpon>
     </Compile>
     <Compile Include="CalendarAPIUtil\Util.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Objekte\Kunde.cs" />
+    <Compile Include="Objekte\Transaktion.cs" />
     <Compile Include="PDFInput.cs" />
     <Compile Include="Kunden.cs">
       <DependentUpon>Umzuege.tt</DependentUpon>

@@ -2744,6 +2744,7 @@
             this.buttonBlockEntruempeln.TabIndex = 105;
             this.buttonBlockEntruempeln.Text = "Block Ändern";
             this.buttonBlockEntruempeln.UseVisualStyleBackColor = true;
+            this.buttonBlockEntruempeln.Click += new System.EventHandler(this.buttonBlockEntruempeln_Click);
             // 
             // numericStundenEnt
             // 
