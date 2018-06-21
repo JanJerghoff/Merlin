@@ -84,6 +84,7 @@ namespace Kartonagen.Objekte
         public int Laufmeter1 { get => Laufmeter; set => Laufmeter = value; }
         public int AussenAufzug1 { get => AussenAufzug; set => AussenAufzug = value; }
         public string Bemerkung1 { get => Bemerkung; set => Bemerkung = value; }
+        public int IDAdresse1 { get => IDAdresse; set => IDAdresse = value; }
 
         public void saveNew() {
             String dbInsert = "INSERT INTO Adresse (strasse, hausnummer, ort, PLZ, land, aufzug, stockwerke, haustyp, aussenaufzug, laufmeter) Values (";
@@ -120,7 +121,7 @@ namespace Kartonagen.Objekte
             dbInsert += "aussenaufzug = " + AussenAufzug1 + ",";
             dbInsert += "bemerkung = '" + Bemerkung1 + "'";
 
-            dbInsert += " WHERE id =" + IDAdresse +";";
+            dbInsert += " WHERE id =" + IDAdresse1 +";";
 
             Program.QueryLog(dbInsert);
             Program.absender(dbInsert, "Updaten der Adresse " + Straße1);
@@ -152,7 +153,22 @@ namespace Kartonagen.Objekte
             return idDb;
         }
 
-        public string KalenderStringEtageHaustyp()
+        public String beschreibungsText() {
+
+            String ret = KalenderStringEtageHaustyp() + " ";
+
+            if (Aufzug == 1)
+            {
+                ret += "mit Aufzug \r\n";
+            }
+            else {
+                ret += "ohne Aufzug \r\n";
+            }
+
+            return ret;
+        }
+
+            public string KalenderStringEtageHaustyp()
         {
 
             string temp = "";
@@ -184,7 +200,7 @@ namespace Kartonagen.Objekte
 
         }
 
-        private string GeschosseListe() {
+        public string GeschosseListe() {
 
             string temp = "";
 

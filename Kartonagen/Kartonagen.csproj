@@ -121,6 +121,12 @@
     <Compile Include="Alerts\Erinnerungen.Designer.cs">
       <DependentUpon>Erinnerungen.cs</DependentUpon>
     </Compile>
+    <Compile Include="CalendarAPIUtil\AdressSelect3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalendarAPIUtil\AdressSelect3.Designer.cs">
+      <DependentUpon>AdressSelect3.cs</DependentUpon>
+    </Compile>
     <Compile Include="CalendarAPIUtil\Util.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Objekte\Kunde.cs" />
@@ -254,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Alerts\Erinnerungen.resx">
       <DependentUpon>Erinnerungen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalendarAPIUtil\AdressSelect3.resx">
+      <DependentUpon>AdressSelect3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KundenOperationen\KundenAdd.resx">
       <DependentUpon>KundenAdd.cs</DependentUpon>
