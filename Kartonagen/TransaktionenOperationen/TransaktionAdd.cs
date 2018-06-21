@@ -235,12 +235,15 @@ namespace Kartonagen
 
             // Neue Sektion, Hinzufügen über das Transaktionsobjekt. Multiplikator -1 für Auslieferungen
 
-            //int multi = 1;
-            //if (radioAusgang.Checked) {
-            //    multi = -1;
-            //}
+            int multi = 1;
+            if (radioAusgang.Checked)
+            {
+                multi = -1;
+            }
 
-            //transObj = new Transaktion(numericKarton.Value*multi, numericGlaeserkarton.Value * multi, numericFlaschenKarton.Value * multi, numericKleiderKarton.Value * multi, );
+            //check welche Adresse gewählt ist
+
+            transObj = new Transaktion(numericKarton.Value * multi, numericGlaeserkarton.Value * multi, numericFlaschenKarton.Value * multi, numericKleiderKarton.Value * multi, radioKaufJa.Checked, radioUnbenutzt.Checked, textBemerkung.Text, textRechnungsnr.Text, dateTimeTransaktion.Value.Date, );
 
 
 

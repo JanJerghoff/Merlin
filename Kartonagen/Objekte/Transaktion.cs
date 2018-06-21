@@ -22,8 +22,8 @@ namespace Kartonagen.Objekte
         int Glaeserkartons;
         int Kleiderkartons;
         String Bemerkung;
-        int unbenutzt;
-        int Kaufkarton;
+        Boolean unbenutzt;
+        Boolean Kaufkarton;
         String Rechnungsnummer;
         DateTime datKalender = new DateTime(2017, 1, 1); //Kalenderdatum incl Zeit, default 1.1.17
         int IDAdresse;
@@ -38,6 +38,9 @@ namespace Kartonagen.Objekte
 
             MySqlCommand cmdReadTrans = new MySqlCommand("Select * from Transaktionen WHERE idTransaktionen =" + nr, Program.conn);
             MySqlDataReader rdrTrans;
+            int tempint = 0; // zwischenspeicher für auflösung in unbenutzt / kaufkartons
+            Kaufkarton = false;
+            unbenutzt = false;
 
             try
             {
@@ -53,8 +56,7 @@ namespace Kartonagen.Objekte
                     Kleiderkartons = rdrTrans.GetInt32(5);
                     Bemerkung = rdrTrans.GetString(8);
                     UserChanged = rdrTrans.GetString(9);
-                    unbenutzt = rdrTrans.GetInt32(11);
-                    Kaufkarton = rdrTrans.GetInt32(11);
+                    tempint = rdrTrans.GetInt32(11);
                     Rechnungsnummer = rdrTrans.GetString(12);
                     datKalender = rdrTrans.GetDateTime(13);
                     lfd_nr = rdrTrans.GetInt32(15);
@@ -66,10 +68,17 @@ namespace Kartonagen.Objekte
                 return;
             }
 
+            if (tempint == 1)
+            {
+                unbenutzt = true;
+            }
+            else if (tempint == 2) {
+                Kaufkarton = true;
+            }
 
         }
 
-        public Transaktion(int Kartons, int Glaeserkartons, int Flaschenkartons, int Kleiderkartons, int Kaufkartons, int unbenutzt, String Bemerkung, String Rechnungsnummer, DateTime datTransaktion, int idAdresse, int idUmzuege, int idKunden, String User)
+        public Transaktion(int Kartons, int Glaeserkartons, int Flaschenkartons, int Kleiderkartons, Boolean Kaufkartons, Boolean unbenutzt, String Bemerkung, String Rechnungsnummer, DateTime datTransaktion, int idAdresse, int idUmzuege, int idKunden, String User)
         {
 
             this.Kartons = Kartons;
