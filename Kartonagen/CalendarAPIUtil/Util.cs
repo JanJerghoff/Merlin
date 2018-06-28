@@ -146,8 +146,7 @@ namespace Kartonagen.CalendarAPIUtil
                 {
                     DateTime = Ende
                 },
-                ColorId = Farbe.ToString(),
-                Id = nextID
+                ColorId = Farbe.ToString()
             };
 
             String calendarId = "primary";

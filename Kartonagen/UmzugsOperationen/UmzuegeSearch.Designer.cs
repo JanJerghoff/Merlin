@@ -694,7 +694,7 @@
             // 
             // textSuchBox
             // 
-            this.textSuchBox.Location = new System.Drawing.Point(695, 15);
+            this.textSuchBox.Location = new System.Drawing.Point(695, 2);
             this.textSuchBox.Margin = new System.Windows.Forms.Padding(4);
             this.textSuchBox.Multiline = true;
             this.textSuchBox.Name = "textSuchBox";

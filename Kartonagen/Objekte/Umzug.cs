@@ -892,6 +892,11 @@ namespace Kartonagen
         //Einfügen Eizentermine
         public Boolean addEvent(int code) {
 
+            if (umzugsKunde == null)
+            {
+                Console.WriteLine("kein Kunde registriert!");
+                return false;
+            }
            
             try
             {

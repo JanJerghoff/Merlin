@@ -349,16 +349,11 @@ namespace Kartonagen
             // Wirklich?
 
             var bestätigung = MessageBox.Show("Den Umzug wirklich hinzufügen?", "Hinzufügen bestätigen", MessageBoxButtons.YesNo);
-            if (bestätigung == DialogResult.Yes)
-            {
-
-            }
-            else
+            if (bestätigung == DialogResult.No)
             {
                 textUmzugLog.AppendText("Vorgang abgebrochen\r\n");
                 return;
             }
-
 
             //Sicherheitsabfrage für int.parse() Methoden: Laufweg
 
@@ -369,7 +364,8 @@ namespace Kartonagen
 
             // String-Monstter in DB pushen und Termine anlegen
 
-            umzugBauer().addAll();
+            Umzug aktUmzug = umzugBauer();
+            aktUmzug.addAll();
 
             // Adresse für Entrümpeln speichern TODO
             

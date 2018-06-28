@@ -1417,9 +1417,6 @@ namespace Kartonagen
 
                 //Termine löschen
                 killALl();
-                
-
-                
             }
             else
             {
