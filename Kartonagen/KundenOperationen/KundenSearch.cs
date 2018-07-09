@@ -338,7 +338,11 @@ namespace Kartonagen
                     // Abschicken an alle einzelnen Umzüge
                     foreach (var item in umzNr)
                     {
-                        String push = "UPDATE Umzuege SET StraßeA = '"+Straße+ "', HausnummerA= '" + Hausnummer + "', OrtA= '" + Ort + "', PLZA= '" + PLZ + "', UserChanged = " + UserChanged + Bearbeiter + " WHERE idUmzuege = " + item;
+                        String 
+                            
+                            
+                            
+                            = "UPDATE Umzuege SET StraßeA = '"+Straße+ "', HausnummerA= '" + Hausnummer + "', OrtA= '" + Ort + "', PLZA= '" + PLZ + "', UserChanged = " + UserChanged + Bearbeiter + " WHERE idUmzuege = " + item;
                         Program.absender(push,"Absenden Adressänderung");
                     }
 

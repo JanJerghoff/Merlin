@@ -365,14 +365,6 @@ namespace Kartonagen
             // String-Monstter in DB pushen und Termine anlegen
 
             Umzug aktUmzug = umzugBauer();
-            aktUmzug.addAll();
-
-            // Adresse für Entrümpeln speichern TODO
-            
-
-            // Ergebnis - Umzugsnummer anzeigen
-
-            textUmzugsNummer.Text = "";
 
             MySqlCommand cmdShow = new MySqlCommand("SELECT * FROM Umzuege ORDER BY idUmzuege DESC LIMIT 1;", Program.conn);
             MySqlDataReader rdr;
@@ -382,13 +374,26 @@ namespace Kartonagen
                 while (rdr.Read())
                 {
                     textUmzugsNummer.Text += rdr.GetInt32(0);
+                    aktUmzug.Id = rdr.GetInt32(0);
                 }
                 rdr.Close();
             }
             catch (Exception sqlEx)
             {
-                Program.FehlerLog(sqlEx.ToString(),"Ergebnis-Umzugsnummer Anzeigen");
+                Program.FehlerLog(sqlEx.ToString(), "Ergebnis-Umzugsnummer Anzeigen");
             }
+
+
+            aktUmzug.addAll();
+
+            // Adresse für Entrümpeln speichern TODO
+            
+
+            // Ergebnis - Umzugsnummer anzeigen
+
+            textUmzugsNummer.Text = "";
+
+            
             
             // Laufzettel anlegen
 

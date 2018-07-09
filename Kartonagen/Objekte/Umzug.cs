@@ -115,7 +115,7 @@ namespace Kartonagen
         public string NotizBuero1 { get => NotizBuero; set => NotizBuero = value; }
         public string NotizFahrer1 { get => NotizFahrer; set => NotizFahrer = value; }
         public int IdKunden { get => idKunden; }
-        public int Id { get => id; }
+        public int Id { get => id; set => id = value; }
         public string UserChanged1 { get => UserChanged; set => UserChanged = value; }
         public int RuempelMann1 { get => RuempelMann; set => RuempelMann = value; }
         public int RuempelStunden1 { get => RuempelStunden; set => RuempelStunden = value; }
@@ -224,7 +224,7 @@ namespace Kartonagen
         }
 
         // Neuen Umzug in die DB anlegen
-        public Umzug(int idKunden, DateTime datBesichtigung, DateTime datUmzug, DateTime datEinraeumen, DateTime datAusraeumen, DateTime datRuempeln, DateTime zeitUmzug, int statBesichtigung, int statUmzug, int statAus, int statEin, int statRuempeln,
+        public Umzug(int idKundenIn, DateTime datBesichtigung, DateTime datUmzug, DateTime datEinraeumen, DateTime datAusraeumen, DateTime datRuempeln, DateTime zeitUmzug, int statBesichtigung, int statUmzug, int statAus, int statEin, int statRuempeln,
             int umzugsdauer, string autos, int mann, int stunden, int versicherung, int einpacken, int einpacker, int einStunden, int karton, int auspacken, int auspacker, int ausStunden, int kleiderkartons, int kuecheAuf, int kuecheAb, int kuecheBau, 
             int kuechePausch, Adresse auszug, Adresse einzug, int schilder, DateTime schilderZeit, string notizTitel, string notizBuero, string notizFahrer, string userChanged, DateTime erstelldatum, Adresse ruempeladresse, int RuempelMann, int RuempelStunden)
 
@@ -236,9 +236,83 @@ namespace Kartonagen
                 ruempeladresse.saveNew();
                 ruempelNr = ruempeladresse.findAdresse();
             }
+
+            //Creation of object
+
+            
+            int idKunden = idKundenIn;
+            // Zeitblock
+            this.datBesichtigung = datBesichtigung;   // Nur Datumskomponenten
+            this.datUmzug = datUmzug;
+            this.datEinraeumen = datEinraeumen;
+            this.datAusraeumen = datAusraeumen;
+            this.datRuempeln = datRuempeln;
+            this.zeitUmzug = zeitUmzug;
+
+            this.statBesichtigung = statBesichtigung;
+            this.statUmzug = statUmzug;
+            this.statAus = statAus;
+            this.statEin = statEin;
+            this.statRuempeln = statRuempeln;
+
+            this.umzugsdauer = umzugsdauer;
+           
+            umzugsKunde = new Kunde (idKundenIn);
+
+            // Kerndaten
+            this.autos = autos;
+            this.mann = mann;
+            this.stunden = stunden;
+            this.versicherung = versicherung;
             
 
-            String longInsert = "INSERT INTO Umzuege (Kunden_idKunden, datBesichtigung, datUmzug, datRuempelung, datEinpacken, datAuspacken, umzugsZeit, " +
+            //Packen
+            this.Einpacken = einpacken;
+            this.Einpacker = einpacker;
+            this.EinStunden = einStunden;
+            this.Karton = karton;
+
+            this.Auspacken = auspacken;
+            Auspacker = auspacker;
+            this.AusStunden = ausStunden;
+            this.Kleiderkartons = kleiderkartons;
+
+
+            //Küche
+            this.KuecheAuf = kuecheAuf;
+            this.KuecheAb = kuecheAb;
+            this.KuecheBau = kuecheBau;
+            this.KuechePausch = kuechePausch;
+
+            //Rümpeldaten
+            this.RuempelMann = RuempelMann;
+            this.RuempelStunden = RuempelStunden;
+            
+            // Adressobjekte
+            this.auszug = auszug;
+            this.einzug = einzug;
+            this.entruempeln = ruempeladresse;
+            
+            // Schilder
+            this.Schilder = schilder;
+            this.SchilderZeit = schilderZeit;
+
+            // Notizen
+            this.NotizTitel = notizTitel;
+            this.NotizBuero = notizBuero;
+            this.NotizFahrer = notizFahrer;
+
+            //Metadata
+            this.UserChanged = userChanged;
+            this.erstelldatum = DateTime.Now;
+            this.lfd_nr = 1;
+            
+
+
+
+        //Insert into Database
+
+        String longInsert = "INSERT INTO Umzuege (Kunden_idKunden, datBesichtigung, datUmzug, datRuempelung, datEinpacken, datAuspacken, umzugsZeit, " +
                 "StatBes, StatUmz, StatAus, StatEin, StatEnt, Umzugsdauer, Autos, Mann, Stunden, Versicherung, " +
                 "Einpacken, EinPackerZahl, EinPackStunden, Kartons, Auspacken, AusPackerZahl, AusPackStunden, Kleiderkisten, SchilderZurueck, " +
                 "KuecheAb, KuecheAuf, KuecheBau, KuechePausch, " +
