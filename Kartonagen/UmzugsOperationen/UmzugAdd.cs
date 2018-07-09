@@ -179,7 +179,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                Program.FehlerLog(sqlEx.ToString(),"Pushen des neuen Umzugs");
+                Program.FehlerLog(sqlEx.ToString(),"Pushen des neuen Umzugs mit String | "+push);
                 //return "Fehlgeschlagen \r\n";
                 return sqlEx.ToString()+"\r\n"+push;
             }
@@ -294,7 +294,14 @@ namespace Kartonagen
                 ruempelStunde = decimal.ToInt32(numericStundenEnt.Value);
             }
 
-            return umzObj = new Umzug(int.Parse(textKundennummer.Text), dateBesicht.Value, dateUmzug.Value, dateEinpack.Value, dateAuspack.Value, dateEntruempel.Value, timeBesichtigung.Value, stat[1], stat[0], stat[2], stat[3], stat[4],
+            int kundennummerTemp = int.Parse(textKundennummer.Text.Trim());
+
+            if (kundennummerTemp == 0)
+            {
+                var bestätigung = MessageBox.Show("Fehler", "Kundennummer als 0 gelesen");
+            }
+
+            return umzObj = new Umzug(kundennummerTemp, dateBesicht.Value, dateUmzug.Value, dateEinpack.Value, dateAuspack.Value, dateEntruempel.Value, timeBesichtigung.Value, stat[1], stat[0], stat[2], stat[3], stat[4],
                 decimal.ToInt32(numericUmzugsDauer.Value), tempAuto, decimal.ToInt32(numericMannZahl.Value), decimal.ToInt32(numericArbeitszeit.Value), versicherungtemp, einpacktemp, decimal.ToInt32(numericEinPacker.Value), decimal.ToInt32(numericEinPackStunden.Value), decimal.ToInt32(numericEinPackKartons.Value),
                 auspacktemp, decimal.ToInt32(numericAusPacker.Value), decimal.ToInt32(numericAusPackStunden.Value), decimal.ToInt32(numericKleiderkisten.Value), kueche[1], kueche[0], kueche[2], int.Parse(textKuechenPreis.Text), aus, ein, Schildertemp, dateSchilderVerweildauer.Value,
                 textNoteKalender.Text, textNoteBuero.Text, textNoteFahrer.Text, idBearbeitend.ToString(), DateTime.Now, ruempelAdresse, ruempelMann, ruempelStunde);
@@ -375,6 +382,7 @@ namespace Kartonagen
                 {
                     textUmzugsNummer.Text += rdr.GetInt32(0);
                     aktUmzug.Id = rdr.GetInt32(0);
+                    textUmzugsNummer.AppendText(aktUmzug.Id.ToString());
                 }
                 rdr.Close();
             }
@@ -383,11 +391,12 @@ namespace Kartonagen
                 Program.FehlerLog(sqlEx.ToString(), "Ergebnis-Umzugsnummer Anzeigen");
             }
 
+            umzObj = aktUmzug;
 
-            aktUmzug.addAll();
+            //aktUmzug.addAll();
 
             // Adresse für Entrümpeln speichern TODO
-            
+
 
             // Ergebnis - Umzugsnummer anzeigen
 
@@ -818,7 +827,7 @@ namespace Kartonagen
         private void laufzettelBau()
         {
             DateTime test = DateTime.Now;
-            String go = "INSERT INTO Umzugsfortschritt (Umzuege_idUmzuege, Besichtigung, datBesichtigung) VALUES (" + textUmzugsNummer.Text + "," + idBearbeitend + ",'" + Program.DateMachine(test.Date) + "');";
+            String go = "INSERT INTO Umzugsfortschritt (Umzuege_idUmzuege, Besichtigung, datBesichtigung) VALUES (" + umzObj.Id + "," + idBearbeitend + ",'" + Program.DateMachine(test.Date) + "');";
             push(go);
         }
 

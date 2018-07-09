@@ -144,7 +144,7 @@ namespace Kartonagen
                 umzugKundennummerFuellen(nummern[0]);
             }
             else
-            {                          // Mehrere Treffer
+            {                          // Mehrere Treffer 
                 for (int i = 0; i < tempCounter; i++)
                 {
                     textSuchBox.AppendText(vornamen[i] + " " + textSucheName.Text + " hinzugefügt am " + daten[i] + ": " + nummern[i] + " \r\n");
@@ -203,20 +203,20 @@ namespace Kartonagen
             {
                 try
                 {
-                    umzObj = new Umzug(decimal.ToInt32(numericUmzugsnummer.Value));
+                    umzObj = new Umzug(nummern[0]);
                 }
                 catch (MySqlException ex)
                 {
-                    textUmzugLog.AppendText("Umzug nicht gefunden");
+                    Program.FehlerLog("", "Umzug nicht gefunden");
                     return;
                 }
                 umzugAenderungFuellem();
             }
             else
-            {                          // Mehrere Treffer
+            {                          // Mehrere Treffer + umzDaten[i]
                 for (int i = 0; i < tempCounter; i++)
                 {
-                    textSuchBox.AppendText("Umzug Nummer " + nummern[i] + " vom Datum " + umzDaten[i] + " \r\n");
+                    textSuchBox.AppendText("Umzug Nummer " + nummern[i] + " vom Datum "  + " \r\n");
                 }
             }
 
@@ -224,6 +224,11 @@ namespace Kartonagen
 
         public void umzugAenderungFuellem()
         {         // FulleM. Sic!           
+
+            if (umzObj == null) {
+                Program.FehlerLog("", "Fehler kein Umzugsobjekt in UmzugAenderungFülleM");
+                return;
+            }
 
             UserSpeicher = umzObj.UserChanged1;
 

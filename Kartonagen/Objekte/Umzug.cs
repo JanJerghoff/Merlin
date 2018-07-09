@@ -239,8 +239,13 @@ namespace Kartonagen
 
             //Creation of object
 
-            
-            int idKunden = idKundenIn;
+            if (idKundenIn != 0) {
+                this.idKunden = idKundenIn;
+                umzugsKunde = new Kunde(idKundenIn);
+            }
+            else {
+                Program.FehlerLog("", "Umzugsobjekt anlegen, aber Kundenid mit 0 übertragen");
+            }
             // Zeitblock
             this.datBesichtigung = datBesichtigung;   // Nur Datumskomponenten
             this.datUmzug = datUmzug;
@@ -1053,6 +1058,8 @@ namespace Kartonagen
         // Einfügen aller Termine
         public Boolean addAll() {
 
+            selbstvalidieren();
+
             increaseLfdNr();
 
             addEvent(2);
@@ -1173,6 +1180,43 @@ namespace Kartonagen
 
             // Rückgabe fertiger Body
             return Body;
+        }
+
+        public void selbstvalidieren() {
+            
+
+            //Kunde laden aus der nummer wenn nicht schon geladen
+            if (umzugsKunde == null || umzugsKunde.Id == 0) {
+                umzugsKunde = new Kunde(idKunden);
+            }
+
+            
+
+            //If Umzugsid leer, finde korrekte eigene ID und update
+            if (id == 0 || id == null) {
+                
+                MySqlCommand cmdRead = new MySqlCommand("SELECT idUmzuege FROM Umzuege WHERE Kunden_idKunden = " + idKunden + " AND datUmzug = '"+Program.DateMachine(DatUmzug)+ "' AND datBesichtigung = '" + Program.DateMachine(DatBesichtigung) + "' ;", Program.conn);
+                MySqlDataReader rdr;
+
+                try
+                {
+                    rdr = cmdRead.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        Id = rdr.GetInt32(0);
+                    }
+                    rdr.Close();
+                    
+                }
+                catch (Exception sqlEx)
+                {
+                    Program.FehlerLog(sqlEx.ToString(), "Abrufen der UmzugsID bei der Selbstverifikation");
+                    throw sqlEx;
+                }
+            }
+
+            return;
+
         }
 
         private String hvzString()
