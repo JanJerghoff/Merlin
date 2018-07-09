@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Kartonagen.Objekte
 {
-    class Kunde
+    public class Kunde
     {
         int id;
         string anrede;

@@ -3,6 +3,7 @@ using Google.Apis.Calendar.v3;
 using Google.Apis.Calendar.v3.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
+using Kartonagen.Objekte;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -128,6 +129,106 @@ namespace Kartonagen.CalendarAPIUtil
             Events events = request.Execute();
 
             return events;
+        }
+
+        // Neuen Umzug in die DB anlegen
+        public  void UmzugInsert(Kunde kunde, DateTime datBesichtigung, DateTime datUmzug, DateTime datEinraeumen, DateTime datAusraeumen, DateTime datRuempeln, DateTime zeitUmzug, int statBesichtigung, int statUmzug, int statAus, int statEin, int statRuempeln,
+            int umzugsdauer, string autos, int mann, int stunden, int versicherung, int einpacken, int einpacker, int einStunden, int karton, int auspacken, int auspacker, int ausStunden, int kleiderkartons, int kuecheAuf, int kuecheAb, int kuecheBau,
+            int kuechePausch, Adresse auszug, Adresse einzug, int schilder, DateTime schilderZeit, string notizTitel, string notizBuero, string notizFahrer, string userChanged, DateTime erstelldatum, Adresse ruempeladresse, int RuempelMann, int RuempelStunden)
+
+        {
+
+            try
+            {
+                String longInsert = "INSERT INTO Umzuege (Kunden_idKunden, datBesichtigung, datUmzug, datRuempelung, datEinpacken, datAuspacken, umzugsZeit, " +
+                "StatBes, StatUmz, StatAus, StatEin, StatEnt, Umzugsdauer, Autos, Mann, Stunden, Versicherung, " +
+                "Einpacken, EinPackerZahl, EinPackStunden, Kartons, Auspacken, AusPackerZahl, AusPackStunden, Kleiderkisten, SchilderZurueck, " +
+                "KuecheAb, KuecheAuf, KuecheBau, KuechePausch, " +
+                "StraßeA, HausnummerA, PLZA, OrtA, LandA, AufzugA, StockwerkeA, HausTypA, HVZA, LaufmeterA, AussenAufzugA, " +
+                "StraßeB, HausnummerB, PLZB, OrtB, LandB, AufzugB, StockwerkeB, HausTypB, HVZB, LaufmeterB, AussenAufzugB, " +
+                "NotizBuero, NotizFahrer, BemerkungTitel, SchilderZeit, UserChanged, Erstelldatum, Adresse_id, entruempelMann, entruempelStunden) VALUES (";
+
+                longInsert += kunde.Id + ", ";
+                longInsert += "'" + Program.DateMachine(datBesichtigung) + "', ";
+                longInsert += "'" + Program.DateMachine(datUmzug) + "', ";
+                longInsert += "'" + Program.DateMachine(datRuempeln) + "', ";
+                longInsert += "'" + Program.DateMachine(datEinraeumen) + "', ";
+                longInsert += "'" + Program.DateMachine(datAusraeumen) + "', ";
+                longInsert += "'" + Program.ZeitMachine(zeitUmzug) + "', ";
+
+                longInsert += statBesichtigung + ", ";
+                longInsert += statUmzug + ", ";
+                longInsert += statAus + ", ";
+                longInsert += statEin + ", ";
+                longInsert += statRuempeln + ", ";
+                longInsert += umzugsdauer + ", ";
+
+                longInsert += "'" + autos + "', ";
+                longInsert += mann + ", ";
+                longInsert += stunden + ", ";
+                longInsert += versicherung + ", ";
+
+
+                longInsert += einpacken + ", ";
+                longInsert += einpacker + ", ";
+                longInsert += einStunden + ", ";
+                longInsert += karton + ", ";
+                longInsert += auspacken + ", ";
+                longInsert += auspacker + ", ";
+                longInsert += ausStunden + ", ";
+                longInsert += kleiderkartons + ", ";
+                longInsert += schilder + ", ";
+
+                longInsert += kuecheAuf + ", ";
+                longInsert += kuecheAb + ", ";
+                longInsert += kuecheBau + ", ";
+                longInsert += kuechePausch + ", ";
+
+                longInsert += "'" + auszug.Straße1 + "', ";
+                longInsert += "'" + auszug.Hausnummer1 + "', ";
+                longInsert += "'" + auszug.PLZ1 + "', ";
+                longInsert += "'" + auszug.Ort1 + "', ";
+                longInsert += "'" + auszug.Land1 + "', ";
+                longInsert += auszug.Aufzug1 + ", ";
+                longInsert += "'" + auszug.Stockwerke1 + "', ";
+                longInsert += "'" + auszug.Haustyp1 + "', ";
+                longInsert += auszug.HVZ1 + ", ";
+                longInsert += auszug.Laufmeter1 + ", ";
+                longInsert += auszug.AussenAufzug1 + ", ";
+
+                longInsert += "'" + einzug.Straße1 + "', ";
+                longInsert += "'" + einzug.Hausnummer1 + "', ";
+                longInsert += "'" + einzug.PLZ1 + "', ";
+                longInsert += "'" + einzug.Ort1 + "', ";
+                longInsert += "'" + einzug.Land1 + "', ";
+                longInsert += einzug.Aufzug1 + ", ";
+                longInsert += "'" + einzug.Stockwerke1 + "', ";
+                longInsert += "'" + einzug.Haustyp1 + "', ";
+                longInsert += einzug.HVZ1 + ", ";
+                longInsert += einzug.Laufmeter1 + ", ";
+                longInsert += einzug.AussenAufzug1 + ", ";
+
+                longInsert += "'" + notizBuero + "', ";
+                longInsert += "'" + notizFahrer + "', ";
+                longInsert += "'" + notizTitel + "', ";
+                longInsert += "'" + Program.DateMachine(schilderZeit) + "', ";
+                longInsert += "'" + userChanged + "', ";
+                longInsert += "'" + Program.DateMachine(DateTime.Now) + "', ";
+                longInsert += ruempeladresse.IDAdresse1 + ", ";
+                longInsert += RuempelMann + ", ";
+                longInsert += RuempelStunden + ");";
+
+                // Merkt den Query
+                Program.QueryLog(longInsert);
+
+                Program.absender(longInsert, "Einfügen des neuen Umzuges zum erstellen des Umzugsobjekts");
+                return;
+            }
+            catch (Exception e)
+            {
+                Program.FehlerLog(e.ToString(), "Ich bin ein Error");
+                return;
+            }
         }
 
         // Methode um Kalendereinträge vorzunehmen (Autogenerierter ID-String)
