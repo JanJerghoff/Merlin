@@ -1034,11 +1034,248 @@ namespace Kartonagen
                     break;
             }
             
-        }        
-        
+        }
+
         //
         //
-        //
+        // ALLE Änderungen auf einmal übernehmen
+
+        private void aenderungSpeichern() {
+
+            killALl();
+
+            //--------------------Datumsblock
+
+            Boolean pop = false;
+
+            // STATI SETZEN
+            // Besichtigung
+            if (radioBesJa.Checked)
+            {
+                umzObj.StatBesichtigung = 1;
+                textUmzugLog.AppendText("Besichtigung hinzugefügt \r\n");
+            }
+            else { umzObj.StatBesichtigung = 0; }
+
+            //Umzug
+            if (radioUmzJa.Checked)
+            {
+                umzObj.StatUmzug = 1;
+            }
+            else if (radioUmzVllt.Checked)
+            {
+                umzObj.StatUmzug = 2;
+            }
+            else if (radioUmzVorlaeufig.Checked)
+            {
+                umzObj.StatUmzug = 3;
+            }
+            else { umzObj.StatUmzug = 0; }
+
+            //Einräumen
+            if (radioEinJa.Checked)
+            {
+                umzObj.StatEin = 1;
+            }
+            else if (radioEinVllt.Checked)
+            {
+                umzObj.StatEin = 2;
+            }
+            else { umzObj.StatEin = 0; }
+
+            //Ausräumen
+            if (radioAusJa.Checked)
+            {
+                umzObj.StatAus = 1;
+            }
+            else if (radioAusVllt.Checked)
+            {
+                umzObj.StatAus = 2;
+            }
+            else { umzObj.StatAus = 0; }
+
+            //Entrümpeln
+            if (radioEntJa.Checked)
+            {
+                umzObj.StatRuempeln = 1;
+            }
+            else if (radioEntVllt.Checked)
+            {
+                umzObj.StatRuempeln = 2;
+            }
+            else { umzObj.StatRuempeln = 0; }
+
+            //ÜBERSCHREIBEN DER DATEN
+
+            umzObj.DatBesichtigung = dateBesicht.Value;
+            umzObj.DatUmzug = dateUmzug.Value;
+            umzObj.DatEinraeumen = dateEinpack.Value;
+            umzObj.DatAusraeumen = dateAuspack.Value;
+            umzObj.DatRuempeln = dateEntruempel.Value;
+            umzObj.ZeitUmzug = timeBesichtigung.Value;
+            umzObj.Umzugsdauer = decimal.ToInt32(numericUmzugsDauer.Value);
+            umzObj.UpdateDB(idBearbeitend.ToString());
+
+            // --------------Küche
+            int kuecheab = 8;
+            int kuecheauf = 8;
+            int kuechebau = 8;
+            String kuechepausch = "0";
+
+            if (radioKuecheAbJa.Checked) { kuecheab = 1; }
+            else if (radioKuecheAbNein.Checked) { kuecheab = 0; }
+            else if (radioKuecheAbV.Checked) { kuecheab = 2; }
+            //
+            if (radioKuecheAufJa.Checked) { kuecheauf = 1; }
+            else if (radioKuecheAufNein.Checked) { kuecheauf = 0; }
+            else if (radioKuecheAufV.Checked) { kuecheauf = 2; }
+            //
+            if (radioKuecheIntern.Checked) { kuechebau = 1; } // Küchenbau Intern = 1, Extern = 0;
+            else if (radioKuecheExtern.Checked) { kuechebau = 0; }
+
+            kuechepausch = textKuechenPreis.Text;
+
+            // Setzen
+            umzObj.KuecheAb1 = kuecheab;
+            umzObj.KuecheAuf1 = kuecheauf;
+            umzObj.KuecheBau1 = kuechebau;
+            umzObj.KuechePausch1 = int.Parse(textKuechenPreis.Text);
+
+            //--------------Packen
+
+
+            int einPacken = 8;
+            int ausPacken = 8;
+
+            if (radioEinpackenJa.Checked) { einPacken = 1; }
+            else if (radioEinpackenNein.Checked) { einPacken = 0; }
+            else if (radioEinpackenV.Checked) { einPacken = 2; }
+            //
+            if (radioAuspackenJa.Checked) { ausPacken = 1; }
+            else if (radioAuspackenNein.Checked) { ausPacken = 0; }
+            else if (radioAuspackenV.Checked) { ausPacken = 2; }
+
+            // Setzen
+            umzObj.Einpacken1 = einPacken;
+            umzObj.Einpacker1 = decimal.ToInt32(numericEinPacker.Value);
+            umzObj.EinStunden1 = decimal.ToInt32(numericEinPackStunden.Value);
+            umzObj.Karton1 = decimal.ToInt32(numericEinPackKartons.Value);
+            umzObj.Auspacken1 = ausPacken;
+            umzObj.Auspacker1 = decimal.ToInt32(numericAusPacker.Value);
+            umzObj.AusStunden1 = decimal.ToInt32(numericAusPackStunden.Value);
+
+            //-------------- Entrümpeln
+
+            umzObj.entruempeln.Straße1 = textStrasseEnt.Text;
+            umzObj.entruempeln.Hausnummer1 = textHausnummerEnt.Text;
+            umzObj.entruempeln.Ort1 = textOrtEnt.Text;
+            umzObj.entruempeln.PLZ1 = textPLZEnt.Text;
+            umzObj.RuempelMann1 = decimal.ToInt32(numericPackerEnt.Value);
+            umzObj.RuempelStunden1 = decimal.ToInt32(numericStundenEnt.Value);
+
+            // ------- Daten
+
+            int schilder = 0;
+
+            //
+            if (radioSchilderJa.Checked)
+            {
+                schilder = 1;
+            }
+            else if (radioSchilderNein.Checked)
+            {
+                schilder = 0;
+            }
+            else { schilder = 8; }
+
+            String temp = "";
+            temp = temp + decimal.ToInt32(numericSprinterMit.Value).ToString();
+            temp = temp + decimal.ToInt32(numericSprinterOhne.Value).ToString();
+            temp = temp + decimal.ToInt32(numericLKW.Value).ToString();
+            temp = temp + decimal.ToInt32(numericLKWGroß.Value).ToString();
+
+            // Setzen
+            umzObj.Schilder1 = schilder;
+            umzObj.Kleiderkartons1 = decimal.ToInt32(numericKleiderkisten.Value);
+            umzObj.Mann = decimal.ToInt32(numericMannZahl.Value);
+            umzObj.Autos = temp;
+            umzObj.Stunden = decimal.ToInt32(numericArbeitszeit.Value);
+            umzObj.SchilderZeit1 = dateSchilderVerweildauer.Value;
+
+            // ---------------- Bemerkungen
+            umzObj.NotizFahrer1 = textNoteFahrer.Text;
+            umzObj.NotizBuero1 = textNoteBuero.Text;
+            umzObj.NotizTitel1 = textNoteKalender.Text;
+
+            // ---------------- Auszug
+            int aufzug = 8;
+            int hvz = 8;
+            int aussenAuf = 8;
+
+            if (radioAussenAufzugAJa.Checked) { aussenAuf = 1; }
+            else if (radioAussenAufzugANein.Checked) { aussenAuf = 0; }
+            //
+            if (radioAufzugAJa.Checked) { aufzug = 1; }
+            else if (radioAufzugANein.Checked) { aufzug = 0; }
+            //
+            if (radioHVZAJa.Checked) { hvz = 1; }
+            else if (radioHVZANein.Checked) { hvz = 0; }
+            else if (radioHVZAV.Checked) { hvz = 2; }
+
+            // Daten ins Objekt
+            umzObj.auszug.Straße1 = textStraßeA.Text;
+            umzObj.auszug.Hausnummer1 = textHausnummerA.Text;
+            umzObj.auszug.PLZ1 = textPLZA.Text;
+            umzObj.auszug.Ort1 = textOrtA.Text;
+            umzObj.auszug.Land1 = textLandA.Text;
+            umzObj.auszug.HVZ1 = hvz;
+            umzObj.auszug.Aufzug1 = aufzug;
+            umzObj.auszug.AussenAufzug1 = aussenAuf;
+            umzObj.auszug.Haustyp1 = listBoxA.SelectedItem.ToString();
+            umzObj.auszug.Laufmeter1 = int.Parse(textLaufMeterA.Text);
+            umzObj.auszug.Stockwerke1 = StockwerkString(0);
+
+            // ----------------- Einzug
+
+            aufzug = 8;
+            hvz = 8;
+            aussenAuf = 8;
+
+            if (radioAussenAufzugBJa.Checked) { aussenAuf = 1; }
+            else if (radioAussenAufzugBNein.Checked) { aussenAuf = 0; }
+            //
+            if (radioAufzugBJa.Checked) { aufzug = 1; }
+            else if (radioAufzugBNein.Checked) { aufzug = 0; }
+            //
+            if (radioHVZBJa.Checked) { hvz = 1; }
+            else if (radioHVZBNein.Checked) { hvz = 0; }
+            else if (radioHVZBV.Checked) { hvz = 2; }
+
+            umzObj.einzug.Straße1 = textStraßeB.Text;
+            umzObj.einzug.Hausnummer1 = textHausnummerB.Text;
+            umzObj.einzug.PLZ1 = textPLZB.Text;
+            umzObj.einzug.Ort1 = textOrtB.Text;
+            umzObj.einzug.Land1 = textLandB.Text;
+            umzObj.einzug.HVZ1 = hvz;
+            umzObj.einzug.Aufzug1 = aufzug;
+            umzObj.einzug.AussenAufzug1 = aussenAuf;
+            umzObj.einzug.Haustyp1 = listBoxB.SelectedItem.ToString();
+            umzObj.einzug.Laufmeter1 = int.Parse(textLaufMeterB.Text);
+            umzObj.einzug.Stockwerke1 = StockwerkString(1);
+
+
+            // --------------- Versicherung
+            int VersTemp = 8;
+            if (radioVersicherungJa.Checked) { VersTemp = 1; }
+            else if (radioVersicherungNein.Checked) { VersTemp = 0; }
+            umzObj.Versicherung = VersTemp;
+
+            //----------
+        }
+
+
+
+
         private void buttonBlockTermine_Click(object sender, EventArgs e)
         {
             killALl();

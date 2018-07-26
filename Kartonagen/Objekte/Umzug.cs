@@ -480,6 +480,7 @@ namespace Kartonagen
             longInsert += "datAuspacken = '" + Program.DateMachine(datAusraeumen.Date) + "', ";
             longInsert += "umzugsZeit = '" + Program.ZeitMachine(zeitUmzug) + "', ";
             longInsert += "SchilderZeit = '" + Program.DateMachine(SchilderZeit.Date) + "', ";
+            longInsert += "Umzugsdauer = " + umzugsdauer + ", ";
 
             longInsert += "Autos = '" + autos + "', ";
             longInsert += "NotizBuero = '" + NotizBuero + "', ";

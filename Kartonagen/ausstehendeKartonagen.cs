@@ -21,7 +21,7 @@ namespace Kartonagen
 
 
             // Wer kommt in Frage
-            MySqlCommand cmdReadKunde = new MySqlCommand("Select Umzuege_Kunden_idKunden from Transaktionen where datTransaktion < '"+ Program.DateMachine(DateTime.Now.AddMonths(-11)) +"' group by Umzuege_Kunden_idKunden", Program.conn);
+            MySqlCommand cmdReadKunde = new MySqlCommand("Select Umzuege_Kunden_idKunden from Transaktionen where datTransaktion < '"+ Program.DateMachine(DateTime.Now.AddMonths(-11)) +"' group by Umzuege_Kunden_idKunden Order By datTransaktion ASC;", Program.conn);
             MySqlDataReader rdrKunde;
 
             try
