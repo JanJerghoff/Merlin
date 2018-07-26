@@ -39,7 +39,6 @@
             this.numericSprinterMit = new System.Windows.Forms.NumericUpDown();
             this.numericArbeitszeit = new System.Windows.Forms.NumericUpDown();
             this.numericMannZahl = new System.Windows.Forms.NumericUpDown();
-            this.buttonBlockDaten = new System.Windows.Forms.Button();
             this.dateSchilderVerweildauer = new System.Windows.Forms.DateTimePicker();
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -121,11 +120,9 @@
             this.label14 = new System.Windows.Forms.Label();
             this.checkGeschlossenAnzeigen = new System.Windows.Forms.CheckBox();
             this.groupBox27 = new System.Windows.Forms.GroupBox();
-            this.buttonBlockVersicherung = new System.Windows.Forms.Button();
             this.radioVersicherungNein = new System.Windows.Forms.RadioButton();
             this.radioVersicherungJa = new System.Windows.Forms.RadioButton();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.buttonBlockKueche = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.textKuechenPreis = new System.Windows.Forms.TextBox();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
@@ -140,7 +137,6 @@
             this.radioKuecheAbNein = new System.Windows.Forms.RadioButton();
             this.radioKuecheAbJa = new System.Windows.Forms.RadioButton();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.buttonBlockEinzug = new System.Windows.Forms.Button();
             this.groupBox26 = new System.Windows.Forms.GroupBox();
             this.textSonderEtageB = new System.Windows.Forms.TextBox();
             this.checkDBB = new System.Windows.Forms.CheckBox();
@@ -178,7 +174,6 @@
             this.textHausnummerB = new System.Windows.Forms.TextBox();
             this.textStraßeB = new System.Windows.Forms.TextBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.buttonBlockPacken = new System.Windows.Forms.Button();
             this.numericAusPackStunden = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -198,7 +193,6 @@
             this.radioEinpackenNein = new System.Windows.Forms.RadioButton();
             this.radioEinpackenJa = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ButtonBlockAuszug = new System.Windows.Forms.Button();
             this.groupBox25 = new System.Windows.Forms.GroupBox();
             this.textSonderEtageA = new System.Windows.Forms.TextBox();
             this.checkDBA = new System.Windows.Forms.CheckBox();
@@ -316,7 +310,6 @@
             this.groupBox6.Controls.Add(this.numericSprinterMit);
             this.groupBox6.Controls.Add(this.numericArbeitszeit);
             this.groupBox6.Controls.Add(this.numericMannZahl);
-            this.groupBox6.Controls.Add(this.buttonBlockDaten);
             this.groupBox6.Controls.Add(this.dateSchilderVerweildauer);
             this.groupBox6.Controls.Add(this.label17);
             this.groupBox6.Controls.Add(this.groupBox7);
@@ -424,17 +417,6 @@
             this.numericMannZahl.Name = "numericMannZahl";
             this.numericMannZahl.Size = new System.Drawing.Size(144, 22);
             this.numericMannZahl.TabIndex = 0;
-            // 
-            // buttonBlockDaten
-            // 
-            this.buttonBlockDaten.Location = new System.Drawing.Point(409, 130);
-            this.buttonBlockDaten.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonBlockDaten.Name = "buttonBlockDaten";
-            this.buttonBlockDaten.Size = new System.Drawing.Size(211, 31);
-            this.buttonBlockDaten.TabIndex = 7;
-            this.buttonBlockDaten.Text = "Block Ändern";
-            this.buttonBlockDaten.UseVisualStyleBackColor = true;
-            this.buttonBlockDaten.Click += new System.EventHandler(this.buttonBlockDaten_Click);
             // 
             // dateSchilderVerweildauer
             // 
@@ -1339,7 +1321,6 @@
             this.buttonBlockBemerkungen.TabIndex = 90;
             this.buttonBlockBemerkungen.Text = " Alle\r\nBemerkungen\r\nÄndern\r\n";
             this.buttonBlockBemerkungen.UseVisualStyleBackColor = true;
-            this.buttonBlockBemerkungen.Click += new System.EventHandler(this.buttonBlockBemerkungen_Click);
             // 
             // buttonLaufzettel
             // 
@@ -1376,7 +1357,6 @@
             // groupBox27
             // 
             this.groupBox27.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox27.Controls.Add(this.buttonBlockVersicherung);
             this.groupBox27.Controls.Add(this.radioVersicherungNein);
             this.groupBox27.Controls.Add(this.radioVersicherungJa);
             this.groupBox27.Location = new System.Drawing.Point(764, 897);
@@ -1387,17 +1367,6 @@
             this.groupBox27.TabIndex = 103;
             this.groupBox27.TabStop = false;
             this.groupBox27.Text = "zusätzliche Umzugsgutversicherung";
-            // 
-            // buttonBlockVersicherung
-            // 
-            this.buttonBlockVersicherung.Location = new System.Drawing.Point(261, 18);
-            this.buttonBlockVersicherung.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonBlockVersicherung.Name = "buttonBlockVersicherung";
-            this.buttonBlockVersicherung.Size = new System.Drawing.Size(211, 31);
-            this.buttonBlockVersicherung.TabIndex = 104;
-            this.buttonBlockVersicherung.Text = "Block Ändern";
-            this.buttonBlockVersicherung.UseVisualStyleBackColor = true;
-            this.buttonBlockVersicherung.Click += new System.EventHandler(this.buttonBlockVersicherung_Click);
             // 
             // radioVersicherungNein
             // 
@@ -1426,7 +1395,6 @@
             // groupBox14
             // 
             this.groupBox14.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox14.Controls.Add(this.buttonBlockKueche);
             this.groupBox14.Controls.Add(this.label27);
             this.groupBox14.Controls.Add(this.textKuechenPreis);
             this.groupBox14.Controls.Add(this.groupBox17);
@@ -1440,17 +1408,6 @@
             this.groupBox14.TabIndex = 102;
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Küche";
-            // 
-            // buttonBlockKueche
-            // 
-            this.buttonBlockKueche.Location = new System.Drawing.Point(261, 118);
-            this.buttonBlockKueche.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonBlockKueche.Name = "buttonBlockKueche";
-            this.buttonBlockKueche.Size = new System.Drawing.Size(211, 31);
-            this.buttonBlockKueche.TabIndex = 44;
-            this.buttonBlockKueche.Text = "Block Ändern";
-            this.buttonBlockKueche.UseVisualStyleBackColor = true;
-            this.buttonBlockKueche.Click += new System.EventHandler(this.buttonBlockKueche_Click_1);
             // 
             // label27
             // 
@@ -1603,7 +1560,6 @@
             // groupBox10
             // 
             this.groupBox10.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox10.Controls.Add(this.buttonBlockEinzug);
             this.groupBox10.Controls.Add(this.groupBox26);
             this.groupBox10.Controls.Add(this.groupBox23);
             this.groupBox10.Controls.Add(this.listBoxB);
@@ -1629,17 +1585,6 @@
             this.groupBox10.TabIndex = 101;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Adresse Einzug";
-            // 
-            // buttonBlockEinzug
-            // 
-            this.buttonBlockEinzug.Location = new System.Drawing.Point(407, 321);
-            this.buttonBlockEinzug.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonBlockEinzug.Name = "buttonBlockEinzug";
-            this.buttonBlockEinzug.Size = new System.Drawing.Size(211, 31);
-            this.buttonBlockEinzug.TabIndex = 43;
-            this.buttonBlockEinzug.Text = "Block Ändern";
-            this.buttonBlockEinzug.UseVisualStyleBackColor = true;
-            this.buttonBlockEinzug.Click += new System.EventHandler(this.buttonBlockEinzug_Click);
             // 
             // groupBox26
             // 
@@ -2045,7 +1990,6 @@
             // groupBox8
             // 
             this.groupBox8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox8.Controls.Add(this.buttonBlockPacken);
             this.groupBox8.Controls.Add(this.numericAusPackStunden);
             this.groupBox8.Controls.Add(this.label1);
             this.groupBox8.Controls.Add(this.label19);
@@ -2066,17 +2010,6 @@
             this.groupBox8.TabIndex = 100;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Packen";
-            // 
-            // buttonBlockPacken
-            // 
-            this.buttonBlockPacken.Location = new System.Drawing.Point(376, 148);
-            this.buttonBlockPacken.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonBlockPacken.Name = "buttonBlockPacken";
-            this.buttonBlockPacken.Size = new System.Drawing.Size(211, 31);
-            this.buttonBlockPacken.TabIndex = 42;
-            this.buttonBlockPacken.Text = "Block Ändern";
-            this.buttonBlockPacken.UseVisualStyleBackColor = true;
-            this.buttonBlockPacken.Click += new System.EventHandler(this.buttonBlockPacken_Click_1);
             // 
             // numericAusPackStunden
             // 
@@ -2272,7 +2205,6 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Controls.Add(this.ButtonBlockAuszug);
             this.groupBox1.Controls.Add(this.groupBox25);
             this.groupBox1.Controls.Add(this.groupBox22);
             this.groupBox1.Controls.Add(this.listBoxA);
@@ -2298,17 +2230,6 @@
             this.groupBox1.TabIndex = 99;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Adresse Auszug";
-            // 
-            // ButtonBlockAuszug
-            // 
-            this.ButtonBlockAuszug.Location = new System.Drawing.Point(441, 322);
-            this.ButtonBlockAuszug.Margin = new System.Windows.Forms.Padding(4);
-            this.ButtonBlockAuszug.Name = "ButtonBlockAuszug";
-            this.ButtonBlockAuszug.Size = new System.Drawing.Size(211, 31);
-            this.ButtonBlockAuszug.TabIndex = 41;
-            this.ButtonBlockAuszug.Text = "Block Ändern";
-            this.ButtonBlockAuszug.UseVisualStyleBackColor = true;
-            this.ButtonBlockAuszug.Click += new System.EventHandler(this.ButtonBlockAuszug_Click_1);
             // 
             // groupBox25
             // 
@@ -2712,7 +2633,6 @@
             // boxEntrümpeln
             // 
             this.boxEntrümpeln.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.boxEntrümpeln.Controls.Add(this.buttonBlockEntruempeln);
             this.boxEntrümpeln.Controls.Add(this.numericStundenEnt);
             this.boxEntrümpeln.Controls.Add(this.label45);
             this.boxEntrümpeln.Controls.Add(this.label46);
@@ -2737,12 +2657,13 @@
             // 
             // buttonBlockEntruempeln
             // 
-            this.buttonBlockEntruempeln.Location = new System.Drawing.Point(8, 415);
+            this.buttonBlockEntruempeln.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBlockEntruempeln.Location = new System.Drawing.Point(1562, 873);
             this.buttonBlockEntruempeln.Margin = new System.Windows.Forms.Padding(4);
             this.buttonBlockEntruempeln.Name = "buttonBlockEntruempeln";
-            this.buttonBlockEntruempeln.Size = new System.Drawing.Size(163, 31);
+            this.buttonBlockEntruempeln.Size = new System.Drawing.Size(319, 88);
             this.buttonBlockEntruempeln.TabIndex = 105;
-            this.buttonBlockEntruempeln.Text = "Block Ändern";
+            this.buttonBlockEntruempeln.Text = "Alle Änderungen speichern";
             this.buttonBlockEntruempeln.UseVisualStyleBackColor = true;
             this.buttonBlockEntruempeln.Click += new System.EventHandler(this.buttonBlockEntruempeln_Click);
             // 
@@ -2904,7 +2825,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1914, 1045);
+            this.ClientSize = new System.Drawing.Size(1924, 1045);
+            this.Controls.Add(this.buttonBlockEntruempeln);
             this.Controls.Add(this.boxEntrümpeln);
             this.Controls.Add(this.groupBox27);
             this.Controls.Add(this.groupBox14);
@@ -3059,7 +2981,6 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.TextBox textUmzugsNummer;
-        private System.Windows.Forms.Button buttonBlockDaten;
         private System.Windows.Forms.NumericUpDown numericArbeitszeit;
         private System.Windows.Forms.NumericUpDown numericMannZahl;
         private System.Windows.Forms.Button buttonLöschen;
@@ -3227,11 +3148,6 @@
         private System.Windows.Forms.TextBox textPLZA;
         private System.Windows.Forms.TextBox textHausnummerA;
         private System.Windows.Forms.TextBox textStraßeA;
-        private System.Windows.Forms.Button buttonBlockEinzug;
-        private System.Windows.Forms.Button ButtonBlockAuszug;
-        private System.Windows.Forms.Button buttonBlockPacken;
-        private System.Windows.Forms.Button buttonBlockVersicherung;
-        private System.Windows.Forms.Button buttonBlockKueche;
         private System.Windows.Forms.GroupBox boxEntrümpeln;
         private System.Windows.Forms.NumericUpDown numericStundenEnt;
         private System.Windows.Forms.Label label45;

@@ -939,7 +939,6 @@ namespace Kartonagen
                     return 2;
                 default:
                     return 0;
-                    break;
             }
 
         }
@@ -1027,7 +1026,7 @@ namespace Kartonagen
 
                     case 5:
 
-                        String Header = IdKunden + " "+umzugsKunde.Anrede+" " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + ", " + Einpacker1 + " Mann, " + EinStunden1 + " Stunden ENTRÜMPELN, "; // TODO Entrümpeldaten erfassen!
+                        String Header = IdKunden + " "+umzugsKunde.Anrede+" " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + ", " + RuempelMann + " Mann, " + RuempelStunden + " Stunden ENTRÜMPELN, "; // TODO Entrümpeldaten erfassen!
                         if (StatRuempeln == 1)
                         {
                             Program.getUtil().kalenderEventEintragGanz(Header, RuempelString(), "", 11, datRuempeln.Date, datRuempeln.Date);
@@ -1121,6 +1120,12 @@ namespace Kartonagen
             return AusRaeumHeader;
         }
 
+        private String RuempelHeader() {
+
+            String RuempelHeader = idKunden + " " + umzugsKunde.Anrede + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + "Auspacken, " + Auspacker + " Mann, " + AusStunden + " Stunden";
+            
+            return RuempelHeader;
+        }
 
         private String RuempelString() {
 
