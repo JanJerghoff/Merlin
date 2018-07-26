@@ -134,11 +134,12 @@
             // 
             // buttonErinnerungen
             // 
+            this.buttonErinnerungen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonErinnerungen.Location = new System.Drawing.Point(734, 333);
             this.buttonErinnerungen.Name = "buttonErinnerungen";
             this.buttonErinnerungen.Size = new System.Drawing.Size(179, 117);
             this.buttonErinnerungen.TabIndex = 7;
-            this.buttonErinnerungen.Text = "Erinnerungen";
+            this.buttonErinnerungen.Text = "Fällige Kartons";
             this.buttonErinnerungen.UseVisualStyleBackColor = true;
             this.buttonErinnerungen.Click += new System.EventHandler(this.buttonErinnerungen_Click);
             // 

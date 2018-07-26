@@ -129,6 +129,12 @@
     </Compile>
     <Compile Include="CalendarAPIUtil\Util.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="ausstehendeKartonagen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ausstehendeKartonagen.Designer.cs">
+      <DependentUpon>ausstehendeKartonagen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Objekte\Kunde.cs" />
     <Compile Include="Objekte\Transaktion.cs" />
     <Compile Include="PDFInput.cs" />
@@ -263,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CalendarAPIUtil\AdressSelect3.resx">
       <DependentUpon>AdressSelect3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ausstehendeKartonagen.resx">
+      <DependentUpon>ausstehendeKartonagen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KundenOperationen\KundenAdd.resx">
       <DependentUpon>KundenAdd.cs</DependentUpon>
