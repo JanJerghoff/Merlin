@@ -1,6 +1,4 @@
 ﻿using Google.Apis.Calendar.v3.Data;
-using Kartonagen.CalendarAPIUtil;
-using Kartonagen.Objekte;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -17,11 +15,9 @@ namespace Kartonagen
     public partial class TransaktionAdd : Form
     {
 
-        Umzug umzObj;
-        Transaktion transObj;
+        Umzug umzObj; 
 
         int maxKundennummer;
-
         public TransaktionAdd()
         {
             InitializeComponent();
@@ -233,93 +229,67 @@ namespace Kartonagen
                 textTransaktionLog.AppendText(" Bitte Ausgang oder Eingang auswählen!\r\n");
                 return;
             }
+            
 
-            // Neue Sektion, Hinzufügen über das Transaktionsobjekt. Multiplikator -1 für Auslieferungen
+            //String bauen
+            String push = "INSERT INTO Transaktionen (datTransaktion, timeTransaktion, Kartons, FlaschenKartons, GlaeserKartons, KleiderKartons, Umzuege_idUmzuege, Umzuege_Kunden_idKunden, Bemerkungen, UserChanged, Erstelldatum, unbenutzt, final, RechnungsNr) VALUES (";
 
-            int multi = 1;
-            int adressid = 0;
+            push += "'" + Program.DateMachine(dateTimeTransaktion.Value) + "', ";
 
+            // Zeitkomponente pushen wenn Termin in der Zukunft
+            if (checkTermin.Checked)
+            {
+                push += "'" + Program.DateMachine(dateTimeTransaktion.Value) + " " + Program.ZeitMachine(timeLieferzeit.Value) + "', ";
+            }
+            else { push += "'" + Program.DateMachine(dateTimeTransaktion.Value) + " 00-00-00', "; }
 
             if (radioAusgang.Checked)
             {
-                multi = -1;
+                push += numericKarton.Value + ", ";
+                push += numericFlaschenKarton.Value + ", ";
+                push += numericGlaeserkarton.Value + ", ";
+                push += numericKleiderKarton.Value + ", ";
+            }
+            else {
+                push += "-" + numericKarton.Value + ", ";
+                push += "-" + numericFlaschenKarton.Value + ", ";
+                push += "-" + numericGlaeserkarton.Value + ", ";
+                push += "-" + numericKleiderKarton.Value + ", ";
             }
 
-            //check welche Adresse gewählt ist
 
-            var adressselect = new AdressSelect3(umzObj.auszug,umzObj.einzug);
-            adressselect.ShowDialog();
+            push +=  textUmzugsnummer.Text + ", ";
+            push +=  textKundennummer.Text + ", ";
+            push += "'" + textBemerkung.Text + " ', ";
+            push += "'" + idBearbeitend + "', ";
+            push += "'" + Program.DateMachine(DateTime.Now) + "', ";
 
-            if (adressselect.DialogResult == DialogResult.Yes) {
-                adressid = umzObj.auszug.IDAdresse1;
-            } else if (adressselect.DialogResult == DialogResult.Yes) {
-                adressid = umzObj.einzug.IDAdresse1;
+            // Kartons unbenútzt zurück?
+            if (radioUnbenutzt.Checked)
+            {
+                push += 1 + ",";
+            }
+            else if (radioKaufJa.Checked) {
+                push += 2 + ",";
+            }
+            else {
+                push += 0 + ",";
             }
 
-            transObj = new Transaktion(decimal.ToInt32(numericKarton.Value * multi), decimal.ToInt32(numericGlaeserkarton.Value * multi), decimal.ToInt32(numericFlaschenKarton.Value * multi), decimal.ToInt32(numericKleiderKarton.Value * multi), radioKaufJa.Checked, radioUnbenutzt.Checked, textBemerkung.Text, textRechnungsnr.Text, dateTimeTransaktion.Value.Date, adressid, umzObj.Id,umzObj.IdKunden, "8");
+            // Buchung final oder vorläufig? (0 ist vorläufig, 1 final)
 
+            if (checkTermin.Checked || (dateTimeTransaktion.Value.Date.CompareTo(DateTime.Now.Date) > 0))
+            {
+                push += 0 + ",";
+            }
+            else {
+                push += 1 + ",";
+            }
 
+            // Rechnungsnummer
+            push += "'"+textRechnungsnr.Text+"');";
 
-
-            ////String bauen
-            //String push = "INSERT INTO Transaktionen (datTransaktion, timeTransaktion, Kartons, FlaschenKartons, GlaeserKartons, KleiderKartons, Umzuege_idUmzuege, Umzuege_Kunden_idKunden, Bemerkungen, UserChanged, Erstelldatum, unbenutzt, final, RechnungsNr) VALUES (";
-
-            //push += "'" + Program.DateMachine(dateTimeTransaktion.Value) + "', ";
-
-            //// Zeitkomponente pushen wenn Termin in der Zukunft
-            //if (checkTermin.Checked)
-            //{
-            //    push += "'" + Program.DateMachine(dateTimeTransaktion.Value) + " " + Program.ZeitMachine(timeLieferzeit.Value) + "', ";
-            //}
-            //else { push += "'" + Program.DateMachine(dateTimeTransaktion.Value) + " 00-00-00', "; }
-
-            //if (radioAusgang.Checked)
-            //{
-            //    push += numericKarton.Value + ", ";
-            //    push += numericFlaschenKarton.Value + ", ";
-            //    push += numericGlaeserkarton.Value + ", ";
-            //    push += numericKleiderKarton.Value + ", ";
-            //}
-            //else {
-            //    push += "-" + numericKarton.Value + ", ";
-            //    push += "-" + numericFlaschenKarton.Value + ", ";
-            //    push += "-" + numericGlaeserkarton.Value + ", ";
-            //    push += "-" + numericKleiderKarton.Value + ", ";
-            //}
-
-
-            //push +=  textUmzugsnummer.Text + ", ";
-            //push +=  textKundennummer.Text + ", ";
-            //push += "'" + textBemerkung.Text + " ', ";
-            //push += "'" + idBearbeitend + "', ";
-            //push += "'" + Program.DateMachine(DateTime.Now) + "', ";
-
-            //// Kartons unbenútzt zurück?
-            //if (radioUnbenutzt.Checked)
-            //{
-            //    push += 1 + ",";
-            //}
-            //else if (radioKaufJa.Checked) {
-            //    push += 2 + ",";
-            //}
-            //else {
-            //    push += 0 + ",";
-            //}
-
-            //// Buchung final oder vorläufig? (0 ist vorläufig, 1 final)
-
-            //if (checkTermin.Checked || (dateTimeTransaktion.Value.Date.CompareTo(DateTime.Now.Date) > 0))
-            //{
-            //    push += 0 + ",";
-            //}
-            //else {
-            //    push += 1 + ",";
-            //}
-
-            //// Rechnungsnummer
-            //push += "'"+textRechnungsnr.Text+"');";
-
-            //Program.absender(push, "Fehler beim Speichern der Transaktion in die DB");
+            Program.absender(push, "Fehler beim Speichern der Transaktion in die DB");
 
             
 

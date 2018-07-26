@@ -86,10 +86,15 @@ namespace Kartonagen
                     while (rdrKundespez.Read())
                     {
                         dateTemp = rdrKundespez.GetDateTime(1);
-                        kartonsTemp += rdrKundespez.GetInt32(2);
-                        flaschenTemp += rdrKundespez.GetInt32(3);
-                        glaeserTemp += rdrKundespez.GetInt32(4);
-                        kleiderTemp += rdrKundespez.GetInt32(5);
+
+                        //Ignorieren von Kaufkartons
+                        if (rdrKundespez.GetInt32(11) != 2)
+                        {
+                            kartonsTemp += rdrKundespez.GetInt32(2);
+                            flaschenTemp += rdrKundespez.GetInt32(3);
+                            glaeserTemp += rdrKundespez.GetInt32(4);
+                            kleiderTemp += rdrKundespez.GetInt32(5);
+                        }
                     }
                     rdrKundespez.Close();
                 }
