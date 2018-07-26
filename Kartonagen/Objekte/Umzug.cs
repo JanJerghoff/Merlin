@@ -588,19 +588,19 @@ namespace Kartonagen
                 fields.TryGetValue("DatumZeichen", out toSet);
                 toSet.SetValue(DateTime.Now.Date.ToShortDateString() + " " + Name);
 
-                if (DatBesichtigung.ToShortDateString() != stand.ToShortDateString())
+                if (DatBesichtigung.ToShortDateString() != stand.ToShortDateString() && statBesichtigung != 0)
                 {
                     fields.TryGetValue("TerminBes", out toSet);
                     toSet.SetValue(DatBesichtigung.ToShortDateString()+ " "+ zeitUmzug.ToShortTimeString());
                 }
 
-                if (datUmzug.ToShortDateString() != stand.ToShortDateString())
+                if (datUmzug.ToShortDateString() != stand.ToShortDateString() && StatUmzug != 0)
                 {
                     fields.TryGetValue("TerminUmz", out toSet);
                     toSet.SetValue(datUmzug.ToShortDateString());
                 }
 
-                if (datRuempeln.ToShortDateString() != stand.ToShortDateString())
+                if (datRuempeln.ToShortDateString() != stand.ToShortDateString()&&statRuempeln!=0)
                 {
                     fields.TryGetValue("TerminEnt", out toSet);
                     toSet.SetValue(datRuempeln.ToShortDateString());
@@ -879,6 +879,7 @@ namespace Kartonagen
                 form.FlattenFields();
                 pdf.Close();
                 Program.SendToPrinter();
+                //Program.showPDF();
                 return "Erfolgreich gedruckt";
             }
             else {
