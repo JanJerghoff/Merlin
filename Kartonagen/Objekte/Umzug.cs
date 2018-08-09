@@ -967,6 +967,7 @@ namespace Kartonagen
             //kill(5);
             //kill(6);
             //kill(7);
+
             Events ev = Program.getUtil().kalenderUmzugFinder("Umzugsnummer: "+id);
             Console.WriteLine(ev.Items.Count + "gefunden");
 
