@@ -79,7 +79,6 @@
             this.radioUmzVllt = new System.Windows.Forms.RadioButton();
             this.radioUmzNein = new System.Windows.Forms.RadioButton();
             this.radioUmzJa = new System.Windows.Forms.RadioButton();
-            this.buttonBlockTermine = new System.Windows.Forms.Button();
             this.timeBesichtigung = new System.Windows.Forms.DateTimePicker();
             this.groupBoxAuspackDat = new System.Windows.Forms.GroupBox();
             this.radioAusVllt = new System.Windows.Forms.RadioButton();
@@ -115,7 +114,6 @@
             this.textNoteFahrer = new System.Windows.Forms.TextBox();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
             this.textNoteBuero = new System.Windows.Forms.TextBox();
-            this.buttonBlockBemerkungen = new System.Windows.Forms.Button();
             this.buttonLaufzettel = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.checkGeschlossenAnzeigen = new System.Windows.Forms.CheckBox();
@@ -230,7 +228,6 @@
             this.textHausnummerA = new System.Windows.Forms.TextBox();
             this.textStraßeA = new System.Windows.Forms.TextBox();
             this.boxEntrümpeln = new System.Windows.Forms.GroupBox();
-            this.buttonBlockEntruempeln = new System.Windows.Forms.Button();
             this.numericStundenEnt = new System.Windows.Forms.NumericUpDown();
             this.label45 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
@@ -246,6 +243,7 @@
             this.groupBox20 = new System.Windows.Forms.GroupBox();
             this.radioEntruempelnAndere = new System.Windows.Forms.RadioButton();
             this.radioEntruempelAus = new System.Windows.Forms.RadioButton();
+            this.buttonBlockAlleAenderungen = new System.Windows.Forms.Button();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericLKWGroß)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLKW)).BeginInit();
@@ -825,7 +823,6 @@
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox4.Controls.Add(this.groupBoxUmzugsDat);
-            this.groupBox4.Controls.Add(this.buttonBlockTermine);
             this.groupBox4.Controls.Add(this.timeBesichtigung);
             this.groupBox4.Controls.Add(this.groupBoxAuspackDat);
             this.groupBox4.Controls.Add(this.groupBoxEinpackDat);
@@ -909,17 +906,6 @@
             this.radioUmzJa.TabIndex = 11;
             this.radioUmzJa.Text = "Festgelegt";
             this.radioUmzJa.UseVisualStyleBackColor = true;
-            // 
-            // buttonBlockTermine
-            // 
-            this.buttonBlockTermine.Location = new System.Drawing.Point(927, 117);
-            this.buttonBlockTermine.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonBlockTermine.Name = "buttonBlockTermine";
-            this.buttonBlockTermine.Size = new System.Drawing.Size(88, 98);
-            this.buttonBlockTermine.TabIndex = 88;
-            this.buttonBlockTermine.Text = "Block Ändern";
-            this.buttonBlockTermine.UseVisualStyleBackColor = true;
-            this.buttonBlockTermine.Click += new System.EventHandler(this.buttonBlockTermine_Click);
             // 
             // timeBesichtigung
             // 
@@ -1311,16 +1297,6 @@
             this.textNoteBuero.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textNoteBuero.Size = new System.Drawing.Size(505, 137);
             this.textNoteBuero.TabIndex = 0;
-            // 
-            // buttonBlockBemerkungen
-            // 
-            this.buttonBlockBemerkungen.Location = new System.Drawing.Point(2096, 537);
-            this.buttonBlockBemerkungen.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonBlockBemerkungen.Name = "buttonBlockBemerkungen";
-            this.buttonBlockBemerkungen.Size = new System.Drawing.Size(109, 329);
-            this.buttonBlockBemerkungen.TabIndex = 90;
-            this.buttonBlockBemerkungen.Text = " Alle\r\nBemerkungen\r\nÄndern\r\n";
-            this.buttonBlockBemerkungen.UseVisualStyleBackColor = true;
             // 
             // buttonLaufzettel
             // 
@@ -2655,18 +2631,6 @@
             this.boxEntrümpeln.TabStop = false;
             this.boxEntrümpeln.Text = "Entrümpeln";
             // 
-            // buttonBlockEntruempeln
-            // 
-            this.buttonBlockEntruempeln.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBlockEntruempeln.Location = new System.Drawing.Point(1562, 873);
-            this.buttonBlockEntruempeln.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonBlockEntruempeln.Name = "buttonBlockEntruempeln";
-            this.buttonBlockEntruempeln.Size = new System.Drawing.Size(319, 88);
-            this.buttonBlockEntruempeln.TabIndex = 105;
-            this.buttonBlockEntruempeln.Text = "Alle Änderungen speichern";
-            this.buttonBlockEntruempeln.UseVisualStyleBackColor = true;
-            this.buttonBlockEntruempeln.Click += new System.EventHandler(this.buttonBlockEntruempeln_Click);
-            // 
             // numericStundenEnt
             // 
             this.numericStundenEnt.Location = new System.Drawing.Point(11, 378);
@@ -2820,13 +2784,25 @@
             this.radioEntruempelAus.UseVisualStyleBackColor = true;
             this.radioEntruempelAus.CheckedChanged += new System.EventHandler(this.radioEntruempelAus_CheckedChanged);
             // 
+            // buttonBlockAlleAenderungen
+            // 
+            this.buttonBlockAlleAenderungen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBlockAlleAenderungen.Location = new System.Drawing.Point(1562, 873);
+            this.buttonBlockAlleAenderungen.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonBlockAlleAenderungen.Name = "buttonBlockAlleAenderungen";
+            this.buttonBlockAlleAenderungen.Size = new System.Drawing.Size(319, 88);
+            this.buttonBlockAlleAenderungen.TabIndex = 105;
+            this.buttonBlockAlleAenderungen.Text = "Alle Änderungen speichern";
+            this.buttonBlockAlleAenderungen.UseVisualStyleBackColor = true;
+            this.buttonBlockAlleAenderungen.Click += new System.EventHandler(this.buttonBlockEntruempeln_Click);
+            // 
             // UmzuegeSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1924, 1045);
-            this.Controls.Add(this.buttonBlockEntruempeln);
+            this.Controls.Add(this.buttonBlockAlleAenderungen);
             this.Controls.Add(this.boxEntrümpeln);
             this.Controls.Add(this.groupBox27);
             this.Controls.Add(this.groupBox14);
@@ -2836,7 +2812,6 @@
             this.Controls.Add(this.checkGeschlossenAnzeigen);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.buttonLaufzettel);
-            this.Controls.Add(this.buttonBlockBemerkungen);
             this.Controls.Add(this.groupBox24);
             this.Controls.Add(this.groupBox19);
             this.Controls.Add(this.buttonDruk);
@@ -3013,7 +2988,6 @@
         private System.Windows.Forms.DateTimePicker dateBesicht;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RadioButton radioEntVllt;
-        private System.Windows.Forms.Button buttonBlockTermine;
         private System.Windows.Forms.GroupBox groupBoxUmzugsDat;
         private System.Windows.Forms.RadioButton radioUmzVorlaeufig;
         private System.Windows.Forms.RadioButton radioUmzVllt;
@@ -3026,7 +3000,6 @@
         private System.Windows.Forms.TextBox textNoteFahrer;
         private System.Windows.Forms.GroupBox groupBox18;
         private System.Windows.Forms.TextBox textNoteBuero;
-        private System.Windows.Forms.Button buttonBlockBemerkungen;
         private System.Windows.Forms.Button buttonLaufzettel;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.NumericUpDown numericLKWGroß;
@@ -3164,6 +3137,6 @@
         private System.Windows.Forms.GroupBox groupBox20;
         private System.Windows.Forms.RadioButton radioEntruempelnAndere;
         private System.Windows.Forms.RadioButton radioEntruempelAus;
-        private System.Windows.Forms.Button buttonBlockEntruempeln;
+        private System.Windows.Forms.Button buttonBlockAlleAenderungen;
     }
 }

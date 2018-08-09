@@ -403,8 +403,8 @@ namespace Kartonagen
             fields.TryGetValue("Mitarbeiter", out toSet);
             toSet.SetValue(textMitarbeiter.Text);
 
-            fields.TryGetValue("Fahrzeug", out toSet);
-            toSet.SetValue(textFahrzeug.Text);
+            //fields.TryGetValue("Fahrzeug", out toSet);
+            //toSet.SetValue(textFahrzeug.Text);
 
 
             form.FlattenFields();
@@ -412,6 +412,7 @@ namespace Kartonagen
             catch (Exception ex)
             { Program.FehlerLog(ex.ToString(), "Fehler beim schließen des PDF \r\n Bereits dokumentiert."); }
 
+            //Program.showPDF();
             Program.SendToPrinter();
 
             textLog.AppendText("PDF Erfolgreich erzeugt");

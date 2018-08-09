@@ -35,10 +35,7 @@ namespace Kartonagen
         int EntruempelungSet = 0;
         int EinpackenSet = 0;
         int AuspackenSet = 0;
-
-
-        
-
+                
         public UmzuegeSearch()
         {
             InitializeComponent();

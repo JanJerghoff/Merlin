@@ -611,6 +611,13 @@ namespace Kartonagen
                 timeLieferzeit.Enabled = false;
             }
         }
+
+        private void buttonTransaktionAendern_Click(object sender, EventArgs e)
+        {
+            TransaktionenSearch transaktionenSuche = new TransaktionenSearch();
+            transaktionenSuche.setBearbeiter(idBearbeitend);
+            transaktionenSuche.Show();
+        }
     }
     
 }

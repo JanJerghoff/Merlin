@@ -163,7 +163,9 @@ namespace Kartonagen
             }
 
             // Drucken der Daten
+                 
             PdfDocument pdf = new PdfDocument(new PdfReader(System.IO.Path.Combine(Environment.CurrentDirectory, "Laufzettel Besichtigung.pdf")), new PdfWriter(Program.druckPfad));
+            
             PdfAcroForm form = PdfAcroForm.GetAcroForm(pdf, true);
             IDictionary<String, PdfFormField> fields = form.GetFormFields();
             PdfFormField toSet;
@@ -191,10 +193,10 @@ namespace Kartonagen
                     toSet.SetValue(Uhrzeit);
 
                     fields.TryGetValue("Strasse " + zaehler, out toSet);
-                    toSet.SetValue(rdr[5] + " " + rdr[6]);
+                    toSet.SetValue(rdr[5] + " " + rdr[6]+ " "+ rdr[8] + " " + rdr[7]);
 
-                    fields.TryGetValue("Ort " + zaehler, out toSet);
-                    toSet.SetValue(rdr[8] + " " + rdr[7]);
+                    //fields.TryGetValue("Ort " + zaehler, out toSet);
+                    //toSet.SetValue(rdr[8] + " " + rdr[7]);
 
                     if (rdr[4].ToString() != "0")
                     {

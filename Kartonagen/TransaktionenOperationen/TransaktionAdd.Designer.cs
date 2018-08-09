@@ -104,6 +104,7 @@
             this.textAltFlaschen = new System.Windows.Forms.TextBox();
             this.textAltKarton = new System.Windows.Forms.TextBox();
             this.textAltDatum = new System.Windows.Forms.TextBox();
+            this.buttonTransaktionAendern = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUmzugsnummer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKundennummer)).BeginInit();
             this.groupBox5.SuspendLayout();
@@ -121,7 +122,7 @@
             // textSuchBox
             // 
             this.textSuchBox.Location = new System.Drawing.Point(560, 15);
-            this.textSuchBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textSuchBox.Margin = new System.Windows.Forms.Padding(4);
             this.textSuchBox.Multiline = true;
             this.textSuchBox.Name = "textSuchBox";
             this.textSuchBox.ReadOnly = true;
@@ -134,7 +135,7 @@
             this.textSucheName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textSucheName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textSucheName.Location = new System.Drawing.Point(352, 15);
-            this.textSucheName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textSucheName.Margin = new System.Windows.Forms.Padding(4);
             this.textSucheName.Name = "textSucheName";
             this.textSucheName.Size = new System.Drawing.Size(196, 22);
             this.textSucheName.TabIndex = 69;
@@ -142,7 +143,7 @@
             // buttonNameSuche
             // 
             this.buttonNameSuche.Location = new System.Drawing.Point(352, 47);
-            this.buttonNameSuche.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonNameSuche.Margin = new System.Windows.Forms.Padding(4);
             this.buttonNameSuche.Name = "buttonNameSuche";
             this.buttonNameSuche.Size = new System.Drawing.Size(197, 48);
             this.buttonNameSuche.TabIndex = 68;
@@ -154,7 +155,7 @@
             // buttonUmzugsNrSuche
             // 
             this.buttonUmzugsNrSuche.Location = new System.Drawing.Point(16, 47);
-            this.buttonUmzugsNrSuche.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonUmzugsNrSuche.Margin = new System.Windows.Forms.Padding(4);
             this.buttonUmzugsNrSuche.Name = "buttonUmzugsNrSuche";
             this.buttonUmzugsNrSuche.Size = new System.Drawing.Size(160, 48);
             this.buttonUmzugsNrSuche.TabIndex = 67;
@@ -166,7 +167,7 @@
             // numericUmzugsnummer
             // 
             this.numericUmzugsnummer.Location = new System.Drawing.Point(16, 15);
-            this.numericUmzugsnummer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUmzugsnummer.Margin = new System.Windows.Forms.Padding(4);
             this.numericUmzugsnummer.Maximum = new decimal(new int[] {
             20000,
             0,
@@ -189,7 +190,7 @@
             // buttonKundennummerSuche
             // 
             this.buttonKundennummerSuche.Location = new System.Drawing.Point(184, 48);
-            this.buttonKundennummerSuche.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonKundennummerSuche.Margin = new System.Windows.Forms.Padding(4);
             this.buttonKundennummerSuche.Name = "buttonKundennummerSuche";
             this.buttonKundennummerSuche.Size = new System.Drawing.Size(160, 48);
             this.buttonKundennummerSuche.TabIndex = 72;
@@ -201,7 +202,7 @@
             // numericKundennummer
             // 
             this.numericKundennummer.Location = new System.Drawing.Point(184, 16);
-            this.numericKundennummer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericKundennummer.Margin = new System.Windows.Forms.Padding(4);
             this.numericKundennummer.Maximum = new decimal(new int[] {
             20000,
             0,
@@ -243,9 +244,9 @@
             this.groupBox5.Controls.Add(this.label7);
             this.groupBox5.Controls.Add(this.textVorNachname);
             this.groupBox5.Location = new System.Drawing.Point(16, 103);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox5.Size = new System.Drawing.Size(868, 215);
             this.groupBox5.TabIndex = 73;
             this.groupBox5.TabStop = false;
@@ -276,7 +277,7 @@
             // textUmzugsnummer
             // 
             this.textUmzugsnummer.Location = new System.Drawing.Point(9, 55);
-            this.textUmzugsnummer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUmzugsnummer.Margin = new System.Windows.Forms.Padding(4);
             this.textUmzugsnummer.Name = "textUmzugsnummer";
             this.textUmzugsnummer.ReadOnly = true;
             this.textUmzugsnummer.Size = new System.Drawing.Size(240, 22);
@@ -297,7 +298,7 @@
             // textKleiderAusstehend
             // 
             this.textKleiderAusstehend.Location = new System.Drawing.Point(489, 150);
-            this.textKleiderAusstehend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKleiderAusstehend.Margin = new System.Windows.Forms.Padding(4);
             this.textKleiderAusstehend.Name = "textKleiderAusstehend";
             this.textKleiderAusstehend.ReadOnly = true;
             this.textKleiderAusstehend.Size = new System.Drawing.Size(151, 22);
@@ -307,7 +308,7 @@
             // textGlaeserAusstehend
             // 
             this.textGlaeserAusstehend.Location = new System.Drawing.Point(489, 118);
-            this.textGlaeserAusstehend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textGlaeserAusstehend.Margin = new System.Windows.Forms.Padding(4);
             this.textGlaeserAusstehend.Name = "textGlaeserAusstehend";
             this.textGlaeserAusstehend.ReadOnly = true;
             this.textGlaeserAusstehend.Size = new System.Drawing.Size(151, 22);
@@ -317,7 +318,7 @@
             // textFlaschenAusstehend
             // 
             this.textFlaschenAusstehend.Location = new System.Drawing.Point(489, 86);
-            this.textFlaschenAusstehend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textFlaschenAusstehend.Margin = new System.Windows.Forms.Padding(4);
             this.textFlaschenAusstehend.Name = "textFlaschenAusstehend";
             this.textFlaschenAusstehend.ReadOnly = true;
             this.textFlaschenAusstehend.Size = new System.Drawing.Size(151, 22);
@@ -327,7 +328,7 @@
             // textKartonAusstehend
             // 
             this.textKartonAusstehend.Location = new System.Drawing.Point(489, 54);
-            this.textKartonAusstehend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKartonAusstehend.Margin = new System.Windows.Forms.Padding(4);
             this.textKartonAusstehend.Name = "textKartonAusstehend";
             this.textKartonAusstehend.ReadOnly = true;
             this.textKartonAusstehend.Size = new System.Drawing.Size(151, 22);
@@ -348,7 +349,7 @@
             // textKundennummer
             // 
             this.textKundennummer.Location = new System.Drawing.Point(9, 86);
-            this.textKundennummer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKundennummer.Margin = new System.Windows.Forms.Padding(4);
             this.textKundennummer.Name = "textKundennummer";
             this.textKundennummer.ReadOnly = true;
             this.textKundennummer.Size = new System.Drawing.Size(240, 22);
@@ -358,7 +359,7 @@
             // textUmzugsdatum
             // 
             this.textUmzugsdatum.Location = new System.Drawing.Point(9, 150);
-            this.textUmzugsdatum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUmzugsdatum.Margin = new System.Windows.Forms.Padding(4);
             this.textUmzugsdatum.Name = "textUmzugsdatum";
             this.textUmzugsdatum.ReadOnly = true;
             this.textUmzugsdatum.Size = new System.Drawing.Size(240, 22);
@@ -434,7 +435,7 @@
             // textVorNachname
             // 
             this.textVorNachname.Location = new System.Drawing.Point(9, 118);
-            this.textVorNachname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textVorNachname.Margin = new System.Windows.Forms.Padding(4);
             this.textVorNachname.Name = "textVorNachname";
             this.textVorNachname.ReadOnly = true;
             this.textVorNachname.Size = new System.Drawing.Size(240, 22);
@@ -465,9 +466,9 @@
             this.groupBox8.Controls.Add(this.numericKarton);
             this.groupBox8.Controls.Add(this.groupBox3);
             this.groupBox8.Location = new System.Drawing.Point(16, 326);
-            this.groupBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox8.Size = new System.Drawing.Size(543, 442);
             this.groupBox8.TabIndex = 1;
             this.groupBox8.TabStop = false;
@@ -477,7 +478,7 @@
             // 
             this.timeLieferzeit.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.timeLieferzeit.Location = new System.Drawing.Point(9, 386);
-            this.timeLieferzeit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.timeLieferzeit.Margin = new System.Windows.Forms.Padding(4);
             this.timeLieferzeit.Name = "timeLieferzeit";
             this.timeLieferzeit.Size = new System.Drawing.Size(240, 22);
             this.timeLieferzeit.TabIndex = 83;
@@ -535,9 +536,9 @@
             this.groupBox4.Controls.Add(this.radioKaufJa);
             this.groupBox4.Enabled = false;
             this.groupBox4.Location = new System.Drawing.Point(400, 286);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(115, 92);
             this.groupBox4.TabIndex = 41;
             this.groupBox4.TabStop = false;
@@ -548,7 +549,7 @@
             this.radioKaufNein.AutoSize = true;
             this.radioKaufNein.Checked = true;
             this.radioKaufNein.Location = new System.Drawing.Point(8, 57);
-            this.radioKaufNein.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioKaufNein.Margin = new System.Windows.Forms.Padding(4);
             this.radioKaufNein.Name = "radioKaufNein";
             this.radioKaufNein.Size = new System.Drawing.Size(58, 21);
             this.radioKaufNein.TabIndex = 14;
@@ -561,7 +562,7 @@
             // 
             this.radioKaufJa.AutoSize = true;
             this.radioKaufJa.Location = new System.Drawing.Point(8, 28);
-            this.radioKaufJa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioKaufJa.Margin = new System.Windows.Forms.Padding(4);
             this.radioKaufJa.Name = "radioKaufJa";
             this.radioKaufJa.Size = new System.Drawing.Size(44, 21);
             this.radioKaufJa.TabIndex = 13;
@@ -583,7 +584,7 @@
             // textRechnungsnr
             // 
             this.textRechnungsnr.Location = new System.Drawing.Point(8, 246);
-            this.textRechnungsnr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textRechnungsnr.Margin = new System.Windows.Forms.Padding(4);
             this.textRechnungsnr.Name = "textRechnungsnr";
             this.textRechnungsnr.Size = new System.Drawing.Size(240, 22);
             this.textRechnungsnr.TabIndex = 76;
@@ -594,9 +595,9 @@
             this.groupBox2.Controls.Add(this.radioUnbenutzt);
             this.groupBox2.Enabled = false;
             this.groupBox2.Location = new System.Drawing.Point(400, 92);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(115, 114);
             this.groupBox2.TabIndex = 40;
             this.groupBox2.TabStop = false;
@@ -607,7 +608,7 @@
             this.radioBenutzt.AutoSize = true;
             this.radioBenutzt.Checked = true;
             this.radioBenutzt.Location = new System.Drawing.Point(8, 73);
-            this.radioBenutzt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioBenutzt.Margin = new System.Windows.Forms.Padding(4);
             this.radioBenutzt.Name = "radioBenutzt";
             this.radioBenutzt.Size = new System.Drawing.Size(58, 21);
             this.radioBenutzt.TabIndex = 14;
@@ -619,7 +620,7 @@
             // 
             this.radioUnbenutzt.AutoSize = true;
             this.radioUnbenutzt.Location = new System.Drawing.Point(8, 44);
-            this.radioUnbenutzt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioUnbenutzt.Margin = new System.Windows.Forms.Padding(4);
             this.radioUnbenutzt.Name = "radioUnbenutzt";
             this.radioUnbenutzt.Size = new System.Drawing.Size(44, 21);
             this.radioUnbenutzt.TabIndex = 13;
@@ -640,7 +641,7 @@
             // dateTimeTransaktion
             // 
             this.dateTimeTransaktion.Location = new System.Drawing.Point(8, 84);
-            this.dateTimeTransaktion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimeTransaktion.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimeTransaktion.Name = "dateTimeTransaktion";
             this.dateTimeTransaktion.Size = new System.Drawing.Size(240, 22);
             this.dateTimeTransaktion.TabIndex = 39;
@@ -659,7 +660,7 @@
             // numericKleiderKarton
             // 
             this.numericKleiderKarton.Location = new System.Drawing.Point(8, 214);
-            this.numericKleiderKarton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericKleiderKarton.Margin = new System.Windows.Forms.Padding(4);
             this.numericKleiderKarton.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -683,7 +684,7 @@
             // numericGlaeserkarton
             // 
             this.numericGlaeserkarton.Location = new System.Drawing.Point(9, 182);
-            this.numericGlaeserkarton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericGlaeserkarton.Margin = new System.Windows.Forms.Padding(4);
             this.numericGlaeserkarton.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -707,7 +708,7 @@
             // numericFlaschenKarton
             // 
             this.numericFlaschenKarton.Location = new System.Drawing.Point(8, 150);
-            this.numericFlaschenKarton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericFlaschenKarton.Margin = new System.Windows.Forms.Padding(4);
             this.numericFlaschenKarton.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -731,7 +732,7 @@
             // numericKarton
             // 
             this.numericKarton.Location = new System.Drawing.Point(8, 116);
-            this.numericKarton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericKarton.Margin = new System.Windows.Forms.Padding(4);
             this.numericKarton.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -746,9 +747,9 @@
             this.groupBox3.Controls.Add(this.radioEingang);
             this.groupBox3.Controls.Add(this.radioAusgang);
             this.groupBox3.Location = new System.Drawing.Point(9, 23);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(516, 53);
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
@@ -758,7 +759,7 @@
             // 
             this.radioEingang.AutoSize = true;
             this.radioEingang.Location = new System.Drawing.Point(245, 23);
-            this.radioEingang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioEingang.Margin = new System.Windows.Forms.Padding(4);
             this.radioEingang.Name = "radioEingang";
             this.radioEingang.Size = new System.Drawing.Size(244, 21);
             this.radioEingang.TabIndex = 12;
@@ -770,7 +771,7 @@
             // 
             this.radioAusgang.AutoSize = true;
             this.radioAusgang.Location = new System.Drawing.Point(8, 23);
-            this.radioAusgang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioAusgang.Margin = new System.Windows.Forms.Padding(4);
             this.radioAusgang.Name = "radioAusgang";
             this.radioAusgang.Size = new System.Drawing.Size(225, 21);
             this.radioAusgang.TabIndex = 11;
@@ -781,7 +782,7 @@
             // textResultatsNummer
             // 
             this.textResultatsNummer.Location = new System.Drawing.Point(628, 534);
-            this.textResultatsNummer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textResultatsNummer.Margin = new System.Windows.Forms.Padding(4);
             this.textResultatsNummer.Name = "textResultatsNummer";
             this.textResultatsNummer.ReadOnly = true;
             this.textResultatsNummer.Size = new System.Drawing.Size(169, 22);
@@ -802,7 +803,7 @@
             // buttonTransaktionHinzufuegen
             // 
             this.buttonTransaktionHinzufuegen.Location = new System.Drawing.Point(567, 393);
-            this.buttonTransaktionHinzufuegen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonTransaktionHinzufuegen.Margin = new System.Windows.Forms.Padding(4);
             this.buttonTransaktionHinzufuegen.Name = "buttonTransaktionHinzufuegen";
             this.buttonTransaktionHinzufuegen.Size = new System.Drawing.Size(313, 102);
             this.buttonTransaktionHinzufuegen.TabIndex = 3;
@@ -813,7 +814,7 @@
             // textTransaktionLog
             // 
             this.textTransaktionLog.Location = new System.Drawing.Point(567, 794);
-            this.textTransaktionLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textTransaktionLog.Margin = new System.Windows.Forms.Padding(4);
             this.textTransaktionLog.Multiline = true;
             this.textTransaktionLog.Name = "textTransaktionLog";
             this.textTransaktionLog.ReadOnly = true;
@@ -824,7 +825,7 @@
             // textBemerkung
             // 
             this.textBemerkung.Location = new System.Drawing.Point(16, 794);
-            this.textBemerkung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBemerkung.Margin = new System.Windows.Forms.Padding(4);
             this.textBemerkung.Multiline = true;
             this.textBemerkung.Name = "textBemerkung";
             this.textBemerkung.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -861,9 +862,9 @@
             this.groupBox1.Controls.Add(this.textAltKarton);
             this.groupBox1.Controls.Add(this.textAltDatum);
             this.groupBox1.Location = new System.Drawing.Point(901, 21);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(795, 594);
             this.groupBox1.TabIndex = 88;
             this.groupBox1.TabStop = false;
@@ -883,7 +884,7 @@
             // textAltRechnungsnr
             // 
             this.textAltRechnungsnr.Location = new System.Drawing.Point(223, 70);
-            this.textAltRechnungsnr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAltRechnungsnr.Margin = new System.Windows.Forms.Padding(4);
             this.textAltRechnungsnr.Multiline = true;
             this.textAltRechnungsnr.Name = "textAltRechnungsnr";
             this.textAltRechnungsnr.ReadOnly = true;
@@ -904,7 +905,7 @@
             // textUnbenutzt
             // 
             this.textUnbenutzt.Location = new System.Drawing.Point(665, 70);
-            this.textUnbenutzt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textUnbenutzt.Margin = new System.Windows.Forms.Padding(4);
             this.textUnbenutzt.Multiline = true;
             this.textUnbenutzt.Name = "textUnbenutzt";
             this.textUnbenutzt.ReadOnly = true;
@@ -925,7 +926,7 @@
             // textTransNummer
             // 
             this.textTransNummer.Location = new System.Drawing.Point(125, 70);
-            this.textTransNummer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textTransNummer.Margin = new System.Windows.Forms.Padding(4);
             this.textTransNummer.Multiline = true;
             this.textTransNummer.Name = "textTransNummer";
             this.textTransNummer.ReadOnly = true;
@@ -990,7 +991,7 @@
             // textAltKleider
             // 
             this.textAltKleider.Location = new System.Drawing.Point(583, 70);
-            this.textAltKleider.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAltKleider.Margin = new System.Windows.Forms.Padding(4);
             this.textAltKleider.Multiline = true;
             this.textAltKleider.Name = "textAltKleider";
             this.textAltKleider.ReadOnly = true;
@@ -1000,7 +1001,7 @@
             // textAltGlaeser
             // 
             this.textAltGlaeser.Location = new System.Drawing.Point(500, 70);
-            this.textAltGlaeser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAltGlaeser.Margin = new System.Windows.Forms.Padding(4);
             this.textAltGlaeser.Multiline = true;
             this.textAltGlaeser.Name = "textAltGlaeser";
             this.textAltGlaeser.ReadOnly = true;
@@ -1010,7 +1011,7 @@
             // textAltFlaschen
             // 
             this.textAltFlaschen.Location = new System.Drawing.Point(405, 70);
-            this.textAltFlaschen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAltFlaschen.Margin = new System.Windows.Forms.Padding(4);
             this.textAltFlaschen.Multiline = true;
             this.textAltFlaschen.Name = "textAltFlaschen";
             this.textAltFlaschen.ReadOnly = true;
@@ -1020,7 +1021,7 @@
             // textAltKarton
             // 
             this.textAltKarton.Location = new System.Drawing.Point(320, 70);
-            this.textAltKarton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAltKarton.Margin = new System.Windows.Forms.Padding(4);
             this.textAltKarton.Multiline = true;
             this.textAltKarton.Name = "textAltKarton";
             this.textAltKarton.ReadOnly = true;
@@ -1030,18 +1031,30 @@
             // textAltDatum
             // 
             this.textAltDatum.Location = new System.Drawing.Point(8, 70);
-            this.textAltDatum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textAltDatum.Margin = new System.Windows.Forms.Padding(4);
             this.textAltDatum.Multiline = true;
             this.textAltDatum.Name = "textAltDatum";
             this.textAltDatum.ReadOnly = true;
             this.textAltDatum.Size = new System.Drawing.Size(108, 516);
             this.textAltDatum.TabIndex = 89;
             // 
+            // buttonTransaktionAendern
+            // 
+            this.buttonTransaktionAendern.Location = new System.Drawing.Point(567, 659);
+            this.buttonTransaktionAendern.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonTransaktionAendern.Name = "buttonTransaktionAendern";
+            this.buttonTransaktionAendern.Size = new System.Drawing.Size(313, 45);
+            this.buttonTransaktionAendern.TabIndex = 89;
+            this.buttonTransaktionAendern.Text = " wechseln zu  Transaktion ändern";
+            this.buttonTransaktionAendern.UseVisualStyleBackColor = true;
+            this.buttonTransaktionAendern.Click += new System.EventHandler(this.buttonTransaktionAendern_Click);
+            // 
             // TransaktionAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1712, 912);
+            this.Controls.Add(this.buttonTransaktionAendern);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textBemerkung);
@@ -1058,7 +1071,7 @@
             this.Controls.Add(this.buttonNameSuche);
             this.Controls.Add(this.buttonUmzugsNrSuche);
             this.Controls.Add(this.numericUmzugsnummer);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TransaktionAdd";
             this.Text = "TransaktionAdd";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -1163,5 +1176,6 @@
         private System.Windows.Forms.Label labelAbholung;
         private System.Windows.Forms.Label labelLieferung;
         private System.Windows.Forms.DateTimePicker timeLieferzeit;
+        private System.Windows.Forms.Button buttonTransaktionAendern;
     }
 }

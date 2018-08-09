@@ -847,10 +847,11 @@ namespace Kartonagen
                 fields.TryGetValue("Autos", out toSet);
                 toSet.SetValue(AutoString());
 
-                
-                 fields.TryGetValue("Kleiderkisten", out toSet);
-                 toSet.SetValue(Kleiderkartons.ToString());
-                
+                if (Kleiderkartons != 0)
+                {
+                    fields.TryGetValue("Kleiderkisten", out toSet);
+                    toSet.SetValue(Kleiderkartons.ToString());
+                }                               
 
                 if (versicherung == 0)
                 {
@@ -960,21 +961,22 @@ namespace Kartonagen
         //Löschen aller Termine
         public void killAll() {
 
-            //kill(1);
-            //kill(2);
-            //kill(3);
-            //kill(4);
-            //kill(5);
-            //kill(6);
-            //kill(7);
 
-            Events ev = Program.getUtil().kalenderUmzugFinder("Umzugsnummer: "+id);
+            Events ev = Program.getUtil().kalenderUmzugFinder("Umzugsnummer:"+id);
             Console.WriteLine(ev.Items.Count + "gefunden");
 
             foreach (var item in ev.Items)
             {
                 Program.getUtil().kalenderEventRemove(item.Id);
             }
+
+            kill(1);
+            kill(2);
+            kill(3);
+            kill(4);
+            kill(5);
+            kill(6);
+            kill(7);
         }
 
         //Einfügen Eizentermine
