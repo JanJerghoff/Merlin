@@ -960,13 +960,20 @@ namespace Kartonagen
         //Löschen aller Termine
         public void killAll() {
 
-            kill(1);
-            kill(2);
-            kill(3);
-            kill(4);
-            kill(5);
-            kill(6);
-            kill(7);
+            //kill(1);
+            //kill(2);
+            //kill(3);
+            //kill(4);
+            //kill(5);
+            //kill(6);
+            //kill(7);
+            Events ev = Program.getUtil().kalenderUmzugFinder("Umzugsnummer: "+id);
+            Console.WriteLine(ev.Items.Count + "gefunden");
+
+            foreach (var item in ev.Items)
+            {
+                Program.getUtil().kalenderEventRemove(item.Id);
+            }
         }
 
         //Einfügen Eizentermine
