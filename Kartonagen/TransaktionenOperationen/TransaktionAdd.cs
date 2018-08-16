@@ -104,7 +104,7 @@ namespace Kartonagen
             }
             catch (Exception sqlEx)
             {
-                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Personendaten \r\n Bereits dokumentiert.");
+                Program.FehlerLog(sqlEx.ToString()+"\r\n "+cmdReadKunde.CommandText, "Fehler beim Auslesen der Personendaten \r\n Bereits dokumentiert.");
                 return;
             }
 
@@ -145,43 +145,38 @@ namespace Kartonagen
 
 
             // Überblick Rechts nullen
-            textAltDatum.Text = "";
-            textAltKarton.Text = "";
-            textAltFlaschen.Text = "";
-            textAltGlaeser.Text = "";
-            textAltKleider.Text = "";
-            textTransNummer.Text = "";
-            textAltRechnungsnr.Text = "";
-            textUnbenutzt.Text = "";
+            dataGridAlteTransaktionen.Rows.Clear();
+            dataGridAlteTransaktionen.Refresh();
+
 
             // Bisherige Buchungen Parsen
 
             MySqlCommand cmdReadAlt = new MySqlCommand("SELECT * FROM Transaktionen WHERE Umzuege_idUmzuege=" + textUmzugsnummer.Text + ";", Program.conn);
             MySqlDataReader rdrAlt;
 
+            string textUnbenutzt = "";
+
             try
             {
                 rdrAlt = cmdReadAlt.ExecuteReader();
                 while (rdrAlt.Read())
                 {
-                    textAltRechnungsnr.AppendText(rdrAlt[12] + "\r\n");
-                    textAltDatum.AppendText(rdrAlt.GetDateTime(1).ToShortDateString() + "\r\n");
-                    textAltKarton.AppendText(rdrAlt[2] + "\r\n");
-                    textAltFlaschen.AppendText(rdrAlt[3] + "\r\n");
-                    textAltGlaeser.AppendText(rdrAlt[4] + "\r\n");
-                    textAltKleider.AppendText(rdrAlt[5] + "\r\n");
-                    textTransNummer.AppendText(rdrAlt[0] + "\r\n");
                     if (rdrAlt.GetInt32(11) == 2)
                     {
-                        textUnbenutzt.AppendText("Kauf \r\n");
+                        textUnbenutzt = "Kauf";
                     }
-                    else if (rdrAlt.GetInt32(11) == 1){
-                        textUnbenutzt.AppendText("x \r\n");
+                    else if (rdrAlt.GetInt32(11) == 1)
+                    {
+                        textUnbenutzt = "x";
                     }
-                    else {
-                        textUnbenutzt.AppendText("\r\n");
+                    else
+                    {
+                        textUnbenutzt = "";
                     }
-                    ;
+
+                    object[] toSave = { rdrAlt.GetDateTime(1), rdrAlt[0], rdrAlt.GetString(12), rdrAlt.GetInt32(2), rdrAlt.GetInt32(3), rdrAlt.GetInt32(4), rdrAlt.GetInt32(5), textUnbenutzt,null};
+         
+                    dataGridAlteTransaktionen.Rows.Add(toSave);
                 }
                 rdrAlt.Close();
             }
@@ -618,6 +613,7 @@ namespace Kartonagen
             transaktionenSuche.setBearbeiter(idBearbeitend);
             transaktionenSuche.Show();
         }
+        
     }
     
 }

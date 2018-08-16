@@ -55,19 +55,21 @@
             this.Gläserkartons,
             this.Kleiderkartons,
             this.Letzte_Transaktion});
-            this.dataGridausstehendeKartonagen.Location = new System.Drawing.Point(12, 12);
+            this.dataGridausstehendeKartonagen.Location = new System.Drawing.Point(16, 15);
+            this.dataGridausstehendeKartonagen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridausstehendeKartonagen.Name = "dataGridausstehendeKartonagen";
-            this.dataGridausstehendeKartonagen.Size = new System.Drawing.Size(1328, 503);
+            this.dataGridausstehendeKartonagen.Size = new System.Drawing.Size(1771, 619);
             this.dataGridausstehendeKartonagen.TabIndex = 0;
             // 
             // textMainLog
             // 
             this.textMainLog.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textMainLog.Location = new System.Drawing.Point(12, 521);
+            this.textMainLog.Location = new System.Drawing.Point(16, 641);
+            this.textMainLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textMainLog.Multiline = true;
             this.textMainLog.Name = "textMainLog";
             this.textMainLog.ReadOnly = true;
-            this.textMainLog.Size = new System.Drawing.Size(1201, 119);
+            this.textMainLog.Size = new System.Drawing.Size(1600, 146);
             this.textMainLog.TabIndex = 1;
             // 
             // Kundennummer
@@ -126,11 +128,12 @@
             // 
             // ausstehendeKartonagen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1514, 738);
+            this.ClientSize = new System.Drawing.Size(1924, 908);
             this.Controls.Add(this.textMainLog);
             this.Controls.Add(this.dataGridausstehendeKartonagen);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ausstehendeKartonagen";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridausstehendeKartonagen)).EndInit();

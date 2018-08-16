@@ -88,22 +88,16 @@
             this.textBemerkung = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.textAltRechnungsnr = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.textUnbenutzt = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.textTransNummer = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textAltKleider = new System.Windows.Forms.TextBox();
-            this.textAltGlaeser = new System.Windows.Forms.TextBox();
-            this.textAltFlaschen = new System.Windows.Forms.TextBox();
-            this.textAltKarton = new System.Windows.Forms.TextBox();
-            this.textAltDatum = new System.Windows.Forms.TextBox();
+            this.dataGridAlteTransaktionen = new System.Windows.Forms.DataGridView();
+            this.Lieferdatum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RechnNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Kartons = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Flaschen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Glaeser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Kleider = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unbenutzt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ButtonChange = new System.Windows.Forms.DataGridViewButtonColumn();
             this.buttonTransaktionAendern = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUmzugsnummer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKundennummer)).BeginInit();
@@ -117,6 +111,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericKarton)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridAlteTransaktionen)).BeginInit();
             this.SuspendLayout();
             // 
             // textSuchBox
@@ -845,198 +840,87 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label22);
-            this.groupBox1.Controls.Add(this.textAltRechnungsnr);
-            this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.textUnbenutzt);
-            this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.textTransNummer);
-            this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.textAltKleider);
-            this.groupBox1.Controls.Add(this.textAltGlaeser);
-            this.groupBox1.Controls.Add(this.textAltFlaschen);
-            this.groupBox1.Controls.Add(this.textAltKarton);
-            this.groupBox1.Controls.Add(this.textAltDatum);
+            this.groupBox1.Controls.Add(this.dataGridAlteTransaktionen);
             this.groupBox1.Location = new System.Drawing.Point(901, 21);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(795, 594);
+            this.groupBox1.Size = new System.Drawing.Size(1010, 594);
             this.groupBox1.TabIndex = 88;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Vergangene Buchungen zu diesem Umzug";
             // 
-            // label22
+            // dataGridAlteTransaktionen
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(225, 21);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(72, 36);
-            this.label22.TabIndex = 103;
-            this.label22.Text = "Rechn.\r\nNummer";
+            this.dataGridAlteTransaktionen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridAlteTransaktionen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Lieferdatum,
+            this.TransNr,
+            this.RechnNr,
+            this.Kartons,
+            this.Flaschen,
+            this.Glaeser,
+            this.Kleider,
+            this.Unbenutzt,
+            this.ButtonChange});
+            this.dataGridAlteTransaktionen.Location = new System.Drawing.Point(7, 27);
+            this.dataGridAlteTransaktionen.Name = "dataGridAlteTransaktionen";
+            this.dataGridAlteTransaktionen.RowTemplate.Height = 24;
+            this.dataGridAlteTransaktionen.Size = new System.Drawing.Size(996, 560);
+            this.dataGridAlteTransaktionen.TabIndex = 104;
             // 
-            // textAltRechnungsnr
+            // Lieferdatum
             // 
-            this.textAltRechnungsnr.Location = new System.Drawing.Point(223, 70);
-            this.textAltRechnungsnr.Margin = new System.Windows.Forms.Padding(4);
-            this.textAltRechnungsnr.Multiline = true;
-            this.textAltRechnungsnr.Name = "textAltRechnungsnr";
-            this.textAltRechnungsnr.ReadOnly = true;
-            this.textAltRechnungsnr.Size = new System.Drawing.Size(88, 516);
-            this.textAltRechnungsnr.TabIndex = 102;
+            this.Lieferdatum.HeaderText = "Lieferdatum";
+            this.Lieferdatum.Name = "Lieferdatum";
+            this.Lieferdatum.ReadOnly = true;
             // 
-            // label20
+            // TransNr
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(661, 21);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(93, 36);
-            this.label20.TabIndex = 101;
-            this.label20.Text = "Unbenutzte\r\nKartons";
+            this.TransNr.HeaderText = "Trans. Nummer";
+            this.TransNr.Name = "TransNr";
+            this.TransNr.ReadOnly = true;
             // 
-            // textUnbenutzt
+            // RechnNr
             // 
-            this.textUnbenutzt.Location = new System.Drawing.Point(665, 70);
-            this.textUnbenutzt.Margin = new System.Windows.Forms.Padding(4);
-            this.textUnbenutzt.Multiline = true;
-            this.textUnbenutzt.Name = "textUnbenutzt";
-            this.textUnbenutzt.ReadOnly = true;
-            this.textUnbenutzt.Size = new System.Drawing.Size(57, 516);
-            this.textUnbenutzt.TabIndex = 100;
+            this.RechnNr.HeaderText = "Rechn. Nummer";
+            this.RechnNr.Name = "RechnNr";
+            this.RechnNr.ReadOnly = true;
             // 
-            // label19
+            // Kartons
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(128, 21);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(72, 36);
-            this.label19.TabIndex = 99;
-            this.label19.Text = "Trans.\r\nNummer";
+            this.Kartons.HeaderText = "Kartons";
+            this.Kartons.Name = "Kartons";
+            this.Kartons.ReadOnly = true;
             // 
-            // textTransNummer
+            // Flaschen
             // 
-            this.textTransNummer.Location = new System.Drawing.Point(125, 70);
-            this.textTransNummer.Margin = new System.Windows.Forms.Padding(4);
-            this.textTransNummer.Multiline = true;
-            this.textTransNummer.Name = "textTransNummer";
-            this.textTransNummer.ReadOnly = true;
-            this.textTransNummer.Size = new System.Drawing.Size(88, 516);
-            this.textTransNummer.TabIndex = 98;
+            this.Flaschen.HeaderText = "Flaschenkartons";
+            this.Flaschen.Name = "Flaschen";
+            this.Flaschen.ReadOnly = true;
             // 
-            // label18
+            // Glaeser
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(579, 21);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(67, 36);
-            this.label18.TabIndex = 97;
-            this.label18.Text = "Kleider\r\nKartons";
+            this.Glaeser.HeaderText = "Gläserkartons";
+            this.Glaeser.Name = "Glaeser";
+            this.Glaeser.ReadOnly = true;
             // 
-            // label17
+            // Kleider
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(496, 21);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(67, 36);
-            this.label17.TabIndex = 96;
-            this.label17.Text = "Gläser\r\nKartons";
+            this.Kleider.HeaderText = "Kleiderkartons";
+            this.Kleider.Name = "Kleider";
+            this.Kleider.ReadOnly = true;
             // 
-            // label16
+            // Unbenutzt
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(401, 21);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(76, 36);
-            this.label16.TabIndex = 95;
-            this.label16.Text = "Flaschen\r\nKartons";
+            this.Unbenutzt.HeaderText = "Unbenutzte Kartons";
+            this.Unbenutzt.Name = "Unbenutzt";
+            this.Unbenutzt.ReadOnly = true;
             // 
-            // label15
+            // ButtonChange
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(311, 21);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(72, 36);
-            this.label15.TabIndex = 40;
-            this.label15.Text = "Normale\r\nKartons";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(8, 39);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(96, 18);
-            this.label14.TabIndex = 94;
-            this.label14.Text = "Lieferdatum";
-            // 
-            // textAltKleider
-            // 
-            this.textAltKleider.Location = new System.Drawing.Point(583, 70);
-            this.textAltKleider.Margin = new System.Windows.Forms.Padding(4);
-            this.textAltKleider.Multiline = true;
-            this.textAltKleider.Name = "textAltKleider";
-            this.textAltKleider.ReadOnly = true;
-            this.textAltKleider.Size = new System.Drawing.Size(57, 516);
-            this.textAltKleider.TabIndex = 93;
-            // 
-            // textAltGlaeser
-            // 
-            this.textAltGlaeser.Location = new System.Drawing.Point(500, 70);
-            this.textAltGlaeser.Margin = new System.Windows.Forms.Padding(4);
-            this.textAltGlaeser.Multiline = true;
-            this.textAltGlaeser.Name = "textAltGlaeser";
-            this.textAltGlaeser.ReadOnly = true;
-            this.textAltGlaeser.Size = new System.Drawing.Size(57, 516);
-            this.textAltGlaeser.TabIndex = 92;
-            // 
-            // textAltFlaschen
-            // 
-            this.textAltFlaschen.Location = new System.Drawing.Point(405, 70);
-            this.textAltFlaschen.Margin = new System.Windows.Forms.Padding(4);
-            this.textAltFlaschen.Multiline = true;
-            this.textAltFlaschen.Name = "textAltFlaschen";
-            this.textAltFlaschen.ReadOnly = true;
-            this.textAltFlaschen.Size = new System.Drawing.Size(57, 516);
-            this.textAltFlaschen.TabIndex = 91;
-            // 
-            // textAltKarton
-            // 
-            this.textAltKarton.Location = new System.Drawing.Point(320, 70);
-            this.textAltKarton.Margin = new System.Windows.Forms.Padding(4);
-            this.textAltKarton.Multiline = true;
-            this.textAltKarton.Name = "textAltKarton";
-            this.textAltKarton.ReadOnly = true;
-            this.textAltKarton.Size = new System.Drawing.Size(76, 516);
-            this.textAltKarton.TabIndex = 90;
-            // 
-            // textAltDatum
-            // 
-            this.textAltDatum.Location = new System.Drawing.Point(8, 70);
-            this.textAltDatum.Margin = new System.Windows.Forms.Padding(4);
-            this.textAltDatum.Multiline = true;
-            this.textAltDatum.Name = "textAltDatum";
-            this.textAltDatum.ReadOnly = true;
-            this.textAltDatum.Size = new System.Drawing.Size(108, 516);
-            this.textAltDatum.TabIndex = 89;
+            this.ButtonChange.HeaderText = "Transaktion ändern";
+            this.ButtonChange.Name = "ButtonChange";
             // 
             // buttonTransaktionAendern
             // 
@@ -1053,7 +937,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1712, 912);
+            this.ClientSize = new System.Drawing.Size(1924, 912);
             this.Controls.Add(this.buttonTransaktionAendern);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label13);
@@ -1092,7 +976,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridAlteTransaktionen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1147,27 +1031,11 @@
         private System.Windows.Forms.TextBox textBemerkung;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textAltKleider;
-        private System.Windows.Forms.TextBox textAltGlaeser;
-        private System.Windows.Forms.TextBox textAltFlaschen;
-        private System.Windows.Forms.TextBox textAltKarton;
-        private System.Windows.Forms.TextBox textAltDatum;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton radioBenutzt;
         private System.Windows.Forms.RadioButton radioUnbenutzt;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textUnbenutzt;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textTransNummer;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textRechnungsnr;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textAltRechnungsnr;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.RadioButton radioKaufNein;
         private System.Windows.Forms.RadioButton radioKaufJa;
@@ -1177,5 +1045,15 @@
         private System.Windows.Forms.Label labelLieferung;
         private System.Windows.Forms.DateTimePicker timeLieferzeit;
         private System.Windows.Forms.Button buttonTransaktionAendern;
+        private System.Windows.Forms.DataGridView dataGridAlteTransaktionen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Lieferdatum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TransNr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RechnNr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Kartons;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Flaschen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Glaeser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Kleider;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unbenutzt;
+        private System.Windows.Forms.DataGridViewButtonColumn ButtonChange;
     }
 }

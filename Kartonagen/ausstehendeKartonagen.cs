@@ -144,11 +144,12 @@ namespace Kartonagen
 
                 //DataGridViewRow temp = (DataGridViewRow) dataGridausstehendeKartonagen.RowTemplate.Clone();
 
-                String[] rowtemp = {item.ToString(),Kundenname,Email, Telefonnummer,kartonsTemp.ToString(), flaschenTemp.ToString(), glaeserTemp.ToString(),kleiderTemp.ToString(),dateTemp.ToShortDateString()};
+                Object[] rowtemp = {item.ToString(),Kundenname,Email, Telefonnummer,kartonsTemp, flaschenTemp, glaeserTemp,kleiderTemp,dateTemp};
 
                 dataGridausstehendeKartonagen.Rows.Add(rowtemp);
             }
 
+            dataGridausstehendeKartonagen.Columns[8].DefaultCellStyle.Format = "dd.MM.yyyy";
             // Ordnen
         }
     }

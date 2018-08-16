@@ -128,14 +128,13 @@ namespace Kartonagen
 
             try
             {
-
                 rdr = cmdRead.ExecuteReader();
 
                 while (rdr.Read())
                 {
                     nummern[tempCounter] = rdr.GetInt32(0);
                     vornamen[tempCounter] = rdr[1].ToString();
-                    // test = rdr.GetDateTime(2).ToShortDateString();                                           Fix steht aus
+                    daten[tempCounter]= rdr.GetDateTime(2).ToShortDateString();                                        //   Fix steht aus
                     tempCounter += 1;
                 }
                 rdr.Close();
