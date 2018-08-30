@@ -668,6 +668,31 @@ namespace Kartonagen
 
         private void parseEtagen()
         {
+            checkKellerA.Checked = false;
+            checkEGA.Checked = false;
+            checkDBA.Checked = false;
+            checkMAA.Checked = false;
+            checkSTA.Checked = false;
+            checkHPA.Checked = false;
+            checkOG1A.Checked = false;
+            checkOG2A.Checked = false;
+            checkOG3A.Checked = false;
+            checkOG4A.Checked = false;
+            checkOG5A.Checked = false;
+            textSonderEtageA.Clear();
+
+            checkKellerB.Checked = false;
+            checkEGB.Checked = false;
+            checkDBB.Checked = false;
+            checkMAB.Checked = false;
+            checkSTB.Checked = false;
+            checkHPB.Checked = false;
+            checkOG1B.Checked = false;
+            checkOG2B.Checked = false;
+            checkOG3B.Checked = false;
+            checkOG4B.Checked = false;
+            checkOG5B.Checked = false;
+            textSonderEtageB.Clear();
 
             if (umzObj.auszug.Stockwerke1.Length != 0)
             {
