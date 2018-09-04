@@ -994,14 +994,24 @@ namespace Kartonagen
                 switch (code)
                 {
                     case 1:
-                        DateTime date = Program.getUtil().mergeDatetime(datBesichtigung, zeitUmzug);
-                        DateTime schluss = date.AddMinutes(60);
-                        Program.getUtil().kalenderEventEintrag(IdKunden + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname, KalenderString(), 9, date, schluss);
-                        return true;
+                        if (StatBesichtigung == 1)
+                        {
+                            DateTime date = Program.getUtil().mergeDatetime(datBesichtigung, zeitUmzug);
+                            DateTime schluss = date.AddMinutes(60);
+                            Program.getUtil().kalenderEventEintrag(IdKunden + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname, KalenderString(), 9, date, schluss);
+                            return true;
+                        }
+                        else {
+                            return false;
+                        }
 
                     case 2:
-                        Program.getUtil().kalenderEventEintragGanz(UmzHeader(), KalenderString(), hvzString(), resolveUmzugsfarbe(), DatUmzug, DatUmzug.AddDays(umzugsdauer));
 
+                        if (statUmzug != 0) {
+
+                            Program.getUtil().kalenderEventEintragGanz(UmzHeader(), KalenderString(), hvzString(), resolveUmzugsfarbe(), DatUmzug, DatUmzug.AddDays(umzugsdauer));
+                        }
+             
                         if (statUmzug == 1 || StatUmzug == 3)
 
                         {

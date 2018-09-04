@@ -809,8 +809,6 @@ namespace Kartonagen
                         textSonderEtageB.AppendText(item);
                     }
                 }
-
-
             }
 
         }
@@ -1294,7 +1292,8 @@ namespace Kartonagen
             umzObj.UpdateDB(idBearbeitend.ToString());
 
             //Kalender aktualisieren
-            refreshAll();
+            //refreshAll();
+            umzObj.addAll();
 
             if (pop)
             {
@@ -1764,6 +1763,7 @@ namespace Kartonagen
             refreshEinraeumen();
             refreshEntruempeln();
 
+            umzObj.killAll();
             umzObj.increaseLfdNr();
 
             // Eventliste refreshenm
