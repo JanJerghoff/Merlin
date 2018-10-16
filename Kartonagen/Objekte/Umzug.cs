@@ -229,9 +229,7 @@ namespace Kartonagen
             int kuechePausch, Adresse auszug, Adresse einzug, int schilder, DateTime schilderZeit, string notizTitel, string notizBuero, string notizFahrer, string userChanged, DateTime erstelldatum, Adresse ruempeladresse, int RuempelMann, int RuempelStunden)
 
         {
-
             int ruempelNr = 0;
-
             if (ruempeladresse != null) {
                 ruempeladresse.saveNew();
                 ruempelNr = ruempeladresse.findAdresse();
@@ -961,7 +959,6 @@ namespace Kartonagen
         //Löschen aller Termine
         public void killAll() {
 
-
             Events ev = Program.getUtil().kalenderUmzugFinder("Umzugsnummer:"+id);
             Console.WriteLine(ev.Items.Count + "gefunden");
 
@@ -1094,7 +1091,7 @@ namespace Kartonagen
         //Kopletter Refresh
         public void RefreshAll() {
             killAll();
-            increaseLfdNr();
+           // increaseLfdNr();
             addAll();
         }
 

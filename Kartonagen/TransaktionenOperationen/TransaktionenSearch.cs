@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Google.Apis.Calendar.v3.Data;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -185,8 +186,7 @@ namespace Kartonagen
 
 
         private void buttonAbsenden_Click(object sender, EventArgs e)
-        {
-            
+        {            
             
             //String bauen
             String push = "UPDATE Transaktionen SET ";
@@ -208,9 +208,7 @@ namespace Kartonagen
                 push += "FlaschenKartons = -" + numericFlaschenKartonAendern.Value + ", ";
                 push += "GlaeserKartons = -" + numericGlaeserKartonAendern.Value + ", ";
                 push += "KleiderKartons = -" + numericKleiderKartonAendern.Value + ", ";
-            }
-
-            
+            }           
 
 
             //push += "Umzuege_idUmzuege = "+ textUmzugsnummer.Text + ", ";
@@ -234,6 +232,26 @@ namespace Kartonagen
             }
 
             Program.absender(push + shove, "Fehler beim ändern einer Transaktion in der DB");
+
+            //Kalendereintrag
+            if (dateTimeTransaktion.Value != dateTimeTransaktionAendern.Value || timeTransaktion.Value != timeAendern.Value)
+            {
+                Events ev = Program.getUtil().kalenderUmzugFinder(textKundennummer.Text);
+           
+                foreach (var item in ev.Items) 
+                {
+                    if (item.ColorId == "8" && item.End.DateTime == dateTimeTransaktion.Value) {
+
+                        textTransaktionLog.AppendText ("bestehenden Termin löschen");
+                        Program.getUtil().kalenderEventRemove(item.Id);
+                    }
+                }
+                DateTime datKalender = new DateTime(dateTimeTransaktionAendern.Value.Year, dateTimeTransaktionAendern.Value.Month, dateTimeTransaktionAendern.Value.Day, timeAendern.Value.Hour, timeAendern.Value.Minute, 0);
+
+                Program.getUtil().kalenderEventEintrag(textKundennummer.Text + " " +textVorNachname, "BODY", 8, datKalender, datKalender.AddHours(1));
+                
+            }
+
 
             //Neu Fuellen
             fuellen(int.Parse(textTransaktion.Text));

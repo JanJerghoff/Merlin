@@ -64,10 +64,10 @@ namespace Kartonagen.Objekte
             }
             catch (Exception sqlEx)
             {
-                Program.FehlerLog(sqlEx.ToString(), "Abrufen des Kunden zur Objekterzeugung");
+                Program.FehlerLog(sqlEx.ToString(), "Abrufen des Kunden "+id+" zur Objekterzeugung");
             }
 
-            anschrift = new Adresse(tempStr, tempHausnummer, tempOrt, tempPLZ, "", 0, "", "", 0, 0, 0);
+            //anschrift = new Adresse(tempStr, tempHausnummer, tempOrt, tempPLZ, "", 0, "", "", 0, 0, 0);
         }
     }
 }

@@ -18,6 +18,9 @@ namespace Kartonagen
 {
     static class Program
     {
+        //Flag für angemeldeter Mitarbeiter
+        private int angemeldeterMitarbeiter = -1;
+
         //Singleton Calendar-Handler
         private static CalendarAPIUtil.Util ut;
 
@@ -33,21 +36,22 @@ namespace Kartonagen
         // PDF-Druckvorbereitung / Datenspeicher
         public static string druckPfad = System.IO.Path.Combine(Environment.CurrentDirectory, "temp2.pdf");
         public static string fehlerPfad = System.IO.Path.Combine(Environment.CurrentDirectory, "fehler.txt");
+        public static string kalenderLog = System.IO.Path.Combine(Environment.CurrentDirectory, "kalenderLog.txt");
         public static string QueryPfad = System.IO.Path.Combine(Environment.CurrentDirectory, "query.txt");
         public static string mitnehmPfad = System.IO.Path.Combine(Environment.CurrentDirectory, "Mitnehmordner");
         // Buero-geänderte-version
 
         // Deployment
-        //internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=Umzuege;port=3306;password=he62okv;");
-        //internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
+        internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=Umzuege;port=3306;password=he62okv;");
+        internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
 
         //Test Home
         //internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;");
         //internal static MySqlConnection conn2 = new MySqlConnection("server = 10.0.0.0;user=test;database=Mitarbeiter;port=3306;password=he62okv;");
 
         //Test Arbeit
-        internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=DB_test;port=3306;password=he62okv;");
-        internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
+        //internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=DB_test;port=3306;password=he62okv;");
+        //internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
 
 
         // -------------- Methoden ---------------
@@ -534,13 +538,13 @@ namespace Kartonagen
             
         }
 
-        public static void QueryLog(string Query)
+        public static void KalenderLog(string Kalendereintrag)
         {
 
-            if (!File.Exists(fehlerPfad))
+            if (!File.Exists(kalenderLog))
             {
                 // Datei erstellen
-                using (StreamWriter sw = File.CreateText(fehlerPfad))
+                using (StreamWriter sw = File.CreateText(kalenderLog))
                 {
                     sw.WriteLine("");
                     sw.WriteLine("Start");
@@ -549,7 +553,30 @@ namespace Kartonagen
             }
 
             // Eintrag machen
-            using (StreamWriter sw = File.AppendText(fehlerPfad))
+            using (StreamWriter sw = File.AppendText(kalenderLog))
+            {
+                sw.WriteLine(DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString() + " : ");
+                sw.WriteLine(Kalendereintrag);
+                sw.WriteLine("");
+            }            
+        }
+
+        public static void QueryLog(string Query)
+        {
+
+            if (!File.Exists(QueryPfad))
+            {
+                // Datei erstellen
+                using (StreamWriter sw = File.CreateText(QueryPfad))
+                {
+                    sw.WriteLine("");
+                    sw.WriteLine("Start");
+                    sw.WriteLine("");
+                }
+            }
+
+            // Eintrag machen
+            using (StreamWriter sw = File.AppendText(QueryPfad))
             {
                 sw.WriteLine(DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
                 sw.WriteLine(Query);
@@ -579,11 +606,7 @@ namespace Kartonagen
             {
                 Program.FehlerLog(ex.ToString(), "Konnte keine Datenbankverbindung aufbauen \r\n Bereits dokumentiert.");
             }
-
-            //Class1.refreshEntireCalendar();
-            //return;
-
-
+            
             // Öffnen des Fensters
             Application.Run(new mainForm());                       
         }

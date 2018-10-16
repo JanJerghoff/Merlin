@@ -353,7 +353,6 @@ namespace Kartonagen
         private void buttonSchnellSpeichern_Click(object sender, EventArgs e)
         {
             // Wirklich?
-
             var bestätigung = MessageBox.Show("Den Umzug wirklich hinzufügen?", "Hinzufügen bestätigen", MessageBoxButtons.YesNo);
             if (bestätigung == DialogResult.No)
             {
@@ -392,21 +391,12 @@ namespace Kartonagen
 
             umzObj = aktUmzug;
 
-            //aktUmzug.addAll();
-
-            // Adresse für Entrümpeln speichern TODO
-
-
             // Ergebnis - Umzugsnummer anzeigen
-
             textUmzugsNummer.Text = "";
-
             
             
             // Laufzettel anlegen
-
             laufzettelBau();
-
             textUmzugLog.AppendText("Umzug vollständig angelegt \r\n");
         }
 

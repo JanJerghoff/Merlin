@@ -185,11 +185,70 @@ namespace Kartonagen.Objekte
         }
 
         private String KalenderString() {
+            
+            String Body = "";
 
-            String ret="TESTSTRING";
+            //Adresse in den Body
+            Body += getKunde().Anschrift.Straße1 + getKunde().Anschrift.Hausnummer1 + "/r/n" + getKunde().Anschrift.PLZ1 + getKunde().Anschrift.Ort1 + "/r/n";
 
-            ret += "/r/n Transaktion_" + id; 
-            return ret;
+            // Kontaktdaten
+            if (getKunde().Handy.Length > 2)
+            {
+                Body += "Handy: " + getKunde().Handy + "/r/n";
+            }
+            else if (getKunde().Telefon.Length > 2)
+            {
+                Body += "Telefon: " + getKunde().Telefon + "/r/n";
+            }
+            else {
+                Body += "E-Mail: " + getKunde().Email + "/r/n";
+            }
+
+            if (Kartons<0||Kleiderkartons<0||Glaeserkartons<0||Flaschenkartons<0)
+            {
+                Body += "Kartonlieferung";
+            }
+            else
+            {
+                Body += "Kartonabholung";
+            }
+
+            //if (radioAusgang.Checked && labelLieferung.Visible)
+            //{
+            //    Body += " Kostenpflichtig!";
+            //}
+            //else if (radioEingang.Checked && labelAbholung.Visible)
+            //{
+            //    Body += " Kostenpflichtig!";
+            //}
+
+            Body += " über ";
+
+            //Jeweils das Minus rausnehmen, weil über Auslieferung / abholung erklärt
+            if (Kartons != 0)
+            {
+                Body += Kartons.ToString().Replace("-","") + " Kartons ";
+            }
+            if (Glaeserkartons != 0)
+            {
+                Body += Glaeserkartons.ToString().Replace("-", "") + " Gläserkartons ";
+            }
+            if (Flaschenkartons != 0)
+            {
+                Body += Flaschenkartons.ToString().Replace("-", "") + " Flaschenkartons ";
+            }
+            if (Kleiderkartons != 0)
+            {
+                Body += Kleiderkartons.ToString().Replace("-", "") + " Kleiderkartons ";
+            }
+
+            Body += "\r\n Transaktionsnummer =" + id;
+
+            Body += ", Zeichen =" + Program.getBearbeitender();
+
+            //if (radioEingang.Checked) { Body += " tatsächliche Kartonzahl nachkorrigieren"; }
+            
+            return Body;
         }
 
         private Kunde getKunde() {
