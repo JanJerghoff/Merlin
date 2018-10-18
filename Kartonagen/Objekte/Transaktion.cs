@@ -244,7 +244,7 @@ namespace Kartonagen.Objekte
 
             Body += "\r\n Transaktionsnummer =" + id;
 
-            Body += ", Zeichen =" + Program.getBearbeitender();
+           // Body += ", Zeichen =" + Program.getBearbeitender();
 
             //if (radioEingang.Checked) { Body += " tatsächliche Kartonzahl nachkorrigieren"; }
             

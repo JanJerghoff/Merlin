@@ -21,7 +21,7 @@ namespace Kartonagen
 
         String UserSpeicher = "";
         int maxKundennummer;
-        
+
         DateTime Umzug = new DateTime(2017, 1, 1);
         DateTime Besichtigung = new DateTime(2017, 1, 1);
         DateTime Einpacken = new DateTime(2017, 1, 1);
@@ -35,7 +35,7 @@ namespace Kartonagen
         int EntruempelungSet = 0;
         int EinpackenSet = 0;
         int AuspackenSet = 0;
-                
+
         public UmzuegeSearch()
         {
             InitializeComponent();
@@ -87,7 +87,7 @@ namespace Kartonagen
         }
 
         private void buttonNameSuche_Click(object sender, EventArgs e)
-        {               
+        {
 
             textSuchBox.Text = "";
             MySqlCommand cmdRead = new MySqlCommand("SELECT k.idKunden, k.Vorname, k.Erstelldatum FROM Kunden k, Umzuege u WHERE k.Nachname = '" + textSucheName.Text + "' AND u.Kunden_idKunden = k.idKunden;", Program.conn);
@@ -128,7 +128,7 @@ namespace Kartonagen
                 textUmzugLog.Text += sqlEx.ToString();
                 return;
             }
-            
+
             // Entscheidung einzelner / mehrere Treffer
 
             if (tempCounter == 0)           // Kein Treffer
@@ -213,7 +213,7 @@ namespace Kartonagen
             {                          // Mehrere Treffer + umzDaten[i]
                 for (int i = 0; i < tempCounter; i++)
                 {
-                    textSuchBox.AppendText("Umzug Nummer " + nummern[i] + " vom Datum "  + " \r\n");
+                    textSuchBox.AppendText("Umzug Nummer " + nummern[i] + " vom Datum " + " \r\n");
                 }
             }
 
@@ -230,7 +230,7 @@ namespace Kartonagen
             UserSpeicher = umzObj.UserChanged1;
 
             textUmzNummerBlock.Text = umzObj.Id.ToString();
-            textKundennummer.Text = umzObj.IdKunden.ToString();                       
+            textKundennummer.Text = umzObj.IdKunden.ToString();
             dateBesicht.Value = umzObj.DatBesichtigung;
             dateUmzug.Value = umzObj.DatUmzug;
             dateEntruempel.Value = umzObj.DatRuempeln;
@@ -301,11 +301,11 @@ namespace Kartonagen
                     break;
                 default:
                     break;
-            }            
+            }
             //
             textLaufMeterA.Text = umzObj.auszug.Laufmeter1.ToString();
             textLaufMeterB.Text = umzObj.einzug.Laufmeter1.ToString();
-            
+
             //
             numericKleiderkisten.Value = umzObj.Kleiderkartons1;
             numericMannZahl.Value = umzObj.Mann;
@@ -363,7 +363,7 @@ namespace Kartonagen
                     break;
                 default:
                     break;
-            }            
+            }
             //
             textKuechenPreis.Text = umzObj.KuechePausch1.ToString();
             numericUmzugsDauer.Value = umzObj.Umzugsdauer;
@@ -386,7 +386,7 @@ namespace Kartonagen
             textPLZEnt.Clear();
             textOrtEnt.Clear();
 
-            textStrasseEnt.Text=(umzObj.entruempeln.Straße1);
+            textStrasseEnt.Text = (umzObj.entruempeln.Straße1);
             textHausnummerEnt.Text = (umzObj.entruempeln.Hausnummer1);
             textOrtEnt.Text = (umzObj.entruempeln.Ort1);
             textPLZEnt.Text = (umzObj.entruempeln.PLZ1);
@@ -480,7 +480,7 @@ namespace Kartonagen
 
             TimeSpan t = umzObj.ZeitUmzug.TimeOfDay;
             timeBesichtigung.Value = transplant.Add(t);
-            
+
             // Setzen der Listboxen 
 
             switch (umzObj.auszug.Haustyp1)
@@ -668,31 +668,7 @@ namespace Kartonagen
 
         private void parseEtagen()
         {
-            checkKellerA.Checked = false;
-            checkEGA.Checked = false;
-            checkDBA.Checked = false;
-            checkMAA.Checked = false;
-            checkSTA.Checked = false;
-            checkHPA.Checked = false;
-            checkOG1A.Checked = false;
-            checkOG2A.Checked = false;
-            checkOG3A.Checked = false;
-            checkOG4A.Checked = false;
-            checkOG5A.Checked = false;
-            textSonderEtageA.Clear();
-
-            checkKellerB.Checked = false;
-            checkEGB.Checked = false;
-            checkDBB.Checked = false;
-            checkMAB.Checked = false;
-            checkSTB.Checked = false;
-            checkHPB.Checked = false;
-            checkOG1B.Checked = false;
-            checkOG2B.Checked = false;
-            checkOG3B.Checked = false;
-            checkOG4B.Checked = false;
-            checkOG5B.Checked = false;
-            textSonderEtageB.Clear();
+            //TODO KILL
 
             if (umzObj.auszug.Stockwerke1.Length != 0)
             {
@@ -884,7 +860,7 @@ namespace Kartonagen
             }
 
             umzugAenderungFuellem();
-            
+
         }
 
         public void absender(String befehl)
@@ -1003,10 +979,10 @@ namespace Kartonagen
                     Program.getUtil().kalenderEventRemove(EventItem.Id);
                     textUmzugLog.AppendText("Schilderstellen entfernt \r\n");
                 }
-            }            
+            }
         }
 
-        private void UmzugLoeschen (int code) {
+        private void UmzugLoeschen(int code) {
             if (code == 1)
             {
                 Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Umzug, "11"));
@@ -1052,7 +1028,7 @@ namespace Kartonagen
                 default:
                     break;
             }
-            
+
         }
 
         //
@@ -1133,7 +1109,7 @@ namespace Kartonagen
             umzObj.DatRuempeln = dateEntruempel.Value;
             umzObj.ZeitUmzug = timeBesichtigung.Value;
             umzObj.Umzugsdauer = decimal.ToInt32(numericUmzugsDauer.Value);
-           
+
 
             // --------------Küche
             int kuecheab = 8;
@@ -1281,7 +1257,7 @@ namespace Kartonagen
             umzObj.einzug.Haustyp1 = listBoxB.SelectedItem.ToString();
             umzObj.einzug.Laufmeter1 = int.Parse(textLaufMeterB.Text);
             umzObj.einzug.Stockwerke1 = StockwerkString(1);
-            
+
             // --------------- Versicherung
             int VersTemp = 8;
             if (radioVersicherungJa.Checked) { VersTemp = 1; }
@@ -1403,9 +1379,9 @@ namespace Kartonagen
             //
             if (radioKuecheIntern.Checked) { kuechebau = 1; } // Küchenbau Intern = 1, Extern = 0;
             else if (radioKuecheExtern.Checked) { kuechebau = 0; }
-            
+
             kuechepausch = textKuechenPreis.Text;
-            
+
             // Setzen
             umzObj.KuecheAb1 = kuecheab;
             umzObj.KuecheAuf1 = kuecheauf;
@@ -1436,7 +1412,7 @@ namespace Kartonagen
             if (radioAuspackenJa.Checked) { ausPacken = 1; }
             else if (radioAuspackenNein.Checked) { ausPacken = 0; }
             else if (radioAuspackenV.Checked) { ausPacken = 2; }
-            
+
             // Setzen
             umzObj.Einpacken1 = einPacken;
             umzObj.Einpacker1 = decimal.ToInt32(numericEinPacker.Value);
@@ -1450,7 +1426,7 @@ namespace Kartonagen
             umzObj.UpdateDB(idBearbeitend.ToString());
 
             umzugAenderungFuellem(); // Neuladen der Ansicht
-                                                                       //Kalender aktualisieren
+                                     //Kalender aktualisieren
             refreshAll();
             erinnerungsPopup();
         }
@@ -1491,7 +1467,7 @@ namespace Kartonagen
         //    temp = temp + decimal.ToInt32(numericSprinterOhne.Value).ToString();
         //    temp = temp + decimal.ToInt32(numericLKW.Value).ToString();
         //    temp = temp + decimal.ToInt32(numericLKWGroß.Value).ToString();
-            
+
         //    // Setzen
         //    umzObj.Schilder1 = schilder;
         //    umzObj.Kleiderkartons1 = decimal.ToInt32(numericKleiderkisten.Value);
@@ -1692,7 +1668,7 @@ namespace Kartonagen
             return;
         }
 
-        void refreshUmzug() { 
+        void refreshUmzug() {
 
             UmzugLoeschen(umzObj.StatUmzug);
 
@@ -1709,8 +1685,8 @@ namespace Kartonagen
             }
         }
 
-        void refreshAusraeumen () {
-            
+        void refreshAusraeumen() {
+
             if (umzObj.StatAus == 1)
             {
                 PackenLoeschen(3);
@@ -1724,9 +1700,9 @@ namespace Kartonagen
             events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
         }
 
-        void refreshEinraeumen ()
+        void refreshEinraeumen()
         {
-            
+
             if (umzObj.StatEin == 1)
             {
                 PackenLoeschen(1);
@@ -1746,7 +1722,7 @@ namespace Kartonagen
                 // Entruempeln entfernen
                 Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Entruempelung, "10"));
                 textUmzugLog.AppendText("Vorläufiges Entrümpeln entfernt \r\n");
-                
+
             }
             else if (umzObj.StatRuempeln == 1) {
                 // Entrümpeln entfernen
@@ -1771,7 +1747,7 @@ namespace Kartonagen
 
         }
 
-        void refreshAll() {     
+        void refreshAll() {
 
             umzObj.addAll();
             textUmzugLog.AppendText("Alle Termine erneuert \r\n");
@@ -1802,7 +1778,7 @@ namespace Kartonagen
             laufzettel.Show();
         }
 
-        private void erinnerungsPopup () {
+        private void erinnerungsPopup() {
             var bestätigung = MessageBox.Show("Umzugsbearbeitung öffnen?", "Erinnerung", MessageBoxButtons.YesNo);
             if (bestätigung == DialogResult.Yes)
             {
@@ -1826,7 +1802,7 @@ namespace Kartonagen
             textOrtEnt.AppendText(textOrtA.Text);
             textPLZEnt.AppendText(textPLZA.Text);
 
-            textStrasseEnt.ReadOnly=true;
+            textStrasseEnt.ReadOnly = true;
             textHausnummerEnt.ReadOnly = true;
             textOrtEnt.ReadOnly = true;
             textPLZEnt.ReadOnly = true;
@@ -1871,7 +1847,194 @@ namespace Kartonagen
 
             }
         }
-        
 
+        // Reihenfolge im Bitstring
+        // 0) Keller 1) Erdgeschoss 2) Hochpaterre 3) Souterrain
+        // 4) Maisonette 5-9) 1 bis 5 OG  
+        // 10) Dachboden
+        // "-" als Trenner, dann eingabe als Klartext
+
+        private void readBitstringEtagenA(String Bitstring)
+        {
+
+            checkKellerA.Checked = false;
+            checkEGA.Checked = false;
+            checkDBA.Checked = false;
+            checkMAA.Checked = false;
+            checkSTA.Checked = false;
+            checkHPA.Checked = false;
+            checkOG1A.Checked = false;
+            checkOG2A.Checked = false;
+            checkOG3A.Checked = false;
+            checkOG4A.Checked = false;
+            checkOG5A.Checked = false;
+            textSonderEtageA.Clear();
+
+            if (Bitstring[0] == '1')
+            {
+                checkKellerA.Checked = true;
+            }
+            if (Bitstring[1] == '1')
+            {
+                checkEGA.Checked = true;
+            }
+            if (Bitstring[2] == '1')
+            {
+                checkHPA.Checked = true;
+            }
+            if (Bitstring[3] == '1')
+            {
+                checkSTA.Checked = true;
+            }
+            if (Bitstring[4] == '1')
+            {
+                checkMAA.Checked = true;
+            }
+            if (Bitstring[5] == '1')
+            {
+                checkOG1A.Checked = true;
+            }
+            if (Bitstring[6] == '1')
+            {
+                checkOG2A.Checked = true;
+            }
+            if (Bitstring[7] == '1')
+            {
+                checkOG3A.Checked = true;
+            }
+            if (Bitstring[8] == '1')
+            {
+                checkOG4A.Checked = true;
+            }
+            if (Bitstring[9] == '1')
+            {
+                checkOG5A.Checked = true;
+            }
+            if (Bitstring[10] == '1')
+            {
+                checkDBA.Checked = true;
+            }
+
+            if (!Bitstring.Split('-')[1].Equals(String.Empty)) {
+                textSonderEtageA.Text = Bitstring.Split('-')[1];
+            }
+
+        }
+
+        private void readBitstringEtagenB(String Bitstring) {
+
+            checkKellerB.Checked = false;
+            checkEGB.Checked = false;
+            checkDBB.Checked = false;
+            checkMAB.Checked = false;
+            checkSTB.Checked = false;
+            checkHPB.Checked = false;
+            checkOG1B.Checked = false;
+            checkOG2B.Checked = false;
+            checkOG3B.Checked = false;
+            checkOG4B.Checked = false;
+            checkOG5B.Checked = false;
+            textSonderEtageB.Clear();
+
+            if (Bitstring[0] == '1')
+            {
+                checkKellerB.Checked = true;
+            }
+            if (Bitstring[1] == '1')
+            {
+                checkEGB.Checked = true;
+            }
+            if (Bitstring[2] == '1')
+            {
+                checkHPB.Checked = true;
+            }
+            if (Bitstring[3] == '1')
+            {
+                checkSTB.Checked = true;
+            }
+            if (Bitstring[4] == '1')
+            {
+                checkMAB.Checked = true;
+            }
+            if (Bitstring[5] == '1')
+            {
+                checkOG1B.Checked = true;
+            }
+            if (Bitstring[6] == '1')
+            {
+                checkOG2B.Checked = true;
+            }
+            if (Bitstring[7] == '1')
+            {
+                checkOG3B.Checked = true;
+            }
+            if (Bitstring[8] == '1')
+            {
+                checkOG4B.Checked = true;
+            }
+            if (Bitstring[9] == '1')
+            {
+                checkOG5B.Checked = true;
+            }
+            if (Bitstring[10] == '1')
+            {
+                checkDBB.Checked = true;
+            }
+
+            if (!Bitstring.Split('-')[1].Equals(String.Empty))
+            {
+                textSonderEtageB.Text = Bitstring.Split('-')[1];
+            }
+
+        }
+
+        private String buildBitstringEtagen(Boolean Selector) {
+
+            String[] ret = new String[11];
+            CheckBox[] boxes;
+
+            if (Selector)       // Selector ist True wenn A gemeint ist, false bei B
+            {
+                boxes = new CheckBox[] {
+                checkKellerA,checkEGA,checkHPA,checkSTA,checkMAA,
+                checkOG1A,checkOG2A,checkOG3A,checkOG4A,checkOG5A,checkDBA
+                };
+            }
+            else
+            {
+                boxes = new CheckBox[] {
+                checkKellerB,checkEGB,checkHPB,checkSTB,checkMAB,
+                checkOG1B,checkOG2B,checkOG3B,checkOG4B,checkOG5B,checkDBB
+                };
+            }
+
+            for (int i = 0; i < boxes.Length; i++)
+            {
+                if (boxes[i].Checked)
+                {
+                    ret[i] = "1";
+                }
+                else {
+                    ret[i] = "0";
+                }
+            }
+
+            String Etagen = String.Join("", ret);
+            if (Selector)
+            {
+                if (!textSonderEtageA.Text.Equals(String.Empty))
+                {
+                    Etagen.Insert(Etagen.Length, ("-" + textSonderEtageA.Text));
+                }
+            }
+            else
+            {
+                if (!textSonderEtageB.Text.Equals(String.Empty))
+                {
+                    Etagen.Insert(Etagen.Length, ("-" + textSonderEtageB.Text));
+                }
+            }
+            return Etagen;
+        }
     }
 }
