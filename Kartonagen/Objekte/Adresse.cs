@@ -11,18 +11,18 @@ namespace Kartonagen.Objekte
     {
         // Felder
         int IDAdresse;
-        string Straße;
-        string Hausnummer;
-        string Ort;
-        string PLZ;
-        string Land;
-        int Aufzug;
-        string Stockwerke;
-        string Haustyp;
-        int HVZ;
-        int Laufmeter;
-        int AussenAufzug;
-        string Bemerkung;
+        string Straße = "";
+        string Hausnummer = "";
+        string Ort = "";
+        string PLZ = "";
+        string Land = "";
+        int Aufzug = 0;
+        string Stockwerke = "";
+        string Haustyp = "";
+        int HVZ =0;
+        int Laufmeter=0;
+        int AussenAufzug=0;
+        string Bemerkung = "";
 
         public Adresse(string straße, string hausnummer, string ort, string pLZ, string land, int aufzug, string stockwerke, string haustyp, int hVZ, int laufmeter, int aussenAufzug)
         {
@@ -37,6 +37,28 @@ namespace Kartonagen.Objekte
             HVZ = hVZ;
             Laufmeter = laufmeter;
             AussenAufzug = aussenAufzug;
+
+            saveNew();
+
+            String select = "SELECT id FROM Adresse ORDER BY id DESC LIMIT 1;";
+
+            MySqlCommand cmdId = new MySqlCommand(select, Program.conn);
+            MySqlDataReader rdrId;
+
+            try
+            {
+
+                rdrId = cmdId.ExecuteReader();
+                while (rdrId.Read())
+                {
+                    IDAdresse = rdrId.GetInt32(0);
+                }
+                rdrId.Close();
+            }
+            catch (Exception sqlEx)
+            {
+                Program.FehlerLog(sqlEx.ToString(), "Abrufen der ID der neu angelegten Adresse "+ Straße );
+            }
         }
 
         public Adresse(int id) {

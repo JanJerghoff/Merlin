@@ -188,6 +188,9 @@ namespace Kartonagen.Objekte
             
             String Body = "";
 
+            //TransaktionsID in den Body
+            Body += "Transaktion_" + id + " /r/n";
+
             //Adresse in den Body
             Body += getKunde().Anschrift.Straße1 + getKunde().Anschrift.Hausnummer1 + "/r/n" + getKunde().Anschrift.PLZ1 + getKunde().Anschrift.Ort1 + "/r/n";
 
@@ -257,6 +260,12 @@ namespace Kartonagen.Objekte
                 kunde = new Kunde(idKunden);
             }
             return kunde;
+        }
+
+        //Getter
+
+        public int getId() {
+            return id;
         }
     }
 }

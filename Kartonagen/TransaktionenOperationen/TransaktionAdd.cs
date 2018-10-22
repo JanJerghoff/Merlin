@@ -1,4 +1,5 @@
 ﻿using Google.Apis.Calendar.v3.Data;
+using Kartonagen.Objekte;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,8 @@ namespace Kartonagen
     public partial class TransaktionAdd : Form
     {
 
-        Umzug umzObj; 
+        Umzug umzObj;
+        Kunde kundenObj;
 
         int maxKundennummer;
         public TransaktionAdd()
@@ -62,52 +64,15 @@ namespace Kartonagen
             labelAbholung.Visible = false;
 
             umzObj = new Umzug(umzNummer);
+            kundenObj = new Kunde(umzObj.IdKunden);
 
-            // Umzugsdaten aus dem Umzug ziehen
+            // Umzugsdaten einfüllen
+            textKundennummer.Text = umzObj.IdKunden+"";
+            textUmzugsdatum.Text = umzObj.DatUmzug.ToShortDateString();
+            textUmzugsnummer.Text = umzObj.Id+"";
 
-            MySqlCommand cmdReadUmzug = new MySqlCommand("SELECT Kunden_idKunden, datUmzug FROM Umzuege WHERE idUmzuege=" + umzNummer + ";", Program.conn);
-            MySqlDataReader rdrUmzug;
-            int kundennummer = 0;
-
-            try
-            {
-                rdrUmzug = cmdReadUmzug.ExecuteReader();
-                while (rdrUmzug.Read())
-                {
-                    textKundennummer.Text = rdrUmzug[0] + "";
-                    kundennummer = rdrUmzug.GetInt32(0);
-                    textUmzugsdatum.Text = rdrUmzug.GetDateTime(1).ToShortDateString();
-                    textUmzugsnummer.Text = umzNummer + "";
-                }
-                rdrUmzug.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Umzugsdaten \r\n Bereits dokumentiert.");
-                return;
-            }
-            
-            // Personendaten aus dem Kunden ziehen
-
-            MySqlCommand cmdReadKunde = new MySqlCommand("SELECT * FROM Kunden WHERE idKunden=" + textKundennummer.Text + ";", Program.conn);
-            MySqlDataReader rdrKunde;
-
-            try
-            {
-                rdrKunde = cmdReadKunde.ExecuteReader();
-                while (rdrKunde.Read())
-                {
-
-                    textVorNachname.Text = rdrKunde[1] + " " + rdrKunde[2] + " " + rdrKunde[3];
-                }
-                rdrKunde.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                Program.FehlerLog(sqlEx.ToString()+"\r\n "+cmdReadKunde.CommandText, "Fehler beim Auslesen der Personendaten \r\n Bereits dokumentiert.");
-                return;
-            }
-
+            textVorNachname.Text = kundenObj.getVollerName();
+        
             // Kartonagenkonto Berechnen
 
             MySqlCommand cmdReadKonto = new MySqlCommand("SELECT Kartons, GlaeserKartons, FlaschenKartons, KleiderKartons FROM Transaktionen WHERE Umzuege_Kunden_idKunden=" + textKundennummer.Text + " AND unbenutzt != 2;", Program.conn);
@@ -142,12 +107,9 @@ namespace Kartonagen
                 return;
             }
 
-
-
             // Überblick Rechts nullen
             dataGridAlteTransaktionen.Rows.Clear();
             dataGridAlteTransaktionen.Refresh();
-
 
             // Bisherige Buchungen Parsen
 
@@ -189,7 +151,6 @@ namespace Kartonagen
             // Kalender auf bisherige Lieferung auslesen
 
             Events check = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
-
             try
             {
                 foreach (var item in check.Items)
@@ -224,94 +185,26 @@ namespace Kartonagen
                 textTransaktionLog.AppendText(" Bitte Ausgang oder Eingang auswählen!\r\n");
                 return;
             }
+
+            Boolean kaufkartons = false;
+            if (radioKaufJa.Checked) { kaufkartons = true; }
+
+            Boolean unbenutzt = false;
+            if (radioUnbenutzt.Checked) { unbenutzt = true; }
+
+            Adresse Adressobj = new Adresse(textStraße.Text,textHausnummer.Text, textOrt.Text, textPLZ.Text, "Deutschland", 0,"","",0,0,0);
+
+            Transaktion transObj = new Transaktion(Decimal.ToInt32(numericKarton.Value), Decimal.ToInt32(numericGlaeserkarton.Value), Decimal.ToInt32(numericFlaschenKarton.Value), Decimal.ToInt32(numericKleiderKarton.Value), kaufkartons,unbenutzt,textBemerkung.Text,textRechnungsnr.Text, Program.getUtil().mergeDatetime(dateTimeTransaktion.Value,timeLieferzeit.Value),Adressobj.IDAdresse1,umzObj.Id,kundenObj.Id,"0");
             
-
-            //String bauen
-            String push = "INSERT INTO Transaktionen (datTransaktion, timeTransaktion, Kartons, FlaschenKartons, GlaeserKartons, KleiderKartons, Umzuege_idUmzuege, Umzuege_Kunden_idKunden, Bemerkungen, UserChanged, Erstelldatum, unbenutzt, final, RechnungsNr) VALUES (";
-
-            push += "'" + Program.DateMachine(dateTimeTransaktion.Value) + "', ";
-
-            // Zeitkomponente pushen wenn Termin in der Zukunft
-            if (checkTermin.Checked)
-            {
-                push += "'" + Program.DateMachine(dateTimeTransaktion.Value) + " " + Program.ZeitMachine(timeLieferzeit.Value) + "', ";
-            }
-            else { push += "'" + Program.DateMachine(dateTimeTransaktion.Value) + " 00-00-00', "; }
-
-            if (radioAusgang.Checked)
-            {
-                push += numericKarton.Value + ", ";
-                push += numericFlaschenKarton.Value + ", ";
-                push += numericGlaeserkarton.Value + ", ";
-                push += numericKleiderKarton.Value + ", ";
-            }
-            else {
-                push += "-" + numericKarton.Value + ", ";
-                push += "-" + numericFlaschenKarton.Value + ", ";
-                push += "-" + numericGlaeserkarton.Value + ", ";
-                push += "-" + numericKleiderKarton.Value + ", ";
-            }
-
-
-            push +=  textUmzugsnummer.Text + ", ";
-            push +=  textKundennummer.Text + ", ";
-            push += "'" + textBemerkung.Text + " ', ";
-            push += "'" + idBearbeitend + "', ";
-            push += "'" + Program.DateMachine(DateTime.Now) + "', ";
-
-            // Kartons unbenútzt zurück?
-            if (radioUnbenutzt.Checked)
-            {
-                push += 1 + ",";
-            }
-            else if (radioKaufJa.Checked) {
-                push += 2 + ",";
-            }
-            else {
-                push += 0 + ",";
-            }
-
-            // Buchung final oder vorläufig? (0 ist vorläufig, 1 final)
-
-            if (checkTermin.Checked || (dateTimeTransaktion.Value.Date.CompareTo(DateTime.Now.Date) > 0))
-            {
-                push += 0 + ",";
-            }
-            else {
-                push += 1 + ",";
-            }
-
-            // Rechnungsnummer
-            push += "'"+textRechnungsnr.Text+"');";
-
-            Program.absender(push, "Fehler beim Speichern der Transaktion in die DB");
-
-            
-
-            // Ergebnis - Transaktionssnummer anzeigen
-
-            MySqlCommand cmdShow = new MySqlCommand("SELECT * FROM Transaktionen ORDER BY idTransaktionen DESC LIMIT 1;", Program.conn);
-            MySqlDataReader rdr;
-            try
-            {
-                rdr = cmdShow.ExecuteReader();
-                while (rdr.Read())
-                {
-                    textResultatsNummer.Text += rdr.GetInt32(0);
-                }
-                rdr.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                Program.FehlerLog(sqlEx.ToString(), "Fehler beim finden der Ergebnis-Transaktion \r\n Bereits dokumentiert.");
-            }
+            //Ergebnis-Transaktionsnummer anzeigen
+            textResultatsNummer.Text = transObj.getId()+"";
 
 
             // Termine in Kalender pushen wenn relevant
-            if (checkTermin.Checked)
-            {
-                Kalendereintrag();
-            }
+            //if (checkTermin.Checked)
+            //{
+            //    Kalendereintrag();
+            //}
 
 
             //Neu Fuellen, um den Kontostand aktuell zu halten
@@ -601,9 +494,12 @@ namespace Kartonagen
             if (checkTermin.Checked)
             {
                 timeLieferzeit.Enabled = true;
+                groupBoxAdresse.Enabled = true;
+                radioAuszugsadresse.Checked = true;
             }
             else {
                 timeLieferzeit.Enabled = false;
+                groupBoxAdresse.Enabled = false;
             }
         }
 
@@ -613,7 +509,27 @@ namespace Kartonagen
             transaktionenSuche.setBearbeiter(idBearbeitend);
             transaktionenSuche.Show();
         }
-        
+
+        private void radioAuszugsadresse_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioAuszugsadresse.Checked) {
+                textStraße.Text = umzObj.auszug.Straße1;
+                textHausnummer.Text = umzObj.auszug.Hausnummer1;
+                textOrt.Text = umzObj.auszug.Ort1;
+                textPLZ.Text = umzObj.auszug.PLZ1;
+            }
+        }
+
+        private void radioEinzugsadresse_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioEinzugsadresse.Checked)
+            {
+                textStraße.Text = umzObj.einzug.Straße1;
+                textHausnummer.Text = umzObj.einzug.Hausnummer1;
+                textOrt.Text = umzObj.einzug.Ort1;
+                textPLZ.Text = umzObj.einzug.PLZ1;
+            }
+        }
     }
     
 }

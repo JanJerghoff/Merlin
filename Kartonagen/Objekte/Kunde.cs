@@ -69,5 +69,10 @@ namespace Kartonagen.Objekte
 
             //anschrift = new Adresse(tempStr, tempHausnummer, tempOrt, tempPLZ, "", 0, "", "", 0, 0, 0);
         }
+
+        internal string getVollerName()
+        {
+            return Anrede + " " + Vorname + " " + Nachname;
+        }
     }
 }
