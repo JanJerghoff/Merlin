@@ -30,13 +30,15 @@ namespace Kartonagen
             dateTimeTransaktion.Value = DateTime.Now;
 
             //Maximale Kundennummer um OutOfBounds vorzubeugen
-
-            MySqlCommand cmdReadKunde = new MySqlCommand("SELECT * FROM Kunden ORDER BY idKunden DESC LIMIT 1;", Program.conn);
-            MySqlDataReader rdrKunde;
-
+            
             try
             {
-                rdrKunde = cmdReadKunde.ExecuteReader();
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+                MySqlCommand cmdReadKunde = new MySqlCommand("SELECT * FROM Kunden ORDER BY idKunden DESC LIMIT 1;", Program.conn);
+                MySqlDataReader rdrKunde = cmdReadKunde.ExecuteReader();
                 while (rdrKunde.Read())
                 {
                     maxKundennummer = rdrKunde.GetInt32(0);
@@ -74,9 +76,7 @@ namespace Kartonagen
             textVorNachname.Text = kundenObj.getVollerName();
         
             // Kartonagenkonto Berechnen
-
-            MySqlCommand cmdReadKonto = new MySqlCommand("SELECT Kartons, GlaeserKartons, FlaschenKartons, KleiderKartons FROM Transaktionen WHERE Umzuege_Kunden_idKunden=" + textKundennummer.Text + " AND unbenutzt != 2;", Program.conn);
-            MySqlDataReader rdrKonto;
+            
 
             int Kartons = 0;
             int GlaeserKartons = 0;
@@ -85,7 +85,12 @@ namespace Kartonagen
 
             try
             {
-                rdrKonto = cmdReadKonto.ExecuteReader();
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+                MySqlCommand cmdReadKonto = new MySqlCommand("SELECT Kartons, GlaeserKartons, FlaschenKartons, KleiderKartons FROM Transaktionen WHERE Umzuege_Kunden_idKunden=" + textKundennummer.Text + " AND unbenutzt != 2;", Program.conn);
+                MySqlDataReader rdrKonto = cmdReadKonto.ExecuteReader();
                 while (rdrKonto.Read())
                 {
                     Kartons += rdrKonto.GetInt32(0);
@@ -95,6 +100,8 @@ namespace Kartonagen
 
                 }
                 rdrKonto.Close();
+                Program.conn.Close();
+
                 textKartonAusstehend.Text = Kartons.ToString();
                 textGlaeserAusstehend.Text = GlaeserKartons.ToString();
                 textFlaschenAusstehend.Text = FlaschenKartons.ToString();
@@ -112,15 +119,18 @@ namespace Kartonagen
             dataGridAlteTransaktionen.Refresh();
 
             // Bisherige Buchungen Parsen
-
-            MySqlCommand cmdReadAlt = new MySqlCommand("SELECT * FROM Transaktionen WHERE Umzuege_idUmzuege=" + textUmzugsnummer.Text + ";", Program.conn);
-            MySqlDataReader rdrAlt;
-
+            
             string textUnbenutzt = "";
 
             try
             {
-                rdrAlt = cmdReadAlt.ExecuteReader();
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+                MySqlCommand cmdReadAlt = new MySqlCommand("SELECT * FROM Transaktionen WHERE Umzuege_idUmzuege=" + textUmzugsnummer.Text + ";", Program.conn);
+                MySqlDataReader rdrAlt = cmdReadAlt.ExecuteReader();
+
                 while (rdrAlt.Read())
                 {
                     if (rdrAlt.GetInt32(11) == 2)
@@ -141,6 +151,7 @@ namespace Kartonagen
                     dataGridAlteTransaktionen.Rows.Add(toSave);
                 }
                 rdrAlt.Close();
+                Program.conn.Close();
             }
             catch (Exception sqlEx)
             {
@@ -253,11 +264,15 @@ namespace Kartonagen
             else { Body += umzObj.einzug.Straße1 + " " + umzObj.einzug.Hausnummer1 + "\r\n" + umzObj.einzug.PLZ1 + " " + umzObj.einzug.Ort1 + "\r\n"; }
 
             // Kontaktdaten
-            MySqlCommand cmdRead = new MySqlCommand("SELECT Handynummer, Telefonnummer FROM Kunden WHERE idKunden = "+textKundennummer.Text+";", Program.conn);
-            MySqlDataReader rdr;
             try
             {
-                rdr = cmdRead.ExecuteReader();
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+                MySqlCommand cmdRead = new MySqlCommand("SELECT Handynummer, Telefonnummer FROM Kunden WHERE idKunden = " + textKundennummer.Text + ";", Program.conn);
+                MySqlDataReader rdr = cmdRead.ExecuteReader();
+
                 while (rdr.Read())
                 {
                     if (rdr.GetString(0) == "0")
@@ -267,6 +282,7 @@ namespace Kartonagen
                     else { Body += "Handy = " + rdr.GetString(0) + "\r\n"; }
                 }
                 rdr.Close();
+                Program.conn.Close();
             }
             catch (Exception sqlEx)
             {
@@ -326,19 +342,23 @@ namespace Kartonagen
 
         private void buttonKundenSearchNrSuche_Click(object sender, EventArgs e)
         {
-            MySqlCommand cmdRead = new MySqlCommand("SELECT * FROM Umzuege WHERE idUmzuege=" + numericUmzugsnummer.Value + ";", Program.conn);
-            MySqlDataReader rdr;
-
             int worked = 0;
 
             try
             {
-                rdr = cmdRead.ExecuteReader();
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+                MySqlCommand cmdRead = new MySqlCommand("SELECT * FROM Umzuege WHERE idUmzuege=" + numericUmzugsnummer.Value + ";", Program.conn);
+                MySqlDataReader rdr = cmdRead.ExecuteReader();
+
                 while (rdr.Read())
                 {
                     worked = 1;
                 }
                 rdr.Close();
+                Program.conn.Close();
             }
             catch (Exception sqlEx)
             {
@@ -367,8 +387,6 @@ namespace Kartonagen
 
         private void buttonNameSuche_Click(object sender, EventArgs e)
         {
-            MySqlCommand cmdRead = new MySqlCommand("SELECT idKunden,Vorname,Erstelldatum FROM Kunden WHERE Nachname = '" + textSucheName.Text + "';", Program.conn);
-            MySqlDataReader rdr;
             int tempCounter = 0;
             // Bricht, wenn mehr als 30 gleichnamige Kunden
             int[] nummern = new int[30];
@@ -377,8 +395,12 @@ namespace Kartonagen
 
             try
             {
-
-                rdr = cmdRead.ExecuteReader();
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+                MySqlCommand cmdRead = new MySqlCommand("SELECT idKunden,Vorname,Erstelldatum FROM Kunden WHERE Nachname = '" + textSucheName.Text + "';", Program.conn);
+                MySqlDataReader rdr = cmdRead.ExecuteReader();
 
                 while (rdr.Read())
                 {
@@ -388,6 +410,7 @@ namespace Kartonagen
                     tempCounter += 1;
                 }
                 rdr.Close();
+                Program.conn.Close();
             }
             catch (Exception sqlEx)
             {
@@ -417,17 +440,20 @@ namespace Kartonagen
         
 
         public void transKundennummerFuellen(int kundenNr) {
-            MySqlCommand cmdRead = new MySqlCommand("SELECT idUmzuege,datUmzug FROM Umzuege WHERE Kunden_idKunden = " + kundenNr + ";", Program.conn);
-            MySqlDataReader rdr;
-            int tempCounter = 0;
+
             // Bricht, wenn mehr als 30 gleichnamige Kunden
             int[] nummern = new int[30];
             String[] umzDaten = new String[30];
+            int tempCounter = 0;
 
             try
             {
-
-                rdr = cmdRead.ExecuteReader();
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+                MySqlCommand cmdRead = new MySqlCommand("SELECT idUmzuege,datUmzug FROM Umzuege WHERE Kunden_idKunden = " + kundenNr + ";", Program.conn);
+                MySqlDataReader rdr = cmdRead.ExecuteReader();
 
                 while (rdr.Read())
                 {
@@ -436,6 +462,7 @@ namespace Kartonagen
                     tempCounter += 1;
                 }
                 rdr.Close();
+                Program.conn.Close();
             }
             catch (Exception sqlEx)
             {
@@ -529,6 +556,7 @@ namespace Kartonagen
                 textOrt.Text = umzObj.einzug.Ort1;
                 textPLZ.Text = umzObj.einzug.PLZ1;
             }
+            
         }
     }
     

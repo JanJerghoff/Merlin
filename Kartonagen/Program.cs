@@ -13,6 +13,7 @@ using System.Diagnostics;
 using System.Xml;
 using System.Text.RegularExpressions;
 using Kartonagen.CalendarAPIUtil;
+using System.Data;
 
 namespace Kartonagen
 {
@@ -46,6 +47,7 @@ namespace Kartonagen
         //internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
 
         //Test Home
+        private static String connUmzug = "server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;";
         internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;");
         internal static MySqlConnection conn2 = new MySqlConnection("server = 10.0.0.0;user=test;database=Mitarbeiter;port=3306;password=he62okv;");
 
@@ -88,20 +90,25 @@ namespace Kartonagen
 
             autocompleteKunden = new AutoCompleteStringCollection();
             dictionaryKunden = new Dictionary<int,string>();
-
-            //Abfrage aller Namen
-            MySqlCommand cmdRead = new MySqlCommand("SELECT Nachname, idKunden FROM Kunden", Program.conn);
-            MySqlDataReader rdr;
+                       
 
             try
             {
-                rdr = cmdRead.ExecuteReader();
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+
+                MySqlCommand cmdRead = new MySqlCommand("SELECT Nachname, idKunden FROM Kunden", Program.conn);
+                MySqlDataReader rdr = cmdRead.ExecuteReader();
                 while (rdr.Read())
                 {
                     autocompleteKunden.Add(rdr[0].ToString());
                     // dictionaryKunden.Add(rdr.GetInt32(1),rdr.GetString(0));
                 }
                 rdr.Close();
+                cmdRead.Dispose();
+                conn.Close();
             }
             catch (Exception sqlEx)
             {
@@ -238,11 +245,15 @@ namespace Kartonagen
             try
             {
                 cmdAdd.ExecuteNonQuery();
+                cmdAdd.Dispose();
+                conn.Close();
             }
             catch (Exception sqlEx)
             {
                 Program.FehlerLog(sqlEx.ToString(), "Fehler beim Speichern in die DB \r\n "+Aufgabe+" \r\n Bereits dokumentiert.");
             }
+
+
         }
 
         private static void reconnect()
@@ -250,8 +261,8 @@ namespace Kartonagen
             conn.Close();
             conn.Open();
 
-            conn2.Close();
-            conn2.Open();
+            //conn2.Close();
+            //conn2.Open();
         }
 
         public static int getMitarbeiterNr(String Mitarbeitername)
@@ -584,6 +595,11 @@ namespace Kartonagen
             }
             
         }
+
+       
+        
+
+
 
         /// <summary>
         /// Der Haupteinstiegspunkt für die Anwendung.

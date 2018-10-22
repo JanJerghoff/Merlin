@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,16 +36,20 @@ namespace Kartonagen.Objekte
 
         public Transaktion(int nr)
         {
-
-            MySqlCommand cmdReadTrans = new MySqlCommand("Select * from Transaktionen WHERE idTransaktionen =" + nr, Program.conn);
-            MySqlDataReader rdrTrans;
+            
             int tempint = 0; // zwischenspeicher für auflösung in unbenutzt / kaufkartons
             Kaufkarton = false;
             unbenutzt = false;
 
             try
             {
-                rdrTrans = cmdReadTrans.ExecuteReader();
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+
+                MySqlCommand cmdReadTrans = new MySqlCommand("Select * from Transaktionen WHERE idTransaktionen =" + nr, Program.conn);
+                MySqlDataReader rdrTrans = cmdReadTrans.ExecuteReader();
 
                 while (rdrTrans.Read())
                 {
@@ -62,6 +67,7 @@ namespace Kartonagen.Objekte
                     lfd_nr = rdrTrans.GetInt32(15);
                 }
                 rdrTrans.Close();
+                Program.conn.Close();
             }
             catch (Exception sqlEx)
             {
@@ -121,17 +127,24 @@ namespace Kartonagen.Objekte
 
             // Abholen der fertigen Transaktionsnummer
             String select = "SELECT idTransaktionen FROM Transaktionen ORDER BY idTransaktionen DESC LIMIT 1;";
-            MySqlCommand cmdRead = new MySqlCommand(select, Program.conn);
-            MySqlDataReader rdr;
+            
 
             try
             {
-                rdr = cmdRead.ExecuteReader();
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+
+                MySqlCommand cmdRead = new MySqlCommand(select, Program.conn);
+                MySqlDataReader rdr = cmdRead.ExecuteReader();
+
                 while (rdr.Read())
                 {
                     id = rdr.GetInt32(0);
                 }
                 rdr.Close();
+                Program.conn.Close();
 
             }
             catch (Exception sqlEx)
