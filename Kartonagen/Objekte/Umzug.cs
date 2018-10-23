@@ -6,7 +6,6 @@ using Kartonagen.Objekte;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -126,21 +125,13 @@ namespace Kartonagen
         //Bestehenden Umzug über UmzNr abrufen
         public Umzug(int ID)
         {
+            MySqlCommand cmdRead = new MySqlCommand("SELECT * FROM Umzuege WHERE idUmzuege = " + ID + ";", Program.conn);
+            MySqlDataReader rdr;
             int AdresseRuempel = 0;
 
             try
             {
-                if (Program.conn.State != ConnectionState.Open)
-                {
-                    Program.conn.Open();
-                }
-
-                MySqlCommand cmdRead = new MySqlCommand("SELECT * FROM Umzuege WHERE idUmzuege = " + ID + ";", Program.conn);
-                MySqlDataReader rdr = cmdRead.ExecuteReader();
-
-                Object[] tempAuszug = new Object [11];
-                Object[] tempEinzug = new Object[11];
-
+                rdr = cmdRead.ExecuteReader();
                 while (rdr.Read())
                 {
                     id = rdr.GetInt32(0);
@@ -192,8 +183,10 @@ namespace Kartonagen
                     KuechePausch = rdr.GetInt32(30);
 
                     // Adressen
-                    tempAuszug = new Object[] { rdr.GetString(31), rdr.GetString(32), rdr.GetString(34), rdr.GetString(33), rdr.GetString(35), rdr.GetInt32(36), rdr.GetString(37), rdr.GetString(38), rdr.GetInt32(39), rdr.GetInt32(40), rdr.GetInt32(41) };
-                    tempEinzug = new Object[] { rdr.GetString(42), rdr.GetString(43), rdr.GetString(45), rdr.GetString(44), rdr.GetString(46), rdr.GetInt32(47), rdr.GetString(48), rdr.GetString(49), rdr.GetInt32(50), rdr.GetInt32(51), rdr.GetInt32(52) };
+
+                    auszug = new Adresse(rdr.GetString(31), rdr.GetString(32), rdr.GetString(34), rdr.GetString(33), rdr.GetString(35), rdr.GetInt32(36), rdr.GetString(37), rdr.GetString(38), rdr.GetInt32(39), rdr.GetInt32(40), rdr.GetInt32(41));
+
+                    einzug = new Adresse(rdr.GetString(42), rdr.GetString(43), rdr.GetString(45), rdr.GetString(44), rdr.GetString(46), rdr.GetInt32(47), rdr.GetString(48), rdr.GetString(49), rdr.GetInt32(50), rdr.GetInt32(51), rdr.GetInt32(52));
                     
                     NotizBuero = rdr.GetString(53);
                     NotizFahrer = rdr.GetString(54);
@@ -218,12 +211,8 @@ namespace Kartonagen
 
                 }
                 rdr.Close();
-                Program.conn.Close();
 
                 entruempeln = new Adresse(AdresseRuempel);
-                auszug = new Adresse((String)tempAuszug[0], (String)tempAuszug[1], (String)tempAuszug[2], (String)tempAuszug[3], (String)tempAuszug[4], (int) tempAuszug[5], (String)tempAuszug[6], (String)tempAuszug[7], (int)tempAuszug[8], (int)tempAuszug[9], (int)tempAuszug[10]);
-                einzug = new Adresse((String)tempEinzug[0], (String)tempEinzug[1], (String)tempEinzug[2], (String)tempEinzug[3], (String)tempEinzug[4], (int)tempEinzug[5], (String)tempEinzug[6], (String)tempEinzug[7], (int)tempEinzug[8], (int)tempEinzug[9], (int)tempEinzug[10]);
-
             }
             catch (Exception sqlEx)
             {
