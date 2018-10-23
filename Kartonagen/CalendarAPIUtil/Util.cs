@@ -4,8 +4,10 @@ using Google.Apis.Calendar.v3.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using Kartonagen.Objekte;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -477,5 +479,95 @@ namespace Kartonagen.CalendarAPIUtil
             return ret;
 
         }
+
+        public void KalenderDBCheck()
+        {
+
+            // Define parameters of request.
+            EventsResource.ListRequest request = dienst.Events.List("primary");
+            request.ShowDeleted = false;
+            request.SingleEvents = true;
+            request.MaxResults = 2500;
+            // List events.
+            Events events = request.Execute();
+            List<Event> tooEarly = new List<Event>();
+
+            Console.WriteLine("Events.Items ist so lang: " + events.Items.LongCount());
+
+            // Nur zukünftige Events
+            foreach (var item in events.Items)
+            {
+                if (item.Start.DateTime < DateTime.Now)
+                {
+                    tooEarly.Add(item);
+                    Console.WriteLine("removed Event at " + item.Start.DateTime.Value.ToString());
+                }
+            }
+
+            foreach (var item in tooEarly)
+            {
+                events.Items.Remove(item);
+            }
+
+            Console.WriteLine("Events.Items ist so lang: " + events.Items.LongCount());
+
+            // 1) Alle Umzugstermine mit Status != 0
+
+            try
+            {
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+
+                MySqlCommand cmdRead = new MySqlCommand("SELECT idUmzuege, datUmzug, StatUmz, Kunden_idKunden FROM Umzuege WHERE (StatUmz != 0) AND (datUmzug > '" + Program.DateTimeMachine(DateTime.Now, DateTime.Now) + "');", Program.conn);
+                MySqlDataReader rdr = cmdRead.ExecuteReader();
+                int countUmzug = 0;
+
+                while (rdr.Read())
+                {
+                    //Check auf vorhanden -> wenn ja add zur kill-list
+                    Console.WriteLine("Umzug nummer "+rdr.GetInt32(0)+" vom "+rdr.GetDateTime(1).ToShortDateString());
+                    countUmzug++;
+
+                    if (rdr.GetInt32(2) == 1) { // Festgelegter Umzug, Farbe 11
+
+                        String date = rdr.GetDateTime(1).Date.Year + "-" + rdr.GetDateTime(1).Date.Month + "-" + rdr.GetDateTime(1).Date.Day;
+
+                        foreach (var item in events.Items)
+                        {
+                            if (item.ColorId == "11" && item.Start.Date == date)
+                            {                                                               //&& item.Description.Contains(rdr.GetInt32(3)+"")
+                                Console.WriteLine("Hit");
+                            }
+                        }
+
+                        Console.WriteLine("Miss");
+
+                    }
+
+
+
+
+                }
+                rdr.Close();
+                Program.conn.Close();
+                Console.WriteLine(countUmzug + " Umzüge zu finden");
+            }
+            catch (Exception sqlEx)
+            {
+                Program.FehlerLog(sqlEx.ToString(), "Bla");
+                throw sqlEx;
+            }
+
+            // 2) Alle Besichtigungstermine mit Status != 0
+
+            // 3) Alle Entrümpelunstermine
+
+            // 4) Alle 
+
+        }
+
+            
     }
 }

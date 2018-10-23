@@ -55,6 +55,7 @@
             this.radioMainBenutzerJonas = new System.Windows.Forms.RadioButton();
             this.radioMainBenutzerRita = new System.Windows.Forms.RadioButton();
             this.textMainLog = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -75,6 +76,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.PDFRead);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.buttonErinnerungen);
@@ -366,6 +368,16 @@
             this.textMainLog.Size = new System.Drawing.Size(1201, 119);
             this.textMainLog.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(919, 333);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(179, 117);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Sonderabfragen";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -420,6 +432,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button PDFRead;
         private System.Windows.Forms.RadioButton radioMainBenutzerNora;
+        private System.Windows.Forms.Button button1;
     }
 }
 
