@@ -318,12 +318,7 @@ namespace Kartonagen
                     }
                 }
 
-                ReturnStringA = string.Join("", concatA);
-                ReturnstringB = string.Join("", concatB);
-
-                String Update = "UPDATE Umzuege Set StockwerkeA = '"+ReturnStringA+"', StockwerkeB = '"+ReturnstringB+"' WHERE idUmzuege = "+item+";";
-                Program.QueryLog(Update);
-                Program.absender(Update,"Update der Adresse auf Bitstring für "+item);
+                Console.WriteLine("Umzugsnummer "+item+" A vorher = "+tempStringA+" A Nachher = "+String.Join("",concatA)+"/r/n B Vorher = "+tempStringB+" B nacher = "+ String.Join("", concatA) + " /r/n");
 
             } // End Foreach
 

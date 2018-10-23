@@ -546,9 +546,7 @@ namespace Kartonagen
             }
             // Geändertes UI
 
-            //parseEtagen();
-            readBitstringEtagenA(umzObj.auszug.Stockwerke1);
-            readBitstringEtagenB(umzObj.einzug.Stockwerke1);
+            parseEtagen();
 
             switch (umzObj.Versicherung)
             {
@@ -668,128 +666,128 @@ namespace Kartonagen
 
         }
 
-        //private void parseEtagen()
-        //{
-        //    //TODO KILL
+        private void parseEtagen()
+        {
+            //TODO KILL
 
-        //    if (umzObj.auszug.Stockwerke1.Length != 0)
-        //    {
+            if (umzObj.auszug.Stockwerke1.Length != 0)
+            {
 
-        //        string[] temp = umzObj.auszug.Stockwerke1.Split(',');
+                string[] temp = umzObj.auszug.Stockwerke1.Split(',');
 
-        //        foreach (var item in temp)
-        //        {
-        //            if (item.Contains("K"))
-        //            {
-        //                checkKellerA.Checked = true;
-        //            }
-        //            else if (item.Contains("EG"))
-        //            {
-        //                checkEGA.Checked = true;
-        //            }
-        //            else if (item.Contains("DB"))
-        //            {
-        //                checkDBA.Checked = true;
-        //            }
-        //            else if (item.Contains("MA"))
-        //            {
-        //                checkMAA.Checked = true;
-        //            }
-        //            else if (item.Contains("ST"))
-        //            {
-        //                checkSTA.Checked = true;
-        //            }
-        //            else if (item.Contains("HP"))
-        //            {
-        //                checkHPA.Checked = true;
-        //            }
-        //            else if (item.Contains("1"))
-        //            {
-        //                checkOG1A.Checked = true;
-        //            }
-        //            else if (item.Contains("2"))
-        //            {
-        //                checkOG2A.Checked = true;
-        //            }
-        //            else if (item.Contains("3"))
-        //            {
-        //                checkOG3A.Checked = true;
-        //            }
-        //            else if (item.Contains("4"))
-        //            {
-        //                checkOG4A.Checked = true;
-        //            }
-        //            else if (item.Contains("5"))
-        //            {
-        //                checkOG5A.Checked = true;
-        //            }
-        //            else
-        //            {
-        //                textSonderEtageA.AppendText(item);
-        //            }
-        //        }
+                foreach (var item in temp)
+                {
+                    if (item.Contains("K"))
+                    {
+                        checkKellerA.Checked = true;
+                    }
+                    else if (item.Contains("EG"))
+                    {
+                        checkEGA.Checked = true;
+                    }
+                    else if (item.Contains("DB"))
+                    {
+                        checkDBA.Checked = true;
+                    }
+                    else if (item.Contains("MA"))
+                    {
+                        checkMAA.Checked = true;
+                    }
+                    else if (item.Contains("ST"))
+                    {
+                        checkSTA.Checked = true;
+                    }
+                    else if (item.Contains("HP"))
+                    {
+                        checkHPA.Checked = true;
+                    }
+                    else if (item.Contains("1"))
+                    {
+                        checkOG1A.Checked = true;
+                    }
+                    else if (item.Contains("2"))
+                    {
+                        checkOG2A.Checked = true;
+                    }
+                    else if (item.Contains("3"))
+                    {
+                        checkOG3A.Checked = true;
+                    }
+                    else if (item.Contains("4"))
+                    {
+                        checkOG4A.Checked = true;
+                    }
+                    else if (item.Contains("5"))
+                    {
+                        checkOG5A.Checked = true;
+                    }
+                    else
+                    {
+                        textSonderEtageA.AppendText(item);
+                    }
+                }
 
-        //    }
+            }
 
-        //    if (umzObj.einzug.Stockwerke1.Length != 0)
-        //    {
+            if (umzObj.einzug.Stockwerke1.Length != 0)
+            {
 
-        //        string[] temp = umzObj.einzug.Stockwerke1.Split(',');
+                string[] temp = umzObj.einzug.Stockwerke1.Split(',');
 
-        //        foreach (var item in temp)
-        //        {
-        //            if (item.Contains("K"))
-        //            {
-        //                checkKellerB.Checked = true;
-        //            }
-        //            else if (item.Contains("EG"))
-        //            {
-        //                checkEGB.Checked = true;
-        //            }
-        //            else if (item.Contains("DB"))
-        //            {
-        //                checkDBB.Checked = true;
-        //            }
-        //            else if (item.Contains("MA"))
-        //            {
-        //                checkMAB.Checked = true;
-        //            }
-        //            else if (item.Contains("ST"))
-        //            {
-        //                checkSTB.Checked = true;
-        //            }
-        //            else if (item.Contains("HP"))
-        //            {
-        //                checkHPB.Checked = true;
-        //            }
-        //            else if (item.Contains("1"))
-        //            {
-        //                checkOG1B.Checked = true;
-        //            }
-        //            else if (item.Contains("2"))
-        //            {
-        //                checkOG2B.Checked = true;
-        //            }
-        //            else if (item.Contains("3"))
-        //            {
-        //                checkOG3B.Checked = true;
-        //            }
-        //            else if (item.Contains("4"))
-        //            {
-        //                checkOG4B.Checked = true;
-        //            }
-        //            else if (temp.Contains("5"))
-        //            {
-        //                checkOG5B.Checked = true;
-        //            }
-        //            else
-        //            {
-        //                textSonderEtageB.AppendText(item);
-        //            }
-        //        }
-        //    }
+                foreach (var item in temp)
+                {
+                    if (item.Contains("K"))
+                    {
+                        checkKellerB.Checked = true;
+                    }
+                    else if (item.Contains("EG"))
+                    {
+                        checkEGB.Checked = true;
+                    }
+                    else if (item.Contains("DB"))
+                    {
+                        checkDBB.Checked = true;
+                    }
+                    else if (item.Contains("MA"))
+                    {
+                        checkMAB.Checked = true;
+                    }
+                    else if (item.Contains("ST"))
+                    {
+                        checkSTB.Checked = true;
+                    }
+                    else if (item.Contains("HP"))
+                    {
+                        checkHPB.Checked = true;
+                    }
+                    else if (item.Contains("1"))
+                    {
+                        checkOG1B.Checked = true;
+                    }
+                    else if (item.Contains("2"))
+                    {
+                        checkOG2B.Checked = true;
+                    }
+                    else if (item.Contains("3"))
+                    {
+                        checkOG3B.Checked = true;
+                    }
+                    else if (item.Contains("4"))
+                    {
+                        checkOG4B.Checked = true;
+                    }
+                    else if (temp.Contains("5"))
+                    {
+                        checkOG5B.Checked = true;
+                    }
+                    else
+                    {
+                        textSonderEtageB.AppendText(item);
+                    }
+                }
+            }
 
-        //}
+        }
 
         private string StockwerkString(int x)
         {
@@ -1230,7 +1228,7 @@ namespace Kartonagen
             umzObj.auszug.AussenAufzug1 = aussenAuf;
             umzObj.auszug.Haustyp1 = listBoxA.SelectedItem.ToString();
             umzObj.auszug.Laufmeter1 = int.Parse(textLaufMeterA.Text);
-            umzObj.auszug.Stockwerke1 = buildBitstringEtagen(true);
+            umzObj.auszug.Stockwerke1 = StockwerkString(0);
 
             // ----------------- Einzug
 
@@ -1258,7 +1256,7 @@ namespace Kartonagen
             umzObj.einzug.AussenAufzug1 = aussenAuf;
             umzObj.einzug.Haustyp1 = listBoxB.SelectedItem.ToString();
             umzObj.einzug.Laufmeter1 = int.Parse(textLaufMeterB.Text);
-            umzObj.einzug.Stockwerke1 = buildBitstringEtagen(false);
+            umzObj.einzug.Stockwerke1 = StockwerkString(1);
 
             // --------------- Versicherung
             int VersTemp = 8;
@@ -1272,7 +1270,6 @@ namespace Kartonagen
             //Kalender aktualisieren
             //refreshAll();
             umzObj.addAll();
-            textUmzugLog.AppendText("Alle Termine hinzugefügt \r\n");
 
             if (pop)
             {
@@ -1281,158 +1278,158 @@ namespace Kartonagen
         }
 
 
-        //private void buttonBlockTermine_Click(object sender, EventArgs e)
-        //{
-        //    killALl();
+        private void buttonBlockTermine_Click(object sender, EventArgs e)
+        {
+            killALl();
 
-        //    Boolean pop = false;
+            Boolean pop = false;
 
-        //    // STATI SETZEN
-        //    // Besichtigung
-        //    if (radioBesJa.Checked) {
-        //        umzObj.StatBesichtigung = 1;
-        //        textUmzugLog.AppendText("Besichtigung hinzugefügt \r\n");
-        //    }
-        //    else { umzObj.StatBesichtigung = 0; }
+            // STATI SETZEN
+            // Besichtigung
+            if (radioBesJa.Checked) {
+                umzObj.StatBesichtigung = 1;
+                textUmzugLog.AppendText("Besichtigung hinzugefügt \r\n");
+            }
+            else { umzObj.StatBesichtigung = 0; }
 
-        //    //Umzug
-        //    if (radioUmzJa.Checked)
-        //    {
-        //        umzObj.StatUmzug = 1;
-        //    }
-        //    else if (radioUmzVllt.Checked) {
-        //        umzObj.StatUmzug = 2;
-        //    }
-        //    else if (radioUmzVorlaeufig.Checked)
-        //    {
-        //        umzObj.StatUmzug = 3;
-        //    }
-        //    else { umzObj.StatUmzug = 0; }
+            //Umzug
+            if (radioUmzJa.Checked)
+            {
+                umzObj.StatUmzug = 1;
+            }
+            else if (radioUmzVllt.Checked) {
+                umzObj.StatUmzug = 2;
+            }
+            else if (radioUmzVorlaeufig.Checked)
+            {
+                umzObj.StatUmzug = 3;
+            }
+            else { umzObj.StatUmzug = 0; }
 
-        //    //Einräumen
-        //    if (radioEinJa.Checked)
-        //    {
-        //        umzObj.StatEin = 1;
-        //    }
-        //    else if (radioEinVllt.Checked)
-        //    {
-        //        umzObj.StatEin = 2;
-        //    }
-        //    else { umzObj.StatEin = 0; }
+            //Einräumen
+            if (radioEinJa.Checked)
+            {
+                umzObj.StatEin = 1;
+            }
+            else if (radioEinVllt.Checked)
+            {
+                umzObj.StatEin = 2;
+            }
+            else { umzObj.StatEin = 0; }
 
-        //    //Ausräumen
-        //    if (radioAusJa.Checked)
-        //    {
-        //        umzObj.StatAus = 1;
-        //    }
-        //    else if (radioAusVllt.Checked)
-        //    {
-        //        umzObj.StatAus = 2;
-        //    }
-        //    else { umzObj.StatAus = 0; }
+            //Ausräumen
+            if (radioAusJa.Checked)
+            {
+                umzObj.StatAus = 1;
+            }
+            else if (radioAusVllt.Checked)
+            {
+                umzObj.StatAus = 2;
+            }
+            else { umzObj.StatAus = 0; }
 
-        //    //Entrümpeln
-        //    if (radioEntJa.Checked)
-        //    {
-        //        umzObj.StatRuempeln = 1;
-        //    }
-        //    else if (radioEntVllt.Checked)
-        //    {
-        //        umzObj.StatRuempeln = 2;
-        //    }
-        //    else { umzObj.StatRuempeln = 0; }
+            //Entrümpeln
+            if (radioEntJa.Checked)
+            {
+                umzObj.StatRuempeln = 1;
+            }
+            else if (radioEntVllt.Checked)
+            {
+                umzObj.StatRuempeln = 2;
+            }
+            else { umzObj.StatRuempeln = 0; }
 
-        //    //ÜBERSCHREIBEN DER DATEN
+            //ÜBERSCHREIBEN DER DATEN
 
-        //    umzObj.DatBesichtigung = dateBesicht.Value;
-        //    umzObj.DatUmzug = dateUmzug.Value;
-        //    umzObj.DatEinraeumen = dateEinpack.Value;
-        //    umzObj.DatAusraeumen = dateAuspack.Value;
-        //    umzObj.DatRuempeln = dateEntruempel.Value;
-        //    umzObj.ZeitUmzug = timeBesichtigung.Value;
-        //    umzObj.Umzugsdauer = decimal.ToInt32(numericUmzugsDauer.Value);
-        //    umzObj.UpdateDB(idBearbeitend.ToString());
+            umzObj.DatBesichtigung = dateBesicht.Value;
+            umzObj.DatUmzug = dateUmzug.Value;
+            umzObj.DatEinraeumen = dateEinpack.Value;
+            umzObj.DatAusraeumen = dateAuspack.Value;
+            umzObj.DatRuempeln = dateEntruempel.Value;
+            umzObj.ZeitUmzug = timeBesichtigung.Value;
+            umzObj.Umzugsdauer = decimal.ToInt32(numericUmzugsDauer.Value);
+            umzObj.UpdateDB(idBearbeitend.ToString());
 
-        //    //Kalender aktualisieren
-        //    refreshAll();
+            //Kalender aktualisieren
+            refreshAll();
 
-        //    if (pop)
-        //    {
-        //        popUp();
-        //    }
-        //}
+            if (pop)
+            {
+                popUp();
+            }
+        }
 
-        //private void buttonBlockKueche_Click_1(object sender, EventArgs e)
-        //{
-        //    killALl();
-        //    //Deklaration und setzen der Werte
+        private void buttonBlockKueche_Click_1(object sender, EventArgs e)
+        {
+            killALl();
+            //Deklaration und setzen der Werte
 
-        //    int kuecheab = 8;
-        //    int kuecheauf = 8;
-        //    int kuechebau = 8;
-        //    String kuechepausch = "0";
+            int kuecheab = 8;
+            int kuecheauf = 8;
+            int kuechebau = 8;
+            String kuechepausch = "0";
 
-        //    if (radioKuecheAbJa.Checked) { kuecheab = 1; }
-        //    else if (radioKuecheAbNein.Checked) { kuecheab = 0; }
-        //    else if (radioKuecheAbV.Checked) { kuecheab = 2; }
-        //    //
-        //    if (radioKuecheAufJa.Checked) { kuecheauf = 1; }
-        //    else if (radioKuecheAufNein.Checked) { kuecheauf = 0; }
-        //    else if (radioKuecheAufV.Checked) { kuecheauf = 2; }
-        //    //
-        //    if (radioKuecheIntern.Checked) { kuechebau = 1; } // Küchenbau Intern = 1, Extern = 0;
-        //    else if (radioKuecheExtern.Checked) { kuechebau = 0; }
+            if (radioKuecheAbJa.Checked) { kuecheab = 1; }
+            else if (radioKuecheAbNein.Checked) { kuecheab = 0; }
+            else if (radioKuecheAbV.Checked) { kuecheab = 2; }
+            //
+            if (radioKuecheAufJa.Checked) { kuecheauf = 1; }
+            else if (radioKuecheAufNein.Checked) { kuecheauf = 0; }
+            else if (radioKuecheAufV.Checked) { kuecheauf = 2; }
+            //
+            if (radioKuecheIntern.Checked) { kuechebau = 1; } // Küchenbau Intern = 1, Extern = 0;
+            else if (radioKuecheExtern.Checked) { kuechebau = 0; }
 
-        //    kuechepausch = textKuechenPreis.Text;
+            kuechepausch = textKuechenPreis.Text;
 
-        //    // Setzen
-        //    umzObj.KuecheAb1 = kuecheab;
-        //    umzObj.KuecheAuf1 = kuecheauf;
-        //    umzObj.KuecheBau1 = kuechebau;
-        //    umzObj.KuechePausch1 = int.Parse(textKuechenPreis.Text);
+            // Setzen
+            umzObj.KuecheAb1 = kuecheab;
+            umzObj.KuecheAuf1 = kuecheauf;
+            umzObj.KuecheBau1 = kuechebau;
+            umzObj.KuechePausch1 = int.Parse(textKuechenPreis.Text);
 
-        //    // Absenden
-        //    umzObj.UpdateDB(idBearbeitend.ToString());
-        //    umzugAenderungFuellem(); // Neuladen der Ansicht
+            // Absenden
+            umzObj.UpdateDB(idBearbeitend.ToString());
+            umzugAenderungFuellem(); // Neuladen der Ansicht
 
-        //    erinnerungsPopup();
+            erinnerungsPopup();
 
-        //    //Kalender aktualisieren
-        //    refreshAll();
-        //}
+            //Kalender aktualisieren
+            refreshAll();
+        }
 
-        //private void buttonBlockPacken_Click_1(object sender, EventArgs e)
-        //{
-        //    killALl();
+        private void buttonBlockPacken_Click_1(object sender, EventArgs e)
+        {
+            killALl();
 
-        //    int einPacken = 8;
-        //    int ausPacken = 8;
+            int einPacken = 8;
+            int ausPacken = 8;
 
-        //    if (radioEinpackenJa.Checked) { einPacken = 1; }
-        //    else if (radioEinpackenNein.Checked) { einPacken = 0; }
-        //    else if (radioEinpackenV.Checked) { einPacken = 2; }
-        //    //
-        //    if (radioAuspackenJa.Checked) { ausPacken = 1; }
-        //    else if (radioAuspackenNein.Checked) { ausPacken = 0; }
-        //    else if (radioAuspackenV.Checked) { ausPacken = 2; }
+            if (radioEinpackenJa.Checked) { einPacken = 1; }
+            else if (radioEinpackenNein.Checked) { einPacken = 0; }
+            else if (radioEinpackenV.Checked) { einPacken = 2; }
+            //
+            if (radioAuspackenJa.Checked) { ausPacken = 1; }
+            else if (radioAuspackenNein.Checked) { ausPacken = 0; }
+            else if (radioAuspackenV.Checked) { ausPacken = 2; }
 
-        //    // Setzen
-        //    umzObj.Einpacken1 = einPacken;
-        //    umzObj.Einpacker1 = decimal.ToInt32(numericEinPacker.Value);
-        //    umzObj.EinStunden1 = decimal.ToInt32(numericEinPackStunden.Value);
-        //    umzObj.Karton1 = decimal.ToInt32(numericEinPackKartons.Value);
-        //    umzObj.Auspacken1 = ausPacken;
-        //    umzObj.Auspacker1 = decimal.ToInt32(numericAusPacker.Value);
-        //    umzObj.AusStunden1 = decimal.ToInt32(numericAusPackStunden.Value);
+            // Setzen
+            umzObj.Einpacken1 = einPacken;
+            umzObj.Einpacker1 = decimal.ToInt32(numericEinPacker.Value);
+            umzObj.EinStunden1 = decimal.ToInt32(numericEinPackStunden.Value);
+            umzObj.Karton1 = decimal.ToInt32(numericEinPackKartons.Value);
+            umzObj.Auspacken1 = ausPacken;
+            umzObj.Auspacker1 = decimal.ToInt32(numericAusPacker.Value);
+            umzObj.AusStunden1 = decimal.ToInt32(numericAusPackStunden.Value);
 
-        //    // Absenden
-        //    umzObj.UpdateDB(idBearbeitend.ToString());
+            // Absenden
+            umzObj.UpdateDB(idBearbeitend.ToString());
 
-        //    umzugAenderungFuellem(); // Neuladen der Ansicht
-        //                             //Kalender aktualisieren
-        //    refreshAll();
-        //    erinnerungsPopup();
-        //}
+            umzugAenderungFuellem(); // Neuladen der Ansicht
+                                     //Kalender aktualisieren
+            refreshAll();
+            erinnerungsPopup();
+        }
 
 
         private void buttonBlockEntruempeln_Click(object sender, EventArgs e)
@@ -1744,22 +1741,21 @@ namespace Kartonagen
 
             umzObj.killAll();
             umzObj.increaseLfdNr();
-            textUmzugLog.AppendText("Alte Termine entfernt \r\n");
 
             // Eventliste refreshenm
             events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
 
         }
 
-        //void refreshAll() {
+        void refreshAll() {
 
-        //    umzObj.addAll();
-        //    
+            umzObj.addAll();
+            textUmzugLog.AppendText("Alle Termine erneuert \r\n");
 
-        //    // Eventliste refreshenm
-        //    events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
-        //    return;
-        //}
+            // Eventliste refreshenm
+            events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
+            return;
+        }
 
         void resetEvents() {
             events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
@@ -1860,7 +1856,6 @@ namespace Kartonagen
 
         private void readBitstringEtagenA(String Bitstring)
         {
-            Console.WriteLine(Bitstring +" "+Bitstring.Length);
 
             checkKellerA.Checked = false;
             checkEGA.Checked = false;
@@ -1920,9 +1915,9 @@ namespace Kartonagen
                 checkDBA.Checked = true;
             }
 
-            //if (!Bitstring.Split('-')[1].Equals(String.Empty)) {
-            //    textSonderEtageA.Text = Bitstring.Split('-')[1];
-            //}
+            if (!Bitstring.Split('-')[1].Equals(String.Empty)) {
+                textSonderEtageA.Text = Bitstring.Split('-')[1];
+            }
 
         }
 
@@ -1986,10 +1981,10 @@ namespace Kartonagen
                 checkDBB.Checked = true;
             }
 
-            //if (!Bitstring.Split('-')[1].Equals(String.Empty))
-            //{
-            //    textSonderEtageB.Text = Bitstring.Split('-')[1];
-            //}
+            if (!Bitstring.Split('-')[1].Equals(String.Empty))
+            {
+                textSonderEtageB.Text = Bitstring.Split('-')[1];
+            }
 
         }
 

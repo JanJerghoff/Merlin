@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,10 +33,7 @@ namespace Kartonagen.Objekte
         public string Bemerkung { get => bemerkung; set => bemerkung = value; }
 
         public Kunde(int id) {
-
-            MySqlCommand cmdReadKunde = new MySqlCommand("SELECT * FROM Kunden WHERE idKunden = "+id+";", Program.conn);
-            MySqlDataReader rdrKunde;
-
+            
             string tempStr = "";
             string tempHausnummer = "";
             string tempPLZ = "";
@@ -43,7 +41,14 @@ namespace Kartonagen.Objekte
 
             try
             {
-                rdrKunde = cmdReadKunde.ExecuteReader();
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+
+                MySqlCommand cmdReadKunde = new MySqlCommand("SELECT * FROM Kunden WHERE idKunden = " + id + ";", Program.conn);
+                MySqlDataReader rdrKunde = cmdReadKunde.ExecuteReader();
+
                 while (rdrKunde.Read())
                 {
                     id = rdrKunde.GetInt32(0);
@@ -61,6 +66,7 @@ namespace Kartonagen.Objekte
                     bemerkung = rdrKunde.GetString(14);
                 }
                 rdrKunde.Close();
+                Program.conn.Close();
             }
             catch (Exception sqlEx)
             {
@@ -68,6 +74,11 @@ namespace Kartonagen.Objekte
             }
 
             //anschrift = new Adresse(tempStr, tempHausnummer, tempOrt, tempPLZ, "", 0, "", "", 0, 0, 0);
+        }
+
+        internal string getVollerName()
+        {
+            return Anrede + " " + Vorname + " " + Nachname;
         }
     }
 }

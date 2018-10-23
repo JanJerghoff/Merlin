@@ -208,7 +208,7 @@ namespace Kartonagen
             else if (radioHVZANein.Checked) { hvztemp = 0; }
             else { hvztemp = 8; }
 
-            Adresse aus = new Adresse(textStraßeA.Text, textHausnummerA.Text, textOrtA.Text, textPLZA.Text, textLandA.Text, aufzugtemp, buildBitstringEtagen(true), listBoxA.SelectedItem.ToString(), hvztemp, int.Parse(textLaufMeterA.Text), aussenaufzugtemp);
+            Adresse aus = new Adresse(textStraßeA.Text, textHausnummerA.Text, textOrtA.Text, textPLZA.Text, textLandA.Text, aufzugtemp, StockwerkString(0), listBoxA.SelectedItem.ToString(), hvztemp, int.Parse(textLaufMeterA.Text), aussenaufzugtemp);
 
             // Belegung der Temps für die Adresserstellung.
             if (radioAufzugBJa.Checked) { aufzugtemp = 1; }
@@ -224,7 +224,7 @@ namespace Kartonagen
             else if (radioHVZBNein.Checked) { hvztemp = 0; }
             else { hvztemp = 8; }
 
-            Adresse ein = new Adresse(textStraßeB.Text, textHausnummerB.Text, textOrtB.Text, textPLZB.Text, textLandB.Text, aufzugtemp, buildBitstringEtagen(false), listBoxB.SelectedItem.ToString(), hvztemp, int.Parse(textLaufMeterB.Text), aussenaufzugtemp);
+            Adresse ein = new Adresse(textStraßeB.Text, textHausnummerB.Text, textOrtB.Text, textPLZB.Text, textLandB.Text, aufzugtemp, StockwerkString(1), listBoxB.SelectedItem.ToString(), hvztemp, int.Parse(textLaufMeterB.Text), aussenaufzugtemp);
 
             // Temps für die Umzugserstellung
             // Status des Datums. 0 = nicht festgelegt, 1 = festgelegt, 2 = vorläufig (wenn möglich), 3 = Vorläufig gebucht (bei Umzügen)
@@ -838,57 +838,5 @@ namespace Kartonagen
             laufzettel.setBearbeitend(idBearbeitend);
             laufzettel.Show();
         }
-
-        private String buildBitstringEtagen(Boolean Selector)
-        {
-
-            String[] ret = new String[11];
-            CheckBox[] boxes;
-
-            if (Selector)       // Selector ist True wenn A gemeint ist, false bei B
-            {
-                boxes = new CheckBox[] {
-                checkKellerA,checkEGA,checkHPA,checkSTA,checkMAA,
-                checkOG1A,checkOG2A,checkOG3A,checkOG4A,checkOG5A,checkDBA
-                };
-            }
-            else
-            {
-                boxes = new CheckBox[] {
-                checkKellerB,checkEGB,checkHPB,checkSTB,checkMAB,
-                checkOG1B,checkOG2B,checkOG3B,checkOG4B,checkOG5B,checkDBB
-                };
-            }
-
-            for (int i = 0; i < boxes.Length; i++)
-            {
-                if (boxes[i].Checked)
-                {
-                    ret[i] = "1";
-                }
-                else
-                {
-                    ret[i] = "0";
-                }
-            }
-
-            String Etagen = String.Join("", ret);
-            if (Selector)
-            {
-                if (!textSonderEtageA.Text.Equals(String.Empty))
-                {
-                    Etagen.Insert(Etagen.Length, ("-" + textSonderEtageA.Text));
-                }
-            }
-            else
-            {
-                if (!textSonderEtageB.Text.Equals(String.Empty))
-                {
-                    Etagen.Insert(Etagen.Length, ("-" + textSonderEtageB.Text));
-                }
-            }
-            return Etagen;
-        }
-
     }
 }

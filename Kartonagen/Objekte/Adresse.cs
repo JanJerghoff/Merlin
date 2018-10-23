@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,18 +12,18 @@ namespace Kartonagen.Objekte
     {
         // Felder
         int IDAdresse;
-        string Straße;
-        string Hausnummer;
-        string Ort;
-        string PLZ;
-        string Land;
-        int Aufzug;
-        string Stockwerke;
-        string Haustyp;
-        int HVZ;
-        int Laufmeter;
-        int AussenAufzug;
-        string Bemerkung;
+        string Straße = "";
+        string Hausnummer = "";
+        string Ort = "";
+        string PLZ = "";
+        string Land = "";
+        int Aufzug = 0;
+        string Stockwerke = "";
+        string Haustyp = "";
+        int HVZ =0;
+        int Laufmeter=0;
+        int AussenAufzug=0;
+        string Bemerkung = "";
 
         public Adresse(string straße, string hausnummer, string ort, string pLZ, string land, int aufzug, string stockwerke, string haustyp, int hVZ, int laufmeter, int aussenAufzug)
         {
@@ -37,19 +38,47 @@ namespace Kartonagen.Objekte
             HVZ = hVZ;
             Laufmeter = laufmeter;
             AussenAufzug = aussenAufzug;
+
+            saveNew();
+
+            String select = "SELECT id FROM Adresse ORDER BY id DESC LIMIT 1;";
+            
+            try
+            {
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+
+                MySqlCommand cmdId = new MySqlCommand(select, Program.conn);
+                MySqlDataReader rdrId = cmdId.ExecuteReader();
+                while (rdrId.Read())
+                {
+                    IDAdresse = rdrId.GetInt32(0);
+                }
+                rdrId.Close();
+                Program.conn.Close();
+            }
+            catch (Exception sqlEx)
+            {
+                Program.FehlerLog(sqlEx.ToString(), "Abrufen der ID der neu angelegten Adresse "+ Straße );
+            }
         }
 
         public Adresse(int id) {
 
             String select = "SELECT * FROM Adresse WHERE id = "+id+";";
 
-            MySqlCommand cmdRead = new MySqlCommand(select, Program.conn);
-            MySqlDataReader rdr;
-
             try
             {
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
 
-                rdr = cmdRead.ExecuteReader();
+                MySqlCommand cmdRead = new MySqlCommand(select, Program.conn);
+                MySqlDataReader rdr = cmdRead.ExecuteReader();
+
                 while (rdr.Read())
                 {
                     Straße = rdr.GetString(1);
@@ -64,6 +93,7 @@ namespace Kartonagen.Objekte
                     AussenAufzug = rdr.GetInt32(11);
                 }
                 rdr.Close();
+                Program.conn.Close();
             }
             catch (Exception sqlEx)
             {
@@ -131,19 +161,22 @@ namespace Kartonagen.Objekte
             int idDb = 0;
 
             String select = "SELECT id FROM Adresse WHERE strasse = '" + Straße1 + "' AND hausnummer = '" + Hausnummer1 + "' AND ort = '" + Ort1 + "' AND PLZ = '" + PLZ1 + "';";
-
-            MySqlCommand cmdRead = new MySqlCommand(select, Program.conn);
-            MySqlDataReader rdr;
-
+            
             try
             {
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
 
-                rdr = cmdRead.ExecuteReader();
+                MySqlCommand cmdRead = new MySqlCommand(select, Program.conn);
+                MySqlDataReader rdr = cmdRead.ExecuteReader();
                 while (rdr.Read())
                 {
                     idDb = rdr.GetInt32(0);
                 }
                 rdr.Close();
+                Program.conn.Close();
             }
             catch (Exception sqlEx)
             {
