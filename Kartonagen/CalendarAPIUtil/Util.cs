@@ -488,6 +488,7 @@ namespace Kartonagen.CalendarAPIUtil
             request.ShowDeleted = false;
             request.SingleEvents = true;
             request.MaxResults = 2500;
+            request.OrderBy = EventsResource.ListRequest.OrderByEnum.Updated;
             // List events.
             Events events = request.Execute();
             List<Event> tooEarly = new List<Event>();
