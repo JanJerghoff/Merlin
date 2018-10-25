@@ -485,33 +485,51 @@ namespace Kartonagen.CalendarAPIUtil
 
             // Define parameters of request.
             EventsResource.ListRequest request = dienst.Events.List("primary");
-            request.ShowDeleted = false;
             request.SingleEvents = true;
             request.MaxResults = 2500;
-            request.OrderBy = EventsResource.ListRequest.OrderByEnum.Updated;
+            request.TimeMin = DateTime.Now.AddMonths(-1);
+            request.TimeMax = DateTime.Now.AddYears(1);
+            request.ShowDeleted = false;
             // List events.
             Events events = request.Execute();
-            List<Event> tooEarly = new List<Event>();
 
-            Console.WriteLine("Events.Items ist so lang: " + events.Items.LongCount());
+            LinkedList<Event> echtEvent = new LinkedList<Event>();
+            // List<Event> tooEarly = new List<Event>();
 
-            // Nur zukünftige Events
+            //Console.WriteLine("Events.Items ist so lang: " + events.Items.LongCount());
+
+            //// Nur zukünftige Events
+            //foreach (var item in events.Items)
+            //{
+            //    if (item.Start.DateTime < DateTime.Now)
+            //    {
+            //        tooEarly.Add(item);
+            //        Console.WriteLine("removed Event at " + item.Start.DateTime.Value.ToString());
+            //    }
+            //}
+
+            //foreach (var item in tooEarly)
+            //{
+            //    events.Items.Remove(item);
+            //}
+            int withDate = 0;
+
             foreach (var item in events.Items)
             {
-                if (item.Start.DateTime < DateTime.Now)
+                if (item.Start != null)
                 {
-                    tooEarly.Add(item);
-                    Console.WriteLine("removed Event at " + item.Start.DateTime.Value.ToString());
+                    if (item.Start.Date != null)
+                    {
+                        if (item.Start.Date.Length > 0)
+                        {
+                            echtEvent.AddLast(item);
+                        }
+                    }
                 }
             }
 
-            foreach (var item in tooEarly)
-            {
-                events.Items.Remove(item);
-            }
-
             Console.WriteLine("Events.Items ist so lang: " + events.Items.LongCount());
-
+            Console.WriteLine("Soviele haben ein Datum => "+echtEvent.Count);
             // 1) Alle Umzugstermine mit Status != 0
 
             try
@@ -521,34 +539,97 @@ namespace Kartonagen.CalendarAPIUtil
                     Program.conn.Open();
                 }
 
-                MySqlCommand cmdRead = new MySqlCommand("SELECT idUmzuege, datUmzug, StatUmz, Kunden_idKunden FROM Umzuege WHERE (StatUmz != 0) AND (datUmzug > '" + Program.DateTimeMachine(DateTime.Now, DateTime.Now) + "');", Program.conn);
+                MySqlCommand cmdRead = new MySqlCommand("SELECT idUmzuege, datUmzug, StatUmz, Kunden_idKunden FROM Umzuege WHERE (StatUmz != 0) AND (datUmzug > '" + Program.DateTimeMachine(DateTime.Now, DateTime.Now) + "') ORDER BY datUmzug asc;", Program.conn);
                 MySqlDataReader rdr = cmdRead.ExecuteReader();
                 int countUmzug = 0;
+                Boolean success = false;
 
                 while (rdr.Read())
                 {
                     //Check auf vorhanden -> wenn ja add zur kill-list
-                    Console.WriteLine("Umzug nummer "+rdr.GetInt32(0)+" vom "+rdr.GetDateTime(1).ToShortDateString());
+                    //Console.WriteLine("Umzug nummer "+rdr.GetInt32(0)+" Kunde "+rdr.GetInt32(3)+" vom "+rdr.GetDateTime(1).ToShortDateString());
                     countUmzug++;
+                    success = false;
+                    //Bei jeder Iteration überschreiben
 
-                    if (rdr.GetInt32(2) == 1) { // Festgelegter Umzug, Farbe 11
+                    String date =""+ rdr.GetDateTime(1).Date.Year;
 
-                        String date = rdr.GetDateTime(1).Date.Year + "-" + rdr.GetDateTime(1).Date.Month + "-" + rdr.GetDateTime(1).Date.Day;
+                    if (rdr.GetDateTime(1).Date.Month < 10)
+                    {
+                        date += "-0" + rdr.GetDateTime(1).Date.Month;
+                    }
+                    else
+                    {
+                        date += "-" + rdr.GetDateTime(1).Date.Month;
+                    }
 
-                        foreach (var item in events.Items)
-                        {
-                            if (item.ColorId == "11" && item.Start.Date == date)
-                            {                                                               //&& item.Description.Contains(rdr.GetInt32(3)+"")
-                                Console.WriteLine("Hit");
-                            }
-                        }
-
-                        Console.WriteLine("Miss");
-
+                    if (rdr.GetDateTime(1).Date.Day<10)
+                    {
+                        date += "-0" + rdr.GetDateTime(1).Date.Day;
+                    }
+                    else {
+                        date += "-" + rdr.GetDateTime(1).Date.Day;
                     }
 
 
 
+
+                    String id = rdr.GetInt32(0)+"";
+                    
+
+                    if (rdr.GetInt32(2) == 1)
+                    { // Festgelegter Umzug, Farbe 11
+
+                        foreach (var item in echtEvent)
+                        {
+                            //Console.WriteLine(item.Start.Date + "+" + date);
+
+                            if (item.ColorId == "11" && item.Start.Date.Equals(date)  && !success) //&& item.Description.Contains(id)
+                            {                                                             //&& item.Description.Contains(rdr.GetInt32(3) + "")
+                                Console.WriteLine("Hit" + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
+
+                                success = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    else if (rdr.GetInt32(2) == 3)
+                    { // vorl Festgelegt, Farbe 2
+
+                        foreach (var item in echtEvent)
+                        {
+                            if (item.ColorId == "2" && item.Start.Date.Equals(date) && item.Summary.Contains(rdr.GetInt32(3) + "") && !success)
+                            {
+                                Console.WriteLine("Hit" + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
+                                success = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    else if (rdr.GetInt32(2) == 2)
+                    { // Vorläufig, Farbe 11
+
+                        foreach (var item in echtEvent)
+                        {
+                            if (item.ColorId == "10" && item.Start.Date.Equals(date) && item.Summary.Contains(rdr.GetInt32(3) + "") && !success)
+                            {
+                                Console.WriteLine("Hit" + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
+                                success = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (success == false)
+                    {
+                        Console.WriteLine("Fail! " + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
+                    }
+                    //else
+                    //{
+                    //    //Console.WriteLine("Iteration ends on hit");
+                    //}
 
                 }
                 rdr.Close();
@@ -563,10 +644,106 @@ namespace Kartonagen.CalendarAPIUtil
 
             // 2) Alle Besichtigungstermine mit Status != 0
 
-            // 3) Alle Entrümpelunstermine
+            //try
+            //{
+            //    if (Program.conn.State != ConnectionState.Open)
+            //    {
+            //        Program.conn.Open();
+            //    }
 
-            // 4) Alle 
+            //    MySqlCommand cmdRead = new MySqlCommand("SELECT idUmzuege, datBesichtigung, StatBes, Kunden_idKunden, umzugsZeit FROM Umzuege WHERE (StatBes != 0) AND (datBesichtigung > '" + Program.DateTimeMachine(DateTime.Now, DateTime.Now) + "') ORDER BY datBesichtigung asc;", Program.conn);
+            //    MySqlDataReader rdr = cmdRead.ExecuteReader();
+            //    int countUmzug = 0;
 
+            //    while (rdr.Read())
+            //    {
+            //        //Check auf vorhanden -> wenn ja add zur kill-list
+            //        Console.WriteLine("Besichtigung " + rdr.GetInt32(0) + ", Kunde "+rdr.GetInt32(3)+" vom " + rdr.GetDateTime(1).ToShortDateString());
+            //        countUmzug++;
+
+            //        //Bei jeder Iteration überschreiben
+            //        Boolean success = false;
+            //        String date = rdr.GetDateTime(1).Date.Year + "-" + rdr.GetDateTime(1).Date.Month + "-" + rdr.GetDateTime(1).Date.Day;
+                    
+            //    }
+            //    rdr.Close();
+            //    Program.conn.Close();
+            //    Console.WriteLine(countUmzug + " Besichtigungen zu finden");
+            //}
+            //catch (Exception sqlEx)
+            //{
+            //    Program.FehlerLog(sqlEx.ToString(), "Bla");
+            //    throw sqlEx;
+            //}
+
+            //// 3) Alle Entrümpelunstermine
+
+            //try
+            //{
+            //    if (Program.conn.State != ConnectionState.Open)
+            //    {
+            //        Program.conn.Open();
+            //    }
+
+            //    MySqlCommand cmdRead = new MySqlCommand("SELECT idUmzuege, datEinpacken, StatEin, Kunden_idKunden, umzugsZeit FROM Umzuege WHERE (StatEin != 0) AND (datEinpacken > '" + Program.DateTimeMachine(DateTime.Now, DateTime.Now) + "') ORDER BY datEinpacken asc;", Program.conn);
+            //    MySqlDataReader rdr = cmdRead.ExecuteReader();
+            //    int countUmzug = 0;
+
+            //    while (rdr.Read())
+            //    {
+            //        //Check auf vorhanden -> wenn ja add zur kill-list
+            //        Console.WriteLine("Einpacken " + rdr.GetInt32(0) + ", Kunde " + rdr.GetInt32(3) + " vom " + rdr.GetDateTime(1).ToShortDateString());
+            //        countUmzug++;
+
+            //        //Bei jeder Iteration überschreiben
+            //        Boolean success = false;
+            //        String date = rdr.GetDateTime(1).Date.Year + "-" + rdr.GetDateTime(1).Date.Month + "-" + rdr.GetDateTime(1).Date.Day;
+
+            //    }
+            //    rdr.Close();
+            //    Program.conn.Close();
+            //    Console.WriteLine(countUmzug + " Besichtigungen zu finden");
+            //}
+            //catch (Exception sqlEx)
+            //{
+            //    Program.FehlerLog(sqlEx.ToString(), "Bla");
+            //    throw sqlEx;
+            //}
+
+            //// 4) Alle 
+
+
+            //try
+            //{
+            //    if (Program.conn.State != ConnectionState.Open)
+            //    {
+            //        Program.conn.Open();
+            //    }
+
+            //    MySqlCommand cmdRead = new MySqlCommand("SELECT idUmzuege, datAuspacken, StatAus, Kunden_idKunden, umzugsZeit FROM Umzuege WHERE (StatAus != 0) AND (datAuspacken > '" + Program.DateTimeMachine(DateTime.Now, DateTime.Now) + "') ORDER BY datAuspacken asc;", Program.conn);
+            //    MySqlDataReader rdr = cmdRead.ExecuteReader();
+            //    int countUmzug = 0;
+
+            //    while (rdr.Read())
+            //    {
+            //        //Check auf vorhanden -> wenn ja add zur kill-list
+            //        Console.WriteLine("Auspacken " + rdr.GetInt32(0) + ", Kunde " + rdr.GetInt32(3) + " vom " + rdr.GetDateTime(1).ToShortDateString());
+            //        countUmzug++;
+
+            //        //Bei jeder Iteration überschreiben
+            //        Boolean success = false;
+            //        String date = rdr.GetDateTime(1).Date.Year + "-" + rdr.GetDateTime(1).Date.Month + "-" + rdr.GetDateTime(1).Date.Day;
+
+            //    }
+            //    rdr.Close();
+            //    Program.conn.Close();
+            //    Console.WriteLine(countUmzug + " Besichtigungen zu finden");
+            //}
+            //catch (Exception sqlEx)
+            //{
+            //    Program.FehlerLog(sqlEx.ToString(), "Bla");
+            //    throw sqlEx;
+            //}
         }
 
             
