@@ -179,25 +179,52 @@ namespace Kartonagen.Objekte
             Program.absender(longInsert, "Absenden der Änderung an der Transaktion");
 
         }
+        
 
-        public void refreshKalender()
-        {
-            Events ev = Program.getUtil().kalenderUmzugFinder("Transaktion_"+id);
-            Console.WriteLine(ev.Items.Count + "gefunden");
+        //Selbst entfernen in Vorbereitung eines Updates, dann erneutes Hinzufügen
+        public Boolean KalenderRemove() {
 
-            foreach (var item in ev.Items)
-            {
-                Program.getUtil().kalenderEventRemove(item.Id);
+            if (Program.getUtil().targetedDelete(datTransaktion, "8", "Transaktion_" + id)) {
+                return true;
             }
 
-            //Nur in Kalender wenn ausser Haus und in der Zukunft
-            if (IDAdresse != 0 && datKalender > DateTime.Now) {
-                Program.getUtil().kalenderEventEintrag(idKunden + " "+ getKunde().Anrede + " " + getKunde().Vorname + " " + getKunde().Nachname, KalenderString(), 8, datKalender, datKalender.AddHours(1));
-            }
-
+            return false;
         }
 
-        private String KalenderString() {
+        public Boolean KalenderAddDefault() {
+
+            String Adresse = getKunde().Anschrift.Straße1 + getKunde().Anschrift.Hausnummer1 + "/r/n" + getKunde().Anschrift.PLZ1 + getKunde().Anschrift.Ort1 + "/r/n";
+
+            Program.getUtil().kalenderEventEintrag(KalenderHeader(), KalenderString(Adresse), 8, datKalender, datKalender.AddHours(1));
+            return true;
+        }
+
+        public Boolean KalenderAddAdresse(String Adresse)
+        {
+
+            Program.getUtil().kalenderEventEintrag(KalenderHeader(), KalenderString(Adresse), 8, datKalender, datKalender.AddHours(1));
+            return true;
+        }
+
+        private String KalenderHeader() {
+
+            String Header = "" + getKunde().getVollerName();
+
+
+            if (Kartons < 0 || Kleiderkartons < 0 || Glaeserkartons < 0 || Flaschenkartons < 0)
+            {
+                Header += " Kartonlieferung";
+            }
+            else
+            {
+                Header += " Kartonabholung";
+            }
+
+            return Header;
+        }
+
+
+        private String KalenderString(String Adresse) {
             
             String Body = "";
 
@@ -205,7 +232,8 @@ namespace Kartonagen.Objekte
             Body += "Transaktion_" + id + " /r/n";
 
             //Adresse in den Body
-            Body += getKunde().Anschrift.Straße1 + getKunde().Anschrift.Hausnummer1 + "/r/n" + getKunde().Anschrift.PLZ1 + getKunde().Anschrift.Ort1 + "/r/n";
+            //Body += getKunde().Anschrift.Straße1 + getKunde().Anschrift.Hausnummer1 + "/r/n" + getKunde().Anschrift.PLZ1 + getKunde().Anschrift.Ort1 + "/r/n";
+            Body += Adresse + " /r/n ";
 
             // Kontaktdaten
             if (getKunde().Handy.Length > 2)
@@ -257,8 +285,7 @@ namespace Kartonagen.Objekte
             {
                 Body += Kleiderkartons.ToString().Replace("-", "") + " Kleiderkartons ";
             }
-
-            Body += "\r\n Transaktionsnummer =" + id;
+            
 
            // Body += ", Zeichen =" + Program.getBearbeitender();
 

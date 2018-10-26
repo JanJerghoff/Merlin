@@ -481,6 +481,75 @@ namespace Kartonagen.CalendarAPIUtil
 
         }
 
+        public Boolean targetedDelete (DateTime Datum, String Color, String DescriptionQ)
+        {
+
+
+
+            // Define parameters of request.
+            EventsResource.ListRequest request = dienst.Events.List("primary");
+            request.SingleEvents = true;
+            request.MaxResults = 2500;
+            request.TimeMin = Datum.AddDays(-1);
+            request.TimeMax = Datum.AddDays(1);
+            request.ShowDeleted = false;
+            // List events.
+            Events events = request.Execute();
+            LinkedList<Event> echtEvent = new LinkedList<Event>();
+
+
+
+            foreach (var item in events.Items)
+            {
+                if (item.Start != null)
+                {
+                    if (item.Start.Date != null)
+                    {
+                        if (item.Start.Date.Length > 0)
+                        {
+                            echtEvent.AddLast(item);
+                        }
+                    }
+                }
+            }
+
+            //Vorbereitung des korrekt geformten Vergleichsdatums
+            String date = "" + Datum.Date.Year;
+
+            if (Datum.Date.Month < 10)
+            {
+                date += "-0" + Datum.Date.Month;
+            }
+            else
+            {
+                date += "-" + Datum.Date.Month;
+            }
+
+            if (Datum.Date.Day < 10)
+            {
+                date += "-0" + Datum.Date.Day;
+            }
+            else
+            {
+                date += "-" + Datum.Date.Day;
+            }
+
+            //Durchsuche die in Frage kommenden Events mit den gegebenen Parametern
+            foreach (var item in echtEvent)
+            {
+                if (item.ColorId.Equals(Color) && item.Start.Date.Equals(date) && item.Description.Contains(DescriptionQ)) {
+                    if (kalenderEventRemove(item.Id)) {
+                        // Löschen versucht und erfolgreich -> zurückmelden dass erfolgreich ein passendes Event gelöscht wurde
+                        return true;
+                    }
+                }
+            }
+
+            //Wenn nicht vorher erfolgreich, dann negative Rückmeldung
+            return false;
+        }
+
+
         public void KalenderDBCheck(TextBox Log)
         {
 
@@ -493,7 +562,6 @@ namespace Kartonagen.CalendarAPIUtil
             request.ShowDeleted = false;
             // List events.
             Events events = request.Execute();
-
             LinkedList<Event> echtEvent = new LinkedList<Event>();
             
             int withDate = 0;

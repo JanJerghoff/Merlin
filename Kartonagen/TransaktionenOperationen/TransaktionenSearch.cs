@@ -1,4 +1,5 @@
 ﻿using Google.Apis.Calendar.v3.Data;
+using Kartonagen.Objekte;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace Kartonagen
 {
     public partial class TransaktionenSearch : Form
     {
+        Transaktion transObj;
         int maxTransaktionsnummer;
         String Userchanged;
 
@@ -186,8 +188,20 @@ namespace Kartonagen
 
 
         private void buttonAbsenden_Click(object sender, EventArgs e)
-        {            
-            
+        {
+
+            //Alten Kalendereintrag killen
+            if (transObj != null) {
+                if (transObj.KalenderRemove()) {
+                    textTransaktionLog.AppendText("Alter Kalendereintrag entfernt! /r/n ");
+                }
+            }
+            else
+            {
+                //TODO Popup-Warnmeldung keine Transaktion eingeloggt
+            }
+
+
             //String bauen
             String push = "UPDATE Transaktionen SET ";
             String shove = " WHERE idTransaktionen = " + textTransaktion.Text + ";"; 
@@ -234,24 +248,7 @@ namespace Kartonagen
             Program.absender(push + shove, "Fehler beim ändern einer Transaktion in der DB");
 
             //Kalendereintrag
-            if (dateTimeTransaktion.Value != dateTimeTransaktionAendern.Value || timeTransaktion.Value != timeAendern.Value)
-            {
-                Events ev = Program.getUtil().kalenderUmzugFinder(textKundennummer.Text);
-           
-                foreach (var item in ev.Items) 
-                {
-                    if (item.ColorId == "8" && item.End.DateTime == dateTimeTransaktion.Value) {
-
-                        textTransaktionLog.AppendText ("bestehenden Termin löschen");
-                        Program.getUtil().kalenderEventRemove(item.Id);
-                    }
-                }
-                DateTime datKalender = new DateTime(dateTimeTransaktionAendern.Value.Year, dateTimeTransaktionAendern.Value.Month, dateTimeTransaktionAendern.Value.Day, timeAendern.Value.Hour, timeAendern.Value.Minute, 0);
-
-                Program.getUtil().kalenderEventEintrag(textKundennummer.Text + " " +textVorNachname, "BODY", 8, datKalender, datKalender.AddHours(1));
-                
-            }
-
+            
 
             //Neu Fuellen
             fuellen(int.Parse(textTransaktion.Text));

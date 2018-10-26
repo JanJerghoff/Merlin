@@ -141,11 +141,14 @@ namespace Kartonagen
             Program.absender(insert, "Einfügen des Kunden in die DB");
 
             //Abfrage und Bestädtigungsmeldung.
-            MySqlCommand cmdShow = new MySqlCommand("SELECT * FROM Kunden ORDER BY idKunden DESC LIMIT 1;", Program.conn);
-            MySqlDataReader rdr;
+            if (Program.conn.State != ConnectionState.Open)
+            {
+                Program.conn.Open();
+            }
             try
             {
-                rdr = cmdShow.ExecuteReader();
+                MySqlCommand cmdShow = new MySqlCommand("SELECT * FROM Kunden ORDER BY idKunden DESC LIMIT 1;", Program.conn);
+                MySqlDataReader rdr = cmdShow.ExecuteReader();
                 textKundenAddLog.AppendText("Erfolgreich hinzugefügter Kunde: ");
                 while (rdr.Read())
                 {
@@ -154,6 +157,7 @@ namespace Kartonagen
                     }
                 neuKundennr += rdr.GetInt32(0);
                 rdr.Close();
+                Program.conn.Close();
             }
             catch (Exception sqlEx)
             {
@@ -192,6 +196,7 @@ namespace Kartonagen
             umzHinzufuegen.setBearbeiter(idBearbeitend);
             umzHinzufuegen.umzugFuellen(decimal.ToInt32(numericKundenNewKundennummer.Value));
             umzHinzufuegen.Show();
+            this.Close();
         }
     }
 }
