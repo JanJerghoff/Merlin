@@ -1067,7 +1067,6 @@ namespace Kartonagen
                         }
                         else if (StatRuempeln == 2)
                         {
-
                             Program.getUtil().kalenderEventEintragGanz(Header, RuempelString(), "", 10, datRuempeln.Date, datRuempeln.Date);
 
                             return true;

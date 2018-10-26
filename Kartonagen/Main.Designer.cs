@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.button1 = new System.Windows.Forms.Button();
             this.PDFRead = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonLaufzettel = new System.Windows.Forms.Button();
@@ -55,7 +56,6 @@
             this.radioMainBenutzerJonas = new System.Windows.Forms.RadioButton();
             this.radioMainBenutzerRita = new System.Windows.Forms.RadioButton();
             this.textMainLog = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -92,6 +92,16 @@
             this.splitContainer1.Size = new System.Drawing.Size(1334, 629);
             this.splitContainer1.SplitterDistance = 490;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(919, 333);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(179, 117);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Abgleich Termine\r\nKalender <-> Datenbank\r\n";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // PDFRead
             // 
@@ -367,16 +377,6 @@
             this.textMainLog.ReadOnly = true;
             this.textMainLog.Size = new System.Drawing.Size(1201, 119);
             this.textMainLog.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(919, 333);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(179, 117);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Sonderabfragen";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // mainForm
             // 
