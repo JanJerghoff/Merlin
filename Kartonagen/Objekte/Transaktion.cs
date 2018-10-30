@@ -153,7 +153,7 @@ namespace Kartonagen.Objekte
                 throw sqlEx;
             }
 
-            refreshKalender();
+            //refreshKalender();
         }
 
         public void updateDB (String idBearbeitend) {

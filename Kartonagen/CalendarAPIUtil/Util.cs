@@ -632,7 +632,7 @@ namespace Kartonagen.CalendarAPIUtil
                         {
                             //Console.WriteLine(item.Start.Date + "+" + date);
 
-                            if (item.ColorId == "11" && item.Start.Date.Equals(date)  && !success && item.Description.Contains(rdr.GetInt32(3) + "")) //&& item.Description.Contains(id)
+                            if (item.ColorId == "11" && item.Start.Date.Equals(date)  && !success && item.Summary.Contains(rdr.GetInt32(3) + "")) //&& item.Description.Contains(id)
                             {                                                             //
                                 Console.WriteLine("Hit" + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
                                 success = true;
@@ -646,7 +646,7 @@ namespace Kartonagen.CalendarAPIUtil
 
                         foreach (var item in echtEvent)
                         {
-                            if (item.ColorId == "2" && item.Start.Date.Equals(date) && item.Summary.Contains(rdr.GetInt32(3) + "") && !success && item.Description.Contains(rdr.GetInt32(3) + ""))
+                            if (item.ColorId == "2" && item.Start.Date.Equals(date) && !success && item.Summary.Contains(rdr.GetInt32(3) + ""))
                             {
                                 Console.WriteLine("Hit" + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
                                 success = true;
@@ -660,7 +660,7 @@ namespace Kartonagen.CalendarAPIUtil
 
                         foreach (var item in echtEvent)
                         {
-                            if (item.ColorId == "10" && item.Start.Date.Equals(date) && item.Summary.Contains(rdr.GetInt32(3) + "") && !success && item.Description.Contains(rdr.GetInt32(3) + ""))
+                            if (item.ColorId == "10" && item.Start.Date.Equals(date) && !success && item.Summary.Contains(rdr.GetInt32(3) + ""))
                             {
                                 Console.WriteLine("Hit" + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
                                 success = true;
@@ -672,7 +672,7 @@ namespace Kartonagen.CalendarAPIUtil
                     if (success == false)
                     {
                         Console.WriteLine("Fail! " + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
-                        Log.AppendText("Umzug Nr."+id+" vom "+rdr.GetDateTime(1).ToShortDateString()+ " fehlt im Kalender! /r/n ");
+                        Log.AppendText("Umzug Nr."+id+" vom "+rdr.GetDateTime(1).ToShortDateString()+ " fehlt im Kalender!"+Environment.NewLine);
                     }
 
                 }
@@ -713,7 +713,7 @@ namespace Kartonagen.CalendarAPIUtil
                     {
                         //Console.WriteLine(item.Start.Date + "+" + date);
 
-                        if (item.ColorId == "9" && item.Start.Date.Equals(date) && !success && item.Description.Contains(rdr.GetInt32(3) + "")) //&& item.Description.Contains(id)
+                        if (item.ColorId == "9" && item.Start.Date.Equals(date) && !success && item.Summary.Contains(rdr.GetInt32(3) + "")) //&& item.Description.Contains(id)
                         {                                                             //
                             Console.WriteLine("Hit" + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
                             success = true;
@@ -724,7 +724,7 @@ namespace Kartonagen.CalendarAPIUtil
                     if (success == false)
                     {
                         Console.WriteLine("Fail! " + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
-                        Log.AppendText("Besichtigung zum Umzug Nr." + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString() + " fehlt im Kalender! /r/n ");
+                        Log.AppendText("Besichtigung zum Umzug Nr." + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString() + " fehlt im Kalender!" + Environment.NewLine);
                     }
 
                 }
@@ -784,7 +784,7 @@ namespace Kartonagen.CalendarAPIUtil
                         {
                             //Console.WriteLine(item.Start.Date + "+" + date);
 
-                            if (item.ColorId == "5" && item.Start.Date.Equals(date) && !success && item.Description.Contains(rdr.GetInt32(3) + "")) 
+                            if (item.ColorId == "5" && item.Start.Date.Equals(date) && !success && item.Summary.Contains(rdr.GetInt32(3) + "")) 
                             {                                                             //
                                 Console.WriteLine("Hit" + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
                                 success = true;
@@ -797,7 +797,7 @@ namespace Kartonagen.CalendarAPIUtil
                         {
                             //Console.WriteLine(item.Start.Date + "+" + date);
 
-                            if (item.ColorId == "6" && item.Start.Date.Equals(date) && !success && item.Description.Contains(rdr.GetInt32(3) + "")) 
+                            if (item.ColorId == "6" && item.Start.Date.Equals(date) && !success && item.Summary.Contains(rdr.GetInt32(3) + "")) 
                             {                                                             //
                                 Console.WriteLine("Hit" + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
                                 success = true;
@@ -810,7 +810,7 @@ namespace Kartonagen.CalendarAPIUtil
                     if (success == false)
                     {
                         Console.WriteLine("Fail! " + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
-                        Log.AppendText("Einpacken zum Umzug Nr." + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString() + " fehlt im Kalender! /r/n ");
+                        Log.AppendText("Einpacken zum Umzug Nr." + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString() + " fehlt im Kalender!" + Environment.NewLine);
                     }
 
                 }
@@ -869,7 +869,7 @@ namespace Kartonagen.CalendarAPIUtil
                         {
                             //Console.WriteLine(item.Start.Date + "+" + date);
 
-                            if (item.ColorId == "5" && item.Start.Date.Equals(date) && !success && item.Description.Contains(rdr.GetInt32(3) + ""))
+                            if (item.ColorId == "5" && item.Start.Date.Equals(date) && !success && item.Summary.Contains(rdr.GetInt32(3) + ""))
                             {                                                             //
                                 Console.WriteLine("Hit" + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
                                 success = true;
@@ -883,7 +883,7 @@ namespace Kartonagen.CalendarAPIUtil
                         {
                             //Console.WriteLine(item.Start.Date + "+" + date);
 
-                            if (item.ColorId == "6" && item.Start.Date.Equals(date) && !success && item.Description.Contains(rdr.GetInt32(3) + ""))
+                            if (item.ColorId == "6" && item.Start.Date.Equals(date) && !success && item.Summary.Contains(rdr.GetInt32(3) + ""))
                             {                                                             //
                                 Console.WriteLine("Hit" + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
                                 success = true;
@@ -896,7 +896,7 @@ namespace Kartonagen.CalendarAPIUtil
                     if (success == false)
                     {
                         Console.WriteLine("Fail! " + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
-                        Log.AppendText("Auspacken zum Umzug Nr." + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString() + " fehlt im Kalender! /r/n ");
+                        Log.AppendText("Auspacken zum Umzug Nr." + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString() + " fehlt im Kalender!" + Environment.NewLine);
                     }
 
                 }
@@ -956,7 +956,7 @@ namespace Kartonagen.CalendarAPIUtil
                         {
                             //Console.WriteLine(item.Start.Date + "+" + date);
 
-                            if (item.ColorId == "11" && item.Start.Date.Equals(date) && !success && item.Description.Contains(rdr.GetInt32(3) + ""))
+                            if (item.ColorId == "11" && item.Start.Date.Equals(date) && !success && item.Summary.Contains(rdr.GetInt32(3) + ""))
                             {                                                             //
                                 Console.WriteLine("Hit" + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
                                 success = true;
@@ -970,7 +970,7 @@ namespace Kartonagen.CalendarAPIUtil
                         {
                             //Console.WriteLine(item.Start.Date + "+" + date);
 
-                            if (item.ColorId == "10" && item.Start.Date.Equals(date) && !success && item.Description.Contains(rdr.GetInt32(3) + ""))
+                            if (item.ColorId == "10" && item.Start.Date.Equals(date) && !success && item.Summary.Contains(rdr.GetInt32(3) + ""))
                             {                                                             //
                                 Console.WriteLine("Hit" + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
                                 success = true;
@@ -983,7 +983,7 @@ namespace Kartonagen.CalendarAPIUtil
                     if (success == false)
                     {
                         Console.WriteLine("Fail! " + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
-                        Log.AppendText("Entrümpeln zum Umzug Nr." + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString() + " fehlt im Kalender! /r/n ");
+                        Log.AppendText("Entrümpeln zum Umzug Nr." + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString() + " fehlt im Kalender!" + Environment.NewLine);
                     }
 
                 }
