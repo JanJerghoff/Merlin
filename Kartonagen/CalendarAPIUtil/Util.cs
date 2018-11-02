@@ -713,7 +713,7 @@ namespace Kartonagen.CalendarAPIUtil
                     {
                         //Console.WriteLine(item.Start.Date + "+" + date);
 
-                        if (item.ColorId == "9" && item.Start.Date.Equals(date) && !success && item.Summary.Contains(rdr.GetInt32(3) + "")) //&& item.Description.Contains(id)
+                        if (item.ColorId == "9" && item.Start.Date.Equals(date) && item.Summary.Contains(rdr.GetInt32(3) + "")) //&& item.Description.Contains(id)
                         {                                                             //
                             Console.WriteLine("Hit" + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
                             success = true;
