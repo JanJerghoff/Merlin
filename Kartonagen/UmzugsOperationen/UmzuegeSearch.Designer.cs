@@ -2794,7 +2794,6 @@
             this.buttonBlockAlleAenderungen.TabIndex = 105;
             this.buttonBlockAlleAenderungen.Text = "Alle Änderungen speichern";
             this.buttonBlockAlleAenderungen.UseVisualStyleBackColor = true;
-            this.buttonBlockAlleAenderungen.Click += new System.EventHandler(this.buttonBlockEntruempeln_Click);
             // 
             // UmzuegeSearch
             // 

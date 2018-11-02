@@ -5,6 +5,7 @@ using iText.Kernel.Pdf;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -27,9 +28,7 @@ namespace Kartonagen
         DateTime Einpacken = new DateTime(2017, 1, 1);
         DateTime Auspacken = new DateTime(2017, 1, 1);
         DateTime Entruempelung = new DateTime(2017, 1, 1);
-
-        Events events;
-
+        
         int UmzugSet = 0;
         int BesichtigungSet = 0;
         int EntruempelungSet = 0;
@@ -43,19 +42,23 @@ namespace Kartonagen
             textSucheName.AutoCompleteCustomSource = Program.getAutocompleteKunden();
             textSucheName.AutoCompleteMode = AutoCompleteMode.Suggest;
 
-            //Maximale Kundennummer um OutOfBounds vorzubeugen
-
-            MySqlCommand cmdReadKunde = new MySqlCommand("SELECT * FROM Kunden ORDER BY idKunden DESC LIMIT 1;", Program.conn);
-            MySqlDataReader rdrKunde;
+            //Maximale Kundennummer um OutOfBounds vorzubeugen                     
 
             try
             {
-                rdrKunde = cmdReadKunde.ExecuteReader();
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+
+                MySqlCommand cmdReadKunde = new MySqlCommand("SELECT * FROM Kunden ORDER BY idKunden DESC LIMIT 1;", Program.conn);
+                MySqlDataReader rdrKunde = cmdReadKunde.ExecuteReader();
                 while (rdrKunde.Read())
                 {
                     maxKundennummer = rdrKunde.GetInt32(0);
                 }
                 rdrKunde.Close();
+                Program.conn.Close();
             }
             catch (Exception sqlEx)
             {
@@ -90,8 +93,6 @@ namespace Kartonagen
         {
 
             textSuchBox.Text = "";
-            MySqlCommand cmdRead = new MySqlCommand("SELECT k.idKunden, k.Vorname, k.Erstelldatum FROM Kunden k, Umzuege u WHERE k.Nachname = '" + textSucheName.Text + "' AND u.Kunden_idKunden = k.idKunden;", Program.conn);
-            MySqlDataReader rdr;
             int tempCounter = 0;
             // Bricht, wenn mehr als 30 gleichnamige Kunden
             int[] nummern = new int[20];
@@ -100,7 +101,14 @@ namespace Kartonagen
 
             try
             {
-                rdr = cmdRead.ExecuteReader();
+
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+
+                MySqlCommand cmdRead = new MySqlCommand("SELECT k.idKunden, k.Vorname, k.Erstelldatum FROM Kunden k, Umzuege u WHERE k.Nachname = '" + textSucheName.Text + "' AND u.Kunden_idKunden = k.idKunden;", Program.conn);
+                MySqlDataReader rdr = cmdRead.ExecuteReader();
                 while (rdr.Read())
                 {
                     Boolean alreadyExist = false;
@@ -122,6 +130,7 @@ namespace Kartonagen
                     }
                 }
                 rdr.Close();
+                Program.conn.Close();
             }
             catch (Exception sqlEx)
             {
@@ -164,8 +173,7 @@ namespace Kartonagen
 
 
 
-            MySqlCommand cmdRead = new MySqlCommand(such, Program.conn);
-            MySqlDataReader rdr;
+            ;
             int tempCounter = 0;
             // Bricht, wenn mehr als 30 gleichnamige Kunden
             int[] nummern = new int[30];
@@ -173,8 +181,13 @@ namespace Kartonagen
 
             try
             {
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
 
-                rdr = cmdRead.ExecuteReader();
+                MySqlCommand cmdRead = new MySqlCommand(such, Program.conn);
+                MySqlDataReader rdr = cmdRead.ExecuteReader();
 
                 while (rdr.Read())
                 {
@@ -182,6 +195,7 @@ namespace Kartonagen
                     tempCounter += 1;
                 }
                 rdr.Close();
+                Program.conn.Close();
             }
             catch (Exception sqlEx)
             {
@@ -635,18 +649,20 @@ namespace Kartonagen
             // Zweite Umzugsnummer füllen
 
             textUmzugsNummer.Text = textUmzNummerBlock.Text;
-
-            // Google-Get
-
-            events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
+            
             // Personendaten aus dem Kunden ziehen
 
-            MySqlCommand cmdReadKunde = new MySqlCommand("SELECT * FROM Kunden WHERE idKunden=" + textKundennummer.Text + " ;", Program.conn);
-            MySqlDataReader rdrKunde;
+            ;
 
             try
             {
-                rdrKunde = cmdReadKunde.ExecuteReader();
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+
+                MySqlCommand cmdReadKunde = new MySqlCommand("SELECT * FROM Kunden WHERE idKunden=" + textKundennummer.Text + " ;", Program.conn);
+                MySqlDataReader rdrKunde = cmdReadKunde.ExecuteReader();
                 while (rdrKunde.Read())
                 {
 
@@ -657,6 +673,7 @@ namespace Kartonagen
                     textNoteBuero.AppendText(rdrKunde[14].ToString());
                 }
                 rdrKunde.Close();
+                Program.conn.Close();
             }
             catch (Exception sqlEx)
             {
@@ -789,49 +806,49 @@ namespace Kartonagen
 
         }
 
-        private string StockwerkString(int x)
-        {
+        //private string StockwerkString(int x)
+        //{
 
-            string stockwerketemp = "";
-            if (x == 0)
-            {
-                if (checkKellerA.Checked) { stockwerketemp += "K,"; }
-                if (checkEGA.Checked) { stockwerketemp += "EG,"; }
-                if (checkDBA.Checked) { stockwerketemp += "DB,"; }
-                if (checkMAA.Checked) { stockwerketemp += "MA,"; }
-                if (checkSTA.Checked) { stockwerketemp += "ST,"; }
-                if (checkHPA.Checked) { stockwerketemp += "HP,"; }
-                if (checkOG1A.Checked) { stockwerketemp += "1,"; }
-                if (checkOG2A.Checked) { stockwerketemp += "2,"; }
-                if (checkOG3A.Checked) { stockwerketemp += "3,"; }
-                if (checkOG4A.Checked) { stockwerketemp += "4,"; }
-                if (checkOG5A.Checked) { stockwerketemp += "5,"; }
-                if (textSonderEtageA.TextLength != 0)
-                {
-                    stockwerketemp += textSonderEtageA.Text;
-                }
-            }
-            else if (x == 1)
-            {
-                if (checkKellerB.Checked) { stockwerketemp += "K,"; }
-                if (checkEGB.Checked) { stockwerketemp += "EG,"; }
-                if (checkDBB.Checked) { stockwerketemp += "DB,"; }
-                if (checkMAB.Checked) { stockwerketemp += "MA,"; }
-                if (checkSTB.Checked) { stockwerketemp += "ST,"; }
-                if (checkHPB.Checked) { stockwerketemp += "HP,"; }
-                if (checkOG1B.Checked) { stockwerketemp += "1,"; }
-                if (checkOG2B.Checked) { stockwerketemp += "2,"; }
-                if (checkOG3B.Checked) { stockwerketemp += "3,"; }
-                if (checkOG4B.Checked) { stockwerketemp += "4,"; }
-                if (checkOG5B.Checked) { stockwerketemp += "5,"; }
-                if (textSonderEtageB.TextLength != 0)
-                {
-                    stockwerketemp += textSonderEtageB.Text;
-                }
-            }
+        //    string stockwerketemp = "";
+        //    if (x == 0)
+        //    {
+        //        if (checkKellerA.Checked) { stockwerketemp += "K,"; }
+        //        if (checkEGA.Checked) { stockwerketemp += "EG,"; }
+        //        if (checkDBA.Checked) { stockwerketemp += "DB,"; }
+        //        if (checkMAA.Checked) { stockwerketemp += "MA,"; }
+        //        if (checkSTA.Checked) { stockwerketemp += "ST,"; }
+        //        if (checkHPA.Checked) { stockwerketemp += "HP,"; }
+        //        if (checkOG1A.Checked) { stockwerketemp += "1,"; }
+        //        if (checkOG2A.Checked) { stockwerketemp += "2,"; }
+        //        if (checkOG3A.Checked) { stockwerketemp += "3,"; }
+        //        if (checkOG4A.Checked) { stockwerketemp += "4,"; }
+        //        if (checkOG5A.Checked) { stockwerketemp += "5,"; }
+        //        if (textSonderEtageA.TextLength != 0)
+        //        {
+        //            stockwerketemp += textSonderEtageA.Text;
+        //        }
+        //    }
+        //    else if (x == 1)
+        //    {
+        //        if (checkKellerB.Checked) { stockwerketemp += "K,"; }
+        //        if (checkEGB.Checked) { stockwerketemp += "EG,"; }
+        //        if (checkDBB.Checked) { stockwerketemp += "DB,"; }
+        //        if (checkMAB.Checked) { stockwerketemp += "MA,"; }
+        //        if (checkSTB.Checked) { stockwerketemp += "ST,"; }
+        //        if (checkHPB.Checked) { stockwerketemp += "HP,"; }
+        //        if (checkOG1B.Checked) { stockwerketemp += "1,"; }
+        //        if (checkOG2B.Checked) { stockwerketemp += "2,"; }
+        //        if (checkOG3B.Checked) { stockwerketemp += "3,"; }
+        //        if (checkOG4B.Checked) { stockwerketemp += "4,"; }
+        //        if (checkOG5B.Checked) { stockwerketemp += "5,"; }
+        //        if (textSonderEtageB.TextLength != 0)
+        //        {
+        //            stockwerketemp += textSonderEtageB.Text;
+        //        }
+        //    }
 
-            return stockwerketemp;
-        }
+        //    return stockwerketemp;
+        //}
 
         private void buttonNrSuche_Click(object sender, EventArgs e)
         {
@@ -843,7 +860,6 @@ namespace Kartonagen
             {
                 textUmzugLog.AppendText("Kein Kunde mit dieser Nummer vorhanden \r\n");
             }
-
 
         }
 
@@ -863,74 +879,74 @@ namespace Kartonagen
 
         }
 
-        public void absender(String befehl)
-        {
-            MySqlCommand cmdAdd = new MySqlCommand(befehl, Program.conn);
-            try
-            {
-                cmdAdd.ExecuteNonQuery();
-                textUmzugLog.AppendText("Änderung ausgeführt \r\n");
-                umzugAenderungFuellem(); // Neuladen der Ansicht
-            }
-            catch (Exception sqlEx)
-            {
-                textUmzugLog.AppendText(sqlEx.ToString());
-                return;
-            }
-        }
+        //public void absender(String befehl)
+        //{
+        //    MySqlCommand cmdAdd = new MySqlCommand(befehl, Program.conn);
+        //    try
+        //    {
+        //        cmdAdd.ExecuteNonQuery();
+        //        textUmzugLog.AppendText("Änderung ausgeführt \r\n");
+        //        umzugAenderungFuellem(); // Neuladen der Ansicht
+        //    }
+        //    catch (Exception sqlEx)
+        //    {
+        //        textUmzugLog.AppendText(sqlEx.ToString());
+        //        return;
+        //    }
+        //}
 
         //
         //  Benötigte Strings für Anlegen von Terminen
         //
-        private String KalenderString()
-        {
-            //Konstruktion String Kalerndereintragsinhalt
-            // Name + Auszugsadresse
-            String Body = textVorNachname.Text + "\r\n Aus: " + textStraßeA.Text + " " + textHausnummerA.Text + ", " + textPLZA.Text + " " + textOrtA.Text + "\r\n";
+        //private String KalenderString()
+        //{
+        //    //Konstruktion String Kalerndereintragsinhalt
+        //    // Name + Auszugsadresse
+        //    String Body = textVorNachname.Text + "\r\n Aus: " + textStraßeA.Text + " " + textHausnummerA.Text + ", " + textPLZA.Text + " " + textOrtA.Text + "\r\n";
 
-            // Geschoss + HausTyp
-            Body += umzObj.auszug.KalenderStringEtageHaustyp();
+        //    // Geschoss + HausTyp
+        //    Body += umzObj.auszug.KalenderStringEtageHaustyp();
 
-            if (radioAufzugAJa.Checked)
-            {
-                Body += "mit Aufzug \r\n";
-            }
-            else { Body += "ohne Aufzug \r\n"; }
+        //    if (radioAufzugAJa.Checked)
+        //    {
+        //        Body += "mit Aufzug \r\n";
+        //    }
+        //    else { Body += "ohne Aufzug \r\n"; }
 
-            //Einzugsadresse
-            Body += "\r\n Nach: " + textStraßeB.Text + " " + textHausnummerB.Text + ", " + textPLZB.Text + " " + textOrtB.Text + "\r\n";
+        //    //Einzugsadresse
+        //    Body += "\r\n Nach: " + textStraßeB.Text + " " + textHausnummerB.Text + ", " + textPLZB.Text + " " + textOrtB.Text + "\r\n";
 
-            // Geschoss + HausTyp
-            Body += umzObj.einzug.KalenderStringEtageHaustyp();
+        //    // Geschoss + HausTyp
+        //    Body += umzObj.einzug.KalenderStringEtageHaustyp();
 
-            if (radioAufzugBJa.Checked)
-            {
-                Body += "mit Aufzug \r\n";
-            }
-            else { Body += "ohne Aufzug \r\n"; }
+        //    if (radioAufzugBJa.Checked)
+        //    {
+        //        Body += "mit Aufzug \r\n";
+        //    }
+        //    else { Body += "ohne Aufzug \r\n"; }
 
-            // Kontaktdaten
-            if (textTelefonnummer.Text != "0")
-            {
-                Body += "\r\n " + textTelefonnummer.Text;
-            }
-            if (textHandynummer.Text != "0")
-            {
-                Body += "\r\n " + textHandynummer.Text;
-            }
-            if (textEmail.Text != "x@y.z")
-            {
-                Body += "\r\n " + textEmail.Text;
-            }
-            Body += "\r\n Am: " + dateUmzug.Value.ToShortDateString() + "\r\n";
+        //    // Kontaktdaten
+        //    if (textTelefonnummer.Text != "0")
+        //    {
+        //        Body += "\r\n " + textTelefonnummer.Text;
+        //    }
+        //    if (textHandynummer.Text != "0")
+        //    {
+        //        Body += "\r\n " + textHandynummer.Text;
+        //    }
+        //    if (textEmail.Text != "x@y.z")
+        //    {
+        //        Body += "\r\n " + textEmail.Text;
+        //    }
+        //    Body += "\r\n Am: " + dateUmzug.Value.ToShortDateString() + "\r\n";
 
-            // Büronotiz
+        //    // Büronotiz
 
-            Body += textNoteBuero.Text;
+        //    Body += textNoteBuero.Text;
 
-            // Rückgabe fertiger Body
-            return Body;
-        }
+        //    // Rückgabe fertiger Body
+        //    return Body;
+        //}
 
         private String hvzString()
         {
@@ -971,65 +987,7 @@ namespace Kartonagen
 
             return temp;
         }
-
-        private void Schilderloeschen() {
-
-            foreach (var EventItem in events.Items) {
-                if (EventItem.ColorId == "3") {
-                    Program.getUtil().kalenderEventRemove(EventItem.Id);
-                    textUmzugLog.AppendText("Schilderstellen entfernt \r\n");
-                }
-            }
-        }
-
-        private void UmzugLoeschen(int code) {
-            if (code == 1)
-            {
-                Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Umzug, "11"));
-                textUmzugLog.AppendText("Umzug entfernt \r\n");
-                Schilderloeschen();
-            }
-            else if (code == 2)
-            {
-                Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Umzug, "10"));
-                textUmzugLog.AppendText("Vorläufigen Umzug entfernt \r\n");
-            }
-            else if (code == 3) {
-                Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Umzug, "2"));
-                textUmzugLog.AppendText("Vorläufig Gebuchten Umzug entfernt \r\n");
-                Schilderloeschen();
-            }
-
-        }
-
-        private void PackenLoeschen(int code) {
-            switch (code) // 1 Einräumen, 2 Vllt Einräumen, 3 Ausräumen, 4 Vllt Ausräumen
-            {
-                case 1:
-                    Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Einpacken, "5"));
-                    textUmzugLog.AppendText("Einpacken entfernt \r\n");
-                    break;
-
-                case 2:
-                    Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Einpacken, "6"));
-                    textUmzugLog.AppendText("Einpacken entfernt \r\n");
-                    break;
-
-                case 3:
-                    Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Auspacken, "5"));
-                    textUmzugLog.AppendText("Auspacken entfernt \r\n");
-                    break;
-
-                case 4:
-                    Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Auspacken, "6"));
-                    textUmzugLog.AppendText("Auspacken entfernt \r\n");
-                    break;
-
-                default:
-                    break;
-            }
-
-        }
+           
 
         //
         //
@@ -1037,7 +995,7 @@ namespace Kartonagen
 
         private void aenderungSpeichern() {
 
-            killALl();
+            umzObj.killAll();
 
             //--------------------Datumsblock
 
@@ -1228,7 +1186,7 @@ namespace Kartonagen
             umzObj.auszug.AussenAufzug1 = aussenAuf;
             umzObj.auszug.Haustyp1 = listBoxA.SelectedItem.ToString();
             umzObj.auszug.Laufmeter1 = int.Parse(textLaufMeterA.Text);
-            umzObj.auszug.Stockwerke1 = StockwerkString(0);
+            umzObj.auszug.Stockwerke1 = buildBitstringEtagen(true);
 
             // ----------------- Einzug
 
@@ -1256,7 +1214,7 @@ namespace Kartonagen
             umzObj.einzug.AussenAufzug1 = aussenAuf;
             umzObj.einzug.Haustyp1 = listBoxB.SelectedItem.ToString();
             umzObj.einzug.Laufmeter1 = int.Parse(textLaufMeterB.Text);
-            umzObj.einzug.Stockwerke1 = StockwerkString(1);
+            umzObj.einzug.Stockwerke1 = buildBitstringEtagen(false);
 
             // --------------- Versicherung
             int VersTemp = 8;
@@ -1276,330 +1234,6 @@ namespace Kartonagen
                 popUp();
             }
         }
-
-
-        private void buttonBlockTermine_Click(object sender, EventArgs e)
-        {
-            killALl();
-
-            Boolean pop = false;
-
-            // STATI SETZEN
-            // Besichtigung
-            if (radioBesJa.Checked) {
-                umzObj.StatBesichtigung = 1;
-                textUmzugLog.AppendText("Besichtigung hinzugefügt \r\n");
-            }
-            else { umzObj.StatBesichtigung = 0; }
-
-            //Umzug
-            if (radioUmzJa.Checked)
-            {
-                umzObj.StatUmzug = 1;
-            }
-            else if (radioUmzVllt.Checked) {
-                umzObj.StatUmzug = 2;
-            }
-            else if (radioUmzVorlaeufig.Checked)
-            {
-                umzObj.StatUmzug = 3;
-            }
-            else { umzObj.StatUmzug = 0; }
-
-            //Einräumen
-            if (radioEinJa.Checked)
-            {
-                umzObj.StatEin = 1;
-            }
-            else if (radioEinVllt.Checked)
-            {
-                umzObj.StatEin = 2;
-            }
-            else { umzObj.StatEin = 0; }
-
-            //Ausräumen
-            if (radioAusJa.Checked)
-            {
-                umzObj.StatAus = 1;
-            }
-            else if (radioAusVllt.Checked)
-            {
-                umzObj.StatAus = 2;
-            }
-            else { umzObj.StatAus = 0; }
-
-            //Entrümpeln
-            if (radioEntJa.Checked)
-            {
-                umzObj.StatRuempeln = 1;
-            }
-            else if (radioEntVllt.Checked)
-            {
-                umzObj.StatRuempeln = 2;
-            }
-            else { umzObj.StatRuempeln = 0; }
-
-            //ÜBERSCHREIBEN DER DATEN
-
-            umzObj.DatBesichtigung = dateBesicht.Value;
-            umzObj.DatUmzug = dateUmzug.Value;
-            umzObj.DatEinraeumen = dateEinpack.Value;
-            umzObj.DatAusraeumen = dateAuspack.Value;
-            umzObj.DatRuempeln = dateEntruempel.Value;
-            umzObj.ZeitUmzug = timeBesichtigung.Value;
-            umzObj.Umzugsdauer = decimal.ToInt32(numericUmzugsDauer.Value);
-            umzObj.UpdateDB(idBearbeitend.ToString());
-
-            //Kalender aktualisieren
-            refreshAll();
-
-            if (pop)
-            {
-                popUp();
-            }
-        }
-
-        private void buttonBlockKueche_Click_1(object sender, EventArgs e)
-        {
-            killALl();
-            //Deklaration und setzen der Werte
-
-            int kuecheab = 8;
-            int kuecheauf = 8;
-            int kuechebau = 8;
-            String kuechepausch = "0";
-
-            if (radioKuecheAbJa.Checked) { kuecheab = 1; }
-            else if (radioKuecheAbNein.Checked) { kuecheab = 0; }
-            else if (radioKuecheAbV.Checked) { kuecheab = 2; }
-            //
-            if (radioKuecheAufJa.Checked) { kuecheauf = 1; }
-            else if (radioKuecheAufNein.Checked) { kuecheauf = 0; }
-            else if (radioKuecheAufV.Checked) { kuecheauf = 2; }
-            //
-            if (radioKuecheIntern.Checked) { kuechebau = 1; } // Küchenbau Intern = 1, Extern = 0;
-            else if (radioKuecheExtern.Checked) { kuechebau = 0; }
-
-            kuechepausch = textKuechenPreis.Text;
-
-            // Setzen
-            umzObj.KuecheAb1 = kuecheab;
-            umzObj.KuecheAuf1 = kuecheauf;
-            umzObj.KuecheBau1 = kuechebau;
-            umzObj.KuechePausch1 = int.Parse(textKuechenPreis.Text);
-
-            // Absenden
-            umzObj.UpdateDB(idBearbeitend.ToString());
-            umzugAenderungFuellem(); // Neuladen der Ansicht
-
-            erinnerungsPopup();
-
-            //Kalender aktualisieren
-            refreshAll();
-        }
-
-        private void buttonBlockPacken_Click_1(object sender, EventArgs e)
-        {
-            killALl();
-
-            int einPacken = 8;
-            int ausPacken = 8;
-
-            if (radioEinpackenJa.Checked) { einPacken = 1; }
-            else if (radioEinpackenNein.Checked) { einPacken = 0; }
-            else if (radioEinpackenV.Checked) { einPacken = 2; }
-            //
-            if (radioAuspackenJa.Checked) { ausPacken = 1; }
-            else if (radioAuspackenNein.Checked) { ausPacken = 0; }
-            else if (radioAuspackenV.Checked) { ausPacken = 2; }
-
-            // Setzen
-            umzObj.Einpacken1 = einPacken;
-            umzObj.Einpacker1 = decimal.ToInt32(numericEinPacker.Value);
-            umzObj.EinStunden1 = decimal.ToInt32(numericEinPackStunden.Value);
-            umzObj.Karton1 = decimal.ToInt32(numericEinPackKartons.Value);
-            umzObj.Auspacken1 = ausPacken;
-            umzObj.Auspacker1 = decimal.ToInt32(numericAusPacker.Value);
-            umzObj.AusStunden1 = decimal.ToInt32(numericAusPackStunden.Value);
-
-            // Absenden
-            umzObj.UpdateDB(idBearbeitend.ToString());
-
-            umzugAenderungFuellem(); // Neuladen der Ansicht
-                                     //Kalender aktualisieren
-            refreshAll();
-            erinnerungsPopup();
-        }
-
-
-        private void buttonBlockEntruempeln_Click(object sender, EventArgs e)
-        {
-            // Dies ist der große Speicherbutton
-            try
-            {
-                aenderungSpeichern();
-            }
-            catch (Exception es)
-            {
-                Program.FehlerLog("Ändern des Umzugsobjekts", es.ToString());
-            }
-        }
-
-        //private void buttonBlockDaten_Click(object sender, EventArgs e)
-        //{
-        //    killALl();
-
-        //    int schilder = 0;
-
-        //    //
-        //    if (radioSchilderJa.Checked)
-        //    {
-        //        schilder = 1;
-        //    }
-        //    else if (radioSchilderNein.Checked)
-        //    {
-        //        schilder = 0;
-        //    }
-        //    else { schilder = 8; }
-
-        //    String temp = "";
-        //    temp = temp + decimal.ToInt32(numericSprinterMit.Value).ToString();
-        //    temp = temp + decimal.ToInt32(numericSprinterOhne.Value).ToString();
-        //    temp = temp + decimal.ToInt32(numericLKW.Value).ToString();
-        //    temp = temp + decimal.ToInt32(numericLKWGroß.Value).ToString();
-
-        //    // Setzen
-        //    umzObj.Schilder1 = schilder;
-        //    umzObj.Kleiderkartons1 = decimal.ToInt32(numericKleiderkisten.Value);
-        //    umzObj.Mann = decimal.ToInt32(numericMannZahl.Value);
-        //    umzObj.Autos = temp;
-        //    umzObj.Stunden = decimal.ToInt32(numericArbeitszeit.Value);
-        //    umzObj.SchilderZeit1 = dateSchilderVerweildauer.Value;
-
-        //    // Absenden
-        //    umzObj.UpdateDB(idBearbeitend.ToString());
-
-        //    umzugAenderungFuellem(); // Neuladen der Ansicht
-        //    //Kalender aktualisieren
-        //    refreshAll();
-        //    erinnerungsPopup();
-        //}
-
-        //private void buttonBlockBemerkungen_Click(object sender, EventArgs e)
-        //{
-        //    killALl();
-        //    // Setzen
-        //    umzObj.NotizFahrer1 = textNoteFahrer.Text;
-        //    umzObj.NotizBuero1 = textNoteBuero.Text;
-        //    umzObj.NotizTitel1 = textNoteKalender.Text;
-
-        //    // Absenden
-        //    umzObj.UpdateDB(idBearbeitend.ToString());
-
-        //    umzugAenderungFuellem(); // Neuladen der Ansicht
-        //    // Kalenderaktualisierung
-        //    refreshAll();
-        //    erinnerungsPopup();
-        //}
-
-        //private void buttonBlockEinzug_Click(object sender, EventArgs e)
-        //{
-        //    killALl();
-
-        //    int aufzug = 8;
-        //    int hvz = 8;
-        //    int aussenAuf = 8;
-
-        //    if (radioAussenAufzugBJa.Checked) { aussenAuf = 1; }
-        //    else if (radioAussenAufzugBNein.Checked) { aussenAuf = 0; }
-        //    //
-        //    if (radioAufzugBJa.Checked) { aufzug = 1; }
-        //    else if (radioAufzugBNein.Checked) { aufzug = 0; }
-        //    //
-        //    if (radioHVZBJa.Checked) { hvz = 1; }
-        //    else if (radioHVZBNein.Checked) { hvz = 0; }
-        //    else if (radioHVZBV.Checked) { hvz = 2; }
-
-        //    umzObj.einzug.Straße1 = textStraßeB.Text;
-        //    umzObj.einzug.Hausnummer1 = textHausnummerB.Text;
-        //    umzObj.einzug.PLZ1 = textPLZB.Text;
-        //    umzObj.einzug.Ort1 = textOrtB.Text;
-        //    umzObj.einzug.Land1 = textLandB.Text;
-        //    umzObj.einzug.HVZ1 = hvz;
-        //    umzObj.einzug.Aufzug1 = aufzug;
-        //    umzObj.einzug.AussenAufzug1 = aussenAuf;
-        //    umzObj.einzug.Haustyp1 = listBoxB.SelectedItem.ToString();
-        //    umzObj.einzug.Laufmeter1 = int.Parse(textLaufMeterB.Text);
-        //    umzObj.einzug.Stockwerke1 = StockwerkString(1);
-
-        //    //Absenden
-        //    umzObj.UpdateDB(idBearbeitend.ToString());
-
-        //    umzugAenderungFuellem(); // Neuladen der Ansicht
-        //    //Kalender aktualisieren
-        //    refreshAll();
-        //    erinnerungsPopup();
-        //}
-
-        //private void ButtonBlockAuszug_Click_1(object sender, EventArgs e)
-        //{
-        //    killALl();
-        //    int aufzug = 8;
-        //    int hvz = 8;
-        //    int aussenAuf = 8;
-
-        //    if (radioAussenAufzugAJa.Checked){aussenAuf = 1;}
-        //    else if (radioAussenAufzugANein.Checked){aussenAuf = 0;}
-        //    //
-        //    if (radioAufzugAJa.Checked){aufzug = 1;}
-        //    else if (radioAufzugANein.Checked){aufzug = 0;}
-        //    //
-        //    if (radioHVZAJa.Checked){hvz = 1;}
-        //    else if (radioHVZANein.Checked){hvz = 0;}
-        //    else if (radioHVZAV.Checked){hvz = 2;}
-
-        //    // Daten ins Objekt
-        //    umzObj.auszug.Straße1 = textStraßeA.Text;
-        //    umzObj.auszug.Hausnummer1 = textHausnummerA.Text;
-        //    umzObj.auszug.PLZ1 = textPLZA.Text;
-        //    umzObj.auszug.Ort1 = textOrtA.Text;
-        //    umzObj.auszug.Land1 = textLandA.Text;
-        //    umzObj.auszug.HVZ1 = hvz;
-        //    umzObj.auszug.Aufzug1 = aufzug;
-        //    umzObj.auszug.AussenAufzug1 = aussenAuf;
-        //    umzObj.auszug.Haustyp1 = listBoxA.SelectedItem.ToString();
-        //    umzObj.auszug.Laufmeter1 = int.Parse(textLaufMeterA.Text);
-        //    umzObj.auszug.Stockwerke1 = StockwerkString(0);
-
-        //    //Absenden
-        //    umzObj.UpdateDB(idBearbeitend.ToString());
-
-        //    umzugAenderungFuellem(); // Neuladen der Ansicht
-
-        //    //Kalender aktualisieren
-        //    refreshAll();
-        //    erinnerungsPopup();
-        //}
-
-        //private void buttonBlockVersicherung_Click(object sender, EventArgs e)
-        //{
-        //    //Kalender leeren
-        //    killALl();
-
-        //    int VersTemp = 8;
-        //    if (radioVersicherungJa.Checked) { VersTemp = 1; }
-        //    else if (radioVersicherungNein.Checked) { VersTemp = 0; }
-        //    umzObj.Versicherung = VersTemp;
-
-        //    //Absenden
-        //    umzObj.UpdateDB(idBearbeitend.ToString());
-
-        //    //Kalender aktualisieren
-        //    refreshAll();
-
-        //    umzugAenderungFuellem(); // Neuladen der Ansicht
-
-        //}
 
         private void buttonTransaktion_Click(object sender, EventArgs e)
         {
@@ -1654,7 +1288,7 @@ namespace Kartonagen
                 }
 
                 //Termine löschen
-                killALl();
+                umzObj.killAll();
             }
             else
             {
@@ -1667,99 +1301,7 @@ namespace Kartonagen
             umzObj.druck(1);
             return;
         }
-
-        void refreshUmzug() {
-
-            UmzugLoeschen(umzObj.StatUmzug);
-
-            // Eventliste refreshen
-            events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
-        }
-
-        void refreshBesichtigung() {
-            if (umzObj.StatBesichtigung == 1)
-            {
-                //find&kill Besichtigung           
-                Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Besichtigung, "9"));
-                textUmzugLog.AppendText("Besichtigung gelöscht \r\n");
-            }
-        }
-
-        void refreshAusraeumen() {
-
-            if (umzObj.StatAus == 1)
-            {
-                PackenLoeschen(3);
-            }
-            else if (umzObj.StatAus == 2)
-            {
-                PackenLoeschen(4);
-            }
-
-            // Eventliste refreshen
-            events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
-        }
-
-        void refreshEinraeumen()
-        {
-
-            if (umzObj.StatEin == 1)
-            {
-                PackenLoeschen(1);
-            }
-            else if (umzObj.StatEin == 2)
-            {
-                PackenLoeschen(2);
-            }
-
-            // Eventliste refreshen
-            events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
-        }
-
-        void refreshEntruempeln() {
-            if (umzObj.StatRuempeln == 2)
-            {
-                // Entruempeln entfernen
-                Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Entruempelung, "10"));
-                textUmzugLog.AppendText("Vorläufiges Entrümpeln entfernt \r\n");
-
-            }
-            else if (umzObj.StatRuempeln == 1) {
-                // Entrümpeln entfernen
-                Program.getUtil().kalenderEventRemove(Program.EventListMatch(events, Entruempelung, "11"));
-                textUmzugLog.AppendText("Entrümpeln entfernt \r\n");
-            }
-        }
-
-        void killALl()
-        {
-            refreshUmzug();
-            refreshBesichtigung();
-            refreshAusraeumen();
-            refreshEinraeumen();
-            refreshEntruempeln();
-
-            umzObj.killAll();
-            umzObj.increaseLfdNr();
-
-            // Eventliste refreshenm
-            events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
-
-        }
-
-        void refreshAll() {
-
-            umzObj.addAll();
-            textUmzugLog.AppendText("Alle Termine erneuert \r\n");
-
-            // Eventliste refreshenm
-            events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
-            return;
-        }
-
-        void resetEvents() {
-            events = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
-        }
+        
 
         private void buttonLaufzettel_Click(object sender, EventArgs e)
         {

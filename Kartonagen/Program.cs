@@ -36,9 +36,9 @@ namespace Kartonagen
 
         // PDF-Druckvorbereitung / Datenspeicher
         public static string druckPfad = System.IO.Path.Combine(Environment.CurrentDirectory, "temp2.pdf");
-        public static string fehlerPfad = System.IO.Path.Combine(Environment.CurrentDirectory, "fehler.txt");
+        public static string fehlerPfad = System.IO.Path.Combine(Environment.CurrentDirectory, "fehler"+(DateTime.Now.ToShortDateString().Replace("/","_"))+".txt");
         public static string kalenderLog = System.IO.Path.Combine(Environment.CurrentDirectory, "kalenderLog.txt");
-        public static string QueryPfad = System.IO.Path.Combine(Environment.CurrentDirectory, "query.txt");
+        public static string QueryPfad = System.IO.Path.Combine(Environment.CurrentDirectory, "query" + DateTime.Now.ToShortDateString().Replace("/", "_") + ".txt");
         public static string mitnehmPfad = System.IO.Path.Combine(Environment.CurrentDirectory, "Mitnehmordner");
         // Buero-geänderte-version
 
@@ -238,6 +238,8 @@ namespace Kartonagen
         // Schubst daten in die DB, mit begründung falls fehler
         public static void absender(String befehl, string Aufgabe)
         {
+            Program.QueryLog(befehl);
+
             if (Program.conn.State != System.Data.ConnectionState.Open)
             {
                 Program.reconnect();

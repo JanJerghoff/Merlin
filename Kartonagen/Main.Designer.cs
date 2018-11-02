@@ -35,7 +35,7 @@
             this.buttonLaufzettel = new System.Windows.Forms.Button();
             this.buttonLaufKarton = new System.Windows.Forms.Button();
             this.buttonErinnerungen = new System.Windows.Forms.Button();
-            this.buttonSonderabfragen = new System.Windows.Forms.Button();
+            this.buttonSonderfunktion = new System.Windows.Forms.Button();
             this.groupMainKartonagen = new System.Windows.Forms.GroupBox();
             this.buttonUebersichtKartons = new System.Windows.Forms.Button();
             this.buttonMainKartonagenChange = new System.Windows.Forms.Button();
@@ -80,7 +80,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.PDFRead);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.buttonErinnerungen);
-            this.splitContainer1.Panel1.Controls.Add(this.buttonSonderabfragen);
+            this.splitContainer1.Panel1.Controls.Add(this.buttonSonderfunktion);
             this.splitContainer1.Panel1.Controls.Add(this.groupMainKartonagen);
             this.splitContainer1.Panel1.Controls.Add(this.groupMainUmzuege);
             this.splitContainer1.Panel1.Controls.Add(this.groupMainKunden);
@@ -155,15 +155,15 @@
             this.buttonErinnerungen.UseVisualStyleBackColor = true;
             this.buttonErinnerungen.Click += new System.EventHandler(this.buttonErinnerungen_Click);
             // 
-            // buttonSonderabfragen
+            // buttonSonderfunktion
             // 
-            this.buttonSonderabfragen.Location = new System.Drawing.Point(1109, 333);
-            this.buttonSonderabfragen.Name = "buttonSonderabfragen";
-            this.buttonSonderabfragen.Size = new System.Drawing.Size(179, 117);
-            this.buttonSonderabfragen.TabIndex = 4;
-            this.buttonSonderabfragen.Text = "Sonderabfragen";
-            this.buttonSonderabfragen.UseVisualStyleBackColor = true;
-            this.buttonSonderabfragen.Click += new System.EventHandler(this.buttonSonderabfragen_Click);
+            this.buttonSonderfunktion.Location = new System.Drawing.Point(1109, 333);
+            this.buttonSonderfunktion.Name = "buttonSonderfunktion";
+            this.buttonSonderfunktion.Size = new System.Drawing.Size(179, 117);
+            this.buttonSonderfunktion.TabIndex = 4;
+            this.buttonSonderfunktion.Text = "Sonderfunktion";
+            this.buttonSonderfunktion.UseVisualStyleBackColor = true;
+            this.buttonSonderfunktion.Click += new System.EventHandler(this.buttonSonderabfragen_Click);
             // 
             // groupMainKartonagen
             // 
@@ -424,7 +424,7 @@
         private System.Windows.Forms.TextBox textMainLog;
         private System.Windows.Forms.Button buttonMainKundenShow;
         private System.Windows.Forms.Button buttonMainUmzuegeShow;
-        private System.Windows.Forms.Button buttonSonderabfragen;
+        private System.Windows.Forms.Button buttonSonderfunktion;
         private System.Windows.Forms.Button buttonLaufzettel;
         private System.Windows.Forms.Button buttonLaufKarton;
         private System.Windows.Forms.Button buttonErinnerungen;

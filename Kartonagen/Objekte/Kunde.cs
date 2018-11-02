@@ -76,6 +76,52 @@ namespace Kartonagen.Objekte
             //anschrift = new Adresse(tempStr, tempHausnummer, tempOrt, tempPLZ, "", 0, "", "", 0, 0, 0);
         }
 
+        public Kunde(String anrede, String Vorname, String Nachname, String Telefonnummer, String Handynummer, String Email, String Strasse, String Hausnummer, String PLZ, String Ort, String Land, String UserChanged, String Bemerkung) {
+
+            String insert = "INSERT INTO Kunden (Anrede, Vorname, Nachname, Telefonnummer, Handynummer, Email, Straße, Hausnummer, PLZ, Ort, Land, UserChanged, Erstelldatum, Bemerkung) VALUES (";
+            insert += "'" + anrede+ "', ";
+            insert += "'" + vorname + "', ";
+            insert += "'" + nachname + "', ";
+            insert += "'" + Telefonnummer + "', ";
+            insert += "'" + Handynummer + "', ";
+            insert += "'" + Email + "', ";
+            insert += "'" + Strasse + "', ";
+            insert += "'" + Hausnummer + "', ";
+            insert += PLZ + ", ";                 // Ohne '' da Int in der DB, Plz ist immer Int
+            insert += "'" + Ort + "', ";
+            insert += "'" + Land + "', ";
+            insert += "'" + UserChanged + "', ";
+            insert += "'" + Program.DateMachine(DateTime.Now) + "', ";
+            insert += "'" + Bemerkung + "'); ";
+
+
+            // String fertig, absenden
+            Program.absender(insert, "Einfügen des Kunden in die DB");
+
+            //Abfrage und Bestädtigungsmeldung.
+            if (Program.conn.State != ConnectionState.Open)
+            {
+                Program.conn.Open();
+            }
+            try
+            {
+                MySqlCommand cmdShow = new MySqlCommand("SELECT idKunden FROM Kunden ORDER BY idKunden DESC LIMIT 1;", Program.conn);
+                MySqlDataReader rdr = cmdShow.ExecuteReader();
+                while (rdr.Read())
+                {
+                    id = rdr.GetInt32(0);
+                }
+                rdr.Close();
+                Program.conn.Close();
+            }
+            catch (Exception sqlEx)
+            {
+                Program.FehlerLog(sqlEx.ToString(), "Hinzugefügten Kunden nicht gefunden \r\n Bereits dokumentiert.");
+            }
+
+        }
+
+
         internal string getVollerName()
         {
             return Anrede + " " + Vorname + " " + Nachname;

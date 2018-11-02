@@ -67,6 +67,9 @@ namespace Kartonagen
         public Adresse auszug;
         public Adresse einzug;
         public Adresse entruempeln;
+        int AdresseRuempel;
+        int AdresseAuszug;
+        int AdresseEinzug;
 
         // Schilder
         int Schilder;
@@ -125,8 +128,7 @@ namespace Kartonagen
 
         //Bestehenden Umzug über UmzNr abrufen
         public Umzug(int ID)
-        {
-            int AdresseRuempel = 0;
+        {            
 
             try
             {
@@ -200,27 +202,22 @@ namespace Kartonagen
                     NotizTitel = rdr.GetString(55);
 
                     UserChanged = rdr.GetString(57);
-                    erstelldatum = rdr.GetDateTime(58);
-
-
-                    if (rdr.GetInt32(62) < UserChanged.Length)
-                    {    //Wenn Laufnummer geringer ist als sie sollte, hochsetzen
-                        lfd_nr = UserChanged.Length+1;
-                    }
-                    else
-                    {
-                        lfd_nr = rdr.GetInt32(62);
-                    }
+                    erstelldatum = rdr.GetDateTime(58);                   
 
                     AdresseRuempel = rdr.GetInt32(59);
                     RuempelMann1 = rdr.GetInt32(60);
                     RuempelStunden1 = rdr.GetInt32(61);
+                    AdresseAuszug = rdr.GetInt32(62);
+                    AdresseEinzug = rdr.GetInt32(63);
 
                 }
                 rdr.Close();
                 Program.conn.Close();
 
-                entruempeln = new Adresse(AdresseRuempel);
+                if (AdresseRuempel != 0)
+                {
+                    entruempeln = new Adresse(AdresseRuempel);
+                }
                 auszug = new Adresse((String)tempAuszug[0], (String)tempAuszug[1], (String)tempAuszug[2], (String)tempAuszug[3], (String)tempAuszug[4], (int) tempAuszug[5], (String)tempAuszug[6], (String)tempAuszug[7], (int)tempAuszug[8], (int)tempAuszug[9], (int)tempAuszug[10]);
                 einzug = new Adresse((String)tempEinzug[0], (String)tempEinzug[1], (String)tempEinzug[2], (String)tempEinzug[3], (String)tempEinzug[4], (int)tempEinzug[5], (String)tempEinzug[6], (String)tempEinzug[7], (int)tempEinzug[8], (int)tempEinzug[9], (int)tempEinzug[10]);
 
@@ -405,8 +402,7 @@ namespace Kartonagen
             longInsert += RuempelStunden + ");";
 
             // Merkt den Query
-            Program.QueryLog(longInsert);
-
+           
             Program.absender(longInsert, "Einfügen des neuen Umzuges zum erstellen des Umzugsobjekts");
 
             RefreshAll();
@@ -955,20 +951,7 @@ namespace Kartonagen
                     return 0;
             }
 
-        }
-
-        //Löschen einzelner Termine
-        public void kill( int code) {
-
-            Events ev = Program.getUtil().kalenderUmzugFinder("merlinum" + id + "c" + resolveCode(code));
-            Console.WriteLine(ev.Items.Count + "gefunden");
-
-            foreach (var item in ev.Items)
-            {
-                Program.getUtil().kalenderEventRemove(item.Id);
-            }
-              
-        }
+        }        
 
         //Löschen aller Termine
         public void killAll() {
@@ -980,14 +963,6 @@ namespace Kartonagen
             {
                 Program.getUtil().kalenderEventRemove(item.Id);
             }
-
-            kill(1);
-            kill(2);
-            kill(3);
-            kill(4);
-            kill(5);
-            kill(6);
-            kill(7);
         }
 
         //Einfügen Eizentermine
@@ -1277,18 +1252,18 @@ namespace Kartonagen
             //Schilder
             if (auszug.HVZ1 == 1)
             {
-                string calId = "merlinum" + id + "c" + resolveCode(7) + "i" + UserChanged1.Length;
+                string calId = "Umzugsnummer:" + id + "\r\n";
 
-                String Body = auszug.Straße1 + " " + auszug.Hausnummer1 + ", " + auszug.PLZ1 + " " + auszug.Ort1 + "\r\n gehört zu Umzug-Nr: " + id;
+                String Body = auszug.Straße1 + " " + auszug.Hausnummer1 + ", " + auszug.PLZ1 + " " + auszug.Ort1;
 
                 Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Auszug", 3, datUmzug.Date.AddDays(-6), datUmzug.Date.AddDays(-6));
             }
 
             if (einzug.HVZ1 == 1)
             {
-                string calId = "merlinum" + id + "c" + resolveCode(6) + "i" + UserChanged1.Length;
+                string calId = "Umzugsnummer:" + id + "\r\n";
 
-                String Body = einzug.Straße1 + " " + einzug.Hausnummer1 + ", " + einzug.PLZ1 + " " + einzug.Ort1 + "\r\n gehört zu Umzug-Nr: "+id;
+                String Body = einzug.Straße1 + " " + einzug.Hausnummer1 + ", " + einzug.PLZ1 + " " + einzug.Ort1;
 
                 Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Einzug", 3, datUmzug.Date.AddDays(-6), datUmzug.Date.AddDays(-6));
             }

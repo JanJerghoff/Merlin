@@ -12,6 +12,7 @@ using MySql.Data.MySqlClient;
 using Google.Apis.Calendar.v3.Data;
 using System.IO;
 using System.Collections;
+using Kartonagen.Objekte;
 
 namespace Kartonagen
 {
@@ -156,8 +157,120 @@ namespace Kartonagen
             //Sonderabfragen.setBearbeiter(getBearbeitender());
             //Sonderabfragen.Show();
 
-            convertNotation();
+            if (!radioMainBenutzerJan.Checked)
+            {
+                //convertNotation();
+                convertAdressen();
+            }
+            else {
+                textMainLog.AppendText("Bitte nicht Benutzen, nur für Adminfunktionen vorgesehen! "+Environment.NewLine);
+            }
             
+        }
+
+        private void convertAdressen()
+        {
+            MySqlCommand cmdReadUmzug = new MySqlCommand("SELECT idUmzuege FROM Umzuege;", Program.conn);
+            MySqlDataReader rdrNummer;
+
+            ArrayList nummern = new ArrayList();
+            
+            try
+            {
+                rdrNummer = cmdReadUmzug.ExecuteReader();
+                while (rdrNummer.Read())
+                {
+                    nummern.Add(rdrNummer.GetInt32(0));
+                }
+                rdrNummer.Close();
+            }
+            catch (Exception sqlEx)
+            {
+                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Nummern \r\n Bereits dokumentiert.");
+                return;
+            }
+
+            foreach (var item in nummern) {
+                
+                int tempAuszug = 0;
+                int tempEinzug = 0;
+                Adresse Auszug;
+                Adresse Einzug;
+
+                string straße;
+                string hausnummer;
+                string ort;
+                string pLZ;
+                string land;
+                int aufzug;
+                string stockwerke;
+                string haustyp;
+                int hVZ;
+                int laufmeter;
+                int aussenAufzug;
+
+                // Adressen unbelegt?
+                try
+                {
+                    if (Program.conn.State != ConnectionState.Open)
+                    {
+                        Program.conn.Open();
+                    }
+
+
+                    MySqlCommand cmdReadString = new MySqlCommand("SELECT AdresseAuszug, AdresseEinzug FROM Umzuege WHERE idUmzuege = " + item + ";", Program.conn);
+                    MySqlDataReader rdrStrings = cmdReadString.ExecuteReader();
+                    while (rdrStrings.Read())
+                    {
+                        tempAuszug = rdrStrings.GetInt32(0);
+                        tempEinzug = rdrStrings.GetInt32(1);
+                    }
+                    rdrStrings.Close();
+                    Program.conn.Close();
+                }
+                catch (Exception sqlEx)
+                {
+                    Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Nummern \r\n Bereits dokumentiert.");
+                    return;
+                }
+
+                //Adressen belegen
+
+                if (tempAuszug == 0) {
+
+                    try
+                    {
+                        if (Program.conn.State != ConnectionState.Open)
+                        {
+                            Program.conn.Open();
+                        }
+
+
+                        MySqlCommand cmdReadString = new MySqlCommand("SELECT StraßeA, HausnummerA, PLZA, OrtA, LandA, AufzugA, StockwerkeA, HausTypA, HVZA, LaufmeterA, AussenAufzugA FROM Umzuege WHERE idUmzuege = " + item + ";", Program.conn);
+                        MySqlDataReader rdrStrings = cmdReadString.ExecuteReader();
+                        while (rdrStrings.Read())
+                        {
+                            straße = rdrStrings.GetString(0);
+                            hausnummer = rdrStrings.GetString(1);
+                            pLZ = rdrStrings.GetString(2);
+                            ort = rdrStrings.GetString(3);
+                            land = rdrStrings.GetString(4);
+                            aufzug = rdrStrings.GetInt32(5);
+                        }
+                        rdrStrings.Close();
+                        Program.conn.Close();
+                    }
+                    catch (Exception sqlEx)
+                    {
+                        Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Nummern \r\n Bereits dokumentiert.");
+                        return;
+                    }
+
+                    Auszug = new Adresse();
+
+                }
+
+            }
         }
 
         private void convertNotation()
