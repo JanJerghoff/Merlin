@@ -995,7 +995,7 @@ namespace Kartonagen
 
         private void aenderungSpeichern() {
 
-            umzObj.killAll();
+            umzObj.killAll(textUmzugLog);
 
             //--------------------Datumsblock
 
@@ -1288,7 +1288,7 @@ namespace Kartonagen
                 }
 
                 //Termine löschen
-                umzObj.killAll();
+                umzObj.killAll(textUmzugLog);
             }
             else
             {

@@ -1,4 +1,5 @@
-﻿using Google.Apis.Calendar.v3.Data;
+﻿using Google.Apis.Calendar.v3;
+using Google.Apis.Calendar.v3.Data;
 using iText.Forms;
 using iText.Forms.Fields;
 using iText.Kernel.Pdf;
@@ -405,7 +406,7 @@ namespace Kartonagen
            
             Program.absender(longInsert, "Einfügen des neuen Umzuges zum erstellen des Umzugsobjekts");
 
-            RefreshAll();
+            addAll();
         }
 
         // Ausgabemethoden
@@ -954,18 +955,143 @@ namespace Kartonagen
         }        
 
         //Löschen aller Termine
-        public void killAll() {
+        public void killAll (TextBox log) {
 
-            Events ev = Program.getUtil().kalenderUmzugFinder("Umzugsnummer:"+id);
-            Console.WriteLine(ev.Items.Count + "gefunden");
+            if (statUmzug != 0) {
 
-            foreach (var item in ev.Items)
-            {
-                Program.getUtil().kalenderEventRemove(item.Id);
+                if (statUmzug == 1) {
+                    if (Program.getUtil().targetedDelete(DatUmzug, "11", "Umzugsnummer:" + id, true)) {
+                        log.AppendText("Umzug aus Kalender gelöscht "+Environment.NewLine);
+                    }
+                    else
+                    {
+                        log.AppendText("Umzug nicht im Kalender gefunden! " + Environment.NewLine);
+                    }
+                }
+
+                else if (statUmzug == 2)
+                {
+                    if (Program.getUtil().targetedDelete(DatUmzug, "10", "Umzugsnummer:" + id, true))
+                    {
+                        log.AppendText("Umzug aus Kalender gelöscht " + Environment.NewLine);
+                    }
+                    else
+                    {
+                        log.AppendText("Umzug nicht im Kalender gefunden! " + Environment.NewLine);
+                    }
+                }
+                else if (statUmzug == 3)
+                {
+                    if (Program.getUtil().targetedDelete(DatUmzug, "2", "Umzugsnummer:" + id, true))
+                    {
+                        log.AppendText("Umzug aus Kalender gelöscht " + Environment.NewLine);
+                    }
+                    else {
+                        log.AppendText("Umzug nicht im Kalender gefunden! " + Environment.NewLine);
+                    }
+                }
+
             }
+
+            if (StatBesichtigung == 1) {
+
+                if (Program.getUtil().targetedDelete(datBesichtigung, "9", "Umzugsnummer:" + id, false))
+                {
+                    log.AppendText("Besichtigung aus Kalender gelöscht " + Environment.NewLine);
+                }
+                else
+                {
+                    log.AppendText("Besichtigung nicht im Kalender gefunden! " + Environment.NewLine);
+                }
+            }
+
+            if (StatEin != 0)
+            {
+
+                if (StatEin == 1)
+                {
+                    if (Program.getUtil().targetedDelete(DatEinraeumen, "5", "Umzugsnummer:" + id, true))
+                    {
+                        log.AppendText("Einräumen aus Kalender gelöscht " + Environment.NewLine);
+                    }
+                    else
+                    {
+                        log.AppendText("Einräumen nicht im Kalender gefunden! " + Environment.NewLine);
+                    }
+                }
+
+                else if (StatEin == 2)
+                {
+                    if (Program.getUtil().targetedDelete(DatEinraeumen, "6", "Umzugsnummer:" + id, true))
+                    {
+                        log.AppendText("Einräumen aus Kalender gelöscht " + Environment.NewLine);
+                    }
+                    else
+                    {
+                        log.AppendText("Einräumen nicht im Kalender gefunden! " + Environment.NewLine);
+                    }
+                }
+            }
+
+            if (StatAus != 0)
+            {
+
+                if (StatAus == 1)
+                {
+                    if (Program.getUtil().targetedDelete(datAusraeumen, "5", "Umzugsnummer:" + id, true))
+                    {
+                        log.AppendText("Ausräumen aus Kalender gelöscht " + Environment.NewLine);
+                    }
+                    else
+                    {
+                        log.AppendText("Ausräumen nicht im Kalender gefunden! " + Environment.NewLine);
+                    }
+                }
+
+                else if (StatAus == 2)
+                {
+                    if (Program.getUtil().targetedDelete(datAusraeumen, "6", "Umzugsnummer:" + id, true))
+                    {
+                        log.AppendText("Ausräumen aus Kalender gelöscht " + Environment.NewLine);
+                    }
+                    else
+                    {
+                        log.AppendText("Ausräumen nicht im Kalender gefunden! " + Environment.NewLine);
+                    }
+                }
+            }
+
+            if (StatRuempeln != 0)
+            {
+
+                if (StatRuempeln == 1)
+                {
+                    if (Program.getUtil().targetedDelete(datRuempeln, "11", "Umzugsnummer:" + id, true))
+                    {
+                        log.AppendText("Entrümpeln aus Kalender gelöscht " + Environment.NewLine);
+                    }
+                    else
+                    {
+                        log.AppendText("Entrümpeln nicht im Kalender gefunden! " + Environment.NewLine);
+                    }
+                }
+
+                else if (StatRuempeln == 2)
+                {
+                    if (Program.getUtil().targetedDelete(datRuempeln, "10", "Umzugsnummer:" + id, true))
+                    {
+                        log.AppendText("Entrümpeln aus Kalender gelöscht " + Environment.NewLine);
+                    }
+                    else
+                    {
+                        log.AppendText("Entrümpeln nicht im Kalender gefunden! " + Environment.NewLine);
+                    }
+                }
+            }
+
         }
 
-        //Einfügen Eizentermine
+            //Einfügen Eizentermine
         public Boolean addEvent(int code) {
 
             if (umzugsKunde == null)
@@ -1076,14 +1202,7 @@ namespace Kartonagen
             return true;
         }
 
-        //Kopletter Refresh
-        public void RefreshAll() {
-            killAll();
-           // increaseLfdNr();
-            addAll();
-        }
-
-        //Partielle Refreshs
+   
 
         //Textgeneration für Kalendereinträge
         private String UmzHeader()

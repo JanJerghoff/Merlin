@@ -390,51 +390,13 @@ namespace Kartonagen.CalendarAPIUtil
         // Altmethoden für Auslaufmodell (Terminsuche ohne ID, über Farbe / Datum / Nummern als String)
         //
 
-        // Finde alle Einträge zu einem Kunden (DEPRECATED)
-        public Events kalenderKundenFinder(String Kundennummer)
-        {
-
-            // Define parameters of request.
-            EventsResource.ListRequest request = dienst.Events.List("primary");
-            request.Q = Kundennummer;
-            request.ShowDeleted = false;
-            request.SingleEvents = true;
-            request.MaxResults = 2500;
-            // List events.
-            Events events = request.Execute();
-
-            return events;
-        }
-
-        // Finde alle Einträge zu einem Umzug
-        public Events kalenderUmzugFinder(String partialID)
-        {
-
-            // Define parameters of request.
-            EventsResource.ListRequest request = dienst.Events.List("primary");
-            request.Q = partialID;
-            request.ShowDeleted = false;
-            request.SingleEvents = true;
-            request.MaxResults = 2500;
-            // List events.
-            Events events = request.Execute();
-
-            return events;
-        }
-
-        //// Finde alle Einträge zu einem Datum (DEPRECATED)
-        //public Events kalenderDatumFinder(DateTime datum)
+        //// Finde alle Einträge zu einem Kunden (DEPRECATED)
+        //public Events kalenderKundenFinder(String Kundennummer)
         //{
 
-        //   // Define parameters of request.
+        //    // Define parameters of request.
         //    EventsResource.ListRequest request = dienst.Events.List("primary");
-
-        //    DateTime keks = DateTime.Now;
-
-        //    String x = XmlConvert.ToString(keks, XmlDateTimeSerializationMode.Utc);
-
-        //    request.TimeMin = DateTime.Now.Date;
-        //    request.TimeMax = DateTime.Now.Date.AddDays(1);
+        //    request.Q = Kundennummer;
         //    request.ShowDeleted = false;
         //    request.SingleEvents = true;
         //    request.MaxResults = 2500;
@@ -442,7 +404,23 @@ namespace Kartonagen.CalendarAPIUtil
         //    Events events = request.Execute();
 
         //    return events;
-        //} 
+        //}
+
+        //// Finde alle Einträge zu einem Umzug
+        //public Events kalenderUmzugFinder(String partialID)
+        //{
+
+        //    // Define parameters of request.
+        //    EventsResource.ListRequest request = dienst.Events.List("primary");
+        //    request.Q = partialID;
+        //    request.ShowDeleted = false;
+        //    request.SingleEvents = true;
+        //    request.MaxResults = 2500;
+        //    // List events.
+        //    Events events = request.Execute();
+
+        //    return events;
+        //}
 
         // Methode um Kalendereinträge vorzunehmen (DEPRECATED)
         public String kalenderEintrag(String titel, String text, int Farbe, DateTime Start, DateTime Ende)
@@ -474,6 +452,36 @@ namespace Kartonagen.CalendarAPIUtil
         //UTILITY METHODEN
 
         //Merge von Date und Time into DateTime
+
+        public Boolean killSchilderstellen (DateTime Umzugsdatum, String KundenID)
+        {
+
+            Boolean returnValue = false;
+
+            // Define parameters of request.
+            EventsResource.ListRequest request = dienst.Events.List("primary");
+            request.SingleEvents = true;
+            request.MaxResults = 2500;
+            request.TimeMin = Umzugsdatum.AddDays(-10);
+            request.TimeMax = Umzugsdatum.AddDays(-2);
+            request.ShowDeleted = false;
+            request.Q = "Schilder stellen";
+            // List events.
+            Events events = request.Execute();
+
+            foreach (var item in events.Items)
+            {
+                if (item.Summary.Contains(KundenID)) {
+                    if (kalenderEventRemove(item.Id)) {
+                        returnValue = true;
+                    }
+                }
+            }
+
+            return returnValue;
+
+        }
+
         public DateTime mergeDatetime(DateTime Tag, DateTime Uhrzeit) {
 
             DateTime ret = new DateTime(Tag.Year, Tag.Month, Tag.Day, Uhrzeit.Hour, Uhrzeit.Minute, Uhrzeit.Second);
