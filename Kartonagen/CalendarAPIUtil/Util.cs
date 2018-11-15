@@ -422,27 +422,27 @@ namespace Kartonagen.CalendarAPIUtil
             return events;
         }
 
-        // Finde alle Einträge zu einem Datum (DEPRECATED)
-        public Events kalenderDatumFinder(DateTime datum)
-        {
+        //// Finde alle Einträge zu einem Datum (DEPRECATED)
+        //public Events kalenderDatumFinder(DateTime datum)
+        //{
 
-            // Define parameters of request.
-            EventsResource.ListRequest request = dienst.Events.List("primary");
+        //   // Define parameters of request.
+        //    EventsResource.ListRequest request = dienst.Events.List("primary");
 
-            DateTime keks = DateTime.Now;
+        //    DateTime keks = DateTime.Now;
 
-            String x = XmlConvert.ToString(keks, XmlDateTimeSerializationMode.Utc);
+        //    String x = XmlConvert.ToString(keks, XmlDateTimeSerializationMode.Utc);
 
-            request.TimeMin = DateTime.Now.Date;
-            request.TimeMax = DateTime.Now.Date.AddDays(1);
-            request.ShowDeleted = false;
-            request.SingleEvents = true;
-            request.MaxResults = 2500;
-            // List events.
-            Events events = request.Execute();
+        //    request.TimeMin = DateTime.Now.Date;
+        //    request.TimeMax = DateTime.Now.Date.AddDays(1);
+        //    request.ShowDeleted = false;
+        //    request.SingleEvents = true;
+        //    request.MaxResults = 2500;
+        //    // List events.
+        //    Events events = request.Execute();
 
-            return events;
-        }
+        //    return events;
+        //} 
 
         // Methode um Kalendereinträge vorzunehmen (DEPRECATED)
         public String kalenderEintrag(String titel, String text, int Farbe, DateTime Start, DateTime Ende)
@@ -481,7 +481,7 @@ namespace Kartonagen.CalendarAPIUtil
 
         }
 
-        public Boolean targetedDelete (DateTime Datum, String Color, String DescriptionQ)
+        public Boolean targetedDelete (DateTime Datum, String Color, String DescriptionQ, Boolean isGanztaegig)
         {
 
 
@@ -501,16 +501,27 @@ namespace Kartonagen.CalendarAPIUtil
 
             foreach (var item in events.Items)
             {
-                if (item.Start != null)
-                {
-                    if (item.Start.Date != null)
+
+                if (isGanztaegig)
+                { //Rausfiltern von Terminen die nicht ganztätgig sind
+
+                    if (item.Start != null)
                     {
-                        if (item.Start.Date.Length > 0)
+                        if (item.Start.Date != null)
                         {
-                            echtEvent.AddLast(item);
+                            if (item.Start.Date.Length > 0)
+                            {
+                                echtEvent.AddLast(item);
+                            }
                         }
                     }
+
                 }
+
+                else { // Alle Termine übernehmen
+                    echtEvent.AddLast(item);
+                }
+
             }
 
             //Vorbereitung des korrekt geformten Vergleichsdatums
@@ -534,16 +545,35 @@ namespace Kartonagen.CalendarAPIUtil
                 date += "-" + Datum.Date.Day;
             }
 
-            //Durchsuche die in Frage kommenden Events mit den gegebenen Parametern
-            foreach (var item in echtEvent)
+            if (isGanztaegig)
             {
-                if (item.ColorId.Equals(Color) && item.Start.Date.Equals(date) && item.Description.Contains(DescriptionQ)) {
-                    if (kalenderEventRemove(item.Id)) {
-                        // Löschen versucht und erfolgreich -> zurückmelden dass erfolgreich ein passendes Event gelöscht wurde
-                        return true;
+                //Durchsuche die in Frage kommenden Events mit den gegebenen Parametern samt Datum
+                foreach (var item in echtEvent)
+                {
+                    if (item.ColorId.Equals(Color) && item.Start.Date.Equals(date) && item.Description.Contains(DescriptionQ))
+                    {
+                        if (kalenderEventRemove(item.Id))
+                        {
+                            // Löschen versucht und erfolgreich -> zurückmelden dass erfolgreich ein passendes Event gelöscht wurde
+                            return true;
+                        }
                     }
                 }
             }
+            else {
+                foreach (var item in echtEvent)
+                {
+                    if (item.ColorId.Equals(Color) && item.Description.Contains(DescriptionQ))
+                    {
+                        if (kalenderEventRemove(item.Id))
+                        {
+                            // Löschen versucht und erfolgreich -> zurückmelden dass erfolgreich ein passendes Event gelöscht wurde
+                            return true;
+                        }
+                    }
+                }
+            }
+
 
             //Wenn nicht vorher erfolgreich, dann negative Rückmeldung
             return false;

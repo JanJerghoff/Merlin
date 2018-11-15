@@ -170,7 +170,7 @@ namespace Kartonagen
 
         private void convertAdressen()
         {
-            MySqlCommand cmdReadUmzug = new MySqlCommand("SELECT idUmzuege FROM Umzuege;", Program.conn);
+            MySqlCommand cmdReadUmzug = new MySqlCommand("SELECT idUmzuege FROM Umzuege WHERE AdresseAuszug = 0 OR AdresseEinzug = 0;", Program.conn);
             MySqlDataReader rdrNummer;
 
             ArrayList nummern = new ArrayList();
@@ -209,14 +209,13 @@ namespace Kartonagen
                 int laufmeter;
                 int aussenAufzug;
 
-                // Adressen unbelegt?
+                // Welche Adressen unbelegt?
                 try
                 {
                     if (Program.conn.State != ConnectionState.Open)
                     {
                         Program.conn.Open();
                     }
-
 
                     MySqlCommand cmdReadString = new MySqlCommand("SELECT AdresseAuszug, AdresseEinzug FROM Umzuege WHERE idUmzuege = " + item + ";", Program.conn);
                     MySqlDataReader rdrStrings = cmdReadString.ExecuteReader();
@@ -245,6 +244,18 @@ namespace Kartonagen
                             Program.conn.Open();
                         }
 
+                        straße = String.Empty;
+                        hausnummer = String.Empty;
+                        pLZ = String.Empty;
+                        ort = String.Empty;
+                        land = String.Empty;
+                        aufzug = 0;
+                        land = String.Empty;
+                        stockwerke = String.Empty;
+                        haustyp = String.Empty;
+                        hVZ = 0;
+                        laufmeter = 0;
+                        aussenAufzug = 0;
 
                         MySqlCommand cmdReadString = new MySqlCommand("SELECT StraßeA, HausnummerA, PLZA, OrtA, LandA, AufzugA, StockwerkeA, HausTypA, HVZA, LaufmeterA, AussenAufzugA FROM Umzuege WHERE idUmzuege = " + item + ";", Program.conn);
                         MySqlDataReader rdrStrings = cmdReadString.ExecuteReader();
@@ -256,6 +267,11 @@ namespace Kartonagen
                             ort = rdrStrings.GetString(3);
                             land = rdrStrings.GetString(4);
                             aufzug = rdrStrings.GetInt32(5);
+                            stockwerke = rdrStrings.GetString(6);
+                            haustyp = rdrStrings.GetString(7);
+                            hVZ = rdrStrings.GetInt32(8);
+                            laufmeter = rdrStrings.GetInt32(9);
+                            aussenAufzug = rdrStrings.GetInt32(10);
                         }
                         rdrStrings.Close();
                         Program.conn.Close();
@@ -266,7 +282,67 @@ namespace Kartonagen
                         return;
                     }
 
-                    Auszug = new Adresse();
+                    Auszug = new Adresse(straße,hausnummer,ort,pLZ,land,aufzug,stockwerke,haustyp, hVZ,laufmeter, aussenAufzug);
+
+                    String update = "UPDATE Umzuege SET AdresseAuszug = " + Auszug.IDAdresse1 + " WHERE idUmzuege = " + item + ";";
+
+                    Program.absender(update, "Datenbankänderung, einfügen von AdressId " + Auszug.IDAdresse1 + " als Auszugsadresse in Umzug " + item);
+
+                }
+
+                if (tempEinzug == 0)
+                {
+
+                    try
+                    {
+                        if (Program.conn.State != ConnectionState.Open)
+                        {
+                            Program.conn.Open();
+                        }
+
+                        straße = String.Empty;
+                        hausnummer = String.Empty;
+                        pLZ = String.Empty;
+                        ort = String.Empty;
+                        land = String.Empty;
+                        aufzug = 0;
+                        land = String.Empty;
+                        stockwerke = String.Empty;
+                        haustyp = String.Empty;
+                        hVZ = 0;
+                        laufmeter = 0;
+                        aussenAufzug = 0;
+
+                        MySqlCommand cmdReadString = new MySqlCommand("SELECT StraßeB, HausnummerB, PLZB, OrtB, LandB, AufzugB, StockwerkeB, HausTypB, HVZB, LaufmeterB, AussenAufzugB FROM Umzuege WHERE idUmzuege = " + item + ";", Program.conn);
+                        MySqlDataReader rdrStrings = cmdReadString.ExecuteReader();
+                        while (rdrStrings.Read())
+                        {
+                            straße = rdrStrings.GetString(0);
+                            hausnummer = rdrStrings.GetString(1);
+                            pLZ = rdrStrings.GetString(2);
+                            ort = rdrStrings.GetString(3);
+                            land = rdrStrings.GetString(4);
+                            aufzug = rdrStrings.GetInt32(5);
+                            stockwerke = rdrStrings.GetString(6);
+                            haustyp = rdrStrings.GetString(7);
+                            hVZ = rdrStrings.GetInt32(8);
+                            laufmeter = rdrStrings.GetInt32(9);
+                            aussenAufzug = rdrStrings.GetInt32(10);
+                        }
+                        rdrStrings.Close();
+                        Program.conn.Close();
+                    }
+                    catch (Exception sqlEx)
+                    {
+                        Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Nummern \r\n Bereits dokumentiert.");
+                        return;
+                    }
+
+                    Einzug = new Adresse(straße, hausnummer, ort, pLZ, land, aufzug, stockwerke, haustyp, hVZ, laufmeter, aussenAufzug);
+
+                    String update = "UPDATE Umzuege SET AdresseEinzug = " + Einzug.IDAdresse1 + " WHERE idUmzuege = " + item + ";";
+
+                    Program.absender(update, "Datenbankänderung, einfügen von AdressId " + Einzug.IDAdresse1 + " als Einzugsadresse in Umzug " + item);
 
                 }
 
