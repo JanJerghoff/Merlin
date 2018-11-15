@@ -736,14 +736,14 @@ namespace Kartonagen.CalendarAPIUtil
 
                     //Bei jeder Iteration überschreiben
                     Boolean success = false;
-                    String date = rdr.GetDateTime(1).Date.Year + "-" + rdr.GetDateTime(1).Date.Month + "-" + rdr.GetDateTime(1).Date.Day;
+                    DateTime date = new DateTime(rdr.GetDateTime(1).Date.Year , rdr.GetDateTime(1).Date.Month , rdr.GetDateTime(1).Date.Day,0,0,0);
 
                     //Tatsächlicher Abgleich
                     foreach (var item in echtEvent)
                     {
                         //Console.WriteLine(item.Start.Date + "+" + date);
 
-                        if (item.ColorId == "9" && item.Start.Date.Equals(date) && item.Summary.Contains(rdr.GetInt32(3) + "")) //&& item.Description.Contains(id)
+                        if (item.ColorId == "9" && (item.Start.DateTime > date && item.Start.DateTime < date.AddDays(1)) && item.Summary.Contains(rdr.GetInt32(3) + "")) //&& item.Description.Contains(id)
                         {                                                             //
                             Console.WriteLine("Hit" + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
                             success = true;
