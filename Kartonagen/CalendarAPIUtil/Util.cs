@@ -563,7 +563,7 @@ namespace Kartonagen.CalendarAPIUtil
             else {
                 foreach (var item in echtEvent)
                 {
-                    if (item.ColorId.Equals(Color) && item.Description.Contains(DescriptionQ))
+                    if (item.ColorId.Equals(Color) && item.Description.Contains(DescriptionQ)&& (item.Start.DateTime>Datum.AddDays(-1)&& item.Start.DateTime < Datum.AddDays(1)))
                     {
                         if (kalenderEventRemove(item.Id))
                         {
