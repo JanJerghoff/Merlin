@@ -160,27 +160,27 @@ namespace Kartonagen
             }
 
             // Kalender auf bisherige Lieferung auslesen
-
-            Events check = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
-            try
-            {
-                foreach (var item in check.Items)
-                {
-                    if (item.Description.Contains("Kartonlieferung"))
-                    {
-                        labelLieferung.Visible = true;
-                    }
-                    else if (item.Description.Contains("Kartonabholung"))
-                    {
-                        labelAbholung.Visible = true;
-                    }
-                }
-            }
-            catch (Exception test)
-            {
-                // Ignorieren des unausweichlichen Fehlers, wenn zu einem Kunden kein Kalendereintrag existiert
-                textTransaktionLog.AppendText("Keine Termine zum Kunden im Kalender \r\n");
-            }            
+            // TODO
+            //Events check = Program.getUtil().kalenderKundenFinder(textKundennummer.Text);
+            //try
+            //{
+            //    foreach (var item in check.Items)
+            //    {
+            //        if (item.Description.Contains("Kartonlieferung"))
+            //        {
+            //            labelLieferung.Visible = true;
+            //        }
+            //        else if (item.Description.Contains("Kartonabholung"))
+            //        {
+            //            labelAbholung.Visible = true;
+            //        }
+            //    }
+            //}
+            //catch (Exception test)
+            //{
+            //    // Ignorieren des unausweichlichen Fehlers, wenn zu einem Kunden kein Kalendereintrag existiert
+            //    textTransaktionLog.AppendText("Keine Termine zum Kunden im Kalender \r\n");
+            //}            
         }
 
         private void button3_Click(object sender, EventArgs e)

@@ -47,12 +47,12 @@ namespace Kartonagen
         //internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
 
         //Test Home
-        // private static String connUmzug = "server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;";
-        internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;");
-        internal static MySqlConnection conn2 = new MySqlConnection("server = 10.0.0.0;user=test;database=Mitarbeiter;port=3306;password=he62okv;");
-
-        //internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=DB_test;port=3306;password=he62okv;");
+        //// private static String connUmzug = "server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;";
+        //internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;");
         //internal static MySqlConnection conn2 = new MySqlConnection("server = 10.0.0.0;user=test;database=Mitarbeiter;port=3306;password=he62okv;");
+
+        internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=DB_test;port=3306;password=he62okv;");
+        internal static MySqlConnection conn2 = new MySqlConnection("server = 10.0.0.0;user=test;database=Mitarbeiter;port=3306;password=he62okv;");
 
         //Test Arbeit
         //internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=DB_test;port=3306;password=he62okv;");
