@@ -303,14 +303,14 @@ namespace Kartonagen
             }
 
             // Gegenprüfen mittels Kalender
-            Events eve = Program.getUtil().kalenderDatumFinder(dateTransaktion.Value);            
-            foreach (var item in eve.Items)
-            {
-                if (item.ColorId == "8")
-                {
-                    count--;
-                }
-            }
+            //Events eve = Program.getUtil().kalenderDatumFinder(dateTransaktion.Value);            
+            //foreach (var item in eve.Items)
+            //{
+            //    if (item.ColorId == "8")
+            //    {
+            //        count--;
+            //    }
+            //}
 
             if (count < 0)
             {

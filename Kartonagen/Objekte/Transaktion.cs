@@ -184,7 +184,7 @@ namespace Kartonagen.Objekte
         //Selbst entfernen in Vorbereitung eines Updates, dann erneutes Hinzufügen
         public Boolean KalenderRemove() {
 
-            if (Program.getUtil().targetedDelete(datTransaktion, "8", "Transaktion_" + id)) {
+            if (Program.getUtil().targetedDelete(datTransaktion, "8", "Transaktion_" + id,false)) {
                 return true;
             }
 

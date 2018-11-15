@@ -739,7 +739,7 @@ namespace Kartonagen.CalendarAPIUtil
                     DateTime date = new DateTime(rdr.GetDateTime(1).Date.Year , rdr.GetDateTime(1).Date.Month , rdr.GetDateTime(1).Date.Day,0,0,0);
 
                     //Tatsächlicher Abgleich
-                    foreach (var item in echtEvent)
+                    foreach (var item in events.Items)
                     {
                         //Console.WriteLine(item.Start.Date + "+" + date);
 
