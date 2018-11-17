@@ -37,7 +37,7 @@ namespace Kartonagen
             dateEntruempel.Value = DateTime.Now;
             dateUmzug.Value = DateTime.Now;
 
-
+            LockUp();
         }
 
         private int idBearbeitend = 0; // 0= Rita, 1=Jonas, 2=Eva, 3=Jan, 4, Sonst.
@@ -48,7 +48,10 @@ namespace Kartonagen
         }
 
         public void umzugFuellen(int KundenNR) {
-            
+
+            //Alle Felder von etwaigem vorherigem Umzug leeren, erlauben
+            unLock();
+
 
             if (Program.conn.State != ConnectionState.Open)
             {
@@ -86,9 +89,13 @@ namespace Kartonagen
 
         private void buttonKundenSearchNrSuche_Click(object sender, EventArgs e)
         {
-            // Abfrage Umzuege nach passenden
-            //String frage = "SELECT * FROM Umzuege WHERE Kunden_idKunden = '" + numericSucheKundennr.Value + "';";
-            int KundenNRkanidat = decimal.ToInt32(numericSucheKundennr.Value);
+
+            if (!System.Text.RegularExpressions.Regex.IsMatch(textSucheKundennummer.Text, @"^\d+$")) {
+                var bestätigung = MessageBox.Show("Kundennummern bestehen nur aus Zahlen", "OK", MessageBoxButtons.OK);
+                return;
+            }
+
+            int KundenNRkanidat = int.Parse(textSucheKundennummer.Text);
 
             
             int tempCounter = 0;
@@ -178,26 +185,8 @@ namespace Kartonagen
                 }
             }
 
-
-
         }
-        
-        private String push(String push) {
 
-            MySqlCommand cmdAdd = new MySqlCommand(push, Program.conn);
-            try
-            {
-                cmdAdd.ExecuteNonQuery();
-                return "Erfolgreich gespeichert \r\n";
-            }
-            catch (Exception sqlEx)
-            {
-                Program.FehlerLog(sqlEx.ToString(),"Pushen des neuen Umzugs mit String | "+push);
-                //return "Fehlgeschlagen \r\n";
-                return sqlEx.ToString()+"\r\n"+push;
-            }
-            
-        }
 
         private Umzug umzugBauer()
         {
@@ -222,7 +211,7 @@ namespace Kartonagen
             else if (radioHVZANein.Checked) { hvztemp = 0; }
             else { hvztemp = 8; }
 
-            Adresse aus = new Adresse(textStraßeA.Text, textHausnummerA.Text, textOrtA.Text, textPLZA.Text, textLandA.Text, aufzugtemp, StockwerkString(0), listBoxA.SelectedItem.ToString(), hvztemp, int.Parse(textLaufMeterA.Text), aussenaufzugtemp);
+            Adresse aus = new Adresse(textStraßeA.Text, textHausnummerA.Text, textOrtA.Text, textPLZA.Text, textLandA.Text, aufzugtemp, buildBitstringEtagen(true), listBoxA.SelectedItem.ToString(), hvztemp, int.Parse(textLaufMeterA.Text), aussenaufzugtemp);
 
             // Belegung der Temps für die Adresserstellung.
             if (radioAufzugBJa.Checked) { aufzugtemp = 1; }
@@ -238,7 +227,7 @@ namespace Kartonagen
             else if (radioHVZBNein.Checked) { hvztemp = 0; }
             else { hvztemp = 8; }
 
-            Adresse ein = new Adresse(textStraßeB.Text, textHausnummerB.Text, textOrtB.Text, textPLZB.Text, textLandB.Text, aufzugtemp, StockwerkString(1), listBoxB.SelectedItem.ToString(), hvztemp, int.Parse(textLaufMeterB.Text), aussenaufzugtemp);
+            Adresse ein = new Adresse(textStraßeB.Text, textHausnummerB.Text, textOrtB.Text, textPLZB.Text, textLandB.Text, aufzugtemp, buildBitstringEtagen(false), listBoxB.SelectedItem.ToString(), hvztemp, int.Parse(textLaufMeterB.Text), aussenaufzugtemp);
 
             // Temps für die Umzugserstellung
             // Status des Datums. 0 = nicht festgelegt, 1 = festgelegt, 2 = vorläufig (wenn möglich), 3 = Vorläufig gebucht (bei Umzügen)
@@ -301,11 +290,11 @@ namespace Kartonagen
             if (radioSchilderJa.Checked) { Schildertemp = 1; }
             else if (radioSchilderNein.Checked) { Schildertemp = 0; }
 
-            if (stat[4] != 0) {
-                ruempelAdresse = new Adresse(textStrasseEnt.Text, textHausnummerEnt.Text, textOrtEnt.Text, textPLZEnt.Text, "Deutschland", 0, "", "", 0, 0, 0);
-                ruempelMann = decimal.ToInt32(numericPackerEnt.Value);
-                ruempelStunde = decimal.ToInt32(numericStundenEnt.Value);
-            }
+            //if (stat[4] != 0) {   TODO
+            //    ruempelAdresse = new Adresse(textStrasseEnt.Text, textHausnummerEnt.Text, textOrtEnt.Text, textPLZEnt.Text, "Deutschland", 0, "", "", 0, 0, 0);
+            //    ruempelMann = decimal.ToInt32(numericPackerEnt.Value);
+            //    ruempelStunde = decimal.ToInt32(numericStundenEnt.Value);
+            //}
 
             int kundennummerTemp = int.Parse(textKundennummer.Text.Trim());
 
@@ -317,52 +306,54 @@ namespace Kartonagen
             return umzObj = new Umzug(kundennummerTemp, dateBesicht.Value, dateUmzug.Value, dateEinpack.Value, dateAuspack.Value, dateEntruempel.Value, timeBesichtigung.Value, stat[1], stat[0], stat[2], stat[3], stat[4],
                 decimal.ToInt32(numericUmzugsDauer.Value), tempAuto, decimal.ToInt32(numericMannZahl.Value), decimal.ToInt32(numericArbeitszeit.Value), versicherungtemp, einpacktemp, decimal.ToInt32(numericEinPacker.Value), decimal.ToInt32(numericEinPackStunden.Value), decimal.ToInt32(numericEinPackKartons.Value),
                 auspacktemp, decimal.ToInt32(numericAusPacker.Value), decimal.ToInt32(numericAusPackStunden.Value), decimal.ToInt32(numericKleiderkisten.Value), kueche[1], kueche[0], kueche[2], int.Parse(textKuechenPreis.Text), aus, ein, Schildertemp, dateSchilderVerweildauer.Value,
-                textNoteKalender.Text, textNoteBuero.Text, textNoteFahrer.Text, idBearbeitend.ToString(), DateTime.Now, ruempelAdresse, ruempelMann, ruempelStunde);
-        }
+                textNoteKalender.Text, textNoteBuero.Text, textNoteFahrer.Text, idBearbeitend.ToString(), DateTime.Now, aus, ruempelMann, ruempelStunde);
+        }   //TODO 2tes Aus > Ruempeladresse
 
-        private string StockwerkString(int x) {
 
-            string stockwerketemp = "";
-            if (x == 0)
-            {
-                if (checkKellerA.Checked) { stockwerketemp += "K,"; }
-                if (checkEGA.Checked) { stockwerketemp += "EG,"; }
-                if (checkDBA.Checked) { stockwerketemp += "DB,"; }
-                if (checkMAA.Checked) { stockwerketemp += "MA,"; }
-                if (checkSTA.Checked) { stockwerketemp += "ST,"; }
-                if (checkHPA.Checked) { stockwerketemp += "HP,"; }
-                if (checkOG1A.Checked) { stockwerketemp += "1,"; }
-                if (checkOG2A.Checked) { stockwerketemp += "2,"; }
-                if (checkOG3A.Checked) { stockwerketemp += "3,"; }
-                if (checkOG4A.Checked) { stockwerketemp += "4,"; }
-                if (checkOG5A.Checked) { stockwerketemp += "5,"; }
-                if (textSonderEtageA.TextLength != 0)
-                {
-                    stockwerketemp += textSonderEtageA.Text;
-                }
-            }
-            else if (x == 1)
-            {
-                if (checkKellerB.Checked) { stockwerketemp += "K,"; }
-                if (checkEGB.Checked) { stockwerketemp += "EG,"; }
-                if (checkDBB.Checked) { stockwerketemp += "DB,"; }
-                if (checkMAB.Checked) { stockwerketemp += "MA,"; }
-                if (checkSTB.Checked) { stockwerketemp += "ST,"; }
-                if (checkHPB.Checked) { stockwerketemp += "HP,"; }
-                if (checkOG1B.Checked) { stockwerketemp += "1,"; }
-                if (checkOG2B.Checked) { stockwerketemp += "2,"; }
-                if (checkOG3B.Checked) { stockwerketemp += "3,"; }
-                if (checkOG4B.Checked) { stockwerketemp += "4,"; }
-                if (checkOG5B.Checked) { stockwerketemp += "5,"; }
-                if (textSonderEtageB.TextLength != 0)
-                {
-                    stockwerketemp += textSonderEtageB.Text;
-                }
-            }
+        // TODO KILL
+        //private string StockwerkString(int x) {
 
-            return stockwerketemp;
+        //    string stockwerketemp = "";
+        //    if (x == 0)
+        //    {
+        //        if (checkKellerA.Checked) { stockwerketemp += "K,"; }
+        //        if (checkEGA.Checked) { stockwerketemp += "EG,"; }
+        //        if (checkDBA.Checked) { stockwerketemp += "DB,"; }
+        //        if (checkMAA.Checked) { stockwerketemp += "MA,"; }
+        //        if (checkSTA.Checked) { stockwerketemp += "ST,"; }
+        //        if (checkHPA.Checked) { stockwerketemp += "HP,"; }
+        //        if (checkOG1A.Checked) { stockwerketemp += "1,"; }
+        //        if (checkOG2A.Checked) { stockwerketemp += "2,"; }
+        //        if (checkOG3A.Checked) { stockwerketemp += "3,"; }
+        //        if (checkOG4A.Checked) { stockwerketemp += "4,"; }
+        //        if (checkOG5A.Checked) { stockwerketemp += "5,"; }
+        //        if (textSonderEtageA.TextLength != 0)
+        //        {
+        //            stockwerketemp += textSonderEtageA.Text;
+        //        }
+        //    }
+        //    else if (x == 1)
+        //    {
+        //        if (checkKellerB.Checked) { stockwerketemp += "K,"; }
+        //        if (checkEGB.Checked) { stockwerketemp += "EG,"; }
+        //        if (checkDBB.Checked) { stockwerketemp += "DB,"; }
+        //        if (checkMAB.Checked) { stockwerketemp += "MA,"; }
+        //        if (checkSTB.Checked) { stockwerketemp += "ST,"; }
+        //        if (checkHPB.Checked) { stockwerketemp += "HP,"; }
+        //        if (checkOG1B.Checked) { stockwerketemp += "1,"; }
+        //        if (checkOG2B.Checked) { stockwerketemp += "2,"; }
+        //        if (checkOG3B.Checked) { stockwerketemp += "3,"; }
+        //        if (checkOG4B.Checked) { stockwerketemp += "4,"; }
+        //        if (checkOG5B.Checked) { stockwerketemp += "5,"; }
+        //        if (textSonderEtageB.TextLength != 0)
+        //        {
+        //            stockwerketemp += textSonderEtageB.Text;
+        //        }
+        //    }
 
-        }
+        //    return stockwerketemp;
+
+        //}
 
         private void buttonSchnellSpeichern_Click(object sender, EventArgs e)
         {
@@ -417,7 +408,82 @@ namespace Kartonagen
             // Laufzettel anlegen
             laufzettelBau();
             textUmzugLog.AppendText("Umzug vollständig angelegt \r\n");
+
+            //Alles sperren bis auf die neu-hinzufüg-Buttons
+
+            LockUp();
+
         }
+
+        private void LockUp()
+        {
+            Program.DisableControls(this);
+            Program.EnableSingleControl(buttonNameSuche);
+            Program.EnableSingleControl(buttonNrSuche);
+            Program.EnableSingleControl(textSucheName);
+            Program.EnableSingleControl(textSucheKundennummer);
+            Program.EnableSingleControl(textUmzugLog);
+        }
+
+        private void unLock() {
+
+            Program.EnableControls(this);
+
+            textLaufMeterA.Text = "0";
+            textLaufMeterB.Text = "0";
+            textEmail.Clear();
+            textHandynummer.Clear();
+            textHausnummerA.Clear();
+            textHausnummerB.Clear();
+            textHausnummerEnt.Clear();
+            textKuechenPreis.Clear();
+            textKundennummer.Clear();
+            textLandA.Clear();
+            textLandB.Clear();
+            textNoteBuero.Clear();
+            textNoteFahrer.Clear();
+            textNoteKalender.Clear();
+            textOrtA.Clear();
+            textOrtB.Clear();
+            textOrtEnt.Clear();
+            textPLZA.Clear();
+            textPLZB.Clear();
+            textPLZEnt.Clear();
+            textSonderEtageA.Clear();
+            textSonderEtageB.Clear();
+            textStrasseEnt.Clear();
+            textStraßeA.Clear();
+            textStraßeB.Clear();
+            textSuchBox.Clear();
+            textSucheKundennummer.Clear();
+            textSucheName.Clear();
+            textTelefonnummer.Clear();
+            textUmzugLog.Clear();
+            textUmzugsNummer.Clear();
+            textVorNachname.Clear();
+
+            numericUmzugsDauer.Value = decimal.One;
+            numericStundenEnt.Value = decimal.Zero;
+            numericSprinterOhne.Value = decimal.Zero;
+            numericSprinterMit.Value = decimal.Zero;
+            numericPackerEnt.Value = decimal.Zero;
+            numericMannZahl.Value = decimal.Zero;
+            numericLKWGroß.Value = decimal.Zero;
+            numericLKW.Value = decimal.Zero;
+            numericKleiderkisten.Value = decimal.Zero;
+            numericEinPackStunden.Value = decimal.Zero;
+            numericEinPackKartons.Value = decimal.Zero;
+            numericEinPacker.Value = decimal.Zero;
+            numericAusPackStunden.Value = decimal.Zero;
+            numericAusPacker.Value = decimal.Zero;
+            numericArbeitszeit.Value = decimal.Zero;
+
+
+
+        }
+
+        
+
 
         private void buttonAendern_Click(object sender, EventArgs e)
         {
@@ -540,7 +606,7 @@ namespace Kartonagen
         {
             DateTime test = DateTime.Now;
             String go = "INSERT INTO Umzugsfortschritt (Umzuege_idUmzuege, Besichtigung, datBesichtigung) VALUES (" + umzObj.Id + "," + idBearbeitend + ",'" + Program.DateMachine(test.Date) + "');";
-            push(go);
+            Program.absender(go, "Anlegen des Umzugsfortschritts");
         }
 
         private void buttonLaufzettel_Click(object sender, EventArgs e)
@@ -549,6 +615,57 @@ namespace Kartonagen
             laufzettel.fuellen(int.Parse(textUmzugsNummer.Text));
             laufzettel.setBearbeitend(idBearbeitend);
             laufzettel.Show();
+        }
+
+        private String buildBitstringEtagen(Boolean Selector)
+        {
+
+            String[] ret = new String[11];
+            CheckBox[] boxes;
+
+            if (Selector)       // Selector ist True wenn A gemeint ist, false bei B
+            {
+                boxes = new CheckBox[] {
+                checkKellerA,checkEGA,checkHPA,checkSTA,checkMAA,
+                checkOG1A,checkOG2A,checkOG3A,checkOG4A,checkOG5A,checkDBA
+                };
+            }
+            else
+            {
+                boxes = new CheckBox[] {
+                checkKellerB,checkEGB,checkHPB,checkSTB,checkMAB,
+                checkOG1B,checkOG2B,checkOG3B,checkOG4B,checkOG5B,checkDBB
+                };
+            }
+
+            for (int i = 0; i < boxes.Length; i++)
+            {
+                if (boxes[i].Checked)
+                {
+                    ret[i] = "1";
+                }
+                else
+                {
+                    ret[i] = "0";
+                }
+            }
+
+            String Etagen = String.Join("", ret);
+            if (Selector)
+            {
+                if (!textSonderEtageA.Text.Equals(String.Empty))
+                {
+                    Etagen.Insert(Etagen.Length, ("-" + textSonderEtageA.Text));
+                }
+            }
+            else
+            {
+                if (!textSonderEtageB.Text.Equals(String.Empty))
+                {
+                    Etagen.Insert(Etagen.Length, ("-" + textSonderEtageB.Text));
+                }
+            }
+            return Etagen;
         }
     }
 }

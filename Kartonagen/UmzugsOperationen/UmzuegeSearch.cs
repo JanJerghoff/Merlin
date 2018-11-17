@@ -560,7 +560,8 @@ namespace Kartonagen
             }
             // Geändertes UI
 
-            parseEtagen();
+            readBitstringEtagenA(umzObj.auszug.Stockwerke1);
+            readBitstringEtagenB(umzObj.einzug.Stockwerke1);
 
             switch (umzObj.Versicherung)
             {
@@ -683,128 +684,128 @@ namespace Kartonagen
 
         }
 
-        private void parseEtagen()
-        {
-            //TODO KILL
+        //private void parseEtagen()
+        //{
+        //    //TODO KILL
 
-            if (umzObj.auszug.Stockwerke1.Length != 0)
-            {
+        //    if (umzObj.auszug.Stockwerke1.Length != 0)
+        //    {
 
-                string[] temp = umzObj.auszug.Stockwerke1.Split(',');
+        //        string[] temp = umzObj.auszug.Stockwerke1.Split(',');
 
-                foreach (var item in temp)
-                {
-                    if (item.Contains("K"))
-                    {
-                        checkKellerA.Checked = true;
-                    }
-                    else if (item.Contains("EG"))
-                    {
-                        checkEGA.Checked = true;
-                    }
-                    else if (item.Contains("DB"))
-                    {
-                        checkDBA.Checked = true;
-                    }
-                    else if (item.Contains("MA"))
-                    {
-                        checkMAA.Checked = true;
-                    }
-                    else if (item.Contains("ST"))
-                    {
-                        checkSTA.Checked = true;
-                    }
-                    else if (item.Contains("HP"))
-                    {
-                        checkHPA.Checked = true;
-                    }
-                    else if (item.Contains("1"))
-                    {
-                        checkOG1A.Checked = true;
-                    }
-                    else if (item.Contains("2"))
-                    {
-                        checkOG2A.Checked = true;
-                    }
-                    else if (item.Contains("3"))
-                    {
-                        checkOG3A.Checked = true;
-                    }
-                    else if (item.Contains("4"))
-                    {
-                        checkOG4A.Checked = true;
-                    }
-                    else if (item.Contains("5"))
-                    {
-                        checkOG5A.Checked = true;
-                    }
-                    else
-                    {
-                        textSonderEtageA.AppendText(item);
-                    }
-                }
+        //        foreach (var item in temp)
+        //        {
+        //            if (item.Contains("K"))
+        //            {
+        //                checkKellerA.Checked = true;
+        //            }
+        //            else if (item.Contains("EG"))
+        //            {
+        //                checkEGA.Checked = true;
+        //            }
+        //            else if (item.Contains("DB"))
+        //            {
+        //                checkDBA.Checked = true;
+        //            }
+        //            else if (item.Contains("MA"))
+        //            {
+        //                checkMAA.Checked = true;
+        //            }
+        //            else if (item.Contains("ST"))
+        //            {
+        //                checkSTA.Checked = true;
+        //            }
+        //            else if (item.Contains("HP"))
+        //            {
+        //                checkHPA.Checked = true;
+        //            }
+        //            else if (item.Contains("1"))
+        //            {
+        //                checkOG1A.Checked = true;
+        //            }
+        //            else if (item.Contains("2"))
+        //            {
+        //                checkOG2A.Checked = true;
+        //            }
+        //            else if (item.Contains("3"))
+        //            {
+        //                checkOG3A.Checked = true;
+        //            }
+        //            else if (item.Contains("4"))
+        //            {
+        //                checkOG4A.Checked = true;
+        //            }
+        //            else if (item.Contains("5"))
+        //            {
+        //                checkOG5A.Checked = true;
+        //            }
+        //            else
+        //            {
+        //                textSonderEtageA.AppendText(item);
+        //            }
+        //        }
 
-            }
+        //    }
 
-            if (umzObj.einzug.Stockwerke1.Length != 0)
-            {
+        //    if (umzObj.einzug.Stockwerke1.Length != 0)
+        //    {
 
-                string[] temp = umzObj.einzug.Stockwerke1.Split(',');
+        //        string[] temp = umzObj.einzug.Stockwerke1.Split(',');
 
-                foreach (var item in temp)
-                {
-                    if (item.Contains("K"))
-                    {
-                        checkKellerB.Checked = true;
-                    }
-                    else if (item.Contains("EG"))
-                    {
-                        checkEGB.Checked = true;
-                    }
-                    else if (item.Contains("DB"))
-                    {
-                        checkDBB.Checked = true;
-                    }
-                    else if (item.Contains("MA"))
-                    {
-                        checkMAB.Checked = true;
-                    }
-                    else if (item.Contains("ST"))
-                    {
-                        checkSTB.Checked = true;
-                    }
-                    else if (item.Contains("HP"))
-                    {
-                        checkHPB.Checked = true;
-                    }
-                    else if (item.Contains("1"))
-                    {
-                        checkOG1B.Checked = true;
-                    }
-                    else if (item.Contains("2"))
-                    {
-                        checkOG2B.Checked = true;
-                    }
-                    else if (item.Contains("3"))
-                    {
-                        checkOG3B.Checked = true;
-                    }
-                    else if (item.Contains("4"))
-                    {
-                        checkOG4B.Checked = true;
-                    }
-                    else if (temp.Contains("5"))
-                    {
-                        checkOG5B.Checked = true;
-                    }
-                    else
-                    {
-                        textSonderEtageB.AppendText(item);
-                    }
-                }
-            }
+        //        foreach (var item in temp)
+        //        {
+        //            if (item.Contains("K"))
+        //            {
+        //                checkKellerB.Checked = true;
+        //            }
+        //            else if (item.Contains("EG"))
+        //            {
+        //                checkEGB.Checked = true;
+        //            }
+        //            else if (item.Contains("DB"))
+        //            {
+        //                checkDBB.Checked = true;
+        //            }
+        //            else if (item.Contains("MA"))
+        //            {
+        //                checkMAB.Checked = true;
+        //            }
+        //            else if (item.Contains("ST"))
+        //            {
+        //                checkSTB.Checked = true;
+        //            }
+        //            else if (item.Contains("HP"))
+        //            {
+        //                checkHPB.Checked = true;
+        //            }
+        //            else if (item.Contains("1"))
+        //            {
+        //                checkOG1B.Checked = true;
+        //            }
+        //            else if (item.Contains("2"))
+        //            {
+        //                checkOG2B.Checked = true;
+        //            }
+        //            else if (item.Contains("3"))
+        //            {
+        //                checkOG3B.Checked = true;
+        //            }
+        //            else if (item.Contains("4"))
+        //            {
+        //                checkOG4B.Checked = true;
+        //            }
+        //            else if (temp.Contains("5"))
+        //            {
+        //                checkOG5B.Checked = true;
+        //            }
+        //            else
+        //            {
+        //                textSonderEtageB.AppendText(item);
+        //            }
+        //        }
+        //    }
 
-        }
+        //}
 
         //private string StockwerkString(int x)
         //{

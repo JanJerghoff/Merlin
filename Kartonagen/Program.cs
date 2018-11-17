@@ -210,6 +210,65 @@ namespace Kartonagen
         }
 
 
+        //Killt alle Controls, rekursiv runter
+        public static void DisableControls(Control con)
+        {
+            foreach (Control c in con.Controls)
+            {
+                DisableControls(c);
+            }
+            con.Enabled = false;
+        }
+
+        // Erlaubt alle Controls, von der jetzigen aufwärts
+        public static void EnableSingleControl(Control con)
+        {
+            if (con != null)
+            {
+                con.Enabled = true;
+                EnableSingleControl(con.Parent);
+            }
+        }
+
+        //Erlaubt alle, Rekursiv runter
+        public static void EnableControls(Control con)
+        {
+            foreach (Control c in con.Controls)
+            {
+                EnableControls(c);
+            }
+            con.Enabled = true;
+        }
+
+        // Löscht rekursiv alle Text, Numeric, Checkbox und Radiobuttons
+        public static void clearControl(Control con) {
+
+            foreach (Control c in con.Controls)
+            {
+                clearControl(c);
+            }
+
+            if (con is TextBox) {
+                con.ResetText();
+            }
+            else if (con is RadioButton)
+            {
+                RadioButton cont = (RadioButton) con;
+                cont.Checked = false;
+            }
+            else if (con is CheckBox)
+            {
+                CheckBox cont = (CheckBox)con;
+                cont.Checked = false;
+            }
+            else if (con is DateTimePicker)
+            {
+                DateTimePicker cont = (DateTimePicker)con;
+                cont.Value = DateTime.Now;
+            }
+
+        }
+
         public static String getBearbeitender(int ID)
         {
             if (ID == 0)

@@ -1190,9 +1190,9 @@ namespace Kartonagen
         // Einfügen aller Termine
         public Boolean addAll() {
 
-            selbstvalidieren();
+            //selbstvalidieren();
 
-            increaseLfdNr();
+            //increaseLfdNr();
 
             addEvent(2);
             addEvent(1);
@@ -1313,42 +1313,42 @@ namespace Kartonagen
             return Body;
         }
 
-        public void selbstvalidieren() {
+        //public void selbstvalidieren() {
             
 
-            //Kunde laden aus der nummer wenn nicht schon geladen
-            if (umzugsKunde == null || umzugsKunde.Id == 0) {
-                umzugsKunde = new Kunde(idKunden);
-            }
+        //    //Kunde laden aus der nummer wenn nicht schon geladen
+        //    if (umzugsKunde == null || umzugsKunde.Id == 0) {
+        //        umzugsKunde = new Kunde(idKunden);
+        //    }
 
             
 
-            //If Umzugsid leer, finde korrekte eigene ID und update
-            if (id == 0 || id == null) {
+        //    //If Umzugsid leer, finde korrekte eigene ID und update
+        //    if (id == 0 || id == null) {
                 
-                MySqlCommand cmdRead = new MySqlCommand("SELECT idUmzuege FROM Umzuege WHERE Kunden_idKunden = " + idKunden + " AND datUmzug = '"+Program.DateMachine(DatUmzug)+ "' AND datBesichtigung = '" + Program.DateMachine(DatBesichtigung) + "' ;", Program.conn);
-                MySqlDataReader rdr;
+        //        MySqlCommand cmdRead = new MySqlCommand("SELECT idUmzuege FROM Umzuege WHERE Kunden_idKunden = " + idKunden + " AND datUmzug = '"+Program.DateMachine(DatUmzug)+ "' AND datBesichtigung = '" + Program.DateMachine(DatBesichtigung) + "' ;", Program.conn);
+        //        MySqlDataReader rdr;
 
-                try
-                {
-                    rdr = cmdRead.ExecuteReader();
-                    while (rdr.Read())
-                    {
-                        Id = rdr.GetInt32(0);
-                    }
-                    rdr.Close();
+        //        try
+        //        {
+        //            rdr = cmdRead.ExecuteReader();
+        //            while (rdr.Read())
+        //            {
+        //                Id = rdr.GetInt32(0);
+        //            }
+        //            rdr.Close();
                     
-                }
-                catch (Exception sqlEx)
-                {
-                    Program.FehlerLog(sqlEx.ToString(), "Abrufen der UmzugsID bei der Selbstverifikation");
-                    throw sqlEx;
-                }
-            }
+        //        }
+        //        catch (Exception sqlEx)
+        //        {
+        //            Program.FehlerLog(sqlEx.ToString(), "Abrufen der UmzugsID bei der Selbstverifikation");
+        //            throw sqlEx;
+        //        }
+        //    }
 
-            return;
+        //    return;
 
-        }
+        //}
 
         private String hvzString()
         {
