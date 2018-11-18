@@ -158,6 +158,7 @@ namespace Kartonagen.Objekte
         }
 
         public int findAdresse() {
+
             int idDb = 0;
 
             String select = "SELECT id FROM Adresse WHERE strasse = '" + Straße1 + "' AND hausnummer = '" + Hausnummer1 + "' AND ort = '" + Ort1 + "' AND PLZ = '" + PLZ1 + "';";

@@ -33,13 +33,33 @@ namespace Kartonagen.Objekte
 
         //Objekte
         Kunde kunde;
+        Adresse adresse;
+
+        public Kunde Kunde { get => kunde; set => kunde = value; }
+        public Adresse Adresse { get => adresse; set => adresse = value; }
+        public int Kartons1 { get => Kartons; set => Kartons = value; }
+        public int Flaschenkartons1 { get => Flaschenkartons; set => Flaschenkartons = value; }
+        public int Glaeserkartons1 { get => Glaeserkartons; set => Glaeserkartons = value; }
+        public int Kleiderkartons1 { get => Kleiderkartons; set => Kleiderkartons = value; }
+        public string Bemerkung1 { get => Bemerkung; set => Bemerkung = value; }
+        public bool Unbenutzt { get => unbenutzt; set => unbenutzt = value; }
+        public bool Kaufkarton1 { get => Kaufkarton; set => Kaufkarton = value; }
+        public string Rechnungsnummer1 { get => Rechnungsnummer; set => Rechnungsnummer = value; }
+        public DateTime DatKalender { get => datKalender; set => datKalender = value; }
+        public int IDAdresse1 { get => IDAdresse; set => IDAdresse = value; }
+        public int IdUmzuege { get => idUmzuege; set => idUmzuege = value; }
+        public int IdKunden { get => idKunden; set => idKunden = value; }
+        public int Id { get => id; set => id = value; }
+        public DateTime DatTransaktion { get => datTransaktion; set => datTransaktion = value; }
+        public string UserChanged1 { get => UserChanged; set => UserChanged = value; }
+        public int Lfd_nr { get => lfd_nr; set => lfd_nr = value; }
 
         public Transaktion(int nr)
         {
             
             int tempint = 0; // zwischenspeicher für auflösung in unbenutzt / kaufkartons
-            Kaufkarton = false;
-            unbenutzt = false;
+            Kaufkarton1 = false;
+            Unbenutzt = false;
 
             try
             {
@@ -53,18 +73,20 @@ namespace Kartonagen.Objekte
 
                 while (rdrTrans.Read())
                 {
-                    id = rdrTrans.GetInt32(0);
-                    datTransaktion = rdrTrans.GetDateTime(1).Date;
-                    Kartons = rdrTrans.GetInt32(2);
-                    Flaschenkartons = rdrTrans.GetInt32(3);
-                    Glaeserkartons = rdrTrans.GetInt32(4);
-                    Kleiderkartons = rdrTrans.GetInt32(5);
-                    Bemerkung = rdrTrans.GetString(8);
-                    UserChanged = rdrTrans.GetString(9);
+                    Id = rdrTrans.GetInt32(0);
+                    DatTransaktion = rdrTrans.GetDateTime(1).Date;
+                    Kartons1 = rdrTrans.GetInt32(2);
+                    Flaschenkartons1 = rdrTrans.GetInt32(3);
+                    Glaeserkartons1 = rdrTrans.GetInt32(4);
+                    Kleiderkartons1 = rdrTrans.GetInt32(5);
+                    IdUmzuege = rdrTrans.GetInt32(6);
+                    IdKunden = rdrTrans.GetInt32(7);
+                    Bemerkung1 = rdrTrans.GetString(8);
+                    UserChanged1 = rdrTrans.GetString(9);
                     tempint = rdrTrans.GetInt32(11);
-                    Rechnungsnummer = rdrTrans.GetString(12);
-                    datKalender = rdrTrans.GetDateTime(13);
-                    lfd_nr = rdrTrans.GetInt32(15);
+                    Rechnungsnummer1 = rdrTrans.GetString(12);
+                    DatKalender = rdrTrans.GetDateTime(13);
+                    Lfd_nr = rdrTrans.GetInt32(15);
                 }
                 rdrTrans.Close();
                 Program.conn.Close();
@@ -76,48 +98,54 @@ namespace Kartonagen.Objekte
 
             if (tempint == 1)
             {
-                unbenutzt = true;
+                Unbenutzt = true;
             }
             else if (tempint == 2) {
-                Kaufkarton = true;
+                Kaufkarton1 = true;
             }
+
+            kunde = new Kunde(IdKunden);
 
         }
 
-        public Transaktion(int Kartons, int Glaeserkartons, int Flaschenkartons, int Kleiderkartons, Boolean Kaufkartons, Boolean unbenutzt, String Bemerkung, String Rechnungsnummer, DateTime datTransaktion, int idAdresse, int idUmzuege, int idKunden, String User)
+        public Transaktion(int Kartons, int Glaeserkartons, int Flaschenkartons, int Kleiderkartons, Boolean Kaufkartons, Boolean unbenutzt, String Bemerkung, String Rechnungsnummer, DateTime datTransaktion, int idAdresse, Adresse Adresse, int idUmzuege, int idKunden, String User)
         {
 
-            this.Kartons = Kartons;
-            this.Glaeserkartons = Glaeserkartons;
-            this.Flaschenkartons = Flaschenkartons;
-            this.Kleiderkartons = Kleiderkartons;
-            this.unbenutzt = unbenutzt;
-            this.Bemerkung = Bemerkung;
-            this.Kaufkarton = Kaufkartons;
-            this.Rechnungsnummer = Rechnungsnummer;
-            this.datKalender = datTransaktion;
-            this.IDAdresse = idAdresse;     //Adresse 0 = Büro
-            this.idUmzuege = idUmzuege;
-            this.idKunden = idKunden;
-            this.UserChanged = User;
+            this.Kartons1 = Kartons;
+            this.Glaeserkartons1 = Glaeserkartons;
+            this.Flaschenkartons1 = Flaschenkartons;
+            this.Kleiderkartons1 = Kleiderkartons;
+            this.Unbenutzt = unbenutzt;
+            this.Bemerkung1 = Bemerkung;
+            this.Kaufkarton1 = Kaufkartons;
+            this.Rechnungsnummer1 = Rechnungsnummer;
+            this.DatKalender = datTransaktion;
+            this.IDAdresse1 = idAdresse;     //Adresse 0 = Büro
+            this.IdUmzuege = idUmzuege;
+            this.IdKunden = idKunden;
+            this.UserChanged1 = User;
+            if (Adresse != null) {
+                this.Adresse = Adresse;
+            }
 
             //Userobjekt
             Kunde kunde = new Kunde(idKunden);
 
-            String insert = "INSERT INTO Transaktionen (datTransaktion,Kartons,FlaschenKartons,GlaeserKartons,KleiderKartons,Umzuege_idUmzuege,Umzuege_Kunden_idKunden,Bemerkungen, UserChanged, Erstelldatum, unbenutzt, Rechnungsnummer, timeTransaktion, final) values (";
-            insert += "'" + Program.DateMachine(datKalender) + "',";
-            insert += this.Kartons + ",";
-            insert += this.Flaschenkartons + ",";
-            insert += this.Glaeserkartons + ",";
-            insert += this.Kleiderkartons + ",";
-            insert += this.idUmzuege + ",";
-            insert += this.idKunden + ",";
-            insert += "'" + this.Bemerkung + "',";
-            insert += "'" + this.UserChanged + ",";
+            String insert = "INSERT INTO Transaktionen (datTransaktion,Kartons,FlaschenKartons,GlaeserKartons,KleiderKartons,Umzuege_idUmzuege,Umzuege_Kunden_idKunden,Bemerkungen, UserChanged, Erstelldatum, unbenutzt, RechnungsNr, timeTransaktion, Adresse, final) values (";
+            insert += "'" + Program.DateMachine(DatKalender) + "',";
+            insert += this.Kartons1 + ",";
+            insert += this.Flaschenkartons1 + ",";
+            insert += this.Glaeserkartons1 + ",";
+            insert += this.Kleiderkartons1 + ",";
+            insert += this.IdUmzuege + ",";
+            insert += this.IdKunden + ",";
+            insert += "'" + this.Bemerkung1 + "',";
+            insert += "'" + this.UserChanged1 + "',";
             insert += "'" + Program.DateMachine(DateTime.Now) + "',";
             insert += unbenutzt + ",";
             insert += "'" + Rechnungsnummer + "',";
-            insert += "'" + Program.ZeitMachine(datKalender) + "',";
+            insert += "'" + Program.ZeitMachine(DatKalender) + "',";
+            insert += idAdresse+",";
             insert += "0);";
 
             Program.QueryLog(insert);
@@ -141,7 +169,7 @@ namespace Kartonagen.Objekte
 
                 while (rdr.Read())
                 {
-                    id = rdr.GetInt32(0);
+                    Id = rdr.GetInt32(0);
                 }
                 rdr.Close();
                 Program.conn.Close();
@@ -160,18 +188,18 @@ namespace Kartonagen.Objekte
 
             String longInsert = "UPDATE Transaktionen SET ";
 
-            longInsert += "datTransaktionen = '" + Program.DateMachine(datKalender) + "', ";
-            longInsert += "Kartons = " + Kartons + ", ";
-            longInsert += "FlaschenKartons = " + Flaschenkartons + ", ";
-            longInsert += "GlaeserKartons = " + Glaeserkartons + ", ";
-            longInsert += "KleiderKartons = " + Kleiderkartons + ", ";
-            longInsert += "Umzuege_idUmzuege = " + idUmzuege + ", ";
-            longInsert += "Umzuege_Kunden_idKunden = " + idKunden + ", ";
-            longInsert += "Bemerkungen = '" + Bemerkung + "', ";
-            longInsert += "UserChanged = '" + UserChanged+idBearbeitend + "', ";
-            longInsert += "unbenutzt = " + unbenutzt + ", ";
-            longInsert += "Rechnungsnummer = '" + Rechnungsnummer + "', ";
-            longInsert += "timeTransaktion = '" + Program.ZeitMachine(datKalender) + "', ";
+            longInsert += "datTransaktionen = '" + Program.DateMachine(DatKalender) + "', ";
+            longInsert += "Kartons = " + Kartons1 + ", ";
+            longInsert += "FlaschenKartons = " + Flaschenkartons1 + ", ";
+            longInsert += "GlaeserKartons = " + Glaeserkartons1 + ", ";
+            longInsert += "KleiderKartons = " + Kleiderkartons1 + ", ";
+            longInsert += "Umzuege_idUmzuege = " + IdUmzuege + ", ";
+            longInsert += "Umzuege_Kunden_idKunden = " + IdKunden + ", ";
+            longInsert += "Bemerkungen = '" + Bemerkung1 + "', ";
+            longInsert += "UserChanged = '" + UserChanged1+idBearbeitend + "', ";
+            longInsert += "unbenutzt = " + Unbenutzt + ", ";
+            longInsert += "RechnungsNr = '" + Rechnungsnummer1 + "', ";
+            longInsert += "timeTransaktion = '" + Program.ZeitMachine(DatKalender) + "', ";
             longInsert += "final = " + 0 + ", ";
 
             Program.QueryLog(longInsert);
@@ -184,7 +212,7 @@ namespace Kartonagen.Objekte
         //Selbst entfernen in Vorbereitung eines Updates, dann erneutes Hinzufügen
         public Boolean KalenderRemove() {
 
-            if (Program.getUtil().targetedDelete(datTransaktion, "8", "Transaktion_" + id,false)) {
+            if (Program.getUtil().targetedDelete(DatTransaktion, "8", "Transaktion_" + Id,false)) {
                 return true;
             }
 
@@ -195,14 +223,13 @@ namespace Kartonagen.Objekte
 
             String Adresse = getKunde().Anschrift.Straße1 + getKunde().Anschrift.Hausnummer1 + "/r/n" + getKunde().Anschrift.PLZ1 + getKunde().Anschrift.Ort1 + "/r/n";
 
-            Program.getUtil().kalenderEventEintrag(KalenderHeader(), KalenderString(Adresse), 8, datKalender, datKalender.AddHours(1));
+            Program.getUtil().kalenderEventEintrag(KalenderHeader(), KalenderString(), 8, DatKalender, DatKalender.AddHours(1));
             return true;
         }
 
-        public Boolean KalenderAddAdresse(String Adresse)
+        public Boolean KalenderAdd()
         {
-
-            Program.getUtil().kalenderEventEintrag(KalenderHeader(), KalenderString(Adresse), 8, datKalender, datKalender.AddHours(1));
+            Program.getUtil().kalenderEventEintrag(KalenderHeader(), KalenderString(), 8, DatKalender, DatKalender.AddHours(1));
             return true;
         }
 
@@ -211,7 +238,7 @@ namespace Kartonagen.Objekte
             String Header = "" + getKunde().getVollerName();
 
 
-            if (Kartons < 0 || Kleiderkartons < 0 || Glaeserkartons < 0 || Flaschenkartons < 0)
+            if (Kartons1 < 0 || Kleiderkartons1 < 0 || Glaeserkartons1 < 0 || Flaschenkartons1 < 0)
             {
                 Header += " Kartonlieferung";
             }
@@ -224,31 +251,31 @@ namespace Kartonagen.Objekte
         }
 
 
-        private String KalenderString(String Adresse) {
+        private String KalenderString() {
             
             String Body = "";
 
             //TransaktionsID in den Body
-            Body += "Transaktion_" + id + " /r/n";
+            Body += "Transaktion_" + Id + " "+Environment.NewLine;
 
             //Adresse in den Body
-            //Body += getKunde().Anschrift.Straße1 + getKunde().Anschrift.Hausnummer1 + "/r/n" + getKunde().Anschrift.PLZ1 + getKunde().Anschrift.Ort1 + "/r/n";
-            Body += Adresse + " /r/n ";
+            Body += Adresse.Straße1 + Adresse.Hausnummer1 +" "+ Environment.NewLine+" " + Adresse.PLZ1 + Adresse.Ort1 + " "+Environment.NewLine;
+            
 
             // Kontaktdaten
             if (getKunde().Handy.Length > 2)
             {
-                Body += "Handy: " + getKunde().Handy + "/r/n";
+                Body += "Handy: " + getKunde().Handy + " " + Environment.NewLine;
             }
             else if (getKunde().Telefon.Length > 2)
             {
-                Body += "Telefon: " + getKunde().Telefon + "/r/n";
+                Body += "Telefon: " + getKunde().Telefon + " " + Environment.NewLine;
             }
             else {
-                Body += "E-Mail: " + getKunde().Email + "/r/n";
+                Body += "E-Mail: " + getKunde().Email + " " + Environment.NewLine;
             }
 
-            if (Kartons<0||Kleiderkartons<0||Glaeserkartons<0||Flaschenkartons<0)
+            if (Kartons1<0||Kleiderkartons1<0||Glaeserkartons1<0||Flaschenkartons1<0)
             {
                 Body += "Kartonlieferung";
             }
@@ -269,21 +296,21 @@ namespace Kartonagen.Objekte
             Body += " über ";
 
             //Jeweils das Minus rausnehmen, weil über Auslieferung / abholung erklärt
-            if (Kartons != 0)
+            if (Kartons1 != 0)
             {
-                Body += Kartons.ToString().Replace("-","") + " Kartons ";
+                Body += Kartons1.ToString().Replace("-","") + " Kartons " + Environment.NewLine;
             }
-            if (Glaeserkartons != 0)
+            if (Glaeserkartons1 != 0)
             {
-                Body += Glaeserkartons.ToString().Replace("-", "") + " Gläserkartons ";
+                Body += Glaeserkartons1.ToString().Replace("-", "") + " Gläserkartons " + Environment.NewLine;
             }
-            if (Flaschenkartons != 0)
+            if (Flaschenkartons1 != 0)
             {
-                Body += Flaschenkartons.ToString().Replace("-", "") + " Flaschenkartons ";
+                Body += Flaschenkartons1.ToString().Replace("-", "") + " Flaschenkartons " + Environment.NewLine;
             }
-            if (Kleiderkartons != 0)
+            if (Kleiderkartons1 != 0)
             {
-                Body += Kleiderkartons.ToString().Replace("-", "") + " Kleiderkartons ";
+                Body += Kleiderkartons1.ToString().Replace("-", "") + " Kleiderkartons " + Environment.NewLine;
             }
             
 
@@ -296,16 +323,16 @@ namespace Kartonagen.Objekte
 
         private Kunde getKunde() {
 
-            if (kunde == null) {
-                kunde = new Kunde(idKunden);
+            if (Kunde == null) {
+                Kunde = new Kunde(IdKunden);
             }
-            return kunde;
+            return Kunde;
         }
 
         //Getter
 
         public int getId() {
-            return id;
+            return Id;
         }
     }
 }

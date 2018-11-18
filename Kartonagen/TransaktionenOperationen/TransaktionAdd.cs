@@ -18,6 +18,7 @@ namespace Kartonagen
 
         Umzug umzObj;
         Kunde kundenObj;
+        Transaktion Transobj;
 
         int maxKundennummer;
         public TransaktionAdd()
@@ -204,11 +205,10 @@ namespace Kartonagen
             if (radioUnbenutzt.Checked) { unbenutzt = true; }
 
             Adresse Adressobj = new Adresse(textStraße.Text,textHausnummer.Text, textOrt.Text, textPLZ.Text, "Deutschland", 0,"","",0,0,0);
-
-            Transaktion transObj = new Transaktion(Decimal.ToInt32(numericKarton.Value), Decimal.ToInt32(numericGlaeserkarton.Value), Decimal.ToInt32(numericFlaschenKarton.Value), Decimal.ToInt32(numericKleiderKarton.Value), kaufkartons,unbenutzt,textBemerkung.Text,textRechnungsnr.Text, Program.getUtil().mergeDatetime(dateTimeTransaktion.Value,timeLieferzeit.Value),Adressobj.IDAdresse1,umzObj.Id,kundenObj.Id,"0");
+            Transobj = new Transaktion(Decimal.ToInt32(numericKarton.Value), Decimal.ToInt32(numericGlaeserkarton.Value), Decimal.ToInt32(numericFlaschenKarton.Value), Decimal.ToInt32(numericKleiderKarton.Value), kaufkartons,unbenutzt,textBemerkung.Text,textRechnungsnr.Text, Program.getUtil().mergeDatetime(dateTimeTransaktion.Value,timeLieferzeit.Value),Adressobj.IDAdresse1,Adressobj,umzObj.Id,umzObj.IdKunden,"0");
             
             //Ergebnis-Transaktionsnummer anzeigen
-            textResultatsNummer.Text = transObj.getId()+"";
+            textResultatsNummer.Text = Transobj.getId()+"";
 
 
             // Termine in Kalender pushen wenn relevant
@@ -244,92 +244,94 @@ namespace Kartonagen
 
         private void Kalendereintrag() {
 
-            String Titel = textKundennummer.Text + " " + textVorNachname.Text;
-            if (radioAusgang.Checked)
-            {
-                Titel += " " + "Lieferung";
-            }
-            else {
-                Titel += " " + "Abholung";
-            }
+            //String Titel = textKundennummer.Text + " " + textVorNachname.Text;
+            //if (radioAusgang.Checked)
+            //{
+            //    Titel += " " + "Lieferung";
+            //}
+            //else {
+            //    Titel += " " + "Abholung";
+            //}
 
-            String Body = "";
+            //String Body = "";
 
-            //Adresse in den Body
+            ////Adresse in den Body
 
-            // Kontaktdaten
-            try
-            {
-                if (Program.conn.State != ConnectionState.Open)
-                {
-                    Program.conn.Open();
-                }
-                MySqlCommand cmdRead = new MySqlCommand("SELECT Handynummer, Telefonnummer FROM Kunden WHERE idKunden = " + textKundennummer.Text + ";", Program.conn);
-                MySqlDataReader rdr = cmdRead.ExecuteReader();
 
-                while (rdr.Read())
-                {
-                    if (rdr.GetString(0) == "0")
-                    {
-                        Body += "Telefon = " + rdr.GetString(1)+"\r\n";
-                    }
-                    else { Body += "Handy = " + rdr.GetString(0) + "\r\n"; }
-                }
-                rdr.Close();
-                Program.conn.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Kundenadresse \r\n Bereits dokumentiert.");
-                return;
-            }
+            //// Kontaktdaten
+            //try
+            //{
+            //    if (Program.conn.State != ConnectionState.Open)
+            //    {
+            //        Program.conn.Open();
+            //    }
+            //    MySqlCommand cmdRead = new MySqlCommand("SELECT Handynummer, Telefonnummer FROM Kunden WHERE idKunden = " + textKundennummer.Text + ";", Program.conn);
+            //    MySqlDataReader rdr = cmdRead.ExecuteReader();
 
-            if (radioAusgang.Checked)
-            {
-                Body +="Kartonlieferung";
-            }
-            else
-            {
-                Body += "Kartonabholung";
-            }
+            //    while (rdr.Read())
+            //    {
+            //        if (rdr.GetString(0) == "0")
+            //        {
+            //            Body += "Telefon = " + rdr.GetString(1)+"\r\n";
+            //        }
+            //        else { Body += "Handy = " + rdr.GetString(0) + "\r\n"; }
+            //    }
+            //    rdr.Close();
+            //    Program.conn.Close();
+            //}
+            //catch (Exception sqlEx)
+            //{
+            //    Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Kundenadresse \r\n Bereits dokumentiert.");
+            //    return;
+            //}
 
-            if (radioAusgang.Checked&&labelLieferung.Visible)
-            {
-                Body += " Kostenpflichtig!";
-            }
-            else if (radioEingang.Checked && labelAbholung.Visible)
-            {
-                Body += " Kostenpflichtig!";
-            }
+            //if (radioAusgang.Checked)
+            //{
+            //    Body +="Kartonlieferung";
+            //}
+            //else
+            //{
+            //    Body += "Kartonabholung";
+            //}
 
-            Body += " über ";
+            //if (radioAusgang.Checked&&labelLieferung.Visible)
+            //{
+            //    Body += " Kostenpflichtig!";
+            //}
+            //else if (radioEingang.Checked && labelAbholung.Visible)
+            //{
+            //    Body += " Kostenpflichtig!";
+            //}
 
-            if (numericKarton.Value != 0) {
-                Body += numericKarton.Value.ToString()+" Kartons ";
-            }
-            if (numericGlaeserkarton.Value != 0)
-            {
-                Body += numericGlaeserkarton.Value.ToString() + " Gläserkartons ";
-            }
-            if ( numericFlaschenKarton.Value != 0)
-            {
-                Body += numericFlaschenKarton.Value.ToString() + " Flaschenkartons ";
-            }
-            if (numericKleiderKarton.Value != 0)
-            {
-                Body += numericKleiderKarton.Value.ToString() + " Kleiderkartons ";
-            }
+            //Body += " über ";
 
-            Body += "\r\n Transaktionsnummer =" + textResultatsNummer.Text;
+            //if (numericKarton.Value != 0) {
+            //    Body += numericKarton.Value.ToString()+" Kartons ";
+            //}
+            //if (numericGlaeserkarton.Value != 0)
+            //{
+            //    Body += numericGlaeserkarton.Value.ToString() + " Gläserkartons ";
+            //}
+            //if ( numericFlaschenKarton.Value != 0)
+            //{
+            //    Body += numericFlaschenKarton.Value.ToString() + " Flaschenkartons ";
+            //}
+            //if (numericKleiderKarton.Value != 0)
+            //{
+            //    Body += numericKleiderKarton.Value.ToString() + " Kleiderkartons ";
+            //}
 
-            Body += ", Zeichen =" + Program.getBearbeitender(idBearbeitend);
+            //Body += "\r\n Transaktionsnummer =" + textResultatsNummer.Text;
 
-            if (radioEingang.Checked) { Body += " tatsächliche Kartonzahl nachkorrigieren"; }
+            //Body += ", Zeichen =" + Program.getBearbeitender(idBearbeitend);
 
-            DateTime start = new DateTime(dateTimeTransaktion.Value.Year, dateTimeTransaktion.Value.Month, dateTimeTransaktion.Value.Day, timeLieferzeit.Value.Hour, timeLieferzeit.Value.Minute, 0);
+            //if (radioEingang.Checked) { Body += " tatsächliche Kartonzahl nachkorrigieren"; }
 
-            Program.getUtil().kalenderEventEintrag(Titel, Body, 8, start, start.AddHours(1));
+            //DateTime start = new DateTime(dateTimeTransaktion.Value.Year, dateTimeTransaktion.Value.Month, dateTimeTransaktion.Value.Day, timeLieferzeit.Value.Hour, timeLieferzeit.Value.Minute, 0);
 
+            //Program.getUtil().kalenderEventEintrag(Titel, Body, 8, start, start.AddHours(1));
+
+            Transobj.KalenderAdd();
             textTransaktionLog.AppendText(" Kalendereintrag erfolgreich!\r\n");
 
         }

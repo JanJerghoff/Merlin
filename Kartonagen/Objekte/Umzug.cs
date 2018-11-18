@@ -330,7 +330,7 @@ namespace Kartonagen
                 "KuecheAb, KuecheAuf, KuecheBau, KuechePausch, " +
                 "StraßeA, HausnummerA, PLZA, OrtA, LandA, AufzugA, StockwerkeA, HausTypA, HVZA, LaufmeterA, AussenAufzugA, " +
                 "StraßeB, HausnummerB, PLZB, OrtB, LandB, AufzugB, StockwerkeB, HausTypB, HVZB, LaufmeterB, AussenAufzugB, " +
-                "NotizBuero, NotizFahrer, BemerkungTitel, SchilderZeit, UserChanged, Erstelldatum, Adresse_id, entruempelMann, entruempelStunden) VALUES (";
+                "NotizBuero, NotizFahrer, BemerkungTitel, SchilderZeit, UserChanged, Erstelldatum, Adresse_id, entruempelMann, entruempelStunden, AdresseAuszug, AdresseEinzug) VALUES (";
 
             longInsert += idKunden + ", ";
             longInsert += "'" + Program.DateMachine(datBesichtigung) + "', ";
@@ -400,10 +400,12 @@ namespace Kartonagen
             longInsert += "'" + Program.DateMachine(DateTime.Now) + "', ";
             longInsert += ruempelNr + ", ";
             longInsert += RuempelMann + ", ";
-            longInsert += RuempelStunden + ");";
+            longInsert += RuempelStunden + ", ";
+            longInsert += auszug.IDAdresse1 + ", ";
+            longInsert += einzug.IDAdresse1 + ");";
 
             // Merkt den Query
-           
+
             Program.absender(longInsert, "Einfügen des neuen Umzuges zum erstellen des Umzugsobjekts");
 
             addAll();
@@ -440,15 +442,15 @@ namespace Kartonagen
             return temp;
         }
 
-        public void increaseLfdNr()
-        {
-            lfd_nr++;
-            // In DB updaten
-            String Insert = "UPDATE Umzuege SET lfd_nr = " + lfd_nr + " WHERE idUmzuege = "+id+";";
-            Program.QueryLog(Insert);
+        //public void increaseLfdNr()
+        //{
+        //    lfd_nr++;
+        //    // In DB updaten
+        //    String Insert = "UPDATE Umzuege SET lfd_nr = " + lfd_nr + " WHERE idUmzuege = "+id+";";
+        //    Program.QueryLog(Insert);
 
-            Program.absender(Insert, "Update der Laufenden Nummer");
-        }
+        //    Program.absender(Insert, "Update der Laufenden Nummer");
+        //}
 
         //Updatemechanik
         public void UpdateDB(string idUser)
@@ -516,13 +518,19 @@ namespace Kartonagen
             longInsert += "HausTypB = '" + einzug.Haustyp1 + "', ";
             longInsert += "HVZB = " + einzug.HVZ1 + ", ";
             longInsert += "LaufmeterB = " + einzug.Laufmeter1 + ", ";
-            longInsert += "AussenAufzugB = " + einzug.AussenAufzug1;
+            longInsert += "AussenAufzugB = " + einzug.AussenAufzug1 + ", ";
+
+            longInsert += "AdresseAuszug = " + auszug.IDAdresse1 + ", ";
+            longInsert += "AdresseEinzug = " + einzug.IDAdresse1;
 
             longInsert += " WHERE idUmzuege = " + id + ";";
 
             Program.QueryLog(longInsert);
 
             Program.absender(longInsert, "Absenden der Änderung am Umzug");
+
+            auszug.updateDB();
+            einzug.updateDB();
 
             //Ändern der seperaten Adressen
             entruempeln.updateDB();

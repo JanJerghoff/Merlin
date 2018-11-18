@@ -18,6 +18,8 @@ namespace Kartonagen
     public partial class UmzugAdd : Form
     {
         static Umzug umzObj;
+        static Boolean isLocked = false;
+        private int idBearbeitend = 0; // 0= Rita, 1=Jonas, 2=Eva, 3=Jan, 4, Sonst.
 
         public UmzugAdd()
         {
@@ -36,22 +38,36 @@ namespace Kartonagen
             dateEinpack.Value = DateTime.Now;
             dateEntruempel.Value = DateTime.Now;
             dateUmzug.Value = DateTime.Now;
+            isLocked = false;
 
-            LockUp();
-        }
-
-        private int idBearbeitend = 0; // 0= Rita, 1=Jonas, 2=Eva, 3=Jan, 4, Sonst.
+            //LockUp();
+        }        
 
         public void setBearbeiter(int wer)
         {
             idBearbeitend = wer;
         }
 
+        public void createNewForm(int KundenNr) {
+
+            UmzugAdd umzHinzufuegen = new UmzugAdd();
+            umzHinzufuegen.setBearbeiter(idBearbeitend);
+            umzHinzufuegen.Show();
+            umzHinzufuegen.umzugFuellen(KundenNr);
+            this.Dispose();           
+
+        }
+
         public void umzugFuellen(int KundenNR) {
 
             //Alle Felder von etwaigem vorherigem Umzug leeren, erlauben
-            unLock();
+            //unLock();
 
+            //Wenn gesperrt von vorherigem Umzug, selbst entfernen und neues Fenster öffnen
+            if (isLocked) {
+                createNewForm(KundenNR);
+                return;
+            }
 
             if (Program.conn.State != ConnectionState.Open)
             {
@@ -423,6 +439,8 @@ namespace Kartonagen
             Program.EnableSingleControl(textSucheName);
             Program.EnableSingleControl(textSucheKundennummer);
             Program.EnableSingleControl(textUmzugLog);
+
+            isLocked = true;
         }
 
         private void unLock() {
@@ -437,7 +455,6 @@ namespace Kartonagen
             textHausnummerB.Clear();
             textHausnummerEnt.Clear();
             textKuechenPreis.Clear();
-            textKundennummer.Clear();
             textLandA.Clear();
             textLandB.Clear();
             textNoteBuero.Clear();
@@ -657,12 +674,19 @@ namespace Kartonagen
                 {
                     Etagen.Insert(Etagen.Length, ("-" + textSonderEtageA.Text));
                 }
+                else {
+                    Etagen.Insert(Etagen.Length, ("-"));
+                }
             }
             else
             {
                 if (!textSonderEtageB.Text.Equals(String.Empty))
                 {
                     Etagen.Insert(Etagen.Length, ("-" + textSonderEtageB.Text));
+                }
+                else
+                {
+                    Etagen.Insert(Etagen.Length, ("-"));
                 }
             }
             return Etagen;

@@ -157,7 +157,7 @@ namespace Kartonagen
             //Sonderabfragen.setBearbeiter(getBearbeitender());
             //Sonderabfragen.Show();
 
-            if (!radioMainBenutzerJan.Checked)
+            if (radioMainBenutzerJan.Checked)
             {
                 //convertNotation();
                 convertAdressen();

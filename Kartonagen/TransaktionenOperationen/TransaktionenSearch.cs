@@ -16,6 +16,7 @@ namespace Kartonagen
     public partial class TransaktionenSearch : Form
     {
         Transaktion transObj;
+        Umzug umzObj;
         int maxTransaktionsnummer;
         String Userchanged;
 
@@ -66,120 +67,136 @@ namespace Kartonagen
             }
             // Beschaffen der Umzugsnummer zur gegebenen Transaktionsnummer
             // Füllen der Transaktion (alt wie geändert) aus der Transaktion
-            int umzNummer = 0;
-            MySqlCommand cmdReadTrans = new MySqlCommand("SELECT * FROM Transaktionen WHERE idTransaktionen = " + TransNummer + ";", Program.conn);
-            MySqlDataReader rdrTrans;
 
-            //Break wenn Transaktionsnummer ungültig
-            if (TransNummer > maxTransaktionsnummer) {
-                textTransaktionLog.AppendText("Transaktionsnummer nicht vergeben, bitte überprüfen \r\n");
-                return;
-            }
+            //Objekte, Kunde ist in der Transaktion enthalten
+            transObj = new Transaktion(TransNummer);
+            umzObj = new Umzug(transObj.IdUmzuege);
 
-            try
+            //Block Stammdaten
+
+            textUmzugsdatum.Text = umzObj.DatUmzug.ToShortDateString();
+            textUmzugsnummer.Text = umzObj.Id+"";
+            textVorNachname.Text = transObj.Kunde.getVollerName();
+            textKundennummer.Text = transObj.IdKunden+"";
+
+
+
+
+
+
+            //Block Änderbare Daten
+
+            if (transObj.Kartons1 > 0 || transObj.Kartons1 > 0 || transObj.Kartons1 > 0 || transObj.Kartons1 > 0)
             {
-                rdrTrans = cmdReadTrans.ExecuteReader();
-                while (rdrTrans.Read())
-                {
-                    umzNummer = rdrTrans.GetInt32(6);
-                    // Check positive Werte für Kartons = Auslieferung
-                    if (rdrTrans.GetInt32(2) > 0 || rdrTrans.GetInt32(3) > 0 || rdrTrans.GetInt32(4) > 0 || rdrTrans.GetInt32(5) > 0)
-                    {
-                        radioAusgang.Checked = true;
-                        radioAusgangAendern.Checked = true;
-                    }
-                    // Check benutzt
-                    else
-                    {
-                        radioEingang.Checked = true;
-                        radioEingangAendern.Checked = true;
-                        if (rdrTrans.GetInt32(11)!=0)
-                        {
-                            radioUnbenutzt.Checked = true;
-                            radioUnbenutztAendern.Checked = true;
-                        }
-                    }
-                    // Einfüllen Zahlenwerte ohne Vorzeichen
-                    numericKarton.Value = Math.Abs(rdrTrans.GetInt32(2));
-                    numericKartonAendern.Value = Math.Abs(rdrTrans.GetInt32(2));
-                    numericFlaschenKarton.Value = Math.Abs(rdrTrans.GetInt32(3));
-                    numericFlaschenKartonAendern.Value = Math.Abs(rdrTrans.GetInt32(3));
-                    numericGlaeserkarton.Value = Math.Abs(rdrTrans.GetInt32(4));
-                    numericGlaeserKartonAendern.Value = Math.Abs(rdrTrans.GetInt32(4));
-                    numericKleiderKarton.Value = Math.Abs(rdrTrans.GetInt32(5));
-                    numericKleiderKartonAendern.Value = Math.Abs(rdrTrans.GetInt32(5));
-
-                    // Einfüllen Datum + Zeit
-                    dateTimeTransaktion.Value = rdrTrans.GetDateTime(1);
-                    dateTimeTransaktionAendern.Value = rdrTrans.GetDateTime(1);
-
-                    DateTime dummy = DateTime.Today + rdrTrans.GetDateTime(13).TimeOfDay;
-
-                    timeTransaktion.Value = dummy;
-                    timeAendern.Value = dummy;
-
-                    // Bemerkungen einfüllen
-                    textBemerkung.Text = rdrTrans[8].ToString();
-                    textBemerkungAendern.Text = rdrTrans[8].ToString();
-
-                    // Rechnungsnummer einfüllen
-                    textRechnungsnummer.Text = rdrTrans[12].ToString();
-                    textRechnungsnummerAendern.Text = rdrTrans[12].ToString();
-                    // UserChanged merken
-                    Userchanged = rdrTrans[9].ToString();
-
-                    textTransaktionLog.AppendText("Transaktion erfolgreich aufgerufen \r\n");
-                }
-                rdrTrans.Close();
+                radioAusgang.Checked = true;
+                radioAusgangAendern.Checked = true;
             }
-            catch (Exception sqlEx)
-            {
-                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auffüllen der Transaktionen \r\n Bereits dokumentiert.");
-                return;
-            }
+                    
 
-            // Umzugsdaten aus dem Umzug ziehen
+            //try
+            //{
+            //    rdrTrans = cmdReadTrans.ExecuteReader();
+            //    while (rdrTrans.Read())
+            //    {
+            //        umzNummer = rdrTrans.GetInt32(6);
+            //        // Check positive Werte für Kartons = Auslieferung
+            //        if (rdrTrans.GetInt32(2) > 0 || rdrTrans.GetInt32(3) > 0 || rdrTrans.GetInt32(4) > 0 || rdrTrans.GetInt32(5) > 0)
+            //        {
+            //            radioAusgang.Checked = true;
+            //            radioAusgangAendern.Checked = true;
+            //        }
+            //        // Check benutzt
+            //        else
+            //        {
+            //            radioEingang.Checked = true;
+            //            radioEingangAendern.Checked = true;
+            //            if (rdrTrans.GetInt32(11)!=0)
+            //            {
+            //                radioUnbenutzt.Checked = true;
+            //                radioUnbenutztAendern.Checked = true;
+            //            }
+            //        }
+            //        // Einfüllen Zahlenwerte ohne Vorzeichen
+            //        numericKarton.Value = Math.Abs(rdrTrans.GetInt32(2));
+            //        numericKartonAendern.Value = Math.Abs(rdrTrans.GetInt32(2));
+            //        numericFlaschenKarton.Value = Math.Abs(rdrTrans.GetInt32(3));
+            //        numericFlaschenKartonAendern.Value = Math.Abs(rdrTrans.GetInt32(3));
+            //        numericGlaeserkarton.Value = Math.Abs(rdrTrans.GetInt32(4));
+            //        numericGlaeserKartonAendern.Value = Math.Abs(rdrTrans.GetInt32(4));
+            //        numericKleiderKarton.Value = Math.Abs(rdrTrans.GetInt32(5));
+            //        numericKleiderKartonAendern.Value = Math.Abs(rdrTrans.GetInt32(5));
 
-            MySqlCommand cmdReadUmzug = new MySqlCommand("SELECT Kunden_idKunden, datUmzug FROM Umzuege WHERE idUmzuege=" + umzNummer + ";", Program.conn);
-            MySqlDataReader rdrUmzug;
+            //        // Einfüllen Datum + Zeit
+            //        dateTimeTransaktion.Value = rdrTrans.GetDateTime(1);
+            //        dateTimeTransaktionAendern.Value = rdrTrans.GetDateTime(1);
 
-            try
-            {
-                rdrUmzug = cmdReadUmzug.ExecuteReader();
-                while (rdrUmzug.Read())
-                {
-                    textKundennummer.Text = rdrUmzug[0] + "";
-                    textUmzugsdatum.Text = rdrUmzug.GetDateTime(1).ToShortDateString();
-                    textUmzugsnummer.Text = umzNummer + "";
-                }
-                rdrUmzug.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Umzugsdaten fürs Auffüllen \r\n Bereits dokumentiert.");
-                return;
-            }
+            //        DateTime dummy = DateTime.Today + rdrTrans.GetDateTime(13).TimeOfDay;
 
-            // Personendaten aus dem Kunden ziehen
+            //        timeTransaktion.Value = dummy;
+            //        timeAendern.Value = dummy;
 
-            MySqlCommand cmdReadKunde = new MySqlCommand("SELECT * FROM Kunden WHERE idKunden=" + textKundennummer.Text + ";", Program.conn);
-            MySqlDataReader rdrKunde;
+            //        // Bemerkungen einfüllen
+            //        textBemerkung.Text = rdrTrans[8].ToString();
+            //        textBemerkungAendern.Text = rdrTrans[8].ToString();
 
-            try
-            {
-                rdrKunde = cmdReadKunde.ExecuteReader();
-                while (rdrKunde.Read())
-                {
+            //        // Rechnungsnummer einfüllen
+            //        textRechnungsnummer.Text = rdrTrans[12].ToString();
+            //        textRechnungsnummerAendern.Text = rdrTrans[12].ToString();
+            //        // UserChanged merken
+            //        Userchanged = rdrTrans[9].ToString();
 
-                    textVorNachname.Text = rdrKunde[1] + " " + rdrKunde[2] + " " + rdrKunde[3];
-                }
-                rdrKunde.Close();
-            }
-            catch (Exception sqlEx)
-            {
-                Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Personendaten \r\n Bereits dokumentiert.");
-                return;
-            }
+            //        textTransaktionLog.AppendText("Transaktion erfolgreich aufgerufen \r\n");
+            //    }
+            //    rdrTrans.Close();
+            //}
+            //catch (Exception sqlEx)
+            //{
+            //    Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auffüllen der Transaktionen \r\n Bereits dokumentiert.");
+            //    return;
+            //}
+
+            //// Umzugsdaten aus dem Umzug ziehen
+
+            //MySqlCommand cmdReadUmzug = new MySqlCommand("SELECT Kunden_idKunden, datUmzug FROM Umzuege WHERE idUmzuege=" + umzNummer + ";", Program.conn);
+            //MySqlDataReader rdrUmzug;
+
+            //try
+            //{
+            //    rdrUmzug = cmdReadUmzug.ExecuteReader();
+            //    while (rdrUmzug.Read())
+            //    {
+            //        textKundennummer.Text = rdrUmzug[0] + "";
+            //        textUmzugsdatum.Text = rdrUmzug.GetDateTime(1).ToShortDateString();
+            //        textUmzugsnummer.Text = umzNummer + "";
+            //    }
+            //    rdrUmzug.Close();
+            //}
+            //catch (Exception sqlEx)
+            //{
+            //    Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Umzugsdaten fürs Auffüllen \r\n Bereits dokumentiert.");
+            //    return;
+            //}
+
+            //// Personendaten aus dem Kunden ziehen
+
+            //MySqlCommand cmdReadKunde = new MySqlCommand("SELECT * FROM Kunden WHERE idKunden=" + textKundennummer.Text + ";", Program.conn);
+            //MySqlDataReader rdrKunde;
+
+            //try
+            //{
+            //    rdrKunde = cmdReadKunde.ExecuteReader();
+            //    while (rdrKunde.Read())
+            //    {
+
+            //        textVorNachname.Text = rdrKunde[1] + " " + rdrKunde[2] + " " + rdrKunde[3];
+            //    }
+            //    rdrKunde.Close();
+            //}
+            //catch (Exception sqlEx)
+            //{
+            //    Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Personendaten \r\n Bereits dokumentiert.");
+            //    return;
+            //}
         }
 
         //
@@ -201,51 +218,52 @@ namespace Kartonagen
                 //TODO Popup-Warnmeldung keine Transaktion eingeloggt
             }
 
+            transObj.DatKalender = dateTimeTransaktionAendern.Value;
 
-            //String bauen
-            String push = "UPDATE Transaktionen SET ";
-            String shove = " WHERE idTransaktionen = " + textTransaktion.Text + ";"; 
+            ////String bauen
+            //String push = "UPDATE Transaktionen SET ";
+            //String shove = " WHERE idTransaktionen = " + textTransaktion.Text + ";"; 
 
-            push += "datTransaktion = '" + Program.DateMachine(dateTimeTransaktionAendern.Value) + "', ";
-            push += "timeTransaktion = '" + Program.DateTimeMachine(timeAendern.Value,dateTimeTransaktionAendern.Value) + "', ";
+            //push += "datTransaktion = '" + Program.DateMachine(dateTimeTransaktionAendern.Value) + "', ";
+            //push += "timeTransaktion = '" + Program.DateTimeMachine(timeAendern.Value,dateTimeTransaktionAendern.Value) + "', ";
 
-            if (radioAusgangAendern.Checked)
-            {
-                push += "Kartons = " + numericKartonAendern.Value + ", ";
-                push += "FlaschenKartons = " + numericFlaschenKartonAendern.Value + ", ";
-                push += "GlaeserKartons = " + numericGlaeserKartonAendern.Value + ", ";
-                push += "KleiderKartons = " + numericKleiderKartonAendern.Value + ", ";
-            }
-            else
-            {
-                push += "Kartons = -" + numericKartonAendern.Value + ", ";
-                push += "FlaschenKartons = -" + numericFlaschenKartonAendern.Value + ", ";
-                push += "GlaeserKartons = -" + numericGlaeserKartonAendern.Value + ", ";
-                push += "KleiderKartons = -" + numericKleiderKartonAendern.Value + ", ";
-            }           
+            //if (radioAusgangAendern.Checked)
+            //{
+            //    push += "Kartons = " + numericKartonAendern.Value + ", ";
+            //    push += "FlaschenKartons = " + numericFlaschenKartonAendern.Value + ", ";
+            //    push += "GlaeserKartons = " + numericGlaeserKartonAendern.Value + ", ";
+            //    push += "KleiderKartons = " + numericKleiderKartonAendern.Value + ", ";
+            //}
+            //else
+            //{
+            //    push += "Kartons = -" + numericKartonAendern.Value + ", ";
+            //    push += "FlaschenKartons = -" + numericFlaschenKartonAendern.Value + ", ";
+            //    push += "GlaeserKartons = -" + numericGlaeserKartonAendern.Value + ", ";
+            //    push += "KleiderKartons = -" + numericKleiderKartonAendern.Value + ", ";
+            //}           
 
 
-            //push += "Umzuege_idUmzuege = "+ textUmzugsnummer.Text + ", ";
-            //push += "Umzuege_Kunden_idKunden = " + textKundennummer.Text + ", ";
-            push += "Bemerkungen = '"  + textBemerkungAendern.Text + " ', ";
-            push += "Erstelldatum = '" + Program.DateMachine(DateTime.Now) + "', ";
+            ////push += "Umzuege_idUmzuege = "+ textUmzugsnummer.Text + ", ";
+            ////push += "Umzuege_Kunden_idKunden = " + textKundennummer.Text + ", ";
+            //push += "Bemerkungen = '"  + textBemerkungAendern.Text + " ', ";
+            //push += "Erstelldatum = '" + Program.DateMachine(DateTime.Now) + "', ";
 
-            push += "UserChanged = '" + Userchanged + idBearbeitend + "', ";
+            //push += "UserChanged = '" + Userchanged + idBearbeitend + "', ";
 
-            // Rechnungsnummer
+            //// Rechnungsnummer
 
-            push += "RechnungsNr = '" + textRechnungsnummerAendern.Text + "', ";
-            // Kartons unbenútzt zurück?
-            if (radioUnbenutztAendern.Checked && radioEingangAendern.Checked)
-            {
-                push += "unbenutzt = 1 ";
-            }
-            else
-            {
-                push += "unbenutzt = 0 ";
-            }
+            //push += "RechnungsNr = '" + textRechnungsnummerAendern.Text + "', ";
+            //// Kartons unbenútzt zurück?
+            //if (radioUnbenutztAendern.Checked && radioEingangAendern.Checked)
+            //{
+            //    push += "unbenutzt = 1 ";
+            //}
+            //else
+            //{
+            //    push += "unbenutzt = 0 ";
+            //}
 
-            Program.absender(push + shove, "Fehler beim ändern einer Transaktion in der DB");
+            //Program.absender(push + shove, "Fehler beim ändern einer Transaktion in der DB");
 
             //Kalendereintrag
             

@@ -1399,6 +1399,7 @@ namespace Kartonagen
 
         private void readBitstringEtagenA(String Bitstring)
         {
+            Console.WriteLine("Read Bitstring " + Bitstring);
 
             checkKellerA.Checked = false;
             checkEGA.Checked = false;
@@ -1413,7 +1414,7 @@ namespace Kartonagen
             checkOG5A.Checked = false;
             textSonderEtageA.Clear();
 
-            if (Bitstring[0] == '1')
+            if (Bitstring[1] == '1') //TODO!
             {
                 checkKellerA.Checked = true;
             }
@@ -1457,7 +1458,7 @@ namespace Kartonagen
             {
                 checkDBA.Checked = true;
             }
-
+            
             if (!Bitstring.Split('-')[1].Equals(String.Empty)) {
                 textSonderEtageA.Text = Bitstring.Split('-')[1];
             }
@@ -1569,12 +1570,20 @@ namespace Kartonagen
                 {
                     Etagen.Insert(Etagen.Length, ("-" + textSonderEtageA.Text));
                 }
+                else
+                {
+                    Etagen.Insert(Etagen.Length, ("-"));
+                }
             }
             else
             {
                 if (!textSonderEtageB.Text.Equals(String.Empty))
                 {
                     Etagen.Insert(Etagen.Length, ("-" + textSonderEtageB.Text));
+                }
+                else
+                {
+                    Etagen.Insert(Etagen.Length, ("-"));
                 }
             }
             return Etagen;
