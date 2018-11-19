@@ -558,12 +558,26 @@ namespace Kartonagen.CalendarAPIUtil
                 //Durchsuche die in Frage kommenden Events mit den gegebenen Parametern samt Datum
                 foreach (var item in echtEvent)
                 {
-                    if (item.ColorId.Equals(Color) && item.Start.Date.Equals(date) && item.Description.Contains(DescriptionQ))
+                    if (item.Description != null)
                     {
-                        if (kalenderEventRemove(item.Id))
+                        if (item.ColorId.Equals(Color) && item.Start.Date.Equals(date) && item.Description.Contains(DescriptionQ))
                         {
-                            // Löschen versucht und erfolgreich -> zurückmelden dass erfolgreich ein passendes Event gelöscht wurde
-                            return true;
+                            if (kalenderEventRemove(item.Id))
+                            {
+                                // Löschen versucht und erfolgreich -> zurückmelden dass erfolgreich ein passendes Event gelöscht wurde
+                                return true;
+                            }
+                        }
+                    }
+                    else if (DescriptionQ.Equals(String.Empty))
+                    {
+                        if (item.ColorId.Equals(Color) && item.Start.Date.Equals(date))
+                        {
+                            if (kalenderEventRemove(item.Id))
+                            {
+                                // Löschen versucht und erfolgreich -> zurückmelden dass erfolgreich ein passendes Event gelöscht wurde
+                                return true;
+                            }
                         }
                     }
                 }
@@ -571,12 +585,25 @@ namespace Kartonagen.CalendarAPIUtil
             else {
                 foreach (var item in echtEvent)
                 {
-                    if (item.ColorId.Equals(Color) && item.Description.Contains(DescriptionQ)&& (item.Start.DateTime>Datum.AddDays(-1)&& item.Start.DateTime < Datum.AddDays(1)))
+                    if (item.Description != null)
                     {
-                        if (kalenderEventRemove(item.Id))
+                        if (item.ColorId.Equals(Color) && item.Description.Contains(DescriptionQ) && (item.Start.DateTime > Datum.AddDays(-1) && item.Start.DateTime < Datum.AddDays(1)))
                         {
-                            // Löschen versucht und erfolgreich -> zurückmelden dass erfolgreich ein passendes Event gelöscht wurde
-                            return true;
+                            if (kalenderEventRemove(item.Id))
+                            {
+                                // Löschen versucht und erfolgreich -> zurückmelden dass erfolgreich ein passendes Event gelöscht wurde
+                                return true;
+                            }
+                        }
+                    }
+                    else if (DescriptionQ.Equals(String.Empty)) {
+                        if (item.ColorId.Equals(Color)  && (item.Start.DateTime > Datum.AddDays(-1) && item.Start.DateTime < Datum.AddDays(1)))
+                        {
+                            if (kalenderEventRemove(item.Id))
+                            {
+                                // Löschen versucht und erfolgreich -> zurückmelden dass erfolgreich ein passendes Event gelöscht wurde
+                                return true;
+                            }
                         }
                     }
                 }

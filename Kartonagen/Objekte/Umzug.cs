@@ -84,7 +84,6 @@ namespace Kartonagen
         //Metadata
         string UserChanged;
         DateTime erstelldatum;
-        int lfd_nr;
 
         public DateTime DatBesichtigung { get => datBesichtigung; set => datBesichtigung = value; }
         public DateTime DatUmzug { get => datUmzug; set => datUmzug = value; }
@@ -124,6 +123,9 @@ namespace Kartonagen
         public string UserChanged1 { get => UserChanged; set => UserChanged = value; }
         public int RuempelMann1 { get => RuempelMann; set => RuempelMann = value; }
         public int RuempelStunden1 { get => RuempelStunden; set => RuempelStunden = value; }
+        public int AdresseRuempel1 { get => AdresseRuempel; set => AdresseRuempel = value; }
+        public int AdresseAuszug1 { get => AdresseAuszug; set => AdresseAuszug = value; }
+        public int AdresseEinzug1 { get => AdresseEinzug; set => AdresseEinzug = value; }
 
         // Konstruktoren
 
@@ -195,8 +197,17 @@ namespace Kartonagen
                     KuechePausch = rdr.GetInt32(30);
 
                     // Adressen
-                    tempAuszug = new Object[] { rdr.GetString(31), rdr.GetString(32), rdr.GetString(34), rdr.GetString(33), rdr.GetString(35), rdr.GetInt32(36), rdr.GetString(37), rdr.GetString(38), rdr.GetInt32(39), rdr.GetInt32(40), rdr.GetInt32(41) };
-                    tempEinzug = new Object[] { rdr.GetString(42), rdr.GetString(43), rdr.GetString(45), rdr.GetString(44), rdr.GetString(46), rdr.GetInt32(47), rdr.GetString(48), rdr.GetString(49), rdr.GetInt32(50), rdr.GetInt32(51), rdr.GetInt32(52) };
+                    if (rdr.GetInt32(62) != 0)
+                    {                        
+                        tempAuszug = new Object[] { rdr.GetString(31), rdr.GetString(32), rdr.GetString(34), rdr.GetString(33), rdr.GetString(35), rdr.GetInt32(36), rdr.GetString(37), rdr.GetString(38), rdr.GetInt32(39), rdr.GetInt32(40), rdr.GetInt32(41) };
+                    }
+
+                    if (rdr.GetInt32(63) != 0)
+                    {
+                        tempEinzug = new Object[] { rdr.GetString(42), rdr.GetString(43), rdr.GetString(45), rdr.GetString(44), rdr.GetString(46), rdr.GetInt32(47), rdr.GetString(48), rdr.GetString(49), rdr.GetInt32(50), rdr.GetInt32(51), rdr.GetInt32(52) };
+                    }
+
+
                     
                     NotizBuero = rdr.GetString(53);
                     NotizFahrer = rdr.GetString(54);
@@ -205,22 +216,34 @@ namespace Kartonagen
                     UserChanged = rdr.GetString(57);
                     erstelldatum = rdr.GetDateTime(58);                   
 
-                    AdresseRuempel = rdr.GetInt32(59);
+                    AdresseRuempel1 = rdr.GetInt32(59);
                     RuempelMann1 = rdr.GetInt32(60);
                     RuempelStunden1 = rdr.GetInt32(61);
-                    AdresseAuszug = rdr.GetInt32(62);
-                    AdresseEinzug = rdr.GetInt32(63);
+                    AdresseAuszug1 = rdr.GetInt32(63);
+                    AdresseEinzug1 = rdr.GetInt32(64);
 
                 }
                 rdr.Close();
                 Program.conn.Close();
 
-                if (AdresseRuempel != 0)
+                if (AdresseRuempel1 != 0)
                 {
-                    entruempeln = new Adresse(AdresseRuempel);
+                    entruempeln = new Adresse(AdresseRuempel1);
                 }
-                auszug = new Adresse((String)tempAuszug[0], (String)tempAuszug[1], (String)tempAuszug[2], (String)tempAuszug[3], (String)tempAuszug[4], (int) tempAuszug[5], (String)tempAuszug[6], (String)tempAuszug[7], (int)tempAuszug[8], (int)tempAuszug[9], (int)tempAuszug[10]);
-                einzug = new Adresse((String)tempEinzug[0], (String)tempEinzug[1], (String)tempEinzug[2], (String)tempEinzug[3], (String)tempEinzug[4], (int)tempEinzug[5], (String)tempEinzug[6], (String)tempEinzug[7], (int)tempEinzug[8], (int)tempEinzug[9], (int)tempEinzug[10]);
+
+                if (AdresseAuszug != 0)
+                {
+                    auszug = new Adresse(AdresseAuszug);
+                   // auszug = new Adresse((String)tempAuszug[0], (String)tempAuszug[1], (String)tempAuszug[2], (String)tempAuszug[3], (String)tempAuszug[4], (int)tempAuszug[5], (String)tempAuszug[6], (String)tempAuszug[7], (int)tempAuszug[8], (int)tempAuszug[9], (int)tempAuszug[10]);
+                }
+
+                if (AdresseEinzug1 != 0)
+                {
+                    einzug = new Adresse(AdresseEinzug);
+                    //einzug = new Adresse((String)tempEinzug[0], (String)tempEinzug[1], (String)tempEinzug[2], (String)tempEinzug[3], (String)tempEinzug[4], (int)tempEinzug[5], (String)tempEinzug[6], (String)tempEinzug[7], (int)tempEinzug[8], (int)tempEinzug[9], (int)tempEinzug[10]);
+                }
+
+                //TODO Native Methoden benutzen
 
             }
             catch (Exception sqlEx)
@@ -228,6 +251,8 @@ namespace Kartonagen
                 Program.FehlerLog(sqlEx.ToString(), "Abrufen der Umzugsdaten zur Objekterstellung");
                 throw sqlEx;
             }
+
+            Console.WriteLine("Fuck yea geladen");
 
             umzugsKunde = new Kunde(idKunden);
         }
@@ -240,8 +265,8 @@ namespace Kartonagen
         {
             int ruempelNr = 0;
             if (ruempeladresse != null) {
-                ruempeladresse.saveNew();
-                ruempelNr = ruempeladresse.findAdresse();
+                entruempeln = ruempeladresse;
+                ruempelNr = entruempeln.IDAdresse1;
             }
 
             //Creation of object
@@ -317,7 +342,6 @@ namespace Kartonagen
             //Metadata
             this.UserChanged = userChanged;
             this.erstelldatum = DateTime.Now;
-            this.lfd_nr = 1;
             
 
 
@@ -408,6 +432,33 @@ namespace Kartonagen
 
             Program.absender(longInsert, "Einfügen des neuen Umzuges zum erstellen des Umzugsobjekts");
 
+            //Abholen der eigenen Nummer nach dem einfügen
+
+            String select = "SELECT idUmzuege FROM Umzuege ORDER BY idUmzuege DESC LIMIT 1;";
+            try
+            {
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+
+                MySqlCommand cmdRead = new MySqlCommand(select, Program.conn);
+                MySqlDataReader rdr = cmdRead.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    Id = rdr.GetInt32(0);
+                }
+                rdr.Close();
+                Program.conn.Close();
+
+            }
+            catch (Exception sqlEx)
+            {
+                Program.FehlerLog(sqlEx.ToString(), "Abrufen der neuen Transaktions-ID");
+                throw sqlEx;
+            }
+
             addAll();
         }
 
@@ -455,6 +506,9 @@ namespace Kartonagen
         //Updatemechanik
         public void UpdateDB(string idUser)
         {
+
+            auszug.updateDB();
+            einzug.updateDB();
 
             String longInsert = "UPDATE Umzuege SET ";
 
@@ -527,10 +581,7 @@ namespace Kartonagen
 
             Program.QueryLog(longInsert);
 
-            Program.absender(longInsert, "Absenden der Änderung am Umzug");
-
-            auszug.updateDB();
-            einzug.updateDB();
+            Program.absender(longInsert, "Absenden der Änderung am Umzug");            
 
             //Ändern der seperaten Adressen
             entruempeln.updateDB();

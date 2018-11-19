@@ -236,12 +236,20 @@ namespace Kartonagen
         public void umzugAenderungFuellem()
         {         // FulleM. Sic!           
 
-            if (umzObj == null) {
-                Program.FehlerLog("", "Fehler kein Umzugsobjekt in UmzugAenderungFülleM");
-                return;
+            if (umzObj != null)
+            {
+
+            }
+            else {
+            
+             Program.FehlerLog("", "Fehler kein Umzugsobjekt in UmzugAenderungFülleM");
+             return;
+                
             }
 
-            UserSpeicher = umzObj.UserChanged1;
+
+
+            //UserSpeicher = umzObj.UserChanged1;
 
             textUmzNummerBlock.Text = umzObj.Id.ToString();
             textKundennummer.Text = umzObj.IdKunden.ToString();
@@ -399,13 +407,15 @@ namespace Kartonagen
             textHausnummerEnt.Clear();
             textPLZEnt.Clear();
             textOrtEnt.Clear();
-
-            textStrasseEnt.Text = (umzObj.entruempeln.Straße1);
-            textHausnummerEnt.Text = (umzObj.entruempeln.Hausnummer1);
-            textOrtEnt.Text = (umzObj.entruempeln.Ort1);
-            textPLZEnt.Text = (umzObj.entruempeln.PLZ1);
-            numericPackerEnt.Value = umzObj.RuempelMann1;
-            numericStundenEnt.Value = umzObj.RuempelStunden1;
+            if (umzObj.AdresseRuempel1 != 0)
+            {
+                textStrasseEnt.Text = (umzObj.entruempeln.Straße1);
+                textHausnummerEnt.Text = (umzObj.entruempeln.Hausnummer1);
+                textOrtEnt.Text = (umzObj.entruempeln.Ort1);
+                textPLZEnt.Text = (umzObj.entruempeln.PLZ1);
+                numericPackerEnt.Value = umzObj.RuempelMann1;
+                numericStundenEnt.Value = umzObj.RuempelStunden1;
+            }
             //
             textNoteBuero.Text = umzObj.NotizBuero1;
             textNoteFahrer.Text = umzObj.NotizFahrer1;
@@ -683,174 +693,7 @@ namespace Kartonagen
             }
 
         }
-
-        //private void parseEtagen()
-        //{
-        //    //TODO KILL
-
-        //    if (umzObj.auszug.Stockwerke1.Length != 0)
-        //    {
-
-        //        string[] temp = umzObj.auszug.Stockwerke1.Split(',');
-
-        //        foreach (var item in temp)
-        //        {
-        //            if (item.Contains("K"))
-        //            {
-        //                checkKellerA.Checked = true;
-        //            }
-        //            else if (item.Contains("EG"))
-        //            {
-        //                checkEGA.Checked = true;
-        //            }
-        //            else if (item.Contains("DB"))
-        //            {
-        //                checkDBA.Checked = true;
-        //            }
-        //            else if (item.Contains("MA"))
-        //            {
-        //                checkMAA.Checked = true;
-        //            }
-        //            else if (item.Contains("ST"))
-        //            {
-        //                checkSTA.Checked = true;
-        //            }
-        //            else if (item.Contains("HP"))
-        //            {
-        //                checkHPA.Checked = true;
-        //            }
-        //            else if (item.Contains("1"))
-        //            {
-        //                checkOG1A.Checked = true;
-        //            }
-        //            else if (item.Contains("2"))
-        //            {
-        //                checkOG2A.Checked = true;
-        //            }
-        //            else if (item.Contains("3"))
-        //            {
-        //                checkOG3A.Checked = true;
-        //            }
-        //            else if (item.Contains("4"))
-        //            {
-        //                checkOG4A.Checked = true;
-        //            }
-        //            else if (item.Contains("5"))
-        //            {
-        //                checkOG5A.Checked = true;
-        //            }
-        //            else
-        //            {
-        //                textSonderEtageA.AppendText(item);
-        //            }
-        //        }
-
-        //    }
-
-        //    if (umzObj.einzug.Stockwerke1.Length != 0)
-        //    {
-
-        //        string[] temp = umzObj.einzug.Stockwerke1.Split(',');
-
-        //        foreach (var item in temp)
-        //        {
-        //            if (item.Contains("K"))
-        //            {
-        //                checkKellerB.Checked = true;
-        //            }
-        //            else if (item.Contains("EG"))
-        //            {
-        //                checkEGB.Checked = true;
-        //            }
-        //            else if (item.Contains("DB"))
-        //            {
-        //                checkDBB.Checked = true;
-        //            }
-        //            else if (item.Contains("MA"))
-        //            {
-        //                checkMAB.Checked = true;
-        //            }
-        //            else if (item.Contains("ST"))
-        //            {
-        //                checkSTB.Checked = true;
-        //            }
-        //            else if (item.Contains("HP"))
-        //            {
-        //                checkHPB.Checked = true;
-        //            }
-        //            else if (item.Contains("1"))
-        //            {
-        //                checkOG1B.Checked = true;
-        //            }
-        //            else if (item.Contains("2"))
-        //            {
-        //                checkOG2B.Checked = true;
-        //            }
-        //            else if (item.Contains("3"))
-        //            {
-        //                checkOG3B.Checked = true;
-        //            }
-        //            else if (item.Contains("4"))
-        //            {
-        //                checkOG4B.Checked = true;
-        //            }
-        //            else if (temp.Contains("5"))
-        //            {
-        //                checkOG5B.Checked = true;
-        //            }
-        //            else
-        //            {
-        //                textSonderEtageB.AppendText(item);
-        //            }
-        //        }
-        //    }
-
-        //}
-
-        //private string StockwerkString(int x)
-        //{
-
-        //    string stockwerketemp = "";
-        //    if (x == 0)
-        //    {
-        //        if (checkKellerA.Checked) { stockwerketemp += "K,"; }
-        //        if (checkEGA.Checked) { stockwerketemp += "EG,"; }
-        //        if (checkDBA.Checked) { stockwerketemp += "DB,"; }
-        //        if (checkMAA.Checked) { stockwerketemp += "MA,"; }
-        //        if (checkSTA.Checked) { stockwerketemp += "ST,"; }
-        //        if (checkHPA.Checked) { stockwerketemp += "HP,"; }
-        //        if (checkOG1A.Checked) { stockwerketemp += "1,"; }
-        //        if (checkOG2A.Checked) { stockwerketemp += "2,"; }
-        //        if (checkOG3A.Checked) { stockwerketemp += "3,"; }
-        //        if (checkOG4A.Checked) { stockwerketemp += "4,"; }
-        //        if (checkOG5A.Checked) { stockwerketemp += "5,"; }
-        //        if (textSonderEtageA.TextLength != 0)
-        //        {
-        //            stockwerketemp += textSonderEtageA.Text;
-        //        }
-        //    }
-        //    else if (x == 1)
-        //    {
-        //        if (checkKellerB.Checked) { stockwerketemp += "K,"; }
-        //        if (checkEGB.Checked) { stockwerketemp += "EG,"; }
-        //        if (checkDBB.Checked) { stockwerketemp += "DB,"; }
-        //        if (checkMAB.Checked) { stockwerketemp += "MA,"; }
-        //        if (checkSTB.Checked) { stockwerketemp += "ST,"; }
-        //        if (checkHPB.Checked) { stockwerketemp += "HP,"; }
-        //        if (checkOG1B.Checked) { stockwerketemp += "1,"; }
-        //        if (checkOG2B.Checked) { stockwerketemp += "2,"; }
-        //        if (checkOG3B.Checked) { stockwerketemp += "3,"; }
-        //        if (checkOG4B.Checked) { stockwerketemp += "4,"; }
-        //        if (checkOG5B.Checked) { stockwerketemp += "5,"; }
-        //        if (textSonderEtageB.TextLength != 0)
-        //        {
-        //            stockwerketemp += textSonderEtageB.Text;
-        //        }
-        //    }
-
-        //    return stockwerketemp;
-        //}
-
+        
         private void buttonNrSuche_Click(object sender, EventArgs e)
         {
             if (maxKundennummer >= numericSucheKundennr.Value)
@@ -869,6 +712,11 @@ namespace Kartonagen
             try
             {
                 umzObj = new Umzug(decimal.ToInt32(numericUmzugsnummer.Value));
+                Console.WriteLine("Umzugsobjekt geladen, hat die nummer "+umzObj.DatAusraeumen.ToShortDateString());
+
+                Console.WriteLine("Auszug " + umzObj.AdresseAuszug1);
+                Console.WriteLine("Einzug " + umzObj.AdresseEinzug1);
+                Console.WriteLine("Entrümpelung " + umzObj.AdresseRuempel1);
             }
             catch (MySqlException ex)
             {
@@ -876,8 +724,27 @@ namespace Kartonagen
                 return;
             }
 
-            umzugAenderungFuellem();
+            if (umzObj.auszug != null)
+            {
+                Console.WriteLine("Auszug check" + umzObj.AdresseAuszug1);
+            }
+            if (umzObj.einzug != null)
+            {
+                Console.WriteLine("Einzug check" + umzObj.AdresseEinzug1);
 
+            }
+            if (umzObj.entruempeln != null)
+            {
+                Console.WriteLine("Ruempel check" + umzObj.AdresseRuempel1);
+            }
+
+
+
+            if (umzObj != null)
+            {
+                umzugAenderungFuellem();
+            }
+            
         }
 
         //public void absender(String befehl)
@@ -1007,7 +874,6 @@ namespace Kartonagen
             if (radioBesJa.Checked)
             {
                 umzObj.StatBesichtigung = 1;
-                textUmzugLog.AppendText("Besichtigung hinzugefügt \r\n");
             }
             else { umzObj.StatBesichtigung = 0; }
 
@@ -1230,6 +1096,8 @@ namespace Kartonagen
             //refreshAll();
             umzObj.addAll();
 
+            textUmzugLog.AppendText("Alle Termine hinzugefügt, Umzug erfolgreich aktualisiert "+Environment.NewLine);
+
             if (pop)
             {
                 popUp();
@@ -1253,40 +1121,13 @@ namespace Kartonagen
             //Erst Transaktionen & Laufzettel zum Umzug, dann Umzüge selbst löschen.
             {
                 String deleteL = "DELETE FROM Umzugsfortschritt WHERE Umzuege_idUmzuege = " + textUmzNummerBlock.Text + " ;";
-                MySqlCommand cmdSendL = new MySqlCommand(deleteL, Program.conn);
-                try
-                {
-                    cmdSendL.ExecuteNonQuery();
-                    textUmzugLog.AppendText("Laufzettel erfolgreich gelöscht\r\n");
-                }
-                catch (Exception sqlEx)
-                {
-                    textUmzugLog.AppendText(sqlEx.ToString());
-                }
+                Program.absender(deleteL, "Löschen des Umzugsfortschritts " + umzObj.Id);
                 // TODO hier fehlt das Löschen der Transaktions-Termine
                 String deleteT = "DELETE FROM Transaktionen WHERE Umzuege_idUmzuege = " + textUmzNummerBlock.Text + " ;";
-                MySqlCommand cmdSendT = new MySqlCommand(deleteT, Program.conn);
-                try
-                {
-                    cmdSendT.ExecuteNonQuery();
-                    textUmzugLog.AppendText("Transaktionen erfolgreich gelöscht\r\n");
-                }
-                catch (Exception sqlEx)
-                {
-                    textUmzugLog.AppendText(sqlEx.ToString());
-                }
+                Program.absender(deleteT, "Löschen der Transaktionen zum Umzug");
                 //
                 String delete = "DELETE FROM Umzuege WHERE idUmzuege = " + textUmzNummerBlock.Text + " ;";
-                MySqlCommand cmdSend = new MySqlCommand(delete, Program.conn);
-                try
-                {
-                    cmdSend.ExecuteNonQuery();
-                    textUmzugLog.AppendText("Umzug erfolgreich gelöscht\r\n");
-                }
-                catch (Exception sqlEx)
-                {
-                    textUmzugLog.AppendText(sqlEx.ToString());
-                }
+                Program.absender(delete, "Löschen des Umzugs mit der nummer " + umzObj.Id);
 
                 //Termine löschen
                 umzObj.killAll(textUmzugLog);
@@ -1295,6 +1136,8 @@ namespace Kartonagen
             {
                 textUmzugLog.AppendText("Löschvorgang abgebrochen\r\n");
             }
+
+            textUmzugLog.AppendText("Umzug gelöscht!");
         }
 
         private void buttonDruk_Click(object sender, EventArgs e)
@@ -1414,7 +1257,7 @@ namespace Kartonagen
             checkOG5A.Checked = false;
             textSonderEtageA.Clear();
 
-            if (Bitstring[1] == '1') //TODO!
+            if (Bitstring[0] == '1') 
             {
                 checkKellerA.Checked = true;
             }
@@ -1458,9 +1301,12 @@ namespace Kartonagen
             {
                 checkDBA.Checked = true;
             }
-            
-            if (!Bitstring.Split('-')[1].Equals(String.Empty)) {
-                textSonderEtageA.Text = Bitstring.Split('-')[1];
+            if (Bitstring.Split('-').Length != 1)
+            {
+                if (!Bitstring.Split('-')[1].Equals(String.Empty))
+                {
+                    textSonderEtageA.Text = Bitstring.Split('-')[1];
+                }
             }
 
         }
@@ -1480,7 +1326,7 @@ namespace Kartonagen
             checkOG5B.Checked = false;
             textSonderEtageB.Clear();
 
-            if (Bitstring[0] == '1')
+            if (Bitstring[1] == '1')
             {
                 checkKellerB.Checked = true;
             }
@@ -1587,6 +1433,11 @@ namespace Kartonagen
                 }
             }
             return Etagen;
+        }
+
+        private void buttonBlockAlleAenderungen_Click(object sender, EventArgs e)
+        {
+            aenderungSpeichern();
         }
     }
 }

@@ -72,7 +72,7 @@ namespace Kartonagen
                 MySqlDataReader rdr = cmdRead.ExecuteReader();
                 while (rdr.Read())
                 {
-                    textShowAnrede.Text = rdr[1].ToString();                                                                                                // TODO Fixing Bool to String
+                    textShowAnrede.Text = rdr[1].ToString();                                                                                                
                     textShowVorname.Text = rdr[2].ToString();
                     textShowNachname.Text = rdr[3].ToString();
                     textShowTelefonnummer.Text = rdr[4].ToString();

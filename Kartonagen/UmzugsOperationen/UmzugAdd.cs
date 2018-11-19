@@ -306,11 +306,12 @@ namespace Kartonagen
             if (radioSchilderJa.Checked) { Schildertemp = 1; }
             else if (radioSchilderNein.Checked) { Schildertemp = 0; }
 
-            //if (stat[4] != 0) {   TODO
-            //    ruempelAdresse = new Adresse(textStrasseEnt.Text, textHausnummerEnt.Text, textOrtEnt.Text, textPLZEnt.Text, "Deutschland", 0, "", "", 0, 0, 0);
-            //    ruempelMann = decimal.ToInt32(numericPackerEnt.Value);
-            //    ruempelStunde = decimal.ToInt32(numericStundenEnt.Value);
-            //}
+            if (stat[4] != 0)
+            {
+                ruempelAdresse = new Adresse(textStrasseEnt.Text, textHausnummerEnt.Text, textOrtEnt.Text, textPLZEnt.Text, "Deutschland", 0, "", "", 0, 0, 0);
+                ruempelMann = decimal.ToInt32(numericPackerEnt.Value);
+                ruempelStunde = decimal.ToInt32(numericStundenEnt.Value);
+            }
 
             int kundennummerTemp = int.Parse(textKundennummer.Text.Trim());
 
@@ -322,8 +323,8 @@ namespace Kartonagen
             return umzObj = new Umzug(kundennummerTemp, dateBesicht.Value, dateUmzug.Value, dateEinpack.Value, dateAuspack.Value, dateEntruempel.Value, timeBesichtigung.Value, stat[1], stat[0], stat[2], stat[3], stat[4],
                 decimal.ToInt32(numericUmzugsDauer.Value), tempAuto, decimal.ToInt32(numericMannZahl.Value), decimal.ToInt32(numericArbeitszeit.Value), versicherungtemp, einpacktemp, decimal.ToInt32(numericEinPacker.Value), decimal.ToInt32(numericEinPackStunden.Value), decimal.ToInt32(numericEinPackKartons.Value),
                 auspacktemp, decimal.ToInt32(numericAusPacker.Value), decimal.ToInt32(numericAusPackStunden.Value), decimal.ToInt32(numericKleiderkisten.Value), kueche[1], kueche[0], kueche[2], int.Parse(textKuechenPreis.Text), aus, ein, Schildertemp, dateSchilderVerweildauer.Value,
-                textNoteKalender.Text, textNoteBuero.Text, textNoteFahrer.Text, idBearbeitend.ToString(), DateTime.Now, aus, ruempelMann, ruempelStunde);
-        }   //TODO 2tes Aus > Ruempeladresse
+                textNoteKalender.Text, textNoteBuero.Text, textNoteFahrer.Text, idBearbeitend.ToString(), DateTime.Now, ruempelAdresse, ruempelMann, ruempelStunde);
+        } 
 
 
         // TODO KILL
@@ -668,25 +669,26 @@ namespace Kartonagen
             }
 
             String Etagen = String.Join("", ret);
+
             if (Selector)
             {
                 if (!textSonderEtageA.Text.Equals(String.Empty))
                 {
-                    Etagen.Insert(Etagen.Length, ("-" + textSonderEtageA.Text));
+                    Etagen = Etagen.Insert(Etagen.Length, ("-" + textSonderEtageA.Text));
                 }
                 else {
-                    Etagen.Insert(Etagen.Length, ("-"));
+                    Etagen = Etagen.Insert(Etagen.Length, ("-"));
                 }
             }
             else
             {
                 if (!textSonderEtageB.Text.Equals(String.Empty))
                 {
-                    Etagen.Insert(Etagen.Length, ("-" + textSonderEtageB.Text));
+                    Etagen = Etagen.Insert(Etagen.Length, ("-" + textSonderEtageB.Text));
                 }
                 else
                 {
-                    Etagen.Insert(Etagen.Length, ("-"));
+                    Etagen = Etagen.Insert(Etagen.Length, ("-"));
                 }
             }
             return Etagen;

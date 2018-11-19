@@ -81,6 +81,7 @@ namespace Kartonagen.Objekte
 
                 while (rdr.Read())
                 {
+                    IDAdresse = rdr.GetInt32(0);
                     Straße = rdr.GetString(1);
                     Hausnummer = rdr.GetString(2);
                     Ort = rdr.GetString(3);
@@ -129,8 +130,7 @@ namespace Kartonagen.Objekte
             dbInsert += "'" + Haustyp1 + "', ";
             dbInsert += AussenAufzug1 + ", ";
             dbInsert += Laufmeter1 + ");";
-
-            Program.QueryLog(dbInsert);
+            
             Program.absender(dbInsert, "Einfügen der Adresse "+Straße1);
         }
 
@@ -152,8 +152,7 @@ namespace Kartonagen.Objekte
             dbInsert += "bemerkung = '" + Bemerkung1 + "'";
 
             dbInsert += " WHERE id =" + IDAdresse1 +";";
-
-            Program.QueryLog(dbInsert);
+            
             Program.absender(dbInsert, "Updaten der Adresse " + Straße1);
         }
 
@@ -203,7 +202,7 @@ namespace Kartonagen.Objekte
         }
 
             public string KalenderStringEtageHaustyp()
-        {
+            {
 
             string temp = "";
 
@@ -236,59 +235,58 @@ namespace Kartonagen.Objekte
 
         public string GeschosseListe() {
 
-            string temp = "";
+            String Bitstring = Stockwerke;
+            String temp = "  ";
 
-            string[] tempList = Stockwerke.Split(',');
-
-            foreach (var item in tempList)
+            if (Bitstring[0] == '1')
             {
-                if (item.Contains("K"))
+                temp += "Keller, ";
+            }
+            if (Bitstring[1] == '1')
+            {
+                temp += "Erdgeschoss, ";
+            }
+            if (Bitstring[2] == '1')
+            {
+                temp += "Hochpaterre, ";
+            }
+            if (Bitstring[3] == '1')
+            {
+                temp += "Souterrain, ";
+            }
+            if (Bitstring[4] == '1')
+            {
+                temp += "Maisonette, ";
+            }
+            if (Bitstring[5] == '1')
+            {
+                temp += "1.OG, ";
+            }
+            if (Bitstring[6] == '1')
+            {
+                temp += "2.OG, ";
+            }
+            if (Bitstring[7] == '1')
+            {
+                temp += "3.OG, ";
+            }
+            if (Bitstring[8] == '1')
+            {
+                temp += "4.OG, ";
+            }
+            if (Bitstring[9] == '1')
+            {
+                temp += "5.OG, ";
+            }
+            if (Bitstring[10] == '1')
+            {
+                temp += "Dachboden, ";
+            }
+            if (Bitstring.Split('-').Length != 1)
+            {
+                if (!Bitstring.Split('-')[1].Equals(String.Empty))
                 {
-                    temp += "Keller, ";
-                }
-                else if (item.Contains("EG"))
-                {
-                    temp += "Erdgeschoss, ";
-                }
-                else if (item.Contains("DB"))
-                {
-                    temp += "Dachboden, ";
-                }
-                else if (item.Contains("MA"))
-                {
-                    temp += "Maisonette, ";
-                }
-                else if (item.Contains("ST"))
-                {
-                    temp += "Souterrain, ";
-                }
-                else if (item.Contains("HP"))
-                {
-                    temp += "Hochpaterre, ";
-                }
-                else if (item.Contains("1"))
-                {
-                    temp += "1.OG, ";
-                }
-                else if (item.Contains("2"))
-                {
-                    temp += "2.OG, ";
-                }
-                else if (item.Contains("3"))
-                {
-                    temp += "3.OG, ";
-                }
-                else if (item.Contains("4"))
-                {
-                    temp += "4.OG, ";
-                }
-                else if (temp.Contains("5"))
-                {
-                    temp += "5.OG, ";
-                }
-                else
-                {
-                    temp += item + ", ";
+                    temp += Bitstring.Split('-')[1]+"  ";
                 }
             }
 
