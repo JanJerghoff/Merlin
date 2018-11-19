@@ -67,6 +67,7 @@ namespace Kartonagen.Objekte
                 }
                 rdrKunde.Close();
                 Program.conn.Close();
+                Console.WriteLine("Kunde geladen, conn.close");
             }
             catch (Exception sqlEx)
             {

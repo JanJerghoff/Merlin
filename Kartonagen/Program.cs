@@ -51,7 +51,7 @@ namespace Kartonagen
         //internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;");
         //internal static MySqlConnection conn2 = new MySqlConnection("server = 10.0.0.0;user=test;database=Mitarbeiter;port=3306;password=he62okv;");
 
-        internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=DB_test;port=3306;password=he62okv;");
+        internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=DB_test;port=3306;password=he62okv;Convert Zero Datetime=True;");
         internal static MySqlConnection conn2 = new MySqlConnection("server = 10.0.0.0;user=test;database=Mitarbeiter;port=3306;password=he62okv;");
 
         //Test Arbeit
@@ -442,11 +442,9 @@ namespace Kartonagen
             }
             else { Uhrzeit += input.Second; }
 
-
             return Uhrzeit;
         }
-
-
+        
         // Umwandlung eines SQL-Datums-Strings in Datetime
 
         public static DateTime MachineDate(String sql) {
@@ -460,11 +458,11 @@ namespace Kartonagen
             bool month = int.TryParse(yyyy, out y);
             bool day = int.TryParse(yyyy, out z);
 
-            DateTime temp = new DateTime(x, 02,02);
+            DateTime temp = new DateTime(x,y,z);
             return temp;
         }
 
-        public static DateTime MachineTime(string sql) {
+        public static DateTime MachineTime(String sql) {
             
             string[] spli = sql.Split(':');   
             
@@ -475,6 +473,30 @@ namespace Kartonagen
             DateTime ret = new DateTime(2000, 1, 1, a, b, c);
             return ret;
         }
+
+        public static DateTime MachineDateTime(String sql) {
+
+            String yyyy = sql[0] + sql[1] + sql[2] + sql[3] + "";
+            String mm = sql[5] + sql[6] + "";
+            String dd = sql[8] + sql[9] + "";
+            int x;
+            int y;
+            int z;
+            bool year = int.TryParse(yyyy, out x);
+            bool month = int.TryParse(yyyy, out y);
+            bool day = int.TryParse(yyyy, out z);
+
+            string[] split = sql.Split(' ');
+            string[] spli = split[1].Split(':');
+
+            int a = int.Parse(spli[0]);
+            int b = int.Parse(spli[1]);
+            int c = int.Parse(spli[2]);
+
+            DateTime temp = new DateTime(x, y, z,a,b,c);
+            return temp;
+        }
+
 
 
 

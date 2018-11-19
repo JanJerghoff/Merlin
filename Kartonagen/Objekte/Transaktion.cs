@@ -1,5 +1,6 @@
 ﻿using Google.Apis.Calendar.v3.Data;
 using MySql.Data.MySqlClient;
+using MySql.Data.Types;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -85,7 +86,7 @@ namespace Kartonagen.Objekte
                     UserChanged1 = rdrTrans.GetString(9);
                     tempint = rdrTrans.GetInt32(11);
                     Rechnungsnummer1 = rdrTrans.GetString(12);
-                    DatKalender = rdrTrans.GetDateTime(13);
+                    datKalender = rdrTrans.GetDateTime(13);
                     Lfd_nr = rdrTrans.GetInt32(15);
                 }
                 rdrTrans.Close();
@@ -93,6 +94,7 @@ namespace Kartonagen.Objekte
             }
             catch (Exception sqlEx)
             {
+                Program.FehlerLog(sqlEx.ToString(), "Abrufen der Transaktionsdaten zur Objekterstellung");
                 return;
             }
 
@@ -103,6 +105,7 @@ namespace Kartonagen.Objekte
             else if (tempint == 2) {
                 Kaufkarton1 = true;
             }
+            
 
             kunde = new Kunde(IdKunden);
 
@@ -144,7 +147,7 @@ namespace Kartonagen.Objekte
             insert += "'" + Program.DateMachine(DateTime.Now) + "',";
             insert += unbenutzt + ",";
             insert += "'" + Rechnungsnummer + "',";
-            insert += "'" + Program.ZeitMachine(DatKalender) + "',";
+            insert += "'" + Program.DateMachine(datTransaktion) + " " + Program.ZeitMachine(datTransaktion) + "', ";
             insert += idAdresse+",";
             insert += "0);";
 
@@ -186,9 +189,13 @@ namespace Kartonagen.Objekte
 
         public void updateDB (String idBearbeitend) {
 
+            int unbenutzTemp = 0;
+            if (unbenutzt) { unbenutzTemp = 1; }
+
+
             String longInsert = "UPDATE Transaktionen SET ";
 
-            longInsert += "datTransaktionen = '" + Program.DateMachine(DatKalender) + "', ";
+            longInsert += "datTransaktion = '" + Program.DateMachine(DatKalender) + "', ";
             longInsert += "Kartons = " + Kartons1 + ", ";
             longInsert += "FlaschenKartons = " + Flaschenkartons1 + ", ";
             longInsert += "GlaeserKartons = " + Glaeserkartons1 + ", ";
@@ -197,13 +204,11 @@ namespace Kartonagen.Objekte
             longInsert += "Umzuege_Kunden_idKunden = " + IdKunden + ", ";
             longInsert += "Bemerkungen = '" + Bemerkung1 + "', ";
             longInsert += "UserChanged = '" + UserChanged1+idBearbeitend + "', ";
-            longInsert += "unbenutzt = " + Unbenutzt + ", ";
+            longInsert += "unbenutzt = " + unbenutzTemp + ", ";
             longInsert += "RechnungsNr = '" + Rechnungsnummer1 + "', ";
-            longInsert += "timeTransaktion = '" + Program.ZeitMachine(DatKalender) + "', ";
-            longInsert += "final = " + 0 + ", ";
-
-            Program.QueryLog(longInsert);
-
+            longInsert += "timeTransaktion = '" + Program.DateMachine(datTransaktion) + " " + Program.ZeitMachine(datTransaktion) + "', ";
+            longInsert += "final = " + 0 + " WHERE idTransaktionen = "+id+";";
+            
             Program.absender(longInsert, "Absenden der Änderung an der Transaktion");
 
         }
@@ -238,7 +243,7 @@ namespace Kartonagen.Objekte
             String Header = "" + getKunde().getVollerName();
 
 
-            if (Kartons1 < 0 || Kleiderkartons1 < 0 || Glaeserkartons1 < 0 || Flaschenkartons1 < 0)
+            if (Kartons1 > 0 || Kleiderkartons1 > 0 || Glaeserkartons1 > 0 || Flaschenkartons1 > 0)
             {
                 Header += " Kartonlieferung";
             }
@@ -259,8 +264,13 @@ namespace Kartonagen.Objekte
             Body += "Transaktion_" + Id + " "+Environment.NewLine;
 
             //Adresse in den Body
-            Body += Adresse.Straße1 + Adresse.Hausnummer1 +" "+ Environment.NewLine+" " + Adresse.PLZ1 + Adresse.Ort1 + " "+Environment.NewLine;
-            
+            if (IDAdresse1 != 0)
+            {
+                Body += Adresse.Straße1 + Adresse.Hausnummer1 + " " + Environment.NewLine + " " + Adresse.PLZ1 + Adresse.Ort1 + " " + Environment.NewLine;
+            }
+            else {
+                Body += "Büro";
+            }
 
             // Kontaktdaten
             if (getKunde().Handy.Length > 2)

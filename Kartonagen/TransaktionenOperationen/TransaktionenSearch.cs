@@ -25,18 +25,22 @@ namespace Kartonagen
             InitializeComponent();
 
             //Maximale Transaktionsnummer um OutOfBounds vorzubeugen
-
-            MySqlCommand cmdReadTrans = new MySqlCommand("SELECT * FROM Transaktionen ORDER BY idTransaktionen DESC LIMIT 1;", Program.conn);
-            MySqlDataReader rdrTrans;
-
+            
             try
             {
-                rdrTrans = cmdReadTrans.ExecuteReader();
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+
+                MySqlCommand cmdReadTrans = new MySqlCommand("SELECT * FROM Transaktionen ORDER BY idTransaktionen DESC LIMIT 1;", Program.conn);
+                MySqlDataReader rdrTrans = cmdReadTrans.ExecuteReader();
                 while (rdrTrans.Read())
                 {
                     maxTransaktionsnummer = rdrTrans.GetInt32(0);
                 }
                 rdrTrans.Close();
+                Program.conn.Close();
             }
             catch (Exception sqlEx)
             {
@@ -65,33 +69,65 @@ namespace Kartonagen
             {
                 textTransaktionLog.AppendText("1 ist keine gültige Transaktion \r\n");
             }
-            // Beschaffen der Umzugsnummer zur gegebenen Transaktionsnummer
-            // Füllen der Transaktion (alt wie geändert) aus der Transaktion
 
-            //Objekte, Kunde ist in der Transaktion enthalten
-            transObj = new Transaktion(TransNummer);
-            umzObj = new Umzug(transObj.IdUmzuege);
+            //Beschaffen der Umzugsnummer zur gegebenen Transaktionsnummer
+            // Füllen der Transaktion(alt wie geändert) aus der Transaktion
+
+           //Objekte, Kunde ist in der Transaktion enthalten
+           transObj = new Transaktion(TransNummer);
+            Console.WriteLine("Transaktion geladen, umzObj zur nummer " + transObj.IdUmzuege);
+            umzObj = new Umzug(1119);
 
             //Block Stammdaten
 
             textUmzugsdatum.Text = umzObj.DatUmzug.ToShortDateString();
-            textUmzugsnummer.Text = umzObj.Id+"";
+            textUmzugsnummer.Text = umzObj.Id + "";
             textVorNachname.Text = transObj.Kunde.getVollerName();
-            textKundennummer.Text = transObj.IdKunden+"";
-
-
-
-
-
+            textKundennummer.Text = transObj.IdKunden + "";
 
             //Block Änderbare Daten
 
-            if (transObj.Kartons1 > 0 || transObj.Kartons1 > 0 || transObj.Kartons1 > 0 || transObj.Kartons1 > 0)
+            if (transObj.Kartons1 > 0 || transObj.Kleiderkartons1 > 0 || transObj.Glaeserkartons1 > 0 || transObj.Flaschenkartons1 > 0)
             {
                 radioAusgang.Checked = true;
                 radioAusgangAendern.Checked = true;
             }
-                    
+            else
+            {
+                radioEingang.Checked = true;
+                radioEingangAendern.Checked = true;
+                if (transObj.Unbenutzt)
+                {
+                    radioUnbenutzt.Checked = true;
+                    radioUnbenutztAendern.Checked = true;
+                }
+            }
+
+
+            dateTimeTransaktion.Value = transObj.DatKalender;
+            dateTimeTransaktionAendern.Value = transObj.DatKalender;
+            timeTransaktion.Value = transObj.DatKalender;
+            timeAendern.Value = transObj.DatKalender;
+
+            numericKarton.Value = Math.Abs(transObj.Kartons1);
+            numericKartonAendern.Value = Math.Abs(transObj.Kartons1);
+            numericFlaschenKarton.Value = Math.Abs(transObj.Flaschenkartons1);
+            numericFlaschenKartonAendern.Value = Math.Abs(transObj.Flaschenkartons1);
+            numericGlaeserkarton.Value = Math.Abs(transObj.Glaeserkartons1);
+            numericGlaeserKartonAendern.Value = Math.Abs(transObj.Glaeserkartons1);
+            numericKleiderKarton.Value = Math.Abs(transObj.Kleiderkartons1);
+            numericKleiderKartonAendern.Value = Math.Abs(transObj.Kleiderkartons1);
+
+            textBemerkung.Text = transObj.Bemerkung1;
+            textBemerkungAendern.Text = transObj.Bemerkung1;
+
+            // Rechnungsnummer einfüllen
+            textRechnungsnummer.Text = transObj.Rechnungsnummer1;
+            textRechnungsnummerAendern.Text = transObj.Rechnungsnummer1;
+            // UserChanged merken
+            Userchanged = transObj.UserChanged1;
+
+            textTransaktionLog.AppendText("Transaktion erfolgreich aufgerufen \r\n");
 
             //try
             //{
@@ -106,16 +142,7 @@ namespace Kartonagen
             //            radioAusgangAendern.Checked = true;
             //        }
             //        // Check benutzt
-            //        else
-            //        {
-            //            radioEingang.Checked = true;
-            //            radioEingangAendern.Checked = true;
-            //            if (rdrTrans.GetInt32(11)!=0)
-            //            {
-            //                radioUnbenutzt.Checked = true;
-            //                radioUnbenutztAendern.Checked = true;
-            //            }
-            //        }
+            //        
             //        // Einfüllen Zahlenwerte ohne Vorzeichen
             //        numericKarton.Value = Math.Abs(rdrTrans.GetInt32(2));
             //        numericKartonAendern.Value = Math.Abs(rdrTrans.GetInt32(2));
@@ -130,22 +157,15 @@ namespace Kartonagen
             //        dateTimeTransaktion.Value = rdrTrans.GetDateTime(1);
             //        dateTimeTransaktionAendern.Value = rdrTrans.GetDateTime(1);
 
-            //        DateTime dummy = DateTime.Today + rdrTrans.GetDateTime(13).TimeOfDay;
+            //DateTime dummy = DateTime.Today + rdrTrans.GetDateTime(13).TimeOfDay;
 
             //        timeTransaktion.Value = dummy;
             //        timeAendern.Value = dummy;
 
             //        // Bemerkungen einfüllen
-            //        textBemerkung.Text = rdrTrans[8].ToString();
-            //        textBemerkungAendern.Text = rdrTrans[8].ToString();
 
-            //        // Rechnungsnummer einfüllen
-            //        textRechnungsnummer.Text = rdrTrans[12].ToString();
-            //        textRechnungsnummerAendern.Text = rdrTrans[12].ToString();
-            //        // UserChanged merken
-            //        Userchanged = rdrTrans[9].ToString();
 
-            //        textTransaktionLog.AppendText("Transaktion erfolgreich aufgerufen \r\n");
+
             //    }
             //    rdrTrans.Close();
             //}
@@ -210,7 +230,7 @@ namespace Kartonagen
             //Alten Kalendereintrag killen
             if (transObj != null) {
                 if (transObj.KalenderRemove()) {
-                    textTransaktionLog.AppendText("Alter Kalendereintrag entfernt! /r/n ");
+                    textTransaktionLog.AppendText("Alter Kalendereintrag entfernt! "+Environment.NewLine);
                 }
             }
             else
@@ -218,55 +238,35 @@ namespace Kartonagen
                 //TODO Popup-Warnmeldung keine Transaktion eingeloggt
             }
 
-            transObj.DatKalender = dateTimeTransaktionAendern.Value;
+            transObj.DatKalender = Program.getUtil().mergeDatetime(dateTimeTransaktionAendern.Value, timeAendern.Value);
+            transObj.DatTransaktion = dateTimeTransaktionAendern.Value;
 
-            ////String bauen
-            //String push = "UPDATE Transaktionen SET ";
-            //String shove = " WHERE idTransaktionen = " + textTransaktion.Text + ";"; 
+            if (radioEingangAendern.Checked)
+            {
 
-            //push += "datTransaktion = '" + Program.DateMachine(dateTimeTransaktionAendern.Value) + "', ";
-            //push += "timeTransaktion = '" + Program.DateTimeMachine(timeAendern.Value,dateTimeTransaktionAendern.Value) + "', ";
+                transObj.Kartons1 = decimal.ToInt32(decimal.Zero - numericKartonAendern.Value);
+                transObj.Kleiderkartons1 = decimal.ToInt32(decimal.Zero - numericKleiderKartonAendern.Value);
+                transObj.Glaeserkartons1 = decimal.ToInt32(decimal.Zero - numericGlaeserKartonAendern.Value);
+                transObj.Flaschenkartons1 = decimal.ToInt32(decimal.Zero - numericFlaschenKartonAendern.Value);
+            }
 
-            //if (radioAusgangAendern.Checked)
-            //{
-            //    push += "Kartons = " + numericKartonAendern.Value + ", ";
-            //    push += "FlaschenKartons = " + numericFlaschenKartonAendern.Value + ", ";
-            //    push += "GlaeserKartons = " + numericGlaeserKartonAendern.Value + ", ";
-            //    push += "KleiderKartons = " + numericKleiderKartonAendern.Value + ", ";
-            //}
-            //else
-            //{
-            //    push += "Kartons = -" + numericKartonAendern.Value + ", ";
-            //    push += "FlaschenKartons = -" + numericFlaschenKartonAendern.Value + ", ";
-            //    push += "GlaeserKartons = -" + numericGlaeserKartonAendern.Value + ", ";
-            //    push += "KleiderKartons = -" + numericKleiderKartonAendern.Value + ", ";
-            //}           
+            else {
 
+                transObj.Kartons1 = decimal.ToInt32(numericKartonAendern.Value);
+                transObj.Kleiderkartons1 = decimal.ToInt32(numericKleiderKartonAendern.Value);
+                transObj.Glaeserkartons1 = decimal.ToInt32(numericGlaeserKartonAendern.Value);
+                transObj.Flaschenkartons1 = decimal.ToInt32(numericFlaschenKartonAendern.Value);
+            }
 
-            ////push += "Umzuege_idUmzuege = "+ textUmzugsnummer.Text + ", ";
-            ////push += "Umzuege_Kunden_idKunden = " + textKundennummer.Text + ", ";
-            //push += "Bemerkungen = '"  + textBemerkungAendern.Text + " ', ";
-            //push += "Erstelldatum = '" + Program.DateMachine(DateTime.Now) + "', ";
+            transObj.Rechnungsnummer1 = textRechnungsnummerAendern.Text;
+            transObj.Unbenutzt = radioUnbenutztAendern.Checked;
+            transObj.Bemerkung1 = textBemerkungAendern.Text;
 
-            //push += "UserChanged = '" + Userchanged + idBearbeitend + "', ";
-
-            //// Rechnungsnummer
-
-            //push += "RechnungsNr = '" + textRechnungsnummerAendern.Text + "', ";
-            //// Kartons unbenútzt zurück?
-            //if (radioUnbenutztAendern.Checked && radioEingangAendern.Checked)
-            //{
-            //    push += "unbenutzt = 1 ";
-            //}
-            //else
-            //{
-            //    push += "unbenutzt = 0 ";
-            //}
-
-            //Program.absender(push + shove, "Fehler beim ändern einer Transaktion in der DB");
+            transObj.updateDB(idBearbeitend+"");
 
             //Kalendereintrag
-            
+            transObj.KalenderAdd();
+            textTransaktionLog.AppendText("Kalendereintrag neu hinzugefügt! " + Environment.NewLine);
 
             //Neu Fuellen
             fuellen(int.Parse(textTransaktion.Text));

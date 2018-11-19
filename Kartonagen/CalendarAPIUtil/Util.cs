@@ -1034,6 +1034,7 @@ namespace Kartonagen.CalendarAPIUtil
                 throw sqlEx;
             }
 
+            Log.AppendText("Check Abgeschlossen " + Environment.NewLine);
 
         }
 
