@@ -28,7 +28,7 @@ namespace Kartonagen.Objekte
         Boolean Kaufkarton;
         String Rechnungsnummer;
         DateTime datKalender = new DateTime(2017, 1, 1); //Kalenderdatum incl Zeit, default 1.1.17
-        int IDAdresse;
+        int IDAdresse = 0;
         int idUmzuege;
         int idKunden;
 
@@ -88,6 +88,7 @@ namespace Kartonagen.Objekte
                     Rechnungsnummer1 = rdrTrans.GetString(12);
                     datKalender = rdrTrans.GetDateTime(13);
                     Lfd_nr = rdrTrans.GetInt32(15);
+                    IDAdresse = rdrTrans.GetInt32(16);
                 }
                 rdrTrans.Close();
                 Program.conn.Close();
@@ -108,6 +109,10 @@ namespace Kartonagen.Objekte
             
 
             kunde = new Kunde(IdKunden);
+
+            if (IDAdresse != 0) {
+                adresse = new Adresse(IDAdresse);
+            }
 
         }
 
@@ -240,7 +245,7 @@ namespace Kartonagen.Objekte
 
         private String KalenderHeader() {
 
-            String Header = "" + getKunde().getVollerName();
+            String Header = IdKunden+" " + getKunde().getVollerName();
 
 
             if (Kartons1 > 0 || Kleiderkartons1 > 0 || Glaeserkartons1 > 0 || Flaschenkartons1 > 0)
@@ -269,7 +274,7 @@ namespace Kartonagen.Objekte
                 Body += Adresse.Straße1 + Adresse.Hausnummer1 + " " + Environment.NewLine + " " + Adresse.PLZ1 + Adresse.Ort1 + " " + Environment.NewLine;
             }
             else {
-                Body += "Büro";
+                Body += "Büro " + Environment.NewLine ;
             }
 
             // Kontaktdaten
@@ -285,7 +290,7 @@ namespace Kartonagen.Objekte
                 Body += "E-Mail: " + getKunde().Email + " " + Environment.NewLine;
             }
 
-            if (Kartons1<0||Kleiderkartons1<0||Glaeserkartons1<0||Flaschenkartons1<0)
+            if (Kartons1>0||Kleiderkartons1>0||Glaeserkartons1>0||Flaschenkartons1>0)
             {
                 Body += "Kartonlieferung";
             }

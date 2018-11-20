@@ -229,8 +229,12 @@ namespace Kartonagen
 
             //Alten Kalendereintrag killen
             if (transObj != null) {
-                if (transObj.KalenderRemove()) {
-                    textTransaktionLog.AppendText("Alter Kalendereintrag entfernt! "+Environment.NewLine);
+                if (transObj.KalenderRemove())
+                {
+                    textTransaktionLog.AppendText("Alter Kalendereintrag entfernt! " + Environment.NewLine);
+                }
+                else {
+                    textTransaktionLog.AppendText("Alten Kalendereintrag nicht gefunden! " + Environment.NewLine);
                 }
             }
             else
@@ -264,9 +268,14 @@ namespace Kartonagen
 
             transObj.updateDB(idBearbeitend+"");
 
+            Console.WriteLine("Update ist durch!");
+            textTransaktionLog.AppendText("Datenbankänderung erfolgreich! " + Environment.NewLine);
+
             //Kalendereintrag
-            transObj.KalenderAdd();
-            textTransaktionLog.AppendText("Kalendereintrag neu hinzugefügt! " + Environment.NewLine);
+            if (transObj.KalenderAdd())
+            {
+                textTransaktionLog.AppendText("Kalendereintrag neu hinzugefügt! " + Environment.NewLine);
+            }
 
             //Neu Fuellen
             fuellen(int.Parse(textTransaktion.Text));
