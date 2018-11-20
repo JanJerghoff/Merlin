@@ -170,14 +170,17 @@ namespace Kartonagen
 
         private void convertAdressen()
         {
-            MySqlCommand cmdReadUmzug = new MySqlCommand("SELECT idUmzuege FROM Umzuege WHERE AdresseAuszug = 0 OR AdresseEinzug = 0;", Program.conn);
-            MySqlDataReader rdrNummer;
-
+            
             ArrayList nummern = new ArrayList();
             
             try
             {
-                rdrNummer = cmdReadUmzug.ExecuteReader();
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+                MySqlCommand cmdReadUmzug = new MySqlCommand("SELECT idUmzuege FROM Umzuege WHERE AdresseAuszug = 0 OR AdresseEinzug = 0;", Program.conn);
+                MySqlDataReader rdrNummer = cmdReadUmzug.ExecuteReader();
                 while (rdrNummer.Read())
                 {
                     nummern.Add(rdrNummer.GetInt32(0));
@@ -282,6 +285,8 @@ namespace Kartonagen
                         return;
                     }
 
+                    Console.WriteLine("Auszug wird angelegt mit der Straße "+straße);
+
                     Auszug = new Adresse(straße,hausnummer,ort,pLZ,land,aufzug,stockwerke,haustyp, hVZ,laufmeter, aussenAufzug);
 
                     String update = "UPDATE Umzuege SET AdresseAuszug = " + Auszug.IDAdresse1 + " WHERE idUmzuege = " + item + ";";
@@ -351,9 +356,7 @@ namespace Kartonagen
 
         private void convertNotation()
         {
-
-            MySqlCommand cmdReadUmzug = new MySqlCommand("SELECT idUmzuege FROM Umzuege;", Program.conn);
-            MySqlDataReader rdrNummer;
+            
 
             ArrayList nummern = new ArrayList();
             String tempStringA = "";
@@ -363,12 +366,18 @@ namespace Kartonagen
 
             try
             {
-                rdrNummer = cmdReadUmzug.ExecuteReader();
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+                MySqlCommand cmdReadUmzug = new MySqlCommand("SELECT idUmzuege FROM Umzuege;", Program.conn);
+                MySqlDataReader rdrNummer = cmdReadUmzug.ExecuteReader();
                 while (rdrNummer.Read())
                 {
                     nummern.Add(rdrNummer.GetInt32(0));
                 }
                 rdrNummer.Close();
+                Program.conn.Close();
             }
             catch (Exception sqlEx)
             {
@@ -378,19 +387,22 @@ namespace Kartonagen
 
             foreach (var item in nummern)
             {
-
-                MySqlCommand cmdReadString = new MySqlCommand("SELECT StockwerkeA,StockwerkeB FROM Umzuege WHERE idUmzuege = "+item+";", Program.conn);
-                MySqlDataReader rdrStrings;
-
+                
                 try
                 {
-                    rdrStrings = cmdReadString.ExecuteReader();
+                    if (Program.conn.State != ConnectionState.Open)
+                    {
+                        Program.conn.Open();
+                    }
+                    MySqlCommand cmdReadString = new MySqlCommand("SELECT StockwerkeA,StockwerkeB FROM Umzuege WHERE idUmzuege = " + item + ";", Program.conn);
+                    MySqlDataReader rdrStrings = cmdReadString.ExecuteReader();
                     while (rdrStrings.Read())
                     {
                         tempStringA = rdrStrings.GetString(0);
                         tempStringB = rdrStrings.GetString(1);
                     }
                     rdrStrings.Close();
+                    Program.conn.Close();
                 }
                 catch (Exception sqlEx)
                 {
@@ -509,6 +521,9 @@ namespace Kartonagen
 
                 Console.WriteLine("Umzugsnummer "+item+" A vorher = "+tempStringA+" A Nachher = "+String.Join("",concatA)+"/r/n B Vorher = "+tempStringB+" B nacher = "+ String.Join("", concatA) + " /r/n");
 
+                String up = "UPDATE Umzuege SET StockwerkeA = '" + String.Join("", concatA) + "', StockwerkeB = '" + String.Join("", concatA) + "' WHERE idUmzuege = " + item + ";";
+                Program.absender(up, "update Bitstring");
+
             } // End Foreach
 
         }
@@ -540,28 +555,6 @@ namespace Kartonagen
 
         private void PDFRead_Click(object sender, EventArgs e)
         {
-            //List<int> test = new List<int>();
-
-            //MySqlCommand cmdReadKunde = new MySqlCommand("SELECT idUmzuege FROM Umzuege WHERE datBesichtigung = '2016-10-12';", Program.conn);
-            //MySqlDataReader rdrKunde;
-            
-            //try
-            //{
-            //    rdrKunde = cmdReadKunde.ExecuteReader();
-            //    while (rdrKunde.Read())
-            //    {
-            //        test.Add(rdrKunde.GetInt32(0));
-            //    }
-            //    rdrKunde.Close();
-            //}
-            //catch (Exception sqlEx)
-            //{
-            //    Program.FehlerLog(sqlEx.ToString(), "Abrufen der Umzugsnummern zum Besichtigungsdatum (für das Ausliefern der PDFs)");
-            //}
-
-            //// Drucken für die einzelnen Besichtigungen
-            //string sum = "";
-                      
 
             // Testsektion einlesen d. Umzuege
             string[] pdfs = Directory.GetFiles(Program.getMitnehmPfad());
