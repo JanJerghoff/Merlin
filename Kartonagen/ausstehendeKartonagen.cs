@@ -21,38 +21,46 @@ namespace Kartonagen
 
 
             // Wer kommt in Frage
-            MySqlCommand cmdReadKunde = new MySqlCommand("Select Umzuege_Kunden_idKunden from Transaktionen where datTransaktion < '"+ Program.DateMachine(DateTime.Now.AddMonths(-11)) +"' group by Umzuege_Kunden_idKunden Order By datTransaktion ASC;", Program.conn);
-            MySqlDataReader rdrKunde;
-
+            
             try
             {
-                rdrKunde = cmdReadKunde.ExecuteReader();
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+                MySqlCommand cmdReadKunde = new MySqlCommand("Select Umzuege_Kunden_idKunden from Transaktionen where datTransaktion < '" + Program.DateMachine(DateTime.Now.AddMonths(-11)) + "' group by Umzuege_Kunden_idKunden Order By datTransaktion ASC;", Program.conn);
+                MySqlDataReader rdrKunde = cmdReadKunde.ExecuteReader();
                 while (rdrKunde.Read())
                 {
                     Kundenkanidaten.AddLast(rdrKunde.GetInt32(0));
+                    Console.WriteLine("added "+ rdrKunde.GetInt32(0));
                 }
                 rdrKunde.Close();
+                Program.conn.Close();
             }
             catch (Exception sqlEx)
             {
                 Program.FehlerLog(sqlEx.ToString(), "Fehler beim Auslesen der Personendaten \r\n Bereits dokumentiert.");
                 return;
             }
-
-            textMainLog.AppendText("Sql durch "+cmdReadKunde.CommandText);
-
+            
             // Wer ist noch aktiv / kommt nichtmehr in Frage
-            MySqlCommand cmdReadKundeneu = new MySqlCommand("Select Umzuege_Kunden_idKunden from Transaktionen where datTransaktion > '" + Program.DateMachine(DateTime.Now.AddMonths(-11)) + "' group by Umzuege_Kunden_idKunden", Program.conn);
-            MySqlDataReader rdrKundeneu;
-
+            
             try
             {
-                rdrKundeneu = cmdReadKundeneu.ExecuteReader();
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+                MySqlCommand cmdReadKundeneu = new MySqlCommand("Select Umzuege_Kunden_idKunden from Transaktionen where datTransaktion > '" + Program.DateMachine(DateTime.Now.AddMonths(-11)) + "' group by Umzuege_Kunden_idKunden", Program.conn);
+                MySqlDataReader rdrKundeneu = cmdReadKundeneu.ExecuteReader();
                 while (rdrKundeneu.Read())
                 {
                     Kundenkanidaten.Remove(rdrKundeneu.GetInt32(0));
+                    Console.WriteLine("removed " + rdrKundeneu.GetInt32(0));
                 }
                 rdrKundeneu.Close();
+                Program.conn.Close();
             }
             catch (Exception sqlEx)
             {
@@ -76,13 +84,15 @@ namespace Kartonagen
                 String Email = "";
 
                 // Abfrage Stückzahlen und Datum
-
-                MySqlCommand cmdReadKundespez = new MySqlCommand("Select * from Transaktionen where Umzuege_Kunden_idKunden = "+item+ " order by datTransaktion ASC;", Program.conn);
-                MySqlDataReader rdrKundespez;
-
+                
                 try
                 {
-                    rdrKundespez = cmdReadKundespez.ExecuteReader();
+                    if (Program.conn.State != ConnectionState.Open)
+                    {
+                        Program.conn.Open();
+                    }
+                    MySqlCommand cmdReadKundespez = new MySqlCommand("Select * from Transaktionen where Umzuege_Kunden_idKunden = " + item + " order by datTransaktion ASC;", Program.conn);
+                    MySqlDataReader rdrKundespez = cmdReadKundespez.ExecuteReader();
                     while (rdrKundespez.Read())
                     {
                         dateTemp = rdrKundespez.GetDateTime(1);
@@ -97,6 +107,7 @@ namespace Kartonagen
                         }
                     }
                     rdrKundespez.Close();
+                    Program.conn.Close();
                 }
                 catch (Exception sqlEx)
                 {
@@ -105,13 +116,15 @@ namespace Kartonagen
                 }
 
                 //Abfrage restliche Kundendaten
-
-                MySqlCommand cmdReadKundespez2 = new MySqlCommand("Select * from Kunden where idKunden = " + item + ";", Program.conn);
-                MySqlDataReader rdrKundespez2;
-
+                
                 try
                 {
-                    rdrKundespez2 = cmdReadKundespez2.ExecuteReader();
+                    if (Program.conn.State != ConnectionState.Open)
+                    {
+                        Program.conn.Open();
+                    }
+                    MySqlCommand cmdReadKundespez2 = new MySqlCommand("Select * from Kunden where idKunden = " + item + ";", Program.conn);
+                    MySqlDataReader rdrKundespez2 = cmdReadKundespez2.ExecuteReader();
                     while (rdrKundespez2.Read())
                     {
                         Kundenname += rdrKundespez2.GetString(1);
@@ -129,6 +142,7 @@ namespace Kartonagen
 
                     }
                     rdrKundespez2.Close();
+                    Program.conn.Close();
                 }
                 catch (Exception sqlEx)
                 {
