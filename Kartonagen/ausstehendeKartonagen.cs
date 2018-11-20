@@ -18,10 +18,7 @@ namespace Kartonagen
             InitializeComponent();
 
             LinkedList<int> Kundenkanidaten = new LinkedList<int>();
-
-
-            // Wer kommt in Frage
-            
+            // Wer kommt in Frage            
             try
             {
                 if (Program.conn.State != ConnectionState.Open)

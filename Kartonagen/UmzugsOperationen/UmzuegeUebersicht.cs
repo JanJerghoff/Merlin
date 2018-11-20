@@ -29,63 +29,60 @@ namespace Kartonagen
         public void letztenX(String cmd) {
             
             //Basisstring immer gleich, endung anhängen
-            String basis = "SELECT u.Kunden_idKunden, u.idUmzuege, u.datBesichtigung, u.datUmzug, u.StraßeA, u.HausnummerA, u.OrtA,  u.StraßeB, u.HausnummerB, u.OrtB, k.Anrede, k.Vorname, k.Nachname FROM Umzuege u, Kunden k  WHERE u.Kunden_idKunden = k.idKunden ORDER BY ";
+            String basis = "SELECT u.Kunden_idKunden, u.idUmzuege, u.datBesichtigung, u.datUmzug, u.StraßeA, u.HausnummerA, u.OrtA,  u.StraßeB, u.HausnummerB, u.OrtB, k.Anrede, k.Vorname, k.Nachname, k.Email, k.Telefonnummer, k.Handynummer FROM Umzuege u, Kunden k  WHERE u.Kunden_idKunden = k.idKunden ORDER BY ";
             String fin = basis + cmd;
-
-            //Ale Felder leeren
-            textKundenNr.Text = "";
-            textUmzugsNr.Text = "";
-            textBesichtigung.Text = "";
-            textUmzug.Text = "";
-            textAusStraße.Text = "";
-            textAusOrt.Text = "";
-            textEinStraße.Text = "";
-            textEinOrt.Text = "";
-            textName.Text = "";
-
+            
             // Greift alle Umzugsdaten und Kundendaten per Join
-            MySqlCommand cmdHisto = new MySqlCommand(fin, Program.conn);
-            MySqlDataReader rdrHisto;
-
+            
             try
             {
-                rdrHisto = cmdHisto.ExecuteReader();
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+
+                MySqlCommand cmdHisto = new MySqlCommand(fin, Program.conn);
+                MySqlDataReader rdrHisto = cmdHisto.ExecuteReader();
                 while (rdrHisto.Read())
                 {
-                    
-                    textKundenNr.Text += rdrHisto[0] + "\r\n";
-                    textUmzugsNr.Text += rdrHisto[1] + "\r\n";
-                    textBesichtigung.Text += rdrHisto.GetDateTime(2).ToShortDateString() + "\r\n";
-                    textUmzug.Text += rdrHisto.GetDateTime(3).ToShortDateString() + "\r\n";
-                    textAusStraße.Text += rdrHisto[4] +" "+ rdrHisto[5] + "\r\n";
-                    textAusOrt.Text += rdrHisto[6] + "\r\n";
-                    textEinStraße.Text += rdrHisto[7] + " " + rdrHisto[8] + "\r\n";
-                    textEinOrt.Text += rdrHisto[9] + "\r\n";
-                    textName.Text += rdrHisto[10] + " " + rdrHisto[11] + " " + rdrHisto[12] + "\r\n";
+                    String tempTelefon = "";
+
+                    if (rdrHisto.GetString(13) == "0")
+                    {
+                        tempTelefon = rdrHisto.GetString(12);
+                    }
+                    else {
+                        tempTelefon = rdrHisto.GetString(13);
+                    }
+
+                    Object[] rowtemp = { rdrHisto.GetInt32(0),rdrHisto.GetInt32(1), rdrHisto.GetString(10)+" "+ rdrHisto.GetString(11) + " " + rdrHisto.GetString(12), tempTelefon, rdrHisto.GetString(13), rdrHisto.GetDateTime(2).ToShortDateString(), rdrHisto.GetDateTime(3).ToShortDateString(), rdrHisto.GetString(4)+" "+rdrHisto.GetString(5), rdrHisto.GetString(6), rdrHisto.GetString(7) + " " + rdrHisto.GetString(8), rdrHisto.GetString(9) };
+                    Console.WriteLine("Line Kundennummer "+rdrHisto.GetInt32(0));
+                    DataGridUmzugsuebersicht.Rows.Add(rowtemp);
                 }
                 rdrHisto.Close();
+                Program.conn.Close();
 
             }
             catch (Exception sqlEx)
             {
-                textName.AppendText(sqlEx.ToString());
+                Program.FehlerLog(sqlEx.ToString(), "Abrufen der Historie aus der Datenbank");
                 return;
             }
         }
 
         private void buttonHistorie_Click(object sender, EventArgs e)
         {
-            letztenX("u.idUmzuege DESC LIMIT 50;");
+            letztenX("u.idUmzuege DESC LIMIT 100;");
         }
 
         private void buttonUmzugstermin_Click(object sender, EventArgs e)
         {
-            letztenX("u.datUmzug DESC LIMIT 50;");
+            letztenX("u.datUmzug DESC LIMIT 100;");
         }
 
         private void buttonBesichtigungstermin_Click(object sender, EventArgs e)
         {
-            letztenX("u.datBesichtigung DESC LIMIT 50;");
+            letztenX("u.datBesichtigung DESC LIMIT 100;");
         }
     }
 }

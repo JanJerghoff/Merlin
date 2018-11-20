@@ -30,21 +30,22 @@
         {
             this.textTransaktionLog = new System.Windows.Forms.TextBox();
             this.dataGridausstehendeKartonagen = new System.Windows.Forms.DataGridView();
+            this.buttonHistorieUmzNr = new System.Windows.Forms.Button();
             this.Kundennummer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Umzugsnummer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Transaktionsnummer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Kundenname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefonnummer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Kartons = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Flaschenkartons = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gläserkartons = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Kleiderkartons = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Letzte_Transaktion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridausstehendeKartonagen)).BeginInit();
             this.SuspendLayout();
             // 
             // textTransaktionLog
             // 
-            this.textTransaktionLog.Location = new System.Drawing.Point(13, 949);
+            this.textTransaktionLog.Location = new System.Drawing.Point(13, 705);
             this.textTransaktionLog.Margin = new System.Windows.Forms.Padding(4);
             this.textTransaktionLog.Multiline = true;
             this.textTransaktionLog.Name = "textTransaktionLog";
@@ -58,19 +59,30 @@
             this.dataGridausstehendeKartonagen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridausstehendeKartonagen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Kundennummer,
+            this.Umzugsnummer,
+            this.Transaktionsnummer,
+            this.Datum,
             this.Kundenname,
-            this.Email,
-            this.Telefonnummer,
             this.Kartons,
             this.Flaschenkartons,
             this.Gläserkartons,
-            this.Kleiderkartons,
-            this.Letzte_Transaktion});
-            this.dataGridausstehendeKartonagen.Location = new System.Drawing.Point(13, 13);
+            this.Kleiderkartons});
+            this.dataGridausstehendeKartonagen.Location = new System.Drawing.Point(13, 78);
             this.dataGridausstehendeKartonagen.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridausstehendeKartonagen.Name = "dataGridausstehendeKartonagen";
             this.dataGridausstehendeKartonagen.Size = new System.Drawing.Size(1771, 619);
             this.dataGridausstehendeKartonagen.TabIndex = 119;
+            // 
+            // buttonHistorieUmzNr
+            // 
+            this.buttonHistorieUmzNr.Location = new System.Drawing.Point(13, 13);
+            this.buttonHistorieUmzNr.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonHistorieUmzNr.Name = "buttonHistorieUmzNr";
+            this.buttonHistorieUmzNr.Size = new System.Drawing.Size(279, 47);
+            this.buttonHistorieUmzNr.TabIndex = 126;
+            this.buttonHistorieUmzNr.Text = "Letzen 100 Transaktionsnummern";
+            this.buttonHistorieUmzNr.UseVisualStyleBackColor = true;
+            this.buttonHistorieUmzNr.Click += new System.EventHandler(this.buttonHistorieUmzNr_Click);
             // 
             // Kundennummer
             // 
@@ -78,23 +90,29 @@
             this.Kundennummer.Name = "Kundennummer";
             this.Kundennummer.ReadOnly = true;
             // 
+            // Umzugsnummer
+            // 
+            this.Umzugsnummer.HeaderText = "Umzugsnummer";
+            this.Umzugsnummer.Name = "Umzugsnummer";
+            this.Umzugsnummer.ReadOnly = true;
+            // 
+            // Transaktionsnummer
+            // 
+            this.Transaktionsnummer.HeaderText = "Transaktionsnummer";
+            this.Transaktionsnummer.Name = "Transaktionsnummer";
+            this.Transaktionsnummer.ReadOnly = true;
+            // 
+            // Datum
+            // 
+            this.Datum.HeaderText = "Datum";
+            this.Datum.Name = "Datum";
+            this.Datum.ReadOnly = true;
+            // 
             // Kundenname
             // 
             this.Kundenname.HeaderText = "Kundenname";
             this.Kundenname.Name = "Kundenname";
             this.Kundenname.ReadOnly = true;
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            // 
-            // Telefonnummer
-            // 
-            this.Telefonnummer.HeaderText = "Telefonnummer";
-            this.Telefonnummer.Name = "Telefonnummer";
-            this.Telefonnummer.ReadOnly = true;
             // 
             // Kartons
             // 
@@ -120,18 +138,13 @@
             this.Kleiderkartons.Name = "Kleiderkartons";
             this.Kleiderkartons.ReadOnly = true;
             // 
-            // Letzte_Transaktion
-            // 
-            this.Letzte_Transaktion.HeaderText = "Letzte_Transaktion";
-            this.Letzte_Transaktion.Name = "Letzte_Transaktion";
-            this.Letzte_Transaktion.ReadOnly = true;
-            // 
             // TransaktionenUebersicht
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.ClientSize = new System.Drawing.Size(1924, 887);
+            this.Controls.Add(this.buttonHistorieUmzNr);
             this.Controls.Add(this.dataGridausstehendeKartonagen);
             this.Controls.Add(this.textTransaktionLog);
             this.Name = "TransaktionenUebersicht";
@@ -146,14 +159,15 @@
         #endregion
         private System.Windows.Forms.TextBox textTransaktionLog;
         private System.Windows.Forms.DataGridView dataGridausstehendeKartonagen;
+        private System.Windows.Forms.Button buttonHistorieUmzNr;
         private System.Windows.Forms.DataGridViewTextBoxColumn Kundennummer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Umzugsnummer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Transaktionsnummer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Datum;
         private System.Windows.Forms.DataGridViewTextBoxColumn Kundenname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefonnummer;
         private System.Windows.Forms.DataGridViewTextBoxColumn Kartons;
         private System.Windows.Forms.DataGridViewTextBoxColumn Flaschenkartons;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gläserkartons;
         private System.Windows.Forms.DataGridViewTextBoxColumn Kleiderkartons;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Letzte_Transaktion;
     }
 }
