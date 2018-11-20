@@ -195,17 +195,19 @@ namespace Kartonagen
 
         private void buttonDrucken_Click(object sender, EventArgs e)
         {
-            MySqlCommand cmdRead = new MySqlCommand("SELECT t.Kartons, t.Flaschenkartons, t.Glaeserkartons, t.Kleiderkartons, t.timeTransaktion, k.Anrede, k.Vorname, k.Nachname, k.Telefonnummer, k.Handynummer, t.Bemerkungen, u.idUmzuege, k.idKunden, t.idTransaktionen FROM Transaktionen t, Kunden k, Umzuege u WHERE t.Umzuege_Kunden_idKunden = k.idKunden AND u.idUmzuege = t.Umzuege_idUmzuege AND t.datTransaktion = '" + Program.DateMachine(dateTransaktion.Value) + "' ORDER BY timeTransaktion ASC;",Program.conn);
-            MySqlDataReader rdr;
-
             Umzugsnummern = new List<int>();
             int count = 0;
             TimeSpan comparison = new TimeSpan(0);
 
             try
             {
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
 
-                rdr = cmdRead.ExecuteReader();
+                MySqlCommand cmdRead = new MySqlCommand("SELECT t.Kartons, t.Flaschenkartons, t.Glaeserkartons, t.Kleiderkartons, t.timeTransaktion, k.Anrede, k.Vorname, k.Nachname, k.Telefonnummer, k.Handynummer, t.Bemerkungen, u.idUmzuege, k.idKunden, t.idTransaktionen FROM Transaktionen t, Kunden k, Umzuege u WHERE t.Umzuege_Kunden_idKunden = k.idKunden AND u.idUmzuege = t.Umzuege_idUmzuege AND t.datTransaktion = '" + Program.DateMachine(dateTransaktion.Value) + "' ORDER BY timeTransaktion ASC;", Program.conn);
+                MySqlDataReader rdr = cmdRead.ExecuteReader();
                 while (rdr.Read())
                 {
                     // Sortiert Zeiten um genau Mitternacht aus
@@ -272,7 +274,7 @@ namespace Kartonagen
                     
                 }
                 rdr.Close();
-
+                Program.conn.Close();
             }
             catch (Exception sqlEx)
             {
@@ -312,14 +314,14 @@ namespace Kartonagen
             //    }
             //}
 
-            if (count < 0)
-            {
-                var Meldung = MessageBox.Show("Im Kalender sind mehr Termine als Transaktionen in der Datenbank \r\n Bitte überprüfen" , "Warnung");
-            }
-            else if (count > 0)
-            {
-                var Meldung = MessageBox.Show("Im Kalender sind weniger Termine als Transaktionen in der Datenbank \r\n Bitte überprüfen", "Warnung");
-            }            
+            //if (count < 0)
+            //{
+            //    var Meldung = MessageBox.Show("Im Kalender sind mehr Termine als Transaktionen in der Datenbank \r\n Bitte überprüfen" , "Warnung");
+            //}
+            //else if (count > 0)
+            //{
+            //    var Meldung = MessageBox.Show("Im Kalender sind weniger Termine als Transaktionen in der Datenbank \r\n Bitte überprüfen", "Warnung");
+            //}            
         }
 
         private void changeAdresse(RadioButton activated) {

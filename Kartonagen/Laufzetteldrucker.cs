@@ -26,8 +26,6 @@ namespace Kartonagen
                        
             //Alle betreffenden Umzüge greifen
             //Abfrage aller Namen
-            MySqlCommand cmdRead = new MySqlCommand("SELECT k.Anrede, k.Vorname, k.Nachname, k.Telefonnummer, k.Handynummer, u.StraßeA, u.HausnummerA, u.OrtA, u.PLZA, u.umzugsZeit FROM Kunden k, Umzuege u WHERE (u.Kunden_idKunden = k.idKunden AND u.datBesichtigung = '" + Program.DateMachine(dateBesichtigung.Value) + "') ORDER BY u.umzugsZeit ASc", Program.conn);
-            MySqlDataReader rdrPre;
             
             String[] Namen = new String [13];
             String[] Anschriften = new String[13];
@@ -37,8 +35,13 @@ namespace Kartonagen
 
             try
             {
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
 
-                rdrPre = cmdRead.ExecuteReader();
+                MySqlCommand cmdRead = new MySqlCommand("SELECT k.Anrede, k.Vorname, k.Nachname, k.Telefonnummer, k.Handynummer, u.StraßeA, u.HausnummerA, u.OrtA, u.PLZA, u.umzugsZeit FROM Kunden k, Umzuege u WHERE (u.Kunden_idKunden = k.idKunden AND u.datBesichtigung = '" + Program.DateMachine(dateBesichtigung.Value) + "') ORDER BY u.umzugsZeit ASc", Program.conn);
+                MySqlDataReader rdrPre = cmdRead.ExecuteReader();
                 while (rdrPre.Read())
                 {
                     Namen[rowCount] = rdrPre[0] + " " + rdrPre[1] + " " + rdrPre[2];
@@ -59,6 +62,7 @@ namespace Kartonagen
                     rowCount++;
                 }
                 rdrPre.Close();
+                Program.conn.Close();
                 
             }
             catch (Exception sqlEx)
@@ -133,18 +137,21 @@ namespace Kartonagen
             {
 
                 List<int> test = new List<int>();
-
-                MySqlCommand cmdReadKunde = new MySqlCommand("SELECT idUmzuege FROM Umzuege WHERE datBesichtigung = '"+Program.DateMachine(dateBesichtigung.Value.Date)+"';", Program.conn);
-                MySqlDataReader rdrKunde;
-
+                
                 try
                 {
-                    rdrKunde = cmdReadKunde.ExecuteReader();
+                    if(Program.conn.State != ConnectionState.Open)
+                    {
+                        Program.conn.Open();
+                    }
+                    MySqlCommand cmdReadKunde = new MySqlCommand("SELECT idUmzuege FROM Umzuege WHERE datBesichtigung = '" + Program.DateMachine(dateBesichtigung.Value.Date) + "';", Program.conn);
+                    MySqlDataReader rdrKunde = cmdReadKunde.ExecuteReader();
                     while (rdrKunde.Read())
                     {
                         test.Add(rdrKunde.GetInt32(0));
                     }
                     rdrKunde.Close();
+                    Program.conn.Close();
                 }
                 catch (Exception sqlEx)
                 {
@@ -170,9 +177,6 @@ namespace Kartonagen
             IDictionary<String, PdfFormField> fields = form.GetFormFields();
             PdfFormField toSet;
             
-            MySqlCommand cmdRead = new MySqlCommand("SELECT k.Anrede, k.Vorname, k.Nachname, k.Telefonnummer, k.Handynummer, u.StraßeA, u.HausnummerA, u.OrtA, u.PLZA, u.umzugsZeit FROM Kunden k, Umzuege u WHERE (u.Kunden_idKunden = k.idKunden AND u.datBesichtigung = '" + Program.DateMachine(dateBesichtigung.Value) + "') ORDER BY u.umzugsZeit ASc", Program.conn);
-            MySqlDataReader rdr;
-
             int zaehler = 1;
             String Uhrzeit = "";
             String temp = "";
@@ -180,8 +184,14 @@ namespace Kartonagen
 
             try
             {
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
 
-                rdr = cmdRead.ExecuteReader();
+                MySqlCommand cmdRead = new MySqlCommand("SELECT k.Anrede, k.Vorname, k.Nachname, k.Telefonnummer, k.Handynummer, u.StraßeA, u.HausnummerA, u.OrtA, u.PLZA, u.umzugsZeit FROM Kunden k, Umzuege u WHERE (u.Kunden_idKunden = k.idKunden AND u.datBesichtigung = '" + Program.DateMachine(dateBesichtigung.Value) + "') ORDER BY u.umzugsZeit ASc", Program.conn);
+                MySqlDataReader rdr = cmdRead.ExecuteReader();
+
                 while (rdr.Read())
                 {
                     fields.TryGetValue("Name " + zaehler, out toSet);
@@ -212,6 +222,7 @@ namespace Kartonagen
                     zaehler++;
                 }
                 rdr.Close();
+                Program.conn.Close();
 
                 fields.TryGetValue("Mitarbeiter", out toSet);
                 toSet.SetValue(textMitarbeiter.Text);

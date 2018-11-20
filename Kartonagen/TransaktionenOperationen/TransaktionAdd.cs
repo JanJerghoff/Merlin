@@ -243,10 +243,11 @@ namespace Kartonagen
         }
 
         private void Kalendereintrag() {
-            
-            Transobj.KalenderAdd();
-            textTransaktionLog.AppendText(" Kalendereintrag erfolgreich!\r\n");
 
+            if (Transobj.KalenderAdd())
+            {
+                textTransaktionLog.AppendText(" Kalendereintrag erfolgreich!\r\n");
+            }
         }
 
         private void buttonKundenSearchNrSuche_Click(object sender, EventArgs e)
