@@ -20,6 +20,7 @@ namespace Kartonagen
     {
         public mainForm()
         {
+            this.Icon = Properties.Resources.icon_Fnb_icon;
             InitializeComponent();
         }
 

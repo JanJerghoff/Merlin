@@ -15,6 +15,7 @@ namespace Kartonagen
     {
         public KundenUebersicht()
         {
+            this.Icon = Properties.Resources.icon_Fnb_icon;
             InitializeComponent();
         }
 

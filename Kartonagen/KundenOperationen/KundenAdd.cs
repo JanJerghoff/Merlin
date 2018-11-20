@@ -23,6 +23,7 @@ namespace Kartonagen
 
         public KundenAdd()
         {
+            this.Icon = Properties.Resources.icon_Fnb_icon;
             InitializeComponent();
             
             // Autocomplete vorlegen
