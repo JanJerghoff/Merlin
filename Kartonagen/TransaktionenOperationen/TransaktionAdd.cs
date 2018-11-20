@@ -147,7 +147,7 @@ namespace Kartonagen
                         textUnbenutzt = "";
                     }
 
-                    object[] toSave = { rdrAlt.GetDateTime(1), rdrAlt[0], rdrAlt.GetString(12), rdrAlt.GetInt32(2), rdrAlt.GetInt32(3), rdrAlt.GetInt32(4), rdrAlt.GetInt32(5), textUnbenutzt,null};
+                    object[] toSave = { rdrAlt.GetDateTime(13), rdrAlt[0], rdrAlt.GetString(12), rdrAlt.GetInt32(2), rdrAlt.GetInt32(3), rdrAlt.GetInt32(4), rdrAlt.GetInt32(5), textUnbenutzt,null};
          
                     dataGridAlteTransaktionen.Rows.Add(toSave);
                 }

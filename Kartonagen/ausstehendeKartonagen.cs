@@ -15,6 +15,7 @@ namespace Kartonagen
     {
         public ausstehendeKartonagen()
         {
+            this.Icon = Properties.Resources.icon_Fnb_icon;
             InitializeComponent();
 
             LinkedList<int> Kundenkanidaten = new LinkedList<int>();

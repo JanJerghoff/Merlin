@@ -22,6 +22,7 @@ namespace Kartonagen
 
         public TransaktionenSearch()
         {
+            this.Icon = Properties.Resources.icon_Fnb_icon;
             InitializeComponent();
 
             //Maximale Transaktionsnummer um OutOfBounds vorzubeugen

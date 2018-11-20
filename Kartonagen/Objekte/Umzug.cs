@@ -581,11 +581,13 @@ namespace Kartonagen
 
             Program.QueryLog(longInsert);
 
-            Program.absender(longInsert, "Absenden der Änderung am Umzug");            
+            Program.absender(longInsert, "Absenden der Änderung am Umzug");
 
             //Ändern der seperaten Adressen
-            entruempeln.updateDB();
-
+            if (entruempeln != null)
+            {
+                entruempeln.updateDB();
+            }
             UserChanged = UserChanged + idUser;
 
         }
@@ -1423,6 +1425,19 @@ namespace Kartonagen
             {
                 return "keine HVZ";
             }
+        }
+
+        public Adresse getEntruempeln() {
+
+            if (AdresseRuempel1 != 0)
+            {
+                return entruempeln;
+            }
+            else {
+                Adresse blank = new Adresse("","","","","",0,"00000000000-","",0,0,0);
+                return blank;
+            }
+
         }
 
         private void Schilderstellen()

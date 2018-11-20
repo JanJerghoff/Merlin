@@ -79,15 +79,5 @@ namespace Kartonagen.Properties {
                 return ((System.Drawing.Icon)(obj));
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon IconMulti {
-            get {
-                object obj = ResourceManager.GetObject("IconMulti", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
     }
 }

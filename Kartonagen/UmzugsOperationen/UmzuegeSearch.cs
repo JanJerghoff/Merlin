@@ -37,6 +37,7 @@ namespace Kartonagen
 
         public UmzuegeSearch()
         {
+            this.Icon = Properties.Resources.icon_Fnb_icon;
             InitializeComponent();
 
             textSucheName.AutoCompleteCustomSource = Program.getAutocompleteKunden();
@@ -985,14 +986,14 @@ namespace Kartonagen
             umzObj.AusStunden1 = decimal.ToInt32(numericAusPackStunden.Value);
 
             //-------------- Entrümpeln
-
-            umzObj.entruempeln.Straße1 = textStrasseEnt.Text;
-            umzObj.entruempeln.Hausnummer1 = textHausnummerEnt.Text;
-            umzObj.entruempeln.Ort1 = textOrtEnt.Text;
-            umzObj.entruempeln.PLZ1 = textPLZEnt.Text;
-            umzObj.RuempelMann1 = decimal.ToInt32(numericPackerEnt.Value);
-            umzObj.RuempelStunden1 = decimal.ToInt32(numericStundenEnt.Value);
-
+            if (radioEntJa.Checked || radioEntVllt.Checked) {
+                umzObj.getEntruempeln().Straße1 = textStrasseEnt.Text;
+                umzObj.getEntruempeln().Hausnummer1 = textHausnummerEnt.Text;
+                umzObj.getEntruempeln().Ort1 = textOrtEnt.Text;
+                umzObj.getEntruempeln().PLZ1 = textPLZEnt.Text;
+                umzObj.RuempelMann1 = decimal.ToInt32(numericPackerEnt.Value);
+                umzObj.RuempelStunden1 = decimal.ToInt32(numericStundenEnt.Value);
+            }
             // ------- Daten
 
             int schilder = 0;
@@ -1244,6 +1245,11 @@ namespace Kartonagen
         {
             Console.WriteLine("Read Bitstring " + Bitstring);
 
+            if (Bitstring.Length == 11)
+            {
+                Bitstring = Bitstring + "-";
+            }
+
             checkKellerA.Checked = false;
             checkEGA.Checked = false;
             checkDBA.Checked = false;
@@ -1313,6 +1319,10 @@ namespace Kartonagen
 
         private void readBitstringEtagenB(String Bitstring) {
 
+            if (Bitstring.Length == 11) {
+                Bitstring = Bitstring + "-";
+            }
+
             checkKellerB.Checked = false;
             checkEGB.Checked = false;
             checkDBB.Checked = false;
@@ -1326,7 +1336,7 @@ namespace Kartonagen
             checkOG5B.Checked = false;
             textSonderEtageB.Clear();
 
-            if (Bitstring[1] == '1')
+            if (Bitstring[0] == '1')
             {
                 checkKellerB.Checked = true;
             }
@@ -1414,22 +1424,22 @@ namespace Kartonagen
             {
                 if (!textSonderEtageA.Text.Equals(String.Empty))
                 {
-                    Etagen.Insert(Etagen.Length, ("-" + textSonderEtageA.Text));
+                   Etagen = Etagen.Insert(Etagen.Length, ("-" + textSonderEtageA.Text));
                 }
                 else
                 {
-                    Etagen.Insert(Etagen.Length, ("-"));
+                    Etagen = Etagen.Insert(Etagen.Length, ("-"));
                 }
             }
             else
             {
                 if (!textSonderEtageB.Text.Equals(String.Empty))
                 {
-                    Etagen.Insert(Etagen.Length, ("-" + textSonderEtageB.Text));
+                    Etagen = Etagen.Insert(Etagen.Length, ("-" + textSonderEtageB.Text));
                 }
                 else
                 {
-                    Etagen.Insert(Etagen.Length, ("-"));
+                    Etagen = Etagen.Insert(Etagen.Length, ("-"));
                 }
             }
             return Etagen;

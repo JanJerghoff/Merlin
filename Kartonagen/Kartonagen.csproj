@@ -387,8 +387,12 @@
     <Content Include="Properties\icon_Fnb_icon.ico" />
     <Content Include="Properties\icon_qzf_icon.ico" />
     <None Include="Resources\IconMulti.ico" />
-    <None Include="Resources\icon_Fnb_icon.ico" />
-    <None Include="Resources\icon_qzf_icon.ico" />
+    <None Include="Resources\icon_Fnb_icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\icon_qzf_icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="Umzuege.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Umzuege.Context.cs</LastGenOutput>

@@ -23,7 +23,7 @@ namespace Kartonagen
 
         public UmzugAdd()
         {
-            
+            this.Icon = Properties.Resources.icon_Fnb_icon;
             InitializeComponent();
             
             textSucheName.AutoCompleteCustomSource = Program.getAutocompleteKunden();
