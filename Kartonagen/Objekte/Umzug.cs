@@ -944,11 +944,13 @@ namespace Kartonagen
 
             if (toggle == 1)
             {
+                Console.WriteLine("Druck gestartet");
                 form.FlattenFields();
                 pdf.Close();
                 Program.SendToPrinter();
                 //Program.showPDF();
                 return "Erfolgreich gedruckt";
+                Console.WriteLine("Druck abgeschlossen");
             }
             else {
                 pdf.Close();
@@ -1309,16 +1311,17 @@ namespace Kartonagen
         private String RuempelHeader() {
 
             String RuempelHeader = idKunden + " " + umzugsKunde.Anrede + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + "Auspacken, " + Auspacker + " Mann, " + AusStunden + " Stunden";
-            
             return RuempelHeader;
         }
 
         private String RuempelString() {
 
-            String body = "Umzugsnummer:" + id + "\r\n" + umzugsKunde.Anrede + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + "\r\n";
-            body += "Adresse:  " + entruempeln.Straße1 + " " + entruempeln.Hausnummer1 + ", " + entruempeln.PLZ1 + " " + entruempeln.Ort1 + "\r\n";
+            String body = "Umzugsnummer:" + id + Environment.NewLine + umzugsKunde.Anrede + " " + umzugsKunde.Vorname + " " + umzugsKunde.Nachname + Environment.NewLine;
 
-
+            if (entruempeln != null)
+            {
+                body += "Adresse:  " + entruempeln.Straße1 + " " + entruempeln.Hausnummer1 + ", " + entruempeln.PLZ1 + " " + entruempeln.Ort1 + Environment.NewLine;
+            }
             return body;
         }
 

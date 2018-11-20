@@ -601,7 +601,7 @@ namespace Kartonagen
             Process p = new Process();
             p.StartInfo = info;
             p.Start();
-
+            Console.WriteLine("Start des wartens auf Drucker");
             p.WaitForInputIdle();
             System.Threading.Thread.Sleep(5000);
             if (false == p.CloseMainWindow())

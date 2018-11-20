@@ -50,12 +50,12 @@ namespace Kartonagen
                 {
                     Program.conn.Open();
                 }
-                MySqlCommand cmdReadKundeneu = new MySqlCommand("Select Umzuege_Kunden_idKunden from Transaktionen where datTransaktion > '" + Program.DateMachine(DateTime.Now.AddMonths(-11)) + "' group by Umzuege_Kunden_idKunden", Program.conn);
+                MySqlCommand cmdReadKundeneu = new MySqlCommand("Select Umzuege_Kunden_idKunden, datTransaktion from Transaktionen where datTransaktion > '" + Program.DateMachine(DateTime.Now.AddMonths(-3)) + "' group by Umzuege_Kunden_idKunden", Program.conn);
                 MySqlDataReader rdrKundeneu = cmdReadKundeneu.ExecuteReader();
                 while (rdrKundeneu.Read())
                 {
                     Kundenkanidaten.Remove(rdrKundeneu.GetInt32(0));
-                    Console.WriteLine("removed " + rdrKundeneu.GetInt32(0));
+                    Console.WriteLine("removed " + rdrKundeneu.GetInt32(0) + " weil Eintrag gefunden vom+ "+rdrKundeneu.GetDateTime(1));
                 }
                 rdrKundeneu.Close();
                 Program.conn.Close();

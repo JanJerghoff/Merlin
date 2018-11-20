@@ -74,12 +74,16 @@ namespace Kartonagen
             
             // Personendaten aus dem Kunden ziehen
 
-            MySqlCommand cmdReadKunde = new MySqlCommand("SELECT * FROM Kunden WHERE idKunden=" + textKundennummer.Text + " ;", Program.conn);
-            MySqlDataReader rdrKunde;
+            
 
             try
             {
-                rdrKunde = cmdReadKunde.ExecuteReader();
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+                MySqlCommand cmdReadKunde = new MySqlCommand("SELECT * FROM Kunden WHERE idKunden=" + textKundennummer.Text + " ;", Program.conn);
+                MySqlDataReader rdrKunde = cmdReadKunde.ExecuteReader();
                 while (rdrKunde.Read())
                 {
                     IDKunde = rdrKunde.GetInt32(0);
@@ -89,17 +93,22 @@ namespace Kartonagen
                     textEmail.Text = rdrKunde[6] + "";
                 }
                 rdrKunde.Close();
+                Program.conn.Close();
             }
             catch (Exception sqlEx) { }
 
             // Fortschrittsdaten aus der DB ziehen
 
-            MySqlCommand cmdFort = new MySqlCommand("SELECT * FROM Umzugsfortschritt WHERE Umzuege_idUmzuege = '" + umzNr + "' LIMIT 1;", Program.conn);
-            MySqlDataReader rdrF;
+            ;
 
             try
             {
-                rdrF = cmdFort.ExecuteReader();
+                if (Program.conn.State != ConnectionState.Open)
+                {
+                    Program.conn.Open();
+                }
+                MySqlCommand cmdFort = new MySqlCommand("SELECT * FROM Umzugsfortschritt WHERE Umzuege_idUmzuege = '" + umzNr + "' LIMIT 1;", Program.conn);
+                MySqlDataReader rdrF = cmdFort.ExecuteReader();
                 while (rdrF.Read())
                 {
                     for (int i = 0; i < 19; i++)        //Schleife über alle Int-Datetime-Paare
@@ -153,6 +162,7 @@ namespace Kartonagen
 
                 }
                 rdrF.Close();
+                Program.conn.Close();
             }
             catch (Exception exc) {
                 Program.FehlerLog(exc.ToString(),"Abrufen der Fortschrittsdaten aus der DB zum Füllen");
@@ -242,15 +252,7 @@ namespace Kartonagen
         }
 
         private void push(String st) {
-            MySqlCommand cmdAdd = new MySqlCommand(st, Program.conn);
-            try
-            {
-                cmdAdd.ExecuteNonQuery();
-            }
-            catch (Exception sqlEx)
-            {
-                textUmzugLog.AppendText(sqlEx.ToString());
-            }
+            Program.absender(st, "aktualisieren des Umzugsfortschritts");
         }
 
         private void buttonKVAPost_Click(object sender, EventArgs e)
