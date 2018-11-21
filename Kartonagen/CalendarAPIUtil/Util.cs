@@ -492,7 +492,7 @@ namespace Kartonagen.CalendarAPIUtil
         public Boolean targetedDelete (DateTime Datum, String Color, String DescriptionQ, Boolean isGanztaegig)
         {
 
-
+            Console.WriteLine("Delete mit:"+Datum.ToShortDateString()+" "+Color+" '"+DescriptionQ+"',"+isGanztaegig.ToString());
 
             // Define parameters of request.
             EventsResource.ListRequest request = dienst.Events.List("primary");
@@ -517,7 +517,7 @@ namespace Kartonagen.CalendarAPIUtil
                     {
                         if (item.Start.Date != null)
                         {
-                            if (item.Start.Date.Length > 0)
+                            if (item.Start.Date.Length > 0 && item.ColorId != null)
                             {
                                 echtEvent.AddLast(item);
                             }
@@ -527,7 +527,10 @@ namespace Kartonagen.CalendarAPIUtil
                 }
 
                 else { // Alle Termine übernehmen
-                    echtEvent.AddLast(item);
+                    if (item.ColorId != null)
+                    {
+                        echtEvent.AddLast(item);
+                    }
                 }
 
             }
@@ -581,7 +584,7 @@ namespace Kartonagen.CalendarAPIUtil
                         }
                     }
                 }
-            }
+            } // 
             else {
                 foreach (var item in echtEvent)
                 {

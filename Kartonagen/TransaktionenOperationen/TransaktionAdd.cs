@@ -205,8 +205,13 @@ namespace Kartonagen
             if (radioUnbenutzt.Checked) { unbenutzt = true; }
 
             Adresse Adressobj = new Adresse(textStraße.Text,textHausnummer.Text, textOrt.Text, textPLZ.Text, "Deutschland", 0,"","",0,0,0);
-            Transobj = new Transaktion(Decimal.ToInt32(numericKarton.Value), Decimal.ToInt32(numericGlaeserkarton.Value), Decimal.ToInt32(numericFlaschenKarton.Value), Decimal.ToInt32(numericKleiderKarton.Value), kaufkartons,unbenutzt,textBemerkung.Text,textRechnungsnr.Text, Program.getUtil().mergeDatetime(dateTimeTransaktion.Value,timeLieferzeit.Value),Adressobj.IDAdresse1,Adressobj,umzObj.Id,umzObj.IdKunden,"0");
-            
+            if (radioAusgang.Checked)
+            {
+                Transobj = new Transaktion(Decimal.ToInt32(numericKarton.Value), Decimal.ToInt32(numericGlaeserkarton.Value), Decimal.ToInt32(numericFlaschenKarton.Value), Decimal.ToInt32(numericKleiderKarton.Value), kaufkartons, unbenutzt, textBemerkung.Text, textRechnungsnr.Text, Program.getUtil().mergeDatetime(dateTimeTransaktion.Value, timeLieferzeit.Value), Adressobj.IDAdresse1, Adressobj, umzObj.Id, umzObj.IdKunden, "0");
+            }
+            else {
+                Transobj = new Transaktion(-(Decimal.ToInt32(numericKarton.Value)), -(Decimal.ToInt32(numericGlaeserkarton.Value)), -(Decimal.ToInt32(numericFlaschenKarton.Value)), -(Decimal.ToInt32(numericKleiderKarton.Value)), kaufkartons, unbenutzt, textBemerkung.Text, textRechnungsnr.Text, Program.getUtil().mergeDatetime(dateTimeTransaktion.Value, timeLieferzeit.Value), Adressobj.IDAdresse1, Adressobj, umzObj.Id, umzObj.IdKunden, "0");
+            }
             //Ergebnis-Transaktionsnummer anzeigen
             textResultatsNummer.Text = Transobj.getId()+"";
 

@@ -155,9 +155,7 @@ namespace Kartonagen.Objekte
             insert += "'" + Program.DateMachine(datTransaktion) + " " + Program.ZeitMachine(datTransaktion) + "', ";
             insert += idAdresse+",";
             insert += "0);";
-
-            Program.QueryLog(insert);
-
+            
             Program.absender(insert, "Einfügen der neuen Transaktion in die Datenank");
 
 
