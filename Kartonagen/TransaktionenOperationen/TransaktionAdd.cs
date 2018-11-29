@@ -184,11 +184,12 @@ namespace Kartonagen
             //}            
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonTransaktionHinzufuegen_click(object sender, EventArgs e)
         {
             // Alte Transaktionsnummer löchen
 
             textResultatsNummer.Text = "";
+            Adresse Adressobj = null;
 
             // Häkchen gesetzt?
 
@@ -204,7 +205,20 @@ namespace Kartonagen
             Boolean unbenutzt = false;
             if (radioUnbenutzt.Checked) { unbenutzt = true; }
 
-            Adresse Adressobj = new Adresse(textStraße.Text,textHausnummer.Text, textOrt.Text, textPLZ.Text, "Deutschland", 0,"","",0,0,0);
+
+
+            if (radioAndereAdresse.Checked)
+            {
+                Adressobj = new Adresse(textStraße.Text, textHausnummer.Text, textOrt.Text, textPLZ.Text, "Deutschland", 0, "", "", 0, 0, 0);
+            }
+            else if (radioAuszugsadresse.Checked)
+            {
+                Adressobj = umzObj.auszug;
+            }
+            else if (radioEinzugsadresse.Checked) {
+                Adressobj = umzObj.einzug;
+            }
+
             if (radioAusgang.Checked)
             {
                 Transobj = new Transaktion(Decimal.ToInt32(numericKarton.Value), Decimal.ToInt32(numericGlaeserkarton.Value), Decimal.ToInt32(numericFlaschenKarton.Value), Decimal.ToInt32(numericKleiderKarton.Value), kaufkartons, unbenutzt, textBemerkung.Text, textRechnungsnr.Text, Program.getUtil().mergeDatetime(dateTimeTransaktion.Value, timeLieferzeit.Value), Adressobj.IDAdresse1, Adressobj, umzObj.Id, umzObj.IdKunden, "0");
@@ -212,10 +226,10 @@ namespace Kartonagen
             else {
                 Transobj = new Transaktion(-(Decimal.ToInt32(numericKarton.Value)), -(Decimal.ToInt32(numericGlaeserkarton.Value)), -(Decimal.ToInt32(numericFlaschenKarton.Value)), -(Decimal.ToInt32(numericKleiderKarton.Value)), kaufkartons, unbenutzt, textBemerkung.Text, textRechnungsnr.Text, Program.getUtil().mergeDatetime(dateTimeTransaktion.Value, timeLieferzeit.Value), Adressobj.IDAdresse1, Adressobj, umzObj.Id, umzObj.IdKunden, "0");
             }
+
             //Ergebnis-Transaktionsnummer anzeigen
             textResultatsNummer.Text = Transobj.getId()+"";
-
-
+            
             // Termine in Kalender pushen wenn relevant
             if (checkTermin.Checked)
             {
@@ -231,8 +245,6 @@ namespace Kartonagen
             numericGlaeserkarton.Value = 0;
             numericKleiderKarton.Value = 0;
             textRechnungsnr.Text = "";
-
-
 
             //
 
@@ -459,6 +471,11 @@ namespace Kartonagen
                 textHausnummer.Text = umzObj.auszug.Hausnummer1;
                 textOrt.Text = umzObj.auszug.Ort1;
                 textPLZ.Text = umzObj.auszug.PLZ1;
+
+                textStraße.Enabled = false;
+                textHausnummer.Enabled = false;
+                textOrt.Enabled = false;
+                textPLZ.Enabled = false;
             }
         }
 
@@ -470,8 +487,30 @@ namespace Kartonagen
                 textHausnummer.Text = umzObj.einzug.Hausnummer1;
                 textOrt.Text = umzObj.einzug.Ort1;
                 textPLZ.Text = umzObj.einzug.PLZ1;
+
+                textStraße.Enabled = false;
+                textHausnummer.Enabled = false;
+                textOrt.Enabled = false;
+                textPLZ.Enabled = false;
             }
             
+        }
+
+        private void radioAndereAdresse_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioAndereAdresse.Checked) {
+
+                textStraße.Text = String.Empty;
+                textHausnummer.Text = String.Empty;
+                textOrt.Text = String.Empty;
+                textPLZ.Text = String.Empty;
+
+                textStraße.Enabled = true;
+                textHausnummer.Enabled = true;
+                textOrt.Enabled = true;
+                textPLZ.Enabled = true;
+
+            }
         }
     }
     

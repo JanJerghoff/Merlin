@@ -198,7 +198,7 @@ namespace Kartonagen.Objekte
 
             String longInsert = "UPDATE Transaktionen SET ";
 
-            longInsert += "datTransaktion = '" + Program.DateMachine(DatKalender) + "', ";
+            longInsert += "datTransaktion = '" + Program.DateMachine(DatTransaktion) + "', ";
             longInsert += "Kartons = " + Kartons1 + ", ";
             longInsert += "FlaschenKartons = " + Flaschenkartons1 + ", ";
             longInsert += "GlaeserKartons = " + Glaeserkartons1 + ", ";
@@ -209,7 +209,7 @@ namespace Kartonagen.Objekte
             longInsert += "UserChanged = '" + UserChanged1+idBearbeitend + "', ";
             longInsert += "unbenutzt = " + unbenutzTemp + ", ";
             longInsert += "RechnungsNr = '" + Rechnungsnummer1 + "', ";
-            longInsert += "timeTransaktion = '" + Program.DateMachine(datTransaktion) + " " + Program.ZeitMachine(datTransaktion) + "', ";
+            longInsert += "timeTransaktion = '" + Program.DateMachine(DatKalender) + " " + Program.ZeitMachine(DatKalender) + "', ";
             longInsert += "final = " + 0 + " WHERE idTransaktionen = "+id+";";
             
             Program.absender(longInsert, "Absenden der Änderung an der Transaktion");
