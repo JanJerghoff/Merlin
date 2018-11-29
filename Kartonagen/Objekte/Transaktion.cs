@@ -324,13 +324,10 @@ namespace Kartonagen.Objekte
             if (Kleiderkartons1 != 0)
             {
                 Body += Kleiderkartons1.ToString().Replace("-", "") + " Kleiderkartons " + Environment.NewLine;
-            }
-            
+            }            
 
-           // Body += ", Zeichen =" + Program.getBearbeitender();
-
-            //if (radioEingang.Checked) { Body += " tatsächliche Kartonzahl nachkorrigieren"; }
-            
+            Body += Bemerkung;
+                        
             return Body;
         }
 

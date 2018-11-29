@@ -205,7 +205,6 @@ namespace Kartonagen
                 {
                     Program.conn.Open();
                 }
-
                 MySqlCommand cmdRead = new MySqlCommand("SELECT t.Kartons, t.Flaschenkartons, t.Glaeserkartons, t.Kleiderkartons, t.timeTransaktion, k.Anrede, k.Vorname, k.Nachname, k.Telefonnummer, k.Handynummer, t.Bemerkungen, u.idUmzuege, k.idKunden, t.idTransaktionen FROM Transaktionen t, Kunden k, Umzuege u WHERE t.Umzuege_Kunden_idKunden = k.idKunden AND u.idUmzuege = t.Umzuege_idUmzuege AND t.datTransaktion = '" + Program.DateMachine(dateTransaktion.Value) + "' ORDER BY timeTransaktion ASC;", Program.conn);
                 MySqlDataReader rdr = cmdRead.ExecuteReader();
                 while (rdr.Read())
