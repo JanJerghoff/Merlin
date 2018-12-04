@@ -67,7 +67,7 @@ namespace Kartonagen
             labelAbholung.Visible = false;
 
             umzObj = new Umzug(umzNummer);
-            kundenObj = new Kunde(umzObj.IdKunden);
+            kundenObj = umzObj.getKunde();
 
             // Umzugsdaten einfüllen
             textKundennummer.Text = umzObj.IdKunden+"";
@@ -90,15 +90,17 @@ namespace Kartonagen
                 {
                     Program.conn.Open();
                 }
-                MySqlCommand cmdReadKonto = new MySqlCommand("SELECT Kartons, GlaeserKartons, FlaschenKartons, KleiderKartons FROM Transaktionen WHERE Umzuege_Kunden_idKunden=" + textKundennummer.Text + " AND unbenutzt != 2;", Program.conn);
+                MySqlCommand cmdReadKonto = new MySqlCommand("SELECT Kartons, GlaeserKartons, FlaschenKartons, KleiderKartons FROM Transaktionen WHERE Umzuege_Kunden_idKunden=" + kundenObj.Id + " AND unbenutzt != 2;", Program.conn);
                 MySqlDataReader rdrKonto = cmdReadKonto.ExecuteReader();
+
+                Console.WriteLine("Suche für Kundennummer "+kundenObj.Id);
+
                 while (rdrKonto.Read())
                 {
                     Kartons += rdrKonto.GetInt32(0);
                     GlaeserKartons += rdrKonto.GetInt32(1);
                     FlaschenKartons += rdrKonto.GetInt32(2);
                     KleiderKartons += rdrKonto.GetInt32(3);
-
                 }
                 rdrKonto.Close();
                 Program.conn.Close();

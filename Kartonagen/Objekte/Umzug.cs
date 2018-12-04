@@ -234,17 +234,14 @@ namespace Kartonagen
                 if (AdresseAuszug != 0)
                 {
                     auszug = new Adresse(AdresseAuszug);
-                   // auszug = new Adresse((String)tempAuszug[0], (String)tempAuszug[1], (String)tempAuszug[2], (String)tempAuszug[3], (String)tempAuszug[4], (int)tempAuszug[5], (String)tempAuszug[6], (String)tempAuszug[7], (int)tempAuszug[8], (int)tempAuszug[9], (int)tempAuszug[10]);
                 }
 
                 if (AdresseEinzug1 != 0)
                 {
                     einzug = new Adresse(AdresseEinzug);
-                    //einzug = new Adresse((String)tempEinzug[0], (String)tempEinzug[1], (String)tempEinzug[2], (String)tempEinzug[3], (String)tempEinzug[4], (int)tempEinzug[5], (String)tempEinzug[6], (String)tempEinzug[7], (int)tempEinzug[8], (int)tempEinzug[9], (int)tempEinzug[10]);
                 }
-
-                //TODO Native Methoden benutzen
-
+                
+                
             }
             catch (Exception sqlEx)
             {
@@ -1383,43 +1380,7 @@ namespace Kartonagen
             // Rückgabe fertiger Body
             return Body;
         }
-
-        //public void selbstvalidieren() {
-            
-
-        //    //Kunde laden aus der nummer wenn nicht schon geladen
-        //    if (umzugsKunde == null || umzugsKunde.Id == 0) {
-        //        umzugsKunde = new Kunde(idKunden);
-        //    }
-
-            
-
-        //    //If Umzugsid leer, finde korrekte eigene ID und update
-        //    if (id == 0 || id == null) {
-                
-        //        MySqlCommand cmdRead = new MySqlCommand("SELECT idUmzuege FROM Umzuege WHERE Kunden_idKunden = " + idKunden + " AND datUmzug = '"+Program.DateMachine(DatUmzug)+ "' AND datBesichtigung = '" + Program.DateMachine(DatBesichtigung) + "' ;", Program.conn);
-        //        MySqlDataReader rdr;
-
-        //        try
-        //        {
-        //            rdr = cmdRead.ExecuteReader();
-        //            while (rdr.Read())
-        //            {
-        //                Id = rdr.GetInt32(0);
-        //            }
-        //            rdr.Close();
-                    
-        //        }
-        //        catch (Exception sqlEx)
-        //        {
-        //            Program.FehlerLog(sqlEx.ToString(), "Abrufen der UmzugsID bei der Selbstverifikation");
-        //            throw sqlEx;
-        //        }
-        //    }
-
-        //    return;
-
-        //}
+        
 
         private String hvzString()
         {
@@ -1494,6 +1455,23 @@ namespace Kartonagen
                 Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Einzug", 3, datUmzug.Date.AddDays(-6), datUmzug.Date.AddDays(-6));
             }
         }
-        
+
+        public Kunde getKunde() {
+            if (umzugsKunde != null)
+            {
+                return umzugsKunde;
+            }
+            else {
+                if (idKunden != 0)
+                {
+                    umzugsKunde = new Kunde(idKunden);
+                    return umzugsKunde;
+                }
+                else {
+                    return null;
+                }
+            }
+        }
+
     }
 }

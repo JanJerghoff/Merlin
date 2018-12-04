@@ -51,7 +51,7 @@ namespace Kartonagen.Objekte
 
                 while (rdrKunde.Read())
                 {
-                    id = rdrKunde.GetInt32(0);
+                    Id = rdrKunde.GetInt32(0);
                     anrede = rdrKunde.GetString(1);
                     vorname = rdrKunde.GetString(2);
                     nachname = rdrKunde.GetString(3);
@@ -73,8 +73,7 @@ namespace Kartonagen.Objekte
             {
                 Program.FehlerLog(sqlEx.ToString(), "Abrufen des Kunden "+id+" zur Objekterzeugung");
             }
-
-            //anschrift = new Adresse(tempStr, tempHausnummer, tempOrt, tempPLZ, "", 0, "", "", 0, 0, 0);
+            
         }
 
         public Kunde(String anrede, String Vorname, String Nachname, String Telefonnummer, String Handynummer, String Email, String Strasse, String Hausnummer, String PLZ, String Ort, String Land, String UserChanged, String Bemerkung) {
