@@ -248,7 +248,6 @@ namespace Kartonagen
 
             if (radioEingangAendern.Checked)
             {
-
                 transObj.Kartons1 = decimal.ToInt32(decimal.Zero - numericKartonAendern.Value);
                 transObj.Kleiderkartons1 = decimal.ToInt32(decimal.Zero - numericKleiderKartonAendern.Value);
                 transObj.Glaeserkartons1 = decimal.ToInt32(decimal.Zero - numericGlaeserKartonAendern.Value);

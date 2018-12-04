@@ -237,19 +237,12 @@ namespace Kartonagen
         public void umzugAenderungFuellem()
         {         // FulleM. Sic!           
 
-            if (umzObj != null)
+            if (umzObj == null)
             {
-
+                Program.FehlerLog("", "Fehler kein Umzugsobjekt in UmzugAenderungFülleM");
+                return;
             }
-            else {
-            
-             Program.FehlerLog("", "Fehler kein Umzugsobjekt in UmzugAenderungFülleM");
-             return;
-                
-            }
-
-
-
+           
             //UserSpeicher = umzObj.UserChanged1;
 
             textUmzNummerBlock.Text = umzObj.Id.ToString();

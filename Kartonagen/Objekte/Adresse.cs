@@ -90,6 +90,7 @@ namespace Kartonagen.Objekte
                     Aufzug = rdr.GetInt32(6);
                     Stockwerke = rdr.GetString(7);
                     Haustyp = rdr.GetString(8);
+                    HVZ = rdr.GetInt32(9);
                     Laufmeter = rdr.GetInt32(10);
                     AussenAufzug = rdr.GetInt32(11);
                 }
@@ -100,7 +101,7 @@ namespace Kartonagen.Objekte
             {
                 Program.FehlerLog(sqlEx.ToString(), "Abrufen der Adresse Nummer " + id);
             }
-
+            
         }
 
         public string Straße1 { get => Straße; set => Straße = value; }

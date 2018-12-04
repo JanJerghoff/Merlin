@@ -1023,8 +1023,13 @@ namespace Kartonagen
             if (statUmzug != 0) {
 
                 if (statUmzug == 1) {
+
+                    log.AppendText(Schilderkillen());
+
                     if (Program.getUtil().targetedDelete(DatUmzug, "11", "Umzugsnummer:" + id, true)) {
                         log.AppendText("Umzug aus Kalender gelöscht "+Environment.NewLine);
+                        
+
                     }
                     else
                     {
@@ -1045,6 +1050,8 @@ namespace Kartonagen
                 }
                 else if (statUmzug == 3)
                 {
+                    log.AppendText(Schilderkillen());
+
                     if (Program.getUtil().targetedDelete(DatUmzug, "2", "Umzugsnummer:" + id, true))
                     {
                         log.AppendText("Umzug aus Kalender gelöscht " + Environment.NewLine);
@@ -1443,23 +1450,46 @@ namespace Kartonagen
 
         }
 
+        private String Schilderkillen() {
+
+            String ret = String.Empty;
+
+            if (auszug.HVZ1 == 1) {
+                if (Program.getUtil().targetedDelete(datUmzug.Date.AddDays(-6), "3", "Umzugsnummer:" + id, true)) {
+                    ret += "Schilderstellen Auszug entfernt"+Environment.NewLine;
+                }
+            }
+
+            if (einzug.HVZ1 == 1)
+            {
+                if (Program.getUtil().targetedDelete(datUmzug.Date.AddDays(-6), "3", "Umzugsnummer:" + id, true))
+                {
+                    ret += "Schilderstellen Einzug entfernt" + Environment.NewLine;
+                }
+            }
+
+            if (ret.Equals(String.Empty))
+            {
+                return "Schilderstellen nicht gefunden";
+            }
+            else {
+                return ret;
+            }
+        }
+
         private void Schilderstellen()
         {
             //Schilder
             if (auszug.HVZ1 == 1)
             {
-                string calId = "Umzugsnummer:" + id + "\r\n";
-
-                String Body = auszug.Straße1 + " " + auszug.Hausnummer1 + ", " + auszug.PLZ1 + " " + auszug.Ort1;
+                String Body = "Umzugsnummer:" + id + Environment.NewLine +  auszug.Straße1 + " " + auszug.Hausnummer1 + ", " + auszug.PLZ1 + " " + auszug.Ort1;
 
                 Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Auszug", 3, datUmzug.Date.AddDays(-6), datUmzug.Date.AddDays(-6));
             }
 
             if (einzug.HVZ1 == 1)
             {
-                string calId = "Umzugsnummer:" + id + "\r\n";
-
-                String Body = einzug.Straße1 + " " + einzug.Hausnummer1 + ", " + einzug.PLZ1 + " " + einzug.Ort1;
+                String Body = "Umzugsnummer:" + id + Environment.NewLine + einzug.Straße1 + " " + einzug.Hausnummer1 + ", " + einzug.PLZ1 + " " + einzug.Ort1;
 
                 Program.getUtil().kalenderEventEintragGanz(SchilderHeader(), Body, "Einzug", 3, datUmzug.Date.AddDays(-6), datUmzug.Date.AddDays(-6));
             }
