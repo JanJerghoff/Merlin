@@ -122,6 +122,47 @@ namespace Kartonagen
             textBemerkung.Text = transObj.Bemerkung1;
             textBemerkungAendern.Text = transObj.Bemerkung1;
 
+            //Adressen
+            if (transObj.IDAdresse1 != 0)
+            {
+                textStraße.Text = transObj.Adresse.Straße1;
+                textStrasseAendern.Text = transObj.Adresse.Straße1;
+                textHausnummer.Text = transObj.Adresse.Hausnummer1;
+                textHausnummerAendern.Text = transObj.Adresse.Hausnummer1;
+                textOrt.Text = transObj.Adresse.Ort1;
+                textOrtAendern.Text = transObj.Adresse.Ort1;
+                textPLZ.Text = transObj.Adresse.PLZ1;
+                textPLZAendern.Text = transObj.Adresse.PLZ1;
+
+                if (transObj.IDAdresse1 == umzObj.auszug.IDAdresse1)
+                {
+                    radioAuszugsadresse.Checked = true;
+                    radioAuszugsadresseAendern.Checked = true;
+                }
+                else if (transObj.IDAdresse1 == umzObj.einzug.IDAdresse1)
+                {
+                    radioEinzugsadresse.Checked = true;
+                    radioEinzugsadresseAendern.Checked = true;
+                }
+                else {
+                    radioAndereAdresse.Checked = true;
+                    radioandereEingabeAendern.Checked = true;
+                }
+            }
+            else {
+
+                textStraße.Text = String.Empty;
+                textStrasseAendern.Text = String.Empty;
+                textHausnummer.Text = String.Empty;
+                textHausnummerAendern.Text = String.Empty;
+                textOrt.Text = String.Empty;
+                textOrtAendern.Text = String.Empty;
+                textPLZ.Text = String.Empty;
+                textPLZAendern.Text = String.Empty;
+
+                radioAndereAdresse.Checked = true ;
+                radioandereEingabeAendern.Checked = true;
+            }
             // Rechnungsnummer einfüllen
             textRechnungsnummer.Text = transObj.Rechnungsnummer1;
             textRechnungsnummerAendern.Text = transObj.Rechnungsnummer1;
@@ -315,6 +356,55 @@ namespace Kartonagen
         private void radioEingangAendern_CheckedChanged(object sender, EventArgs e)
         {
             groupBox4.Enabled = true;
+        }
+
+        private void radioAuszugsadresseAendern_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioAuszugsadresseAendern.Checked)
+            {
+
+                textStrasseAendern.Text = umzObj.auszug.Straße1;
+                textHausnummerAendern.Text = umzObj.auszug.Hausnummer1;
+                textOrtAendern.Text = umzObj.auszug.Ort1;
+                textPLZAendern.Text = umzObj.auszug.PLZ1;
+
+                textStrasseAendern.Enabled = false;
+                textHausnummerAendern.Enabled = false;
+                textOrtAendern.Enabled = false;
+                textPLZAendern.Enabled = false;
+
+            }
+        }
+
+        private void radioEinzugsadresseAendern_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioEinzugsadresseAendern.Checked)
+            {
+
+                textStrasseAendern.Text = umzObj.einzug.Straße1;
+                textHausnummerAendern.Text = umzObj.einzug.Hausnummer1;
+                textOrtAendern.Text = umzObj.einzug.Ort1;
+                textPLZAendern.Text = umzObj.einzug.PLZ1;
+
+                textStrasseAendern.Enabled = false;
+                textHausnummerAendern.Enabled = false;
+                textOrtAendern.Enabled = false;
+                textPLZAendern.Enabled = false;
+
+            }
+        }
+
+        private void radioandereEingabeAendern_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioandereEingabeAendern.Checked)
+            {
+                
+                textStrasseAendern.Enabled = true;
+                textHausnummerAendern.Enabled = true;
+                textOrtAendern.Enabled = true;
+                textPLZAendern.Enabled = true;
+
+            }
         }
     }
 }

@@ -188,6 +188,24 @@ namespace Kartonagen
 
         private void buttonTransaktionHinzufuegen_click(object sender, EventArgs e)
         {
+            // CHeck auf Unsinn -> kommen am Ende negative Kartonagen raus?
+
+            if (radioEingang.Checked) {
+
+                int Kartons = int.Parse(textKartonAusstehend.Text);
+                int Flaschenkartons = int.Parse(textFlaschenAusstehend.Text);
+                int GlaeserKartons = int.Parse(textGlaeserAusstehend.Text);
+                int KleiderKartons = int.Parse(textKleiderAusstehend.Text);
+                
+                if ((Kartons<numericKarton.Value)|| (Flaschenkartons < numericFlaschenKarton.Value) || (GlaeserKartons < numericGlaeserkarton.Value) || (KleiderKartons < numericKleiderKarton.Value)) {
+                    var bestätigung = MessageBox.Show("Eingegebener Karton-Eingang übersteigt ausstehende Kartons "+Environment.NewLine+"Trotzdem Anlegen?", "Erinnerung", MessageBoxButtons.YesNo);
+                    if (bestätigung == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
+            }
+
             // Alte Transaktionsnummer löchen
 
             textResultatsNummer.Text = "";
