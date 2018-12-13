@@ -1062,7 +1062,6 @@
             this.groupBox7.Controls.Add(this.radioandereEingabeAendern);
             this.groupBox7.Controls.Add(this.radioEinzugsadresseAendern);
             this.groupBox7.Controls.Add(this.radioAuszugsadresseAendern);
-            this.groupBox7.Enabled = false;
             this.groupBox7.Location = new System.Drawing.Point(9, 465);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox7.Name = "groupBox7";
@@ -1188,6 +1187,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1753, 1055);
             this.Controls.Add(this.textTransaktion);
             this.Controls.Add(this.buttonLoeschen);
@@ -1202,6 +1203,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TransaktionenSearch";
             this.Text = "TransaktionenSearch";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericTransaktionsnummer)).EndInit();

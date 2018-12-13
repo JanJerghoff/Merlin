@@ -138,15 +138,30 @@ namespace Kartonagen
                 {
                     radioAuszugsadresse.Checked = true;
                     radioAuszugsadresseAendern.Checked = true;
+
+                    textStrasseAendern.Enabled = false;
+                    textHausnummerAendern.Enabled = false;
+                    textOrtAendern.Enabled = false;
+                    textPLZAendern.Enabled = false;
                 }
                 else if (transObj.IDAdresse1 == umzObj.einzug.IDAdresse1)
                 {
                     radioEinzugsadresse.Checked = true;
                     radioEinzugsadresseAendern.Checked = true;
+
+                    textStrasseAendern.Enabled = false;
+                    textHausnummerAendern.Enabled = false;
+                    textOrtAendern.Enabled = false;
+                    textPLZAendern.Enabled = false;
                 }
                 else {
                     radioAndereAdresse.Checked = true;
                     radioandereEingabeAendern.Checked = true;
+
+                    textStrasseAendern.Enabled = true;
+                    textHausnummerAendern.Enabled = true;
+                    textOrtAendern.Enabled = true;
+                    textPLZAendern.Enabled = true;
                 }
             }
             else {
@@ -306,6 +321,41 @@ namespace Kartonagen
             transObj.Rechnungsnummer1 = textRechnungsnummerAendern.Text;
             transObj.Unbenutzt = radioUnbenutztAendern.Checked;
             transObj.Bemerkung1 = textBemerkungAendern.Text;
+
+            //Adressen regeln
+            if (transObj.IDAdresse1 != 0)
+            {
+                // Hier wird geupdated
+
+                if ((radioAuszugsadresse.Checked && radioAusgangAendern.Checked) || (radioEinzugsadresse.Checked && radioEinzugsadresseAendern.Checked) || (radioAndereAdresse.Checked && radioandereEingabeAendern.Checked))
+                {
+                    // Bestehende ID wird geändert (oder auch nicht)-> Update gegen transobj.Adresse fahren
+                    transObj.Adresse.Straße1 = textStrasseAendern.Text;
+                    transObj.Adresse.Hausnummer1 = textHausnummerAendern.Text;
+                    transObj.Adresse.Ort1 = textOrtAendern.Text;
+                    transObj.Adresse.PLZ1 = textPLZAendern.Text;
+
+                    transObj.updateDB(Userchanged);
+
+                }
+                else {
+                    //Hier ist eine andere Adresse gewählt, also Updates gegen Transaktion und Adresse fahren
+                    if (radioEinzugsadresseAendern.Checked) {
+                        transObj.Adresse = umzObj.einzug;
+                    }
+                    else if (radioAuszugsadresseAendern.Checked) {
+                        transObj.Adresse = umzObj.auszug;
+                    }
+                    else
+                    {
+                        transObj.Adresse = new Adresse(textStrasseAendern.Text, textHausnummerAendern.Text, textOrtAendern.Text, textPLZAendern.Text, "Deutschland", 0, "", "", 0, 0, 0);
+                    }
+                    
+                }
+
+            }
+
+
 
             transObj.updateDB(idBearbeitend+"");
 

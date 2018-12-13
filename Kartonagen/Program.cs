@@ -43,7 +43,7 @@ namespace Kartonagen
         // Buero-geänderte-version
 
         // Deployment
-        internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=UmzuegeNeu;port=3306;password=he62okv;");
+        internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=Rita;database=UmzuegeNeu;port=3306;password=RitaLucy!;");
         internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
 
         //Test Home
