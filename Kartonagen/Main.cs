@@ -572,5 +572,10 @@ namespace Kartonagen
         {
             Program.getUtil().KalenderDBCheck(textMainLog);
         }
+
+        private void radioMainBenutzerRita_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

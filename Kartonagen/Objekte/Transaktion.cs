@@ -195,6 +195,7 @@ namespace Kartonagen.Objekte
             int unbenutzTemp = 0;
             if (unbenutzt) { unbenutzTemp = 1; }
 
+            adresse.updateDB();
 
             String longInsert = "UPDATE Transaktionen SET ";
 
@@ -214,8 +215,7 @@ namespace Kartonagen.Objekte
             
             Program.absender(longInsert, "Absenden der Änderung an der Transaktion");
 
-        }
-        
+        }        
 
         //Selbst entfernen in Vorbereitung eines Updates, dann erneutes Hinzufügen
         public Boolean KalenderRemove() {

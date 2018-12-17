@@ -334,28 +334,25 @@ namespace Kartonagen
                     transObj.Adresse.Hausnummer1 = textHausnummerAendern.Text;
                     transObj.Adresse.Ort1 = textOrtAendern.Text;
                     transObj.Adresse.PLZ1 = textPLZAendern.Text;
+                }                
 
-                    transObj.updateDB(Userchanged);
-
+            }
+            else {
+                // Hier ist die Adresse vorher null / die Adressen stimmen nicht überein, also einfach straight übernehmen
+                if (radioEinzugsadresseAendern.Checked)
+                {
+                    transObj.Adresse = umzObj.einzug;
                 }
-                else {
-                    //Hier ist eine andere Adresse gewählt, also Updates gegen Transaktion und Adresse fahren
-                    if (radioEinzugsadresseAendern.Checked) {
-                        transObj.Adresse = umzObj.einzug;
-                    }
-                    else if (radioAuszugsadresseAendern.Checked) {
-                        transObj.Adresse = umzObj.auszug;
-                    }
-                    else
-                    {
-                        transObj.Adresse = new Adresse(textStrasseAendern.Text, textHausnummerAendern.Text, textOrtAendern.Text, textPLZAendern.Text, "Deutschland", 0, "", "", 0, 0, 0);
-                    }
-                    
+                else if (radioAuszugsadresseAendern.Checked)
+                {
+                    transObj.Adresse = umzObj.auszug;
+                }
+                else
+                {
+                    transObj.Adresse = new Adresse(textStrasseAendern.Text, textHausnummerAendern.Text, textOrtAendern.Text, textPLZAendern.Text, "Deutschland", 0, "", "", 0, 0, 0);
                 }
 
             }
-
-
 
             transObj.updateDB(idBearbeitend+"");
 
@@ -369,8 +366,7 @@ namespace Kartonagen
             }
 
             //Neu Fuellen
-            fuellen(int.Parse(textTransaktion.Text));
-            
+            fuellen(int.Parse(textTransaktion.Text));            
         }
 
         private void buttonUmzugsNrSuche_Click(object sender, EventArgs e)
