@@ -1,16 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using Google.Apis.Auth.OAuth2;
-using Google.Apis.Calendar.v3;
 using Google.Apis.Calendar.v3.Data;
-using Google.Apis.Services;
-using Google.Apis.Util.Store;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading;
 using System.Diagnostics;
-using System.Xml;
 using System.Text.RegularExpressions;
 using Kartonagen.CalendarAPIUtil;
 using System.Data;
@@ -43,7 +37,7 @@ namespace Kartonagen
         // Buero-geänderte-version
 
         // Deployment
-        internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=Rita;database=UmzuegeNeu;port=3306;password=RitaLucy!;");
+        internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=UmzuegeNeu;port=3306;password=he62okv;");
         internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
 
         internal static MySqlConnection connRita = new MySqlConnection("server = 192.168.2.102;user=Rita;database=UmzuegeNeu;port=3306;password=RitaLucy!;");
@@ -686,8 +680,31 @@ namespace Kartonagen
             
         }
 
-       
-        
+        public static MySqlConnection getConnection (int bearbeitender) {
+
+            MySqlConnection ret = new MySqlConnection("server = 192.168.2.102;user=root;database=UmzuegeNeu;port=3306;password=he62okv;");
+
+            switch (bearbeitender)
+            {
+                case 0:
+                    ret = connRita;
+                    break;
+
+                case 1:
+                    ret = connJonas;
+                    break;
+
+                case 4:
+                    ret = connVorne;
+                    break;
+
+                default:
+                    break;
+            }
+
+            return ret;
+        }
+
 
 
 

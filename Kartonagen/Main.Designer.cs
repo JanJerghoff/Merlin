@@ -402,7 +402,6 @@
             this.radioMainBenutzerRita.TabIndex = 0;
             this.radioMainBenutzerRita.Text = "Rita";
             this.radioMainBenutzerRita.UseVisualStyleBackColor = true;
-            this.radioMainBenutzerRita.CheckedChanged += new System.EventHandler(this.radioMainBenutzerRita_CheckedChanged);
             // 
             // textMainLog
             // 

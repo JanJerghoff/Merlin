@@ -18,6 +18,9 @@ namespace Kartonagen
 {
     public partial class mainForm : Form
     {
+
+        MySqlConnection selectedConnection;
+
         public mainForm()
         {
             this.Icon = Properties.Resources.icon_Fnb_icon;
@@ -41,17 +44,18 @@ namespace Kartonagen
             {
                 return  3;
             }
-            if (radioMainBenutzerJan.Checked)
-            {
-                return 3;
-            }
             if (radioMainBenutzerNora.Checked)
             {
                 return 4;
             }
 
-            return  8;
-            
+            return  8;            
+        }
+
+        public MySqlConnection getConnection() {
+
+            return selectedConnection;
+
         }
 
         private void buttonMainKundenAdd_Click(object sender, EventArgs e)
@@ -571,11 +575,6 @@ namespace Kartonagen
         private void button1_Click(object sender, EventArgs e)
         {
             Program.getUtil().KalenderDBCheck(textMainLog);
-        }
-
-        private void radioMainBenutzerRita_CheckedChanged(object sender, EventArgs e)
-        {
-            
-        }
+        }        
     }
 }
