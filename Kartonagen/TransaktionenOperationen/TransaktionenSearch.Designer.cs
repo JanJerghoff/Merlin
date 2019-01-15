@@ -41,9 +41,23 @@
             this.buttonUmzugsNrSuche = new System.Windows.Forms.Button();
             this.numericTransaktionsnummer = new System.Windows.Forms.NumericUpDown();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.groupBoxAdresse = new System.Windows.Forms.GroupBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.textOrt = new System.Windows.Forms.TextBox();
+            this.textPLZ = new System.Windows.Forms.TextBox();
+            this.textHausnummer = new System.Windows.Forms.TextBox();
+            this.textStraße = new System.Windows.Forms.TextBox();
+            this.radioAndereAdresse = new System.Windows.Forms.RadioButton();
+            this.radioEinzugsadresse = new System.Windows.Forms.RadioButton();
+            this.radioAuszugsadresse = new System.Windows.Forms.RadioButton();
             this.label18 = new System.Windows.Forms.Label();
             this.timeTransaktion = new System.Windows.Forms.DateTimePicker();
             this.textRechnungsnummer = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBemerkung = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioBenutzt = new System.Windows.Forms.RadioButton();
@@ -62,10 +76,24 @@
             this.radioEingang = new System.Windows.Forms.RadioButton();
             this.radioAusgang = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.textOrtAendern = new System.Windows.Forms.TextBox();
+            this.textPLZAendern = new System.Windows.Forms.TextBox();
+            this.textHausnummerAendern = new System.Windows.Forms.TextBox();
+            this.textStrasseAendern = new System.Windows.Forms.TextBox();
+            this.radioandereEingabeAendern = new System.Windows.Forms.RadioButton();
+            this.radioEinzugsadresseAendern = new System.Windows.Forms.RadioButton();
+            this.radioAuszugsadresseAendern = new System.Windows.Forms.RadioButton();
             this.label17 = new System.Windows.Forms.Label();
             this.timeAendern = new System.Windows.Forms.DateTimePicker();
             this.textRechnungsnummerAendern = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.textBemerkungAendern = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.radioBenutztAendern = new System.Windows.Forms.RadioButton();
             this.radioUnbenutztAendern = new System.Windows.Forms.RadioButton();
@@ -83,41 +111,15 @@
             this.radioEingangAendern = new System.Windows.Forms.RadioButton();
             this.radioAusgangAendern = new System.Windows.Forms.RadioButton();
             this.buttonAbsenden = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBemerkung = new System.Windows.Forms.TextBox();
             this.textTransaktionLog = new System.Windows.Forms.TextBox();
-            this.textBemerkungAendern = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.buttonLoeschen = new System.Windows.Forms.Button();
             this.textTransaktion = new System.Windows.Forms.TextBox();
-            this.groupBoxAdresse = new System.Windows.Forms.GroupBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.textOrt = new System.Windows.Forms.TextBox();
-            this.textPLZ = new System.Windows.Forms.TextBox();
-            this.textHausnummer = new System.Windows.Forms.TextBox();
-            this.textStraße = new System.Windows.Forms.TextBox();
-            this.radioAndereAdresse = new System.Windows.Forms.RadioButton();
-            this.radioEinzugsadresse = new System.Windows.Forms.RadioButton();
-            this.radioAuszugsadresse = new System.Windows.Forms.RadioButton();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.textOrtAendern = new System.Windows.Forms.TextBox();
-            this.textPLZAendern = new System.Windows.Forms.TextBox();
-            this.textHausnummerAendern = new System.Windows.Forms.TextBox();
-            this.textStrasseAendern = new System.Windows.Forms.TextBox();
-            this.radioandereEingabeAendern = new System.Windows.Forms.RadioButton();
-            this.radioEinzugsadresseAendern = new System.Windows.Forms.RadioButton();
-            this.radioAuszugsadresseAendern = new System.Windows.Forms.RadioButton();
+            this.labelHinweis = new System.Windows.Forms.Label();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericTransaktionsnummer)).BeginInit();
             this.groupBox8.SuspendLayout();
+            this.groupBoxAdresse.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericKleiderKarton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericGlaeserkarton)).BeginInit();
@@ -125,14 +127,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericKarton)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericKleiderKartonAendern)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericGlaeserKartonAendern)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericFlaschenKartonAendern)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericKartonAendern)).BeginInit();
             this.groupBox6.SuspendLayout();
-            this.groupBoxAdresse.SuspendLayout();
-            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox5
@@ -318,6 +319,143 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Bestehende Transaktion";
             // 
+            // groupBoxAdresse
+            // 
+            this.groupBoxAdresse.Controls.Add(this.label19);
+            this.groupBoxAdresse.Controls.Add(this.label20);
+            this.groupBoxAdresse.Controls.Add(this.label21);
+            this.groupBoxAdresse.Controls.Add(this.label36);
+            this.groupBoxAdresse.Controls.Add(this.textOrt);
+            this.groupBoxAdresse.Controls.Add(this.textPLZ);
+            this.groupBoxAdresse.Controls.Add(this.textHausnummer);
+            this.groupBoxAdresse.Controls.Add(this.textStraße);
+            this.groupBoxAdresse.Controls.Add(this.radioAndereAdresse);
+            this.groupBoxAdresse.Controls.Add(this.radioEinzugsadresse);
+            this.groupBoxAdresse.Controls.Add(this.radioAuszugsadresse);
+            this.groupBoxAdresse.Enabled = false;
+            this.groupBoxAdresse.Location = new System.Drawing.Point(17, 465);
+            this.groupBoxAdresse.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBoxAdresse.Name = "groupBoxAdresse";
+            this.groupBoxAdresse.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBoxAdresse.Size = new System.Drawing.Size(498, 179);
+            this.groupBoxAdresse.TabIndex = 90;
+            this.groupBoxAdresse.TabStop = false;
+            this.groupBoxAdresse.Text = "Adresse";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(411, 111);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(32, 18);
+            this.label19.TabIndex = 101;
+            this.label19.Text = "Ort";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(156, 111);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(38, 18);
+            this.label20.TabIndex = 100;
+            this.label20.Text = "PLZ";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(321, 66);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(108, 18);
+            this.label21.TabIndex = 99;
+            this.label21.Text = "Hausnummer";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(412, 24);
+            this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(58, 18);
+            this.label36.TabIndex = 98;
+            this.label36.Text = "Straße";
+            // 
+            // textOrt
+            // 
+            this.textOrt.Location = new System.Drawing.Point(202, 110);
+            this.textOrt.Margin = new System.Windows.Forms.Padding(4);
+            this.textOrt.Name = "textOrt";
+            this.textOrt.ReadOnly = true;
+            this.textOrt.Size = new System.Drawing.Size(200, 22);
+            this.textOrt.TabIndex = 97;
+            // 
+            // textPLZ
+            // 
+            this.textPLZ.Location = new System.Drawing.Point(11, 110);
+            this.textPLZ.Margin = new System.Windows.Forms.Padding(4);
+            this.textPLZ.Name = "textPLZ";
+            this.textPLZ.ReadOnly = true;
+            this.textPLZ.Size = new System.Drawing.Size(136, 22);
+            this.textPLZ.TabIndex = 96;
+            // 
+            // textHausnummer
+            // 
+            this.textHausnummer.Location = new System.Drawing.Point(176, 65);
+            this.textHausnummer.Margin = new System.Windows.Forms.Padding(4);
+            this.textHausnummer.Name = "textHausnummer";
+            this.textHausnummer.ReadOnly = true;
+            this.textHausnummer.Size = new System.Drawing.Size(136, 22);
+            this.textHausnummer.TabIndex = 95;
+            // 
+            // textStraße
+            // 
+            this.textStraße.Enabled = false;
+            this.textStraße.Location = new System.Drawing.Point(176, 23);
+            this.textStraße.Margin = new System.Windows.Forms.Padding(4);
+            this.textStraße.Name = "textStraße";
+            this.textStraße.ReadOnly = true;
+            this.textStraße.Size = new System.Drawing.Size(232, 22);
+            this.textStraße.TabIndex = 94;
+            // 
+            // radioAndereAdresse
+            // 
+            this.radioAndereAdresse.AutoSize = true;
+            this.radioAndereAdresse.Location = new System.Drawing.Point(17, 81);
+            this.radioAndereAdresse.Margin = new System.Windows.Forms.Padding(4);
+            this.radioAndereAdresse.Name = "radioAndereAdresse";
+            this.radioAndereAdresse.Size = new System.Drawing.Size(130, 21);
+            this.radioAndereAdresse.TabIndex = 93;
+            this.radioAndereAdresse.Text = "andere Eingabe";
+            this.radioAndereAdresse.UseVisualStyleBackColor = true;
+            // 
+            // radioEinzugsadresse
+            // 
+            this.radioEinzugsadresse.AutoSize = true;
+            this.radioEinzugsadresse.Location = new System.Drawing.Point(17, 53);
+            this.radioEinzugsadresse.Margin = new System.Windows.Forms.Padding(4);
+            this.radioEinzugsadresse.Name = "radioEinzugsadresse";
+            this.radioEinzugsadresse.Size = new System.Drawing.Size(130, 21);
+            this.radioEinzugsadresse.TabIndex = 92;
+            this.radioEinzugsadresse.Text = "Einzugsadresse";
+            this.radioEinzugsadresse.UseVisualStyleBackColor = true;
+            // 
+            // radioAuszugsadresse
+            // 
+            this.radioAuszugsadresse.AutoSize = true;
+            this.radioAuszugsadresse.Location = new System.Drawing.Point(17, 25);
+            this.radioAuszugsadresse.Margin = new System.Windows.Forms.Padding(4);
+            this.radioAuszugsadresse.Name = "radioAuszugsadresse";
+            this.radioAuszugsadresse.Size = new System.Drawing.Size(134, 21);
+            this.radioAuszugsadresse.TabIndex = 91;
+            this.radioAuszugsadresse.Text = "Auszugsadresse";
+            this.radioAuszugsadresse.UseVisualStyleBackColor = true;
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -347,6 +485,28 @@
             this.textRechnungsnummer.Size = new System.Drawing.Size(240, 22);
             this.textRechnungsnummer.TabIndex = 84;
             this.textRechnungsnummer.TabStop = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(8, 311);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(193, 18);
+            this.label13.TabIndex = 89;
+            this.label13.Text = "Bemerkungen bestehend";
+            // 
+            // textBemerkung
+            // 
+            this.textBemerkung.Location = new System.Drawing.Point(12, 333);
+            this.textBemerkung.Margin = new System.Windows.Forms.Padding(4);
+            this.textBemerkung.Multiline = true;
+            this.textBemerkung.Name = "textBemerkung";
+            this.textBemerkung.ReadOnly = true;
+            this.textBemerkung.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBemerkung.Size = new System.Drawing.Size(513, 102);
+            this.textBemerkung.TabIndex = 88;
             // 
             // label15
             // 
@@ -554,6 +714,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox1.Controls.Add(this.labelHinweis);
             this.groupBox1.Controls.Add(this.groupBox7);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.timeAendern);
@@ -577,10 +738,144 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(543, 652);
+            this.groupBox1.Size = new System.Drawing.Size(601, 652);
             this.groupBox1.TabIndex = 78;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Veränderung";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.label22);
+            this.groupBox7.Controls.Add(this.label23);
+            this.groupBox7.Controls.Add(this.label24);
+            this.groupBox7.Controls.Add(this.label27);
+            this.groupBox7.Controls.Add(this.textOrtAendern);
+            this.groupBox7.Controls.Add(this.textPLZAendern);
+            this.groupBox7.Controls.Add(this.textHausnummerAendern);
+            this.groupBox7.Controls.Add(this.textStrasseAendern);
+            this.groupBox7.Controls.Add(this.radioandereEingabeAendern);
+            this.groupBox7.Controls.Add(this.radioEinzugsadresseAendern);
+            this.groupBox7.Controls.Add(this.radioAuszugsadresseAendern);
+            this.groupBox7.Location = new System.Drawing.Point(9, 465);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox7.Size = new System.Drawing.Size(498, 179);
+            this.groupBox7.TabIndex = 93;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Adresse";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(411, 111);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(32, 18);
+            this.label22.TabIndex = 101;
+            this.label22.Text = "Ort";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(156, 111);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(38, 18);
+            this.label23.TabIndex = 100;
+            this.label23.Text = "PLZ";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(321, 66);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(108, 18);
+            this.label24.TabIndex = 99;
+            this.label24.Text = "Hausnummer";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(412, 24);
+            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(58, 18);
+            this.label27.TabIndex = 98;
+            this.label27.Text = "Straße";
+            // 
+            // textOrtAendern
+            // 
+            this.textOrtAendern.Location = new System.Drawing.Point(202, 110);
+            this.textOrtAendern.Margin = new System.Windows.Forms.Padding(4);
+            this.textOrtAendern.Name = "textOrtAendern";
+            this.textOrtAendern.Size = new System.Drawing.Size(200, 22);
+            this.textOrtAendern.TabIndex = 97;
+            // 
+            // textPLZAendern
+            // 
+            this.textPLZAendern.Location = new System.Drawing.Point(11, 110);
+            this.textPLZAendern.Margin = new System.Windows.Forms.Padding(4);
+            this.textPLZAendern.Name = "textPLZAendern";
+            this.textPLZAendern.Size = new System.Drawing.Size(136, 22);
+            this.textPLZAendern.TabIndex = 96;
+            // 
+            // textHausnummerAendern
+            // 
+            this.textHausnummerAendern.Location = new System.Drawing.Point(176, 65);
+            this.textHausnummerAendern.Margin = new System.Windows.Forms.Padding(4);
+            this.textHausnummerAendern.Name = "textHausnummerAendern";
+            this.textHausnummerAendern.Size = new System.Drawing.Size(136, 22);
+            this.textHausnummerAendern.TabIndex = 95;
+            // 
+            // textStrasseAendern
+            // 
+            this.textStrasseAendern.Location = new System.Drawing.Point(176, 23);
+            this.textStrasseAendern.Margin = new System.Windows.Forms.Padding(4);
+            this.textStrasseAendern.Name = "textStrasseAendern";
+            this.textStrasseAendern.Size = new System.Drawing.Size(232, 22);
+            this.textStrasseAendern.TabIndex = 94;
+            // 
+            // radioandereEingabeAendern
+            // 
+            this.radioandereEingabeAendern.AutoSize = true;
+            this.radioandereEingabeAendern.Location = new System.Drawing.Point(17, 81);
+            this.radioandereEingabeAendern.Margin = new System.Windows.Forms.Padding(4);
+            this.radioandereEingabeAendern.Name = "radioandereEingabeAendern";
+            this.radioandereEingabeAendern.Size = new System.Drawing.Size(130, 21);
+            this.radioandereEingabeAendern.TabIndex = 93;
+            this.radioandereEingabeAendern.Text = "andere Eingabe";
+            this.radioandereEingabeAendern.UseVisualStyleBackColor = true;
+            this.radioandereEingabeAendern.CheckedChanged += new System.EventHandler(this.radioandereEingabeAendern_CheckedChanged);
+            // 
+            // radioEinzugsadresseAendern
+            // 
+            this.radioEinzugsadresseAendern.AutoSize = true;
+            this.radioEinzugsadresseAendern.Location = new System.Drawing.Point(17, 53);
+            this.radioEinzugsadresseAendern.Margin = new System.Windows.Forms.Padding(4);
+            this.radioEinzugsadresseAendern.Name = "radioEinzugsadresseAendern";
+            this.radioEinzugsadresseAendern.Size = new System.Drawing.Size(130, 21);
+            this.radioEinzugsadresseAendern.TabIndex = 92;
+            this.radioEinzugsadresseAendern.Text = "Einzugsadresse";
+            this.radioEinzugsadresseAendern.UseVisualStyleBackColor = true;
+            this.radioEinzugsadresseAendern.CheckedChanged += new System.EventHandler(this.radioEinzugsadresseAendern_CheckedChanged);
+            // 
+            // radioAuszugsadresseAendern
+            // 
+            this.radioAuszugsadresseAendern.AutoSize = true;
+            this.radioAuszugsadresseAendern.Location = new System.Drawing.Point(17, 25);
+            this.radioAuszugsadresseAendern.Margin = new System.Windows.Forms.Padding(4);
+            this.radioAuszugsadresseAendern.Name = "radioAuszugsadresseAendern";
+            this.radioAuszugsadresseAendern.Size = new System.Drawing.Size(134, 21);
+            this.radioAuszugsadresseAendern.TabIndex = 91;
+            this.radioAuszugsadresseAendern.Text = "Auszugsadresse";
+            this.radioAuszugsadresseAendern.UseVisualStyleBackColor = true;
+            this.radioAuszugsadresseAendern.CheckedChanged += new System.EventHandler(this.radioAuszugsadresseAendern_CheckedChanged);
             // 
             // label17
             // 
@@ -610,6 +905,17 @@
             this.textRechnungsnummerAendern.Size = new System.Drawing.Size(240, 22);
             this.textRechnungsnummerAendern.TabIndex = 86;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(4, 311);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(181, 18);
+            this.label12.TabIndex = 92;
+            this.label12.Text = "Bemerkungen geändert";
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -620,6 +926,16 @@
             this.label16.Size = new System.Drawing.Size(153, 18);
             this.label16.TabIndex = 85;
             this.label16.Text = "Rechnungsnummer";
+            // 
+            // textBemerkungAendern
+            // 
+            this.textBemerkungAendern.Location = new System.Drawing.Point(8, 333);
+            this.textBemerkungAendern.Margin = new System.Windows.Forms.Padding(4);
+            this.textBemerkungAendern.Multiline = true;
+            this.textBemerkungAendern.Name = "textBemerkungAendern";
+            this.textBemerkungAendern.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBemerkungAendern.Size = new System.Drawing.Size(517, 102);
+            this.textBemerkungAendern.TabIndex = 91;
             // 
             // groupBox4
             // 
@@ -813,7 +1129,7 @@
             // 
             // buttonAbsenden
             // 
-            this.buttonAbsenden.Location = new System.Drawing.Point(1177, 309);
+            this.buttonAbsenden.Location = new System.Drawing.Point(1256, 310);
             this.buttonAbsenden.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAbsenden.Name = "buttonAbsenden";
             this.buttonAbsenden.Size = new System.Drawing.Size(149, 134);
@@ -822,28 +1138,6 @@
             this.buttonAbsenden.Text = "Änderung Absenden";
             this.buttonAbsenden.UseVisualStyleBackColor = true;
             this.buttonAbsenden.Click += new System.EventHandler(this.buttonAbsenden_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(8, 311);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(193, 18);
-            this.label13.TabIndex = 89;
-            this.label13.Text = "Bemerkungen bestehend";
-            // 
-            // textBemerkung
-            // 
-            this.textBemerkung.Location = new System.Drawing.Point(12, 333);
-            this.textBemerkung.Margin = new System.Windows.Forms.Padding(4);
-            this.textBemerkung.Multiline = true;
-            this.textBemerkung.Name = "textBemerkung";
-            this.textBemerkung.ReadOnly = true;
-            this.textBemerkung.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBemerkung.Size = new System.Drawing.Size(513, 102);
-            this.textBemerkung.TabIndex = 88;
             // 
             // textTransaktionLog
             // 
@@ -855,27 +1149,6 @@
             this.textTransaktionLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textTransaktionLog.Size = new System.Drawing.Size(1552, 102);
             this.textTransaktionLog.TabIndex = 90;
-            // 
-            // textBemerkungAendern
-            // 
-            this.textBemerkungAendern.Location = new System.Drawing.Point(8, 333);
-            this.textBemerkungAendern.Margin = new System.Windows.Forms.Padding(4);
-            this.textBemerkungAendern.Multiline = true;
-            this.textBemerkungAendern.Name = "textBemerkungAendern";
-            this.textBemerkungAendern.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBemerkungAendern.Size = new System.Drawing.Size(517, 102);
-            this.textBemerkungAendern.TabIndex = 91;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(4, 311);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(181, 18);
-            this.label12.TabIndex = 92;
-            this.label12.Text = "Bemerkungen geändert";
             // 
             // label14
             // 
@@ -892,7 +1165,7 @@
             // 
             this.buttonLoeschen.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonLoeschen.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonLoeschen.Location = new System.Drawing.Point(1177, 450);
+            this.buttonLoeschen.Location = new System.Drawing.Point(1256, 451);
             this.buttonLoeschen.Margin = new System.Windows.Forms.Padding(4);
             this.buttonLoeschen.Name = "buttonLoeschen";
             this.buttonLoeschen.Size = new System.Drawing.Size(149, 122);
@@ -912,276 +1185,16 @@
             this.textTransaktion.TabIndex = 83;
             this.textTransaktion.TabStop = false;
             // 
-            // groupBoxAdresse
+            // labelHinweis
             // 
-            this.groupBoxAdresse.Controls.Add(this.label19);
-            this.groupBoxAdresse.Controls.Add(this.label20);
-            this.groupBoxAdresse.Controls.Add(this.label21);
-            this.groupBoxAdresse.Controls.Add(this.label36);
-            this.groupBoxAdresse.Controls.Add(this.textOrt);
-            this.groupBoxAdresse.Controls.Add(this.textPLZ);
-            this.groupBoxAdresse.Controls.Add(this.textHausnummer);
-            this.groupBoxAdresse.Controls.Add(this.textStraße);
-            this.groupBoxAdresse.Controls.Add(this.radioAndereAdresse);
-            this.groupBoxAdresse.Controls.Add(this.radioEinzugsadresse);
-            this.groupBoxAdresse.Controls.Add(this.radioAuszugsadresse);
-            this.groupBoxAdresse.Enabled = false;
-            this.groupBoxAdresse.Location = new System.Drawing.Point(17, 465);
-            this.groupBoxAdresse.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBoxAdresse.Name = "groupBoxAdresse";
-            this.groupBoxAdresse.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxAdresse.Size = new System.Drawing.Size(498, 179);
-            this.groupBoxAdresse.TabIndex = 90;
-            this.groupBoxAdresse.TabStop = false;
-            this.groupBoxAdresse.Text = "Adresse";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(411, 111);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(32, 18);
-            this.label19.TabIndex = 101;
-            this.label19.Text = "Ort";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(156, 111);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(38, 18);
-            this.label20.TabIndex = 100;
-            this.label20.Text = "PLZ";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(321, 66);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(108, 18);
-            this.label21.TabIndex = 99;
-            this.label21.Text = "Hausnummer";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(412, 24);
-            this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(58, 18);
-            this.label36.TabIndex = 98;
-            this.label36.Text = "Straße";
-            // 
-            // textOrt
-            // 
-            this.textOrt.Location = new System.Drawing.Point(202, 110);
-            this.textOrt.Margin = new System.Windows.Forms.Padding(4);
-            this.textOrt.Name = "textOrt";
-            this.textOrt.ReadOnly = true;
-            this.textOrt.Size = new System.Drawing.Size(200, 22);
-            this.textOrt.TabIndex = 97;
-            // 
-            // textPLZ
-            // 
-            this.textPLZ.Location = new System.Drawing.Point(11, 110);
-            this.textPLZ.Margin = new System.Windows.Forms.Padding(4);
-            this.textPLZ.Name = "textPLZ";
-            this.textPLZ.ReadOnly = true;
-            this.textPLZ.Size = new System.Drawing.Size(136, 22);
-            this.textPLZ.TabIndex = 96;
-            // 
-            // textHausnummer
-            // 
-            this.textHausnummer.Location = new System.Drawing.Point(176, 65);
-            this.textHausnummer.Margin = new System.Windows.Forms.Padding(4);
-            this.textHausnummer.Name = "textHausnummer";
-            this.textHausnummer.ReadOnly = true;
-            this.textHausnummer.Size = new System.Drawing.Size(136, 22);
-            this.textHausnummer.TabIndex = 95;
-            // 
-            // textStraße
-            // 
-            this.textStraße.Enabled = false;
-            this.textStraße.Location = new System.Drawing.Point(176, 23);
-            this.textStraße.Margin = new System.Windows.Forms.Padding(4);
-            this.textStraße.Name = "textStraße";
-            this.textStraße.ReadOnly = true;
-            this.textStraße.Size = new System.Drawing.Size(232, 22);
-            this.textStraße.TabIndex = 94;
-            // 
-            // radioAndereAdresse
-            // 
-            this.radioAndereAdresse.AutoSize = true;
-            this.radioAndereAdresse.Location = new System.Drawing.Point(17, 81);
-            this.radioAndereAdresse.Margin = new System.Windows.Forms.Padding(4);
-            this.radioAndereAdresse.Name = "radioAndereAdresse";
-            this.radioAndereAdresse.Size = new System.Drawing.Size(130, 21);
-            this.radioAndereAdresse.TabIndex = 93;
-            this.radioAndereAdresse.Text = "andere Eingabe";
-            this.radioAndereAdresse.UseVisualStyleBackColor = true;
-            // 
-            // radioEinzugsadresse
-            // 
-            this.radioEinzugsadresse.AutoSize = true;
-            this.radioEinzugsadresse.Location = new System.Drawing.Point(17, 53);
-            this.radioEinzugsadresse.Margin = new System.Windows.Forms.Padding(4);
-            this.radioEinzugsadresse.Name = "radioEinzugsadresse";
-            this.radioEinzugsadresse.Size = new System.Drawing.Size(130, 21);
-            this.radioEinzugsadresse.TabIndex = 92;
-            this.radioEinzugsadresse.Text = "Einzugsadresse";
-            this.radioEinzugsadresse.UseVisualStyleBackColor = true;
-            // 
-            // radioAuszugsadresse
-            // 
-            this.radioAuszugsadresse.AutoSize = true;
-            this.radioAuszugsadresse.Location = new System.Drawing.Point(17, 25);
-            this.radioAuszugsadresse.Margin = new System.Windows.Forms.Padding(4);
-            this.radioAuszugsadresse.Name = "radioAuszugsadresse";
-            this.radioAuszugsadresse.Size = new System.Drawing.Size(134, 21);
-            this.radioAuszugsadresse.TabIndex = 91;
-            this.radioAuszugsadresse.Text = "Auszugsadresse";
-            this.radioAuszugsadresse.UseVisualStyleBackColor = true;
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.label22);
-            this.groupBox7.Controls.Add(this.label23);
-            this.groupBox7.Controls.Add(this.label24);
-            this.groupBox7.Controls.Add(this.label27);
-            this.groupBox7.Controls.Add(this.textOrtAendern);
-            this.groupBox7.Controls.Add(this.textPLZAendern);
-            this.groupBox7.Controls.Add(this.textHausnummerAendern);
-            this.groupBox7.Controls.Add(this.textStrasseAendern);
-            this.groupBox7.Controls.Add(this.radioandereEingabeAendern);
-            this.groupBox7.Controls.Add(this.radioEinzugsadresseAendern);
-            this.groupBox7.Controls.Add(this.radioAuszugsadresseAendern);
-            this.groupBox7.Location = new System.Drawing.Point(9, 465);
-            this.groupBox7.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox7.Size = new System.Drawing.Size(498, 179);
-            this.groupBox7.TabIndex = 93;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Adresse";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(411, 111);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(32, 18);
-            this.label22.TabIndex = 101;
-            this.label22.Text = "Ort";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(156, 111);
-            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(38, 18);
-            this.label23.TabIndex = 100;
-            this.label23.Text = "PLZ";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(321, 66);
-            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(108, 18);
-            this.label24.TabIndex = 99;
-            this.label24.Text = "Hausnummer";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(412, 24);
-            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(58, 18);
-            this.label27.TabIndex = 98;
-            this.label27.Text = "Straße";
-            // 
-            // textOrtAendern
-            // 
-            this.textOrtAendern.Location = new System.Drawing.Point(202, 110);
-            this.textOrtAendern.Margin = new System.Windows.Forms.Padding(4);
-            this.textOrtAendern.Name = "textOrtAendern";
-            this.textOrtAendern.Size = new System.Drawing.Size(200, 22);
-            this.textOrtAendern.TabIndex = 97;
-            // 
-            // textPLZAendern
-            // 
-            this.textPLZAendern.Location = new System.Drawing.Point(11, 110);
-            this.textPLZAendern.Margin = new System.Windows.Forms.Padding(4);
-            this.textPLZAendern.Name = "textPLZAendern";
-            this.textPLZAendern.Size = new System.Drawing.Size(136, 22);
-            this.textPLZAendern.TabIndex = 96;
-            // 
-            // textHausnummerAendern
-            // 
-            this.textHausnummerAendern.Location = new System.Drawing.Point(176, 65);
-            this.textHausnummerAendern.Margin = new System.Windows.Forms.Padding(4);
-            this.textHausnummerAendern.Name = "textHausnummerAendern";
-            this.textHausnummerAendern.Size = new System.Drawing.Size(136, 22);
-            this.textHausnummerAendern.TabIndex = 95;
-            // 
-            // textStrasseAendern
-            // 
-            this.textStrasseAendern.Location = new System.Drawing.Point(176, 23);
-            this.textStrasseAendern.Margin = new System.Windows.Forms.Padding(4);
-            this.textStrasseAendern.Name = "textStrasseAendern";
-            this.textStrasseAendern.Size = new System.Drawing.Size(232, 22);
-            this.textStrasseAendern.TabIndex = 94;
-            // 
-            // radioandereEingabeAendern
-            // 
-            this.radioandereEingabeAendern.AutoSize = true;
-            this.radioandereEingabeAendern.Location = new System.Drawing.Point(17, 81);
-            this.radioandereEingabeAendern.Margin = new System.Windows.Forms.Padding(4);
-            this.radioandereEingabeAendern.Name = "radioandereEingabeAendern";
-            this.radioandereEingabeAendern.Size = new System.Drawing.Size(130, 21);
-            this.radioandereEingabeAendern.TabIndex = 93;
-            this.radioandereEingabeAendern.Text = "andere Eingabe";
-            this.radioandereEingabeAendern.UseVisualStyleBackColor = true;
-            this.radioandereEingabeAendern.CheckedChanged += new System.EventHandler(this.radioandereEingabeAendern_CheckedChanged);
-            // 
-            // radioEinzugsadresseAendern
-            // 
-            this.radioEinzugsadresseAendern.AutoSize = true;
-            this.radioEinzugsadresseAendern.Location = new System.Drawing.Point(17, 53);
-            this.radioEinzugsadresseAendern.Margin = new System.Windows.Forms.Padding(4);
-            this.radioEinzugsadresseAendern.Name = "radioEinzugsadresseAendern";
-            this.radioEinzugsadresseAendern.Size = new System.Drawing.Size(130, 21);
-            this.radioEinzugsadresseAendern.TabIndex = 92;
-            this.radioEinzugsadresseAendern.Text = "Einzugsadresse";
-            this.radioEinzugsadresseAendern.UseVisualStyleBackColor = true;
-            this.radioEinzugsadresseAendern.CheckedChanged += new System.EventHandler(this.radioEinzugsadresseAendern_CheckedChanged);
-            // 
-            // radioAuszugsadresseAendern
-            // 
-            this.radioAuszugsadresseAendern.AutoSize = true;
-            this.radioAuszugsadresseAendern.Location = new System.Drawing.Point(17, 25);
-            this.radioAuszugsadresseAendern.Margin = new System.Windows.Forms.Padding(4);
-            this.radioAuszugsadresseAendern.Name = "radioAuszugsadresseAendern";
-            this.radioAuszugsadresseAendern.Size = new System.Drawing.Size(134, 21);
-            this.radioAuszugsadresseAendern.TabIndex = 91;
-            this.radioAuszugsadresseAendern.Text = "Auszugsadresse";
-            this.radioAuszugsadresseAendern.UseVisualStyleBackColor = true;
-            this.radioAuszugsadresseAendern.CheckedChanged += new System.EventHandler(this.radioAuszugsadresseAendern_CheckedChanged);
+            this.labelHinweis.AutoSize = true;
+            this.labelHinweis.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHinweis.Location = new System.Drawing.Point(7, 444);
+            this.labelHinweis.Name = "labelHinweis";
+            this.labelHinweis.Size = new System.Drawing.Size(582, 17);
+            this.labelHinweis.TabIndex = 94;
+            this.labelHinweis.Text = "Geänderte Auszugs oder Einzugsadressen werden auch beim Umzug geändert!";
+            this.labelHinweis.Visible = false;
             // 
             // TransaktionenSearch
             // 
@@ -1209,6 +1222,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericTransaktionsnummer)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            this.groupBoxAdresse.ResumeLayout(false);
+            this.groupBoxAdresse.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericKleiderKarton)).EndInit();
@@ -1219,6 +1234,8 @@
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericKleiderKartonAendern)).EndInit();
@@ -1227,10 +1244,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericKartonAendern)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.groupBoxAdresse.ResumeLayout(false);
-            this.groupBoxAdresse.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1325,5 +1338,6 @@
         private System.Windows.Forms.RadioButton radioandereEingabeAendern;
         private System.Windows.Forms.RadioButton radioEinzugsadresseAendern;
         private System.Windows.Forms.RadioButton radioAuszugsadresseAendern;
+        private System.Windows.Forms.Label labelHinweis;
     }
 }

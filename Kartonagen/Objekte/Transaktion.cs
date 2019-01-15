@@ -57,7 +57,7 @@ namespace Kartonagen.Objekte
 
         public Transaktion(int nr)
         {
-            
+            DateTime def = new DateTime(2017, 1, 1, 0, 0, 0);
             int tempint = 0; // zwischenspeicher für auflösung in unbenutzt / kaufkartons
             Kaufkarton1 = false;
             Unbenutzt = false;
@@ -86,7 +86,7 @@ namespace Kartonagen.Objekte
                     UserChanged1 = rdrTrans.GetString(9);
                     tempint = rdrTrans.GetInt32(11);
                     Rechnungsnummer1 = rdrTrans.GetString(12);
-                    datKalender = rdrTrans.GetDateTime(13);
+                    datKalender = Program.MachineDateTime(rdrTrans.GetString(13));
                     Lfd_nr = rdrTrans.GetInt32(15);
                     IDAdresse = rdrTrans.GetInt32(16);
                 }
@@ -96,6 +96,7 @@ namespace Kartonagen.Objekte
             catch (Exception sqlEx)
             {
                 Program.FehlerLog(sqlEx.ToString(), "Abrufen der Transaktionsdaten zur Objekterstellung");
+                Program.conn.Close();
                 return;
             }
 
@@ -106,8 +107,7 @@ namespace Kartonagen.Objekte
             else if (tempint == 2) {
                 Kaufkarton1 = true;
             }
-            
-
+           
             kunde = new Kunde(IdKunden);
 
             if (IDAdresse != 0) {

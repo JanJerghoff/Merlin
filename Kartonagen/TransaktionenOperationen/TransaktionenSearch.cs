@@ -334,7 +334,14 @@ namespace Kartonagen
                     transObj.Adresse.Hausnummer1 = textHausnummerAendern.Text;
                     transObj.Adresse.Ort1 = textOrtAendern.Text;
                     transObj.Adresse.PLZ1 = textPLZAendern.Text;
-                }                
+                }
+                if ((radioAuszugsadresse.Checked && radioAusgangAendern.Checked) || (radioEinzugsadresse.Checked && radioEinzugsadresseAendern.Checked))
+                {
+                    labelHinweis.Visible = true;
+                }
+                else {
+                    labelHinweis.Visible = false;
+                }
 
             }
             else {
@@ -351,6 +358,8 @@ namespace Kartonagen
                 {
                     transObj.Adresse = new Adresse(textStrasseAendern.Text, textHausnummerAendern.Text, textOrtAendern.Text, textPLZAendern.Text, "Deutschland", 0, "", "", 0, 0, 0);
                 }
+
+                labelHinweis.Visible = false;
 
             }
 

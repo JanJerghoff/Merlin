@@ -37,13 +37,13 @@ namespace Kartonagen
         // Buero-geänderte-version
 
         // Deployment
-        internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=UmzuegeNeu;port=3306;password=he62okv;");
-        internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
+        //internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=UmzuegeNeu;port=3306;password=he62okv;");
+        //internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
 
-        internal static MySqlConnection connRita = new MySqlConnection("server = 192.168.2.102;user=Rita;database=UmzuegeNeu;port=3306;password=RitaLucy!;");
-        internal static MySqlConnection connJonas = new MySqlConnection("server = 192.168.2.102;user=Jonas;database=UmzuegeNeu;port=3306;password=JonasLucy!;");
-        internal static MySqlConnection connVorne = new MySqlConnection("server = 192.168.2.102;user=Vorne;database=UmzuegeNeu;port=3306;password=VorneLucy!;");
-        
+        //internal static MySqlConnection connRita = new MySqlConnection("server = 192.168.2.102;user=Rita;database=UmzuegeNeu;port=3306;password=RitaLucy!;");
+        //internal static MySqlConnection connJonas = new MySqlConnection("server = 192.168.2.102;user=Jonas;database=UmzuegeNeu;port=3306;password=JonasLucy!;");
+        //internal static MySqlConnection connVorne = new MySqlConnection("server = 192.168.2.102;user=Vorne;database=UmzuegeNeu;port=3306;password=VorneLucy!;");
+
         //Test Home
         //// private static String connUmzug = "server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;";
         //internal static MySqlConnection conn = new MySqlConnection("server = 10.0.0.0;user=test;database=Umzuege;port=3306;password=he62okv;");
@@ -53,8 +53,8 @@ namespace Kartonagen
         //internal static MySqlConnection conn2 = new MySqlConnection("server = 10.0.0.0;user=test;database=Mitarbeiter;port=3306;password=he62okv;");
 
         //Test Arbeit
-        //internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=DB_test;port=3306;password=he62okv;");
-        //internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
+        internal static MySqlConnection conn = new MySqlConnection("server = 192.168.2.102;user=root;database=DB_test;port=3306;password=he62okv;");
+        internal static MySqlConnection conn2 = new MySqlConnection("server = 192.168.2.102;user=root;database=Mitarbeiter;port=3306;password=he62okv;");
 
 
         // -------------- Methoden ---------------
@@ -680,30 +680,30 @@ namespace Kartonagen
             
         }
 
-        public static MySqlConnection getConnection (int bearbeitender) {
+        //public static MySqlConnection getConnection (int bearbeitender) {
 
-            MySqlConnection ret = new MySqlConnection("server = 192.168.2.102;user=root;database=UmzuegeNeu;port=3306;password=he62okv;");
+        //    MySqlConnection ret = new MySqlConnection("server = 192.168.2.102;user=root;database=UmzuegeNeu;port=3306;password=he62okv;");
 
-            switch (bearbeitender)
-            {
-                case 0:
-                    ret = connRita;
-                    break;
+        //    switch (bearbeitender)
+        //    {
+        //        case 0:
+        //            ret = connRita;
+        //            break;
 
-                case 1:
-                    ret = connJonas;
-                    break;
+        //        case 1:
+        //            ret = connJonas;
+        //            break;
 
-                case 4:
-                    ret = connVorne;
-                    break;
+        //        case 4:
+        //            ret = connVorne;
+        //            break;
 
-                default:
-                    break;
-            }
+        //        default:
+        //            break;
+        //    }
 
-            return ret;
-        }
+        //    return ret;
+        //}
 
 
 
