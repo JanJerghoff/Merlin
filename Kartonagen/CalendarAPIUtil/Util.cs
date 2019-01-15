@@ -505,7 +505,7 @@ namespace Kartonagen.CalendarAPIUtil
             Events events = request.Execute();
             LinkedList<Event> echtEvent = new LinkedList<Event>();
 
-
+            
 
             foreach (var item in events.Items)
             {
@@ -625,13 +625,12 @@ namespace Kartonagen.CalendarAPIUtil
             EventsResource.ListRequest request = dienst.Events.List("primary");
             request.SingleEvents = true;
             request.MaxResults = 2500;
-            request.TimeMin = DateTime.Now.AddMonths(-1);
-            request.TimeMax = DateTime.Now.AddYears(1);
             request.ShowDeleted = false;
             // List events.
             Events events = request.Execute();
             LinkedList<Event> echtEvent = new LinkedList<Event>();
-            
+            LinkedList<int> toAdd = new LinkedList<int>();
+
             int withDate = 0;
 
             foreach (var item in events.Items)
@@ -659,7 +658,8 @@ namespace Kartonagen.CalendarAPIUtil
                     Program.conn.Open();
                 }
 
-                MySqlCommand cmdRead = new MySqlCommand("SELECT idUmzuege, datUmzug, StatUmz, Kunden_idKunden FROM Umzuege WHERE (StatUmz != 0) AND (datUmzug > '" + Program.DateTimeMachine(DateTime.Now, DateTime.Now) + "') ORDER BY datUmzug asc;", Program.conn);
+                // Excluded             AND (datUmzug > '" + Program.DateTimeMachine(DateTime.Now, DateTime.Now) + "')
+                MySqlCommand cmdRead = new MySqlCommand("SELECT idUmzuege, datUmzug, StatUmz, Kunden_idKunden FROM Umzuege WHERE (StatUmz != 0) ORDER BY datUmzug asc;", Program.conn);
                 MySqlDataReader rdr = cmdRead.ExecuteReader();
                 int countUmzug = 0;
                 Boolean success = false;
@@ -741,6 +741,11 @@ namespace Kartonagen.CalendarAPIUtil
                     {
                         Console.WriteLine("Fail! " + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
                         Log.AppendText("Umzug Nr."+id+" vom "+rdr.GetDateTime(1).ToShortDateString()+ " fehlt im Kalender!"+Environment.NewLine);
+
+                        //Not in list, add to it
+                        if (!toAdd.Contains(int.Parse(id))) {
+                            toAdd.AddLast(int.Parse(id));
+                        }
                     }
 
                 }
@@ -762,7 +767,9 @@ namespace Kartonagen.CalendarAPIUtil
                     Program.conn.Open();
                 }
 
-                MySqlCommand cmdRead = new MySqlCommand("SELECT idUmzuege, datBesichtigung, StatBes, Kunden_idKunden, umzugsZeit FROM Umzuege WHERE (StatBes != 0) AND (datBesichtigung > '" + Program.DateTimeMachine(DateTime.Now, DateTime.Now) + "') ORDER BY datBesichtigung asc;", Program.conn);
+
+                //excluded              AND (datBesichtigung > '" + Program.DateTimeMachine(DateTime.Now, DateTime.Now) + "') 
+                MySqlCommand cmdRead = new MySqlCommand("SELECT idUmzuege, datBesichtigung, StatBes, Kunden_idKunden, umzugsZeit FROM Umzuege WHERE (StatBes != 0) ORDER BY datBesichtigung asc;", Program.conn);
                 MySqlDataReader rdr = cmdRead.ExecuteReader();
                 int countUmzug = 0;
 
@@ -775,6 +782,7 @@ namespace Kartonagen.CalendarAPIUtil
                     //Bei jeder Iteration überschreiben
                     Boolean success = false;
                     DateTime date = new DateTime(rdr.GetDateTime(1).Date.Year , rdr.GetDateTime(1).Date.Month , rdr.GetDateTime(1).Date.Day,0,0,0);
+                    String id = rdr.GetInt32(0) + "";
 
                     //Tatsächlicher Abgleich
                     foreach (var item in events.Items)
@@ -793,6 +801,12 @@ namespace Kartonagen.CalendarAPIUtil
                     {
                         Console.WriteLine("Fail! " + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
                         Log.AppendText("Besichtigung zum Umzug Nr." + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString() + " fehlt im Kalender!" + Environment.NewLine);
+
+                        //Not in list, add to it
+                        if (!toAdd.Contains(int.Parse(id)))
+                        {
+                            toAdd.AddLast(int.Parse(id));
+                        }
                     }
 
                 }
@@ -814,7 +828,8 @@ namespace Kartonagen.CalendarAPIUtil
                     Program.conn.Open();
                 }
 
-                MySqlCommand cmdRead = new MySqlCommand("SELECT idUmzuege, datEinpacken, StatEin, Kunden_idKunden, umzugsZeit FROM Umzuege WHERE (StatEin != 0) AND (datEinpacken > '" + Program.DateTimeMachine(DateTime.Now, DateTime.Now) + "') ORDER BY datEinpacken asc;", Program.conn);
+                //excluded              AND (datEinpacken > '" + Program.DateTimeMachine(DateTime.Now, DateTime.Now) + "')
+                MySqlCommand cmdRead = new MySqlCommand("SELECT idUmzuege, datEinpacken, StatEin, Kunden_idKunden, umzugsZeit FROM Umzuege WHERE (StatEin != 0)  ORDER BY datEinpacken asc;", Program.conn);
                 MySqlDataReader rdr = cmdRead.ExecuteReader();
                 int countUmzug = 0;
 
@@ -827,6 +842,7 @@ namespace Kartonagen.CalendarAPIUtil
                     //Bei jeder Iteration überschreiben
                     Boolean success = false;
                     String date = "" + rdr.GetDateTime(1).Date.Year;
+                    String id = rdr.GetInt32(0) + "";
 
                     if (rdr.GetDateTime(1).Date.Month < 10)
                     {
@@ -879,6 +895,13 @@ namespace Kartonagen.CalendarAPIUtil
                     {
                         Console.WriteLine("Fail! " + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
                         Log.AppendText("Einpacken zum Umzug Nr." + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString() + " fehlt im Kalender!" + Environment.NewLine);
+
+
+                        //Not in list, add to it
+                        if (!toAdd.Contains(int.Parse(id)))
+                        {
+                            toAdd.AddLast(int.Parse(id));
+                        }
                     }
 
                 }
@@ -899,7 +922,8 @@ namespace Kartonagen.CalendarAPIUtil
                     Program.conn.Open();
                 }
 
-                MySqlCommand cmdRead = new MySqlCommand("SELECT idUmzuege, datAuspacken, StatAus, Kunden_idKunden, umzugsZeit FROM Umzuege WHERE (StatAus != 0) AND (datAuspacken > '" + Program.DateTimeMachine(DateTime.Now, DateTime.Now) + "') ORDER BY datAuspacken asc;", Program.conn);
+                //Excluded               AND (datAuspacken > '" + Program.DateTimeMachine(DateTime.Now, DateTime.Now) + "')
+                MySqlCommand cmdRead = new MySqlCommand("SELECT idUmzuege, datAuspacken, StatAus, Kunden_idKunden, umzugsZeit FROM Umzuege WHERE (StatAus != 0)  ORDER BY datAuspacken asc;", Program.conn);
                 MySqlDataReader rdr = cmdRead.ExecuteReader();
                 int countUmzug = 0;
 
@@ -912,6 +936,7 @@ namespace Kartonagen.CalendarAPIUtil
                     //Bei jeder Iteration überschreiben
                     Boolean success = false;
                     String date = "" + rdr.GetDateTime(1).Date.Year;
+                    String id = rdr.GetInt32(0) + "";
 
                     if (rdr.GetDateTime(1).Date.Month < 10)
                     {
@@ -965,6 +990,12 @@ namespace Kartonagen.CalendarAPIUtil
                     {
                         Console.WriteLine("Fail! " + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
                         Log.AppendText("Auspacken zum Umzug Nr." + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString() + " fehlt im Kalender!" + Environment.NewLine);
+
+                        //Not in list, add to it
+                        if (!toAdd.Contains(int.Parse(id)))
+                        {
+                            toAdd.AddLast(int.Parse(id));
+                        }
                     }
 
                 }
@@ -986,7 +1017,8 @@ namespace Kartonagen.CalendarAPIUtil
                     Program.conn.Open();
                 }
 
-                MySqlCommand cmdRead = new MySqlCommand("SELECT idUmzuege, datRuempelung, StatEnt, Kunden_idKunden, umzugsZeit FROM Umzuege WHERE (StatEnt != 0) AND (datRuempelung > '" + Program.DateTimeMachine(DateTime.Now, DateTime.Now) + "') ORDER BY datRuempelung asc;", Program.conn);
+                // Excluded             AND (datRuempelung > '" + Program.DateTimeMachine(DateTime.Now, DateTime.Now) + "') 
+                MySqlCommand cmdRead = new MySqlCommand("SELECT idUmzuege, datRuempelung, StatEnt, Kunden_idKunden, umzugsZeit FROM Umzuege WHERE (StatEnt != 0) ORDER BY datRuempelung asc;", Program.conn);
                 MySqlDataReader rdr = cmdRead.ExecuteReader();
                 int countUmzug = 0;
 
@@ -999,6 +1031,7 @@ namespace Kartonagen.CalendarAPIUtil
                     //Bei jeder Iteration überschreiben
                     Boolean success = false;
                     String date = "" + rdr.GetDateTime(1).Date.Year;
+                    String id = rdr.GetInt32(0) + "";
 
                     if (rdr.GetDateTime(1).Date.Month < 10)
                     {
@@ -1052,6 +1085,12 @@ namespace Kartonagen.CalendarAPIUtil
                     {
                         Console.WriteLine("Fail! " + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString());
                         Log.AppendText("Entrümpeln zum Umzug Nr." + rdr.GetInt32(0) + " vom " + rdr.GetDateTime(1).ToShortDateString() + " fehlt im Kalender!" + Environment.NewLine);
+
+                        //Not in list, add to it
+                        if (!toAdd.Contains(int.Parse(id)))
+                        {
+                            toAdd.AddLast(int.Parse(id));
+                        }
                     }
 
                 }
@@ -1065,6 +1104,14 @@ namespace Kartonagen.CalendarAPIUtil
             }
 
             Log.AppendText("Check Abgeschlossen " + Environment.NewLine);
+
+            foreach (var item in toAdd)
+            {
+                Log.AppendText("Refresh Umzug Nummer"+item+Environment.NewLine);
+                Umzug add = new Umzug(item);
+                add.killAll(Log);
+                add.addAll();
+            }
 
         }
 
